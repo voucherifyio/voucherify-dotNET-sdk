@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Headers;
 
 namespace Voucherify.Client.Api
 {
@@ -25,8 +22,7 @@ namespace Voucherify.Client.Api
             using (HttpClient httpClient = this.PreapreHttpClient())
             {
                 HttpResponseMessage response = await httpClient.GetAsync(uri);
-                string result = await response.RequestMessage.Content.ReadAsStringAsync();
-                return serializerResult.Deserialize(result);
+                return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
         }
 
@@ -38,8 +34,7 @@ namespace Voucherify.Client.Api
             using (HttpClient httpClient = this.PreapreHttpClient())
             { 
                 HttpResponseMessage response = await httpClient.PostAsync(uri, null);
-                string result = await response.RequestMessage.Content.ReadAsStringAsync();
-                return serializerResult.Deserialize(result);
+                return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
         }
 
@@ -53,18 +48,37 @@ namespace Voucherify.Client.Api
             using (HttpClient httpClient = this.PreapreHttpClient())
             {
                 HttpResponseMessage response = await httpClient.PostAsync(uri, new StringContent(serializerPayload.Serialize(payload), Encoding.UTF8, "application/json"));
-                string result = await response.RequestMessage.Content.ReadAsStringAsync();
-                return serializerResult.Deserialize(result);
+                return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
+        }
+
+        internal UriBuilder GetUriBuilder(string path)
+        {
+            return new UriBuilder(this.client.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.client.Endpoint) {
+                Path = path
+            };
+        }
+
+        private async Task<string> ProcessResponse(HttpResponseMessage response)
+        {
+            string result = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exceptions.VoucherifyClientException(result);
+            }
+
+            return result;
         }
 
         private HttpClient PreapreHttpClient()
         {
-            UriBuilder uriBuilder = new UriBuilder(this.client.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.client.Endpoint);
-            HttpClient client = new HttpClient() { BaseAddress = uriBuilder.Uri };
+            HttpClient client = new HttpClient() { };
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppId, this.client.AppId);
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppToken, this.client.AppToken);
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderVoucherifyChannel, Constants.VoucherifyChannelName);
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
             return client;
         }
     }
