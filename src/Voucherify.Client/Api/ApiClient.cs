@@ -8,10 +8,12 @@ namespace Voucherify.Client.Api
     internal class ApiClient
     {
         private VoucherifyClient client;
+        private Serialization.JsonSerializer<Exceptions.VoucherifyClientException> serializerException;
 
         internal ApiClient(VoucherifyClient client)
         {
             this.client = client;
+            this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>();
         }
 
         internal async Task<TResult> DoGetRequest<TResult>(Uri uri)
@@ -52,6 +54,29 @@ namespace Voucherify.Client.Api
             }
         }
 
+        internal async Task<TResult> DoPutRequest<TResult, TPayload>(Uri uri, TPayload payload)
+            where TResult : class
+            where TPayload : class
+        {
+            Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
+            Serialization.JsonSerializer<TPayload> serializerPayload = new Serialization.JsonSerializer<TPayload>();
+
+            using (HttpClient httpClient = this.PreapreHttpClient())
+            {
+                HttpResponseMessage response = await httpClient.PutAsync(uri, new StringContent(serializerPayload.Serialize(payload), Encoding.UTF8, "application/json"));
+                return serializerResult.Deserialize(await this.ProcessResponse(response));
+            }
+        }
+
+        internal async Task DoDeleteRequest(Uri uri)
+        {
+            using (HttpClient httpClient = this.PreapreHttpClient())
+            {
+                HttpResponseMessage response = await httpClient.DeleteAsync(uri);
+                await this.ProcessResponse(response);
+            }
+        }
+
         internal UriBuilder GetUriBuilder(string path)
         {
             return new UriBuilder(this.client.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.client.Endpoint) {
@@ -65,7 +90,7 @@ namespace Voucherify.Client.Api
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exceptions.VoucherifyClientException((int)response.StatusCode, response.ReasonPhrase, result);
+                throw this.serializerException.Deserialize(result);
             }
 
             return result;

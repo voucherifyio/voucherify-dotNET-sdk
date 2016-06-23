@@ -23,7 +23,7 @@ namespace Voucherify.Examples.net40
 
                 Console.WriteLine("Voucher. Code: {0} Camplaing: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
             }
-            catch (Exceptions.VoucherifyClientException e)
+            catch (Exception e)
             {
                 Console.WriteLine("Exception occured: {0}", e);
             }

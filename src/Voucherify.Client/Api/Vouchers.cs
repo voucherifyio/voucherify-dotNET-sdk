@@ -9,14 +9,14 @@ namespace Voucherify.Client.Api
     {
         private ApiClient client;
 
-        public Vouchers(VoucherifyClient client)
+        public Vouchers(VoucherifyClient voucherify)
         {
-            if (client == null)
+            if (voucherify == null)
             {
-                throw new ArgumentNullException("client");
+                throw new ArgumentNullException("voucherify");
             }
 
-            this.client = new ApiClient(client);
+            this.client = new ApiClient(voucherify);
         }
 
         public async Task<IList<DataModel.Voucher>> ListVouchers(DataModel.VouchersFilter filter)
@@ -43,16 +43,16 @@ namespace Voucherify.Client.Api
             return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher);
         }
 
-        public async Task<dynamic> DisableVoucher(string code)
+        public async Task DisableVoucher(string code)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", code));
-            return await this.client.DoPostRequest<dynamic>(uriBuilder.Uri);
+            await this.client.DoPostRequest<dynamic>(uriBuilder.Uri);
         } 
 
-        public async Task<dynamic> EnableVoucher(string code)
+        public async Task EnableVoucher(string code)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", code));
-            return await this.client.DoPostRequest<dynamic>(uriBuilder.Uri);
+            await this.client.DoPostRequest<dynamic>(uriBuilder.Uri);
         }
 
         public async Task<DataModel.VoucherRedemptionResult> Redeem(string code, DataModel.VoucherRedemptionQuery query)
@@ -71,18 +71,6 @@ namespace Voucherify.Client.Api
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code));
             return await this.client.DoGetRequest<DataModel.VoucherRedemption>(uriBuilder.Uri);
-        }
-
-        public async Task<IList<DataModel.VoucherRedemption>> ListRedemptions(DataModel.RedemptionsFilter filter)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/redemptions").WithQuery(filter);
-            return await this.client.DoGetRequest<IList<DataModel.VoucherRedemption>>(uriBuilder.Uri);
-        }
-
-        public async Task<DataModel.VoucherRedemptionResult> RollbackRedemption(string redemptionId, DataModel.RedemptionRollbackQuery query)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/roolback", redemptionId)).WithQuery(query);
-            return await this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
         }
     }
 }

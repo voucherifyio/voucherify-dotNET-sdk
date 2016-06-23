@@ -29,5 +29,10 @@ namespace Voucherify.Client.DataModel
 
         [DataMember(Name = "object")]
         public string Object { get;  set; }
+
+        public Customer()
+        {
+            this.Metadata = new Metadata();
+        }
     }
 }

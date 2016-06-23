@@ -15,6 +15,11 @@ namespace Voucherify.Client.DataModel
         [DataMember(Name = "redemption_entries")]
         public List<RedemptionEntry> RedemptionEntries { get; private set; }
 
+        public VoucherRedemption()
+        {
+            this.RedemptionEntries = new List<RedemptionEntry>();
+        }
+
         public static VoucherRedemption WithQuantity(int limit)
         {
             return new VoucherRedemption() { Quantity = limit };

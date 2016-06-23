@@ -1,31 +1,23 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Runtime.Serialization;
 
 namespace Voucherify.Client.Exceptions
 {
-    [Serializable]
     public class VoucherifyClientException : Exception
     {
+        [JsonProperty("message")]
+        public string Message { get; private set; }
+
+        [JsonProperty("code")]
         public int Code { get; private set; }
+
+        [JsonProperty("details")]
         public string Details { get; private set; }
 
-        public VoucherifyClientException()
-        {
-        }
+        public VoucherifyClientException() { }
 
-        public VoucherifyClientException(int code, string message, string details)
-            : base(message)
-        {
-            this.Code = code;
-            this.Details = details;
-        }
-
-        public VoucherifyClientException(string message, Exception inner)
-            : base(message, inner)
-        {
-        }
-
-        protected VoucherifyClientException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+        protected VoucherifyClientException(SerializationInfo info, StreamingContext context) { }
 
         public override string ToString()
         {

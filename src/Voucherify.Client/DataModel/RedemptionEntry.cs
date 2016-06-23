@@ -21,10 +21,18 @@ namespace Voucherify.Client.DataModel
         [DataMember(Name = "tracking_id")]
         public string TrackingId { get; private set; }
 
+        [DataMember(Name = "redemption")]
+        public string Redemption { get; private set; }
+
         [DataMember(Name = "reason")]
         public string Reason { get; private set; }
 
         [DataMember(Name = "metadata")]
         public Metadata Metadata { get; private set; }
+
+        public RedemptionEntry()
+        {
+            this.Metadata = new Metadata();
+        }
     }
 }

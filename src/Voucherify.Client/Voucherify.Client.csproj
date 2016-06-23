@@ -76,9 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\ApiClient.cs" />
+    <Compile Include="Api\Customers.cs" />
+    <Compile Include="Api\Redemptions.cs" />
     <Compile Include="Api\Vouchers.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DataModel\Gift.cs" />
     <Compile Include="DataModel\Metadata.cs" />
+    <Compile Include="DataModel\Order.cs" />
     <Compile Include="DataModel\RedemptionRollbackQuery.cs" />
     <Compile Include="DataModel\VoucherRedemptionContext.cs" />
     <Compile Include="DataModel\VoucherRedemptionQuery.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="DataModel\RedemptionsFilter.cs" />
     <Compile Include="DataModel\Voucher.cs" />
     <Compile Include="DataModel\VoucherPublish.cs" />
+    <Compile Include="DataModel\VoucherType.cs" />
     <Compile Include="Exceptions\VoucherifyClientException.cs" />
     <Compile Include="Extensions\UriBuilderExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

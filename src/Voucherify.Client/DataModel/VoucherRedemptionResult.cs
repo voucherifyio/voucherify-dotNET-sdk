@@ -32,5 +32,10 @@ namespace Voucherify.Client.DataModel
 
         [DataMember(Name = "voucher")]
         public Voucher Voucher { get; private set; }
+
+        public VoucherRedemptionResult()
+        {
+            this.Metadata = new Metadata();
+        }
     }
 }

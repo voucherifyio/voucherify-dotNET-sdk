@@ -6,9 +6,17 @@ namespace Voucherify.Client.DataModel
     public class VoucherRedemptionContext
     {
         [DataMember(Name = "customer")]
-        public Customer Customer { get; private set; }
+        public Customer Customer { get; set; }
         
+        [DataMember(Name = "order")]
+        public Order Order { get; set; }
+
         [DataMember(Name = "metadata")]
-        public Metadata Metadata { get; private set; }
+        public Metadata Metadata { get; set; }
+
+        public VoucherRedemptionContext()
+        {
+            this.Metadata = new Metadata();
+        }
     }
 }

@@ -10,6 +10,8 @@ namespace Voucherify.Client
         public bool Secure { get; private set; } 
 
         public Api.Vouchers Vouchers { get; private set; }
+        public Api.Redemptions Redemptions { get; private set; }
+        public Api.Customers Customers { get; private set; }
 
         public VoucherifyClient(string appToken, string appId)
         {
@@ -27,7 +29,10 @@ namespace Voucherify.Client
             this.AppId = appId;
             this.Secure = true;
             this.Endpoint = Constants.EndpointApi;
+
             this.Vouchers = new Api.Vouchers(this);
+            this.Redemptions = new Api.Redemptions(this);
+            this.Customers = new Api.Customers(this);
         }
 
         public VoucherifyClient WithSSL()

@@ -15,6 +15,9 @@ namespace Voucherify.Client.DataModel
         [DataMember(Name = "date")]
         public DateTime? Date { get; private set; }
 
+        [DataMember(Name = "voucher_code")]
+        public string VoucherCode { get; private set;  }
+
         [DataMember(Name = "discount")]
         public Discount Discount { get; private set; }
 
