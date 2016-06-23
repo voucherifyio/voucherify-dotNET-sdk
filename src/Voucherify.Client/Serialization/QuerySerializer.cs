@@ -7,12 +7,12 @@ using System.Runtime.Serialization;
 
 namespace Voucherify.Client.Serialization
 {
-    public class QuerySerializer<TResult>
-        where TResult : class
+    public class QuerySerializer<T>
+        where T : class
     {
-        public string Serialize(TResult payload)
+        public string Serialize(T payload)
         {
-            Type payloadType = typeof(TResult);
+            Type payloadType = typeof(T);
             Type dataContractAttributeType = typeof(DataContractAttribute);
             PropertyInfo[] properties = payloadType.GetProperties();
             List<string> queryValues = new List<string>();

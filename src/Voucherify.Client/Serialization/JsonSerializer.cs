@@ -3,15 +3,15 @@ using Newtonsoft.Json.Converters;
 
 namespace Voucherify.Client.Serialization
 {
-    public class JsonSerializer<TResult>
-        where TResult : class
+    public class JsonSerializer<T>
+        where T : class
     {  
-        public TResult Deserialize(string payload)
+        public T Deserialize(string payload)
         {
-            return JsonConvert.DeserializeObject<TResult>(payload, new StringEnumConverter());
+            return JsonConvert.DeserializeObject<T>(payload, new StringEnumConverter());
         }
 
-        public string Serialize(TResult payload)
+        public string Serialize(T payload)
         {
             return JsonConvert.SerializeObject(payload, new StringEnumConverter());
         }

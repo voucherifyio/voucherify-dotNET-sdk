@@ -87,7 +87,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Api.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Serialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
