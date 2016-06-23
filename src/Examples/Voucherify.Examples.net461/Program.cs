@@ -1,6 +1,7 @@
 ﻿using System;
 using Voucherify.Client;
 using DataModel = Voucherify.Client.DataModel;
+using Exceptions = Voucherify.Client.Exceptions;
 
 namespace Voucherify.Examples.net40
 {
@@ -13,20 +14,20 @@ namespace Voucherify.Examples.net40
         {
             try
             {
-                Console.WriteLine("Voucherify. Get single voucher:");
+                Console.WriteLine("Voucherify. Get single voucher.");
 
                 VoucherifyClient client = new VoucherifyClient(app_token, app_id).WithSSL();
-                string voucherCode = "voucherify.io-sandbox-01voucherify.io-sandbox-01voucherify.io-sandbox-01voucherify.io-sandbox-01voucherify.io-sandbox-01voucherify.io-sandbox-01";
-                
+                string voucherCode = "voucherify.io-sandbox-01";
+
                 DataModel.Voucher voucher = await client.Vouchers.Get(voucherCode);
 
                 Console.WriteLine("Voucher. Code: {0} Camplaing: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
             }
-            catch (Exception e)
+            catch (Exceptions.VoucherifyClientException e)
             {
                 Console.WriteLine("Exception occured: {0}", e);
             }
-        } 
+        }
 
         static void Main(string[] args)
         {

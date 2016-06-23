@@ -65,7 +65,7 @@ namespace Voucherify.Client.Api
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exceptions.VoucherifyClientException(result);
+                throw new Exceptions.VoucherifyClientException((int)response.StatusCode, response.ReasonPhrase, result);
             }
 
             return result;

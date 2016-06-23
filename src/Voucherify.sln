@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{75
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify.Examples.net40", "Examples\Voucherify.Examples.net40\Voucherify.Examples.net40.csproj", "{4B865400-F1FD-483F-A4C6-06554346BEDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify.Examples.net451", "Examples\Voucherify.Examples.net451\Voucherify.Examples.net451.csproj", "{A85521A9-7E6A-45BD-AB3F-47EE1E30C551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify.Examples.net461", "Examples\Voucherify.Examples.net461\Voucherify.Examples.net461.csproj", "{4F5A70D7-16E3-4B08-84DA-688D9054797F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +33,21 @@ Global
 		{4B865400-F1FD-483F-A4C6-06554346BEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B865400-F1FD-483F-A4C6-06554346BEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B865400-F1FD-483F-A4C6-06554346BEDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A85521A9-7E6A-45BD-AB3F-47EE1E30C551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A85521A9-7E6A-45BD-AB3F-47EE1E30C551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A85521A9-7E6A-45BD-AB3F-47EE1E30C551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A85521A9-7E6A-45BD-AB3F-47EE1E30C551}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5A70D7-16E3-4B08-84DA-688D9054797F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5A70D7-16E3-4B08-84DA-688D9054797F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5A70D7-16E3-4B08-84DA-688D9054797F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5A70D7-16E3-4B08-84DA-688D9054797F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4B865400-F1FD-483F-A4C6-06554346BEDD} = {7548ED69-0721-4F22-8C0B-FF752BB4DB98}
+		{A85521A9-7E6A-45BD-AB3F-47EE1E30C551} = {7548ED69-0721-4F22-8C0B-FF752BB4DB98}
+		{4F5A70D7-16E3-4B08-84DA-688D9054797F} = {7548ED69-0721-4F22-8C0B-FF752BB4DB98}
 	EndGlobalSection
 EndGlobal
