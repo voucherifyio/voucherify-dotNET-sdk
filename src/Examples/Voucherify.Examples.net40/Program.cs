@@ -16,7 +16,7 @@ namespace Voucherify.Examples.net40
             {
                 Console.WriteLine("Voucherify. Get single voucher.");
 
-                VoucherifyClient client = new VoucherifyClient(app_token, app_id).WithSSL();
+                VoucherifyClient client = new VoucherifyClient(app_id, app_token).WithSSL();
                 string voucherCode = "<voucher_code>";
 
                 DataModel.Voucher voucher = await client.Vouchers.Get(voucherCode);

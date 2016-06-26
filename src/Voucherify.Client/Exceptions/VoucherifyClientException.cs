@@ -7,7 +7,7 @@ namespace Voucherify.Client.Exceptions
     public class VoucherifyClientException : Exception
     {
         [JsonProperty("message")]
-        public string Message { get; private set; }
+        public new string Message { get; private set; }
 
         [JsonProperty("code")]
         public int Code { get; private set; }

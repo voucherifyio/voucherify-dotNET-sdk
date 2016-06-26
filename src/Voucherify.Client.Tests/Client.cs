@@ -12,18 +12,18 @@ namespace Voucherify.Client.Tests
             string app_id = "app_id";
 
             //-- Act
-            VoucherifyClient client = new VoucherifyClient(app_token, app_id);
+            VoucherifyClient client = new VoucherifyClient(app_id, app_token);
 
             //-- Assert
-            Assert.AreEqual(app_token, client.AppToken);
             Assert.AreEqual(app_id, client.AppId);
+            Assert.AreEqual(app_token, client.AppToken);
         }
 
         [TestMethod]
         public void SecureTest()
         {
             //-- Arange
-            VoucherifyClient client = new VoucherifyClient("app_token", "app_id").WithoutSSL();
+            VoucherifyClient client = new VoucherifyClient("app_id", "app_token").WithoutSSL();
 
             //-- Act
             bool withSSL = client.WithSSL().Secure;
@@ -34,10 +34,11 @@ namespace Voucherify.Client.Tests
             Assert.IsFalse(withoutSSL);
         }
 
+        [TestMethod]
         public void EndpointTest()
         {
             //-- Arange
-            VoucherifyClient client = new VoucherifyClient("app_token", "app_id").WithoutSSL();
+            VoucherifyClient client = new VoucherifyClient("app_id", "app_token").WithoutSSL();
             string endpoint = "www.google.com";
 
             //-- Act

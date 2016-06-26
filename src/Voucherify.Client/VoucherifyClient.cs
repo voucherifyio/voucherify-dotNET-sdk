@@ -13,7 +13,7 @@ namespace Voucherify.Client
         public Api.Redemptions Redemptions { get; private set; }
         public Api.Customers Customers { get; private set; }
 
-        public VoucherifyClient(string appToken, string appId)
+        public VoucherifyClient(string appId, string appToken)
         {
             if (string.IsNullOrWhiteSpace(appToken))
             {
