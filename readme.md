@@ -14,8 +14,9 @@ Here you can find a library that makes it easier to integrate your .Net applicat
 Setup
 =====
 
-TODO: Publish on Nuget
-
+```
+Install-Package Voucherify.Client 
+```
 
 Authentication
 ==============
