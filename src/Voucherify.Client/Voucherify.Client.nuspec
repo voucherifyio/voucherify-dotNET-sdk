@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk/blob/master/license</licenseUrl>
+    <projectUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Introduced first verions of SDK with support of all current API methods.</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>Voucher Coupon Discount Voucherify Voucherify.io Rspective</tags>
+  </metadata>
+</package>
