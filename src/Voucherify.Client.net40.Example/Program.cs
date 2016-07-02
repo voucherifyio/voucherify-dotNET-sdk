@@ -1,9 +1,7 @@
 ﻿using System;
 using Voucherify.Client;
-using DataModel = Voucherify.Client.DataModel;
-using Exceptions = Voucherify.Client.Exceptions;
 
-namespace Voucherify.Examples.net40
+namespace Voucherify.Client.net40.Example
 {
     class Program
     {

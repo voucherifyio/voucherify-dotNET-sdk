@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A85521A9-7E6A-45BD-AB3F-47EE1E30C551}</ProjectGuid>
+    <ProjectGuid>{3C678C6B-7528-4565-8311-F933B88FBC78}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Voucherify.Examples.net451</RootNamespace>
-    <AssemblyName>Voucherify.Examples.net451</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Voucherify.Client.Example</RootNamespace>
+    <AssemblyName>Voucherify.Client.Example</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,8 +49,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Voucherify.Client\Voucherify.Client.csproj">
-      <Project>{98d10c3f-5b1a-472b-b32b-e2d6f9613d60}</Project>
+    <ProjectReference Include="..\Voucherify.Client\Voucherify.Client.net45.csproj">
+      <Project>{1cfceb3b-1219-433d-b603-8b465fe517a0}</Project>
       <Name>Voucherify.Client</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F5A70D7-16E3-4B08-84DA-688D9054797F}</ProjectGuid>
+    <ProjectGuid>{03F74320-8AD5-4967-B633-0BDC5F2339ED}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Voucherify.Examples.net461</RootNamespace>
-    <AssemblyName>Voucherify.Examples.net461</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Voucherify.Client.net35.Example</RootNamespace>
+    <AssemblyName>Voucherify.Client.net35.Example</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,9 +36,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -47,12 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Voucherify.Client\Voucherify.Client.csproj">
-      <Project>{98d10c3f-5b1a-472b-b32b-e2d6f9613d60}</Project>
-      <Name>Voucherify.Client</Name>
+    <ProjectReference Include="..\Voucherify.Client\Voucherify.Client.net35.csproj">
+      <Project>{136e8c0c-3e92-42ad-84a5-109612bb51eb}</Project>
+      <Name>Voucherify.Client.net35</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

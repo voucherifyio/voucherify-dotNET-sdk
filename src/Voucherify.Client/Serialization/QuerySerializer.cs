@@ -61,7 +61,7 @@ namespace Voucherify.Client.Serialization
                 }
             }
 
-            return string.Join("&", queryValues);
+            return string.Join("&", queryValues.ToArray());
         }
 
         private string ConvertSingleValue(Type valueType, object value)

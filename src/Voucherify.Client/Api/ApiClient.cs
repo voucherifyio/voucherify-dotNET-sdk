@@ -7,12 +7,12 @@ namespace Voucherify.Client.Api
 {
     internal class ApiClient
     {
-        private VoucherifyClient client;
+        private VoucherifyClient voucherify;
         private Serialization.JsonSerializer<Exceptions.VoucherifyClientException> serializerException;
 
-        internal ApiClient(VoucherifyClient client)
+        internal ApiClient(VoucherifyClient voucherify)
         {
-            this.client = client;
+            this.voucherify = voucherify;
             this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>();
         }
 
@@ -21,9 +21,9 @@ namespace Voucherify.Client.Api
         {
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
 
-            using (HttpClient httpClient = this.PreapreHttpClient())
+            using (HttpClient client = this.PrepareClient())
             {
-                HttpResponseMessage response = await httpClient.GetAsync(uri);
+                HttpResponseMessage response = await client.GetAsync(uri);
                 return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
         }
@@ -33,9 +33,9 @@ namespace Voucherify.Client.Api
         {
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
 
-            using (HttpClient httpClient = this.PreapreHttpClient())
+            using (HttpClient client = this.PrepareClient())
             { 
-                HttpResponseMessage response = await httpClient.PostAsync(uri, null);
+                HttpResponseMessage response = await client.PostAsync(uri, null);
                 return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
         }
@@ -47,9 +47,9 @@ namespace Voucherify.Client.Api
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
             Serialization.JsonSerializer<TPayload> serializerPayload = new Serialization.JsonSerializer<TPayload>();
 
-            using (HttpClient httpClient = this.PreapreHttpClient())
+            using (HttpClient client = this.PrepareClient())
             {
-                HttpResponseMessage response = await httpClient.PostAsync(uri, new StringContent(serializerPayload.Serialize(payload), Encoding.UTF8, "application/json"));
+                HttpResponseMessage response = await client.PostAsync(uri, new StringContent(serializerPayload.Serialize(payload), Encoding.UTF8, "application/json"));
                 return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
         }
@@ -61,25 +61,25 @@ namespace Voucherify.Client.Api
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
             Serialization.JsonSerializer<TPayload> serializerPayload = new Serialization.JsonSerializer<TPayload>();
 
-            using (HttpClient httpClient = this.PreapreHttpClient())
+            using (HttpClient client = this.PrepareClient())
             {
-                HttpResponseMessage response = await httpClient.PutAsync(uri, new StringContent(serializerPayload.Serialize(payload), Encoding.UTF8, "application/json"));
+                HttpResponseMessage response = await client.PutAsync(uri, new StringContent(serializerPayload.Serialize(payload), Encoding.UTF8, "application/json"));
                 return serializerResult.Deserialize(await this.ProcessResponse(response));
             }
         }
 
         internal async Task DoDeleteRequest(Uri uri)
         {
-            using (HttpClient httpClient = this.PreapreHttpClient())
+            using (HttpClient client = this.PrepareClient())
             {
-                HttpResponseMessage response = await httpClient.DeleteAsync(uri);
+                HttpResponseMessage response = await client.DeleteAsync(uri);
                 await this.ProcessResponse(response);
             }
         }
 
         internal UriBuilder GetUriBuilder(string path)
         {
-            return new UriBuilder(this.client.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.client.Endpoint) {
+            return new UriBuilder(this.voucherify.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.voucherify.Endpoint) {
                 Path = path
             };
         }
@@ -96,11 +96,11 @@ namespace Voucherify.Client.Api
             return result;
         }
 
-        private HttpClient PreapreHttpClient()
+        private HttpClient PrepareClient()
         {
             HttpClient client = new HttpClient() { };
-            client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppId, this.client.AppId);
-            client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppToken, this.client.AppToken);
+            client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppId, this.voucherify.AppId);
+            client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppToken, this.voucherify.AppToken);
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderVoucherifyChannel, Constants.VoucherifyChannelName);
             client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");

@@ -1,9 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Voucherify.Client.Serialization;
 
-namespace Voucherify.Client.Tests
+namespace Voucherify.Client.net45.Tests
 {
     [TestClass]
     public class Serialization
@@ -28,7 +31,7 @@ namespace Voucherify.Client.Tests
 
             [DataMember(Name = "dictionary_test", Order = 3)]
             public Dictionary<string, object> Dictionary { get; set; }
-            
+
             [DataMember(Name = "enum_test", Order = 4)]
             public EnumType? Enum { get; set; }
         }
@@ -52,7 +55,12 @@ namespace Voucherify.Client.Tests
             string jsonSerializedExpectedObject = "{\"property_test\":\"test_property_value\",\"array_test\":[\"test_array_value_1\",\"test_array_value_2\"],\"dictionary_test\":{\"property_1\":\"value_1\",\"property_2\":\"value_2\",\"property_3\":{\"property_test\":\"property_nested\",\"array_test\":null,\"dictionary_test\":null,\"enum_test\":null}},\"enum_test\":\"Enum-Value-1\"}";
 
             //-- Act
-            string jsonSerializedObject = new JsonSerializer<JsonType>().Serialize(jsonObject);
+            string jsonSerializedObject = new JsonSerializer<JsonType>(new JsonSerializerSettings()
+                {
+                    Formatting = Formatting.None,
+                    ContractResolver = new DefaultContractResolver() { IgnoreSerializableInterface = true },
+                    Converters = new List<JsonConverter>() { new StringEnumConverter() },
+                }).Serialize(jsonObject);
 
             //-- Assert
             Assert.AreEqual(jsonSerializedExpectedObject, jsonSerializedObject);
@@ -77,7 +85,12 @@ namespace Voucherify.Client.Tests
             string jsonObject = "{\"property_test\":\"test_property_value\",\"array_test\":[\"test_array_value_1\",\"test_array_value_2\"],\"dictionary_test\":{\"property_1\":\"value_1\",\"property_2\":\"value_2\",\"property_3\":{\"property_test\":\"property_nested\",\"array_test\":null,\"dictionary_test\":null,\"enum_test\":null}},\"enum_test\":\"Enum-Value-2\"}";
 
             //-- Act
-            JsonType jsonSerializedObject = new JsonSerializer<JsonType>().Deserialize(jsonObject);
+            JsonType jsonSerializedObject = new JsonSerializer<JsonType>(new JsonSerializerSettings()
+                {
+                    Formatting = Formatting.None,
+                    ContractResolver = new DefaultContractResolver() { IgnoreSerializableInterface = true },
+                    Converters = new List<JsonConverter>() { new StringEnumConverter() },
+                }).Deserialize(jsonObject);
 
             //-- Assert
             Assert.AreEqual(jsonExpectedDeserializedObject.Property, jsonSerializedObject.Property);
@@ -90,7 +103,7 @@ namespace Voucherify.Client.Tests
             Assert.AreEqual(jsonExpectedDeserializedObject.Dictionary["property_2"], jsonSerializedObject.Dictionary["property_2"]);
             Assert.AreEqual(jsonExpectedDeserializedObject.Dictionary["property_3"] is object, jsonSerializedObject.Dictionary["property_1"] is object);
         }
-        
+
         [DataContract]
         private class QueryType
         {

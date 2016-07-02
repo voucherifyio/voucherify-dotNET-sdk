@@ -8,12 +8,20 @@ namespace Voucherify.Client.Serialization
     public class JsonSerializer<T>
         where T : class
     {
-        private JsonSerializerSettings settings = new JsonSerializerSettings()
+        private JsonSerializerSettings settings;
+
+        public JsonSerializer() : this(null)
         {
-            Formatting = Formatting.Indented,
-            ContractResolver = new DefaultContractResolver() { IgnoreSerializableInterface = true },
-            Converters = new List<JsonConverter>() { new StringEnumConverter() }
-        };
+        }
+
+        public JsonSerializer(JsonSerializerSettings settings) {
+            this.settings = settings ?? new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented,
+                ContractResolver = new DefaultContractResolver() { IgnoreSerializableInterface = true },
+                Converters = new List<JsonConverter>() { new StringEnumConverter() },
+            };
+        }
 
         public T Deserialize(string payload)
         {

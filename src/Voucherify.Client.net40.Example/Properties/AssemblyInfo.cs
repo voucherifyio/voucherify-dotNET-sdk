@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Voucherify.Examples.net40")]
+[assembly: AssemblyTitle("Voucherify.Client.net40.Example")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Voucherify.Examples.net40")]
+[assembly: AssemblyProduct("Voucherify.Client.net40.Example")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4b865400-f1fd-483f-a4c6-06554346bedd")]
+[assembly: Guid("d1fa179a-750f-4fd4-ba08-a3cc3193f015")]
 
 // Version information for an assembly consists of the following four values:
 //

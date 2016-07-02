@@ -15,12 +15,12 @@ namespace Voucherify.Client
 
         public VoucherifyClient(string appId, string appToken)
         {
-            if (string.IsNullOrWhiteSpace(appToken))
+            if (string.IsNullOrEmpty(appToken))
             {
                 throw new ArgumentNullException("appToken");
             }
 
-            if (string.IsNullOrWhiteSpace("appId"))
+            if (string.IsNullOrEmpty("appId"))
             {
                 throw new ArgumentNullException("appId");
             }
