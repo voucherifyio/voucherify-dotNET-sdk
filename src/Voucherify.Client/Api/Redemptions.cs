@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Voucherify.Client.Extensions;
+using RSG;
 
 namespace Voucherify.Client.Api
 {
@@ -19,16 +19,16 @@ namespace Voucherify.Client.Api
             this.client = new ApiClient(voucherify);
         }
 
-        public async Task<IList<DataModel.RedemptionDetails>> ListRedemptions(DataModel.RedemptionsFilter filter)
+        public IPromise<IList<DataModel.RedemptionDetails>> ListRedemptions(DataModel.RedemptionsFilter filter)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/redemptions").WithQuery(filter);
-            return await this.client.DoGetRequest<IList<DataModel.RedemptionDetails>>(uriBuilder.Uri);
+            return this.client.DoGetRequest<IList<DataModel.RedemptionDetails>>(uriBuilder.Uri);
         }
 
-        public async Task<DataModel.VoucherRedemptionResult> RollbackRedemption(string redemptionId, DataModel.RedemptionRollbackQuery query)
+        public IPromise<DataModel.VoucherRedemptionResult> RollbackRedemption(string redemptionId, DataModel.RedemptionRollbackQuery query)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/redemptions/{0}/rollback", redemptionId)).WithQuery(query);
-            return await this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
+            return this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
         }
     }
 }

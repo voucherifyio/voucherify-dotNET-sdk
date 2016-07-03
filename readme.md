@@ -1,7 +1,7 @@
 Voucherify .Net SDK
 ===
 
-###Version: 0.2.0
+###Version: 1.0.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -17,17 +17,14 @@ Setup
 Install-Package Voucherify.Client
 ```
 
-**IMPORTANT (.NET 3.5 only)**: there is a need to install additonal package for `async` and `await` keyword support:
+Or simple use libraries from `lib/{target-framework}` folder.
 
-```
-Install-Package AsyncBridge.Net35
-```
+Dependencies
+---
 
-**IMPORTANT (.NET 4.0 only)**: there is a need to install additonal package for `async` and `await` keyword support:
-
-```
-Install-Package Microsoft.Bcl.Async
-```
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 
+* [RSG.Promise](https://www.nuget.org/packages/RSG.Promise/) 
+* [RestSharpy](https://www.nuget.org/packages/RestSharp/) 
 
 Authentication
 ===
@@ -45,36 +42,27 @@ The App Id and App Token can be find in your application settings. [Log-in](http
 .Net Framework Support
 ===
 
-.Net 3.
+* .Net 3.5
+* .Net 4.0
+* .Net 4.5
+
+Usage
 ---
 
-It requires to install additonal package for `async` and `await` and  `Task ` from  `System.Threading.Task` namespace keyword support:
-
-```
-Install-Package AsyncBridge.Net35
-```
-
-Then the library can be used the same way as for **.Net Framework 4.5** (see below).
-
-.Net 4.0 (with KB2468871)
----
-
-It requires to install additonal package for `async` and `await` keyword support:
-
-```
-Install-Package Microsoft.Bcl.Async
-```
-
-Also **KB2468871** must be installed.
-
-Then the library can be used the same way as for **.Net Framework 4.5** (see below).
-
-.Net 4.5
----
 
 ```cs
-VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>").WithSSL();
-DataModel.Voucher voucher = await client.Vouchers.Get("<your-voucher-code>");
+
+using Voucherify.Client;
+
+...
+	VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>").WithSSL();
+	client.Vouchers.Get("<your-voucher-code>")
+		.Then((voucher) => {
+			Console.WriteLine("Voucher Code: {0}", voucher.Code);			
+		})
+		.Catch((exception) => {
+			Console.WriteLine("Exception: {0}", exception);						
+		});
 ```
 
 Documentation
@@ -104,6 +92,7 @@ Supported API Methods
 Changelog
 ===
 
+- **2016-07-03** - `1.0.0` - Replace async/await with RSG.Promise library. Use RestSharp instead of HttpClient.
 - **2016-07-03** - `0.2.0` - Introduced support for .Net Framework 3.5.
 - **2016-06-26** - `0.1.0` - Inital verion of SDK that supports Vouchers, Redemption and Customer endpoints.
 

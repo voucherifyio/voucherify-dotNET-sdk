@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>0.2.0.0</version>
+    <version>1.0.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,23 +11,26 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes-  http://www.voucherify.io</description>
     <releaseNotes>
-      Version Release Notes:
-      
+      2016-07-03: 1.0.0
+      - Replace async/await with RSG.Promise library. Use RestSharp instead of HttpClient.
+
       2016-07-03: 0.2.0
-       - Added support for .Net Framework 3.5.
+      - Added support for .Net Framework 3.5.
 
       2016-06-26: 0.1.0
-       - Inital verion of SDK that supports Vouchers, Redemption and Customer endpoints.
+      - Inital verion of SDK that supports Vouchers, Redemption and Customer endpoints.
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Voucher Coupon Discount Voucherify Voucherify.io Rspective</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+      <dependency id="RestSharp" version="105.2.3" />
+      <dependency id="RSG.Promise" version="1.2.0.0" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\net35\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
-    <file src="bin\Release\net35\Voucherify.Client.pdb" target="lib\net35\Voucherify.Client.pdb" />
-    <file src="bin\Release\net40\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
-    <file src="bin\Release\net40\Voucherify.Client.pdb" target="lib\net40\Voucherify.Client.pdb" />
-    <file src="bin\Release\net45\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />
-    <file src="bin\Release\net45\Voucherify.Client.pdb" target="lib\net45\Voucherify.Client.pdb" />
+    <file src="..\..\lib\net35\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
+    <file src="..\..\lib\net40\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
+    <file src="..\..\lib\net45\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />
   </files>
 </package>

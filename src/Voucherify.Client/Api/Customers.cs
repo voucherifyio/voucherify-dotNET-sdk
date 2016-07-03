@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RSG;
 
 namespace Voucherify.Client.Api
 {
@@ -20,28 +17,28 @@ namespace Voucherify.Client.Api
             this.client = new ApiClient(voucherify);
         }
 
-        public async Task<DataModel.Customer> Create(DataModel.Customer customer)
+        public IPromise<DataModel.Customer> Create(DataModel.Customer customer)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/customers");
-            return await this.client.DoPostRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer);
+            return this.client.DoPostRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer);
         }
 
-        public async Task<DataModel.Customer> Get(string customerId)
+        public IPromise<DataModel.Customer> Get(string customerId)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", customerId));
-            return await this.client.DoGetRequest<DataModel.Customer>(uriBuilder.Uri);
+            return this.client.DoGetRequest<DataModel.Customer>(uriBuilder.Uri);
         }
 
-        public async Task<DataModel.Customer> Update(string customerId, DataModel.Customer customer)
+        public IPromise<DataModel.Customer> Update(string customerId, DataModel.Customer customer)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", customerId));
-            return await this.client.DoPutRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer);
+            return this.client.DoPutRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer);
         }
 
-        public async Task Delete(string customerId)
+        public IPromise Delete(string customerId)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", customerId));
-            await this.client.DoDeleteRequest(uriBuilder.Uri);
+           return  this.client.DoDeleteRequest(uriBuilder.Uri);
         }
     }
 }
