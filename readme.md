@@ -1,7 +1,7 @@
 Voucherify .Net SDK
-===================
+===
 
-###Version: 0.1.0
+###Version: 0.2.0
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -10,47 +10,77 @@ Voucherify .Net SDK
 
 Here you can find a library that makes it easier to integrate your .Net application with Voucherify.
 
-
 Setup
 =====
 
 ```
-Install-Package Voucherify.Client 
+Install-Package Voucherify.Client
+```
+
+**IMPORTANT (.NET 3.5 only)**: there is a need to install additonal package for `async` and `await` keyword support:
+
+```
+Install-Package AsyncBridge.Net35
+```
+
+**IMPORTANT (.NET 4.0 only)**: there is a need to install additonal package for `async` and `await` keyword support:
+
+```
+Install-Package Microsoft.Bcl.Async
 ```
 
 Authentication
-==============
+===
 
-[Log-in](http://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
+To create a client simpy add `Voucherify.Client` to usings and create an instance of `VoucherifyClient` class:
+
+```cs
+VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>");
+```
+
+The App Id and App Token can be find in your application settings. [Log-in](http://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
 
 ![](https://www.filepicker.io/api/file/WKYkl2bSAWKHccEN9tEG)
 
-Usage
-=====
-
-The `VoucherifyClient` manages all your interaction with the Voucherify API.
-
-```cs
-VoucherifyClient client = new VoucherifyClient("appId", "appToken");
-```
-
-Basic Concept
+.Net Framework Support
 ===
 
-Every method was written to work asynchronously with the use of `async` and `await` kewords.
+.Net 3.
+---
 
-```cs
-VoucherifyClient client = new VoucherifyClient("<app_id>", "<app_token>").WithSSL();
-string voucherCode = "<voucher_code>";
+It requires to install additonal package for `async` and `await` and  `Task ` from  `System.Threading.Task` namespace keyword support:
 
-DataModel.Voucher voucher = await client.Vouchers.Get(voucherCode);
+```
+Install-Package AsyncBridge.Net35
 ```
 
-Supported Frameworks
+Then the library can be used the same way as for **.Net Framework 4.5** (see below).
+
+.Net 4.0 (with KB2468871)
+---
+
+It requires to install additonal package for `async` and `await` keyword support:
+
+```
+Install-Package Microsoft.Bcl.Async
+```
+
+Also **KB2468871** must be installed.
+
+Then the library can be used the same way as for **.Net Framework 4.5** (see below).
+
+.Net 4.5
+---
+
+```cs
+VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>").WithSSL();
+DataModel.Voucher voucher = await client.Vouchers.Get("<your-voucher-code>");
+```
+
+Documentation
 ===
 
-Library is compatible with Micsrosoft .Net Framework 4.0 but `Microsoft.Bcl.Async` package is required to be installed through `nuget`. Library work with newer frameworks as well.
-
+Documentation will be avaialble later. For futher reference please check source code or check [Voucherify.io API documentation](https://voucherify.readme.io/).
 
 Supported API Methods
 ===
@@ -71,11 +101,10 @@ Supported API Methods
 - `VoucherifyClient.Customers.Update(customerId, customer)`
 - `VoucherifyClient.Customers.Delete(customerId)`
 
-For futher reference please check source code or check [Voucherify.io API documentation](https://voucherify.readme.io/).
-
 Changelog
-=========
+===
 
+- **2016-07-03** - `0.2.0` - Introduced support for .Net Framework 3.5.
 - **2016-06-26** - `0.1.0` - Inital verion of SDK that supports Vouchers, Redemption and Customer endpoints.
 
 See more in [Changelog](CHANGELOG.md)

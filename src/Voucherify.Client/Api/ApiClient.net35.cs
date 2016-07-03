@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Text;
 using RestSharp;
+using System.Threading.Tasks;
 
 namespace Voucherify.Client.Api
 {
@@ -15,53 +15,52 @@ namespace Voucherify.Client.Api
             this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>();
         }
 
-        internal TResult DoGetRequest<TResult>(Uri uri)
+        internal async Task<TResult> DoGetRequest<TResult>(Uri uri)
             where TResult : class
         {
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
-            RestClient client = this.PrepareClient();
-            RestRequest request = new RestRequest(uri, Method.GET);
-            return serializerResult.Deserialize(this.ProcessResponse(client.Execute(request)));
+            IRestResponse response = await ExecuteRequest(new RestRequest(uri, Method.GET));
+            return serializerResult.Deserialize(this.ProcessResponse(response));
         }
 
-        internal TResult DoPostRequest<TResult>(Uri uri)
+        internal async Task<TResult> DoPostRequest<TResult>(Uri uri)
             where TResult : class
         {
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
-            RestClient client = this.PrepareClient();
-            RestRequest request = new RestRequest(uri, Method.POST);
-            return serializerResult.Deserialize(this.ProcessResponse(client.Execute(request)));
+            IRestResponse response = await ExecuteRequest(new RestRequest(uri, Method.POST));
+            return serializerResult.Deserialize(this.ProcessResponse(response));
         }
 
-        internal TResult DoPostRequest<TResult, TPayload>(Uri uri, TPayload payload)
+        internal async Task<TResult> DoPostRequest<TResult, TPayload>(Uri uri, TPayload payload)
             where TResult : class
             where TPayload : class
         {
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
             Serialization.JsonSerializer<TPayload> serializerPayload = new Serialization.JsonSerializer<TPayload>();
-            RestClient client = this.PrepareClient();
             RestRequest request = new RestRequest(uri, Method.POST);
             request.AddBody(serializerPayload.Serialize(payload));
-            return serializerResult.Deserialize(this.ProcessResponse(client.Execute(request)));
+            IRestResponse response = await ExecuteRequest(request);
+            return serializerResult.Deserialize(this.ProcessResponse(response));
         }
 
-        internal TResult DoPutRequest<TResult, TPayload>(Uri uri, TPayload payload)
+        internal async Task<TResult> DoPutRequest<TResult, TPayload>(Uri uri, TPayload payload)
             where TResult : class
             where TPayload : class
         {
             Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
             Serialization.JsonSerializer<TPayload> serializerPayload = new Serialization.JsonSerializer<TPayload>();
-            RestClient client = this.PrepareClient();
             RestRequest request = new RestRequest(uri, Method.PUT);
             request.AddBody(serializerPayload.Serialize(payload));
-            return serializerResult.Deserialize(this.ProcessResponse(client.Execute(request)));
+            IRestResponse response = await ExecuteRequest(request);
+            return serializerResult.Deserialize(this.ProcessResponse(response));
         }
 
-        internal void DoDeleteRequest(Uri uri)
+        internal async Task DoDeleteRequest(Uri uri)
         {
-            RestClient client = this.PrepareClient();
             RestRequest request = new RestRequest(uri, Method.DELETE);
-            this.ProcessResponse(client.Execute(request));
+
+            IRestResponse response = await ExecuteRequest(request);
+            this.ProcessResponse(response);
         }
 
         internal UriBuilder GetUriBuilder(string path)
@@ -76,12 +75,17 @@ namespace Voucherify.Client.Api
         {
             string result = response.Content;
 
-            if (!((int)response.StatusCode >= 200 && (int)response.StatusCode < 300))
+            if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {
                 throw this.serializerException.Deserialize(result);
             }
 
             return result;
+        }
+
+        private Task<IRestResponse> ExecuteRequest(IRestRequest request) {
+            RestClient client = PrepareClient();
+            return Task.Factory.StartNew<IRestResponse>(() => client.Execute(request));
         }
 
         private RestClient PrepareClient()

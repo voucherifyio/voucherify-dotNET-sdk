@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Voucherify.Client")]
-[assembly: AssemblyDescription(".Net SDK for Voucherify - coupons, vouchers, promo codes http://www.voucherify.io http://www.voucherify.io")]
+[assembly: AssemblyDescription(".Net SDK for Voucherify - coupons, vouchers, promo codes http://www.voucherify.io")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Rspective")]
 [assembly: AssemblyProduct("Voucherify.Client")]

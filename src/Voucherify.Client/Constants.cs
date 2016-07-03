@@ -1,18 +1,34 @@
 ﻿namespace Voucherify.Client
 {
-    public class Constants
+    /// <summary>
+    /// Definition of constants members used within Voucherfy Client Library.
+    /// </summary>
+    internal class Constants
     {
+        /// <summary>
+        /// Private constuctor to disallow creating instance of the object.
+        /// </summary>
         private Constants() { }
 
-        // HTTP constants
+        /// <summary>
+        /// A HTTP header field used for Voucherify authentication.
+        /// </summary>
         public const string HttpHeaderAppId = "X-App-Id";
+        /// <summary>
+        /// A HTTP header field used for Voucherify authentication.
+        /// </summary>
         public const string HttpHeaderAppToken = "X-App-Token";
+        /// <summary>
+        /// A HTTP header field used for Voucherify channel recognition.
+        /// </summary>
         public const string HttpHeaderVoucherifyChannel = "X-Voucherify-Channel";
+        /// <summary>
+        /// A HTTP header field name used for Voucherify channel recognition.
+        /// </summary>
         public const string VoucherifyChannelName = "dotNET-SDK";
-
-        // Configuration
+        /// <summary>
+        /// A default endpoint of Voucherify api.
+        /// </summary>
         public const string EndpointApi = "api.voucherify.io/v1";
-        public const string EndpointDateFormat = "yyyy-MM-dd'T'HH:mm:ssXXX";
-        public const string EndpointSecondaryDateFormat ="yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
     }
 }
