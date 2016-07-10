@@ -3,7 +3,7 @@
     /// <summary>
     /// Definition of constants members used within Voucherfy Client Library.
     /// </summary>
-    internal class Constants
+    internal partial class Constants
     {
         /// <summary>
         /// Private constuctor to disallow creating instance of the object.
@@ -22,10 +22,6 @@
         /// A HTTP header field used for Voucherify channel recognition.
         /// </summary>
         public const string HttpHeaderVoucherifyChannel = "X-Voucherify-Channel";
-        /// <summary>
-        /// A HTTP header field name used for Voucherify channel recognition.
-        /// </summary>
-        public const string VoucherifyChannelName = "dotNET-SDK";
         /// <summary>
         /// A default endpoint of Voucherify api.
         /// </summary>

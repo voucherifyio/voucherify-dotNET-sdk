@@ -1,11 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class Gift
     {
-        [DataMember(Name = "amount")]
+        [JsonProperty(PropertyName = "amount")]
         public int Amount { get; private set; }
 
         private Gift() { }

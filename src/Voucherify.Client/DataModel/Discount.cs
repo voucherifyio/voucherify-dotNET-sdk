@@ -1,24 +1,25 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System;
+using Voucherify.Client.Serialization;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class Discount
     {
-        [DataMember(Name = "type")]
+        [JsonProperty(PropertyName = "type")]
         public DiscountType Type { get; set; }
 
-        [DataMember(Name = "amount_off")]
+        [JsonProperty(PropertyName = "amount_off")]
         public int? AmountOff { get; set; }
 
-        [DataMember(Name = "percent_off")]
+        [JsonProperty(PropertyName = "percent_off")]
         public double? PercentOff { get; set; }
 
-        [DataMember(Name = "unit_off")]
+        [JsonProperty(PropertyName = "unit_off")]
         public double? UnitOff { get; set; }
 
-        [DataMember(Name = "unit_type")]
+        [JsonProperty(PropertyName = "unit_type")]
         public string UnitType { get; set; }
 
         private Discount() { }

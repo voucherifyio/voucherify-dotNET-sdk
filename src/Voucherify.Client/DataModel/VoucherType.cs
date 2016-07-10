@@ -1,13 +1,12 @@
-﻿using System.Runtime.Serialization;
+﻿using Voucherify.Client.Attributes;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
     public enum VoucherType
     {
-        [EnumMember(Value = "DISCOUNT_VOUCHER")]
+        [JsonEnumValue(Value = "DISCOUNT_VOUCHER")]
         DiscountVoucher,
-        [EnumMember(Value = "GIFT_VOUCHER")]
+        [JsonEnumValue(Value = "GIFT_VOUCHER")]
         GiftVoucher
     }
 }

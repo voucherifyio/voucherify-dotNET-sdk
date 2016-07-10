@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Runtime.Serialization;
 
 namespace Voucherify.Client.Exceptions
 {
+    [JsonObject]
     public class VoucherifyClientException : Exception
     {
+        [JsonIgnore]
+        private Exception internalException;
+
         [JsonProperty("message")]
         public new string Message { get; private set; }
 
@@ -17,10 +20,18 @@ namespace Voucherify.Client.Exceptions
 
         public VoucherifyClientException() { }
 
-        protected VoucherifyClientException(SerializationInfo info, StreamingContext context) { }
+        public VoucherifyClientException(Exception internalException)
+        {
+            this.internalException = internalException;
+        }
 
         public override string ToString()
         {
+            if (internalException != null)
+            {
+                return string.Format("VoucherifyError[inner='{0}']", internalException);
+            }
+
             return string.Format("VoucherifyError[code={0}, message='{1}', details='{2}']", this.Code, this.Message, this.Details);
         }
     }

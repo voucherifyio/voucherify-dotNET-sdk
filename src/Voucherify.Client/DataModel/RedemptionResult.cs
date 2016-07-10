@@ -1,14 +1,14 @@
-﻿using System.Runtime.Serialization;
+﻿using Voucherify.Client.Attributes;
 
 namespace Voucherify.Client.DataModel
 {
     public enum RedemptionResult
     {
-        [EnumMember(Value = "Success")]
+        [JsonEnumValue(Value = "Success")]
         Success,
-        [EnumMember(Value = "Failure-Inactive")]
+        [JsonEnumValue(Value = "Failure-Inactive")]
         FailureInactive,
-        [EnumMember(Value = "Failure-NotExist")]
+        [JsonEnumValue(Value = "Failure-NotExist")]
         FailureNotExist
     }
 }

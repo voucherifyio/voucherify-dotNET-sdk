@@ -19,7 +19,7 @@ namespace Voucherify.Client.Serialization
             {
                 Formatting = Formatting.Indented,
                 ContractResolver = new DefaultContractResolver() { IgnoreSerializableInterface = true },
-                Converters = new List<JsonConverter>() { new StringEnumConverter() },
+                Converters = new List<JsonConverter>() { new JsonEnumValueConverter() },
             };
         }
 

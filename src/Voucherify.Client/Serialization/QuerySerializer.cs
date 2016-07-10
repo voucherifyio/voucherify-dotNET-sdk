@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
+using Voucherify.Client.Attributes;
 
 namespace Voucherify.Client.Serialization
 {
@@ -13,7 +13,7 @@ namespace Voucherify.Client.Serialization
         public string Serialize(T payload)
         {
             Type payloadType = typeof(T);
-            Type dataContractAttributeType = typeof(DataContractAttribute);
+            Type dataContractAttributeType = typeof(JsonObjectAttribute);
             PropertyInfo[] properties = payloadType.GetProperties();
             List<string> queryValues = new List<string>();
 
@@ -33,7 +33,7 @@ namespace Voucherify.Client.Serialization
 
                 foreach (object attribute in attributes)
                 {
-                    DataMemberAttribute dataMemberAttribute = (DataMemberAttribute)attribute;
+                    JsonPropertyAttribute dataMemberAttribute = (JsonPropertyAttribute)attribute;
 
                     if (dataMemberAttribute == null) { continue; }
                     
@@ -43,7 +43,7 @@ namespace Voucherify.Client.Serialization
 
                     if (typeof(string).IsAssignableFrom(property.PropertyType))
                     {
-                        queryValues.Add(string.Format("{0}={1}", dataMemberAttribute.Name ?? property.Name, propertyValue.ToString()));
+                        queryValues.Add(string.Format("{0}={1}", dataMemberAttribute.PropertyName ?? property.Name, propertyValue.ToString()));
                         break; 
                     }
 
@@ -51,13 +51,13 @@ namespace Voucherify.Client.Serialization
                     {
                         foreach (var singlePropertyvalue in (IEnumerable)propertyValue)
                         {
-                            queryValues.Add(string.Format("{0}={1}", dataMemberAttribute.Name ?? property.Name, this.ConvertSingleValue(singlePropertyvalue.GetType(), singlePropertyvalue)));
+                            queryValues.Add(string.Format("{0}={1}", dataMemberAttribute.PropertyName ?? property.Name, this.ConvertSingleValue(singlePropertyvalue.GetType(), singlePropertyvalue)));
                         }
 
                         break;
                     }
 
-                    queryValues.Add(string.Format("{0}={1}", dataMemberAttribute.Name ?? property.Name, this.ConvertSingleValue(property.PropertyType, propertyValue)));
+                    queryValues.Add(string.Format("{0}={1}", dataMemberAttribute.PropertyName ?? property.Name, this.ConvertSingleValue(property.PropertyType, propertyValue)));
                 }
             }
 
@@ -66,16 +66,12 @@ namespace Voucherify.Client.Serialization
 
         private string ConvertSingleValue(Type valueType, object value)
         {
-            Type nullableType = Nullable.GetUnderlyingType(valueType);
-            
-            if (valueType.IsEnum || (nullableType != null && nullableType.IsEnum))
-            {
-                EnumMemberAttribute attribute = (nullableType ?? valueType)
-                    .GetField(value.ToString())
-                    .GetCustomAttributes(typeof(EnumMemberAttribute), false)
-                    .SingleOrDefault() as EnumMemberAttribute;
+            Type enumType = Nullable.GetUnderlyingType(valueType) ?? valueType;
 
-                return attribute == null ? value.ToString() : attribute.Value;
+            if (enumType.IsEnum)
+            {
+                object[] attributes = enumType.GetField(value.ToString()).GetCustomAttributes(typeof(JsonEnumValueAttribute), false);
+                return (attributes.Length == 1 ? ((JsonEnumValueAttribute)attributes[0]).Value : value.ToString());
             }
 
             return value.ToString();

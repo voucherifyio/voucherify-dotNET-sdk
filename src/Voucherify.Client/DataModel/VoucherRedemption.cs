@@ -1,18 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class VoucherRedemption
     {
-        [DataMember(Name = "quantity")]
+        [JsonProperty(PropertyName = "quantity")]
         public int? Quantity { get; private set; }
 
-        [DataMember(Name = "redeemed_quantity")]
+        [JsonProperty(PropertyName = "redeemed_quantity")]
         public int? RedeemedQuantity { get; private set;  }
 
-        [DataMember(Name = "redemption_entries")]
+        [JsonProperty(PropertyName = "redemption_entries")]
         public List<RedemptionEntry> RedemptionEntries { get; private set; }
 
         public VoucherRedemption()

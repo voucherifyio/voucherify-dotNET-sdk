@@ -1,48 +1,48 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class Voucher
     {
-        [DataMember(Name = "code")]
+        [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
         
-        [DataMember(Name = "type")]
+        [JsonProperty(PropertyName = "type")]
         public VoucherType Type { get; set; }
 
-        [DataMember(Name = "campaign")]
+        [JsonProperty(PropertyName = "campaign")]
         public string Campaign { get; set; }
 
-        [DataMember(Name = "category")]
+        [JsonProperty(PropertyName = "category")]
         public string Category { get; set; }
 
-        [DataMember(Name = "discount")]
+        [JsonProperty(PropertyName = "discount")]
         public Discount Discount { get; set; }
         
-        [DataMember(Name = "gift")]
+        [JsonProperty(PropertyName = "gift")]
         public Gift Gift { get; set; }
 
-        [DataMember(Name = "start_date")]
+        [JsonProperty(PropertyName = "start_date")]
         public DateTime? StartDate { get; set; }
 
-        [DataMember(Name = "expiration_date")]
+        [JsonProperty(PropertyName = "expiration_date")]
         public DateTime? ExpirationDate { get; set; }
 
-        [DataMember(Name = "active")]
+        [JsonProperty(PropertyName = "active")]
         public bool? Active { get; set; }
 
-        [DataMember(Name = "publish")]
+        [JsonProperty(PropertyName = "publish")]
         public VoucherPublish Publish { get; set; }
 
-        [DataMember(Name = "redemption")]
+        [JsonProperty(PropertyName = "redemption")]
         public VoucherRedemption Redemption { get; set; }
 
-        [DataMember(Name = "additional_info")]
+        [JsonProperty(PropertyName = "additional_info")]
         public string AdditionalInfo { get; set; }
         
-        [DataMember(Name = "metadata")]
+        [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; set; }
 
         public Voucher()

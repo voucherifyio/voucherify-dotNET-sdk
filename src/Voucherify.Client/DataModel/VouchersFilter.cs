@@ -1,29 +1,29 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class VouchersFilter
     {
-        [DataMember(Name = "limit")]
+        [JsonProperty(PropertyName = "limit")]
         public int? Limit { get; set; }
 
-        [DataMember(Name = "code_query")]
+        [JsonProperty(PropertyName = "code_query")]
         public string CodeQuery { get; set; }
 
-        [DataMember(Name = "page")]
+        [JsonProperty(PropertyName = "page")]
         public int? Page { get; set; }
 
-        [DataMember(Name = "skip")]
+        [JsonProperty(PropertyName = "skip")]
         public int? Skip { get; set; }
 
-        [DataMember(Name = "campaign")]
+        [JsonProperty(PropertyName = "campaign")]
         public string Campaign { get; set; }
 
-        [DataMember(Name = "category")]
+        [JsonProperty(PropertyName = "category")]
         public string Category { get; set; }
 
-        [DataMember(Name = "customer")]
+        [JsonProperty(PropertyName = "customer")]
         public string Customer { get; set; }
     }
 }

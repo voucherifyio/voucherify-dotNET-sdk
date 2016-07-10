@@ -21,13 +21,13 @@ namespace Voucherify.Client.Api
 
         public IPromise<IList<DataModel.RedemptionDetails>> ListRedemptions(DataModel.RedemptionsFilter filter)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/redemptions").WithQuery(filter);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/redemptions"), filter);
             return this.client.DoGetRequest<IList<DataModel.RedemptionDetails>>(uriBuilder.Uri);
         }
 
         public IPromise<DataModel.VoucherRedemptionResult> RollbackRedemption(string redemptionId, DataModel.RedemptionRollbackQuery query)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/redemptions/{0}/rollback", redemptionId)).WithQuery(query);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/redemptions/{0}/rollback", redemptionId)), query);
             return this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
         }
     }

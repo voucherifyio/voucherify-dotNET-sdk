@@ -1,36 +1,36 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class VoucherRedemptionResult
     {
-        [DataMember(Name = "id")]
+        [JsonProperty(PropertyName = "id")]
         public string Id { get; private set; }
 
-        [DataMember(Name = "date")]
+        [JsonProperty(PropertyName = "date")]
         public DateTime? Date { get; private set; }
 
-        [DataMember(Name = "object")]
+        [JsonProperty(PropertyName = "object")]
         public string Object { get; private set; }
 
-        [DataMember(Name = "customer_id")]
+        [JsonProperty(PropertyName = "customer_id")]
         public string CustomerId { get; private set; }
 
-        [DataMember(Name = "tracking_id")]
+        [JsonProperty(PropertyName = "tracking_id")]
         public string TrackingId { get; private set; }
 
-        [DataMember(Name = "redemption")]
+        [JsonProperty(PropertyName = "redemption")]
         public string Redemption { get; private set; }
 
-        [DataMember(Name = "reason")]
+        [JsonProperty(PropertyName = "reason")]
         public string Reason { get; private set; }
 
-        [DataMember(Name = "metadata")]
+        [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
-        [DataMember(Name = "voucher")]
+        [JsonProperty(PropertyName = "voucher")]
         public Voucher Voucher { get; private set; }
 
         public VoucherRedemptionResult()

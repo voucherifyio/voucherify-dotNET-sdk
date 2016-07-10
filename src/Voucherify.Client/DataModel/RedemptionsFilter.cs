@@ -1,25 +1,26 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Voucherify.Client.Serialization;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class RedemptionsFilter 
     {
-        [DataMember(Name = "limit")]
+        [JsonProperty(PropertyName = "limit")]
         public int? Limit { get; set; }
         
-        [DataMember(Name = "start_date")]
+        [JsonProperty(PropertyName = "start_date")]
         public DateTime? StartDate { get; set; }
 
-        [DataMember(Name = "end_date")]
+        [JsonProperty(PropertyName = "end_date")]
         public DateTime? EndDate { get; set; }
 
-        [DataMember(Name = "customer")]
+        [JsonProperty(PropertyName = "customer")]
         public string Customer { get; set; }
 
-        [DataMember(Name = "results")]
+        [JsonProperty(PropertyName = "results")]
         public List<RedemptionResult> Results { get; private set; }
 
         public RedemptionsFilter()

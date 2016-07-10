@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes-  http://www.voucherify.io</description>
     <releaseNotes>
+      2016-07-11: 1.1.0
+      - Added support for .Net Framework 2.0 with clasic callback approach. Get rid of DataContract attribute.
+      
       2016-07-03: 1.0.0
       - Replace async/await with RSG.Promise library. Use RestSharp instead of HttpClient.
 
@@ -29,6 +32,7 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="..\..\lib\net20\Voucherify.Client.dll" target="lib\net20\Voucherify.Client.dll" />
     <file src="..\..\lib\net35\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
     <file src="..\..\lib\net40\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
     <file src="..\..\lib\net45\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />

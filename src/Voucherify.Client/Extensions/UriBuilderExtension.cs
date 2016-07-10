@@ -5,7 +5,7 @@ namespace Voucherify.Client.Extensions
 {
     public static class UriBuilderExtension
     {
-        public static UriBuilder WithQuery<TPayload>(this UriBuilder builder, TPayload payload)
+        public static UriBuilder WithQuery<TPayload>(UriBuilder builder, TPayload payload)
                 where TPayload : class
         {
             QuerySerializer<TPayload> serializerFilter = new QuerySerializer<TPayload>();

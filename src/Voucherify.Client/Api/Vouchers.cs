@@ -21,7 +21,7 @@ namespace Voucherify.Client.Api
 
         public IPromise<IList<DataModel.Voucher>> ListVouchers(DataModel.VouchersFilter filter)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/").WithQuery(filter);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
             return this.client.DoGetRequest<IList<DataModel.Voucher>>(uriBuilder.Uri);
         }
 
@@ -57,7 +57,7 @@ namespace Voucherify.Client.Api
 
         public IPromise<DataModel.VoucherRedemptionResult> Redeem(string code, DataModel.VoucherRedemptionQuery query)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code)).WithQuery(query);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code)), query);
             return this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
         }
 

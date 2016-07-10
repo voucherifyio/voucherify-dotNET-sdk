@@ -1,11 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class VoucherRedemptionQuery
     {
-        [DataMember(Name = "tracking_id")]
+        [JsonProperty(PropertyName = "tracking_id")]
         public string TrackingId { get; set; }
     }
 }

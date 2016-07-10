@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class VoucherPublish
     {
-        [DataMember(Name = "count")]
+        [JsonProperty(PropertyName = "count")]
         public int Count { get; private set; }
 
-        [DataMember(Name = "entries")]
+        [JsonProperty(PropertyName = "entries")]
         public List<PublishEntry> Entries { get; private set; }
 
         public VoucherPublish()

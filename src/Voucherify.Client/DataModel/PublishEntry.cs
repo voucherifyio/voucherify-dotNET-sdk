@@ -1,18 +1,18 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Voucherify.Client.DataModel
 {
-    [DataContract]
+    [JsonObject]
     public class PublishEntry
     {
-        [DataMember(Name = "customer")]
+        [JsonProperty(PropertyName = "customer")]
         public string Customer { get; private set; }
 
-        [DataMember(Name = "channel")]
+        [JsonProperty(PropertyName = "channel")]
         public string Channel { get; private set; }
 
-        [DataMember(Name = "published_at")]
+        [JsonProperty(PropertyName = "published_at")]
         public DateTime? PublishedAt { get; private set; }
     }
 }
