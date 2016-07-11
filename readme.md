@@ -1,7 +1,7 @@
 Voucherify .Net SDK
 ===
 
-###Version: 1.1.2
+###Version: 1.1.3
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) has a new platform that will help your team automate voucher campaigns. It does this by providing composable API and the marketer-friendly interface that increases teams' productivity:
 
 - **roll-out thousands** of vouchers **in minutes** instead of weeks,
@@ -114,6 +114,7 @@ Supported API Methods
 Changelog
 ===
 
+- **2016-07-11** - `1.1.3` - Fixed DLLs
 - **2016-07-11** - `1.1.2` - Fixed package dependencies for .Net Framework 3.5+.
 - **2016-07-11** - `1.1.1` - Fixed package dependencies.
 - **2016-07-11** - `1.1.0` - Added support for .Net Framework 2.0 with clasic callback approach. Get rid of DataContract attribute.
