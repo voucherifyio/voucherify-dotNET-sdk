@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>1.1.0.0</version>
+    <version>1.1.1.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,9 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes-  http://www.voucherify.io</description>
     <releaseNotes>
+      2016-07-11: 1.1.1
+      - Fixed package dependencies.
+      
       2016-07-11: 1.1.0
       - Added support for .Net Framework 2.0 with clasic callback approach. Get rid of DataContract attribute.
-      
+
       2016-07-03: 1.0.0
       - Replace async/await with RSG.Promise library. Use RestSharp instead of HttpClient.
 
@@ -26,9 +29,21 @@
     <copyright>Copyright 2016</copyright>
     <tags>Voucher Coupon Discount Voucherify Voucherify.io Rspective</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="9.0.1" />
-      <dependency id="RestSharp" version="105.2.3" />
-      <dependency id="RSG.Promise" version="1.2.0.0" />
+      <group targetFramework="net35, net40, net45">
+        <dependency id="RestSharp" version="105.2.3" />
+        <dependency id="RSG.Promise" version="1.2.0.0" />
+      </group>
+      <group targetFramework="net40">
+        <dependency id="RestSharp" version="105.2.3" />
+        <dependency id="RSG.Promise" version="1.2.0.0" />
+      </group>
+      <group targetFramework="net45">
+        <dependency id="RestSharp" version="105.2.3" />
+        <dependency id="RSG.Promise" version="1.2.0.0" />
+      </group>
+      <group>
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+      </group>
     </dependencies>
   </metadata>
   <files>
