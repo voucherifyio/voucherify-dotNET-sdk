@@ -43,6 +43,13 @@ namespace Voucherify.Client.Api
             this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher, callback);
         }
 
+        public void UpdateVoucher(string code, DataModel.VoucherUpdate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
+        {
+
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", code));
+            this.client.DoPutRequest<DataModel.Voucher, DataModel.VoucherUpdate>(uriBuilder.Uri, voucher, callback);
+        }
+
         public void DisableVoucher(string code, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", code));

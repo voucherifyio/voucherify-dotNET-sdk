@@ -7,23 +7,19 @@ namespace Voucherify.Client.net45.Tests
     {
         public void AppTokensTest()
         {
-            //-- Arange
-            string app_token = "app_token";
-            string app_id = "app_id";
-
-            //-- Act
-            VoucherifyClient client = new VoucherifyClient(app_id, app_token);
+            //-- Arrange & Act
+            VoucherifyClient client = new VoucherifyClient(Configuration.AppId, Configuration.AppToken);
 
             //-- Assert
-            Assert.AreEqual(app_id, client.AppId);
-            Assert.AreEqual(app_token, client.AppToken);
+            Assert.AreEqual(Configuration.AppId, client.AppId);
+            Assert.AreEqual(Configuration.AppToken, client.AppToken);
         }
 
         [TestMethod]
         public void SecureTest()
         {
             //-- Arange
-            VoucherifyClient client = new VoucherifyClient("app_id", "app_token").WithoutSSL();
+            VoucherifyClient client = new VoucherifyClient(Configuration.AppId, Configuration.AppToken).WithoutSSL();
 
             //-- Act
             bool withSSL = client.WithSSL().Secure;
@@ -38,8 +34,8 @@ namespace Voucherify.Client.net45.Tests
         public void EndpointTest()
         {
             //-- Arange
-            VoucherifyClient client = new VoucherifyClient("app_id", "app_token").WithoutSSL();
-            string endpoint = "www.google.com";
+            VoucherifyClient client = new VoucherifyClient(Configuration.AppId, Configuration.AppToken).WithoutSSL();
+            string endpoint = "www.sample.endpoint.com";
 
             //-- Act
             client.WithEndpoint(endpoint);

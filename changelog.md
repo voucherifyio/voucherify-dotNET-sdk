@@ -1,6 +1,7 @@
 Voucherify .NET SDK - Changelog
 ===============================
 
+- **2016-07-21** - `2.0.0` - Fixed Data Conversion Problems. Added Update method for Vouchers, Added Code Pattern for Voucher creation.
 - **2016-07-11** - `1.1.3` - Fixed DLLs
 - **2016-07-11** - `1.1.2` - Fixed package dependencies for .Net Framework 3.5+.
 - **2016-07-11** - `1.1.1` - Fixed package dependencies.

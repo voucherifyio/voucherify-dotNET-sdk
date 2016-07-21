@@ -16,7 +16,7 @@ namespace Voucherify.Client.net40.Example
 
             client.Vouchers.Get("<your_voucher_code>")
                 .Then((voucher) => {
-                    Console.WriteLine("Voucher. Code: {0} Campaing: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
+                    Console.WriteLine("Voucher. Code: {0} Campaign: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
                 })
                 .Catch((exception) => {
                     Console.WriteLine("Exception occured: {0}", exception);

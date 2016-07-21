@@ -13,20 +13,18 @@ namespace Voucherify.Client.net20.Example
             Console.WriteLine("Voucherify. Get single voucher.");
             VoucherifyClient client = new VoucherifyClient(app_id, app_token).WithSSL();
 
-            client.Vouchers.Get("BandroTheBest", (response) =>
-            {
-                if (response.Exception != null)
+            client.Vouchers.Get("<your_voucher_code>", (response) =>
                 {
-                    Console.WriteLine("Exception occured: {0}", response.Exception);
-                }
-                else
-                {
-                    DataModel.Voucher voucher = response.Result;
-                    Console.WriteLine("Voucher. Code: {0} Camplaing: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
-                }
-            });
-
-            Console.ReadLine();
+                    if (response.Exception != null)
+                    {
+                        Console.WriteLine("Exception occured: {0}", response.Exception);
+                    }
+                    else
+                    {
+                        DataModel.Voucher voucher = response.Result;
+                        Console.WriteLine("Voucher. Code: {0} Campaign: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
+                    }
+                });
         }
 
         static void Main(string[] args)

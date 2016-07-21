@@ -6,8 +6,8 @@
     <ProjectGuid>{B4193030-3214-4922-8101-EA7412B38038}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Voucherify.Client.Tests</RootNamespace>
-    <AssemblyName>Voucherify.Client.Tests</AssemblyName>
+    <RootNamespace>Voucherify.Client.net45.Tests</RootNamespace>
+    <AssemblyName>Voucherify.Client.net45.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -63,7 +63,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ApiCustomers.cs" />
+    <Compile Include="ApiRedemptions.cs" />
+    <Compile Include="ApiVouchers.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization.cs" />
   </ItemGroup>

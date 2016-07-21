@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 
 namespace Voucherify.Client.DataModel
@@ -9,6 +10,9 @@ namespace Voucherify.Client.DataModel
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
         
+        [JsonProperty("code_config")]
+        private CodeConfig CodeConfig { get; set; }
+
         [JsonProperty(PropertyName = "type")]
         public VoucherType Type { get; set; }
 
@@ -31,7 +35,7 @@ namespace Voucherify.Client.DataModel
         public DateTime? ExpirationDate { get; set; }
 
         [JsonProperty(PropertyName = "active")]
-        public bool? Active { get; set; }
+        public bool Active { get; set; }
 
         [JsonProperty(PropertyName = "publish")]
         public VoucherPublish Publish { get; set; }
