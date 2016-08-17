@@ -17,7 +17,7 @@ namespace Voucherify.Client.Serialization
         public JsonSerializer(JsonSerializerSettings settings) {
             this.settings = settings ?? new JsonSerializerSettings()
             {
-                Formatting = Formatting.Indented,
+                Formatting = Formatting.None,
                 ContractResolver = new DefaultContractResolver() { IgnoreSerializableInterface = true },
                 Converters = new List<JsonConverter>() { new JsonEnumValueConverter(), new IsoDateTimeConverter(), new MetadataConverter() },
             };

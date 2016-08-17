@@ -18,26 +18,26 @@ namespace Voucherify.Client.Api
         internal IPromise<TResult> DoGetRequest<TResult>(Uri uri)
             where TResult : class
         {
-            return ExecuteRequest<TResult>(new RestRequest(uri, Method.GET));
+            return ExecuteRequest<TResult>(this.PrepareRequest(uri, Method.GET));
         }
 
         internal IPromise DoPostRequest(Uri uri)
         {
-            return ExecuteRequest(new RestRequest(uri, Method.POST));
+            return ExecuteRequest(this.PrepareRequest(uri, Method.POST));
         }
 
         internal IPromise<TResult> DoPostRequest<TResult>(Uri uri)
             where TResult : class
         {
-            return ExecuteRequest<TResult>(new RestRequest(uri, Method.POST));
+            return ExecuteRequest<TResult>(this.PrepareRequest(uri, Method.POST));
         }
 
         internal IPromise<TResult> DoPostRequest<TResult, TPayload>(Uri uri, TPayload payload)
             where TResult : class
             where TPayload : class
         {
-            RestRequest request = new RestRequest(uri, Method.POST);
-            request.AddBody(new Serialization.JsonSerializer<TPayload>().Serialize(payload));
+            RestRequest request = this.PrepareRequest(uri, Method.POST);
+            request.AddParameter("application/json", new Serialization.JsonSerializer<TPayload>().Serialize(payload), ParameterType.RequestBody);
             return ExecuteRequest<TResult>(request);;
         }
 
@@ -45,14 +45,14 @@ namespace Voucherify.Client.Api
             where TResult : class
             where TPayload : class
         {
-            RestRequest request = new RestRequest(uri, Method.PUT);
-            request.AddBody(new Serialization.JsonSerializer<TPayload>().Serialize(payload));
+            RestRequest request = this.PrepareRequest(uri, Method.PUT);
+            request.AddParameter("application/json", new Serialization.JsonSerializer<TPayload>().Serialize(payload), ParameterType.RequestBody);
             return ExecuteRequest<TResult>(request);
         }
 
         internal IPromise DoDeleteRequest(Uri uri)
         {
-            RestRequest request = new RestRequest(uri, Method.DELETE);
+            RestRequest request = this.PrepareRequest(uri, Method.DELETE);
             return ExecuteRequest(request);
         }
 
@@ -62,6 +62,15 @@ namespace Voucherify.Client.Api
             {
                 Path = path
             };
+        }
+
+        private RestRequest PrepareRequest(Uri uri, Method method)
+        {
+            RestRequest request = new RestRequest(uri, method) { RequestFormat = DataFormat.Json };
+            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Content-Type", "application/json");
+            request.Parameters.Clear();
+            return request;
         }
 
         private IPromise ExecuteRequest(IRestRequest request)
@@ -89,7 +98,8 @@ namespace Voucherify.Client.Api
             RestClient client = PrepareClient();
 
             client.ExecuteAsync(request, (response) => {
-                if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300) {
+                if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
+                {
                     promise.Reject(this.serializerException.Deserialize(response.Content));
                     return;
                 }

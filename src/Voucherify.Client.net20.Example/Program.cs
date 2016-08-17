@@ -1,5 +1,6 @@
 ﻿using System;
 using Voucherify.Client;
+using Voucherify.Client.DataModel;
 
 namespace Voucherify.Client.net20.Example
 {
@@ -10,10 +11,16 @@ namespace Voucherify.Client.net20.Example
 
         private static void Run()
         {
-            Console.WriteLine("Voucherify. Get single voucher.");
+            Console.WriteLine("Voucherify. Create single voucher.");
             VoucherifyClient client = new VoucherifyClient(app_id, app_token).WithSSL();
 
-            client.Vouchers.Get("<your_voucher_code>", (response) =>
+            Voucher newVoucher = new Voucher()
+            {
+                Discount = Discount.WithAmountOff(10),
+                Type = VoucherType.DiscountVoucher
+            };
+
+            client.Vouchers.CreateVoucher(newVoucher, (response) =>
                 {
                     if (response.Exception != null)
                     {

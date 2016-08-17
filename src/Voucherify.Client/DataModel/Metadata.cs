@@ -10,7 +10,7 @@ namespace Voucherify.Client.DataModel
         {
 
         }
-        public Metadata(Dictionary<string, object> dictionary) : base(dictionary)
+        public Metadata(Dictionary<string, object> dictionary) : base(dictionary ?? new Dictionary<string, object>())
         {
         }
     }
