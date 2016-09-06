@@ -79,6 +79,12 @@ namespace Voucherify.Client.Api
             RestClient client = PrepareClient();
 
             client.ExecuteAsync(request, (response) => {
+                if (response.ErrorException != null)
+                {
+                    promise.Reject(new Exceptions.VoucherifyClientException(response.ErrorException));
+                    return;
+                }
+
                 if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
                 {
                     promise.Reject(this.serializerException.Deserialize(response.Content));
@@ -98,6 +104,12 @@ namespace Voucherify.Client.Api
             RestClient client = PrepareClient();
 
             client.ExecuteAsync(request, (response) => {
+                if (response.ErrorException != null)
+                {
+                    promise.Reject(new Exceptions.VoucherifyClientException(response.ErrorException));
+                    return;
+                }
+
                 if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
                 {
                     promise.Reject(this.serializerException.Deserialize(response.Content));

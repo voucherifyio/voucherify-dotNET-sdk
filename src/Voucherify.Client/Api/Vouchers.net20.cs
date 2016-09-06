@@ -71,7 +71,7 @@ namespace Voucherify.Client.Api
         public void Redeem(string code, DataModel.VoucherRedemptionContext context, Action<ApiResponse<DataModel.VoucherRedemptionResult>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code));
-            this.client.DoPostRequest<DataModel.VoucherRedemptionResult, DataModel.VoucherRedemptionContext>(new Uri(string.Format("/vouchers/{0}/redemption", code)), context, callback);
+            this.client.DoPostRequest<DataModel.VoucherRedemptionResult, DataModel.VoucherRedemptionContext>(uriBuilder.Uri, context, callback);
         }
 
         public void Redemption(string code, Action<ApiResponse<DataModel.VoucherRedemption>> callback)

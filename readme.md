@@ -1,7 +1,7 @@
 Voucherify .Net SDK
 ===
 
-###Version: 2.1.0
+###Version: 2.2.0
 
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
@@ -47,6 +47,7 @@ The App Id and App Token can be find in your application settings. [Log-in](http
 * .Net 3.5
 * .Net 4.0
 * .Net 4.5
+* PCL (portable45-net45+win8+wp8+wpa81)
 
 Usage .Net 2.0
 ---
@@ -88,6 +89,37 @@ using Voucherify.Client;
 		});
 ```
 
+Usage PCL (portable45-net45+win8+wp8+wpa81)
+---
+
+```cs
+
+using Voucherify.Client;
+using Voucherify.Client.Exceptions;
+
+...
+	VoucherifyClient client = new VoucherifyClient(app_id, app_token).WithSSL();
+
+	try
+        {
+        	Voucher newVoucher = new Voucher()
+                {
+                    Discount = Discount.WithAmountOff(10),
+                    Type = VoucherType.DiscountVoucher
+                };
+
+                Voucher voucher = await client.Vouchers.CreateVoucher(newVoucher);
+		Console.WriteLine("Voucher Code: {0}", voucher.Code);	
+	}
+	catch (VoucherifyClientException exception)
+	{
+		Console.WriteLine("Exception: {0}", exception);	
+	}
+
+...
+
+```
+
 Documentation
 ===
 
@@ -116,6 +148,7 @@ Supported API Methods
 Changelog
 ===
 
+- **2016-09-06** - `2.2.0` - Added Portable Class Library (portable45-net45+win8+wp8+wpa81). Added Order Items. Improved Error Handling.
 - **2016-08-17** - `2.1.0` - Fixed Request Header for .Net 3.5+ and empty metadata issue.
 - **2016-07-21** - `2.0.0` - Fixed Data Conversion Problems. Added Update method for Vouchers, Added Code Pattern for Voucher creation.
 - **2016-07-11** - `1.1.3` - Fixed DLLs

@@ -1,6 +1,7 @@
 Voucherify .NET SDK - Changelog
 ===============================
 
+- **2016-09-06** - `2.2.0` - Added Portable Class Library (portable45-net45+win8+wp8+wpa81). Added Order Items. Improved Error Handling.
 - **2016-08-17** - `2.1.0` - Fixed Request Header for .Net 3.5+ and empty metadata issue.
 - **2016-07-21** - `2.0.0` - Fixed Data Conversion Problems. Added Update method for Vouchers, Added Code Pattern for Voucher creation.
 - **2016-07-11** - `1.1.3` - Fixed DLLs
