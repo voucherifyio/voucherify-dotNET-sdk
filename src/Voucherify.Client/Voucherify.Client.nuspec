@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>2.1.0.0</version>
+    <version>2.2.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,9 +11,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes-  http://www.voucherify.io</description>
     <releaseNotes>
+      2016-09-06: 2.2.0
+      - Added Portable Class Library (portable45-net45+win8+wp8+wpa81)
+      - Added Order Items
+
       2016-08-17: 2.1.0
       - Fixed Request Header for .Net 3.5+ and empty metadata issue.
-      
+
       2016-07-21: 2.0.0
       - Fixed Data Conversion Problems. Added Update method for Vouchers, Added Code Pattern for Voucher creation.
 
@@ -59,6 +63,12 @@
       <group targetFramework="net20">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
       </group>
+      <group targetFramework="portable45-net45+win8+wp8+wpa81">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Microsoft.Bcl" version="1.1.10" />
+        <dependency id="Microsoft.Bcl.Build" version="1.0.14" />
+        <dependency id="Microsoft.Net.Http" version="2.2.29" />
+      </group>
     </dependencies>
   </metadata>
   <files>
@@ -66,5 +76,6 @@
     <file src="..\..\lib\net35\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
     <file src="..\..\lib\net40\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
     <file src="..\..\lib\net45\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />
+    <file src="..\..\lib\portable-net45+netcore45+wpa8\Voucherify.Client.dll" target="lib\portable45-net45+win8+wp8+wpa81\Voucherify.Client.dll" />
   </files>
 </package>

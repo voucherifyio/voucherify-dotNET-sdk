@@ -25,6 +25,6 @@
         /// <summary>
         /// A default endpoint of Voucherify api.
         /// </summary>
-        public const string EndpointApi = "api.voucherify.io/v1";
+        public const string EndpointApi = "api.voucherify3232.io/v1";
     }
 }

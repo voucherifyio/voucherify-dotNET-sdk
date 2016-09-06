@@ -63,6 +63,7 @@
     <Compile Include="DataModel\Gift.cs" />
     <Compile Include="DataModel\Metadata.cs" />
     <Compile Include="DataModel\Order.cs" />
+    <Compile Include="DataModel\OrderItem.cs" />
     <Compile Include="DataModel\RedemptionRollbackQuery.cs" />
     <Compile Include="DataModel\VoucherRedemptionContext.cs" />
     <Compile Include="DataModel\VoucherRedemptionQuery.cs" />

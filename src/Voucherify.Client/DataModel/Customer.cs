@@ -7,7 +7,7 @@ namespace Voucherify.Client.DataModel
     public class Customer
     { 
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         [JsonProperty(PropertyName = "source_id")]
         public string SourceId { get; set; }

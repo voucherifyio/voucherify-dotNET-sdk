@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify.Client.net45", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify.Client.net20", "Voucherify.Client\Voucherify.Client.net20.csproj", "{B1C3D407-1EE6-4603-B00E-05EE8FAB876A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify.Client.net45.Portable", "Voucherify.Client\Voucherify.Client.net45.Portable.csproj", "{C029B9E7-E636-4C2D-B178-C3288D24884C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B1C3D407-1EE6-4603-B00E-05EE8FAB876A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1C3D407-1EE6-4603-B00E-05EE8FAB876A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1C3D407-1EE6-4603-B00E-05EE8FAB876A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C029B9E7-E636-4C2D-B178-C3288D24884C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C029B9E7-E636-4C2D-B178-C3288D24884C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C029B9E7-E636-4C2D-B178-C3288D24884C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C029B9E7-E636-4C2D-B178-C3288D24884C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
