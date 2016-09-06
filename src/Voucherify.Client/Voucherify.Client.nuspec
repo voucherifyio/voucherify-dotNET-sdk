@@ -76,6 +76,6 @@
     <file src="..\..\lib\net35\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
     <file src="..\..\lib\net40\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
     <file src="..\..\lib\net45\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />
-    <file src="..\..\lib\portable-net45+netcore45+wpa8\Voucherify.Client.dll" target="lib\portable45-net45+win8+wp8+wpa81\Voucherify.Client.dll" />
+    <file src="..\..\lib\portable45-net45+win8+wp8+wpa81\Voucherify.Client.dll" target="lib\portable45-net45+win8+wp8+wpa81\Voucherify.Client.dll" />
   </files>
 </package>
