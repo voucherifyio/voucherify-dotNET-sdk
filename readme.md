@@ -49,7 +49,7 @@ The App Id and App Token can be find in your application settings. [Log-in](http
 * .Net 4.5
 * PCL (portable45-net45+win8+wp8+wpa81)
 
-Usage .Net 2.0
+Usage .Net 2.0 - .Net 4.0
 ---
 
 ```cs
@@ -61,35 +61,17 @@ using Voucherify.Client;
 	client.Vouchers.Get("<your-voucher-code>", (response) => 
 		{
 			if (response.Exception != null) {
-			
 				Console.WriteLine("Exception: {0}", response.Exception);
 			} 
 			else
 			{
-                Console.WriteLine("Voucher Code: {0}", response.Result.Code);
+                		Console.WriteLine("Voucher Code: {0}", response.Result.Code);
 			}
 		});
 ```
 
-Usage .Net 3.5+
----
 
-```cs
-
-using Voucherify.Client;
-
-...
-	VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>").WithSSL();
-	client.Vouchers.Get("<your-voucher-code>")
-		.Then((voucher) => {
-			Console.WriteLine("Voucher Code: {0}", voucher.Code);			
-		})
-		.Catch((exception) => {
-			Console.WriteLine("Exception: {0}", exception);						
-		});
-```
-
-Usage PCL (portable45-net45+win8+wp8+wpa81)
+Usage.Net 4.5 standard + PCL (portable-net45+netcore45+wpa81+wp8)
 ---
 
 ```cs
@@ -148,6 +130,7 @@ Supported API Methods
 Changelog
 ===
 
+- **2016-09-13** - `3.0.0` - Removed dependencied to RSP.Promise and RestSharp, stick to base libraries only.
 - **2016-09-06** - `2.2.0` - Added Portable Class Library (portable45-net45+win8+wp8+wpa81). Added Order Items. Improved Error Handling.
 - **2016-08-17** - `2.1.0` - Fixed Request Header for .Net 3.5+ and empty metadata issue.
 - **2016-07-21** - `2.0.0` - Fixed Data Conversion Problems. Added Update method for Vouchers, Added Code Pattern for Voucher creation.

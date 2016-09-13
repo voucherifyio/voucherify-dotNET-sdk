@@ -1,6 +1,7 @@
 ﻿using System;
-using RestSharp;
-using RSG;
+using System.ComponentModel;
+using System.IO;
+using System.Net;
 
 namespace Voucherify.Client.Api
 {
@@ -15,122 +16,167 @@ namespace Voucherify.Client.Api
             this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>();
         }
 
-        internal IPromise<TResult> DoGetRequest<TResult>(Uri uri)
+        internal void DoGetRequest<TResult>(Uri uri, Action<ApiResponse<TResult>> callback)
+           where TResult : class
+        {
+            using (WebClient client = this.PrepareClient())
+            {
+                client.DownloadStringCompleted += (sender, arguments) => {
+                    HandleResponse(arguments, callback);
+                };
+                client.DownloadStringAsync(uri);
+            }
+        }
+
+        internal void DoPostRequest(Uri uri, Action<ApiResponse> callback)
+        {
+            using (WebClient client = this.PrepareClient())
+            {
+                client.UploadStringCompleted += (sender, arguments) => {
+                    HandleResponse(arguments, callback);
+                };
+                client.UploadStringAsync(uri, string.Empty);
+            }
+        }
+
+        internal void DoPostRequest<TResult>(Uri uri, Action<ApiResponse<TResult>> callback)
             where TResult : class
         {
-            return ExecuteRequest<TResult>(this.PrepareRequest(uri, Method.GET));
+            using (WebClient client = this.PrepareClient())
+            {
+                client.UploadStringCompleted += (sender, arguments) => {
+                    HandleResponse(arguments, callback);
+                };
+                client.UploadStringAsync(uri, string.Empty);
+            }
         }
 
-        internal IPromise DoPostRequest(Uri uri)
-        {
-            return ExecuteRequest(this.PrepareRequest(uri, Method.POST));
-        }
-
-        internal IPromise<TResult> DoPostRequest<TResult>(Uri uri)
-            where TResult : class
-        {
-            return ExecuteRequest<TResult>(this.PrepareRequest(uri, Method.POST));
-        }
-
-        internal IPromise<TResult> DoPostRequest<TResult, TPayload>(Uri uri, TPayload payload)
+        internal void DoPostRequest<TResult, TPayload>(Uri uri, TPayload payload, Action<ApiResponse<TResult>> callback)
             where TResult : class
             where TPayload : class
         {
-            RestRequest request = this.PrepareRequest(uri, Method.POST);
-            request.AddParameter("application/json", new Serialization.JsonSerializer<TPayload>().Serialize(payload), ParameterType.RequestBody);
-            return ExecuteRequest<TResult>(request);;
+            using (WebClient client = this.PrepareClient())
+            {
+                client.UploadStringCompleted += (sender, arguments) => {
+                    HandleResponse(arguments, callback);
+                };
+                client.UploadStringAsync(uri, new Serialization.JsonSerializer<TPayload>().Serialize(payload));
+            }
         }
-
-        internal IPromise<TResult> DoPutRequest<TResult, TPayload>(Uri uri, TPayload payload)
+        
+        internal void DoPutRequest<TResult, TPayload>(Uri uri, TPayload payload, Action<ApiResponse<TResult>> callback)
             where TResult : class
             where TPayload : class
         {
-            RestRequest request = this.PrepareRequest(uri, Method.PUT);
-            request.AddParameter("application/json", new Serialization.JsonSerializer<TPayload>().Serialize(payload), ParameterType.RequestBody);
-            return ExecuteRequest<TResult>(request);
+            using (WebClient client = this.PrepareClient())
+            {
+                client.UploadStringCompleted += (sender, arguments) => {
+                    HandleResponse(arguments, callback);
+                };
+                client.UploadStringAsync(uri, "PUT", new Serialization.JsonSerializer<TPayload>().Serialize(payload));
+            }
         }
 
-        internal IPromise DoDeleteRequest(Uri uri)
+        internal void DoDeleteRequest(Uri uri, Action<ApiResponse> callback)
         {
-            RestRequest request = this.PrepareRequest(uri, Method.DELETE);
-            return ExecuteRequest(request);
+            using (WebClient client = this.PrepareClient())
+            {
+                client.UploadStringCompleted += (sender, arguments) => {
+                    HandleResponse(arguments, callback);
+                };
+                client.UploadStringAsync(uri, "DELETE", string.Empty);
+            }
         }
 
         internal UriBuilder GetUriBuilder(string path)
         {
-            return new UriBuilder()
+            return new UriBuilder(this.voucherify.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.voucherify.Endpoint)
             {
                 Path = path
             };
         }
 
-        private RestRequest PrepareRequest(Uri uri, Method method)
-        {
-            RestRequest request = new RestRequest(uri, method) { RequestFormat = DataFormat.Json };
-            request.AddHeader("Accept", "application/json");
-            request.AddHeader("Content-Type", "application/json");
-            request.Parameters.Clear();
-            return request;
-        }
-
-        private IPromise ExecuteRequest(IRestRequest request)
-        {
-            Promise promise = new Promise();
-            RestClient client = PrepareClient();
-
-            client.ExecuteAsync(request, (response) => {
-                if (response.ErrorException != null)
-                {
-                    promise.Reject(new Exceptions.VoucherifyClientException(response.ErrorException));
-                    return;
-                }
-
-                if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
-                {
-                    promise.Reject(this.serializerException.Deserialize(response.Content));
-                    return;
-                }
-
-                promise.Resolve();
-            });
-
-            return promise;
-        }
-
-        private IPromise<TResult> ExecuteRequest<TResult>(IRestRequest request) 
+        private void HandleResponse<TResult>(AsyncCompletedEventArgs arguments, Action<ApiResponse<TResult>> callback)
             where TResult : class
         {
-            Promise<TResult> promise = new Promise<TResult>();
-            RestClient client = PrepareClient();
+            if (arguments.Error == null)
+            {
+                DownloadStringCompletedEventArgs stringDownloadArguments = (arguments as DownloadStringCompletedEventArgs);
+                UploadStringCompletedEventArgs stringUploadArguments = (arguments as UploadStringCompletedEventArgs);
 
-            client.ExecuteAsync(request, (response) => {
-                if (response.ErrorException != null)
-                {
-                    promise.Reject(new Exceptions.VoucherifyClientException(response.ErrorException));
-                    return;
+                if (stringDownloadArguments != null) {
+                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>().Deserialize(stringDownloadArguments.Result)));
+                } else if (stringUploadArguments != null) {
+                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>().Deserialize(stringUploadArguments.Result)));
+                } else {
+                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>().Deserialize(string.Empty)));
                 }
 
-                if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
+                return;
+            }
+
+            WebException exception = arguments.Error as WebException;
+
+            if (exception != null)
+            {
+                HttpWebResponse response = exception.Response as HttpWebResponse;
+
+                if (response != null)
                 {
-                    promise.Reject(this.serializerException.Deserialize(response.Content));
+                    using (var responseStream = response.GetResponseStream())
+                    using (var reader = new StreamReader(responseStream))
+                    {
+                        callback(ApiResponse<TResult>.WithException<TResult>(this.serializerException.Deserialize(reader.ReadToEnd())));
+                    }
+
                     return;
                 }
+            }
 
-                Serialization.JsonSerializer<TResult> serializerResult = new Serialization.JsonSerializer<TResult>();
-                promise.Resolve(serializerResult.Deserialize(response.Content));
-            });
-
-            return promise;
+            callback(ApiResponse<TResult>.WithException<TResult>(new Exceptions.VoucherifyClientException(arguments.Error)));
         }
 
-        private RestClient PrepareClient()
+        private void HandleResponse(AsyncCompletedEventArgs arguments, Action<ApiResponse> callback)
         {
-            RestClient client = new RestClient(new UriBuilder(this.voucherify.Secure ? Uri.UriSchemeHttps : Uri.UriSchemeHttp, this.voucherify.Endpoint).Uri);
-            client.AddDefaultHeader(Constants.HttpHeaderAppId, this.voucherify.AppId);
-            client.AddDefaultHeader(Constants.HttpHeaderAppToken, this.voucherify.AppToken);
-            client.AddDefaultHeader(Constants.HttpHeaderVoucherifyChannel, Constants.VoucherifyChannelName);
-            client.AddDefaultHeader("Accept", "application/json");
-            client.AddDefaultHeader("Content-Type", "application/json");
+
+            if (arguments.Error == null)
+            {
+                callback(ApiResponse.WithSuccess());
+                return;
+            }
+
+            WebException exception = arguments.Error as WebException;
+
+            if (exception != null)
+            {
+                HttpWebResponse response = exception.Response as HttpWebResponse;
+
+                if (response != null)
+                {
+                    using (var responseStream = response.GetResponseStream())
+                    using (var reader = new StreamReader(responseStream))
+                    {
+                        callback(ApiResponse.WithException(this.serializerException.Deserialize(reader.ReadToEnd())));
+                    }
+
+                    return;
+                }
+            }
+
+            callback(ApiResponse.WithException(new Exceptions.VoucherifyClientException(arguments.Error)));
+        }
+
+
+        private WebClient PrepareClient()
+        {
+            WebClient client = new WebClient();
+
+            client.Headers.Add(Constants.HttpHeaderAppId, this.voucherify.AppId);
+            client.Headers.Add(Constants.HttpHeaderAppToken, this.voucherify.AppToken);
+            client.Headers.Add(Constants.HttpHeaderVoucherifyChannel, Constants.VoucherifyChannelName);
+            client.Headers.Add("Accept", "application/json");
+            client.Headers.Add("Content-Type", "application/json");
+
             return client;
         }
     }

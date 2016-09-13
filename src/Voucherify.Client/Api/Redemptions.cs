@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Voucherify.Client.Extensions;
-using RSG;
 
 namespace Voucherify.Client.Api
 {
@@ -19,16 +18,16 @@ namespace Voucherify.Client.Api
             this.client = new ApiClient(voucherify);
         }
 
-        public IPromise<IList<DataModel.RedemptionDetails>> ListRedemptions(DataModel.RedemptionsFilter filter)
+        public void ListRedemptions(DataModel.RedemptionsFilter filter, Action<ApiResponse<IList<DataModel.RedemptionDetails>>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/redemptions"), filter);
-            return this.client.DoGetRequest<IList<DataModel.RedemptionDetails>>(uriBuilder.Uri);
+            this.client.DoGetRequest<IList<DataModel.RedemptionDetails>>(uriBuilder.Uri, callback);
         }
 
-        public IPromise<DataModel.VoucherRedemptionResult> RollbackRedemption(string redemptionId, DataModel.RedemptionRollbackQuery query)
+        public void RollbackRedemption(string redemptionId, DataModel.RedemptionRollbackQuery query, Action<ApiResponse<DataModel.VoucherRedemptionResult>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/redemptions/{0}/rollback", redemptionId)), query);
-            return this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
+            this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri, callback);
         }
     }
 }

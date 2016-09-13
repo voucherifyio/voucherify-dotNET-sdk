@@ -1,5 +1,4 @@
 ﻿using System;
-using RSG;
 
 namespace Voucherify.Client.Api
 {
@@ -17,28 +16,28 @@ namespace Voucherify.Client.Api
             this.client = new ApiClient(voucherify);
         }
 
-        public IPromise<DataModel.Customer> Create(DataModel.Customer customer)
+        public void Create(DataModel.Customer customer, Action<ApiResponse<DataModel.Customer>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/customers");
-            return this.client.DoPostRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer);
+            this.client.DoPostRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer, callback);
         }
 
-        public IPromise<DataModel.Customer> Get(string customerId)
+        public void Get(string customerId, Action<ApiResponse<DataModel.Customer>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", customerId));
-            return this.client.DoGetRequest<DataModel.Customer>(uriBuilder.Uri);
+            this.client.DoGetRequest<DataModel.Customer>(uriBuilder.Uri, callback);
         }
 
-        public IPromise<DataModel.Customer> Update(string customerId, DataModel.Customer customer)
+        public void Update(string customerId, DataModel.Customer customer, Action<ApiResponse<DataModel.Customer>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", customerId));
-            return this.client.DoPutRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer);
+            this.client.DoPutRequest<DataModel.Customer, DataModel.Customer>(uriBuilder.Uri, customer, callback);
         }
 
-        public IPromise Delete(string customerId)
+        public void Delete(string customerId, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", customerId));
-           return  this.client.DoDeleteRequest(uriBuilder.Uri);
+            this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
     }
 }

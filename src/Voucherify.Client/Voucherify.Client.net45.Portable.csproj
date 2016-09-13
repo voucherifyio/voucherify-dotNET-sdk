@@ -28,16 +28,16 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\lib\portable45-net45+win8+wp8+wpa81\</OutputPath>
+    <OutputPath>..\..\lib\portable-net45+netcore45+wpa81+wp8\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Api\ApiClient.net45.Portable.cs" />
-    <Compile Include="Api\Customers.net45.Portable.cs" />
-    <Compile Include="Api\Redemptions.net45.Portable.cs" />
-    <Compile Include="Api\Vouchers.net45.Portable.cs" />
+    <Compile Include="Api\Customers.net45.cs" />
+    <Compile Include="Api\Redemptions.net45.cs" />
+    <Compile Include="Api\Vouchers.net45.cs" />
     <Compile Include="Attributes\JsonEnumValueAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Constants.net45.Portable.cs" />
@@ -98,6 +98,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

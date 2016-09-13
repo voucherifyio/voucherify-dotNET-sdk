@@ -11,12 +11,12 @@ namespace Voucherify.Client.Api
     internal class ApiClient
     {
         private VoucherifyClient voucherify;
-        private Serialization.JsonSerializer<Exceptions.VoucherifyClientExceptionPortable> serializerException;
+        private Serialization.JsonSerializer<Exceptions.VoucherifyClientException> serializerException;
 
         internal ApiClient(VoucherifyClient voucherify)
         {
             this.voucherify = voucherify;
-            this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientExceptionPortable>();
+            this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>();
         }
 
         internal async Task<TResult> DoGetRequest<TResult>(Uri uri)
@@ -25,11 +25,11 @@ namespace Voucherify.Client.Api
             using (HttpClient client = this.PrepareClient())
             {
                 try
-                {
+                { 
                     var response = await client.GetAsync(uri);
                     return await EnsureResult<TResult>(response);
                 }
-                catch (Exception exception)
+                catch(Exception exception)
                 {
                     if (exception is Exceptions.VoucherifyClientException)
                     {
@@ -46,7 +46,7 @@ namespace Voucherify.Client.Api
             using (HttpClient client = this.PrepareClient())
             {
                 try
-                {
+                { 
                     var response = await client.PostAsync(uri, this.PrepareContent(string.Empty));
                     await this.EnsureResult(response);
                 }
@@ -72,7 +72,7 @@ namespace Voucherify.Client.Api
                     var response = await client.PostAsync(uri, this.PrepareContent(string.Empty));
                     return await EnsureResult<TResult>(response);
                 }
-                catch (Exception exception)
+                catch(Exception exception)
                 {
                     if (exception is Exceptions.VoucherifyClientException)
                     {
@@ -153,7 +153,7 @@ namespace Voucherify.Client.Api
 
         internal UriBuilder GetUriBuilder(string path)
         {
-            return new UriBuilder(this.voucherify.Secure ? "HTTPS" : "HTTP", this.voucherify.Endpoint)
+            return new UriBuilder(this.voucherify.Secure ? "HTTPS": "HTTP", this.voucherify.Endpoint)
             {
                 Path = path
             };
@@ -165,7 +165,7 @@ namespace Voucherify.Client.Api
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {
-                Exceptions.VoucherifyClientExceptionPortable exception = this.serializerException.Deserialize(resultString);
+                Exceptions.VoucherifyClientException exception = this.serializerException.Deserialize(resultString);
                 throw new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
             }
         }
@@ -178,7 +178,7 @@ namespace Voucherify.Client.Api
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {
-                Exceptions.VoucherifyClientExceptionPortable exception = this.serializerException.Deserialize(resultString);
+                Exceptions.VoucherifyClientException exception = this.serializerException.Deserialize(resultString);
                 throw new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
             }
 
@@ -189,11 +189,11 @@ namespace Voucherify.Client.Api
         {
             return new StringContent(content, Encoding.UTF8, "application/json");
         }
-
+        
         private HttpClient PrepareClient()
         {
             HttpClient client = new HttpClient();
-
+            
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppId, this.voucherify.AppId);
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderAppToken, this.voucherify.AppToken);
             client.DefaultRequestHeaders.Add(Constants.HttpHeaderVoucherifyChannel, Constants.VoucherifyChannelName);

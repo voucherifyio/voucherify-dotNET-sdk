@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Voucherify.Client.Extensions;
-using RSG;
 
 namespace Voucherify.Client.Api
 {
@@ -19,64 +19,65 @@ namespace Voucherify.Client.Api
             this.client = new ApiClient(voucherify);
         }
 
-        public IPromise<IList<DataModel.Voucher>> ListVouchers(DataModel.VouchersFilter filter)
+        public void ListVouchers(DataModel.VouchersFilter filter, Action<ApiResponse<IList<DataModel.Voucher>>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
-            return this.client.DoGetRequest<IList<DataModel.Voucher>>(uriBuilder.Uri);
+            this.client.DoGetRequest<IList<DataModel.Voucher>>(uriBuilder.Uri, callback);
         }
 
-        public IPromise<DataModel.Voucher> Get(string code)
+        public void Get(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", code));
-            return this.client.DoGetRequest<DataModel.Voucher>(uriBuilder.Uri);
+            this.client.DoGetRequest<DataModel.Voucher>(uriBuilder.Uri, callback);
         }
-        
-        public IPromise<DataModel.Voucher> CreateVoucher(DataModel.Voucher voucher)
+
+        public void CreateVoucher(DataModel.Voucher voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/");
-            return this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher);
+            this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher, callback);
         }
 
-        public IPromise<DataModel.Voucher> CreateVoucherWithCode(string code, DataModel.Voucher voucher)
+        public void CreateVoucherWithCode(string code, DataModel.Voucher voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", code));
-            return this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher);
+            this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher, callback);
         }
 
-        public IPromise<DataModel.Voucher> UpdateVoucher(string code, DataModel.VoucherUpdate voucher)
+        public void UpdateVoucher(string code, DataModel.VoucherUpdate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
+
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", code));
-            return this.client.DoPutRequest<DataModel.Voucher, DataModel.VoucherUpdate>(uriBuilder.Uri, voucher);
+            this.client.DoPutRequest<DataModel.Voucher, DataModel.VoucherUpdate>(uriBuilder.Uri, voucher, callback);
         }
 
-        public IPromise DisableVoucher(string code)
+        public void DisableVoucher(string code, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", code));
-            return this.client.DoPostRequest(uriBuilder.Uri);
-        } 
+            this.client.DoPostRequest(uriBuilder.Uri, callback);
+        }
 
-        public IPromise EnableVoucher(string code)
+        public void EnableVoucher(string code, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", code));
-            return this.client.DoPostRequest(uriBuilder.Uri);
+            this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 
-        public IPromise<DataModel.VoucherRedemptionResult> Redeem(string code, DataModel.VoucherRedemptionQuery query)
+        public void  Redeem(string code, DataModel.VoucherRedemptionQuery query, Action<ApiResponse<DataModel.VoucherRedemptionResult>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code)), query);
-            return this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri);
+            this.client.DoPostRequest<DataModel.VoucherRedemptionResult>(uriBuilder.Uri, callback);
         }
 
-        public IPromise<DataModel.VoucherRedemptionResult> Redeem(string code, DataModel.VoucherRedemptionContext context)
+        public void Redeem(string code, DataModel.VoucherRedemptionContext context, Action<ApiResponse<DataModel.VoucherRedemptionResult>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code));
-            return this.client.DoPostRequest<DataModel.VoucherRedemptionResult, DataModel.VoucherRedemptionContext>(uriBuilder.Uri, context);
+            this.client.DoPostRequest<DataModel.VoucherRedemptionResult, DataModel.VoucherRedemptionContext>(uriBuilder.Uri, context, callback);
         }
 
-        public IPromise<DataModel.VoucherRedemption> Redemption(string code)
+        public void Redemption(string code, Action<ApiResponse<DataModel.VoucherRedemption>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code));
-            return this.client.DoGetRequest<DataModel.VoucherRedemption>(uriBuilder.Uri);
+            this.client.DoGetRequest<DataModel.VoucherRedemption>(uriBuilder.Uri, callback);
         }
     }
 }
