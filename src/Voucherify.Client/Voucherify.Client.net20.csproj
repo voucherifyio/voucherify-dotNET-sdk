@@ -39,11 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\ApiClient.net20.cs" />
-    <Compile Include="Api\ApiResponse.net20.cs" />
-    <Compile Include="Api\Customers.net20.cs" />
-    <Compile Include="Api\Redemptions.net20.cs" />
-    <Compile Include="Api\Vouchers.net20.cs" />
+    <Compile Include="Api\ApiClient.cs" />
+    <Compile Include="Api\ApiResponse.cs" />
+    <Compile Include="Api\Customers.cs" />
+    <Compile Include="Api\Redemptions.cs" />
+    <Compile Include="Api\Vouchers.cs" />
     <Compile Include="Attributes\JsonEnumValueAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Constants.net20.cs" />

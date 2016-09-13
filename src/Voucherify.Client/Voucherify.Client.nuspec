@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>2.2.0.0</version>
+    <version>3.0.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes-  http://www.voucherify.io</description>
     <releaseNotes>
+      2016-09-13: 3.0.0
+      - Removed dependencied to RSP.Promise and RestSharp, stick to base libraries only.
+      
       2016-09-06: 2.2.0
       - Added Portable Class Library (portable45-net45+win8+wp8+wpa81)
       - Added Order Items
@@ -47,23 +50,17 @@
     <dependencies>
       <group targetFramework="net35">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
-        <dependency id="RestSharp" version="105.2.3" />
-        <dependency id="RSG.Promise" version="1.2.0.0" />
       </group>
       <group targetFramework="net40">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
-        <dependency id="RestSharp" version="105.2.3" />
-        <dependency id="RSG.Promise" version="1.2.0.0" />
       </group>
       <group targetFramework="net45">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
-        <dependency id="RestSharp" version="105.2.3" />
-        <dependency id="RSG.Promise" version="1.2.0.0" />
       </group>
       <group targetFramework="net20">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
       </group>
-      <group targetFramework="portable45-net45+win8+wp8+wpa81">
+      <group targetFramework="portable-net45+netcore45+wpa81+wp8">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
         <dependency id="Microsoft.Bcl" version="1.1.10" />
         <dependency id="Microsoft.Bcl.Build" version="1.0.14" />
@@ -76,6 +73,6 @@
     <file src="..\..\lib\net35\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
     <file src="..\..\lib\net40\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
     <file src="..\..\lib\net45\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />
-    <file src="..\..\lib\portable45-net45+win8+wp8+wpa81\Voucherify.Client.dll" target="lib\portable45-net45+win8+wp8+wpa81\Voucherify.Client.dll" />
+    <file src="..\..\lib\portable-net45+netcore45+wpa81+wp8\Voucherify.Client.dll" target="lib\portable-net45+netcore45+wpa81+wp8\Voucherify.Client.dll" />
   </files>
 </package>

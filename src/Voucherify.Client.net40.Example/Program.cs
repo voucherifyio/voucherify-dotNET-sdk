@@ -21,13 +21,18 @@ namespace Voucherify.Client.net40.Example
                 Type = VoucherType.DiscountVoucher
             };
 
-            client.Vouchers.CreateVoucher(newVoucher)
-                .Then((voucher) => {
+            client.Vouchers.CreateVoucher(newVoucher, (response) =>
+            {
+                if (response.Exception != null)
+                {
+                    Console.WriteLine("Exception occured: {0}", response.Exception);
+                }
+                else
+                {
+                    DataModel.Voucher voucher = response.Result;
                     Console.WriteLine("Voucher. Code: {0} Campaign: {1} Category: {2} Discount: {3}", voucher.Code, voucher.Campaign, voucher.Category, voucher.Discount.Type.ToString());
-                })
-                .Catch((exception) => {
-                    Console.WriteLine("Exception occured: {0}", exception);
-                });
+                }
+            });
         }
 
         static void Main(string[] args)

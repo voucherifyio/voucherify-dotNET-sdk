@@ -53,7 +53,6 @@ namespace Voucherify.Client.net45.Portable.Example
             {
                 this.textBlockEror.Text = exception.ToString();
             }
-
         }
     }
 }
