@@ -40,7 +40,7 @@ namespace Voucherify.Client.Serialization
             {
                 JsonEnumValueAttribute[] attributes = enumType.GetTypeInfo().GetDeclaredField(enumValue.ToString()).GetCustomAttributes<JsonEnumValueAttribute>(false).ToArray();
 
-                if (attributes.Length == 1 && attributes[0].Value == stringEnumValue)
+                if (attributes.Length == 1 && attributes[0].Value.ToUpperInvariant() == stringEnumValue.ToUpperInvariant())
                 {
                     return enumValue;
                 }
