@@ -1,7 +1,7 @@
 Voucherify .Net SDK
 ===
 
-###Version: 2.2.0
+###Version: 3.1.0
 
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
@@ -120,6 +120,7 @@ Supported API Methods
 - `VoucherifyClient.Vouchers.Redeem(code, query)`
 - `VoucherifyClient.Vouchers.Redeem(code, context)`
 - `VoucherifyClient.Vouchers.Redemption(code)`
+- `VoucherifyClient.Vouchers.Validate(code, context)`
 - `VoucherifyClient.Redemptions.ListRedemptions(filter)`
 - `VoucherifyClient.Redemptions.Rollback(redemptionId, query)`
 - `VoucherifyClient.Customers.Create(customer)`
@@ -130,6 +131,7 @@ Supported API Methods
 Changelog
 ===
 
+- **2016-11-02** - `3.1.0` - Added Validate method for Vouchers. Fixed issue with DiscoutType mapping.
 - **2016-09-13** - `3.0.0` - Removed dependencied to RSP.Promise and RestSharp, stick to base libraries only.
 - **2016-09-06** - `2.2.0` - Added Portable Class Library (portable45-net45+win8+wp8+wpa81). Added Order Items. Improved Error Handling.
 - **2016-08-17** - `2.1.0` - Fixed Request Header for .Net 3.5+ and empty metadata issue.

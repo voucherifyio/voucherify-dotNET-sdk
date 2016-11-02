@@ -1,6 +1,7 @@
 Voucherify .NET SDK - Changelog
 ===============================
 
+- **2016-11-02** - `3.1.0` - Added Validate method for Vouchers. Fixed issue with DiscoutType mapping.
 - **2016-09-13** - `3.0.0` - Removed dependencied to RSP.Promise and RestSharp, stick to base libraries only.
 - **2016-09-06** - `2.2.0` - Added Portable Class Library (portable45-net45+win8+wp8+wpa81). Added Order Items. Improved Error Handling.
 - **2016-08-17** - `2.1.0` - Fixed Request Header for .Net 3.5+ and empty metadata issue.
