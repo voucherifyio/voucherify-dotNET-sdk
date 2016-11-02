@@ -79,5 +79,11 @@ namespace Voucherify.Client.Api
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", code));
             return await this.client.DoGetRequest<DataModel.VoucherRedemption>(uriBuilder.Uri);
         }
+
+        public async Task<DataModel.VoucherValidationResult> Validate(string code, DataModel.VoucherValidationContext context)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", code));
+            return await this.client.DoPostRequest<DataModel.VoucherValidationResult, DataModel.VoucherValidationContext>(uriBuilder.Uri, context);
+        }
     }
 }

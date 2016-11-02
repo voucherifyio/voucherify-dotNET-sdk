@@ -62,6 +62,8 @@
     <Compile Include="DataModel\VoucherPublish.cs" />
     <Compile Include="DataModel\VoucherType.cs" />
     <Compile Include="DataModel\VoucherUpdate.cs" />
+    <Compile Include="DataModel\VoucherValidationContext.cs" />
+    <Compile Include="DataModel\VoucherValidationResult.cs" />
     <Compile Include="Exceptions\VoucherifyClientException.cs" />
     <Compile Include="Extensions\UriBuilderExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
