@@ -53,7 +53,7 @@ namespace Voucherify.Client.DataModel
 
         public static Discount WithPercentOff(double percentOff)
         {
-            return new Discount() { Type = DiscountType.Amount, PercentOff = percentOff };
+            return new Discount() { Type = DiscountType.Percent, PercentOff = percentOff };
         }
 
         public static Discount WithUnitOff(double unitOff)

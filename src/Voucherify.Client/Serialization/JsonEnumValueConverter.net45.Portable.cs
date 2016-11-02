@@ -34,13 +34,13 @@ namespace Voucherify.Client.Serialization
         {
             Type nullableType = Nullable.GetUnderlyingType(objectType);
             Type enumType = nullableType ?? objectType;
-            string stringEnumValue = (string)reader.Value;
+            string stringEnumValue = (string)reader.Value ?? string.Empty;
 
             foreach (object enumValue in Enum.GetValues(enumType))
             {
                 JsonEnumValueAttribute[] attributes = enumType.GetTypeInfo().GetDeclaredField(enumValue.ToString()).GetCustomAttributes<JsonEnumValueAttribute>(false).ToArray();
 
-                if (attributes.Length == 1 && attributes[0].Value == stringEnumValue)
+                if (attributes.Length == 1 && attributes[0].Value.ToUpperInvariant() == stringEnumValue.ToUpperInvariant())
                 {
                     return enumValue;
                 }
