@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85625E9C-B21C-4330-94C7-24D724463207}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Voucherify</RootNamespace>
+    <AssemblyName>Voucherify.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\Client.net45\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VOUCHERIFYCLIENT;NET45;APIASYNC</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\lib\net45\</OutputPath>
+    <DefineConstants>TRACE;APIASYNC;VOUCHERIFYCLIENT;NET45</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Client\Api.cs" />
+    <Compile Include="Client\ApiEndpoints\EndpointBase.cs" />
+    <Compile Include="Client\ApiEndpoints\Redemptions.Async.cs" />
+    <Compile Include="Client\ApiEndpoints\Redemptions.Callback.cs" />
+    <Compile Include="Client\ApiEndpoints\Vouchers.Async.cs" />
+    <Compile Include="Client\ApiEndpoints\Vouchers.Callback.cs" />
+    <Compile Include="DataModel\Queries\RedemptionQuery.Client.cs" />
+    <Compile Include="Core\Attributes\JsonEnumValueAttribute.cs" />
+    <Compile Include="Core\Communication\ApiClient.Async.cs" />
+    <Compile Include="Core\Communication\ApiClient.Callback.cs" />
+    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\DataModel\ApiObject.cs" />
+    <Compile Include="Core\DataModel\Empty.cs" />
+    <Compile Include="Core\DataModel\Metadata.cs" />
+    <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />
+    <Compile Include="Core\Extensions\UriBuilderExtension.cs" />
+    <Compile Include="Core\Serialization\JsonEnumValueConverter.cs" />
+    <Compile Include="Core\Serialization\JsonSerializer.cs" />
+    <Compile Include="Core\Serialization\MetadataConverter.cs" />
+    <Compile Include="Core\Serialization\QuerySerializer.cs" />
+    <Compile Include="DataModel\Campaign.cs" />
+    <Compile Include="DataModel\Contexts\CampaignAddVoucherContext.cs" />
+    <Compile Include="DataModel\CampaignCreationStatus.cs" />
+    <Compile Include="DataModel\CampaignType.cs" />
+    <Compile Include="DataModel\CodeConfig.cs" />
+    <Compile Include="DataModel\Contexts\CustomerUpdateContext.cs" />
+    <Compile Include="DataModel\Contexts\RedemptionRollbackContext.cs" />
+    <Compile Include="DataModel\Contexts\SkuUpdateContext.cs" />
+    <Compile Include="DataModel\Gift.cs" />
+    <Compile Include="DataModel\Order.cs" />
+    <Compile Include="DataModel\OrderItem.cs" />
+    <Compile Include="DataModel\Product.cs" />
+    <Compile Include="DataModel\ProductList.cs" />
+    <Compile Include="DataModel\ProductSkus.cs" />
+    <Compile Include="DataModel\Queries\RedemptionRollbackQuery.cs" />
+    <Compile Include="DataModel\Queries\VoucherDeleteQuery.cs" />
+    <Compile Include="DataModel\Contexts\VoucherPublishContext.cs" />
+    <Compile Include="DataModel\Queries\VoucherPublishQuery.cs" />
+    <Compile Include="DataModel\Contexts\RedemptionContext.cs" />
+    <Compile Include="DataModel\Queries\RedemptionQuery.cs" />
+    <Compile Include="DataModel\Contexts\VouchersFilterContext.cs" />
+    <Compile Include="DataModel\Queries\VoucherValidationQuery.cs" />
+    <Compile Include="DataModel\RedemptionRollback.cs" />
+    <Compile Include="DataModel\Results\RedemptionResult.cs" />
+    <Compile Include="DataModel\Results\RedemptionRollbackResult.cs" />
+    <Compile Include="DataModel\Sku.cs" />
+    <Compile Include="DataModel\VoucherRedemption.cs" />
+    <Compile Include="DataModel\Customer.cs" />
+    <Compile Include="DataModel\Discount.cs" />
+    <Compile Include="DataModel\DiscountType.cs" />
+    <Compile Include="DataModel\PublishEntry.cs" />
+    <Compile Include="DataModel\RedemptionEntry.cs" />
+    <Compile Include="DataModel\Redemption.cs" />
+    <Compile Include="DataModel\RedemptionEntryResult.cs" />
+    <Compile Include="DataModel\Contexts\RedemptionsFilterContext.cs" />
+    <Compile Include="DataModel\Voucher.cs" />
+    <Compile Include="DataModel\VoucherPublish.cs" />
+    <Compile Include="DataModel\VoucherType.cs" />
+    <Compile Include="DataModel\Contexts\VoucherUpdateContext.cs" />
+    <Compile Include="DataModel\Contexts\VoucherValidationContext.cs" />
+    <Compile Include="DataModel\Results\VoucherValidationResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Voucherify.Client.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
