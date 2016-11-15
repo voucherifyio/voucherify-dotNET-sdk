@@ -11,10 +11,10 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public async Task<DataModel.Product> Create(DataModel.Product product)
+        public async Task<DataModel.Product> Create(DataModel.Contexts.ProductCreate product)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/products");
-            return await this.client.DoPostRequest<DataModel.Product, DataModel.Product>(uriBuilder.Uri, product);
+            return await this.client.DoPostRequest<DataModel.Product, DataModel.Contexts.ProductCreate>(uriBuilder.Uri, product);
         }
 
         public async Task<DataModel.Product> Get(string productId)
@@ -31,14 +31,14 @@ namespace Voucherify.ApiEndpoints
 
         public async Task Delete(string productId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/product/{0}", Uri.EscapeDataString(productId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
             await this.client.DoDeleteRequest(uriBuilder.Uri);
         }
 
-        public async Task<DataModel.Sku> CreateSku(string productId, DataModel.Sku sku)
+        public async Task<DataModel.Sku> CreateSku(string productId, DataModel.Contexts.SkuCreate sku)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
-            return await this.client.DoPostRequest<DataModel.Sku, DataModel.Sku>(uriBuilder.Uri, sku);
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus", Uri.EscapeDataString(productId)));
+            return await this.client.DoPostRequest<DataModel.Sku, DataModel.Contexts.SkuCreate>(uriBuilder.Uri, sku);
         }
 
         public async Task<DataModel.Sku> GetSku(string productId, string skuId)
@@ -47,10 +47,10 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoGetRequest<DataModel.Sku>(uriBuilder.Uri);
         }
 
-        public async Task<DataModel.Sku> UpdateSku(string productId, string skuId, DataModel.Contexts.SkuUpdateContext sku)
+        public async Task<DataModel.Sku> UpdateSku(string productId, string skuId, DataModel.Contexts.SkuUpdate sku)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus/{1}", Uri.EscapeDataString(productId), Uri.EscapeDataString(skuId)));
-            return await this.client.DoPutRequest<DataModel.Sku, DataModel.Contexts.SkuUpdateContext>(uriBuilder.Uri, sku);
+            return await this.client.DoPutRequest<DataModel.Sku, DataModel.Contexts.SkuUpdate>(uriBuilder.Uri, sku);
         }
 
         public async Task DeleteSku(string productId, string skuId)
@@ -61,7 +61,7 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.ProductSkus> ListSkus(string productId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus", Uri.EscapeDataString(productId)));
             return await this.client.DoGetRequest< DataModel.ProductSkus>(uriBuilder.Uri);
         }
     }

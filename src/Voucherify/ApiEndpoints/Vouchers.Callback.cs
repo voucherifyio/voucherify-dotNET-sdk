@@ -20,39 +20,33 @@ namespace Voucherify.ApiEndpoints
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
-        public void Create(DataModel.Voucher voucher, Action<ApiResponse<DataModel.Voucher>> callback)
+        public void Create(DataModel.Contexts.VoucherCreate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/");
             this.client.DoPostRequest(uriBuilder.Uri, voucher, callback);
         }
 
-        public void Create(string code, DataModel.Voucher voucher, Action<ApiResponse<DataModel.Voucher>> callback)
+        public void Create(string code, DataModel.Contexts.VoucherCreate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
             this.client.DoPostRequest(uriBuilder.Uri, voucher, callback);
         }
 
-        public void Update(string code, DataModel.Contexts.VoucherUpdateContext voucher, Action<ApiResponse<DataModel.Voucher>> callback)
+        public void Update(string code, DataModel.Contexts.VoucherUpdate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
             this.client.DoPutRequest(uriBuilder.Uri, voucher, callback);
         }
 
-        public void Delete(string code, DataModel.Queries.VoucherDeleteQuery query, Action<ApiResponse> callback)
+        public void Delete(string code, DataModel.Queries.VoucherDelete query, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
-        public void Publish(DataModel.Queries.VoucherPublishQuery query, Action<ApiResponse> callback)
+        public void Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
-            this.client.DoPostRequest(uriBuilder.Uri, callback);
-        }
-
-        public void Publish(DataModel.Contexts.VoucherPublishContext context, Action<ApiResponse<Core.DataModel.Empty>> callback)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/publish");
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
@@ -68,19 +62,19 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 
-        public void Validate(string code, DataModel.Contexts.VoucherValidationContext context, Action<ApiResponse<DataModel.Results.VoucherValidationResult>> callback)
+        public void Validate(string code, DataModel.Contexts.VoucherValidation context, Action<ApiResponse<DataModel.Results.VoucherValidation>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
-        public void List(DataModel.Contexts.VouchersFilterContext filter, Action<ApiResponse<IList<DataModel.Voucher>>> callback)
+        public void List(DataModel.Queries.VouchersFilter filter, Action<ApiResponse<IList<DataModel.Voucher>>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
-        public void Import(List<DataModel.Voucher> vouchers, Action<ApiResponse<Core.DataModel.Empty>> callback)
+        public void Import(List<DataModel.Contexts.VoucherImport> vouchers, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/import");
             this.client.DoPostRequest(uriBuilder.Uri, vouchers, callback);

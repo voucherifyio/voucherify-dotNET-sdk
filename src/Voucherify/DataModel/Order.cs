@@ -14,15 +14,27 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "items")]
         public List<OrderItem> Items { get; private set; }
 
-        private Order() { }
+        public Order() {
+            this.Items = new List<OrderItem>();
+        }
 
-        public static Order WithAmount(int amount)
+        public Order WithAmount(int amount)
         {
-            return new Order
-            {
-                Amount = amount,
-                Items = new List<OrderItem>()
-            };
+            this.Amount = amount;
+            return this;
+        }
+
+        public Order WithItems(List<OrderItem> items)
+        {
+            this.Items = items;
+            return this;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Order[Amount={0},Entries={1}]", 
+                this.Amount,
+                this.Items != null ? this.Items.Count : 0);
         }
     }
 }

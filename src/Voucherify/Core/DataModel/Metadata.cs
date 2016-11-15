@@ -15,5 +15,10 @@ namespace Voucherify.Core.DataModel
         public Metadata(Dictionary<string, object> dictionary) : base(dictionary ?? new Dictionary<string, object>())
         {
         }
+
+        public override string ToString()
+        {
+            return string.Format("Medatada[Entries={0}]", this.Count);
+        }
     }
 }

@@ -12,25 +12,19 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public void Create(DataModel.Campaign campaign, Action<ApiResponse<DataModel.Campaign>> callback)
+        public void Create(DataModel.Contexts.CampaignCreate campaign, Action<ApiResponse<DataModel.Campaign>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/campaigns/");
             this.client.DoPostRequest(uriBuilder.Uri, campaign, callback);
         }
 
-        public void Get(string name, Action<ApiResponse<DataModel.Campaign>> callback)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
-            this.client.DoGetRequest(uriBuilder.Uri, callback);
-        } 
-
-        public void AddVoucher(string name, DataModel.Contexts.CampaignAddVoucherContext addVoucherContext, Action<ApiResponse<DataModel.Voucher>> callback)
+        public void AddVoucher(string name, DataModel.Contexts.CampaignAddVoucher addVoucherContext, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", Uri.EscapeDataString(name)));
             this.client.DoPostRequest(uriBuilder.Uri, addVoucherContext, callback);
         }
 
-        public void ImportVouchers(string name, List<DataModel.Contexts.CampaignAddVoucherContext> addVoucherContext, Action<ApiResponse<Core.DataModel.Empty>> callback)
+        public void ImportVouchers(string name, List<DataModel.Contexts.CampaignVoucherImport> addVoucherContext, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", Uri.EscapeDataString(name)));
             this.client.DoPostRequest(uriBuilder.Uri, addVoucherContext, callback);

@@ -1,7 +1,7 @@
 Voucherify .Net SDK
 ===
 
-###Version: 3.1.0
+###Version: 4.0.0
 
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
@@ -9,16 +9,29 @@ Voucherify .Net SDK
 * a management console that helps cut down maintenance and reporting overhead
 * an infrastructure to scale up coupon activity in no time
 
-Here you can find a library that makes it easier to integrate your .Net application with Voucherify.
+Here you can find a library that makes it easier to integrate your .Net application (Client and Server) with Voucherify.
 
 Setup
 =====
+
+Server Side Library
+---
 
 ```
 Install-Package Voucherify
 ```
 
-Or simple use libraries from `lib/{target-framework}` folder.
+Client Side Library
+---
+
+```
+Install-Package Voucherify.Client
+```
+
+Or simple use libraries from `lib/{target-framework}` folder:
+
+* `Voucherify.dll` - Server Side Library
+* `Voucherify.Client.dll` - Client Side Library
 
 Dependencies
 ---
@@ -27,29 +40,41 @@ Dependencies
 * [RSG.Promise](https://www.nuget.org/packages/RSG.Promise/) (except version for .Net Framework 2.0)
 * [RestSharpy](https://www.nuget.org/packages/RestSharp/) (except version for .Net Framework 2.0)
 
-Authentication
-===
-
-To create a client simpy add `Voucherify` to usings and create an instance of `VoucherifyClient` class:
-
-```cs
-VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>");
-```
-
-The App Id and App Token can be find in your application settings. [Log-in](http://app.voucherify.io/#/login) to Voucherify web interface and obtain your Application Keys from [Configuration](https://app.voucherify.io/#/app/configuration):
-
-![](https://www.filepicker.io/api/file/WKYkl2bSAWKHccEN9tEG)
-
 .Net Framework Support
 ===
 
-* .Net 2.0
-* .Net 3.5
-* .Net 4.0
-* .Net 4.5
-* PCL (portable45-net45+win8+wp8+wpa81)
+* .Net 2.0 (Server, Client)
+* .Net 3.5 (Server, Client)
+* .Net 3.5 Unity (Client)
+* .Net 4.0 (Server, Client)
+* .Net 4.5 (Server, Client)
+* PCL [portable45-net45+win8+wp8+wpa81] (Server, Client)
 
-Usage .Net 2.0 - .Net 4.0
+Initilization
+===
+
+Server Side:
+---
+
+Your server side keys can be found in your `Project Settings`.
+
+```cs
+var api = new Voucherify.Api("<your-app-id>", "<your-app-token>").WithSSL();
+```
+
+Client Side:
+---
+
+Your client side keys can be found in your `Project Settings`, the same as origin.
+
+```cs
+var api= new Voucherify.Client.Api("<your-client-app-id>", "<your-client-app-token>", "<origin>").WithSSL();
+```
+
+Usage
+===
+
+Callbacks Usage (.Net 2.0 - .Net 4.0)
 ---
 
 ```cs
@@ -57,49 +82,57 @@ Usage .Net 2.0 - .Net 4.0
 using Voucherify;
 
 ...
-	VoucherifyClient client = new VoucherifyClient("<your-app-id>", "<your-app-token>").WithSSL();
-	client.Vouchers.Get("<your-voucher-code>", (response) => 
+	api.Vouchers.Get("<your-voucher-code>", (response) => 
 		{
 			if (response.Exception != null) {
 				Console.WriteLine("Exception: {0}", response.Exception);
 			} 
 			else
 			{
-                		Console.WriteLine("Voucher Code: {0}", response.Result.Code);
+                		Console.WriteLine("Voucher: {0}", response.Result);
 			}
 		});
+...
 ```
 
-
-Usage.Net 4.5 standard + PCL (portable-net45+netcore45+wpa81+wp8)
+Async Usage (.Net 4.5 standard + PCL [portable-net45+netcore45+wpa81+wp8])
 ---
 
 ```cs
 
 using Voucherify;
-using Voucherify.Exceptions;
+using Voucherify.Core.Exceptions;
 
 ...
-	VoucherifyClient client = new VoucherifyClient(app_id, app_token).WithSSL();
-
 	try
-        {
+	{
         	Voucher newVoucher = new Voucher()
-                {
-                    Discount = Discount.WithAmountOff(10),
-                    Type = VoucherType.DiscountVoucher
-                };
+        	{
+                	Discount = Discount.WithAmountOff(10),
+                	Type = VoucherType.DiscountVoucher
+        	};
 
-                Voucher voucher = await client.Vouchers.CreateVoucher(newVoucher);
-		Console.WriteLine("Voucher Code: {0}", voucher.Code);	
+        	Voucher voucher = await api.Vouchers.CreateVoucher(newVoucher);
+		Console.WriteLine("Voucher: {0}", voucher);	
 	}
 	catch (VoucherifyClientException exception)
 	{
 		Console.WriteLine("Exception: {0}", exception);	
 	}
-
 ...
 
+```
+
+Unity
+---
+
+For Unity projects you would need to use libraries from `lib/.net35-Unity` folder and add link.xml files that prevents from stripping.
+
+```xml
+<linker>
+  <assembly fullname="Voucherify.Client" preserve="all"/>
+  <assembly fullname="Newtonsoft.JSON" preserve="all"/>
+</linker>
 ```
 
 Documentation
@@ -107,31 +140,77 @@ Documentation
 
 Documentation will be avaialble later. For futher reference please check source code or check [Voucherify.io API documentation](https://voucherify.readme.io/).
 
-Supported API Methods
+Supported API Methods - Server Side
 ===
 
-- `VoucherifyClient.Vouchers.ListVouchers(filter)`
-- `VoucherifyClient.Vouchers.Get(code)`
-- `VoucherifyClient.Vouchers.CreateVoucher(voucher)`
-- `VoucherifyClient.Vouchers.CreateVoucherWithCode(code, voucher)`
-- `VoucherifyClient.Vouchers.Update(code, voucher)`
-- `VoucherifyClient.Vouchers.DisableVoucher(code)`
-- `VoucherifyClient.Vouchers.EnableVoucher(code)`
-- `VoucherifyClient.Vouchers.Redeem(code, query)`
-- `VoucherifyClient.Vouchers.Redeem(code, context)`
-- `VoucherifyClient.Vouchers.Redemption(code)`
-- `VoucherifyClient.Vouchers.Validate(code, context)`
-- `VoucherifyClient.Redemptions.ListRedemptions(filter)`
-- `VoucherifyClient.Redemptions.Rollback(redemptionId, query)`
-- `VoucherifyClient.Customers.Create(customer)`
-- `VoucherifyClient.Customers.Get(customerId)`
-- `VoucherifyClient.Customers.Update(customerId, customer)`
-- `VoucherifyClient.Customers.Delete(customerId)`
+Vouchers
+---
+
+- `[DataModel.Voucher] Api.Vouchers.Get([string] code)`
+- `[DataModel.Voucher] Api.Vouchers.Create([DataModel.Contexts.VoucherCreate] voucher)`
+- `[DataModel.Voucher] Api.Vouchers.Create([string] code, [DataModel.Contexts.VoucherCreate] voucher)`
+- `[DataModel.Voucher] Api.Vouchers.Update([string] code, [DataModel.Contexts.VoucherUpdate] voucher)`
+- `Api.Vouchers.Delete([string] code, [DataModel.Queries.VoucherDelete] query)`
+- `Api.Vouchers.Publish([DataModel.Queries.VoucherPublish] query, [DataModel.Contexts.VoucherPublish] context)`
+- `Api.Vouchers.Disable([string] code)`
+- `Api.Vouchers.Enable([string] code)`
+- `[DataModel.Results.VoucherValidation] Api.Vouchers.Validate([string] code, [DataModel.Contexts.VoucherValidation] context)`
+- `[IList<DataModel.Voucher>] Api.Vouchers.List([DataModel.Queries.VouchersFilter] filter)`
+- `Api.Vouchers.Import([List<DataModel.Contexts.VoucherImport>] vouchers)`
+
+Redemptions
+---
+
+- `[DataModel.RedemptionList] Api.Redemptions.List([DataModel.Queries.RedemptionsFilter] filter)`
+- `[DataModel.Results.RedemptionRedeem] Api.Redemptions.Redeem([string] voucherCode, [DataModel.Queries.RedemptionRedeem query], [DataModel.Contexts.RedemptionRedeem] context)`
+- `Api.Redemptions.Rollback([string] voucherCode, [DataModel.Queries.RedemptionRollback] query, [DataModel.Contexts.RedemptionRollback] context)`
+- `[DataModel.VoucherRedemption] Api.Redemptions.GetForVoucher([string] voucherCode)`
+
+Campaigns
+---
+
+- `[DataModel.Campaign] Api.Campaigns.Craete([DataModel.Contexts.CampaignCreate] campaign)`
+- `[DataModel.Voucher] Api.Campaigns.AddVoucher([string] name, [ DataModel.Contexts.CampaignAddVoucher] addVoucherContext)`
+- `Api.Campaigns.ImportVouchers([string] name, [List<DataModel.Contexts.CampaignVoucherImport>] addVoucherContext)`
+
+Customers
+--- 
+
+- `[DataModel.Customer] Api.Customers.Create([DataModel.Contexts.CustomerCreate] customer)`
+- `[DataModel.Customer] Api.Customers.Get([string] customerId)`
+- `[DataModel.Customer] Api.Customers.Update([string] customerId, [DataModel.Contexts.CustomerUpdate] customer)`
+- `Api.Customers.Delete([string] customerId)`
+
+Products
+---
+
+- `[DataModel.Product] Api.Products.Create([DataModel.Contexts.ProductCreate] product)`
+- `[DataModel.Product] Api.Products.Get([string] productId)`
+- `[DataModel.ProductList] Api.Products.List()`
+- `Api.Products.Delete([string] productId)`
+- `[DataModel.Sku] Api.Products.Create([string] productId, [DataModel.Contexts.SkuCreate] sku)`
+- `[DataModel.Sku] Api.Products.GetSku([string] productId, [string] skuId)`
+- `[DataModel.Sku] Api.Products.UpdateSku([string] productId, [string] skuId, [DataModel.Contexts.SkuUpdate] sku)`
+- `Api.Products.DeleteSku([string] productId, [string] skuId)`
+- `[DataModel.ProductSkus] Api.Products.ListSkus([string] productId)`
+
+Supported API Methods - ClientSide
+===
+
+Vouchers
+---
+
+- `[DataModel.Results.VoucherValidation] Client.Api.Vouchers.Validate([DataModel.Queries.VoucherValidation] query)`
+
+Redemptions
+---
+
+- `[DataModel.Results.RedemptionRedeem] Client.Api.Redemptions.Redeem([DataModel.Queries.RedemptionRedeem] query, [DataModel.Contexts.RedemptionRedeem] context)`
 
 Changelog
 ===
 
-- **2016-11-11** - `4.0.0` - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Cleint (client side methods). Define Voucherify.Core. Define Voucherify.DataModel. Client Supported Apis: Vouchers, Redemptions. Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products.
+- **2016-11-11** - `4.0.0` - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Client (client side methods). Define Voucherify.Core. Define Voucherify.DataModel. Client Supported Apis: Vouchers, Redemptions. Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products.
 
 -------------------------------
 

@@ -33,6 +33,18 @@ namespace Voucherify.DataModel
         {
             this.Metadata = new Metadata();
         }
+
+        public override string ToString()
+        {
+            return string.Format("RedemptionRollkach[Id={0},Date={1},CustomerId={2},TrackingId={3},Redemption={4},Reason={5},Metadata={6}]",
+                this.Id,
+                this.Date,
+                this.CustomerId,
+                this.TrackingId,
+                this.Redemption,
+                this.Reason,
+                this.Metadata);
+        }
     }
 }
 #endif

@@ -9,25 +9,27 @@ namespace Voucherify.DataModel
     public class VoucherRedemption : ApiObject
     {
         [JsonProperty(PropertyName = "data_ref")]
-        public string DataRef { get; set; }
+        public string DataRef { get; private set; }
 
         [JsonProperty(PropertyName = "quantity")]
-        public int? Quantity { get; set; }
+        public int? Quantity { get; private set; }
 
         [JsonProperty(PropertyName = "redeemed_quantity")]
         public int? RedeemedQuantity { get; private set;  }
 
         [JsonProperty(PropertyName = "redemption_entries")]
-        public List<Redemption> RedemptionEntries { get; private set; }
+        public List<VoucherRedemptionEntry> RedemptionEntries { get; private set; }
 
         public VoucherRedemption()
         {
-            this.RedemptionEntries = new List<Redemption>();
+            this.RedemptionEntries = new List<VoucherRedemptionEntry>();
         }
 
-        public static VoucherRedemption WithQuantity(int limit)
+        public override string ToString()
         {
-            return new VoucherRedemption() { Quantity = limit };
+            return string.Format("VoucherRedemption[Quantity={0},Redeemed={1}]",
+                this.Quantity,
+                this.RedeemedQuantity);
         }
     }
 }

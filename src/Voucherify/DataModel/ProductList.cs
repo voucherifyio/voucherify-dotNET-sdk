@@ -11,10 +11,15 @@ namespace Voucherify.DataModel
     public class ProductList : ApiObject
     {
         [JsonProperty(PropertyName = "total")]
-        public int? Total { get; set; }
+        public int? Total { get; private set; }
 
         [JsonProperty(PropertyName = "products")]
-        public List<Product> Products { get; set; }
+        public List<Product> Products { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("ProductList[Entries={0}]", this.Total);
+        }
     }
 }
 #endif

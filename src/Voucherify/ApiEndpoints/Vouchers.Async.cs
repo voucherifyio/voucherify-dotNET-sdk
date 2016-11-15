@@ -18,40 +18,34 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoGetRequest<DataModel.Voucher>(uriBuilder.Uri);
         }
 
-        public async Task<DataModel.Voucher> Create(DataModel.Voucher voucher)
+        public async Task<DataModel.Voucher> Create(DataModel.Contexts.VoucherCreate voucher)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/");
-            return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher);
+            return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Contexts.VoucherCreate>(uriBuilder.Uri, voucher);
         }
 
-        public async Task<DataModel.Voucher> Create(string code, DataModel.Voucher voucher)
+        public async Task<DataModel.Voucher> Create(string code, DataModel.Contexts.VoucherCreate voucher)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
-            return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Voucher>(uriBuilder.Uri, voucher);
+            return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Contexts.VoucherCreate>(uriBuilder.Uri, voucher);
         }
 
-        public async Task<DataModel.Voucher> Update(string code, DataModel.Contexts.VoucherUpdateContext voucher)
+        public async Task<DataModel.Voucher> Update(string code, DataModel.Contexts.VoucherUpdate voucher)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
-            return await this.client.DoPutRequest< DataModel.Voucher, DataModel.Contexts.VoucherUpdateContext>(uriBuilder.Uri, voucher);
+            return await this.client.DoPutRequest< DataModel.Voucher, DataModel.Contexts.VoucherUpdate>(uriBuilder.Uri, voucher);
         }
 
-        public async Task Delete(string code, DataModel.Queries.VoucherDeleteQuery query)
+        public async Task Delete(string code, DataModel.Queries.VoucherDelete query)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri);
         }
 
-        public async Task Publish(DataModel.Queries.VoucherPublishQuery query)
+        public async Task Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
-            await this.client.DoPostRequest(uriBuilder.Uri);
-        }
-
-        public async Task<Core.DataModel.Empty> Publish(DataModel.Contexts.VoucherPublishContext context)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/publish");
-            return await this.client.DoPostRequest<Core.DataModel.Empty, DataModel.Contexts.VoucherPublishContext>(uriBuilder.Uri, context);
+            await this.client.DoPostRequest<Core.DataModel.Empty, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context);
         }
 
         public async Task Disable(string code)
@@ -66,22 +60,22 @@ namespace Voucherify.ApiEndpoints
             await this.client.DoPostRequest(uriBuilder.Uri);
         }
 
-        public async Task<DataModel.Results.VoucherValidationResult> Validate(string code, DataModel.Contexts.VoucherValidationContext context)
+        public async Task<DataModel.Results.VoucherValidation> Validate(string code, DataModel.Contexts.VoucherValidation context)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
-            return await this.client.DoPostRequest< DataModel.Results.VoucherValidationResult, DataModel.Contexts.VoucherValidationContext>(uriBuilder.Uri, context);
+            return await this.client.DoPostRequest< DataModel.Results.VoucherValidation, DataModel.Contexts.VoucherValidation>(uriBuilder.Uri, context);
         }
 
-        public async Task<IList<DataModel.Voucher>> List(DataModel.Contexts.VouchersFilterContext filter)
+        public async Task<IList<DataModel.Voucher>> List(DataModel.Queries.VouchersFilter filter)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
             return await this.client.DoGetRequest<IList<DataModel.Voucher>>(uriBuilder.Uri);
         }
 
-        public async Task<Core.DataModel.Empty> Import(List<DataModel.Voucher> vouchers)
+        public async Task<Core.DataModel.Empty> Import(List<DataModel.Contexts.VoucherImport> vouchers)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/import");
-            return await this.client.DoPostRequest<Core.DataModel.Empty, List<DataModel.Voucher>>(uriBuilder.Uri, vouchers);
+            return await this.client.DoPostRequest<Core.DataModel.Empty, List<DataModel.Contexts.VoucherImport>>(uriBuilder.Uri, vouchers);
         }
     }
 }

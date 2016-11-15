@@ -38,7 +38,7 @@
         /// <summary>
         /// A HTTP header field used for Voucherify Client origin recognition.
         /// </summary>
-        public const string HttpHeaderClientOrigin = "X-Voucherify-Channel";
+        public const string HttpHeaderClientOrigin = "Origin";
 #endif
 
         /// <summary>

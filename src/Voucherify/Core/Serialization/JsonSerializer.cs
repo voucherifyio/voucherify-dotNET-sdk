@@ -19,12 +19,13 @@ namespace Voucherify.Core.Serialization
             this.settings = settings ?? new JsonSerializerSettings()
             {
                 Formatting = Formatting.None,
+                DateFormatString = "yyyy-MM-ddTHH:mm:ssZ",
                 ContractResolver = new DefaultContractResolver() {
 #if !PORTABLE
                     IgnoreSerializableInterface = true
 #endif
                 },
-                Converters = new List<JsonConverter>() { new JsonEnumValueConverter(), new IsoDateTimeConverter(), new MetadataConverter() },
+                Converters = new List<JsonConverter>() { new JsonEnumValueConverter(), new MetadataConverter() },
             };
         }
 

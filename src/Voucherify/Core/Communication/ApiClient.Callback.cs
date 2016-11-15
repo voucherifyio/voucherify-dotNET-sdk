@@ -81,7 +81,7 @@ namespace Voucherify.Core.Communication
                 client.UploadStringCompleted += (sender, arguments) => {
                     HandleResponse(arguments, callback);
                 };
-                client.UploadStringAsync(uri, string.Empty);
+                client.UploadStringAsync(uri, "{}");
             }
         }
 
@@ -93,7 +93,7 @@ namespace Voucherify.Core.Communication
                 client.UploadStringCompleted += (sender, arguments) => {
                     HandleResponse(arguments, callback);
                 };
-                client.UploadStringAsync(uri, string.Empty);
+                client.UploadStringAsync(uri, "{}");
             }
         }
 
@@ -130,7 +130,7 @@ namespace Voucherify.Core.Communication
                 client.UploadStringCompleted += (sender, arguments) => {
                     HandleResponse(arguments, callback);
                 };
-                client.UploadStringAsync(uri, "DELETE", string.Empty);
+                client.UploadStringAsync(uri, "DELETE", "{}");
             }
         }
 

@@ -19,6 +19,11 @@ namespace Voucherify.DataModel
             this.Count = 0;
             this.Entries = new List<PublishEntry>();
         }
+
+        public override string ToString()
+        {
+            return string.Format("VoucherRedemption[Entries={0}]", this.Count);
+        }
     }
 }
 #endif

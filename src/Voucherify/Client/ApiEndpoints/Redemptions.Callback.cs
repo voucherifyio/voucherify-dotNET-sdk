@@ -11,7 +11,7 @@ namespace Voucherify.Client.ApiEndpoints
         {
         }
 
-        public void Redeem(DataModel.Queries.RedemptionQuery query, DataModel.Contexts.RedemptionContext context, Action<ApiResponse<DataModel.Results.RedemptionResult>> callback)
+        public void Redeem(DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Results.RedemptionRedeem>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/redeem"), query);
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);

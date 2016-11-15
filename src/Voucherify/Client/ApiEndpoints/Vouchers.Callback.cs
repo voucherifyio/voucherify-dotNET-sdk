@@ -11,7 +11,7 @@ namespace Voucherify.Client.ApiEndpoints
         {
         }
 
-        public void Validate(DataModel.Queries.VoucherValidationQuery query, Action<ApiResponse<DataModel.Results.VoucherValidationResult>> callback)
+        public void Validate(DataModel.Queries.VoucherValidation query, Action<ApiResponse<DataModel.Results.VoucherValidation>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/validate"), query);
             this.client.DoGetRequest(uriBuilder.Uri, callback);

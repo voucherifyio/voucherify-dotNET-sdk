@@ -8,22 +8,32 @@ namespace Voucherify.DataModel
     [JsonObject]
     public class Discount : ApiObject
     {
-        [JsonProperty(PropertyName = "type")]
-        public DiscountType Type { get; set; }
+        [JsonProperty(PropertyName = "type", NullValueHandling = NullValueHandling.Ignore)]
+        public DiscountType Type { get; private set; }
 
-        [JsonProperty(PropertyName = "amount_off")]
-        public int? AmountOff { get; set; }
+        [JsonProperty(PropertyName = "amount_off", NullValueHandling = NullValueHandling.Ignore)]
+        public int? AmountOff { get; private set; }
 
-        [JsonProperty(PropertyName = "percent_off")]
-        public double? PercentOff { get; set; }
+        [JsonProperty(PropertyName = "percent_off", NullValueHandling = NullValueHandling.Ignore)]
+        public double? PercentOff { get; private set; }
 
-        [JsonProperty(PropertyName = "unit_off")]
-        public double? UnitOff { get; set; }
+        [JsonProperty(PropertyName = "unit_off", NullValueHandling = NullValueHandling.Ignore)]
+        public double? UnitOff { get; private set; }
 
-        [JsonProperty(PropertyName = "unit_type")]
-        public string UnitType { get; set; }
+        [JsonProperty(PropertyName = "unit_type", NullValueHandling = NullValueHandling.Ignore)]
+        public string UnitType { get; private set; }
 
-        private Discount() { }
+        public Discount() { }
+
+        public override string ToString()
+        {
+            return string.Format("Discount[Type={0},AmountOff={1},PercentOff={2},UnitOff={3},UnitType={4}]",
+                this.Type,
+                this.AmountOff,
+                this.PercentOff,
+                this.UnitOff,
+                this.UnitType);
+        }
 
         public static Discount From(DiscountType type, int value)
         {
@@ -47,24 +57,39 @@ namespace Voucherify.DataModel
             return discount;
         }
 
-        public static Discount WithAmountOff(int amountOff)
+        public Discount WithAmountOff(int amountOff)
         {
-            return new Discount() { Type = DiscountType.Amount, AmountOff = amountOff };
+            this.Type = DiscountType.Amount;
+            this.AmountOff = amountOff;
+            this.UnitOff = null;
+            this.UnitType = null;
+            this.PercentOff = null;
+            return this;
         }
 
-        public static Discount WithPercentOff(double percentOff)
+        public Discount WithPercentOff(double percentOff)
         {
-            return new Discount() { Type = DiscountType.Percent, PercentOff = percentOff };
+            this.Type = DiscountType.Percent;
+            this.AmountOff = null;
+            this.UnitOff = null;
+            this.UnitType = null;
+            this.PercentOff = percentOff;
+            return this;
         }
 
-        public static Discount WithUnitOff(double unitOff)
+        public Discount WithUnitOff(double unitOff)
         {
-            return Discount.WithUnitOff(unitOff, string.Empty);
+            return this.WithUnitOff(unitOff, string.Empty);
         }
 
-        public static Discount WithUnitOff(double unitOff, string unitType)
+        public Discount WithUnitOff(double unitOff, string unitType)
         {
-            return new Discount() { Type = DiscountType.Unit, UnitOff = unitOff, UnitType = unitType };
+            this.Type = DiscountType.Amount;
+            this.AmountOff = null;
+            this.UnitOff = unitOff / 100.0;
+            this.UnitType = unitType;
+            this.PercentOff = null;
+            return this;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Voucherify.Core.Communication
             {
                 try
                 { 
-                    var response = await client.PostAsync(uri, this.PrepareContent(string.Empty));
+                    var response = await client.PostAsync(uri, this.PrepareContent("{}"));
                     await this.EnsureResult(response);
                 }
                 catch (Exception exception)
@@ -75,7 +75,7 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.PostAsync(uri, this.PrepareContent(string.Empty));
+                    var response = await client.PostAsync(uri, this.PrepareContent("{}"));
                     return await EnsureResult<TResult>(response);
                 }
                 catch(Exception exception)
@@ -176,7 +176,6 @@ namespace Voucherify.Core.Communication
         private async Task<TResult> EnsureResult<TResult>(HttpResponseMessage response)
             where TResult : class
         {
-
             string resultString = await response.Content.ReadAsStringAsync();
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)

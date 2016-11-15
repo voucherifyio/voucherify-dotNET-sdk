@@ -12,8 +12,34 @@ namespace Voucherify.Client
         public string Origin { get; private set; }
         public bool Secure { get; private set; }
 
-        public Client.ApiEndpoints.Redemptions Redemptions { get; private set; }
-        public Client.ApiEndpoints.Vouchers Vouchers { get; private set; }
+        private Client.ApiEndpoints.Redemptions redemptions;
+
+        public Client.ApiEndpoints.Redemptions Redemptions {
+            get
+            {
+                if (redemptions == null)
+                {
+                    redemptions = new ApiEndpoints.Redemptions(this);
+                }
+
+                return redemptions;
+            }
+        }
+
+        private Client.ApiEndpoints.Vouchers vouchers;
+
+        public Client.ApiEndpoints.Vouchers Vouchers
+        {
+            get
+            {
+                if (vouchers == null)
+                {
+                    vouchers = new ApiEndpoints.Vouchers(this);
+                }
+
+                return vouchers;
+            }
+        }
 
         public Api(string appId, string appToken, string origin)
         {
@@ -37,26 +63,29 @@ namespace Voucherify.Client
             this.Origin = origin;
             this.Secure = true;
             this.Endpoint = Core.Constants.EndpointApi;
-
-            this.Vouchers = new Client.ApiEndpoints.Vouchers(this);
-            this.Redemptions = new Client.ApiEndpoints.Redemptions(this);
         }
 
         public Api WithSSL()
         {
             this.Secure = true;
+            this.vouchers = null;
+            this.redemptions = null;
             return this;
         }
 
         public Api WithoutSSL()
         {
             this.Secure = false;
+            this.vouchers = null;
+            this.redemptions = null;
             return this;
         }
 
         public Api WithEndpoint(string endpoint)
         {
             this.Endpoint = endpoint;
+            this.vouchers = null;
+            this.redemptions = null;
 
             if (endpoint == null)
             {

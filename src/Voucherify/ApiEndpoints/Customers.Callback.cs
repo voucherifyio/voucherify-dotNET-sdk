@@ -10,7 +10,7 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public void Create(DataModel.Customer customer, Action<ApiResponse<DataModel.Customer>> callback)
+        public void Create(DataModel.Contexts.CustomerCreate customer, Action<ApiResponse<DataModel.Customer>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/customers");
             this.client.DoPostRequest(uriBuilder.Uri, customer, callback);
@@ -22,7 +22,7 @@ namespace Voucherify.ApiEndpoints
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
-        public void Update(string customerId, DataModel.Contexts.CustomerUpdateContext customer, Action<ApiResponse<DataModel.Customer>> callback)
+        public void Update(string customerId, DataModel.Contexts.CustomerUpdate customer, Action<ApiResponse<DataModel.Customer>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
             this.client.DoPutRequest(uriBuilder.Uri, customer, callback);

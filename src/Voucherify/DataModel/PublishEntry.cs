@@ -16,6 +16,14 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "published_at")]
         public DateTime? PublishedAt { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("PublishEntry[Customer={0},Channel={1},PublishedAt={2}]",
+                this.Customer,
+                this.Channel,
+                this.PublishedAt);
+        }
     }
 }
 #endif
