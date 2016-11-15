@@ -43,12 +43,24 @@ Dependencies
 .Net Framework Support
 ===
 
-* .Net 2.0 (Server, Client)
-* .Net 3.5 (Server, Client)
-* .Net 3.5 Unity (Client)
-* .Net 4.0 (Server, Client)
-* .Net 4.5 (Server, Client)
-* PCL [portable45-net45+win8+wp8+wpa81] (Server, Client)
+Server
+---
+
+* .Net 2.0
+* .Net 3.5 
+* .Net 4.0 
+* .Net 4.5
+* PCL [portable45-net45+win8+wp8+wpa81] 
+
+Client
+---
+
+* .Net 2.0
+* .Net 3.5 
+* .Net 3.5 Unity 
+* .Net 4.0 
+* .Net 4.5
+* PCL [portable45-net45+win8+wp8+wpa81] 
 
 Initilization
 ===
@@ -82,14 +94,16 @@ Callbacks Usage (.Net 2.0 - .Net 4.0)
 using Voucherify;
 
 ...
-	api.Vouchers.Get("<your-voucher-code>", (response) => 
+	api.Vouchers.Get(
+		"<your-voucher-code>", 
+		(response) => 
 		{
 			if (response.Exception != null) {
 				Console.WriteLine("Exception: {0}", response.Exception);
 			} 
 			else
 			{
-                		Console.WriteLine("Voucher: {0}", response.Result);
+				Console.WriteLine("Voucher: {0}", response.Result);
 			}
 		});
 ...
@@ -106,13 +120,13 @@ using Voucherify.Core.Exceptions;
 ...
 	try
 	{
-        	Voucher newVoucher = new Voucher()
-        	{
-                	Discount = Discount.WithAmountOff(10),
-                	Type = VoucherType.DiscountVoucher
-        	};
+		Voucher newVoucher = new Voucher()
+		{
+			Discount = Discount.WithAmountOff(10),
+			Type = VoucherType.DiscountVoucher
+		};
 
-        	Voucher voucher = await api.Vouchers.CreateVoucher(newVoucher);
+		Voucher voucher = await api.Vouchers.CreateVoucher(newVoucher);
 		Console.WriteLine("Voucher: {0}", voucher);	
 	}
 	catch (VoucherifyClientException exception)
