@@ -44,10 +44,10 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\lib\Voucherify\net20\Voucherify.dll" target="lib\net20\Voucherify.dll" />
-    <file src="..\..\lib\Voucherify\net35\Voucherify.dll" target="lib\net35\Voucherify.dll" />
-    <file src="..\..\lib\Voucherify\net40\Voucherify.dll" target="lib\net40\Voucherify.dll" />
-    <file src="..\..\lib\Voucherify\net45\Voucherify.dll" target="lib\net45\Voucherify.dll" />
-    <file src="..\..\lib\Voucherify\portable-net45+netcore45+wpa81+wp8\Voucherify.dll" target="lib\portable-net45+netcore45+wpa81+wp8\Voucherify.dll" />
+    <file src="..\..\lib\net20\Voucherify.dll" target="lib\net20\Voucherify.dll" />
+    <file src="..\..\lib\net35\Voucherify.dll" target="lib\net35\Voucherify.dll" />
+    <file src="..\..\lib\net40\Voucherify.dll" target="lib\net40\Voucherify.dll" />
+    <file src="..\..\lib\net45\Voucherify.dll" target="lib\net45\Voucherify.dll" />
+    <file src="..\..\lib\portable-net45+netcore45+wpa81+wp8\Voucherify.dll" target="lib\portable-net45+netcore45+wpa81+wp8\Voucherify.dll" />
   </files>
 </package>
