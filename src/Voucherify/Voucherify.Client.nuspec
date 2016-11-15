@@ -3,7 +3,7 @@
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
     <version>4.0.0.0</version>
-    <title>Voucherify</title>
+    <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
     <licenseUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk/blob/master/license</licenseUrl>
