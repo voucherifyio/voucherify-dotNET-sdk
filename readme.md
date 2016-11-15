@@ -37,8 +37,9 @@ Dependencies
 ---
 
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 
-* [RSG.Promise](https://www.nuget.org/packages/RSG.Promise/) (except version for .Net Framework 2.0)
-* [RestSharpy](https://www.nuget.org/packages/RestSharp/) (except version for .Net Framework 2.0)
+* [Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl/) for .net45 Portable (portable45-net45+win8+wp8+wpa81)
+* [Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build/) for .net45 Portable (portable45-net45+win8+wp8+wpa81)
+* [Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http/) for .net45 Portable (portable45-net45+win8+wp8+wpa81)
 
 .Net Framework Support
 ===
