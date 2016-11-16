@@ -141,14 +141,7 @@ using Voucherify.Core.Exceptions;
 Unity
 ---
 
-For Unity projects you would need to use libraries from `lib/.net35-Unity` folder and add link.xml files that prevents from stripping.
-
-```xml
-<linker>
-  <assembly fullname="Voucherify.Client" preserve="all"/>
-  <assembly fullname="Newtonsoft.JSON" preserve="all"/>
-</linker>
-```
+[Unity Readme](/readme-Unity.md)
 
 Documentation
 ===
