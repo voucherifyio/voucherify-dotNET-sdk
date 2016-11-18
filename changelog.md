@@ -1,6 +1,8 @@
 Voucherify .NET SDK - Changelog
 ===============================
 
+- **2016-11-17** - `4.0.2` - Fixed issue with InternlException serialization
+- **2016-11-17** - `4.0.1` - Remove dependencies for Poratble library to allow use it in Xamarin Applications.
 - **2016-11-16** - `4.0.0` - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Client (client side methods). Define Voucherify.Core. Define Voucherify.DataModel. Client Supported Apis: Vouchers, Redemptions. Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products.
 
 -------------------------------

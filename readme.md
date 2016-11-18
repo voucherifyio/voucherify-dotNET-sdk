@@ -1,7 +1,7 @@
 Voucherify .Net SDK
 ===
 
-###Version: 4.0.0
+###Version: 4.0.2
 
 [Voucherify](http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq) is an API-first platform for software developers who are dissatisfied with high-maintenance custom coupon software. Our product is a coupon infrastructure through API that provides a quicker way to build coupon generation, distribution and tracking. Unlike legacy coupon software we have:
 
@@ -33,37 +33,33 @@ Or simple use libraries from `lib/{target-framework}` folder:
 * `Voucherify.dll` - Server Side Library
 * `Voucherify.Client.dll` - Client Side Library
 
+PCL [portable45-net45+win8+wp8+wpa81] (Server, Client)
+---
+
+There could be a need to install aditional packages in case the assembiels are not available in your framework. Those references has been removed from orignal package to support using Voucherify directly in Xamarin.Droid and Xamarin.iOS enviromente where both: `HttpClient` and `async/await opperations` are supported without additional libs.
+
+```
+Install-Package Microsoft.Net.Http
+Install-Package Microsoft.Bcl
+Install-Package Microsoft.Bcl.Build
+```
+
 Dependencies
 ---
 
 * [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) 
-* [Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl/) for .net45 Portable (portable45-net45+win8+wp8+wpa81)
-* [Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build/) for .net45 Portable (portable45-net45+win8+wp8+wpa81)
-* [Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http/) for .net45 Portable (portable45-net45+win8+wp8+wpa81)
 
 .Net Framework Support
 ===
 
-Server
----
+* .Net 2.0 (Server, Client)
+* .Net 3.5 (Server, Client)
+* .Net 3.5 Unity (Client)
+* .Net 4.0 (Server, Client)
+* .Net 4.5 (Server, Client)
+* PCL [portable45-net45+win8+wp8+wpa81] (Server, Client)
 
-* .Net 2.0
-* .Net 3.5 
-* .Net 4.0 
-* .Net 4.5
-* PCL [portable45-net45+win8+wp8+wpa81] 
-
-Client
----
-
-* .Net 2.0
-* .Net 3.5 
-* .Net 3.5 Unity 
-* .Net 4.0 
-* .Net 4.5
-* PCL [portable45-net45+win8+wp8+wpa81] 
-
-Initilization
+Initialization
 ===
 
 Server Side:
@@ -95,16 +91,14 @@ Callbacks Usage (.Net 2.0 - .Net 4.0)
 using Voucherify;
 
 ...
-	api.Vouchers.Get(
-		"<your-voucher-code>", 
-		(response) => 
+	api.Vouchers.Get("<your-voucher-code>", (response) => 
 		{
 			if (response.Exception != null) {
 				Console.WriteLine("Exception: {0}", response.Exception);
 			} 
 			else
 			{
-				Console.WriteLine("Voucher: {0}", response.Result);
+                		Console.WriteLine("Voucher: {0}", response.Result);
 			}
 		});
 ...
@@ -121,13 +115,13 @@ using Voucherify.Core.Exceptions;
 ...
 	try
 	{
-		Voucher newVoucher = new Voucher()
-		{
-			Discount = Discount.WithAmountOff(10),
-			Type = VoucherType.DiscountVoucher
-		};
+        	Voucher newVoucher = new Voucher()
+        	{
+                	Discount = Discount.WithAmountOff(10),
+                	Type = VoucherType.DiscountVoucher
+        	};
 
-		Voucher voucher = await api.Vouchers.CreateVoucher(newVoucher);
+        	Voucher voucher = await api.Vouchers.CreateVoucher(newVoucher);
 		Console.WriteLine("Voucher: {0}", voucher);	
 	}
 	catch (VoucherifyClientException exception)
@@ -142,6 +136,11 @@ Unity
 ---
 
 [Unity Readme](/readme-Unity.md)
+
+Xamarin
+---
+
+[Xamarin Readme](/readme-Xamarin.md)
 
 Documentation
 ===
@@ -202,7 +201,7 @@ Products
 - `Api.Products.DeleteSku([string] productId, [string] skuId)`
 - `[DataModel.ProductSkus] Api.Products.ListSkus([string] productId)`
 
-Supported API Methods - ClientSide
+Supported API Methods - Client Side
 ===
 
 Vouchers
@@ -218,6 +217,8 @@ Redemptions
 Changelog
 ===
 
+- **2016-11-17** - `4.0.2` - Fixed issue with InternlException serialization
+- **2016-11-17** - `4.0.1` - Remove dependencies for Poratble library to allow use it in Xamarin Applications.
 - **2016-11-16** - `4.0.0` - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Client (client side methods). Define Voucherify.Core. Define Voucherify.DataModel. Client Supported Apis: Vouchers, Redemptions. Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products.
 
 -------------------------------

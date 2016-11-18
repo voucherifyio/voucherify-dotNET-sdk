@@ -168,8 +168,19 @@ namespace Voucherify.Core.Communication
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {
-                Exceptions.VoucherifyClientException exception = this.serializerException.Deserialize(resultString);
-                throw new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                Exceptions.VoucherifyClientException exception;
+
+                try
+                {
+                    exception = this.serializerException.Deserialize(resultString);
+                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                }
+                catch
+                {
+                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString);
+                }
+
+                throw exception;
             }
         }
 
@@ -180,8 +191,19 @@ namespace Voucherify.Core.Communication
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {
-                Exceptions.VoucherifyClientException exception = this.serializerException.Deserialize(resultString);
-                throw new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                Exceptions.VoucherifyClientException exception;
+
+                try
+                {
+                    exception = this.serializerException.Deserialize(resultString);
+                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                }
+                catch
+                {
+                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString);
+                }
+
+                throw exception;
             }
 
             return new Serialization.JsonSerializer<TResult>().Deserialize(resultString);

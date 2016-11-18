@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>4.0.0.0</version>
+    <version>4.0.2.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,12 +11,18 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2016-11-17: 4.0.2:
+      - Fixed issue with InternlException serialization
+      
+      2016-11-17: 4.0.1:
+      - Remove dependencies for Poratble library to allow use it in Xamarin Applications.
+
       2016-11-16: 4.0.0
-       - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Client (client side methods)
-       - Define Voucherify.Core
-       - Define Voucherify.DataModel
-       - Client Supported Apis: Vouchers, Redemptions
-       - Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products
+      - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Client (client side methods)
+      - Define Voucherify.Core
+      - Define Voucherify.DataModel
+      - Client Supported Apis: Vouchers, Redemptions
+      - Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products
 
       Rest available in changelog.md in repository.
     </releaseNotes>
@@ -37,9 +43,6 @@
       </group>
       <group targetFramework="portable-net45+netcore45+wpa81+wp8">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
-        <dependency id="Microsoft.Bcl" version="1.1.10" />
-        <dependency id="Microsoft.Bcl.Build" version="1.0.14" />
-        <dependency id="Microsoft.Net.Http" version="2.2.29" />
       </group>
     </dependencies>
   </metadata>

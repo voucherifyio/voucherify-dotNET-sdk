@@ -171,13 +171,19 @@ namespace Voucherify.Core.Communication
 
                 if (response != null)
                 {
-                    using (var responseStream = response.GetResponseStream())
-                    using (var reader = new StreamReader(responseStream))
+                    try
                     {
-                        callback(ApiResponse<TResult>.WithException<TResult>(this.serializerException.Deserialize(reader.ReadToEnd())));
-                    }
+                        using (var responseStream = response.GetResponseStream())
+                        using (var reader = new StreamReader(responseStream))
+                        {
+                            callback(ApiResponse<TResult>.WithException<TResult>(this.serializerException.Deserialize(reader.ReadToEnd())));
+                        }
 
-                    return;
+                        return;
+                    }
+                    catch
+                    {
+                    }
                 }
             }
 
@@ -201,13 +207,19 @@ namespace Voucherify.Core.Communication
 
                 if (response != null)
                 {
-                    using (var responseStream = response.GetResponseStream())
-                    using (var reader = new StreamReader(responseStream))
+                    try
                     {
-                        callback(ApiResponse.WithException(this.serializerException.Deserialize(reader.ReadToEnd())));
-                    }
+                        using (var responseStream = response.GetResponseStream())
+                        using (var reader = new StreamReader(responseStream))
+                        {
+                            callback(ApiResponse.WithException(this.serializerException.Deserialize(reader.ReadToEnd())));
+                        }
 
-                    return;
+                        return;
+                    }
+                    catch
+                    {
+                    }
                 }
             }
 
