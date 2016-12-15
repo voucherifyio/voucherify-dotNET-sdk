@@ -37,11 +37,15 @@
     <Compile Include="ApiEndpoints\Campaigns.Callback.cs" />
     <Compile Include="ApiEndpoints\Customers.Async.cs" />
     <Compile Include="ApiEndpoints\Customers.Callback.cs" />
+    <Compile Include="ApiEndpoints\Distributions.Async.cs" />
+    <Compile Include="ApiEndpoints\Distributions.Callback.cs" />
     <Compile Include="ApiEndpoints\EndpointBase.cs" />
     <Compile Include="ApiEndpoints\Products.Async.cs" />
     <Compile Include="ApiEndpoints\Products.Callback.cs" />
     <Compile Include="ApiEndpoints\Redemptions.Async.cs" />
     <Compile Include="ApiEndpoints\Redemptions.Callback.cs" />
+    <Compile Include="ApiEndpoints\Validations.Async.cs" />
+    <Compile Include="ApiEndpoints\Validations.Callback.cs" />
     <Compile Include="ApiEndpoints\Vouchers.Async.cs" />
     <Compile Include="ApiEndpoints\Vouchers.Callback.cs" />
     <Compile Include="Core\Attributes\JsonEnumValueAttribute.cs" />

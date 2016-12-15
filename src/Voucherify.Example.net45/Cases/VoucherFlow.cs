@@ -32,7 +32,7 @@ namespace Voucherify.Example.net45.Cases
                     DataModel.Contexts.VoucherUpdate.FromVoucher(voucherGet)
                         .WithAdditionalInfo("Some Additional Text"));
                 Console.WriteLine("[VoucherFlow] (Update) Result: {0}", voucherUpdate);
-                var voucherValidate = await api.Vouchers.Validate(voucherGet.Code,
+                var voucherValidate = await api.Validations.ValidateVoucher(voucherGet.Code,
                     new DataModel.Contexts.VoucherValidation()
                     {
                         TrackingId = "Sample Tracking Id"

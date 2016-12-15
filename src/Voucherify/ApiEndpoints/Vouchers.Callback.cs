@@ -13,7 +13,7 @@ namespace Voucherify.ApiEndpoints
         public Vouchers(Api api) : base(api)
         {
         }
-        
+
         public void Get(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
@@ -44,6 +44,7 @@ namespace Voucherify.ApiEndpoints
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
+        [Obsolete(message: "This method is obsolete. Use api.Distributions.Publish() instead.", error: false)]
         public void Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
@@ -62,6 +63,7 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 
+        [Obsolete(message: "This method is obsolete. Use api.Validations.ValidateVoucher() instead.", error: false)]
         public void Validate(string code, DataModel.Contexts.VoucherValidation context, Action<ApiResponse<DataModel.Results.VoucherValidation>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
