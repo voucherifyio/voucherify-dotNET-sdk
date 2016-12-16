@@ -235,7 +235,9 @@ public void Create(DataModel.Contexts.CampaignCreate campaign, Action<ApiRespons
 ```
 #### [Get Campaign]
 ```csharp
-// TODO
+public async Task<DataModel.Campaign> Get(string name)
+
+public void Get(string name, Action<ApiResponse<DataModel.Campaign>> callback)
 ```
 #### [Add Voucher to Campaign]
 ```csharp
