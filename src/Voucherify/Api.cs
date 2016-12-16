@@ -86,6 +86,36 @@ namespace Voucherify
             }
         }
 
+        private ApiEndpoints.Validations validations;
+
+        public ApiEndpoints.Validations Validations
+        {
+            get
+            {
+                if (validations == null)
+                {
+                    validations = new ApiEndpoints.Validations(this);
+                }
+
+                return validations;
+            }
+        }
+
+        private ApiEndpoints.Distributions distributions;
+
+        public ApiEndpoints.Distributions Distributions
+        {
+            get
+            {
+                if (distributions == null)
+                {
+                    distributions = new ApiEndpoints.Distributions(this);
+                }
+
+                return distributions;
+            }
+        }
+
         public Api(string appId, string appToken)
         {
             if (string.IsNullOrEmpty(appToken))

@@ -10,7 +10,7 @@ namespace Voucherify.Example.net45.Cases
             try
             { 
                 var serverApi = new Voucherify.Api("<invalid-app>", "<invalid-token>");
-                var result = await serverApi.Vouchers.Validate("<invalid_code>", new DataModel.Contexts.VoucherValidation());
+                var result = await serverApi.Validations.ValidateVoucher("<invalid_code>", new DataModel.Contexts.VoucherValidation());
                 Console.WriteLine("[ApiUnauthorized] Result: {0}", result);
             }
             catch (Exception e)

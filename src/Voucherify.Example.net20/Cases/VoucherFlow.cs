@@ -51,7 +51,7 @@ namespace Voucherify.Example.net20.Cases
                                     }
 
                                     Console.WriteLine("[VoucherFlow] (Update) Result: {0}", responseUpdate.Result);
-                                    api.Vouchers.Validate(
+                                    api.Validations.ValidateVoucher(
                                         responseGet.Result.Code,
                                         new DataModel.Contexts.VoucherValidation() { TrackingId = "Sample Tracking Id" },
                                         (responseValidate) => {
