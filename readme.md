@@ -141,11 +141,11 @@ api.Vouchers.Get("<your-voucher-code>", (response) =>
 
 ## Unity
 
-[Unity README](/README-Unity.MD)
+[Unity README](/Readme-Unity.md)
 
 ## Xamarin
 
-[Xamarin README](/README-Xamarin.MD)
+[Xamarin README](/Readme-Xamarin.md)
 
 ## API
 
