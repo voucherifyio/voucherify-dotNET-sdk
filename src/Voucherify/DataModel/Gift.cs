@@ -10,6 +10,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "amount")]
         public int Amount { get; private set; }
 
+        [JsonProperty(PropertyName = "balance")]
+        public int Balance { get; private set; }
+
         public Gift() { }
 
         public Gift WithAmount(int amount)
@@ -18,9 +21,15 @@ namespace Voucherify.DataModel
             return this;
         }
 
+        public Gift WithBalance(int balance)
+        {
+            this.Balance = balance;
+            return this;
+        }
+
         public override string ToString()
         {
-            return string.Format("Gift[Amount={0}]", this.Amount);
+            return string.Format("Gift[Amount={0},Balance={1}]", this.Amount, this.Balance);
         }
     }
 }
