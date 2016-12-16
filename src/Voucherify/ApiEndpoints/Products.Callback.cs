@@ -22,18 +22,24 @@ namespace Voucherify.ApiEndpoints
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
+        public void Update(string productId, DataModel.Contexts.ProductUpdate product, Action<ApiResponse<DataModel.Product>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
+            this.client.DoPutRequest(uriBuilder.Uri, product, callback);
+        }
+
         public void List(Action<ApiResponse<DataModel.ProductList>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/products");
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
-        
+
         public void Delete(string productId, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
-        
+
         public void CreateSku(string productId, DataModel.Contexts.SkuCreate sku, Action<ApiResponse<DataModel.Sku>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus", Uri.EscapeDataString(productId)));
