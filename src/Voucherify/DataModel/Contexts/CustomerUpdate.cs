@@ -24,7 +24,7 @@ namespace Voucherify.DataModel.Contexts
         {
             this.Metadata = new Metadata();
         }
-        
+
         public static CustomerUpdate FromEmpty()
         {
             return new CustomerUpdate();
@@ -49,7 +49,7 @@ namespace Voucherify.DataModel.Contexts
                 Name = customer.Name,
                 Email = customer.Email,
                 Description = customer.Description,
-                Metadata = customer.Metadata
+                Metadata = metadata
             };
         }
 

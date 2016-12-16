@@ -82,6 +82,7 @@
     <Compile Include="DataModel\CodeConfig.cs" />
     <Compile Include="DataModel\Contexts\CampaignVoucherCreate.cs" />
     <Compile Include="DataModel\Contexts\CampaignVoucherImport.cs" />
+    <Compile Include="DataModel\Contexts\ProductUpdate.cs" />
     <Compile Include="DataModel\Contexts\VoucherImport.cs" />
     <Compile Include="DataModel\Contexts\VoucherRedemption.cs" />
     <Compile Include="DataModel\Contexts\CampaignCreate.cs" />
