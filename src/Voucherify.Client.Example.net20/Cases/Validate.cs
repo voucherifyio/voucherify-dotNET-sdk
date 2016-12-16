@@ -8,9 +8,10 @@ namespace Voucherify.Client.Example.net20.Cases
     {
         public static void Run(Voucherify.Client.Api api)
         {
-            api.Vouchers.Validate(
+            api.Validations.ValidateVoucher(
                 new DataModel.Queries.VoucherValidation() { Code = "<voucher_code>" },
-                (response) => {
+                (response) =>
+                {
                     if (response.Exception != null)
                     {
                         Console.WriteLine("[Validate]  Exception: {0}", response.Exception);

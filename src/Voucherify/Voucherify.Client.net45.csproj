@@ -36,6 +36,8 @@
     <Compile Include="Client\ApiEndpoints\EndpointBase.cs" />
     <Compile Include="Client\ApiEndpoints\Redemptions.Async.cs" />
     <Compile Include="Client\ApiEndpoints\Redemptions.Callback.cs" />
+    <Compile Include="Client\ApiEndpoints\Validations.Async.cs" />
+    <Compile Include="Client\ApiEndpoints\Validations.Callback.cs" />
     <Compile Include="Client\ApiEndpoints\Vouchers.Async.cs" />
     <Compile Include="Client\ApiEndpoints\Vouchers.Callback.cs" />
     <Compile Include="Core\Attributes\JsonEnumValueAttribute.cs" />

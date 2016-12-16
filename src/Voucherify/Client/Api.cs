@@ -14,7 +14,8 @@ namespace Voucherify.Client
 
         private Client.ApiEndpoints.Redemptions redemptions;
 
-        public Client.ApiEndpoints.Redemptions Redemptions {
+        public Client.ApiEndpoints.Redemptions Redemptions
+        {
             get
             {
                 if (redemptions == null)
@@ -38,6 +39,21 @@ namespace Voucherify.Client
                 }
 
                 return vouchers;
+            }
+        }
+
+        private Client.ApiEndpoints.Validations validations;
+
+        public Client.ApiEndpoints.Validations Validations
+        {
+            get
+            {
+                if (validations == null)
+                {
+                    validations = new ApiEndpoints.Validations(this);
+                }
+
+                return validations;
             }
         }
 

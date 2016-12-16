@@ -42,7 +42,7 @@ namespace Voucherify.ApiEndpoints
             await this.client.DoDeleteRequest(uriBuilder.Uri);
         }
 
-        [Obsolete(message: "This method is obsolete. Use api.Distributions.Publish() instead.", error: false)]
+        [Obsolete(message: "This method is obsolete. Use Api.Distributions.Publish() instead.", error: false)]
         public async Task Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
@@ -61,7 +61,7 @@ namespace Voucherify.ApiEndpoints
             await this.client.DoPostRequest(uriBuilder.Uri);
         }
 
-        [Obsolete(message: "This method is obsolete. Use api.Validations.ValidateVoucher() instead.", error: false)]
+        [Obsolete(message: "This method is obsolete. Use Api.Validations.ValidateVoucher() instead.", error: false)]
         public async Task<DataModel.Results.VoucherValidation> Validate(string code, DataModel.Contexts.VoucherValidation context)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
