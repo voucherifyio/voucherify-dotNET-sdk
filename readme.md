@@ -435,7 +435,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-- **2016-12-16** - `4.1.0` - Added missing methods. Created two additional namespaces: Validations and Distributions.
+- **2016-12-19** - `4.1.0` - Added missing methods. Created two additional namespaces: Validations and Distributions. Support for gift.balance (for Gift Vouchers).
 - **2016-11-17** - `4.0.2` - Fixed issue with InnerException serialization
 - **2016-11-17** - `4.0.1` - Remove dependencies for Portable library to allow use it in Xamarin Applications.
 - **2016-11-16** - `4.0.0` - Define separated libraries: Voucherify (server side methods) and Voucherify.Client (client side methods). Define Voucherify.Core. Define Voucherify.DataModel. Client Supported Apis: Vouchers, Redemptions. Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products.
