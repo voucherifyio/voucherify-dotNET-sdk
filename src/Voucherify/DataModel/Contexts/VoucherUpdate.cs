@@ -23,6 +23,9 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "additional_info")]
         public string AdditionalInfo { get; private set; }
 
+        [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
+        public GiftUpdate Gift { get; private set; }
+
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
@@ -49,7 +52,7 @@ namespace Voucherify.DataModel.Contexts
                     metadata.Add(key, voucher.Metadata[key]);
                 }
             }
-            
+
             return new VoucherUpdate()
             {
                 AdditionalInfo = voucher.AdditionalInfo,
@@ -94,6 +97,12 @@ namespace Voucherify.DataModel.Contexts
         public VoucherUpdate WithMetadata(Metadata metadata)
         {
             this.Metadata = metadata;
+            return this;
+        }
+
+        public VoucherUpdate WithGift(GiftUpdate gift)
+        {
+            this.Gift = gift;
             return this;
         }
     }

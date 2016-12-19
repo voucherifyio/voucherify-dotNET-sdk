@@ -8,7 +8,7 @@ namespace Voucherify.Example.net45.Cases
         public static async Task Run()
         {
             try
-            { 
+            {
                 var serverApi = new Voucherify.Api("<invalid-app>", "<invalid-token>");
                 var result = await serverApi.Validations.ValidateVoucher("<invalid_code>", new DataModel.Contexts.VoucherValidation());
                 Console.WriteLine("[ApiUnauthorized] Result: {0}", result);

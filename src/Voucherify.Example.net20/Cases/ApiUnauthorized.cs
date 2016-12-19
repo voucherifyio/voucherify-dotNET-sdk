@@ -11,8 +11,8 @@ namespace Voucherify.Example.net20.Cases
             var serverApi = new Voucherify.Api("<invalid-app>", "<invalid-token>");
 
             serverApi.Validations.ValidateVoucher(
-                "<invalid_code>", 
-                new DataModel.Contexts.VoucherValidation(), 
+                "<invalid_code>",
+                new DataModel.Contexts.VoucherValidation(),
                 (response) =>
                 {
                     if (response.Exception != null)

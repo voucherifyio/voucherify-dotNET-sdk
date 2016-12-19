@@ -46,7 +46,7 @@ namespace Voucherify.Example.net45.Cases
                 Console.WriteLine("[Redemption] (Delete) Done");
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("[Redemption] Exception: {0}", e);
             }

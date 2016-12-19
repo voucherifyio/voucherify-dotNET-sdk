@@ -26,7 +26,8 @@ namespace Voucherify.Example.net20.Cases
             api.Campaigns.ImportVouchers(
                 "TEST-SDK-16",
                 vouchers,
-                (responseImport) => {
+                (responseImport) =>
+                {
                     if (responseImport.Exception != null)
                     {
                         Console.WriteLine("[CampaignVoucherImport] Exception: {0}", responseImport.Exception);

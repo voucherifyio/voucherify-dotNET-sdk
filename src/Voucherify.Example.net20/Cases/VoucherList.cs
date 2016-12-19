@@ -7,9 +7,10 @@ namespace Voucherify.Example.net20.Cases
         public static void Run(Voucherify.Api api)
         {
             api.Vouchers.List(
-                new DataModel.Queries.VouchersFilter() { Limit = 5 }, 
-                (response) => {
-                    if(response.Exception != null)
+                new DataModel.Queries.VouchersFilter() { Limit = 5 },
+                (response) =>
+                {
+                    if (response.Exception != null)
                     {
                         Console.WriteLine("[VoucherList] (List) Exception: {0}", response.Exception);
                         return;

@@ -9,7 +9,8 @@ namespace Voucherify.Example.net20.Cases
         public static void Run(Voucherify.Api api)
         {
             api.Campaigns.Create(
-                new DataModel.Contexts.CampaignCreate() {
+                new DataModel.Contexts.CampaignCreate()
+                {
                     Name = "TEST-SDK-16",
                     Type = DataModel.CampaignType.Static,
                     VouchersCount = 10,
@@ -17,8 +18,9 @@ namespace Voucherify.Example.net20.Cases
                     {
                         Redemption = new DataModel.Contexts.VoucherRedemption().SingleUse()
                     }.WithDiscount(new DataModel.Discount().WithPercentOff(20))
-                }, 
-                (responseCreate) => {
+                },
+                (responseCreate) =>
+                {
                     if (responseCreate.Exception != null)
                     {
                         Console.WriteLine("[CampaignFlow] (Create) Exception: {0}", responseCreate.Exception);
@@ -35,7 +37,8 @@ namespace Voucherify.Example.net20.Cases
                             AdditionalInfo = "DESC",
                             VoucherRedemption = new DataModel.Contexts.VoucherRedemption().WithQuantity(3)
                         },
-                        (responseAdd) => {
+                        (responseAdd) =>
+                        {
                             if (responseAdd.Exception != null)
                             {
                                 Console.WriteLine("[CampaignFlow] (Add) Exception: {0}", responseAdd.Exception);
@@ -44,7 +47,7 @@ namespace Voucherify.Example.net20.Cases
 
                             Console.WriteLine("[CampaignFlow] (Add) Result: {0}", responseAdd.Result);
                         });
-            });
+                });
         }
     }
 }

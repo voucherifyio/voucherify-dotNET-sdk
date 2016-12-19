@@ -8,15 +8,16 @@ namespace Voucherify.Example.net20.Cases
     {
         public static void Run(Voucherify.Api api)
         {
-            api.Products.List((response) => {
-                    if (response.Exception != null)
-                    {
-                        Console.WriteLine("[ProductList] (List) Exception: {0}", response.Exception);
-                        return;
-                    }
+            api.Products.List((response) =>
+            {
+                if (response.Exception != null)
+                {
+                    Console.WriteLine("[ProductList] (List) Exception: {0}", response.Exception);
+                    return;
+                }
 
-                    Console.WriteLine("[ProductList] (List) Result: {0}", response.Result);
-                });
+                Console.WriteLine("[ProductList] (List) Result: {0}", response.Result);
+            });
         }
     }
 }
