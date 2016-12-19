@@ -18,6 +18,12 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPostRequest(uriBuilder.Uri, campaign, callback);
         }
 
+        public void Get(string name, Action<ApiResponse<DataModel.Campaign>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
+            this.client.DoGetRequest(uriBuilder.Uri, callback);
+        }
+
         public void AddVoucher(string name, DataModel.Contexts.CampaignAddVoucher addVoucherContext, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", Uri.EscapeDataString(name)));

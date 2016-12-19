@@ -24,7 +24,7 @@ namespace Voucherify.DataModel.Contexts
         public Discount Discount { get; private set; }
 
         [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
-        public Gift Gift { get; private set; }
+        public GiftCreate Gift { get; private set; }
 
         [JsonProperty(PropertyName = "start_date")]
         public DateTime? StartDate { get; set; }
@@ -57,7 +57,7 @@ namespace Voucherify.DataModel.Contexts
             return this;
         }
 
-        public VoucherCreate WithGift(Gift gift)
+        public VoucherCreate WithGift(GiftCreate gift)
         {
             this.Discount = null;
             this.Gift = gift;

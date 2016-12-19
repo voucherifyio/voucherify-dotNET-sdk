@@ -32,9 +32,9 @@ namespace Voucherify.Example.net20.Cases
                     Console.WriteLine("[Redemption] (Create) Result: {0}", responseCreate.Result);
 
                     api.Redemptions.Redeem(
-                        responseCreate.Result.Code, 
+                        responseCreate.Result.Code,
                         new DataModel.Queries.RedemptionRedeem(),
-                        new DataModel.Contexts.RedemptionRedeem() {}.WithCustomerId("bandraszyk@gmail.com"),
+                        new DataModel.Contexts.RedemptionRedeem() { }.WithCustomerId("bandraszyk@gmail.com"),
                         (responseRedeem) =>
                         {
                             if (responseRedeem.Exception != null)
@@ -60,7 +60,8 @@ namespace Voucherify.Example.net20.Cases
                                         responseRedeem.Result.Id,
                                         new DataModel.Queries.RedemptionRollback(),
                                         new DataModel.Contexts.RedemptionRollback().WithCustomerId("bandraszyk@gmail.com"),
-                                        (responseRollback) => {
+                                        (responseRollback) =>
+                                        {
                                             if (responseRollback.Exception != null)
                                             {
                                                 Console.WriteLine("[Redemption] (Rollback) Exception: {0}", responseRollback.Exception);
@@ -73,7 +74,8 @@ namespace Voucherify.Example.net20.Cases
                                             api.Vouchers.Delete(
                                                 responseCreate.Result.Code,
                                                 new DataModel.Queries.VoucherDelete() { Force = true },
-                                                (responseDelete) => {
+                                                (responseDelete) =>
+                                                {
                                                     if (responseDelete.Exception != null)
                                                     {
                                                         Console.WriteLine("[Redemption] (Delete) Exception: {0}", responseDelete.Exception);

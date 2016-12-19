@@ -13,11 +13,11 @@ namespace Voucherify.Client.Example.net45.Cases
             try
             {
                 var redemption = await api.Redemptions.Redeem(
-                    new DataModel.Queries.RedemptionRedeem() { Code = "<voucher_code>" }, 
+                    new DataModel.Queries.RedemptionRedeem() { Code = "<voucher_code>" },
                     new DataModel.Contexts.RedemptionRedeem().WithCustomerId("customer@test.com"));
                 Console.WriteLine("[Redeem]  Result: {0}", redemption);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("[Redeem]  Exception: {0}", e);
             }

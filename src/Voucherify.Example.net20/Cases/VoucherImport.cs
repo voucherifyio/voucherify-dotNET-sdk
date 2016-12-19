@@ -38,7 +38,8 @@ namespace Voucherify.Example.net20.Cases
                     })
             }.WithDiscount(new DataModel.Discount().WithPercentOff(69)));
 
-            api.Vouchers.Import(vouchers, (response) => {
+            api.Vouchers.Import(vouchers, (response) =>
+            {
                 if (response.Exception != null)
                 {
                     Console.WriteLine("[VoucherImport] Exception: {0}", response.Exception);
