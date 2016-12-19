@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>4.0.2.0</version>
+    <version>4.1.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,8 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2016-12-19: 4.1.0:
+      - Added missing methods. Created two additional namespaces: Validations and Distributions.
+      - Support for gift.balance (for Gift Vouchers).
+      
       2016-11-17: 4.0.2:
-      - Fixed issue with InnerException  serialization
+      - Fixed issue with InnerException serialization
 
       2016-11-17: 4.0.1:
       - Remove dependencies for Portable library to allow use it in Xamarin Applications.
@@ -24,7 +28,7 @@
       - Client Supported Apis: Vouchers, Redemptions
       - Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products
 
-      Rest available in changelog.md in repository.
+      Rest available in readme.md in repository.
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>Voucher Coupon Discount Voucherify Voucherify.io Rspective</tags>
