@@ -50,7 +50,6 @@
     <Compile Include="Cases\ProductList.cs" />
     <Compile Include="Cases\RedemptionFlow.cs" />
     <Compile Include="Cases\RedemptionList.cs" />
-    <Compile Include="Cases\TestClass.cs" />
     <Compile Include="Cases\VoucherFlow.cs" />
     <Compile Include="Cases\VoucherImport.cs" />
     <Compile Include="Cases\VoucherList.cs" />
