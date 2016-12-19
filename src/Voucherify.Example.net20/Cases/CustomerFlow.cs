@@ -42,7 +42,8 @@ namespace Voucherify.Example.net20.Cases
                             DataModel.Contexts.CustomerUpdate.FromCustomer(responseCreate.Result)
                                 .WithDescription("Test Description Updated")
                                 .WithName("Bandro Updated"),
-                            (responseUpdate) => {
+                            (responseUpdate) =>
+                            {
                                 if (responseUpdate.Exception != null)
                                 {
                                     Console.WriteLine("[CustomerFlow] (Update) Exception: {0}", responseUpdate.Exception);

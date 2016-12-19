@@ -8,7 +8,8 @@ namespace Voucherify.Example.net20.Cases
         {
             api.Redemptions.List(
                 new DataModel.Queries.RedemptionsFilter() { Limit = 5 },
-                (response) => {
+                (response) =>
+                {
                     if (response.Exception != null)
                     {
                         Console.WriteLine("[RedemptionList] (List) Exception: {0}", response.Exception);

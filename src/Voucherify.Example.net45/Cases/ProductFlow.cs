@@ -48,7 +48,7 @@ namespace Voucherify.Example.net45.Cases
             catch (Exception e)
             {
                 Console.WriteLine("[ProductFlow] Exception: {0}", e);
-            }         
+            }
         }
     }
 }

@@ -15,18 +15,6 @@ namespace Voucherify.DataModel
 
         public Gift() { }
 
-        public Gift WithAmount(int amount)
-        {
-            this.Amount = amount;
-            return this;
-        }
-
-        public Gift WithBalance(int balance)
-        {
-            this.Balance = balance;
-            return this;
-        }
-
         public override string ToString()
         {
             return string.Format("Gift[Amount={0},Balance={1}]", this.Amount, this.Balance);

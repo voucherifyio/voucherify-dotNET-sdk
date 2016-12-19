@@ -44,7 +44,7 @@ namespace Voucherify.Example.net45.Cases
                 var voucherImport = await api.Vouchers.Import(vouchers);
                 Console.WriteLine("[VoucherImport] Result: {0}", voucherImport);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("[VoucherImport] Exception: {0}", e);
             }

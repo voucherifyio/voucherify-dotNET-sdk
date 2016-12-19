@@ -8,7 +8,7 @@ namespace Voucherify.Example.net45.Cases
         public async static Task Run(Voucherify.Api api)
         {
             try
-            { 
+            {
                 var campaignCreate = await api.Campaigns.Create(
                     new DataModel.Contexts.CampaignCreate()
                     {

@@ -13,7 +13,8 @@ namespace Voucherify.Example.net20.Cases
                 {
                     Attributes = new List<string>() { "color", "size" },
                     Name = "TEST Product"
-                }, (responseCreate) => {
+                }, (responseCreate) =>
+                {
                     if (responseCreate.Exception != null)
                     {
                         Console.WriteLine("[ProductFlow] (Create) Exception: {0}", responseCreate.Exception);
@@ -21,8 +22,9 @@ namespace Voucherify.Example.net20.Cases
                     }
 
                     Console.WriteLine("[ProductFlow] (Create) Result: {0}", responseCreate.Result);
-                    api.Products.Get(responseCreate.Result.Id, 
-                        (responseGet) => {
+                    api.Products.Get(responseCreate.Result.Id,
+                        (responseGet) =>
+                        {
                             if (responseGet.Exception != null)
                             {
                                 Console.WriteLine("[ProductFlow] (Get) Exception: {0}", responseGet.Exception);
@@ -40,7 +42,8 @@ namespace Voucherify.Example.net20.Cases
                                         { "size", "M" }
                                     })
                                 },
-                                (responseCreateSku) => {
+                                (responseCreateSku) =>
+                                {
                                     if (responseCreateSku.Exception != null)
                                     {
                                         Console.WriteLine("[ProductFlow] (CreateSku) Exception: {0}", responseCreateSku.Exception);
@@ -51,7 +54,8 @@ namespace Voucherify.Example.net20.Cases
                                     api.Products.GetSku(
                                         responseGet.Result.Id,
                                         responseCreateSku.Result.Id,
-                                        (responseGetSku) => {
+                                        (responseGetSku) =>
+                                        {
                                             if (responseCreateSku.Exception != null)
                                             {
                                                 Console.WriteLine("[ProductFlow] (GetSku) Exception: {0}", responseGetSku.Exception);
@@ -65,7 +69,8 @@ namespace Voucherify.Example.net20.Cases
                                                 DataModel.Contexts.SkuUpdate.FromSku(responseGetSku.Result)
                                                     .WithCurrency("USD")
                                                     .WithPrice(100),
-                                                (responseUpdateSku) => {
+                                                (responseUpdateSku) =>
+                                                {
                                                     if (responseUpdateSku.Exception != null)
                                                     {
                                                         Console.WriteLine("[ProductFlow] (UpdateSku) Exception: {0}", responseUpdateSku.Exception);
@@ -75,7 +80,8 @@ namespace Voucherify.Example.net20.Cases
                                                     Console.WriteLine("[ProductFlow] (UpdateSku) Result: {0}", responseUpdateSku.Result);
                                                     api.Products.ListSkus(
                                                         responseGet.Result.Id,
-                                                        (responseListSku) => {
+                                                        (responseListSku) =>
+                                                        {
                                                             if (responseListSku.Exception != null)
                                                             {
                                                                 Console.WriteLine("[ProductFlow] (ListSkus) Exception: {0}", responseListSku.Exception);
@@ -86,7 +92,8 @@ namespace Voucherify.Example.net20.Cases
                                                             api.Products.DeleteSku(
                                                                 responseGet.Result.Id,
                                                                 responseGetSku.Result.Id,
-                                                                (repsonseDeleteSku) => {
+                                                                (repsonseDeleteSku) =>
+                                                                {
                                                                     if (repsonseDeleteSku.Exception != null)
                                                                     {
                                                                         Console.WriteLine("[ProductFlow] (DeleteSku) Exception: {0}", repsonseDeleteSku.Exception);
@@ -96,7 +103,8 @@ namespace Voucherify.Example.net20.Cases
                                                                     Console.WriteLine("[ProductFlow] (DeleteSku) Done}");
                                                                     api.Products.Delete(
                                                                         responseGet.Result.Id,
-                                                                        (repsonseDelete) => {
+                                                                        (repsonseDelete) =>
+                                                                        {
                                                                             if (repsonseDelete.Exception != null)
                                                                             {
                                                                                 Console.WriteLine("[ProductFlow] (Delete) Exception: {0}", repsonseDelete.Exception);
