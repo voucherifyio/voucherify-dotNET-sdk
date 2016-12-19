@@ -27,7 +27,7 @@ This is a sample file that keeps all types from both libraries, but if you are r
 How?
 ---
 
-```
+```csharp
 using System;
 using System.Collections;
 using UnityEngine;
