@@ -14,25 +14,25 @@ namespace Voucherify.ApiEndpoints
         public async Task<DataModel.Customer> Create(DataModel.Contexts.CustomerCreate customer)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/customers");
-            return await this.client.DoPostRequest<DataModel.Customer, DataModel.Contexts.CustomerCreate>(uriBuilder.Uri, customer);
+            return await this.client.DoPostRequest<DataModel.Customer, DataModel.Contexts.CustomerCreate>(uriBuilder.Uri, customer).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Customer> Get(string customerId)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
-            return await this.client.DoGetRequest<DataModel.Customer>(uriBuilder.Uri);
+            return await this.client.DoGetRequest<DataModel.Customer>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Customer> Update(string customerId, DataModel.Contexts.CustomerUpdate customer)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
-            return await this.client.DoPutRequest<DataModel.Customer, DataModel.Contexts.CustomerUpdate>(uriBuilder.Uri, customer);
+            return await this.client.DoPutRequest<DataModel.Customer, DataModel.Contexts.CustomerUpdate>(uriBuilder.Uri, customer).ConfigureAwait(false);
         }
 
         public async Task Delete(string customerId)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
-            await this.client.DoDeleteRequest(uriBuilder.Uri);
+            await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Voucherify.ApiEndpoints
         public async Task Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
-            await this.client.DoPostRequest<Core.DataModel.Empty, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context);
+            await this.client.DoPostRequest<Core.DataModel.Empty, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
     }
 }

@@ -32,8 +32,8 @@ namespace Voucherify.Core.Communication
             {
                 try
                 { 
-                    var response = await client.GetAsync(uri);
-                    return await EnsureResult<TResult>(response);
+                    var response = await client.GetAsync(uri).ConfigureAwait(false);
+                    return await EnsureResult<TResult>(response).ConfigureAwait(false);
                 }
                 catch(Exception exception)
                 {
@@ -53,8 +53,8 @@ namespace Voucherify.Core.Communication
             {
                 try
                 { 
-                    var response = await client.PostAsync(uri, this.PrepareContent("{}"));
-                    await this.EnsureResult(response);
+                    var response = await client.PostAsync(uri, this.PrepareContent("{}")).ConfigureAwait(false);
+                    await this.EnsureResult(response).ConfigureAwait(false);
                 }
                 catch (Exception exception)
                 {
@@ -75,8 +75,8 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.PostAsync(uri, this.PrepareContent("{}"));
-                    return await EnsureResult<TResult>(response);
+                    var response = await client.PostAsync(uri, this.PrepareContent("{}")).ConfigureAwait(false);
+                    return await EnsureResult<TResult>(response).ConfigureAwait(false);
                 }
                 catch(Exception exception)
                 {
@@ -98,8 +98,8 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.PostAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>().Serialize(payload)));
-                    return await EnsureResult<TResult>(response);
+                    var response = await client.PostAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>().Serialize(payload))).ConfigureAwait(false);
+                    return await EnsureResult<TResult>(response).ConfigureAwait(false);
                 }
                 catch (Exception exception)
                 {
@@ -121,8 +121,8 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.PutAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>().Serialize(payload)));
-                    return await EnsureResult<TResult>(response);
+                    var response = await client.PutAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>().Serialize(payload))).ConfigureAwait(false);
+                    return await EnsureResult<TResult>(response).ConfigureAwait(false);
                 }
                 catch (Exception exception)
                 {
@@ -142,8 +142,8 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.DeleteAsync(uri);
-                    await EnsureResult(response);
+                    var response = await client.DeleteAsync(uri).ConfigureAwait(false);
+                    await EnsureResult(response).ConfigureAwait(false);
                 }
                 catch (Exception exception)
                 {
@@ -164,7 +164,7 @@ namespace Voucherify.Core.Communication
 
         private async Task EnsureResult(HttpResponseMessage response)
         {
-            string resultString = await response.Content.ReadAsStringAsync();
+            string resultString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {
@@ -187,7 +187,7 @@ namespace Voucherify.Core.Communication
         private async Task<TResult> EnsureResult<TResult>(HttpResponseMessage response)
             where TResult : class
         {
-            string resultString = await response.Content.ReadAsStringAsync();
+            string resultString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             if ((int)response.StatusCode < 200 || (int)response.StatusCode >= 300)
             {

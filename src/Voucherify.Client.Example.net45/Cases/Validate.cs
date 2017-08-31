@@ -12,7 +12,7 @@ namespace Voucherify.Client.Example.net45.Cases
         {
             try
             {
-                var validation = await api.Validations.ValidateVoucher(new DataModel.Queries.VoucherValidation() { Code = "<voucher_code>" });
+                var validation = await api.Validations.ValidateVoucher(new DataModel.Queries.VoucherValidation() { Code = "<voucher_code>" }).ConfigureAwait(false);
                 Console.WriteLine("[Validate]  Result: {0}", validation);
             }
             catch (Exception e)

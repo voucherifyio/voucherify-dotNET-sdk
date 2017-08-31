@@ -15,7 +15,7 @@ namespace Voucherify.ApiEndpoints
         public async Task<DataModel.Results.VoucherValidation> ValidateVoucher(string code, DataModel.Contexts.VoucherValidation context)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
-            return await this.client.DoPostRequest< DataModel.Results.VoucherValidation, DataModel.Contexts.VoucherValidation>(uriBuilder.Uri, context);
+            return await this.client.DoPostRequest< DataModel.Results.VoucherValidation, DataModel.Contexts.VoucherValidation>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
     }
 }

@@ -435,6 +435,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2017-08-30** - `4.1.1` - Added .ConfigureAwait(false) to all awaitable calls to prevent deadlocks when using the ASP.NET.
 - **2016-12-19** - `4.1.0` - Added missing methods. Created two additional namespaces: Validations and Distributions. Support for gift.balance (for Gift Vouchers).
 - **2016-11-17** - `4.0.2` - Fixed issue with InnerException serialization
 - **2016-11-17** - `4.0.1` - Remove dependencies for Portable library to allow use it in Xamarin Applications.
