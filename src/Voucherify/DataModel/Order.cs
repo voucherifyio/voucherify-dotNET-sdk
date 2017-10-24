@@ -9,7 +9,7 @@ namespace Voucherify.DataModel
     public class Order : ApiObject
     {
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; private set; }
+        public int Amount { get; set; }
 
         [JsonProperty(PropertyName = "items")]
         public List<OrderItem> Items { get; private set; }

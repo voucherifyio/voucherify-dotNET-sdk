@@ -12,16 +12,16 @@ namespace Voucherify.DataModel
         public string Id { get; private set; }
 
         [JsonProperty(PropertyName = "source_id")]
-        public string SourceId { get; private set; }
+        public string SourceId { get; set; }
 
         [JsonProperty(PropertyName = "name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonProperty(PropertyName = "email")]
-        public string Email { get; private set; }
+        public string Email { get; set; }
 
         [JsonProperty(PropertyName = "description")]
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
         [JsonProperty(PropertyName = "created_at")]
         public DateTime? CreatedAt { get; private set; }
@@ -32,6 +32,36 @@ namespace Voucherify.DataModel
         public Customer()
         {
             this.Metadata = new Metadata();
+        }
+
+        public Customer WithSourceId(string sourceId)
+        {
+            this.SourceId = sourceId;
+            return this;
+        }
+
+        public Customer WithName(string name)
+        {
+            this.Name = name;
+            return this;
+        }
+
+        public Customer WithEmail(string email)
+        {
+            this.Email = email;
+            return this;
+        }
+
+        public Customer WithDescription(string description)
+        {
+            this.Description = description;
+            return this;
+        }
+
+        public Customer WithMetadata(Metadata metadata)
+        {
+            this.Metadata = metadata;
+            return this;
         }
 
         public override string ToString()
