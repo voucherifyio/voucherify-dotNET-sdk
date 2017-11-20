@@ -53,6 +53,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
+        [JsonProperty(PropertyName = "applicable_to")]
+        public ApplicableProductList ApplicableTo { get; private set; }
+
         public Voucher()
         {
             this.Metadata = new Metadata();
@@ -60,7 +63,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Voucher[Code={0},Type={1},Campaign={2},Category={3},Discount={4},Gift={5},Start={6},Expiration={7},Active={8},Publish={9},Redemption={10},Additional={11},Metadata={12}]",
+            return string.Format("Voucher[Code={0},Type={1},Campaign={2},Category={3},Discount={4},Gift={5},Start={6},Expiration={7},Active={8},Publish={9},Redemption={10},Additional={11},Metadata={12},ApplicableTo={13}]",
                 this.Code,
                 this.Type,
                 this.Campaign,
@@ -73,7 +76,8 @@ namespace Voucherify.DataModel
                 this.Publish,
                 this.Redemption,
                 this.AdditionalInfo,
-                this.Metadata);
+                this.Metadata,
+                this.ApplicableTo);
         }
     }
 }
