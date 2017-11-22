@@ -99,6 +99,7 @@
     <Compile Include="DataModel\Order.cs" />
     <Compile Include="DataModel\OrderItem.cs" />
     <Compile Include="DataModel\Product.cs" />
+    <Compile Include="DataModel\ApplicableProductList.cs" />
     <Compile Include="DataModel\ProductList.cs" />
     <Compile Include="DataModel\ProductSkus.cs" />
     <Compile Include="DataModel\QR.cs" />
