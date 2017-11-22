@@ -47,6 +47,7 @@
     <Compile Include="Client\ApiEndpoints\Validations.Callback.cs" />
     <Compile Include="Client\ApiEndpoints\Vouchers.Async.cs" />
     <Compile Include="Client\ApiEndpoints\Vouchers.Callback.cs" />
+    <Compile Include="DataModel\ApplicableProduct.cs" />
     <Compile Include="DataModel\ApplicableProductList.cs" />
     <Compile Include="DataModel\CampaignVoucher.cs" />
     <Compile Include="DataModel\CampaignVoucherRedemption.cs" />

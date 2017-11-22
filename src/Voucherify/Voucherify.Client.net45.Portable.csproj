@@ -55,6 +55,7 @@
     <Compile Include="Core\Serialization\JsonSerializer.cs" />
     <Compile Include="Core\Serialization\MetadataConverter.cs" />
     <Compile Include="Core\Serialization\QuerySerializer.cs" />
+    <Compile Include="DataModel\ApplicableProduct.cs" />
     <Compile Include="DataModel\ApplicableProductList.cs" />
     <Compile Include="DataModel\Campaign.cs" />
     <Compile Include="DataModel\CampaignVoucher.cs" />
@@ -116,7 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Voucherify.Client.nuspec" />
+    <None Include="Voucherify.Client.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

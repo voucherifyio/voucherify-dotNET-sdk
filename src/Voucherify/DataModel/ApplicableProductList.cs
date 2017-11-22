@@ -1,4 +1,4 @@
-﻿#if VOUCHERIFYSERVER
+﻿#if VOUCHERIFYSERVER || VOUCHERIFYCLIENT
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace Voucherify.DataModel
         public int? Total { get; private set; }
 
         [JsonProperty(PropertyName = "data")]
-        public List<Product> Products { get; private set; }
+        public List<ApplicableProduct> Products { get; private set; }
 
         public override string ToString()
         {

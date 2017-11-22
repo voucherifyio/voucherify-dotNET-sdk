@@ -435,6 +435,8 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+
+- **2017-11-22** - `4.2.0` - Added 'ApplicableTo' property to Voucher.
 - **2017-10-24** - `4.1.2` - Added 'key' property to VoucherifyClientException. Removed private setters for Order and Customer entities.
 - **2017-08-30** - `4.1.1` - Added .ConfigureAwait(false) to all awaitable calls to prevent deadlocks when using the ASP.NET.
 - **2016-12-19** - `4.1.0` - Added missing methods. Created two additional namespaces: Validations and Distributions. Support for gift.balance (for Gift Vouchers).
