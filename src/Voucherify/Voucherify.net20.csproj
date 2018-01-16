@@ -55,22 +55,27 @@
     <Compile Include="ApiEndpoints\Validations.Callback.cs" />
     <Compile Include="ApiEndpoints\Vouchers.Async.cs" />
     <Compile Include="ApiEndpoints\Vouchers.Callback.cs" />
+    <Compile Include="Core\ApiVersion.cs" />
     <Compile Include="Core\Attributes\JsonEnumValueAttribute.cs" />
     <Compile Include="Core\Communication\ApiClient.Async.cs" />
     <Compile Include="Core\Communication\ApiClient.Callback.cs" />
     <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\DataModel\ApiListObject.cs" />
     <Compile Include="Core\DataModel\ApiObject.cs" />
     <Compile Include="Core\DataModel\Empty.cs" />
     <Compile Include="Core\DataModel\Metadata.cs" />
     <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />
+    <Compile Include="Core\Extensions\JsonEnumValueAttributeExtension.cs" />
     <Compile Include="Core\Extensions\UriBuilderExtension.cs" />
     <Compile Include="Core\Serialization\JsonEnumValueConverter.cs" />
     <Compile Include="Core\Serialization\JsonSerializer.cs" />
     <Compile Include="Core\Serialization\MetadataConverter.cs" />
+    <Compile Include="Core\Serialization\ObjectListFromArrayConverter.cs" />
     <Compile Include="Core\Serialization\QuerySerializer.cs" />
     <Compile Include="DataModel\ApplicableProduct.cs" />
     <Compile Include="DataModel\ApplicableProductList.cs" />
     <Compile Include="DataModel\Campaign.cs" />
+    <Compile Include="DataModel\CampaignList.cs" />
     <Compile Include="DataModel\CampaignVoucher.cs" />
     <Compile Include="DataModel\CampaignVoucherRedemption.cs" />
     <Compile Include="DataModel\Contexts\CampaignAddVoucher.cs" />
@@ -99,6 +104,7 @@
     <Compile Include="DataModel\ProductList.cs" />
     <Compile Include="DataModel\ProductSkus.cs" />
     <Compile Include="DataModel\QR.cs" />
+    <Compile Include="DataModel\Queries\CampaignFilter.cs" />
     <Compile Include="DataModel\Queries\RedemptionRollback.cs" />
     <Compile Include="DataModel\Queries\VoucherDelete.cs" />
     <Compile Include="DataModel\Contexts\VoucherPublish.cs" />
@@ -114,6 +120,7 @@
     <Compile Include="DataModel\Results\RedemptionRollback.cs" />
     <Compile Include="DataModel\Sku.cs" />
     <Compile Include="DataModel\VoucherAssets.cs" />
+    <Compile Include="DataModel\VoucherList.cs" />
     <Compile Include="DataModel\VoucherRedemption.cs" />
     <Compile Include="DataModel\Customer.cs" />
     <Compile Include="DataModel\Discount.cs" />
@@ -134,6 +141,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Voucherify.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataModel\Serialization\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

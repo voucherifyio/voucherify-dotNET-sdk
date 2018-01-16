@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Voucherify.Core.Communication;
+using Voucherify.Core.Extensions;
 
 namespace Voucherify.ApiEndpoints
 {
@@ -34,6 +35,12 @@ namespace Voucherify.ApiEndpoints
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", Uri.EscapeDataString(name)));
             this.client.DoPostRequest(uriBuilder.Uri, addVoucherContext, callback);
+        }
+
+        public void List(DataModel.Queries.CampaignFilter filter, Action<ApiResponse<DataModel.CampaignList>> callback)
+        {
+            UriBuilder uriBuilder =  UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/campaigns/"), filter);
+            this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
     }
 }

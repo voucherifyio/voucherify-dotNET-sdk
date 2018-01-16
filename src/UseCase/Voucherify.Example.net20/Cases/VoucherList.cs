@@ -16,7 +16,7 @@ namespace Voucherify.Example.net20.Cases
                         return;
                     }
 
-                    Console.WriteLine("[VoucherList] (List) Result: {0} First: {1}", response.Result.Count, response.Result.Count > 0 ? response.Result[0] : null);
+                    Console.WriteLine("[VoucherList] (List) Result: {0} First: {1}", response.Result.Total, response.Result.Total > 0 ? response.Result.Vouchers[0] : null);
                 });
         }
     }

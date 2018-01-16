@@ -70,7 +70,7 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
-        public void List(DataModel.Queries.VouchersFilter filter, Action<ApiResponse<IList<DataModel.Voucher>>> callback)
+        public void List(DataModel.Queries.VouchersFilter filter, Action<ApiResponse<DataModel.VoucherList>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);

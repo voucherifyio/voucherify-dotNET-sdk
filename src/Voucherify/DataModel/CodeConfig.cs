@@ -84,7 +84,7 @@ namespace Voucherify.DataModel
             return this;
         }
 
-        public CodeConfig WithPatter(string pattern)
+        public CodeConfig WithPattern(string pattern)
         {
             this.Pattern = pattern;
             return this;

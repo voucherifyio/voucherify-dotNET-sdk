@@ -14,7 +14,7 @@ namespace Voucherify.Example.net45.Cases
                     Limit = 5
                 });
 
-                Console.WriteLine("[VoucherList] (List) Result: {0} First: {1}", voucherList.Count, voucherList.Count > 0 ? voucherList[0] : null);
+                Console.WriteLine("[VoucherList] (List) Result: {0} First: {1}", voucherList.Total, voucherList.Total > 0 ? voucherList.Vouchers[0] : null);
             }
             catch (Exception e)
             {

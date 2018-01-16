@@ -68,10 +68,10 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoPostRequest< DataModel.Results.VoucherValidation, DataModel.Contexts.VoucherValidation>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
 
-        public async Task<IList<DataModel.Voucher>> List(DataModel.Queries.VouchersFilter filter)
+        public async Task<DataModel.VoucherList> List(DataModel.Queries.VouchersFilter filter)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
-            return await this.client.DoGetRequest<IList<DataModel.Voucher>>(uriBuilder.Uri).ConfigureAwait(false);
+            return await this.client.DoGetRequest<DataModel.VoucherList>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<Core.DataModel.Empty> Import(List<DataModel.Contexts.VoucherImport> vouchers)

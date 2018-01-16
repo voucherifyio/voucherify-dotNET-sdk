@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Voucherify.Core;
 
 namespace Voucherify
 {
     public class Api
     {
+        public ApiVersion Version { get; private set; }
         public string AppToken { get; private set; }
         public string AppId { get; private set; }
         public string Endpoint { get; private set; }
@@ -116,7 +118,11 @@ namespace Voucherify
             }
         }
 
-        public Api(string appId, string appToken)
+        public Api(string appId, string appToken) : this (appId, appToken, ApiVersion.Default)
+        {
+        }
+
+        public Api(string appId, string appToken, Core.ApiVersion apiVersion)
         {
             if (string.IsNullOrEmpty(appToken))
             {
@@ -131,6 +137,7 @@ namespace Voucherify
             this.AppToken = appToken;
             this.AppId = appId;
             this.Secure = true;
+            this.Version = apiVersion;
             this.Endpoint = Core.Constants.EndpointApi;
         }
 
@@ -142,6 +149,9 @@ namespace Voucherify
             this.vouchers = null;
             this.customers = null;
             this.campaigns = null;
+            this.validations = null;
+            this.distributions = null;
+
             return this;
         }
 
@@ -153,6 +163,23 @@ namespace Voucherify
             this.vouchers = null;
             this.customers = null;
             this.campaigns = null;
+            this.validations = null;
+            this.distributions = null;
+
+            return this;
+        }
+
+        public Api WithVersion(ApiVersion apiVersion)
+        {
+            this.Version = apiVersion;
+            this.redemptions = null;
+            this.products = null;
+            this.vouchers = null;
+            this.customers = null;
+            this.campaigns = null;
+            this.validations = null;
+            this.distributions = null;
+
             return this;
         }
 
@@ -164,6 +191,8 @@ namespace Voucherify
             this.vouchers = null;
             this.customers = null;
             this.campaigns = null;
+            this.validations = null;
+            this.distributions = null;
 
             if (endpoint == null)
             {

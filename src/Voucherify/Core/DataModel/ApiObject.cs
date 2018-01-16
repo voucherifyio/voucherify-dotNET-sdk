@@ -6,6 +6,6 @@ namespace Voucherify.Core.DataModel
     public class ApiObject
     {
         [JsonProperty(PropertyName = "object", NullValueHandling = NullValueHandling.Ignore)]
-        public string Object { get; private set; }
+        public string Object { get; internal set; }
     }
 }

@@ -14,9 +14,45 @@ namespace Voucherify.Core.Serialization
         {
         }
 
-        public JsonSerializer(JsonSerializerSettings settings)
+        public JsonSerializer(List<JsonConverter> converters)
         {
-            this.settings = settings ?? new JsonSerializerSettings()
+            if (converters == null)
+            {
+                converters = new List<JsonConverter>()
+                {
+                    new JsonEnumValueConverter(),
+                    new MetadataConverter()
+                };
+            } else
+            {
+                bool containsEnumConverter = false;
+                bool containsMetadataConverter = false;
+
+                foreach (JsonConverter converter in converters)
+                {
+                    if (converter is JsonEnumValueConverter)
+                    {
+                        containsEnumConverter = true;
+                    }
+
+                    if (converter is MetadataConverter)
+                    {
+                        containsMetadataConverter = true;
+                    }
+                }
+
+                if (!containsEnumConverter)
+                {
+                    converters.Add(new JsonEnumValueConverter());
+                }
+
+                if (!containsMetadataConverter)
+                {
+                    converters.Add(new MetadataConverter());
+                }
+            }
+
+            this.settings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.None,
                 DateFormatString = "yyyy-MM-ddTHH:mm:ssZ",
@@ -25,7 +61,7 @@ namespace Voucherify.Core.Serialization
                     IgnoreSerializableInterface = true
 #endif
                 },
-                Converters = new List<JsonConverter>() { new JsonEnumValueConverter(), new MetadataConverter() },
+                Converters = converters
             };
         }
 

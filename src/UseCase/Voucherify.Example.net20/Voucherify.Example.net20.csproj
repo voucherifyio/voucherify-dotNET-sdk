@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A2FE351-A1E8-4279-B303-3354663C46E3}</ProjectGuid>
+    <ProjectGuid>{4896F250-EE72-4E92-97AB-3C63098DAEF2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Voucherify.Client.Example.net20</RootNamespace>
-    <AssemblyName>Voucherify.Client.Example.net20</AssemblyName>
+    <RootNamespace>Voucherify.Example.net20</RootNamespace>
+    <AssemblyName>Voucherify.Example.net20</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\Examples.Client.net20\</OutputPath>
+    <OutputPath>bin\Debug\Example.net20\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -32,23 +32,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cases\Redeem.cs" />
-    <Compile Include="Cases\Validate.cs" />
+    <Compile Include="Cases\ApiUnauthorized.cs" />
+    <Compile Include="Cases\CampaignFlow.cs" />
+    <Compile Include="Cases\CampaignVoucherImport.cs.cs" />
+    <Compile Include="Cases\CamplaingList.cs" />
+    <Compile Include="Cases\CustomerFlow.cs" />
+    <Compile Include="Cases\ProductFlow.cs" />
+    <Compile Include="Cases\ProductList.cs" />
+    <Compile Include="Cases\RedemptionFlow.cs" />
+    <Compile Include="Cases\RedemptionList.cs" />
+    <Compile Include="Cases\VoucherFlow.cs" />
+    <Compile Include="Cases\VoucherImport.cs" />
+    <Compile Include="Cases\VoucherList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Voucherify\Voucherify.Client.net20.csproj">
-      <Project>{f81a1935-3083-464a-bd14-be65be1d4788}</Project>
-      <Name>Voucherify.Client.net20</Name>
+    <ProjectReference Include="..\..\Voucherify\Voucherify.net20.csproj">
+      <Project>{b1c3d407-1ee6-4603-b00e-05ee8fab876a}</Project>
+      <Name>Voucherify.net20</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

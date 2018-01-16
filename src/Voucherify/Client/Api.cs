@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Voucherify.Core;
 
 namespace Voucherify.Client
 {
@@ -10,6 +11,7 @@ namespace Voucherify.Client
         public string AppId { get; private set; }
         public string Endpoint { get; private set; }
         public string Origin { get; private set; }
+        public ApiVersion Version { get; private set; }
         public bool Secure { get; private set; }
 
         private Client.ApiEndpoints.Redemptions redemptions;

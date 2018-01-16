@@ -435,7 +435,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-
+- **2018-01-21** - `4.3.0` - Added support for Api Versions. Added Server and Clinet support for Promotions.
 - **2017-11-22** - `4.2.0` - Added 'ApplicableTo' property to Voucher.
 - **2017-10-24** - `4.1.2` - Added 'key' property to VoucherifyClientException. Removed private setters for Order and Customer entities.
 - **2017-08-30** - `4.1.1` - Added .ConfigureAwait(false) to all awaitable calls to prevent deadlocks when using the ASP.NET.

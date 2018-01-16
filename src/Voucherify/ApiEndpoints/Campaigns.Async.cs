@@ -35,6 +35,12 @@ namespace Voucherify.ApiEndpoints
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", Uri.EscapeDataString(name)));
             return await this.client.DoPostRequest<Core.DataModel.Empty, List<DataModel.Contexts.CampaignVoucherImport>>(uriBuilder.Uri, addVoucherContext).ConfigureAwait(false);
         }
+
+        public async Task<DataModel.CampaignList> List(DataModel.Queries.CampaignFilter filter)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/campaigns/"), filter);
+            return await this.client.DoGetRequest<DataModel.CampaignList>(uriBuilder.Uri).ConfigureAwait(false);
+        }
     }
 }
 #endif
