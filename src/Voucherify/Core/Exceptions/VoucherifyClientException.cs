@@ -23,11 +23,12 @@ namespace Voucherify.Core.Exceptions
 
         public VoucherifyClientException() { }
 
-        public VoucherifyClientException(string message, int code, string details)
+        public VoucherifyClientException(string message, int code, string details, string key)
         {
             this.Message = message;
             this.Code = code;
-            this.Details = details;        
+            this.Details = details;
+            this.Key = key;
         }
 
         public VoucherifyClientException(Exception internalException)
@@ -42,7 +43,7 @@ namespace Voucherify.Core.Exceptions
                 return string.Format("VoucherifyError[inner='{0}']", internalException);
             }
 
-            return string.Format("VoucherifyError[code={0}, message='{1}', details='{2}']", this.Code, this.Message, this.Details);
+            return string.Format("VoucherifyError[code={0}, key='{1}, message='{2}', details='{3}']", this.Code, this.Key, this.Message, this.Details);
         }
     }
 }

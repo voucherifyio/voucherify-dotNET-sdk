@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Voucherify.Core.Tests.Serialization.DataModel
+namespace Voucherify.Core.Tests.Serialization.TestModel
 {
     [JsonObject]
     internal class JsonTypeList

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using Voucherify.Core.Tests.Serialization.DataModel;
+using Voucherify.Core.Tests.Serialization.TestModel;
 using Voucherify.Core.Serialization;
 
 namespace Voucherify.Core.Tests.Serialization

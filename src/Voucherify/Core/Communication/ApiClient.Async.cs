@@ -176,11 +176,11 @@ namespace Voucherify.Core.Communication
                 try
                 {
                     exception = this.serializerException.Deserialize(resultString);
-                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details, exception.Key);
                 }
                 catch
                 {
-                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString);
+                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString, string.Empty);
                 }
 
                 throw exception;
@@ -199,11 +199,11 @@ namespace Voucherify.Core.Communication
                 try
                 {
                     exception = this.serializerException.Deserialize(resultString);
-                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details, exception.Key);
                 }
                 catch
                 {
-                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString);
+                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString, string.Empty);
                 }
 
                 throw exception;

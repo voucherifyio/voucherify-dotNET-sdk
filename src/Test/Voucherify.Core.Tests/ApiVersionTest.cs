@@ -16,7 +16,7 @@ namespace Voucherify.Core.Tests
         }
 
         [TestMethod]
-        public void ApiVersionv1()
+        public void ApiVersion_v1()
         {
             // Arrange & Act & Assert
             Assert.IsTrue(ApiVersion.v1 > ApiVersion.Default);
@@ -25,7 +25,7 @@ namespace Voucherify.Core.Tests
         }
 
         [TestMethod]
-        public void ApiVersionv2017_04_05()
+        public void ApiVersion_v2017_04_05()
         {
             // Arrange & Act & Assert
             Assert.IsTrue(ApiVersion.v2017_04_05 > ApiVersion.v1);
@@ -34,7 +34,7 @@ namespace Voucherify.Core.Tests
         }
 
         [TestMethod]
-        public void ApiVersionv2017_04_20()
+        public void ApiVersion_v2017_04_20()
         {
             // Arrange & Act & Assert
             Assert.IsTrue(ApiVersion.v2017_04_20 > ApiVersion.v2017_04_05);

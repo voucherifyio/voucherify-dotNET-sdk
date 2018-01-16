@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using Voucherify.Core.DataModel;
 
-namespace Voucherify.Core.Tests.Serialization.DataModel
+namespace Voucherify.Core.Tests.Serialization.TestModel
 {
     [JsonObject]
-    internal class JsonTypeWithMetadata
+    internal class JsonTypeWithEnum
     {
         [JsonProperty(PropertyName = "property_test")]
         public string Property { get; set; }
@@ -13,10 +12,10 @@ namespace Voucherify.Core.Tests.Serialization.DataModel
         [JsonProperty(PropertyName = "array_test")]
         public IList<string> Array { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
-        public Metadata Metadata { get; set; }
+        [JsonProperty(PropertyName = "dictionary_test")]
+        public Dictionary<string, object> Dictionary { get; set; }
 
         [JsonProperty(PropertyName = "enum_test")]
-        public string Enum { get; set; }
+        public EnumType? Enum { get; set; }
     }
 }

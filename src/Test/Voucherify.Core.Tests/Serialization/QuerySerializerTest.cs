@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Voucherify.Core.Tests.Serialization.DataModel;
+using Voucherify.Core.Tests.Serialization.TestModel;
 using Voucherify.Core.Serialization;
 
 namespace Voucherify.Core.Tests.Serialization

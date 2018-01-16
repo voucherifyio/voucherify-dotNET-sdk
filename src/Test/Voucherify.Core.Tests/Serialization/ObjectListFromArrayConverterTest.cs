@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Voucherify.Core.Serialization;
-using Voucherify.Core.Tests.Serialization.DataModel;
+using Voucherify.Core.Tests.Serialization.TestModel;
 
 namespace Voucherify.Core.Tests.Serialization
 {

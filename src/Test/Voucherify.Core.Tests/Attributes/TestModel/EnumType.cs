@@ -1,6 +1,6 @@
 ﻿using Voucherify.Core.Attributes;
 
-namespace Voucherify.Core.Tests.Serialization.DataModel
+namespace Voucherify.Core.Tests.Attributes.TestModel
 {
     internal enum EnumType
     {

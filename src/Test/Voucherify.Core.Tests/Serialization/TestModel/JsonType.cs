@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Voucherify.Core.Tests.Serialization.DataModel
+namespace Voucherify.Core.Tests.Serialization.TestModel
 {
     [JsonObject]
-    internal class JsonTypeWithEnum
+    internal class JsonType
     {
         [JsonProperty(PropertyName = "property_test")]
         public string Property { get; set; }
@@ -16,6 +16,6 @@ namespace Voucherify.Core.Tests.Serialization.DataModel
         public Dictionary<string, object> Dictionary { get; set; }
 
         [JsonProperty(PropertyName = "enum_test")]
-        public EnumType? Enum { get; set; }
+        public string Enum { get; set; }
     }
 }
