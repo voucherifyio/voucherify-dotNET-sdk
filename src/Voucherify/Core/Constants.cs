@@ -7,6 +7,11 @@
         /// </summary>
         private Constants() { }
 
+        /// <summary>
+        /// A HTTP header field used for Voucherify Api Version recognition.
+        /// </summary>
+        public const string HttpHeaderApiVersion = "X-Voucherify-API-Version";
+
 #if VOUCHERIFYSERVER
         /// <summary>
         /// A HTTP header field used for Voucherify authentication.
@@ -40,7 +45,6 @@
         /// </summary>
         public const string HttpHeaderClientOrigin = "Origin";
 #endif
-
         /// <summary>
         /// A HTTP header field name used for Voucherify channel recognition.
         /// </summary>

@@ -25,7 +25,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\Core\</OutputPath>
-    <DefineConstants>TRACE;VOUCHERIFYCORE;</DefineConstants>
+    <DefineConstants>TRACE;VOUCHERIFYCORE;APIASYNC</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -44,18 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ApiVersion.cs" />
     <Compile Include="Core\Attributes\JsonEnumValueAttribute.cs" />
     <Compile Include="Core\Communication\ApiClient.Async.cs" />
     <Compile Include="Core\Communication\ApiClient.Callback.cs" />
     <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\DataModel\ApiListObject.cs" />
     <Compile Include="Core\DataModel\ApiObject.cs" />
+    <Compile Include="Core\DataModel\ApiObjectWithId.cs" />
     <Compile Include="Core\DataModel\Empty.cs" />
     <Compile Include="Core\DataModel\Metadata.cs" />
     <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />
+    <Compile Include="Core\Extensions\JsonEnumValueAttributeExtension.cs" />
     <Compile Include="Core\Extensions\UriBuilderExtension.cs" />
     <Compile Include="Core\Serialization\JsonEnumValueConverter.cs" />
     <Compile Include="Core\Serialization\JsonSerializer.cs" />
     <Compile Include="Core\Serialization\MetadataConverter.cs" />
+    <Compile Include="Core\Serialization\ObjectListFromArrayConverter.cs" />
     <Compile Include="Core\Serialization\QuerySerializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

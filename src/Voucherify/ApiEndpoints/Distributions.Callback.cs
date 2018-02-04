@@ -14,9 +14,9 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public void Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context, Action<ApiResponse<Core.DataModel.Empty>> callback)
+        public void Publish(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/publish");
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
     }

@@ -29,9 +29,10 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoPutRequest<DataModel.Product, DataModel.Contexts.ProductUpdate>(uriBuilder.Uri, product).ConfigureAwait(false);
         }
 
-        public async Task<DataModel.ProductList> List()
+        public async Task<DataModel.ProductList> List(DataModel.Queries.ProductFilter filter)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/products");
+
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/products/"), filter);
             return await this.client.DoGetRequest<DataModel.ProductList>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
@@ -65,10 +66,10 @@ namespace Voucherify.ApiEndpoints
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 
-        public async Task<DataModel.ProductSkus> ListSkus(string productId)
+        public async Task<DataModel.Sku> ListSkus(string productId)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus", Uri.EscapeDataString(productId)));
-            return await this.client.DoGetRequest<DataModel.ProductSkus>(uriBuilder.Uri).ConfigureAwait(false);
+            return await this.client.DoGetRequest<DataModel.Sku>(uriBuilder.Uri).ConfigureAwait(false);
         }
     }
 }

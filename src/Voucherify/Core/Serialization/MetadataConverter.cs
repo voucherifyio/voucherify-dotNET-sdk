@@ -19,13 +19,13 @@ namespace Voucherify.Core.Serialization
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            Core.DataModel.Metadata metadata = value as Metadata;
+            Dictionary<string, object> metadata = value as Dictionary<string, object>;
             writer.WriteStartObject();
 
             foreach (KeyValuePair<string, object> entry in metadata)
             {
                 writer.WritePropertyName(entry.Key);
-                writer.WriteValue(entry.Value);
+                serializer.Serialize(writer, entry.Value);
             }
 
             writer.WriteEndObject();

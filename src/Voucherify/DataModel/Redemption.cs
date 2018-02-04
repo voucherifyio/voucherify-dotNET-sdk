@@ -1,4 +1,4 @@
-﻿#if VOUCHERIFYSERVER
+﻿#if VOUCHERIFYSERVER || VOUCHERIFYCLIENT
 using System;
 using Newtonsoft.Json;
 using Voucherify.Core.DataModel;
@@ -6,19 +6,19 @@ using Voucherify.Core.DataModel;
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class Redemption : ApiObject
+    public class Redemption : ApiObjectWithId
     {
-        [JsonProperty(PropertyName = "redemption_id")]
-        public string RedemptionId { get; private set; }
-
         [JsonProperty(PropertyName = "result")]
         public RedemptionResult Result { get; private set; }
         
         [JsonProperty(PropertyName = "failure_code")]
-        public RedemptionFailureCode? FailureCode { get; private set; }
+        public FailureCode? FailureCode { get; private set; }
 
         [JsonProperty(PropertyName = "date")]
         public DateTime? Date { get; private set; }
+
+        [JsonProperty(PropertyName = "gift")]
+        public RedemptionGift Gift { get; private set; }
 
         [JsonProperty(PropertyName = "discount")]
         public Voucher Voucher { get; private set; }
@@ -35,18 +35,15 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "order")]
         public Order Order { get; private set; }
 
+        [JsonProperty(PropertyName = "promotion_tier")]
+        public PromotionTier PromotionTier { get; private set; }
+
+        [JsonProperty(PropertyName = "metadata")]
+        public Metadata Metadata { get; private set; }
+
         public override string ToString()
         {
-            return string.Format("Redemption[RedemptionId={0},Result={1},FailureCode={2},Date={3},Voucher={4},CustomerId={5},TrackingId={6},Customer={7},Order={8}]",
-                this.RedemptionId,
-                this.Result,
-                this.FailureCode,
-                this.Date,
-                this.Voucher,
-                this.CustomerId,
-                this.TrackingId,
-                this.Customer,
-                this.Order);
+            return string.Format("Redemption(Id={0},Result={1},Customer={2},Tracking={3})", this.Id, this.Result, this.CustomerId, this.TrackingId);
         }
     }
 }

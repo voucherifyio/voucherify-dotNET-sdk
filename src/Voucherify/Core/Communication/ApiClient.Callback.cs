@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json;
 using Voucherify.Core.Exceptions;
 
 namespace Voucherify.Core.Communication
@@ -52,14 +53,16 @@ namespace Voucherify.Core.Communication
         private readonly bool isSecure;
         private readonly string baseAddress;
         private readonly Dictionary<string, string> headers;
+        private readonly List<JsonConverter> converters;
         private Serialization.JsonSerializer<VoucherifyClientException> serializerException;
 
-        internal ApiClient(bool isSecure, string baseAddress, Dictionary<string, string> headers)
+        internal ApiClient(bool isSecure, string baseAddress, Dictionary<string, string> headers, List<JsonConverter> converters)
         {
             this.isSecure = isSecure;
             this.headers = headers;
             this.baseAddress = baseAddress;
-            this.serializerException = new Serialization.JsonSerializer<VoucherifyClientException>();
+            this.converters = converters;
+            this.serializerException = new Serialization.JsonSerializer<VoucherifyClientException>(converters);
         }
 
         internal void DoGetRequest<TResult>(Uri uri, Action<ApiResponse<TResult>> callback)
@@ -106,7 +109,7 @@ namespace Voucherify.Core.Communication
                 client.UploadStringCompleted += (sender, arguments) => {
                     HandleResponse(arguments, callback);
                 };
-                client.UploadStringAsync(uri, new Serialization.JsonSerializer<TPayload>().Serialize(payload));
+                client.UploadStringAsync(uri, new Serialization.JsonSerializer<TPayload>(this.converters).Serialize(payload));
             }
         }
 
@@ -119,7 +122,7 @@ namespace Voucherify.Core.Communication
                 client.UploadStringCompleted += (sender, arguments) => {
                     HandleResponse(arguments, callback);
                 };
-                client.UploadStringAsync(uri, "PUT", new Serialization.JsonSerializer<TPayload>().Serialize(payload));
+                client.UploadStringAsync(uri, "PUT", new Serialization.JsonSerializer<TPayload>(this.converters).Serialize(payload));
             }
         }
 
@@ -149,15 +152,15 @@ namespace Voucherify.Core.Communication
 
                 if (stringDownloadArguments != null)
                 {
-                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>().Deserialize(stringDownloadArguments.Result)));
+                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>(this.converters).Deserialize(stringDownloadArguments.Result)));
                 }
                 else if (stringUploadArguments != null)
                 {
-                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>().Deserialize(stringUploadArguments.Result)));
+                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>(this.converters).Deserialize(stringUploadArguments.Result)));
                 }
                 else
                 {
-                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>().Deserialize(string.Empty)));
+                    callback(ApiResponse<TResult>.WithResult(new Serialization.JsonSerializer<TResult>(this.converters).Deserialize(string.Empty)));
                 }
 
                 return;

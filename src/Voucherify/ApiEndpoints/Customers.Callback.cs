@@ -1,6 +1,9 @@
 ﻿#if !APIASYNC
 using System;
+using System.Text;
 using Voucherify.Core.Communication;
+using Voucherify.Core.Extensions;
+using DataModel = Voucherify.DataModel;
 
 namespace Voucherify.ApiEndpoints
 {
@@ -32,6 +35,12 @@ namespace Voucherify.ApiEndpoints
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
+        }
+
+        public void List(DataModel.Queries.CustomerFilter filter, Action<ApiResponse<DataModel.CustomerList>> callback)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/customers/"), filter);
+            this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
     }
 }

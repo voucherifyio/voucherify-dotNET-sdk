@@ -11,6 +11,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
 
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; private set; }
+
         [JsonProperty(PropertyName = "type")]
         public CampaignType Type { get; private set; }
 
@@ -26,9 +29,15 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
-        [JsonProperty(PropertyName = "creation_status")]
-        public CampaignCreationStatus CreationStatus { get; private set; }
-        
+        [JsonProperty(PropertyName = "voucher_generation_status")]
+        public CampaignVoucherGenerationStatus VoucherGenerationStatus { get; private set; }
+
+        [JsonProperty(PropertyName = "validation_rules")]
+        public ValidationRule ValidationRules { get; private set; }
+
+        [JsonProperty(PropertyName = "promotion")]
+        public PromotionTierList Promotion { get; private set; }
+
         public Campaign()
         {
             this.Metadata = new Metadata();
@@ -36,14 +45,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Campaign[Name={0},Type={1},Start={2},Expiration={3},Voucher={4},Metadata={5},CreationStatus={6}]",
-                this.Name,
-                this.Type,
-                this.StartDate,
-                this.ExpirationDate,
-                this.Voucher,
-                this.Metadata,
-                this.CreationStatus);
+            return string.Format("Campaign(Name={0},Type={1})", this.Name, this.Type);
         }
     }
 }

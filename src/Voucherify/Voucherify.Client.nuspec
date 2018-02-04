@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>4.2.0.0</version>
+    <version>4.3.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,12 +11,16 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2018-01-28: 4.3.0:
+      - Added support for Api Versions
+      - Added support for Orders, Events, Promotions, Segments and Validation Rules
+
       2017-11-22: 4.2.0:
       - Added 'ApplicableTo' property to Voucher.
-      
+
       2017-10-24: 4.1.2:
       - Added 'key' property to VoucherifyClientException. Removed private setters for Order and Customer entities.
-      
+
       2017-08-30: 4.1.1:
       - Added .ConfigureAwait(false) to all awaitable calls to prevent deadlocks when using the ASP.NET.
 

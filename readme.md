@@ -32,6 +32,12 @@ API:
 <a href="#customers-api">Customers</a>
 |
 <a href="#products-api">Products</a>
+|
+<a href="#promotions-api">Promotions</a>
+|
+<a href="#segments-api">Segments</a>
+|
+<a href="#validationrules-api">Validation Rules</a>
 </p>
 
 ---
@@ -201,21 +207,27 @@ public void List(DataModel.Queries.VouchersFilter filter, Action<ApiResponse<ILi
 ```
 #### [Enable Voucher]
 ```csharp
-public async Task Enable(string code)
+public async Task<DataModel.Voucher> Enable(string code)
 
-public void Enable(string code, Action<ApiResponse> callback)
+public void Enable(string code, Action<ApiResponse<DataModel.Voucher>> callback)
 ```
 #### [Disable Voucher]
 ```csharp
-public async Task Disable(string code)
+public async Task<DataModel.Voucher> Disable(string code)
 
-public void Disable(string code, Action<ApiResponse> callback)
+public void Disable(string code, Action<ApiResponse<DataModel.Voucher>> callback)
 ```
 #### [Import Vouchers]
 ```csharp
 public async Task<Core.DataModel.Empty> Import(List<DataModel.Contexts.VoucherImport> vouchers)
 
 public void Import(List<DataModel.Contexts.VoucherImport> vouchers, Action<ApiResponse<Core.DataModel.Empty>> callback)
+```
+#### [Add Gift Balance]
+```csharp
+public async Task<DataModel.Balance> AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance balance)
+        
+public void AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance balance, Action<ApiResponse<DataModel.Balance>> callback)
 ```
 
 ---
@@ -239,6 +251,24 @@ public async Task<DataModel.Campaign> Get(string name)
 
 public void Get(string name, Action<ApiResponse<DataModel.Campaign>> callback)
 ```
+#### [Update Campaign]
+```csharp
+public async Task<DataModel.Campaign> Update(string name, DataModel.Contexts.CampaignUpdate campaign)
+
+public void Update(string name, DataModel.Contexts.CampaignUpdate campaign, Action<ApiResponse<DataModel.Campaign>> callback)
+```
+#### [Delete Campaigns]
+```csharp
+public async Task Delete(string name, DataModel.Queries.CampaignDelete query)
+        
+public void Delete(string name, DataModel.Queries.CampaignDelete query, Action<ApiResponse> callback)
+```
+#### [List Campaigns]
+```csharp
+public async Task<DataModel.CampaignList> List(DataModel.Queries.CampaignFilter filter)
+ 
+public void List(DataModel.Queries.CampaignFilter filter, Action<ApiResponse<DataModel.CampaignList>> callback)    
+```
 #### [Add Voucher to Campaign]
 ```csharp
 public async Task<DataModel.Voucher> AddVoucher(string name, DataModel.Contexts.CampaignAddVoucher addVoucherContext)
@@ -259,9 +289,9 @@ Methods are provided within `Api.Distributions.*` namespace.
 
 #### [Publish Voucher]
 ```csharp
-public async Task Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context)
+public async Task<DataModel.Publication> Publish(DataModel.Contexts.VoucherPublish context)
 
-public void Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context, Action<ApiResponse<Core.DataModel.Empty>> callback)
+public void Publish(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
 ```
 
 ---
@@ -271,9 +301,23 @@ Methods are provided within `Api.Validations.*` namespace.
 
 #### [Validate Voucher]
 ```csharp
-public async Task<DataModel.Results.VoucherValidation> ValidateVoucher(string code, DataModel.Contexts.VoucherValidation context)
+public async Task<DataModel.Validation> ValidateVoucher(string code, DataModel.Contexts.Validation context)
 
-public void ValidateVoucher(string code, DataModel.Contexts.VoucherValidation context, Action<ApiResponse<DataModel.Results.VoucherValidation>> callback)
+public void ValidateVoucher(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
+```
+
+#### [Validate Promotions]
+```csharp
+public async Task<DataModel.Validation> ValidatePromotion(DataModel.Contexts.Validation context)
+
+public void ValidatePromotion(DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
+```
+
+#### [Validate]
+```csharp
+public async Task<DataModel.Validation> Validate(string code, DataModel.Contexts.Validation context)
+
+public void Validate(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
 ```
 
 ---
@@ -435,7 +479,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-
+- **2018-02-04** - `4.3.0` - Added support for Api Versions. Added support for Orders, Events, Promotions, Segments and Validation Rules.
 - **2017-11-22** - `4.2.0` - Added 'ApplicableTo' property to Voucher.
 - **2017-10-24** - `4.1.2` - Added 'key' property to VoucherifyClientException. Removed private setters for Order and Customer entities.
 - **2017-08-30** - `4.1.1` - Added .ConfigureAwait(false) to all awaitable calls to prevent deadlocks when using the ASP.NET.

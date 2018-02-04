@@ -8,17 +8,14 @@ using Voucherify.Core.DataModel;
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class ProductList : ApiObject
+    public class ProductList : ApiListObject
     {
-        [JsonProperty(PropertyName = "total")]
-        public int? Total { get; private set; }
-
         [JsonProperty(PropertyName = "products")]
         public List<Product> Products { get; private set; }
 
         public override string ToString()
         {
-            return string.Format("ProductList[Entries={0}]", this.Total);
+            return string.Format("ProductList(Total={0})", this.Total);
         }
     }
 }

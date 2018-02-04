@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Voucherify.Core.Communication
 {
@@ -15,14 +16,16 @@ namespace Voucherify.Core.Communication
         private readonly bool isSecure;
         private readonly string baseAddress;
         private readonly Dictionary<string, string> headers;
+        private readonly List<JsonConverter> converters;
         private Serialization.JsonSerializer<Exceptions.VoucherifyClientException> serializerException;
 
-        internal ApiClient(bool isSecure, string baseAddress, Dictionary<string, string> headers)
+        internal ApiClient(bool isSecure, string baseAddress, Dictionary<string, string> headers, List<JsonConverter> converters)
         {
             this.isSecure = isSecure;
             this.headers = headers;
             this.baseAddress = baseAddress;
-            this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>();
+            this.converters = converters;
+            this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>(converters);
         }
 
         internal async Task<TResult> DoGetRequest<TResult>(Uri uri)
@@ -98,7 +101,7 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.PostAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>().Serialize(payload))).ConfigureAwait(false);
+                    var response = await client.PostAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>(this.converters).Serialize(payload))).ConfigureAwait(false);
                     return await EnsureResult<TResult>(response).ConfigureAwait(false);
                 }
                 catch (Exception exception)
@@ -121,7 +124,7 @@ namespace Voucherify.Core.Communication
             {
                 try
                 {
-                    var response = await client.PutAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>().Serialize(payload))).ConfigureAwait(false);
+                    var response = await client.PutAsync(uri, this.PrepareContent(new Serialization.JsonSerializer<TPayload>(this.converters).Serialize(payload))).ConfigureAwait(false);
                     return await EnsureResult<TResult>(response).ConfigureAwait(false);
                 }
                 catch (Exception exception)
@@ -173,11 +176,11 @@ namespace Voucherify.Core.Communication
                 try
                 {
                     exception = this.serializerException.Deserialize(resultString);
-                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details, exception.Key);
                 }
                 catch
                 {
-                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString);
+                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString, string.Empty);
                 }
 
                 throw exception;
@@ -196,17 +199,17 @@ namespace Voucherify.Core.Communication
                 try
                 {
                     exception = this.serializerException.Deserialize(resultString);
-                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details);
+                    exception = new Exceptions.VoucherifyClientException(exception.Message, exception.Code, exception.Details, exception.Key);
                 }
                 catch
                 {
-                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString);
+                    exception = new Exceptions.VoucherifyClientException(response.StatusCode.ToString(), (int)response.StatusCode, resultString, string.Empty);
                 }
 
                 throw exception;
             }
 
-            return new Serialization.JsonSerializer<TResult>().Deserialize(resultString);
+            return new Serialization.JsonSerializer<TResult>(this.converters).Deserialize(resultString);
         }
 
         private StringContent PrepareContent(string content)

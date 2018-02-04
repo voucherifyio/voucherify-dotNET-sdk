@@ -7,14 +7,8 @@ using Voucherify.Core.DataModel;
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class Product : ApiObject
+    public class Product : ApiObjectWithId
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
-
-        [JsonProperty(PropertyName = "created_at")]
-        public DateTime? CreatedAt { get; private set; }
-
         [JsonProperty(PropertyName = "source_id")]
         public string SourceId { get; private set; }
 
@@ -28,24 +22,18 @@ namespace Voucherify.DataModel
         public Metadata Metadata { get; private set; }
 
         [JsonProperty(PropertyName = "skus")]
-        public ProductSkus Skus { get; private set; }
+        public ProductSkuList Skus { get; private set; }
 
         public Product()
         {
             this.Attributes = new List<string>();
             this.Metadata = new Metadata();
-            this.Skus = new ProductSkus();
+            this.Skus = new ProductSkuList();
         }
 
         public override string ToString()
         {
-            return string.Format("Product[Id={0},SourceId={1},Name={2},Attributes={3},Metadata={4},Skus={5}]",
-                this.Id,
-                this.SourceId,
-                this.Name,
-                this.Attributes != null ? this.Attributes.Count : 0,
-                this.Metadata,
-                this.Skus);
+            return string.Format("Product(Id={0},SoruceId={1},Name={2},Skus={3})", this.Id, this.SourceId, this.Name, this.Skus);
         }
     }
 }

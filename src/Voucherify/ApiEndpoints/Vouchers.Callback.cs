@@ -38,39 +38,31 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPutRequest(uriBuilder.Uri, voucher, callback);
         }
 
+        public void AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance balance, Action<ApiResponse<DataModel.Balance>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/balance", Uri.EscapeDataString(code)));
+            this.client.DoPostRequest(uriBuilder.Uri, balance, callback);
+        }
+
         public void Delete(string code, DataModel.Queries.VoucherDelete query, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
-        [Obsolete(message: "This method is obsolete. Use Api.Distributions.Publish() instead.", error: false)]
-        public void Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context, Action<ApiResponse<Core.DataModel.Empty>> callback)
-        {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
-            this.client.DoPostRequest(uriBuilder.Uri, context, callback);
-        }
-
-        public void Disable(string code, Action<ApiResponse> callback)
+        public void Disable(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", Uri.EscapeDataString(code)));
             this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 
-        public void Enable(string code, Action<ApiResponse> callback)
+        public void Enable(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", Uri.EscapeDataString(code)));
             this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 
-        [Obsolete(message: "This method is obsolete. Use Api.Validations.ValidateVoucher() instead.", error: false)]
-        public void Validate(string code, DataModel.Contexts.VoucherValidation context, Action<ApiResponse<DataModel.Results.VoucherValidation>> callback)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
-            this.client.DoPostRequest(uriBuilder.Uri, context, callback);
-        }
-
-        public void List(DataModel.Queries.VouchersFilter filter, Action<ApiResponse<IList<DataModel.Voucher>>> callback)
+        public void List(DataModel.Queries.VouchersFilter filter, Action<ApiResponse<DataModel.VoucherList>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/"), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);

@@ -30,7 +30,7 @@ namespace Voucherify.DataModel.Contexts
             return new CustomerUpdate();
         }
 
-        public static CustomerUpdate FromCustomer(Customer customer)
+        public static CustomerUpdate FromCustomer(DataModel.Customer customer)
         {
             Metadata metadata = null;
 
