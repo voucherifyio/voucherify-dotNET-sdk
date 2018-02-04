@@ -38,14 +38,14 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "active")]
         public bool Active { get; private set; }
 
-        [JsonProperty(PropertyName = "publish")]
-        public VoucherPublish Publish { get; private set; }
-        
         [JsonProperty(PropertyName = "assets")]
         public VoucherAssets Assets { get; private set; }
 
+        [JsonProperty(PropertyName = "publish")]
+        public VoucherPublishList Publish { get; private set; }
+
         [JsonProperty(PropertyName = "redemption")]
-        public VoucherRedemption Redemption { get; private set; }
+        public VoucherRedemptionList Redemption { get; private set; }
 
         [JsonProperty(PropertyName = "additional_info")]
         public string AdditionalInfo { get; private set; }
@@ -55,28 +55,15 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "applicable_to")]
         public ApplicableProductList ApplicableTo { get; private set; }
+
         public Voucher()
         {
             this.Metadata = new Metadata();
         }
-
+        
         public override string ToString()
         {
-            return string.Format("Voucher[Code={0},Type={1},Campaign={2},Category={3},Discount={4},Gift={5},Start={6},Expiration={7},Active={8},Publish={9},Redemption={10},Additional={11},Metadata={12},ApplicableTo={13}]",
-                this.Code,
-                this.Type,
-                this.Campaign,
-                this.Category,
-                this.Discount,
-                this.Gift,
-                this.StartDate,
-                this.ExpirationDate,
-                this.Active,
-                this.Publish,
-                this.Redemption,
-                this.AdditionalInfo,
-                this.Metadata,
-                this.ApplicableTo);
+            return string.Format("Voucher(Code={0},Type={1},Discount={2},Gift={3},Active={4})", this.Code, this.Type, this.Discount, this.Gift, this.Active);
         }
     }
 }

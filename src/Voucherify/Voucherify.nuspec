@@ -11,11 +11,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
-      2018-01-21: 4.3.0:
+      2018-02-04: 4.3.0:
       - Added support for Api Versions
-      - Added Server support for Promotions
-      - Added Client support for Promotions
-      .
+      - Added support for Orders, Events, Promotions, Segments and Validation Rules
+
       2017-11-22: 4.2.0:
       - Added 'ApplicableTo' property to Voucher.
 

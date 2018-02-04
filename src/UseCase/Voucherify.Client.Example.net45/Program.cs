@@ -8,13 +8,28 @@ namespace Voucherify.Client.Example.net45
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            var clientApi = new Voucherify.Client.Api("<client_app_id>", "<client_token>", "<origin>");
+            string applicationId = args.Length > 0 ? args[0] : "";
+            string applicationSecret = args.Length > 1 ? args[1] : "";
+            string applicationOrigin = args.Length > 2 ? args[2] : "";
 
-            //Cases.Redeem.Run(clientApi).Wait();
-            //Cases.Validate.Run(clientApi).Wait();
+            var clientApi = new Voucherify.Client.Api(applicationId, applicationSecret, applicationOrigin);
 
+            IUseCase[] useCases = new IUseCase[]
+            {
+                new Vouchers.Redeem(),
+                new Vouchers.Validate()
+            };
+
+            Console.WriteLine("Started.");
+
+            foreach (IUseCase useCase in useCases)
+            {
+                useCase.Run(clientApi).Wait();
+            }
+
+            Console.WriteLine("Finalized. Press any key to continue.");
             Console.ReadLine();
         }
     }

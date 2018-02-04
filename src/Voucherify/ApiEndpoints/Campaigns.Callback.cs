@@ -25,6 +25,18 @@ namespace Voucherify.ApiEndpoints
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
+        public void Update(string name, DataModel.Contexts.CampaignUpdate campaign, Action<ApiResponse<DataModel.Campaign>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
+            this.client.DoPutRequest(uriBuilder.Uri, campaign, callback);
+        }
+
+        public void Delete(string name, DataModel.Queries.CampaignDelete query, Action<ApiResponse> callback)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name))), query);
+            this.client.DoDeleteRequest(uriBuilder.Uri, callback);
+        }
+
         public void AddVoucher(string name, DataModel.Contexts.CampaignAddVoucher addVoucherContext, Action<ApiResponse<DataModel.Voucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", Uri.EscapeDataString(name)));

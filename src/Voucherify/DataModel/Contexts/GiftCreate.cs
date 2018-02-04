@@ -7,7 +7,7 @@ namespace Voucherify.DataModel.Contexts
     public class GiftCreate
     {
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; private set; }
+        public int Amount { get; set; }
 
         public GiftCreate() { }
 

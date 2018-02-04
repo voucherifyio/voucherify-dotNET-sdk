@@ -42,19 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cases\ApiUnauthorized.cs" />
-    <Compile Include="Cases\CampaignFlow.cs" />
-    <Compile Include="Cases\CampaignVoucherImport.cs" />
-    <Compile Include="Cases\CustomerFlow.cs" />
-    <Compile Include="Cases\ProductFlow.cs" />
-    <Compile Include="Cases\ProductList.cs" />
-    <Compile Include="Cases\RedemptionFlow.cs" />
-    <Compile Include="Cases\RedemptionList.cs" />
-    <Compile Include="Cases\VoucherFlow.cs" />
-    <Compile Include="Cases\VoucherImport.cs" />
-    <Compile Include="Cases\VoucherList.cs" />
+    <Compile Include="Campaigns\AddDiscountCampaign.cs" />
+    <Compile Include="Campaigns\AddPromotionCampaign.cs" />
+    <Compile Include="Flows\Campaigns.cs" />
+    <Compile Include="Flows\Customers.cs" />
+    <Compile Include="Flows\Products.cs" />
+    <Compile Include="Flows\Vouchers.cs" />
+    <Compile Include="Import\CampaignVoucher.cs" />
+    <Compile Include="Import\Voucher.cs" />
+    <Compile Include="IUseCase.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Promotions\CreatePromotionTierAndValidateAndRedeem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redemptions\RedeemAndRollback.cs" />
+    <Compile Include="Vouchers\CreateAndAddBalanceToGiftVoucher.cs" />
+    <Compile Include="Vouchers\CreateAndValidateAndRedeemDiscountVoucher.cs" />
+    <Compile Include="Vouchers\CreateAndValidateAndRedeemGiftVoucher.cs" />
+    <Compile Include="Vouchers\CreateVoucherAndPublishToCustomer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Voucherify\Voucherify.net45.csproj">
@@ -62,6 +66,7 @@
       <Name>Voucherify.net45</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

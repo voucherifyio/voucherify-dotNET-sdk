@@ -23,7 +23,7 @@ namespace Voucherify.DataModel
         public Gift Gift { get; private set; }
         
         [JsonProperty(PropertyName = "redemption")]
-        public CampaignVoucherRedemption Redemption { get; private set; }
+        public RedemptionQuantity Redemption { get; private set; }
 
         public CampaignVoucher()
         {
@@ -31,12 +31,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("CampaignVoucher[Type={0},Category={1},Discount={2},Gift={3},Redemption={4}]",
-                this.Type,
-                this.Category,
-                this.Discount,
-                this.Gift,
-                this.Redemption);
+            return string.Format("CampaignVoucher(Type={0})", this.Type);
         }
     }
 }

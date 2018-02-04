@@ -28,7 +28,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("CampaignList[Entries={0}]", this.Total);
+            return string.Format("CampaignList(Total={0})", this.Total);
         }
     }
 }

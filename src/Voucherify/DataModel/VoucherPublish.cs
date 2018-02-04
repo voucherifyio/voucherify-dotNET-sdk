@@ -1,5 +1,5 @@
 ﻿#if VOUCHERIFYSERVER || VOUCHERIFYCLIENT
-using System.Collections.Generic;
+using System;
 using Newtonsoft.Json;
 using Voucherify.Core.DataModel;
 
@@ -8,21 +8,18 @@ namespace Voucherify.DataModel
     [JsonObject]
     public class VoucherPublish : ApiObject
     {
-        [JsonProperty(PropertyName = "count")]
-        public int Count { get; private set; }
+        [JsonProperty(PropertyName = "customer")]
+        public string Customer { get; private set; }
 
-        [JsonProperty(PropertyName = "entries")]
-        public List<PublishEntry> Entries { get; private set; }
+        [JsonProperty(PropertyName = "channel")]
+        public string Channel { get; private set; }
 
-        public VoucherPublish()
-        {
-            this.Count = 0;
-            this.Entries = new List<PublishEntry>();
-        }
+        [JsonProperty(PropertyName = "published_at")]
+        public DateTime? PublishedAt { get; private set; }
 
         public override string ToString()
         {
-            return string.Format("VoucherRedemption[Entries={0}]", this.Count);
+            return string.Format("VoucherPublish(Customer={0},Channel={1})", this.Customer, this.Channel);
         }
     }
 }

@@ -14,10 +14,10 @@ namespace Voucherify.DataModel
         public int Balance { get; private set; }
 
         public Gift() { }
-
+        
         public override string ToString()
         {
-            return string.Format("Gift[Amount={0},Balance={1}]", this.Amount, this.Balance);
+            return string.Format("Gift(Amount={0},Balance={1})", this.Amount, this.Balance);
         }
     }
 }

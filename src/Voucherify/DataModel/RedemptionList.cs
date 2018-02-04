@@ -20,7 +20,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("RedemptionList[Entries={0}]", this.Total);
+            return string.Format("RedemptionList(Total={0})", this.Total);
         }
     }
 }

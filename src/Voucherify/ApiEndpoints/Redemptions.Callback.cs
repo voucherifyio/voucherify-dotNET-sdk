@@ -12,25 +12,37 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
+        public void Get(string redemptionId, Action<ApiResponse<DataModel.Redemption>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/redemptions/{0}", Uri.EscapeDataString(redemptionId)));
+            this.client.DoGetRequest(uriBuilder.Uri, callback);
+        }
+
         public void List(DataModel.Queries.RedemptionsFilter filter, Action<ApiResponse<DataModel.RedemptionList>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/redemptions"), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
-        public void Redeem(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Results.RedemptionRedeem>> callback)
+        public void RedeemVoucher(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Redemption>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", Uri.EscapeDataString(code))), query);
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
-        public void Rollback(string redemptionId, DataModel.Queries.RedemptionRollback query, DataModel.Contexts.RedemptionRollback context, Action<ApiResponse<DataModel.Results.RedemptionRollback>> callback)
+        public void RedeemPromotion(string promotionId, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Redemption>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}/redemption", promotionId));
+            this.client.DoPostRequest(uriBuilder.Uri, context, callback);
+        }
+
+        public void Rollback(string redemptionId, DataModel.Queries.RedemptionRollback query, DataModel.Contexts.RedemptionRollback context, Action<ApiResponse<DataModel.RedemptionRollback>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/redemptions/{0}/rollback", Uri.EscapeDataString(redemptionId))), query);
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
-        public void GetForVoucher(string code, Action<ApiResponse<DataModel.VoucherRedemption>> callback)
+        public void GetForVoucher(string code, Action<ApiResponse<DataModel.VoucherRedemptionList>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", Uri.EscapeDataString(code)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);

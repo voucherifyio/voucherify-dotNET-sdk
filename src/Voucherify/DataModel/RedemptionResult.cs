@@ -5,12 +5,10 @@ namespace Voucherify.DataModel
 {
     public enum RedemptionResult
     {
-        [JsonEnumValue(Value = "Success")]
+        [JsonEnumValue(Value = "SUCCESS")]
         Success,
-        [JsonEnumValue(Value = "Failure-Inactive")]
-        FailureInactive,
-        [JsonEnumValue(Value = "Failure-NotExist")]
-        FailureNotExist
+        [JsonEnumValue(Value = "FAILURE")]
+        Failure
     }
 }
 #endif

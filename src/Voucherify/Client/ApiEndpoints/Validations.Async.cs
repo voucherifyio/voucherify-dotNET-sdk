@@ -11,10 +11,10 @@ namespace Voucherify.Client.ApiEndpoints
         {
         }
 
-        public async Task<DataModel.Results.VoucherValidation> ValidateVoucher(DataModel.Queries.VoucherValidation query)
+        public async Task<DataModel.Validation> ValidateVoucher(DataModel.Queries.VoucherValidation query)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/validate"), query);
-            return await this.client.DoGetRequest<DataModel.Results.VoucherValidation>(uriBuilder.Uri).ConfigureAwait(false);
+            return await this.client.DoGetRequest<DataModel.Validation>(uriBuilder.Uri).ConfigureAwait(false);
         }
     }
 }

@@ -25,10 +25,10 @@ namespace Voucherify.DataModel
             this.Object = "list";
             this.DataRef = "vouchers";
         }
- 
+
         public override string ToString()
         {
-            return string.Format("VoucherList[Entries={0}]", this.Total);
+            return string.Format("VoucherList(Total={0})", this.Total);
         }
     }
 }

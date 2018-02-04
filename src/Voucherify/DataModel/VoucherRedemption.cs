@@ -1,35 +1,36 @@
 ﻿#if VOUCHERIFYSERVER || VOUCHERIFYCLIENT
-using System.Collections.Generic;
+using System;
 using Newtonsoft.Json;
 using Voucherify.Core.DataModel;
 
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class VoucherRedemption : ApiObject
+    public class VoucherRedemption : ApiObjectWithId
     {
-        [JsonProperty(PropertyName = "data_ref")]
-        public string DataRef { get; private set; }
+        [JsonProperty(PropertyName = "date")]
+        public DateTime? Date { get; private set; }
 
-        [JsonProperty(PropertyName = "quantity")]
-        public int? Quantity { get; private set; }
+        [JsonProperty(PropertyName = "customer_id")]
+        public string CustomerId { get; private set; }
 
-        [JsonProperty(PropertyName = "redeemed_quantity")]
-        public int? RedeemedQuantity { get; private set;  }
+        [JsonProperty(PropertyName = "tracking_id")]
+        public string TrackingId { get; private set; }
+        
+        [JsonProperty(PropertyName = "result")]
+        public RedemptionResult Result { get; private set; }
 
-        [JsonProperty(PropertyName = "redemption_entries")]
-        public List<VoucherRedemptionEntry> RedemptionEntries { get; private set; }
-
+        [JsonProperty(PropertyName = "metadata")]
+        public Metadata Metadata { get; private set; }
+        
         public VoucherRedemption()
         {
-            this.RedemptionEntries = new List<VoucherRedemptionEntry>();
+            this.Metadata = new Metadata();
         }
 
         public override string ToString()
         {
-            return string.Format("VoucherRedemption[Quantity={0},Redeemed={1}]",
-                this.Quantity,
-                this.RedeemedQuantity);
+            return string.Format("VoucherRedemption(Id={0},Cusotmer={1},Tracking={2},Result={3})", this.Id, this.CustomerId, this.TrackingId, this.Result);
         }
     }
 }

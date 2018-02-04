@@ -27,6 +27,9 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "voucher")]
         public CampaignVoucherCreate Voucher { get; set; }
+        
+        [JsonProperty(PropertyName = "validation_rules")]
+        public ValidationRule ValidationRules { get; set; }
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; set; }

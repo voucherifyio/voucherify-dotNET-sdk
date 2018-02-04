@@ -36,36 +36,28 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoPutRequest< DataModel.Voucher, DataModel.Contexts.VoucherUpdate>(uriBuilder.Uri, voucher).ConfigureAwait(false);
         }
 
+        public async Task<DataModel.Balance> AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance balance)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/balance", Uri.EscapeDataString(code)));
+            return await this.client.DoPostRequest<DataModel.Balance, DataModel.Contexts.VoucherAddGiftBalance>(uriBuilder.Uri, balance).ConfigureAwait(false);
+        }
+
         public async Task Delete(string code, DataModel.Queries.VoucherDelete query)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
-
-        [Obsolete(message: "This method is obsolete. Use Api.Distributions.Publish() instead.", error: false)]
-        public async Task Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context)
-        {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
-            await this.client.DoPostRequest<Core.DataModel.Empty, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context).ConfigureAwait(false);
-        }
-
-        public async Task Disable(string code)
+        
+        public async Task<DataModel.Voucher> Disable(string code)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", Uri.EscapeDataString(code)));
-            await this.client.DoPostRequest(uriBuilder.Uri).ConfigureAwait(false);
+            return await this.client.DoPostRequest<DataModel.Voucher>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
-        public async Task Enable(string code)
+        public async Task<DataModel.Voucher> Enable(string code)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", Uri.EscapeDataString(code)));
-            await this.client.DoPostRequest(uriBuilder.Uri).ConfigureAwait(false);
-        }
-
-        [Obsolete(message: "This method is obsolete. Use Api.Validations.ValidateVoucher() instead.", error: false)]
-        public async Task<DataModel.Results.VoucherValidation> Validate(string code, DataModel.Contexts.VoucherValidation context)
-        {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
-            return await this.client.DoPostRequest< DataModel.Results.VoucherValidation, DataModel.Contexts.VoucherValidation>(uriBuilder.Uri, context).ConfigureAwait(false);
+            return await this.client.DoPostRequest<DataModel.Voucher>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.VoucherList> List(DataModel.Queries.VouchersFilter filter)

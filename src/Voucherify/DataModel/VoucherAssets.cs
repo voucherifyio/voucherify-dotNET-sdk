@@ -8,6 +8,11 @@ namespace Voucherify.DataModel
     {
         [JsonProperty(PropertyName = "qr")]
         public QR QR { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("QR(QR={0})", this.QR);
+        }
     }
 }
 #endif

@@ -11,10 +11,10 @@ namespace Voucherify.Client.ApiEndpoints
         {
         }
 
-        public async Task<DataModel.Results.RedemptionRedeem> Redeem(DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context)
+        public async Task<DataModel.Redemption> Redeem(DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/redeem"), query);
-            return await this.client.DoPostRequest<DataModel.Results.RedemptionRedeem, DataModel.Contexts.RedemptionRedeem>(uriBuilder.Uri, context).ConfigureAwait(false);
+            return await this.client.DoPostRequest<DataModel.Redemption, DataModel.Contexts.RedemptionRedeem>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
     }
 }

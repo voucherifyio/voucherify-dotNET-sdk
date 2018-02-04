@@ -1,6 +1,7 @@
 ﻿#if !APIASYNC
 using System;
 using Voucherify.Core.Communication;
+using Voucherify.Core.Extensions;
 
 namespace Voucherify.ApiEndpoints
 {
@@ -28,9 +29,9 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPutRequest(uriBuilder.Uri, product, callback);
         }
 
-        public void List(Action<ApiResponse<DataModel.ProductList>> callback)
+        public void List(DataModel.Queries.ProductFilter filter, Action<ApiResponse<DataModel.ProductList>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/products");
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/products/"), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
@@ -64,7 +65,7 @@ namespace Voucherify.ApiEndpoints
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
-        public void ListSkus(string productId, Action<ApiResponse<DataModel.ProductSkus>> callback)
+        public void ListSkus(string productId, Action<ApiResponse<DataModel.ProductSkuList>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus", Uri.EscapeDataString(productId)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);

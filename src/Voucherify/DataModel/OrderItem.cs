@@ -7,6 +7,9 @@ namespace Voucherify.DataModel
     [JsonObject]
     public class OrderItem : ApiObject
     {
+        [JsonProperty(PropertyName = "source_id")]
+        public string SourceId { get; set; }
+
         [JsonProperty(PropertyName = "product_id")]
         public string ProductId { get; set; }
 
@@ -18,10 +21,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("OrderItem[ProductId={0},SkuId={1},Quantity={2}]", 
-                this.ProductId,
-                this.SkuId,
-                this.Quantity);
+            return string.Format("OrderItem(SourceId={0},ProductId={1},SkuId={2},Quantity={3})", this.SourceId, this.ProductId, this.SkuId, this.Quantity);
         }
     }
 }

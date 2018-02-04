@@ -9,9 +9,8 @@ namespace Voucherify.DataModel.Contexts
     public class RedemptionRedeem
     {
         [JsonProperty(PropertyName = "customer")]
-        public object Customer { get; private set; }
+        public Customer Customer { get; private set; }
         
-
         [JsonProperty(PropertyName = "order")]
         public Order Order { get; set; }
 
@@ -23,7 +22,7 @@ namespace Voucherify.DataModel.Contexts
             this.Metadata = new Metadata();
         }
 
-        public RedemptionRedeem WithCustomer(CustomerCreate customer)
+        public RedemptionRedeem WithCustomer(Customer customer)
         {
             this.Customer = customer;
             return this;
@@ -31,7 +30,7 @@ namespace Voucherify.DataModel.Contexts
 
         public RedemptionRedeem WithCustomerId(string customerId)
         {
-            this.Customer = customerId;
+            this.Customer = new Customer() { Id = customerId };
             return this;
         }
     }

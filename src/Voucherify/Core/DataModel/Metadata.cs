@@ -18,7 +18,7 @@ namespace Voucherify.Core.DataModel
 
         public override string ToString()
         {
-            return string.Format("Medatada[Entries={0}]", this.Count);
+            return string.Format("Object(Type=Metadata,Count={0})", this.Count);
         }
     }
 }

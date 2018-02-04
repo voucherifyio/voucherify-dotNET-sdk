@@ -34,6 +34,12 @@ namespace Voucherify.ApiEndpoints
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
+
+        public async Task<DataModel.CustomerList> List(DataModel.Queries.CustomerFilter filter)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/customers/"), filter);
+            return await this.client.DoGetRequest<DataModel.CustomerList>(uriBuilder.Uri).ConfigureAwait(false);
+        }
     }
 }
 #endif

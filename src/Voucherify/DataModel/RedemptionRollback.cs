@@ -6,11 +6,8 @@ using Voucherify.Core.DataModel;
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class RedemptionRollback : ApiObject
+    public class RedemptionRollback : ApiObjectWithId
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
-
         [JsonProperty(PropertyName = "date")]
         public DateTime? Date { get; private set; }
 
@@ -26,6 +23,18 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "reason")]
         public string Reason { get; private set; }
 
+        [JsonProperty(PropertyName = "gift")]
+        public RedemptionGift Gift { get; private set; }
+
+        [JsonProperty(PropertyName = "customer")]
+        public Customer Customer { get; private set; }
+        
+        [JsonProperty(PropertyName = "result")]
+        public RedemptionResult Result { get; private set; }
+
+        [JsonProperty(PropertyName = "failure_code")]
+        public FailureCode? FailureCode { get; private set; }
+
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
@@ -36,14 +45,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("RedemptionRollkach[Id={0},Date={1},CustomerId={2},TrackingId={3},Redemption={4},Reason={5},Metadata={6}]",
-                this.Id,
-                this.Date,
-                this.CustomerId,
-                this.TrackingId,
-                this.Redemption,
-                this.Reason,
-                this.Metadata);
+            return string.Format("RedemptionRollback(Id={0},Customer={1},Tracking={2},Redemption={3})", this.Id, this.CustomerId, this.TrackingId, this.Redemption);
         }
     }
 }

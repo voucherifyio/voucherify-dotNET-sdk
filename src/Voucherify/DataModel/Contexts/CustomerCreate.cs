@@ -18,6 +18,12 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
+        
+        [JsonProperty(PropertyName = "phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty(PropertyName = "address")]
+        public Address Address { get; set; }
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; set; }

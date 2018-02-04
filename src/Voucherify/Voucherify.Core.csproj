@@ -51,6 +51,7 @@
     <Compile Include="Core\Constants.cs" />
     <Compile Include="Core\DataModel\ApiListObject.cs" />
     <Compile Include="Core\DataModel\ApiObject.cs" />
+    <Compile Include="Core\DataModel\ApiObjectWithId.cs" />
     <Compile Include="Core\DataModel\Empty.cs" />
     <Compile Include="Core\DataModel\Metadata.cs" />
     <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />

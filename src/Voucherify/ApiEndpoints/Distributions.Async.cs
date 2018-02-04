@@ -12,10 +12,10 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public async Task Publish(DataModel.Queries.VoucherPublish query, DataModel.Contexts.VoucherPublish context)
+        public async Task<DataModel.Publication> Publish(DataModel.Contexts.VoucherPublish context)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/vouchers/publish"), query);
-            await this.client.DoPostRequest<Core.DataModel.Empty, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context).ConfigureAwait(false);
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/publish");
+            return await this.client.DoPostRequest<DataModel.Publication, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
     }
 }

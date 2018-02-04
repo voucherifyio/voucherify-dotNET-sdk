@@ -14,6 +14,21 @@ namespace Voucherify.Client
         public ApiVersion Version { get; private set; }
         public bool Secure { get; private set; }
 
+        private Client.ApiEndpoints.Events events;
+
+        public Client.ApiEndpoints.Events Events
+        {
+            get
+            {
+                if (events == null)
+                {
+                    events = new ApiEndpoints.Events(this);
+                }
+
+                return events;
+            }
+        }
+
         private Client.ApiEndpoints.Redemptions redemptions;
 
         public Client.ApiEndpoints.Redemptions Redemptions
@@ -26,21 +41,6 @@ namespace Voucherify.Client
                 }
 
                 return redemptions;
-            }
-        }
-
-        private Client.ApiEndpoints.Vouchers vouchers;
-
-        public Client.ApiEndpoints.Vouchers Vouchers
-        {
-            get
-            {
-                if (vouchers == null)
-                {
-                    vouchers = new ApiEndpoints.Vouchers(this);
-                }
-
-                return vouchers;
             }
         }
 
@@ -86,24 +86,27 @@ namespace Voucherify.Client
         public Api WithSSL()
         {
             this.Secure = true;
-            this.vouchers = null;
+            this.validations = null;
             this.redemptions = null;
+            this.events = null;
             return this;
         }
 
         public Api WithoutSSL()
         {
             this.Secure = false;
-            this.vouchers = null;
+            this.validations = null;
             this.redemptions = null;
+            this.events = null;
             return this;
         }
 
         public Api WithEndpoint(string endpoint)
         {
             this.Endpoint = endpoint;
-            this.vouchers = null;
+            this.validations = null;
             this.redemptions = null;
+            this.events = null;
 
             if (endpoint == null)
             {

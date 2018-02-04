@@ -8,20 +8,39 @@ namespace Voucherify.Example.net45
     {
         static void Main(string[] args)
         {
-            var serverApi = new Voucherify.Api("<app_id>", "<token>");
+            string applicationId = args.Length > 0 ? args[0] : "";
+            string applicationSecret = args.Length > 1 ? args[1] : "";
 
-            //Cases.ApiUnauthorized.Run().Wait();
-            //Cases.CampaignFlow.Run(serverApi).Wait();
-            //Cases.CampaignVoucherImport.Run(serverApi).Wait();
-            //Cases.CustomerFlow.Run(serverApi).Wait();
-            //Cases.ProductFlow.Run(serverApi).Wait();
-            //Cases.ProductList.Run(serverApi).Wait();
-            //Cases.RedemptionFlow.Run(serverApi).Wait();
-            //Cases.RedemptionList.Run(serverApi).Wait();
-            //Cases.VoucherFlow.Run(serverApi).Wait();
-            //Cases.VoucherList.Run(serverApi).Wait();
-            //Cases.VoucherImport.Run(serverApi).Wait();
+            var serverApi = new Voucherify.Api(applicationId, applicationSecret);
 
+            IUseCase[] useCases = new IUseCase[]
+            {
+                /*
+                new Campaigns.AddDiscountCampaign(),
+                new Campaigns.AddPromotionCampaign(),
+                new Flows.Campaigns(),
+                new Flows.Customers(),
+                new Flows.Products(),
+                new Flows.Vouchers(),
+                new Import.CampaignVoucher(),
+                new Import.Voucher(),
+                new Promotions.CreatePromotionTierAndValidateAndRedeem(),
+                new Redemptions.RedeemAndRollback(),
+                new Vouchers.CreateAndAddBalanceToGiftVoucher(),
+                new Vouchers.CreateAndValidateAndRedeemDiscountVoucher(),
+                new Vouchers.CreateAndValidateAndRedeemGiftVoucher(),
+                new Vouchers.CreateVoucherAndPublishToCustomer()
+                */
+            };
+
+            Console.WriteLine("Started.");
+
+            foreach (IUseCase useCase in useCases)
+            {
+                useCase.Run(serverApi).Wait();
+            }
+
+            Console.WriteLine("Finalized. Press any key to continue.");
             Console.ReadLine();
         }
     }
