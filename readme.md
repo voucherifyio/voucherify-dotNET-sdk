@@ -33,11 +33,15 @@ API:
 |
 <a href="#products-api">Products</a>
 |
+<a href="#events-api">Products</a>
+|
+<a href="#orders-api">Products</a>
+|
 <a href="#promotions-api">Promotions</a>
 |
 <a href="#segments-api">Segments</a>
 |
-<a href="#validationrules-api">Validation Rules</a>
+<a href="#validation-rules-api">Validation Rules</a>
 </p>
 
 ---
@@ -87,6 +91,16 @@ var api = new Voucherify.Api(
             "<app_id>",
             "<token>")            
             .WithSSL();
+```
+
+You can also specify the API verison if needed:
+
+```csharp
+var api = new Voucherify.Api(
+            "<app_id>",
+            "<token>")            
+            .WithSSL()
+            .WithVersion(Voucherify.Core.ApiVerions.v2017_04_20);
 ```
 
 ### Client Side Library
@@ -169,6 +183,7 @@ Methods are provided within `Api.Vouchers.*` namespace.
 - [Enable Voucher](#enable-voucher)
 - [Disable Voucher](#disable-voucher)
 - [Import Vouchers](#import-vouchers)
+- [Add Gift Balance](#add-gift-balance)
 
 #### [Create Voucher]
 ```csharp
@@ -179,7 +194,7 @@ public void Create(DataModel.Contexts.VoucherCreate voucher, Action<ApiResponse<
 public void Create(string code, DataModel.Contexts.VoucherCreate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
 ```
 
-Check [voucher oject](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-voucher-object).
+Check [voucher object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-voucher-object).
 
 #### [Get Voucher]
 ```csharp
@@ -236,6 +251,9 @@ public void AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance
 Methods are provided within `Api.Campaigns.*` namespace.
 - [Create Campaign](#create-campaign)
 - [Get Campaign](#get-campaign)
+- [Update Campaign](#update-campaign)
+- [Delete Campaign](#delete-campaign)
+- [List Campaigns](#list-campaigns)
 - [Add Voucher to Campaign](#add-voucher-to-campaign)
 - [Import Vouchers to Campaign](#import-vouchers-to-campaign)
 
@@ -299,6 +317,10 @@ public void Publish(DataModel.Contexts.VoucherPublish context, Action<ApiRespons
 ### Validations API
 Methods are provided within `Api.Validations.*` namespace.
 
+- [Validate Voucher](#validate-voucher)
+- [Validate Promotion](#validate-promotion)
+- [Validate](#validate)
+
 #### [Validate Voucher]
 ```csharp
 public async Task<DataModel.Validation> ValidateVoucher(string code, DataModel.Contexts.Validation context)
@@ -326,15 +348,36 @@ public void Validate(string code, DataModel.Contexts.Validation context, Action<
 Methods are provided within `Api.Redemptions.*` namespace.
 
 - [Redeem Voucher](#redeem-voucher)
+- [Redeem Promotion](#redeem-promotion)
+- [Redeem](#redeem)
+- [Get Redemption](#get-redemption)
 - [List Redemptions](#list-redemptions)
 - [Get Voucher's Redemptions](#get-vouchers-redemptions)
 - [Rollback Redemption](#rollback-redemption)
 
 #### [Redeem Voucher]
 ```csharp
-public async Task<DataModel.Results.RedemptionRedeem> Redeem(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context)
+public async Task<DataModel.Redemption> RedeemVoucher(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context)
+        
+public void RedeemVoucher(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Redemption>> callback)        
+```
+#### [Redeem Promotion]
+```csharp
+public async Task<DataModel.Redemption> RedeemPromotion(string promotionId, DataModel.Contexts.RedemptionRedeem context)
+
+public void RedeemPromotion(string promotionId, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Redemption>> callback)        
+```
+#### [Redeem]
+```csharp
+public async Task<DataModel.Redemption> Redeem(string code, DataModel.Contexts.RedemptionRedeem context)
 
 public void Redeem(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Results.RedemptionRedeem>> callback)
+```
+#### [Get Redemption]
+```csharp
+public async Task<DataModel.Redemption> Get(string redemptionId)
+
+public void Get(string redemptionId, Action<ApiResponse<DataModel.Redemption>> callback)
 ```
 #### [List Redemptions]
 ```csharp
@@ -365,6 +408,7 @@ Methods are provided within `Api.Customers.*` namespace.
 - [Get Customer](#get-customer)
 - [Update Customer](#update-customer)
 - [Delete Customer](#delete-customer)
+- [List Customers](#list-customers)
 
 #### [Create Customer]
 ```csharp
@@ -390,6 +434,13 @@ public void Update(string customerId, DataModel.Contexts.CustomerUpdate customer
 public async Task Delete(string customerId)
 
 public void Delete(string customerId, Action<ApiResponse> callback)
+```
+
+#### [List Customers]
+```csharp
+public async Task<DataModel.CustomerList> List(DataModel.Queries.CustomerFilter filter)
+
+public void List(DataModel.Queries.CustomerFilter filter, Action<ApiResponse<DataModel.CustomerList>> callback)
 ```
 
 ---
@@ -473,12 +524,174 @@ public void ListSkus(string productId, Action<ApiResponse<DataModel.ProductSkus>
 
 ---
 
+### Events API
+Methods are provided within `Api.Events.*` namespace.
+
+- [Create event](#create-event)
+
+#### [Create Event]
+```csharp
+public async Task<DataModel.Event> Create(DataModel.Contexts.EventCreate eventObject)
+
+public void Create(DataModel.Contexts.EventCreate eventObject, Action<ApiResponse<DataModel.Event>> callback)
+```
+
+---
+
+### Orders API
+Methods are provided within `Api.Orders.*` namespace.
+
+- [Create order](#create-order)
+- [Get order](#get-order)
+- [Update order](update-order)
+- [List orders](#list-orders)
+
+#### [Create Order]
+```csharp
+public async Task<DataModel.Order> Create(DataModel.Contexts.OrderCreate order)
+
+public void Create(DataModel.Contexts.OrderCreate order, Action<ApiResponse<DataModel.Order>> callback)
+```
+#### [Get Order]
+```csharp
+public async Task<DataModel.Order> Get(string orderId)
+
+public void Get(string orderId, Action<ApiResponse<DataModel.Order>> callback)
+```
+#### [Update Order]
+```csharp
+public async Task<DataModel.Order> Update(string orderId, DataModel.Contexts.OrderUpdate order)
+
+public void Update(string orderId, DataModel.Contexts.OrderUpdate order, Action<ApiResponse<DataModel.Order>> callback)
+```
+#### [List Orders]
+```csharp
+public async Task<DataModel.OrderList> List(DataModel.Queries.OrderFilter filter)
+
+public void List(DataModel.Queries.OrderFilter filter, Action<ApiResponse<DataModel.OrderList>> callback)
+```
+
+---
+
+### Promotions API
+Methods are provided within `Api.Promotions.*` namespace.
+
+- [Get Promotion Tier](#get-promotion-tier)
+- [List For Campaign](#list-promotion-tiers-for-campaign)
+- [Create Campaing](#create-promotion-campaign)
+- [Add Tier To Campaign](#add-promotion-tier-to-campaign)
+- [Update Promotion Tier](#update-promotion-tier)
+- [Delete Promotion Tier](#delete-promotion-tier)
+
+#### [Get Promotion Tier]
+```csharp
+ public async Task<DataModel.PromotionTier> Get(string promotionTierId)
+
+public void Get(string promotionTierId, Action<ApiResponse<DataModel.PromotionTier>> callback)
+```
+#### [List For Campaign]
+```csharp
+public async Task<DataModel.PromotionTierList> ListForCampaign(string campaign)
+
+public void ListForCampaign(string campaign, Action<ApiResponse<DataModel.PromotionTierList>> callback)
+```
+#### [Create Campaing]
+```csharp
+public async Task<DataModel.Campaign> CreateCampaign(DataModel.Contexts.CampaignPromotionCreate promotionCampaign)
+
+public void CreateCampaign(DataModel.Contexts.CampaignPromotionCreate promotionCampaign, Action<ApiResponse<DataModel.Campaign>> callback)
+```
+#### [Add Tier To Campaign]
+```csharp
+public async Task<DataModel.PromotionTier> AddTierToCampaign(string campaignId, DataModel.Contexts.PromotionTierCreate promotionTier)
+
+public void AddTierToCampaign(string campaignId, DataModel.Contexts.PromotionTierCreate promotionTier, Action<ApiResponse<DataModel.PromotionTier>> callback)
+```
+#### [Update Promotion Tier]
+```csharp
+public async Task<DataModel.PromotionTier> Update(string promotionTierId, DataModel.Contexts.PromotionTierUpdate promotionTier)
+
+public void Update(string promotionTierId, DataModel.Contexts.PromotionTierUpdate promotionTier, Action<ApiResponse<DataModel.PromotionTier>> callback)
+```
+#### [Delete Promotion Tier]
+```csharp
+public async Task Delete(string promotionTierId)
+
+public void Delete(string promotionTierId, Action<ApiResponse> callback)
+```
+
+---
+
+### Segments API
+Methods are provided within `Api.Segments.*` namespace.
+
+- [Get Segment](#get-segment)
+- [Create Segment](#create-segment)
+- [Delete Segment](#delete-segment)
+
+#### [Get Segment]
+```csharp
+public async Task<DataModel.Segment> Get(string segmentId)
+
+public void Get(string segmentId, Action<ApiResponse<DataModel.Segment>> callback)
+```
+#### [Create Segment]
+```csharp
+ public async Task<DataModel.Segment> Create(DataModel.Contexts.SegmentCreate voucher)
+
+public void Create(DataModel.Contexts.SegmentCreate voucher, Action<ApiResponse<DataModel.Segment>> callback)
+```
+#### [Delete Segment]
+```csharp
+public async Task Delete(string segmentId)
+
+public void Delete(string segmentId, Action<ApiResponse> callback)
+```
+
+---
+
+### Validation Rules API
+Methods are provided within `Api.ValidationRules.*` namespace.
+
+- [Create Validation Rule](#create-validation-rule)
+- [Get Validation Rule](#get-validation-rule)
+- [Update Validation Rule](#update-validation-rule)
+- [Delete Validation Rule](#delete-validation-rule)
+
+#### [Create Validation Rule]
+```csharp
+public async Task<DataModel.ValidationRule> Create(DataModel.Contexts.ValidationRuleCreate validationRule)
+
+public void Create(DataModel.Contexts.ValidationRuleCreate validationRule, Action<ApiResponse<DataModel.ValidationRule>> callback)
+```
+#### [Get Validation Rule]
+```csharp
+public async Task<DataModel.ValidationRule> Get(string validationRuleId)
+
+public void Get(string validationRuleId, Action<ApiResponse<DataModel.ValidationRule>> callback)
+```
+#### [Update Validation Rule]
+```csharp
+public async Task<DataModel.ValidationRule> Update(string validationRuleId, DataModel.Contexts.ValidationRuleUpdate validationRule)
+
+public void Update(string validationRuleId, DataModel.Contexts.ValidationRuleUpdate validationRule, Action<ApiResponse<DataModel.ValidationRule>> callback)
+```
+#### [Delete Validation Rule]
+```csharp
+public async Task Delete(string validationRuleId)
+
+public void Delete(string validationRuleId, Action<ApiResponse> callback)
+```
+
+---
+
 ## Contributing
 
 Bug reports and pull requests are welcome through [GitHub Issues](https://github.com/voucherifyio/voucherify-dotNET-sdk/issues).
 
 ## Changelog
 
+- **2018-02-05** - `4.3.1` - Fixed Segments API endpoints. Fixed Library versioning.
 - **2018-02-04** - `4.3.0` - Added support for Api Versions. Added support for Orders, Events, Promotions, Segments and Validation Rules.
 - **2017-11-22** - `4.2.0` - Added 'ApplicableTo' property to Voucher.
 - **2017-10-24** - `4.1.2` - Added 'key' property to VoucherifyClientException. Removed private setters for Order and Customer entities.

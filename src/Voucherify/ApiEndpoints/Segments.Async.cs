@@ -11,22 +11,21 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public async Task<DataModel.Segment> Get(string validationRuleId)
+        public async Task<DataModel.Segment> Get(string segmentId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", Uri.EscapeDataString(segmentId)));
             return await this.client.DoGetRequest<DataModel.Segment>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Segment> Create(DataModel.Contexts.SegmentCreate voucher)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder("/validation-rules/");
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/segments/");
             return await this.client.DoPostRequest< DataModel.Segment,DataModel.Contexts.SegmentCreate>(uriBuilder.Uri, voucher).ConfigureAwait(false);
         }
 
-
-        public async Task Delete(string validationRuleId)
+        public async Task Delete(string segmentId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", Uri.EscapeDataString(segmentId)));
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
     }
