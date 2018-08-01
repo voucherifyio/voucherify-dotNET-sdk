@@ -14,6 +14,7 @@ namespace Voucherify.Example.net45.Flows
             {
                 var productCreated = await api.Products.Create(new DataModel.Contexts.ProductCreate()
                 {
+                    Price = 1000,
                     Attributes = new List<string>() { "color", "size" },
                     Name = "TEST Product"
                 });
@@ -26,6 +27,7 @@ namespace Voucherify.Example.net45.Flows
                     productGet.Id,
                     new DataModel.Contexts.SkuCreate()
                     {
+                        Price = 1250,
                         SkuValue = "TEST-PRODUCT-WHITE-M",
                         Attributes = new Core.DataModel.Metadata(new Dictionary<string, object>() {
                             { "color", "white" },
@@ -42,7 +44,6 @@ namespace Voucherify.Example.net45.Flows
                     productGet.Id,
                     skuGet.Id,
                     DataModel.Contexts.SkuUpdate.FromSku(skuGet)
-                        .WithCurrency("USD")
                         .WithPrice(100));
                 Console.WriteLine("[Flows][Products] Updated - Sku: {0}", skuUpdated);
 

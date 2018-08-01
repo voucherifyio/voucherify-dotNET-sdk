@@ -10,9 +10,6 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "sku")]
         public string SkuValue { get; set; }
 
-        [JsonProperty(PropertyName = "currency")]
-        public string Currency { get; set; }
-
         [JsonProperty(PropertyName = "price")]
         public int? Price { get; set; }
 
@@ -61,7 +58,6 @@ namespace Voucherify.DataModel.Contexts
             return new SkuUpdate()
             {
                 SkuValue = sku.SkuValue,
-                Currency = sku.Currency,
                 Price = sku.Price,
                 Attributes = attributes,
                 Metadata = metadata
@@ -71,12 +67,6 @@ namespace Voucherify.DataModel.Contexts
         public SkuUpdate WithSkuValue(string skuValue)
         {
             this.SkuValue = skuValue;
-            return this;
-        }
-
-        public SkuUpdate WithCurrency(string currency)
-        {
-            this.Currency = currency;
             return this;
         }
 
