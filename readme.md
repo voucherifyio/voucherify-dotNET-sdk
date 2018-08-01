@@ -691,6 +691,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2018-08-01** - `4.3.2` - Added Price to Product
 - **2018-02-05** - `4.3.1` - Fixed Segments API endpoints. Fixed Library versioning.
 - **2018-02-04** - `4.3.0` - Added support for Api Versions. Added support for Orders, Events, Promotions, Segments and Validation Rules.
 - **2017-11-22** - `4.2.0` - Added 'ApplicableTo' property to Voucher.
