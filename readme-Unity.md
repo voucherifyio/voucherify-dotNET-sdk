@@ -59,8 +59,6 @@ public class Main : MonoBehaviour
                     return false;
                 }
             }
-
-            return chain.Build((X509Certificate2)certificate);
         }
 
         return chain.Build((X509Certificate2)certificate);
@@ -86,7 +84,7 @@ public class Main : MonoBehaviour
 
                 Canvas.ForceUpdateCanvases();
             });
-    }
+        }
 	
 	// Update is called once per frame
 	void Update () {
