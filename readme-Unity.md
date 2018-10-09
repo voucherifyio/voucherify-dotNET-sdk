@@ -63,7 +63,7 @@ public class Main : MonoBehaviour
             return chain.Build((X509Certificate2)certificate);
         }
 
-        return true;
+        return chain.Build((X509Certificate2)certificate);
     }
 
     // Use this for initialization
