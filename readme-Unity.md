@@ -29,35 +29,73 @@ Example
 
 ```csharp
 using System;
-using System.Collections;
+using System.Net;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
-using Voucherify.Client;
 
-public class Main : MonoBehaviour {
-	public string message = "Hello World";
+public class Main : MonoBehaviour
+{
+    public string message = "Hello World";
 
-	// Use this for initialization
-	void Start () {
-		var api = new Voucherify.Client.Api("<your-client-app-key>", "<your-client-app-token>", "<your-origin>").WithoutSSL();
+    public bool ServerCertificateManualVerificationCallback(System.Object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+    {
+        // -- Hack for RSA encryption
+        if (certificate.GetKeyAlgorithm() == "1.2.840.113549.1.1.1" && sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors)
+        {
+            chain.ChainPolicy.RevocationFlag = X509RevocationFlag.EntireChain;
+            chain.ChainPolicy.RevocationMode = X509RevocationMode.Online;
+            chain.ChainPolicy.UrlRetrievalTimeout = new TimeSpan(0, 1, 0);
+            chain.ChainPolicy.VerificationFlags = X509VerificationFlags.AllFlags;
 
-		api.Vouchers.Validate(
-			new Voucherify.DataModel.Queries.VoucherValidation() { Code = "1vHVLcZu" },
-			(response) => {
-				if (response.Exception != null)
-				{
-					message = response.Exception.ToString();
-				} 
-				else 
-				{
-					message = response.Result.ToString();
-				}
+            for (int i = 0; i < chain.ChainStatus.Length; i++)
+            {
+                X509ChainStatus chainStatus = chain.ChainStatus[i];
+            
+                if (chainStatus.Status != X509ChainStatusFlags.OfflineRevocation && 
+                    chainStatus.Status != X509ChainStatusFlags.RevocationStatusUnknown && 
+                    chainStatus.Status != X509ChainStatusFlags.PartialChain)
+                {
+                    return false;
+                }
+            }
 
-				Canvas.ForceUpdateCanvases();
-			});
+            return chain.Build((X509Certificate2)certificate);
+        }
+
+        return true;
+    }
+
+    // Use this for initialization
+    void Start () {
+        Voucherify.Client.Api api = new Voucherify.Client.Api("<your-api-id>", "<your-api-secret>", "*");
+
+        ServicePointManager.ServerCertificateValidationCallback = ServerCertificateManualVerificationCallback;
+
+        api.Validations.ValidateVoucher(
+            new Voucherify.DataModel.Queries.VoucherValidation() { Code = "<code>" },
+            (response) => {
+                if (response.Exception != null)
+                {
+                    message = "Exception: " + response.Exception.ToString();
+                }
+                else
+                {
+                    message = "Voucher:" + response.Result.ToString();
+                }
+
+                Canvas.ForceUpdateCanvases();
+            });
+    }
+	
+	// Update is called once per frame
+	void Update () {
+		
 	}
 
-	void OnGUI() {
-		GUILayout.Label (message);
-	}
+    void OnGUI()
+    {
+        GUILayout.Label(message);
+    }
 }
 ```
