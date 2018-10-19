@@ -49,10 +49,16 @@ API:
 ## Frameworks supported
 * .NET 2.0 (Server, Client)
 * .NET 3.5 (Server, Client)
-* .NET 3.5 Unity (Client)
+* .NET 4.0 Unity (Client)
 * .NET 4.0 (Server, Client)
 * .NET 4.5 (Server, Client)
 * PCL (portable45-net45+win8+wp8+wpa81) (Server, Client)
+
+
+## TLS support
+
+* TLS 1.0, 1.1 - [deprecated soon].
+* [TLS 1.2](/readme-tls12.md)
 
 ## Dependencies
 * [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)  - 9.0.1 or later
@@ -307,9 +313,16 @@ Methods are provided within `Api.Distributions.*` namespace.
 
 #### [Publish Voucher]
 ```csharp
-public async Task<DataModel.Publication> Publish(DataModel.Contexts.VoucherPublish context)
+public async Task<DataModel.PublicationSingle> Publish(DataModel.Contexts.VoucherPublishSingle context)
 
-public void Publish(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
+public void Publish(DataModel.Contexts.VoucherPublishSingle context, Action<ApiResponse<DataModel.PublicatioSingle>> callback)
+```
+
+#### [Create Publication]
+```csharp
+public async Task<DataModel.Publication> CreatePublication(DataModel.Contexts.VoucherPublish context)
+
+public void CreatePublication(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
 ```
 
 ---
@@ -691,6 +704,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2018-11-09** - `4.4.0` - Introduced support for TLS 1.2. Added missing CreatePublication endpoint in Distributions namespace. Added support for .NET Framework Core and .NET Framework Standard. Drop support for Unity .NET Framework 3.5, replaced by Unity .NET Framework 4.0.
 - **2018-08-01** - `4.3.2` - Added Price to Product
 - **2018-02-05** - `4.3.1` - Fixed Segments API endpoints. Fixed Library versioning.
 - **2018-02-04** - `4.3.0` - Added support for Api Versions. Added support for Orders, Events, Promotions, Segments and Validation Rules.
@@ -746,6 +760,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 [Import Vouchers to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers
 
 [Publish Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#publish-voucher
+[Create Publication]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-publication
 
 [Validate Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-voucher
 

@@ -1,0 +1,4 @@
+﻿<linker>
+  <assembly fullname="Voucherify.Client" preserve="all"/>
+  <assembly fullname="Newtonsoft.JSON" preserve="all"/>
+</linker>

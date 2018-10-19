@@ -54,6 +54,10 @@
         public const string HttpHeaderChannelName = "dotNET-SDK-35-Unity";
 #elif NET35
         public const string HttpHeaderChannelName = "dotNET-SDK-35";
+#elif NET35 && UNITY
+        public const string HttpHeaderChannelName = "dotNET-SDK-35-Unity";
+#elif NET40 && UNITY
+        public const string HttpHeaderChannelName = "dotNET-SDK-40-Unity";
 #elif NET40
         public const string HttpHeaderChannelName = "dotNET-SDK-40";
 #elif NET45 && PORTABLE

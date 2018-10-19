@@ -18,6 +18,8 @@ namespace Voucherify.Example.net45
                 /*
                 new Campaigns.AddDiscountCampaign(),
                 new Campaigns.AddPromotionCampaign(),
+                new Campaigns.PublishOneFromAutoUpdate(),
+                new Campaigns.PublishMultipleFromAutoUpdate(),
                 new Flows.Campaigns(),
                 new Flows.Customers(),
                 new Flows.Products(),

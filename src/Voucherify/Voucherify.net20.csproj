@@ -76,6 +76,8 @@
     <Compile Include="Core\DataModel\Metadata.cs" />
     <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />
     <Compile Include="Core\Extensions\JsonEnumValueAttributeExtension.cs" />
+    <Compile Include="Core\Extensions\SecurityProtocolTypeExtensions.cs" />
+    <Compile Include="Core\Extensions\SslProtocolsExtensions.cs" />
     <Compile Include="Core\Extensions\UriBuilderExtension.cs" />
     <Compile Include="Core\Serialization\JsonEnumValueConverter.cs" />
     <Compile Include="Core\Serialization\JsonSerializer.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="DataModel\Contexts\SegmentCreate.cs" />
     <Compile Include="DataModel\Contexts\ValidationRuleCreate.cs" />
     <Compile Include="DataModel\Contexts\ValidationRuleUpdate.cs" />
+    <Compile Include="DataModel\Contexts\VoucherPublish.cs" />
     <Compile Include="DataModel\CustomerLoyalty.cs" />
     <Compile Include="DataModel\CustomerSummary.cs" />
     <Compile Include="DataModel\CustomerSummaryOrders.cs" />
@@ -105,6 +108,7 @@
     <Compile Include="DataModel\PromotionTierAction.cs" />
     <Compile Include="DataModel\PromotionTierCampaign.cs" />
     <Compile Include="DataModel\PromotionTierList.cs" />
+    <Compile Include="DataModel\Publication.cs" />
     <Compile Include="DataModel\Queries\ProductFilter.cs" />
     <Compile Include="DataModel\RedemptionQuantity.cs" />
     <Compile Include="DataModel\Contexts\CampaignAddVoucher.cs" />
@@ -143,7 +147,7 @@
     <Compile Include="DataModel\ProductList.cs" />
     <Compile Include="DataModel\ProductSkuList.cs" />
     <Compile Include="DataModel\PromotionTier.cs" />
-    <Compile Include="DataModel\Publication.cs" />
+    <Compile Include="DataModel\PublicationSingle.cs" />
     <Compile Include="DataModel\QR.cs" />
     <Compile Include="DataModel\Queries\CampaignDelete.cs" />
     <Compile Include="DataModel\Queries\CampaignFilter.cs" />
@@ -151,7 +155,7 @@
     <Compile Include="DataModel\Queries\OrderFilter.cs" />
     <Compile Include="DataModel\Queries\RedemptionRollback.cs" />
     <Compile Include="DataModel\Queries\VoucherDelete.cs" />
-    <Compile Include="DataModel\Contexts\VoucherPublish.cs" />
+    <Compile Include="DataModel\Contexts\VoucherPublishSingle.cs" />
     <Compile Include="DataModel\Contexts\RedemptionRedeem.cs" />
     <Compile Include="DataModel\Queries\RedemptionRedeem.cs" />
     <Compile Include="DataModel\Queries\VouchersFilter.cs" />

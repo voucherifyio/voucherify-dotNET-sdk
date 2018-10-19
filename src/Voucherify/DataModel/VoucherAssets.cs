@@ -11,7 +11,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("QR(QR={0})", this.QR);
+            return string.Format("VoucherAssets(QR={0})", this.QR);
         }
     }
 }

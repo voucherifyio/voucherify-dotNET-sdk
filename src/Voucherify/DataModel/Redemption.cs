@@ -20,7 +20,7 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "gift")]
         public RedemptionGift Gift { get; private set; }
 
-        [JsonProperty(PropertyName = "discount")]
+        [JsonProperty(PropertyName = "voucher")]
         public Voucher Voucher { get; private set; }
 
         [JsonProperty(PropertyName = "customer_id")]

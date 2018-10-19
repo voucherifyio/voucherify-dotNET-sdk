@@ -81,12 +81,11 @@
     <Compile Include="Serialization\QuerySerializerTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Voucherify\Voucherify.Core.csproj">
-      <Project>{4ED31682-FF11-4D76-9722-691140F04A66}</Project>
-      <Name>Voucherify.Core</Name>
+    <ProjectReference Include="..\..\Voucherify\Voucherify.net45.csproj">
+      <Project>{1cfceb3b-1219-433d-b603-8b465fe517a0}</Project>
+      <Name>Voucherify.net45</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

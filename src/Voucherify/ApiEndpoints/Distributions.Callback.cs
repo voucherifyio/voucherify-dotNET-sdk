@@ -1,4 +1,4 @@
-﻿#if !APIASYNC
+﻿#if VOUCHERIFYSERVER && !APIASYNC
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,9 +14,15 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public void Publish(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
+        public void Publish(DataModel.Contexts.VoucherPublishSingle context, Action<ApiResponse<DataModel.PublicationSingle>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/publish");
+            this.client.DoPostRequest(uriBuilder.Uri, context, callback);
+        }
+
+        public void CreatePublication(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/publications");
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
     }

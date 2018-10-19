@@ -7,8 +7,23 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class VoucherPublish
     {
+        [JsonObject]
+        public class VoucherPublishCampaign
+        {
+            [JsonProperty(PropertyName = "name")]
+            public string Name { get; set; }
+
+            [JsonProperty(PropertyName = "count")]
+            public int Count { get; set; }
+
+            public VoucherPublishCampaign()
+            {
+                this.Count = 1;
+            }
+        }
+       
         [JsonProperty(PropertyName = "campaign")]
-        public string Campaign { get; set; }
+        public VoucherPublishCampaign Campaign { get; set; }
 
         [JsonProperty(PropertyName = "channel")]
         public string Channel { get; set; }

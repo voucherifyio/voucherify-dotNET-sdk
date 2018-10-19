@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net20\Newtonsoft.Json.dll</HintPath>
@@ -51,6 +54,8 @@
     <Compile Include="Core\DataModel\ApiListObject.cs" />
     <Compile Include="Core\DataModel\ApiObjectWithId.cs" />
     <Compile Include="Core\Extensions\JsonEnumValueAttributeExtension.cs" />
+    <Compile Include="Core\Extensions\SecurityProtocolTypeExtensions.cs" />
+    <Compile Include="Core\Extensions\SslProtocolsExtensions.cs" />
     <Compile Include="Core\Serialization\ObjectListFromArrayConverter.cs" />
     <Compile Include="DataModel\Address.cs" />
     <Compile Include="DataModel\ApplicableProduct.cs" />

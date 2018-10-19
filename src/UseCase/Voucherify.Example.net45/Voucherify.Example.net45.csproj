@@ -27,7 +27,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;APIASYNC;VOUCHERIFYSERVER;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="Campaigns\AddDiscountCampaign.cs" />
     <Compile Include="Campaigns\AddPromotionCampaign.cs" />
+    <Compile Include="Campaigns\PublishMultipleFromAutoUpdate.cs" />
+    <Compile Include="Campaigns\PublishOneFromAutoUpdate.cs" />
     <Compile Include="Flows\Campaigns.cs" />
     <Compile Include="Flows\Customers.cs" />
     <Compile Include="Flows\Products.cs" />

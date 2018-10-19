@@ -87,6 +87,8 @@
     <Compile Include="Core\DataModel\Metadata.cs" />
     <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />
     <Compile Include="Core\Extensions\JsonEnumValueAttributeExtension.cs" />
+    <Compile Include="Core\Extensions\SecurityProtocolTypeExtensions.cs" />
+    <Compile Include="Core\Extensions\SslProtocolsExtensions.cs" />
     <Compile Include="Core\Extensions\UriBuilderExtension.cs" />
     <Compile Include="Core\Serialization\JsonEnumValueConverter.cs" />
     <Compile Include="Core\Serialization\JsonSerializer.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="DataModel\Contexts\ValidationRuleUpdate.cs" />
     <Compile Include="DataModel\Contexts\VoucherAddGiftBalance.cs" />
     <Compile Include="DataModel\Contexts\VoucherImport.cs" />
+    <Compile Include="DataModel\Contexts\VoucherPublishSingle.cs" />
     <Compile Include="DataModel\Contexts\VoucherRedemption.cs" />
     <Compile Include="DataModel\Contexts\CampaignCreate.cs" />
     <Compile Include="DataModel\Contexts\CustomerCreate.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="DataModel\PromotionTierCampaign.cs" />
     <Compile Include="DataModel\PromotionTierList.cs" />
     <Compile Include="DataModel\Publication.cs" />
+    <Compile Include="DataModel\PublicationSingle.cs" />
     <Compile Include="DataModel\QR.cs" />
     <Compile Include="DataModel\Queries\CampaignDelete.cs" />
     <Compile Include="DataModel\Queries\CampaignFilter.cs" />

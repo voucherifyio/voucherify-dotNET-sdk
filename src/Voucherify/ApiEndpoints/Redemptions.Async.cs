@@ -1,4 +1,4 @@
-﻿#if APIASYNC
+﻿#if  VOUCHERIFYSERVER && APIASYNC
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if VOUCHERIFYSERVER
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Voucherify.Core;
@@ -302,3 +303,4 @@ namespace Voucherify
         }
     }
 }
+#endif

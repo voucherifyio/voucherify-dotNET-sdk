@@ -31,7 +31,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("CustomerSummary(TotalRedemed={0},TotalRolledBack={1})", this.TotalRedeemed, this.TotalRolledBack);
+            return string.Format("CustomerSummaryRedemptions(TotalRedemed={0},TotalRolledBack={1})", this.TotalRedeemed, this.TotalRolledBack);
         }
     }
 }

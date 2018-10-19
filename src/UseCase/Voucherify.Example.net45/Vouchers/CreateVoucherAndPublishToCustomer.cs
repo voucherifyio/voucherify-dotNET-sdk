@@ -27,7 +27,7 @@ namespace Voucherify.Example.net45.Vouchers
                 }.WithGift(new DataModel.Contexts.GiftCreate() { Amount = 10000 }));
                 Console.WriteLine("[Vouchers][CreateVoucherAndPublishToCustomer] Created - Voucher: {0}", voucherCreate);
 
-                var voucherPublish = await api.Distributions.Publish(new DataModel.Contexts.VoucherPublish()
+                var voucherPublish = await api.Distributions.CreatePublication(new DataModel.Contexts.VoucherPublish()
                 {
                     Voucher = voucherCreate.Code,
                     Customer = new DataModel.Contexts.Customer()

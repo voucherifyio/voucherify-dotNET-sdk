@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if VOUCHERIFYCLIENT
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Voucherify.Core;
@@ -117,3 +118,4 @@ namespace Voucherify.Client
         }
     }
 }
+#endif

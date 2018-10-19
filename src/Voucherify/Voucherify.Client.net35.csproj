@@ -64,6 +64,8 @@
     <Compile Include="Core\DataModel\Metadata.cs" />
     <Compile Include="Core\Exceptions\VoucherifyClientException.cs" />
     <Compile Include="Core\Extensions\JsonEnumValueAttributeExtension.cs" />
+    <Compile Include="Core\Extensions\SecurityProtocolTypeExtensions.cs" />
+    <Compile Include="Core\Extensions\SslProtocolsExtensions.cs" />
     <Compile Include="Core\Extensions\UriBuilderExtension.cs" />
     <Compile Include="Core\Serialization\JsonEnumValueConverter.cs" />
     <Compile Include="Core\Serialization\JsonSerializer.cs" />

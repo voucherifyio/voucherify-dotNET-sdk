@@ -24,7 +24,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("CustomerSummary(Total={0},TotalAmount={1})", this.TotalCount, this.TotalAmount);
+            return string.Format("CustomerSummaryOrders(Total={0},TotalAmount={1})", this.TotalCount, this.TotalAmount);
         }
     }
 }
