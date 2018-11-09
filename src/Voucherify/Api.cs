@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if VOUCHERIFYSERVER
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Voucherify.Core;
@@ -12,6 +13,14 @@ namespace Voucherify
         public string AppId { get; private set; }
         public string Endpoint { get; private set; }
         public bool Secure { get; private set; }
+
+        public string Channel
+        {
+            get
+            {
+                return Constants.HttpHeaderChannelName;
+            }
+        }
         
         private ApiEndpoints.Campaigns campaigns;
 
@@ -302,3 +311,4 @@ namespace Voucherify
         }
     }
 }
+#endif

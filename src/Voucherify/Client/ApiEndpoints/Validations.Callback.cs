@@ -1,4 +1,4 @@
-﻿#if !APIASYNC
+﻿#if VOUCHERIFYCLIENT && !APIASYNC
 using System;
 using Voucherify.Core.Communication;
 using Voucherify.Core.Extensions;

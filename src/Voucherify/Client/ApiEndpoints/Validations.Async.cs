@@ -1,4 +1,4 @@
-﻿#if APIASYNC
+﻿#if VOUCHERIFYCLIENT && APIASYNC
 using System;
 using System.Threading.Tasks;
 using Voucherify.Core.Extensions;

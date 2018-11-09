@@ -219,6 +219,9 @@ namespace Voucherify.Core.Communication
         
         private HttpClient PrepareClient()
         {
+
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolTypeExtensions.Tls12;
+
             HttpClient client = new HttpClient();
             
             foreach (var entry in this.headers)

@@ -49,10 +49,17 @@ API:
 ## Frameworks supported
 * .NET 2.0 (Server, Client)
 * .NET 3.5 (Server, Client)
-* .NET 3.5 Unity (Client)
 * .NET 4.0 (Server, Client)
 * .NET 4.5 (Server, Client)
-* PCL (portable45-net45+win8+wp8+wpa81) (Server, Client)
+* .NET Standard 2.0 (Client, Server) - for Unity, Xamarin, etc.
+
+
+## TLS support
+
+Due to security resons old versions of TLS (1.0 and 1.1) will be deprecated soon and our api will not accept any calls using those layers. Thus, we decided to switch .NET SDK to use TLS 1.2 already. The following articles will help you setup your environemnt:
+
+* .NET Framework 2.0: [Support for TLS System Default Versions included in the .NET Framework 2.0 SP2](https://support.microsoft.com/en-us/help/3154517/support-for-tls-system-default-versions-included-in-the-net-framework)
+* .NET Framework 3.5: [Support for TLS System Default Versions included in the .NET Framework 3.5.1](https://support.microsoft.com/en-us/help/3154518/support-for-tls-system-default-versions-included-in-the-net-framework)
 
 ## Dependencies
 * [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)  - 9.0.1 or later
@@ -62,16 +69,6 @@ The DLLs included in the package may not be the latest version. We recommend usi
 
 ```
 Install-Package Newtonsoft.Json
-```
-
-### PCL (portable45-net45+win8+wp8+wpa81) (Server, Client)
-
-There could be a need to install additional packages in case the assemblies are not available in your framework. Those references has been removed from original package to support using Voucherify directly in Xamarin.Droid and Xamarin.iOS environments where both: `HttpClient` and `async/await` operations are supported without additional libraries.
-
-```
-Install-Package Microsoft.Net.Http
-Install-Package Microsoft.Bcl
-Install-Package Microsoft.Bcl.Build
 ```
 
 ## Setup
@@ -139,7 +136,7 @@ api.Vouchers.Get("<your-voucher-code>", (response) =>
             });
 ```
 
-### Async Usage (.NET 4.5 standard + PCL (portable-net45+netcore45+wpa81+wp8))
+### Async Usage (.NET 4.5, .NET Standard 2.0)
 
 ```csharp
         try
@@ -158,14 +155,6 @@ api.Vouchers.Get("<your-voucher-code>", (response) =>
             Console.WriteLine("Exception: {0}", exception);
         }
 ```
-
-## Unity
-
-[Unity README](/readme-Unity.md)
-
-## Xamarin
-
-[Xamarin README](/readme-Xamarin.md)
 
 ## API
 
@@ -307,9 +296,16 @@ Methods are provided within `Api.Distributions.*` namespace.
 
 #### [Publish Voucher]
 ```csharp
-public async Task<DataModel.Publication> Publish(DataModel.Contexts.VoucherPublish context)
+public async Task<DataModel.PublicationSingle> Publish(DataModel.Contexts.VoucherPublishSingle context)
 
-public void Publish(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
+public void Publish(DataModel.Contexts.VoucherPublishSingle context, Action<ApiResponse<DataModel.PublicatioSingle>> callback)
+```
+
+#### [Create Publication]
+```csharp
+public async Task<DataModel.Publication> CreatePublication(DataModel.Contexts.VoucherPublish context)
+
+public void CreatePublication(DataModel.Contexts.VoucherPublish context, Action<ApiResponse<DataModel.Publication>> callback)
 ```
 
 ---
@@ -691,6 +687,10 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2018-11-09** - `5.0.0` - Introduced support for TLS 1.2. Added missing CreatePublication endpoint in Distributions namespace. Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead. Moved solution to VS2017 and use new type of projects.
+
+-------------------------------
+
 - **2018-08-01** - `4.3.2` - Added Price to Product
 - **2018-02-05** - `4.3.1` - Fixed Segments API endpoints. Fixed Library versioning.
 - **2018-02-04** - `4.3.0` - Added support for Api Versions. Added support for Orders, Events, Promotions, Segments and Validation Rules.
@@ -746,6 +746,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 [Import Vouchers to Campaign]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#import-vouchers
 
 [Publish Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#publish-voucher
+[Create Publication]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#create-publication
 
 [Validate Voucher]: https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#validate-voucher
 

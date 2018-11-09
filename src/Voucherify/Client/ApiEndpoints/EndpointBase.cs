@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if VOUCHERIFYCLIENT
+using System;
 using System.Collections.Generic;
 using Voucherify.Core.Attributes;
 using Voucherify.Core.Communication;
@@ -32,3 +33,4 @@ namespace Voucherify.Client.ApiEndpoints
         }
     }
 }
+#endif

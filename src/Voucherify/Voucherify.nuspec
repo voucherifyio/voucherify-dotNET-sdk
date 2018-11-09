@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify</id>
-    <version>4.3.2.0</version>
+    <version>5.0.0.0</version>
     <title>Voucherify</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2018-11-09: 5.0.0:
+      - Introduced support for TLS 1.2.
+      - Added missing CreatePublication endpoint in Distributions namespace.
+      - Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead.
+      - Moved solution to VS2017 nad use new type of projects.
+
       2018-08-01: 4.3.2:
       - Added Price to Product
 
@@ -61,20 +67,22 @@
       </group>
       <group targetFramework="net45">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Net.Http" version="4.3.4" />
       </group>
       <group targetFramework="net20">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
       </group>
-      <group targetFramework="portable-net45+netcore45+wpa81+wp8">
+      <group targetFramework="netstandard20">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Net.Http" version="4.3.4" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\lib\net20\Voucherify.dll" target="lib\net20\Voucherify.dll" />
-    <file src="..\..\lib\net35\Voucherify.dll" target="lib\net35\Voucherify.dll" />
-    <file src="..\..\lib\net40\Voucherify.dll" target="lib\net40\Voucherify.dll" />
-    <file src="..\..\lib\net45\Voucherify.dll" target="lib\net45\Voucherify.dll" />
-    <file src="..\..\lib\portable-net45+netcore45+wpa81+wp8\Voucherify.dll" target="lib\portable-net45+netcore45+wpa81+wp8\Voucherify.dll" />
+    <file src="..\..\lib\net2.0\Voucherify.dll" target="lib\net20\Voucherify.dll" />
+    <file src="..\..\lib\net3.5\Voucherify.dll" target="lib\net35\Voucherify.dll" />
+    <file src="..\..\lib\net4.0\Voucherify.dll" target="lib\net40\Voucherify.dll" />
+    <file src="..\..\lib\net4.5\Voucherify.dll" target="lib\net45\Voucherify.dll" />
+    <file src="..\..\lib\netstandard2.0\Voucherify.dll" target="lib\netstandard20\Voucherify.dll" />
   </files>
 </package>

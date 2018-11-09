@@ -1,4 +1,4 @@
-﻿#if APIASYNC
+﻿#if VOUCHERIFYSERVER && APIASYNC
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,9 +12,15 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public async Task<DataModel.Publication> Publish(DataModel.Contexts.VoucherPublish context)
+        public async Task<DataModel.PublicationSingle> Publish(DataModel.Contexts.VoucherPublishSingle context)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/publish");
+            return await this.client.DoPostRequest<DataModel.PublicationSingle, DataModel.Contexts.VoucherPublishSingle>(uriBuilder.Uri, context).ConfigureAwait(false);
+        }
+
+        public async Task<DataModel.Publication> CreatePublication(DataModel.Contexts.VoucherPublish context)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/publications");
             return await this.client.DoPostRequest<DataModel.Publication, DataModel.Contexts.VoucherPublish>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
     }
