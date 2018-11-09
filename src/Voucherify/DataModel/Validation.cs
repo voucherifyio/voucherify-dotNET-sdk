@@ -33,7 +33,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Validation(IsValid={0})", this.Valid);
+            return string.Format("Validation(Code={0},IsValid={1})", this.Code, this.Valid);
         }
     }
 }

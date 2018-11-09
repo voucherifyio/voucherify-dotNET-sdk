@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "Examples.Voucherify.Client.netCore20": {
+      "commandName": "Project"
+    }
+  }
+}

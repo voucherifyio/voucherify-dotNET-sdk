@@ -64,6 +64,10 @@
         public const string HttpHeaderChannelName = "dotNET-SDK-45-Portable";
 #elif NET45
         public const string HttpHeaderChannelName = "dotNET-SDK-45";
+#elif NETSTANDARD10
+        public const string HttpHeaderChannelName = "dotNET-SDK-standard10";
+#elif NETSTANDARD20
+        public const string HttpHeaderChannelName = "dotNET-SDK-standard20";
 #else
         public const string HttpHeaderChannelName = "dotNET-SDK";
 #endif

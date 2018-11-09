@@ -15,6 +15,14 @@ namespace Voucherify.Client
         public ApiVersion Version { get; private set; }
         public bool Secure { get; private set; }
 
+        public string Channel
+        {
+            get
+            {
+                return Constants.HttpHeaderChannelName;
+            }
+        }
+
         private Client.ApiEndpoints.Events events;
 
         public Client.ApiEndpoints.Events Events

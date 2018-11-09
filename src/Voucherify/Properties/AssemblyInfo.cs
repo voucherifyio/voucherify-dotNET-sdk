@@ -1,4 +1,4 @@
-﻿#if !NETCORE
+﻿#if TRUE && (VOUCHERIFYSERVER || VOUCHERIFYCLIENT)
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -8,8 +8,6 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 #if VOUCHERIFYCLIENT
 [assembly: AssemblyTitle("Voucherify.Client")]
-#elif VOUCHERIFYCORE
-[assembly: AssemblyTitle("Voucherify.Core")]
 #else
 [assembly: AssemblyTitle("Voucherify")]
 #endif
@@ -36,6 +34,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("4.3.1.0")]
-[assembly: AssemblyFileVersion("4.3.1.0")]
+[assembly: AssemblyVersion("5.0.0.0")]
+[assembly: AssemblyFileVersion("5.0.0.0")]
 #endif

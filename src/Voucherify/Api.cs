@@ -13,6 +13,14 @@ namespace Voucherify
         public string AppId { get; private set; }
         public string Endpoint { get; private set; }
         public bool Secure { get; private set; }
+
+        public string Channel
+        {
+            get
+            {
+                return Constants.HttpHeaderChannelName;
+            }
+        }
         
         private ApiEndpoints.Campaigns campaigns;
 
