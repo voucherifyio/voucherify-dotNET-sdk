@@ -1,4 +1,5 @@
 ﻿#if VOUCHERIFYCLIENT
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Voucherify.DataModel.Queries
@@ -15,8 +16,8 @@ namespace Voucherify.DataModel.Queries
         [JsonProperty(PropertyName = "amount")]
         public int? Amount { get; set; }
 
-        [JsonProperty(PropertyName = "string")]
-        public string Order { get; set; }
+        [JsonProperty(PropertyName = "item")]
+        public IList<OrderItem> Items { get; set; }
     }
 }
 #endif
