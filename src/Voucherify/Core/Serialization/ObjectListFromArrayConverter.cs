@@ -1,9 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-#if PORTABLE
-using System.Reflection;
-#endif
 using Newtonsoft.Json;
 using Voucherify.Core;
 
@@ -85,26 +82,7 @@ namespace Voucherify.Core.Serialization
 
         private object DeserializeArray(JsonReader reader, Type objectType, JsonSerializer serializer)
         {
-#if PORTABLE
-            foreach (ConstructorInfo constructor in objectType.GetTypeInfo().DeclaredConstructors)
-            {
-                ParameterInfo[] parameters = constructor.GetParameters();
-
-                if (parameters.Length != 1)
-                {
-                    continue;
-                }
-
-                if (parameters[0].ParameterType == typeof(T))
-                {
-                    return constructor.Invoke(new object[] { new object[] { serializer.Deserialize<T[]>(reader) } });
-                }
-            }
-
-            return null;
-#else
             return objectType.GetConstructor(new[] { typeof(T[]) }).Invoke(new object[] { serializer.Deserialize<T[]>(reader) });
-#endif
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

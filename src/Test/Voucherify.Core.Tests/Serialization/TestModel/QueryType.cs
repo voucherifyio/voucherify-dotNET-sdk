@@ -12,7 +12,10 @@ namespace Voucherify.Core.Tests.Serialization.TestModel
         [JsonProperty(PropertyName = "array_test", Order = 2)]
         public IList<string> Array { get; set; }
 
-        [JsonProperty(PropertyName = "enum_test")]
+        [JsonProperty(PropertyName = "array_json", Order = 3)]
+        public IList<JsonType> ArrayJson { get; set; }
+
+        [JsonProperty(PropertyName = "enum_test", Order = 4)]
         public EnumType? Enum { get; set; }
     }
 }

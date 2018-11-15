@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>5.0.0.0</version>
+    <version>5.0.1.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,9 +11,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2018-11-15: 5.0.1:
+      - Fixed QuerySerializer for Array objects
+      - Added RelatedObject to OrderItem and dedicated method for setting SourceId
+
       2018-11-09: 5.0.0:
-      - Introduced support for TLS 1.2. 
-      - Added missing CreatePublication endpoint in Distributions namespace. 
+      - Introduced support for TLS 1.2.
+      - Added missing CreatePublication endpoint in Distributions namespace.
       - Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead.
       - Moved solution to VS2017 nad use new type of projects.
 
