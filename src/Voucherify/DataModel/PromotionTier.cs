@@ -16,16 +16,16 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "campaign")]
         public PromotionTierCampaign Campaign { get; private set; }
-
-        [JsonProperty(PropertyName = "condition")]
-        public ValidationRule Condition { get; private set; }
         
         [JsonProperty(PropertyName = "action")]
         public PromotionTierAction Action { get; private set; }
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
-
+#if VOUCHERIFYSERVER
+        [JsonProperty(PropertyName = "validation_rule_assignments")]
+        public BusinessValidationRuleAssignmentList Assignments { get; private set; }
+#endif
         public PromotionTier()
         {
             this.Metadata = new Metadata();
@@ -33,7 +33,11 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("PromotionTier(Id={0},Name={1},Campaign={2},Condition={3})", this.Id, this.Name, this.Campaign, this.Condition);
+#if VOUCHERIFYSERVER
+            return string.Format("PromotionTier(Id={0},Name={1},Campaign={2}, Assignments={3})", this.Id, this.Name, this.Campaign, this.Assignments);
+#else
+            return string.Format("PromotionTier(Id={0},Name={1},Campaign={2})", this.Id, this.Name, this.Campaign);
+#endif
         }
     }
 }

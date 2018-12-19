@@ -9,11 +9,16 @@ namespace Voucherify.Core.Serialization
     {
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(Metadata));
+            return (objectType == typeof(Metadata)) || (objectType == typeof(Json));
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            if (objectType == typeof(Json))
+            {
+                return new Core.DataModel.Json(serializer.Deserialize<Dictionary<string, object>>(reader));
+            }
+
             return new Core.DataModel.Metadata(serializer.Deserialize<Dictionary<string, object>>(reader));
         }
 

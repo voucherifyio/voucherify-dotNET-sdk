@@ -32,9 +32,6 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "voucher_generation_status")]
         public CampaignVoucherGenerationStatus VoucherGenerationStatus { get; private set; }
 
-        [JsonProperty(PropertyName = "validation_rules")]
-        public ValidationRule ValidationRules { get; private set; }
-
         [JsonProperty(PropertyName = "promotion")]
         public PromotionTierList Promotion { get; private set; }
 
