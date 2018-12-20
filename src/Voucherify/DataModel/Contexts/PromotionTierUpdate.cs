@@ -15,9 +15,6 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "banner")]
         public string Banner { get; private set; }
-        
-        [JsonProperty(PropertyName = "condition")]
-        public ValidationRuleUpdate Condition { get; set; }
 
         [JsonProperty(PropertyName = "action")]
         public PromotionTierAction Action { get; set; }

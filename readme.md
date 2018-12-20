@@ -653,30 +653,65 @@ Methods are provided within `Api.ValidationRules.*` namespace.
 - [Get Validation Rule](#get-validation-rule)
 - [Update Validation Rule](#update-validation-rule)
 - [Delete Validation Rule](#delete-validation-rule)
+- [Create Validation Rule Assignment](#create-validation-rule-assignment)
+- [Delete Validation Rule Assignment]](#delete-validation-rule-assignment)
+- [List Validation Rules](#list-validation-rules)
+- [List Validation Rule Assignments]](#list-validation-rule-assignments)
 
 #### [Create Validation Rule]
 ```csharp
-public async Task<DataModel.ValidationRule> Create(DataModel.Contexts.ValidationRuleCreate validationRule)
+public async Task<DataModel.BusinessValidationRule> Create(DataModel.Contexts.BusinessValidationRuleCreate validationRule)
 
-public void Create(DataModel.Contexts.ValidationRuleCreate validationRule, Action<ApiResponse<DataModel.ValidationRule>> callback)
+public void Create(DataModel.Contexts.BusinessValidationRuleCreate validationRule, Action<ApiResponse<DataModel.BusinessValidationRule>> callback)
 ```
+
 #### [Get Validation Rule]
 ```csharp
-public async Task<DataModel.ValidationRule> Get(string validationRuleId)
+public async Task<DataModel.BusinessValidationRule> Get(string validationRuleId)
 
-public void Get(string validationRuleId, Action<ApiResponse<DataModel.ValidationRule>> callback)
+public void Get(string validationRuleId, Action<ApiResponse<DataModel.BusinessValidationRule>> callback)
 ```
+
 #### [Update Validation Rule]
 ```csharp
-public async Task<DataModel.ValidationRule> Update(string validationRuleId, DataModel.Contexts.ValidationRuleUpdate validationRule)
+public async Task<DataModel.BusinessValidationRule> Update(string validationRuleId, DataModel.Contexts.BusinessValidationRuleUpdate validationRule)
 
-public void Update(string validationRuleId, DataModel.Contexts.ValidationRuleUpdate validationRule, Action<ApiResponse<DataModel.ValidationRule>> callback)
+public void Update(string validationRuleId, DataModel.Contexts.BusinessValidationRuleUpdate validationRule, Action<ApiResponse<DataModel.BusinessValidationRule>> callback)
 ```
+
 #### [Delete Validation Rule]
 ```csharp
 public async Task Delete(string validationRuleId)
 
 public void Delete(string validationRuleId, Action<ApiResponse> callback)
+```
+
+#### [Create Validation Rule Assignment]
+```csharp
+public async Task<DataModel.BusinessValidationRuleAssignment> CreateAssignment(string validationRuleId, DataModel.Contexts.BusinessValidationRuleAssignmentCreate validationRule)
+
+public void CreateAssignment(string validationRuleId, DataModel.Contexts.BusinessValidationRuleAssignmentCreate validationRule, Action<ApiResponse<DataModel.BusinessValidationRuleAssignment>> callback)
+```
+
+#### [Delete Validation Rule Assignment]
+```csharp
+public async Task DeleteAssignment(string validationRuleId, string assignmentId)
+
+public void DeleteAssignment(string validationRuleId, string assignmentId, Action<ApiResponse> callback)
+```
+
+#### [List Validation Rules]
+```csharp
+public async Task<DataModel.BusinessValidationRuleList> List(DataModel.Queries.BusinessValidationRuleFilter filter)
+
+public void List(DataModel.Queries.BusinessValidationRuleFilter filter, Action<ApiResponse<DataModel.BusinessValidationRuleList>> callback)
+```
+
+#### [List Validation Rule Assignments]
+```csharp
+public async Task<DataModel.BusinessValidationRuleAssignmentList> ListAssignments(string validationRuleId, DataModel.Queries.BusinessValidationRuleAssignmentFilter filter)
+
+public void ListAssignments(string validationRuleId, DataModel.Queries.BusinessValidationRuleAssignmentFilter filter, Action<ApiResponse<DataModel.BusinessValidationRuleAssignmentList>> callback)
 ```
 
 ---
@@ -687,7 +722,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-
+- **2018-12-20** - `6.0.0` - Replaced Voucher Validation Rules with Business Validation Rules. Added API Verions v2018-08-01.
 - **2018-11-15** - `5.0.1` - Fixed QuerySerializer for Array objects. Added RelatedObject to OrderItem and dedicated method for setting SourceId.
 - **2018-11-09** - `5.0.0` - Introduced support for TLS 1.2. Added missing CreatePublication endpoint in Distributions namespace. Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead. Moved solution to VS2017 and use new type of projects.
 

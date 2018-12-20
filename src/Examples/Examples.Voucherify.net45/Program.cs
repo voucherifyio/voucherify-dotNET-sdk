@@ -1,5 +1,6 @@
 using System;
 using Voucherify;
+using System.Collections.Generic;
 using DataModel = Voucherify.DataModel;
 using Core = Voucherify.Core;
 
@@ -10,7 +11,7 @@ namespace Examples.Voucherify.net45
         static void Main(string[] args)
         {
             Console.WriteLine("[init] AppId: {0}, AppToken: {1}", args[0], args[1]);
-            Api voucherifyApi = new Api(args[0], args[1]);
+            Api voucherifyApi = new Api(args[0], args[1]).WithVersion(Core.ApiVersion.v2018_08_01);
 
             if (args.Length > 3)
             {

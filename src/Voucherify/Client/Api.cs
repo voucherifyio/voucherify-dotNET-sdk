@@ -124,6 +124,17 @@ namespace Voucherify.Client
 
             return this;
         }
+
+        public Api WithVersion(ApiVersion apiVersion)
+        {
+            this.Version = apiVersion;
+
+            this.validations = null;
+            this.redemptions = null;
+            this.events = null;
+
+            return this;
+        }
     }
 }
 #endif
