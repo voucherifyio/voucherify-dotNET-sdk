@@ -722,7 +722,11 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2018-12-27** - `6.0.1` - Added CreatedAt and UpdatedAt property to VoucherFilter
 - **2018-12-20** - `6.0.0` - Replaced Voucher Validation Rules with Business Validation Rules. Added API Verions v2018-08-01.
+
+-------------------------------
+
 - **2018-11-15** - `5.0.1` - Fixed QuerySerializer for Array objects. Added RelatedObject to OrderItem and dedicated method for setting SourceId.
 - **2018-11-09** - `5.0.0` - Introduced support for TLS 1.2. Added missing CreatePublication endpoint in Distributions namespace. Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead. Moved solution to VS2017 and use new type of projects.
 

@@ -1,5 +1,7 @@
 ﻿#if VOUCHERIFYSERVER
 using Newtonsoft.Json;
+using System;
+using Voucherify.Core.DataModel;
 
 namespace Voucherify.DataModel.Queries
 {
@@ -20,6 +22,12 @@ namespace Voucherify.DataModel.Queries
 
         [JsonProperty(PropertyName = "customer")]
         public string Customer { get; set; }
+
+        [JsonProperty(PropertyName = "created_at", NullValueHandling = NullValueHandling.Ignore)]
+        public DateFilter CreatedAt { get; set; }
+
+        [JsonProperty(PropertyName = "updated_at", NullValueHandling = NullValueHandling.Ignore)]
+        public DateFilter UpdatedAt { get; set; }
     }
 }
 #endif
