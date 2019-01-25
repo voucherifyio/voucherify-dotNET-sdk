@@ -61,6 +61,18 @@ namespace Voucherify.Core.Serialization
                 };
             }
 
+            if (typeof(Core.DataModel.Metadata).IsAssignableFrom(propertyType))
+            {
+                List<string> values = new List<string>();
+
+                foreach (KeyValuePair<string, object> entry in (Core.DataModel.Metadata)propertyValue)
+                {
+                    values.Add(string.Format("{0}={1}", string.Format("{0}[{1}]", propertyName, entry.Key), entry.Value.ToString()));
+                }
+
+                return values.ToArray();
+            }
+
             if (typeof(IEnumerable).IsAssignableFrom(propertyType) || typeof(IEnumerable<>).IsAssignableFrom(propertyType))
             {
                 var index = 0;
@@ -91,7 +103,7 @@ namespace Voucherify.Core.Serialization
 
                     if (chilPropertyValue == null) { continue; }
 
-                    values.AddRange(this.ConvertProperty(string.Format("{0}[{1}]", propertyName, jsonPropertyAttribute.PropertyName ?? property.Name), property.GetType(), chilPropertyValue));
+                    values.AddRange(this.ConvertProperty(string.Format("{0}[{1}]", propertyName, jsonPropertyAttribute.PropertyName ?? property.Name), property.PropertyType, chilPropertyValue));
                 }
 
                 return values.ToArray();

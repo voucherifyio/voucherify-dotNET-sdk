@@ -30,7 +30,7 @@ namespace Voucherify.Core.Tests
             // Arrange & Act & Assert
             Assert.IsTrue(ApiVersion.v2017_04_05 > ApiVersion.v1);
             Assert.IsTrue(ApiVersion.v2017_04_05 < ApiVersion.v2017_04_20);
-            Assert.AreEqual(JsonEnumValueAttributeExtension.GetValue(ApiVersion.v2017_04_05), "v2017_04_05");
+            Assert.AreEqual(JsonEnumValueAttributeExtension.GetValue(ApiVersion.v2017_04_05), "v2017-04-05");
         }
 
         [TestMethod]
@@ -38,7 +38,15 @@ namespace Voucherify.Core.Tests
         {
             // Arrange & Act & Assert
             Assert.IsTrue(ApiVersion.v2017_04_20 > ApiVersion.v2017_04_05);
-            Assert.AreEqual(JsonEnumValueAttributeExtension.GetValue(ApiVersion.v2017_04_20), "v2017_04_20");
+            Assert.AreEqual(JsonEnumValueAttributeExtension.GetValue(ApiVersion.v2017_04_20), "v2017-04-20");
+        }
+
+        [TestMethod]
+        public void ApiVersion_v2018_08_01()
+        {
+            // Arrange & Act & Assert
+            Assert.IsTrue(ApiVersion.v2018_08_01 > ApiVersion.v2017_04_20);
+            Assert.AreEqual(JsonEnumValueAttributeExtension.GetValue(ApiVersion.v2018_08_01), "v2018-08-01");
         }
     }
 }
