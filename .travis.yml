@@ -1,5 +1,5 @@
 language: csharp
 solution: ./src/Voucherify.sln
 script:    # the following commands are just examples, use whatever your build process requires
-  - ./travis/build.sh
+  - build.sh
   - grep "Test Results" build.log
