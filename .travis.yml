@@ -2,4 +2,5 @@ language: csharp
 mono:
   - latest
 script:    # the following commands are just examples, use whatever your build process requires
-  - msbuild /p:Configuration=Release /p:Framework=net20 ./src/Voucherify/Voucherify.csproj
+  - dotnet restore
+  - msbuild /p:Configuration=Release  ./src/Voucherify/Voucherify.csproj
