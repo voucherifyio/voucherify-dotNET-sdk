@@ -1,5 +1,6 @@
 language: csharp
-solution: ./src/Voucherify.sln
+mono:
+  - latest
 script:    # the following commands are just examples, use whatever your build process requires
-  - build.sh
+  - ./build.sh
   - grep "Test Results" build.log
