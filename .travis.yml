@@ -2,5 +2,4 @@ language: csharp
 mono:
   - latest
 script:    # the following commands are just examples, use whatever your build process requires
-  - ./build.sh
-  - grep "Test Results" build.log
+  - msbuild /p:Configuration=Release /p:Framework=net20 ./src/Voucherify/Voucherify.csproj
