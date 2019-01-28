@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify</id>
-    <version>6.1.0.0</version>
+    <version>6.2.0.0</version>
     <title>Voucherify</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
