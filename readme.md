@@ -721,6 +721,8 @@ public void ListAssignments(string validationRuleId, DataModel.Queries.BusinessV
 Bug reports and pull requests are welcome through [GitHub Issues](https://github.com/voucherifyio/voucherify-dotNET-sdk/issues).
 
 ## Changelog
+
+- **2019-01-28** - `6.2.0` - Added ApplicableTo property to Validation class
 - **2019-01-25** - `6.1.0` - Extended OrderItem OrderItemProduct OrderItemSKU. Improved QuerySerializer
 - **2018-12-27** - `6.0.1` - Added CreatedAt and UpdatedAt property to VoucherFilter
 - **2018-12-20** - `6.0.0` - Replaced Voucher Validation Rules with Business Validation Rules. Added API Verions v2018-08-01.

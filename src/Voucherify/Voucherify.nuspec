@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2019-01-28: 6.2.0:
+      - Added ApplicableTo property to Validation class
+  
       2019-01-25: 6.1.0:
       - Extended OrderItem OrderItemProduct OrderItemSKU
       - Improved QuerySerializer

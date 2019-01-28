@@ -30,10 +30,13 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "promotions")]
         public List<ValidationPromotion> Promotions { get; private set; }
+        
+        [JsonProperty(PropertyName = "applicable_to")]
+        public VoucherSubjectList ApplicableTo { get; private set; }
 
         public override string ToString()
         {
-            return string.Format("Validation(Code={0},IsValid={1})", this.Code, this.Valid);
+            return string.Format("Validation(Code={0},IsValid={1},ApplicableTo={2})", this.Code, this.Valid, this.ApplicableTo);
         }
     }
 }
