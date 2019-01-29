@@ -1,8 +1,19 @@
 <h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for .NET Framework</h3>
 
 <p align="center">
-  <a href="https://travis-ci.org/voucherifyio/voucherify-dotNET-sdk"><img src="https://travis-ci.org/voucherifyio/voucherify-dotNET-sdk.svg?branch=master" alt="Build Status"/></a>
+    <a href="https://travis-ci.org/voucherifyio/voucherify-dotNET-sdk" rel="nofollow">
+        <img src="https://travis-ci.org/voucherifyio/voucherify-dotNET-sdk.svg" alt="Build Status">
+    </a>
+    <a href="https://www.nuget.org/packages/Voucherify" rel="nofollow">
+        <img src="http://img.shields.io/nuget/v/Voucherify.svg" alt="Build Status">
+    </a> 
+    <a href="https://www.nuget.org/packages/Voucherify.Client" rel="nofollow">
+        <img src="http://img.shields.io/nuget/v/Voucherify.Client.svg" alt="Build Status">
+    </a>
 </p>
+
+
+
 <hr />
 
 <p align="center">
@@ -208,9 +219,11 @@ public void Update(string code, DataModel.Contexts.VoucherUpdate voucher, Action
 ```
 #### [Delete Voucher]
 ```csharp
-public async Task Delete(string code, DataModel.Queries.VoucherDelete query)
+public async Task Delete(string code)
+public async Task Delete(string code, Core.DataModel.ForcedOperation query query)
 
-public void Delete(string code, DataModel.Queries.VoucherDelete query, Action<ApiResponse> callback)
+public void Delete(string code, Action<ApiResponse> callback)
+public void Delete(string code, Core.DataModel.ForcedOperation query query, Action<ApiResponse> callback)
 ```
 #### [List Vouchers]
 ```csharp
@@ -275,9 +288,11 @@ public void Update(string name, DataModel.Contexts.CampaignUpdate campaign, Acti
 ```
 #### [Delete Campaigns]
 ```csharp
-public async Task Delete(string name, DataModel.Queries.CampaignDelete query)
+public async Task Delete(string name)
+public async Task Delete(string name, Core.DataModel.ForcedOperation query query)
         
-public void Delete(string name, DataModel.Queries.CampaignDelete query, Action<ApiResponse> callback)
+public void Delete(string name, Action<ApiResponse> callback)
+public void Delete(string name, Core.DataModel.ForcedOperation query query, Action<ApiResponse> callback)
 ```
 #### [List Campaigns]
 ```csharp
@@ -486,8 +501,10 @@ public void Update(string productId, DataModel.Contexts.ProductUpdate product, A
 #### [Delete Product]
 ```csharp
 public async Task Delete(string productId)
+public async Task Delete(string productId, Core.DataModel.ForcedOperation query)
 
 public void Delete(string productId, Action<ApiResponse> callback)
+public void Delete(string productId, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
 ```
 #### [List Products]
 ```csharp
@@ -517,8 +534,10 @@ public void UpdateSku(string productId, string skuId, DataModel.Contexts.SkuUpda
 #### [Delete SKU]
 ```csharp
 public async Task DeleteSku(string productId, string skuId)
+public async Task DeleteSku(string productId, string skuId, Core.DataModel.ForcedOperation query)
 
 public void DeleteSku(string productId, string skuId, Action<ApiResponse> callback)
+public void DeleteSku(string productId, string skuId, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
 ```
 #### [List all product SKUs]
 ```csharp
@@ -731,6 +750,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2019-01-29** - `6.3.0` - Reorganized Delete methods with force option for: Voucher, Campaign, Product and Sku 
 - **2019-01-28** - `6.2.0` - Added ApplicableTo property to Validation class
 - **2019-01-25** - `6.1.0` - Extended OrderItem OrderItemProduct OrderItemSKU. Improved QuerySerializer
 - **2018-12-27** - `6.0.1` - Added CreatedAt and UpdatedAt property to VoucherFilter

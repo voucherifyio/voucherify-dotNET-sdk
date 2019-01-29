@@ -30,7 +30,12 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoPutRequest<DataModel.Campaign, DataModel.Contexts.CampaignUpdate>(uriBuilder.Uri, campaign).ConfigureAwait(false);
         }
 
-        public async Task Delete(string name, DataModel.Queries.CampaignDelete query)
+        public async Task Delete(string name)
+        {
+            await this.Delete(name, null);
+        }
+
+        public async Task Delete(string name, Core.DataModel.ForcedOperation query)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
