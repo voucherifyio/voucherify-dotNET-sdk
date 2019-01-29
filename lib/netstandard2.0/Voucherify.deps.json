@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "6eff53775270ebb02ef3f9dc72f417341c56a7ab"
+    "signature": "1becee41446684ba22d780c27bcb39fedc286b3a"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,7 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "Voucherify/1.0.0": {
         "dependencies": {
-          "NETStandard.Library": "2.0.2",
+          "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "9.0.1",
           "System.Net.Http": "4.3.4"
         },
@@ -45,7 +45,7 @@
       },
       "Microsoft.NETCore.Platforms/1.1.1": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
-      "NETStandard.Library/2.0.2": {
+      "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.1"
         }
@@ -781,12 +781,12 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
-    "NETStandard.Library/2.0.2": {
+    "NETStandard.Library/2.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/C21I9UWRD38nCuJ2mm5mKsdvIHS/HKfJZTod8iyZIKCZ5tltlxvRtXmY1riTojblvTo+HPvAxMNNtso45DD1Q==",
-      "path": "netstandard.library/2.0.2",
-      "hashPath": "netstandard.library.2.0.2.nupkg.sha512"
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
     "Newtonsoft.Json/9.0.1": {
       "type": "package",

@@ -6,6 +6,10 @@ mono:
 install:
   - nuget restore ./src/Voucherify/Voucherify.csproj
   - nuget restore ./src/Voucherify/Voucherify.Client.csproj
+  - nuget restore ./src/Tests/Voucherify.Tests.csproj
+  - nuget install xunit.runner.console -Version 2.2.0 -OutputDirectory testrunner
 script: 
   - msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.csproj
   - msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.Client.csproj
+  - msbuild /p:"Configuration=Release" ./src/Tests/Voucherify.Tests.csproj
+  - mono ./testrunner/xunit.runner.console.2.2.0/tools/xunit.console.exe ./src/Tests/bin/Release/netcoreapp2.0/Voucherify.Tests.dll

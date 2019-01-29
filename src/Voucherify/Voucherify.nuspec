@@ -38,43 +38,6 @@
       - Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead.
       - Moved solution to VS2017 nad use new type of projects.
 
-      2018-08-01: 4.3.2:
-      - Added Price to Product
-
-      2018-02-05: 4.3.1:
-      - Fixed Segments API endpoints
-      - Fixed Library versioning
-
-      2018-02-04: 4.3.0:
-      - Added support for Api Versions
-      - Added support for Orders, Events, Promotions, Segments and Validation Rules
-
-      2017-11-22: 4.2.0:
-      - Added 'ApplicableTo' property to Voucher.
-
-      2017-10-24: 4.1.2:
-      - Added 'key' property to VoucherifyClientException. Removed private setters for Order and Customer entities.
-
-      2017-08-30: 4.1.1:
-      - Added .ConfigureAwait(false) to all awaitable calls to prevent deadlocks when using the ASP.NET.
-
-      2016-12-19: 4.1.0:
-      - Added missing methods. Created two additional namespaces: Validations and Distributions.
-      - Support for gift.balance (for Gift Vouchers).
-
-      2016-11-17: 4.0.2:
-      - Fixed issue with InnerException serialization
-
-      2016-11-17: 4.0.1:
-      - Remove dependencies for Portable library to allow use it in Xamarin Applications.
-
-      2016-11-16: 4.0.0
-      - Define serparaed libraries: Voucherify (server side methods) and Voucherify.Client (client side methods)
-      - Define Voucherify.Core
-      - Define Voucherify.DataModel
-      - Client Supported Apis: Vouchers, Redemptions
-      - Server Supported Apis: Vouchers, Redemptions, Campaigns, Customers, Products
-
       Rest available in readme.md in repository.
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
