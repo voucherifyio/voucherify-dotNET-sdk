@@ -1,4 +1,11 @@
 <h3 align="center">Official <a href="http://voucherify.io?utm_source=github&utm_medium=sdk&utm_campaign=acq">Voucherify</a> SDK for .NET Framework</h3>
+
+<p align="center">
+<a href="https://codeclimate.com/github/voucherifyio/voucherify-ruby-sdk"><img src="https://codeclimate.com/github/voucherifyio/voucherify-ruby-sdk/badges/gpa.svg" /></a>
+  <a href="https://travis-ci.org/voucherifyio/voucherify-dotNET-sdk"><img src="https://travis-ci.org/voucherifyio/voucherify-dotNET-sdk.svg?branch=master" alt="Build Status"/></a>
+</p>
+<hr />
+
 <p align="center">
 <b><a href="#frameworks-supported">Frameworks supported</a></b>
 |
@@ -16,6 +23,9 @@
 |
 <b><a href="#changelog">Changelog</a></b>
 </p>
+
+
+
 
 <p align="center">
 API:
