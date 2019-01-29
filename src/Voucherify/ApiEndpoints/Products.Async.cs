@@ -38,7 +38,12 @@ namespace Voucherify.ApiEndpoints
 
         public async Task Delete(string productId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
+            await this.Delete(productId, null);
+        }
+
+        public async Task Delete(string productId, Core.DataModel.ForcedOperation query)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 
@@ -62,7 +67,12 @@ namespace Voucherify.ApiEndpoints
 
         public async Task DeleteSku(string productId, string skuId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus/{1}", Uri.EscapeDataString(productId), Uri.EscapeDataString(skuId)));
+            await this.DeleteSku(productId, skuId, null);
+        }
+
+        public async Task DeleteSku(string productId, string skuId, Core.DataModel.ForcedOperation query)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/products/{0}/skus/{1}", Uri.EscapeDataString(productId), Uri.EscapeDataString(skuId))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 

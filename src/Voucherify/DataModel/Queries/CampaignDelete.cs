@@ -4,10 +4,9 @@ using Newtonsoft.Json;
 namespace Voucherify.DataModel.Queries
 {
     [JsonObject]
-    public class CampaignDelete
+    public class CampaignDelete : Core.DataModel.ForcedOperation
     {
-        [JsonProperty(PropertyName = "force")]
-        public bool? Force { get; set; }
+        // Kept for backward comaptibility
     }
 }
 #endif

@@ -31,7 +31,11 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPutRequest(uriBuilder.Uri, campaign, callback);
         }
 
-        public void Delete(string name, DataModel.Queries.CampaignDelete query, Action<ApiResponse> callback)
+        public void Delete(string name, Action<ApiResponse> callback) {
+            this.Delete(name, null, callback);
+        }
+
+        public void Delete(string name, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);

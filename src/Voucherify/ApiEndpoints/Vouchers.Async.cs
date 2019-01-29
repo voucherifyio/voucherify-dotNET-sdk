@@ -42,7 +42,12 @@ namespace Voucherify.ApiEndpoints
             return await this.client.DoPostRequest<DataModel.Balance, DataModel.Contexts.VoucherAddGiftBalance>(uriBuilder.Uri, balance).ConfigureAwait(false);
         }
 
-        public async Task Delete(string code, DataModel.Queries.VoucherDelete query)
+        public async Task Delete(string code)
+        {
+            await this.Delete(code, null);
+        }
+
+        public async Task Delete(string code, Core.DataModel.ForcedOperation query)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);

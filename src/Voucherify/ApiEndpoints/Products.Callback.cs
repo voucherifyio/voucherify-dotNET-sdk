@@ -37,7 +37,12 @@ namespace Voucherify.ApiEndpoints
 
         public void Delete(string productId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId)));
+            this.Delete(productId, null, callback);
+        }
+
+        public void Delete(string productId, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/products/{0}", Uri.EscapeDataString(productId))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
@@ -61,7 +66,12 @@ namespace Voucherify.ApiEndpoints
 
         public void DeleteSku(string productId, string skuId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus/{1}", Uri.EscapeDataString(productId), Uri.EscapeDataString(skuId)));
+            this.DeleteSku(productId, skuId, null, callback);
+        }
+
+        public void DeleteSku(string productId, string skuId, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
+        {
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/products/{0}/skus/{1}", Uri.EscapeDataString(productId), Uri.EscapeDataString(skuId))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
