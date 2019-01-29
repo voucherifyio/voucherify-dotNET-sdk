@@ -1,5 +1,4 @@
-﻿#if TRUE && (VOUCHERIFYSERVER || VOUCHERIFYCLIENT)
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -36,4 +35,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("6.2.0.0")]
 [assembly: AssemblyFileVersion("6.2.0.0")]
-#endif
