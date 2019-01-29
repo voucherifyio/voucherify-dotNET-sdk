@@ -4,7 +4,8 @@ os:
 mono:
   - 5.16.0
 install:
-  - nuget restore ./src
+  - nuget restore ./src/Voucherify/Voucherify.csproj
+  - nuget restore ./src/Voucherify/Voucherify.Client.csproj
 script: 
   - msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.csproj
   - msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.Client.csproj

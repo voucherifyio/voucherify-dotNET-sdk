@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net2.0;net3.5;net4.0;net4.5</TargetFrameworks>  
   </PropertyGroup>
+  
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -31,6 +37,10 @@
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>VOUCHERIFYSERVER;NETSTANDARD20;PORTABLE;APIASYNC;</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net4.5'">
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
