@@ -750,6 +750,8 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+
+- **2019-02-03** - `6.4.0` -  Replaced ApplicableProductList and ApplicableProduct. Added listing Promotion Tiers method.
 - **2019-01-29** - `6.3.0` - Reorganized Delete methods with force option for: Voucher, Campaign, Product and Sku 
 - **2019-01-28** - `6.2.0` - Added ApplicableTo property to Validation class
 - **2019-01-25** - `6.1.0` - Extended OrderItem OrderItemProduct OrderItemSKU. Improved QuerySerializer

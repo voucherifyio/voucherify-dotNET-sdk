@@ -6,11 +6,8 @@ using System.Collections.Generic;
 namespace Voucherify.DataModel.Queries
 {
     [JsonObject]
-    public class RedemptionsFilter 
+    public class RedemptionsFilter : Core.DataModel.PageFilter
     {
-        [JsonProperty(PropertyName = "limit")]
-        public int? Limit { get; set; }
-        
         [JsonProperty(PropertyName = "start_date")]
         public DateTime? StartDate { get; set; }
 

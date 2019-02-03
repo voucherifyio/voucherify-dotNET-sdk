@@ -4,14 +4,8 @@ using Newtonsoft.Json;
 namespace Voucherify.DataModel.Queries
 {
     [JsonObject]
-    public class CustomerFilter
+    public class CustomerFilter : Core.DataModel.PageFilter
     {
-        [JsonProperty(PropertyName = "limit")]
-        public int? Limit { get; set; }
-
-        [JsonProperty(PropertyName = "page")]
-        public int? Page { get; set; }
-
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
 

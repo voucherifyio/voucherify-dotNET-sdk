@@ -54,7 +54,7 @@ namespace Voucherify.DataModel
         public Metadata Metadata { get; private set; }
 
         [JsonProperty(PropertyName = "applicable_to")]
-        public ApplicableProductList ApplicableTo { get; private set; }
+        public VoucherSubjectList ApplicableTo { get; private set; }
 
         public Voucher()
         {

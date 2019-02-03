@@ -1,6 +1,7 @@
 ﻿#if VOUCHERIFYSERVER && !APIASYNC
 using System;
 using Voucherify.Core.Communication;
+using Voucherify.Core.Extensions;
 
 namespace Voucherify.ApiEndpoints
 {
@@ -8,6 +9,12 @@ namespace Voucherify.ApiEndpoints
     {
         public Promotions(Api api) : base(api)
         {
+        }
+
+        public void List(DataModel.Queries.PromotionTiersFilter filter, Action<ApiResponse<DataModel.PromotionTierList>> callback)
+        {
+            UriBuilder uriBuilder =  UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/promotions/tiers"), filter);
+            this.client.DoGetRequest<DataModel.PromotionTierList>(uriBuilder.Uri, callback);
         }
 
         public void Get(string promotionTierId, Action<ApiResponse<DataModel.PromotionTier>> callback)
