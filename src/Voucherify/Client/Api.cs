@@ -68,6 +68,21 @@ namespace Voucherify.Client
             }
         }
 
+        private Client.ApiEndpoints.Promotions promotions;
+
+        public Client.ApiEndpoints.Promotions Promotions
+        {
+            get
+            {
+                if (promotions == null)
+                {
+                    promotions = new ApiEndpoints.Promotions(this);
+                }
+
+                return promotions;
+            }
+        }
+
         public Api(string appId, string appToken, string origin)
         {
             if (string.IsNullOrEmpty(appToken))
@@ -98,6 +113,7 @@ namespace Voucherify.Client
             this.validations = null;
             this.redemptions = null;
             this.events = null;
+            this.promotions = null;
             return this;
         }
 
@@ -107,20 +123,17 @@ namespace Voucherify.Client
             this.validations = null;
             this.redemptions = null;
             this.events = null;
+            this.promotions = null;
             return this;
         }
 
         public Api WithEndpoint(string endpoint)
         {
-            this.Endpoint = endpoint;
+            this.Endpoint = endpoint ?? Core.Constants.EndpointApi;
             this.validations = null;
             this.redemptions = null;
             this.events = null;
-
-            if (endpoint == null)
-            {
-                this.Endpoint = Core.Constants.EndpointApi;
-            }
+            this.promotions = null;
 
             return this;
         }
@@ -132,6 +145,7 @@ namespace Voucherify.Client
             this.validations = null;
             this.redemptions = null;
             this.events = null;
+            this.promotions = null;
 
             return this;
         }

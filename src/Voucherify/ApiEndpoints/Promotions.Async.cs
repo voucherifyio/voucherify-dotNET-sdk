@@ -11,6 +11,11 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
+        public async Task<DataModel.PromotionTierList> List(DataModel.Queries.PromotionTiersFilter filter)
+        {
+            UriBuilder uriBuilder =  UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/promotions/tiers"), filter);
+            return await this.client.DoGetRequest<DataModel.PromotionTierList>(uriBuilder.Uri).ConfigureAwait(false);
+        }
 
         public async Task<DataModel.PromotionTier> Get(string promotionTierId)
         {
