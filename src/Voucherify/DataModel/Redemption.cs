@@ -41,6 +41,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
+        [JsonProperty(PropertyName = "amount", NullValueHandling = NullValueHandling.Ignore)]
+        public int Amount { get; private set; }
+
         public override string ToString()
         {
             return string.Format("Redemption(Id={0},Result={1},Customer={2},Tracking={3})", this.Id, this.Result, this.CustomerId, this.TrackingId);
