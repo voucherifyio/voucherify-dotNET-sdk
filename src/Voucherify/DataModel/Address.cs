@@ -10,22 +10,22 @@ namespace Voucherify.DataModel
     public class Address
     {
         [JsonProperty(PropertyName = "city")]
-        public string City { get; private set; }
+        public string City { get; set; }
 
         [JsonProperty(PropertyName = "state")]
-        public string State { get; private set; }
+        public string State { get; set; }
 
         [JsonProperty(PropertyName = "line_1")]
-        public string Line1 { get; private set; }
+        public string Line1 { get; set; }
 
         [JsonProperty(PropertyName = "line_2")]
-        public string Line2 { get; private set; }
+        public string Line2 { get; set; }
 
         [JsonProperty(PropertyName = "country")]
-        public string Country { get; private set; }
+        public string Country { get; set; }
 
         [JsonProperty(PropertyName = "postal_code")]
-        public string PostalCode { get; private set; }
+        public string PostalCode { get; set; }
 
         public override string ToString()
         {

@@ -66,6 +66,37 @@ API:
 
 ---
 
+## Build
+
+### Prerequisites MacOS
+
+- Visual Studio
+- `nuget install xunit.runner.console -Version 2.2.0 -OutputDirectory testrunner`
+
+### Tests
+
+```
+nuget restore ./src/Tests/Voucherify.Tests.csproj
+msbuild /p:"Configuration=Release" ./src/Tests/Voucherify.Tests.csproj
+mono ./testrunner/xunit.runner.console.2.2.0/tools/xunit.console.exe ./src/Tests/bin/Release/netcoreapp2.0/Voucherify.Tests.dll
+```
+
+### Server
+
+```
+nuget restore ./src/Voucherify/Voucherify.csproj
+msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.csproj
+nuget pack ./src/Voucherify/Voucherify.nuspec
+```
+
+### Client
+
+```
+nuget restore ./src/Voucherify/Voucherify.Client.csproj
+msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.Client.csproj
+nuget pack ./src/Voucherify/Voucherify.Client.nuspec
+```
+
 ## Frameworks supported
 * .NET 2.0 (Server, Client)
 * .NET 3.5 (Server, Client)
@@ -750,6 +781,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2019-05-09** - `6.4.2` - Change `Address` properties accessors from private to public
 - **2019-02-06** - `6.4.1` - Added `amount` in Redemption  and `discount_amount` in Order
 - **2019-02-03** - `6.4.0` - Replaced ApplicableProductList and ApplicableProduct. Added listing Promotion Tiers method.
 - **2019-01-29** - `6.3.0` - Reorganized Delete methods with force option for: Voucher, Campaign, Product and Sku 
