@@ -28,6 +28,15 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "sku")]
         public OrderItemSku Sku { get; set; }
 
+        [JsonProperty(PropertyName = "amount")]
+        public int? Amount { get;set; }
+
+        [JsonProperty(PropertyName = "price")]
+        public int? Price { get;set; }
+
+        [JsonProperty(PropertyName = "discount_amount")]
+        public int? DiscountAmount { get;set; }
+
         public OrderItem WithSourceId(string sourceId, string relatedObject)
         {
             this.SourceId = sourceId;
@@ -55,7 +64,8 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("OrderItem(SourceId={0},RelatedObject={1},ProductId={2},SkuId={3},Quantity={4},Product={5},Sku={6})", this.SourceId, this.RelatedObject, this.ProductId, this.SkuId, this.Quantity, this.Product, this.Sku);
+            return string.Format("OrderItem(SourceId={0},RelatedObject={1},ProductId={2},SkuId={3},Quantity={4},Product={5},Sku={6},Price={7},Amount={8},DiscountAmount={9})", 
+                this.SourceId, this.RelatedObject, this.ProductId, this.SkuId, this.Quantity, this.Product, this.Sku, this.Price, this.Amount, this.DiscountAmount);
         }
     }
 }

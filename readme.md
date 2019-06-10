@@ -97,6 +97,13 @@ msbuild /p:"Configuration=Release" ./src/Voucherify/Voucherify.Client.csproj
 nuget pack ./src/Voucherify/Voucherify.Client.nuspec
 ```
 
+### Running Examples
+
+```
+msbuild /p:"Configuration=Release" ./src/Examples/Examples.Voucherify.net45/Examples.Voucherify.net45.csproj
+mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.net45.exe <api_key> <api_token>
+```
+
 ## Frameworks supported
 * .NET 2.0 (Server, Client)
 * .NET 3.5 (Server, Client)
@@ -781,6 +788,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2019-06-10** - `6.4.3` - Added `Assignments` property at Voucher and Campaign level
 - **2019-05-09** - `6.4.2` - Change `Address` properties accessors from private to public
 - **2019-02-06** - `6.4.1` - Added `amount` in Redemption  and `discount_amount` in Order
 - **2019-02-03** - `6.4.0` - Replaced ApplicableProductList and ApplicableProduct. Added listing Promotion Tiers method.

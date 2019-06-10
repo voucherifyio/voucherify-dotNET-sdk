@@ -35,6 +35,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "promotion")]
         public PromotionTierList Promotion { get; private set; }
 
+        [JsonProperty(PropertyName = "validation_rules_assignments")]
+        public BusinessValidationRuleAssignmentList Assignments { get; private set; }
+
         public Campaign()
         {
             this.Metadata = new Metadata();
