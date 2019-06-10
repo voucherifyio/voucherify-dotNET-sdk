@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using Voucherify.Core.DataModel;
+using Voucherify.Core.Extensions;
 
 namespace Voucherify.DataModel
 {
@@ -39,7 +40,8 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Order(Id={0},SourceId={1},Status={2},Amount={3})", this.Id, this.SourceId, this.Status, this.Amount);
+            return string.Format("Order(Id={0},SourceId={1},Status={2},Amount={3},DiscountAmount={4},Items={5})", 
+                this.Id, this.SourceId, this.Status, this.Amount, this.DiscountAmount, ListExtensions.ToString<OrderItem>(this.Items));
         }
     }
 }

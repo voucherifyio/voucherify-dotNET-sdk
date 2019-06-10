@@ -15,6 +15,11 @@ namespace Voucherify.DataModel
 
         [JsonProperty("related_object_type")]
         public string RelatedObjectType { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("BusinessValidationRuleAssignment(RuleId={0},RelatedObjectId={1},RelatedObjectType={2})", this.RuleId, this.RelatedObjectId, this.RelatedObjectType);
+        }
     }
 }
 #endif

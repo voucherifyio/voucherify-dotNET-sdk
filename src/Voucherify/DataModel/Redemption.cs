@@ -46,7 +46,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Redemption(Id={0},Result={1},Customer={2},Tracking={3})", this.Id, this.Result, this.CustomerId, this.TrackingId);
+            return string.Format("Redemption(Id={0},Result={1},Customer={2},Tracking={3},Order={4})", this.Id, this.Result, this.CustomerId, this.TrackingId, this.Order);
         }
     }
 }

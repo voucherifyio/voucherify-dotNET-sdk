@@ -56,6 +56,12 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "applicable_to")]
         public VoucherSubjectList ApplicableTo { get; private set; }
 
+        #if VOUCHERIFYSERVER
+
+        [JsonProperty(PropertyName = "validation_rules_assignments")]
+        public BusinessValidationRuleAssignmentList Assignments { get; private set; }
+
+        #endif
         public Voucher()
         {
             this.Metadata = new Metadata();
