@@ -158,6 +158,18 @@ var api = new Voucherify.Api(
             .WithVersion(Voucherify.Core.ApiVerions.v2017_04_20);
 ```
 
+#### API Endpoint
+
+Optionally, you can specify the API endpoint if needed:
+
+```csharp
+var api = new Voucherify.Api(
+            "<app_id>",
+            "<token>")            
+            .WithSSL()
+            .WithEndpoint("<clusterId>.api.voucherify.io/v1");
+```
+
 ### Client Side Library
 
 `Install-Package Voucherify.Client`
@@ -174,6 +186,19 @@ var api = new Voucherify.Client.Api(
     "<client_token>",
     "<origin>")
     .WithSSL();
+```
+
+#### API Endpoint
+
+Optionally, you can specify the API endpoint if needed:
+
+```csharp
+var api = new Voucherify.Client.Api(
+    "<client_app_id>",
+    "<client_token>",
+    "<origin>")
+    .WithSSL()
+    .WithEndpoint("<clusterId>.api.voucherify.io/client/v1");
 ```
 
 ## Callback or Async?
