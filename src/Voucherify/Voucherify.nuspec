@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify</id>
-    <version>6.4.3.0</version>
+    <version>7.0.0.0</version>
     <title>Voucherify</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,13 +11,16 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2019-06-19: 7.0.0
+      - Hide API versioning in WithEndpoint method
+
       2019-06-10: 6.4.3
       - Added `Assignments` property at Voucher and Campaign level
 
-      2019-05-09: 6.4.2 
+      2019-05-09: 6.4.2
       - Change `Address` properties accessors from private to public
 
-      2019-02-06: 6.4.1 
+      2019-02-06: 6.4.1
       - Added `amount` in Redemption  and `discount_amount` in Order
 
       2019-02-03: 6.4.0:
@@ -25,11 +28,11 @@
       - Added listing Promotion Tiers method to server and client side api.
 
       2019-01-29: 6.3.0:
-      - Reorganized Delete methods with force option for: Voucher, Campaign, Product and Sku 
+      - Reorganized Delete methods with force option for: Voucher, Campaign, Product and Sku
 
       2019-01-28: 6.2.0:
       - Added ApplicableTo property to Validation class
-  
+
       2019-01-25: 6.1.0:
       - Extended OrderItem OrderItemProduct OrderItemSKU
       - Improved QuerySerializer

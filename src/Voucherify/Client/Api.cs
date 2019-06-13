@@ -104,7 +104,7 @@ namespace Voucherify.Client
             this.AppId = appId;
             this.Origin = origin;
             this.Secure = true;
-            this.Endpoint = Core.Constants.EndpointApi;
+            this.Endpoint = Core.Constants.EndpointApi + "/v1";
         }
 
         public Api WithSSL()
@@ -129,7 +129,7 @@ namespace Voucherify.Client
 
         public Api WithEndpoint(string endpoint)
         {
-            this.Endpoint = endpoint ?? Core.Constants.EndpointApi;
+            this.Endpoint = (endpoint ?? Core.Constants.EndpointApi) + "/v1";
             this.validations = null;
             this.redemptions = null;
             this.events = null;

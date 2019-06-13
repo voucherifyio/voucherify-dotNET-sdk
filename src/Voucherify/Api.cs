@@ -21,7 +21,7 @@ namespace Voucherify
                 return Constants.HttpHeaderChannelName;
             }
         }
-        
+
         private ApiEndpoints.Campaigns campaigns;
 
         public ApiEndpoints.Campaigns Campaigns
@@ -201,7 +201,7 @@ namespace Voucherify
                 return vouchers;
             }
         }
-        
+
         public Api(string appId, string appToken) : this (appId, appToken, ApiVersion.Default)
         {
         }
@@ -222,7 +222,7 @@ namespace Voucherify
             this.AppId = appId;
             this.Secure = true;
             this.Version = apiVersion;
-            this.Endpoint = Core.Constants.EndpointApi;
+            this.Endpoint = Core.Constants.EndpointApi + "/v1";
         }
 
         public Api WithSSL()
@@ -287,7 +287,7 @@ namespace Voucherify
 
         public Api WithEndpoint(string endpoint)
         {
-            this.Endpoint = endpoint;
+            this.Endpoint = endpoint + "/v1";
 
             this.campaigns = null;
             this.customers = null;
@@ -304,7 +304,7 @@ namespace Voucherify
 
             if (endpoint == null)
             {
-                this.Endpoint = Core.Constants.EndpointApi;
+                this.Endpoint = Core.Constants.EndpointApi + "/v1";
             }
 
             return this;
