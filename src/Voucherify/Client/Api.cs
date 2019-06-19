@@ -10,7 +10,9 @@ namespace Voucherify.Client
     {
         public string AppToken { get; private set; }
         public string AppId { get; private set; }
-        public string Endpoint { get; private set; }
+        public string Host { get; private set; }
+        public string BasePath { get; private set; }
+        public int? Port { get; private set; }
         public string Origin { get; private set; }
         public ApiVersion Version { get; private set; }
         public bool Secure { get; private set; }
@@ -104,7 +106,9 @@ namespace Voucherify.Client
             this.AppId = appId;
             this.Origin = origin;
             this.Secure = true;
-            this.Endpoint = Core.Constants.EndpointApi;
+            this.Host = Core.Constants.HostApi;
+            this.BasePath = "/client/v1";
+            this.Port = null;
         }
 
         public Api WithSSL()
@@ -127,9 +131,20 @@ namespace Voucherify.Client
             return this;
         }
 
-        public Api WithEndpoint(string endpoint)
+        public Api WithHost(string host)
         {
-            this.Endpoint = endpoint ?? Core.Constants.EndpointApi;
+            this.Host = (host ?? Core.Constants.HostApi) + "/v1";
+            this.validations = null;
+            this.redemptions = null;
+            this.events = null;
+            this.promotions = null;
+
+            return this;
+        }
+
+        public Api WithPort(int? port)
+        {
+            this.Port = port;
             this.validations = null;
             this.redemptions = null;
             this.events = null;

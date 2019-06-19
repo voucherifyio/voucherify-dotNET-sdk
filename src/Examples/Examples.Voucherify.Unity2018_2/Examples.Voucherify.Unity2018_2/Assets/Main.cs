@@ -22,8 +22,8 @@ public class Main : MonoBehaviour {
 
         if (args.Length > 3)
         {
-            addMessage(string.Format("[init] Changing Endpoint. Address: {0}", args[2]));
-            voucherifyApi = voucherifyApi.WithEndpoint(args[2]);
+            addMessage(string.Format("[init] Changing Host. Address: {0}", args[2]));
+            voucherifyApi = voucherifyApi.WithHost(args[2]);
         }
 
         addMessage(string.Format("[run] Channel: {0}", voucherifyApi.Channel));

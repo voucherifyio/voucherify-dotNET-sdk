@@ -101,7 +101,7 @@ nuget pack ./src/Voucherify/Voucherify.Client.nuspec
 
 ```
 msbuild /p:"Configuration=Release" ./src/Examples/Examples.Voucherify.net45/Examples.Voucherify.net45.csproj
-mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.net45.exe <api_key> <api_token>
+mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.net45.exe <api_key> <api_token> <voucher_code>
 ```
 
 ## Frameworks supported
@@ -158,6 +158,18 @@ var api = new Voucherify.Api(
             .WithVersion(Voucherify.Core.ApiVerions.v2017_04_20);
 ```
 
+#### API Endpoint
+
+Optionally, you can specify the API endpoint if needed:
+
+```csharp
+var api = new Voucherify.Api(
+            "<app_id>",
+            "<token>")            
+            .WithSSL()
+            .WithHost("<clusterId>.api.voucherify.io");
+```
+
 ### Client Side Library
 
 `Install-Package Voucherify.Client`
@@ -174,6 +186,19 @@ var api = new Voucherify.Client.Api(
     "<client_token>",
     "<origin>")
     .WithSSL();
+```
+
+#### API Endpoint
+
+Optionally, you can specify the API endpoint if needed:
+
+```csharp
+var api = new Voucherify.Client.Api(
+    "<client_app_id>",
+    "<client_token>",
+    "<origin>")
+    .WithSSL()
+    .WithHost("<clusterId>.api.voucherify.io/client");
 ```
 
 ## Callback or Async?
@@ -788,6 +813,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2019-06-19** - `7.0.0` - Api class improvements, split Endpoint into Host, BasePath and Port
 - **2019-06-10** - `6.4.3` - Added `Assignments` property at Voucher and Campaign level
 - **2019-05-09** - `6.4.2` - Change `Address` properties accessors from private to public
 - **2019-02-06** - `6.4.1` - Added `amount` in Redemption  and `discount_amount` in Order

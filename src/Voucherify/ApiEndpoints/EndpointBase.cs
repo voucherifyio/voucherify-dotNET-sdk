@@ -31,7 +31,9 @@ namespace Voucherify.ApiEndpoints
 
             this.client = new ApiClient(
                 api.Secure, 
-                api.Endpoint, 
+                api.Host, 
+                api.BasePath,
+                api.Port,
                 headers,
                 new List<Newtonsoft.Json.JsonConverter>()
                 {
