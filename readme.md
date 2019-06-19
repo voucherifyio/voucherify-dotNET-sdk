@@ -101,7 +101,7 @@ nuget pack ./src/Voucherify/Voucherify.Client.nuspec
 
 ```
 msbuild /p:"Configuration=Release" ./src/Examples/Examples.Voucherify.net45/Examples.Voucherify.net45.csproj
-mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.net45.exe <api_key> <api_token>
+mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.net45.exe <api_key> <api_token> <voucher_code>
 ```
 
 ## Frameworks supported
