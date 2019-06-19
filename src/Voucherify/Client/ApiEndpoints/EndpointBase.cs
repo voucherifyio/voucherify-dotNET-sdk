@@ -29,7 +29,7 @@ namespace Voucherify.Client.ApiEndpoints
                 headers.Add(Core.Constants.HttpHeaderApiVersion, JsonEnumValueAttributeExtension.GetValue(api.Version));
             }
 
-            this.client = new ApiClient(api.Secure, api.Endpoint, headers, null);
+            this.client = new ApiClient(api.Secure, api.Host, api.BasePath, api.Port, headers, null);
         }
     }
 }

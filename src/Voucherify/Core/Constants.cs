@@ -75,10 +75,6 @@
         /// <summary>
         /// A default endpoint of Voucherify api.
         /// </summary>
-#if VOUCHERIFYCLIENT
-        public const string EndpointApi = "api.voucherify.io/client";
-#else
-        public const string EndpointApi = "api.voucherify.io";
-#endif
+        public const string HostApi = "api.voucherify.io";
     }
 }

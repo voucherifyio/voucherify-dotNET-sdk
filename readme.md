@@ -167,7 +167,7 @@ var api = new Voucherify.Api(
             "<app_id>",
             "<token>")            
             .WithSSL()
-            .WithEndpoint("<clusterId>.api.voucherify.io");
+            .WithHost("<clusterId>.api.voucherify.io");
 ```
 
 ### Client Side Library
@@ -198,7 +198,7 @@ var api = new Voucherify.Client.Api(
     "<client_token>",
     "<origin>")
     .WithSSL()
-    .WithEndpoint("<clusterId>.api.voucherify.io/client");
+    .WithHost("<clusterId>.api.voucherify.io/client");
 ```
 
 ## Callback or Async?
@@ -813,7 +813,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-- **2019-06-19** - `7.0.0` - Hide API versioning in WithEndpoint method
+- **2019-06-19** - `7.0.0` - Api class improvements, split Endpoint into Host, BasePath and Port
 - **2019-06-10** - `6.4.3` - Added `Assignments` property at Voucher and Campaign level
 - **2019-05-09** - `6.4.2` - Change `Address` properties accessors from private to public
 - **2019-02-06** - `6.4.1` - Added `amount` in Redemption  and `discount_amount` in Order

@@ -14,16 +14,20 @@ namespace Voucherify.Core.Communication
     internal class ApiClient
     {
         private readonly bool isSecure;
-        private readonly string baseAddress;
+        private readonly string hostAddress;
+        private readonly string basePath;
+        private readonly int? port;
         private readonly Dictionary<string, string> headers;
         private readonly List<JsonConverter> converters;
         private Serialization.JsonSerializer<Exceptions.VoucherifyClientException> serializerException;
 
-        internal ApiClient(bool isSecure, string baseAddress, Dictionary<string, string> headers, List<JsonConverter> converters)
+        internal ApiClient(bool isSecure, string hostAddress, string basePath, int? port, Dictionary<string, string> headers, List<JsonConverter> converters)
         {
             this.isSecure = isSecure;
             this.headers = headers;
-            this.baseAddress = baseAddress;
+            this.hostAddress = hostAddress;
+            this.basePath = string.IsNullOrEmpty(basePath) ? string.Empty : basePath;
+            this.port = port;
             this.converters = converters;
             this.serializerException = new Serialization.JsonSerializer<Exceptions.VoucherifyClientException>(converters);
         }
@@ -162,7 +166,11 @@ namespace Voucherify.Core.Communication
 
         internal UriBuilder GetUriBuilder(string path)
         {
-            return new UriBuilder(this.isSecure ? "HTTPS": "HTTP", this.baseAddress) { Path = path };
+            if (this.port.HasValue) {
+                return new UriBuilder(this.isSecure ? "HTTPS": "HTTP", this.hostAddress, this.port.Value) { Path = basePath + path };
+            }
+
+            return new UriBuilder(this.isSecure ? "HTTPS": "HTTP", this.hostAddress) { Path = basePath + path };
         }
 
         private async Task EnsureResult(HttpResponseMessage response)

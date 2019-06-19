@@ -13,8 +13,8 @@ namespace Examples.Voucherify.Client.net35
 
             if (args.Length > 3)
             {
-                Console.WriteLine("[init] Changing Endpoint. Address: {0}", args[2]);
-                voucherifyApi = voucherifyApi.WithEndpoint(args[2]);
+                Console.WriteLine("[init] Changing Host. Address: {0}", args[2]);
+                voucherifyApi = voucherifyApi.WithHost(args[2]);
             }
 
             Console.WriteLine("[run] Channel: {0}", voucherifyApi.Channel);

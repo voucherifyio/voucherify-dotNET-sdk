@@ -11,12 +11,12 @@ namespace Examples.Voucherify.net45
         static void Main(string[] args)
         {
             Console.WriteLine("[init] AppId: {0}, AppToken: {1}", args[0], args[1]);
-            Api voucherifyApi = new Api(args[0], args[1]).WithVersion(Core.ApiVersion.v2018_08_01);
+            Api voucherifyApi = new Api(args[0], args[1]).WithVersion(Core.ApiVersion.v2018_08_01).WithHost("localhost").WithPort(8089).WithoutSSL();
 
             if (args.Length > 3)
             {
-                Console.WriteLine("[init] Changing Endpoint. Address: {0}", args[2]);
-                voucherifyApi = voucherifyApi.WithEndpoint(args[2]);
+                Console.WriteLine("[init] Changing Host. Address: {0}", args[2]);
+                voucherifyApi = voucherifyApi.WithHost(args[2]);
             }
 
             Console.WriteLine("[run] Channel: {0}", voucherifyApi.Channel);

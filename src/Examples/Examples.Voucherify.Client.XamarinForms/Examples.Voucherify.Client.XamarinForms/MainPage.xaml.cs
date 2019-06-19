@@ -23,8 +23,8 @@ namespace Examples.Voucherify.Client.XamarinForms
 
             if (args.Length > 3)
             {
-                AddLabel(string.Format("[init] Changing Endpoint. Address: {0}", args[2]));
-                voucherifyApi = voucherifyApi.WithEndpoint(args[2]);
+                AddLabel(string.Format("[init] Changing Host. Address: {0}", args[2]));
+                voucherifyApi = voucherifyApi.WithHost(args[2]);
             }
             
             AddLabel(string.Format("[run] Channel: {0}", voucherifyApi.Channel));

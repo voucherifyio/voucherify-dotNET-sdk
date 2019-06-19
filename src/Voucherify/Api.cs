@@ -11,7 +11,9 @@ namespace Voucherify
         public ApiVersion Version { get; private set; }
         public string AppToken { get; private set; }
         public string AppId { get; private set; }
-        public string Endpoint { get; private set; }
+        public string Host { get; private set; }
+        public string BasePath { get; private set; }
+        public int? Port { get; private set; }
         public bool Secure { get; private set; }
 
         public string Channel
@@ -222,7 +224,8 @@ namespace Voucherify
             this.AppId = appId;
             this.Secure = true;
             this.Version = apiVersion;
-            this.Endpoint = Core.Constants.EndpointApi + "/v1";
+            this.Host = Core.Constants.HostApi;
+            this.BasePath = "/v1";
         }
 
         public Api WithSSL()
@@ -285,9 +288,9 @@ namespace Voucherify
             return this;
         }
 
-        public Api WithEndpoint(string endpoint)
+        public Api WithHost(string host)
         {
-            this.Endpoint = endpoint + "/v1";
+            this.Host = host;
 
             this.campaigns = null;
             this.customers = null;
@@ -302,10 +305,30 @@ namespace Voucherify
             this.validationRules = null;
             this.vouchers = null;
 
-            if (endpoint == null)
+            if (host == null)
             {
-                this.Endpoint = Core.Constants.EndpointApi + "/v1";
+                this.Host = Core.Constants.HostApi;
             }
+
+            return this;
+        }
+
+        public Api WithPort(int? port)
+        {
+            this.Port = port;
+
+            this.campaigns = null;
+            this.customers = null;
+            this.distributions = null;
+            this.events = null;
+            this.orders = null;
+            this.products = null;
+            this.promotions = null;
+            this.redemptions = null;
+            this.segments = null;
+            this.validations = null;
+            this.validationRules = null;
+            this.vouchers = null;
 
             return this;
         }
