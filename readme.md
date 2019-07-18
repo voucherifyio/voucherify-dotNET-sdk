@@ -160,14 +160,14 @@ var api = new Voucherify.Api(
 
 #### API Endpoint
 
-Optionally, you can specify the API endpoint if needed:
+Optionally, you can specify API Endpoint if you want to use Voucherify running in a specific region.
 
 ```csharp
 var api = new Voucherify.Api(
             "<app_id>",
             "<token>")            
             .WithSSL()
-            .WithHost("<clusterId>.api.voucherify.io");
+            .WithHost("<region>.api.voucherify.io");
 ```
 
 ### Client Side Library
@@ -190,7 +190,7 @@ var api = new Voucherify.Client.Api(
 
 #### API Endpoint
 
-Optionally, you can specify the API endpoint if needed:
+Optionally, you can specify API Endpoint if you want to use Voucherify running in a specific region.
 
 ```csharp
 var api = new Voucherify.Client.Api(
@@ -198,7 +198,7 @@ var api = new Voucherify.Client.Api(
     "<client_token>",
     "<origin>")
     .WithSSL()
-    .WithHost("<clusterId>.api.voucherify.io/client");
+    .WithHost("<region>.api.voucherify.io/client");
 ```
 
 ## Callback or Async?
