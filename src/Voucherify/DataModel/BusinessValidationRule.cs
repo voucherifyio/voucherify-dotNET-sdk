@@ -13,9 +13,17 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "rules")]
         public Json Rules { get; set; }
 
+        [JsonProperty(PropertyName = "error")]
+        public BusinessValidationRuleError Error { get; set;  }
+
         public BusinessValidationRule()
         {
             this.Rules = new Json();
+        }
+
+        public override string ToString()
+        {
+            return string.Format("BusinessValidationRule(Id={0},Name={1})", this.Id, this.Name);
         }
     }
 }

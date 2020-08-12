@@ -11,6 +11,11 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "amount_to_go")]
         public int AmountToGo { get; private set; }
+
+        public override string ToString()
+        {
+            return string.Format("CustomerSummaryRedemptionsGift(RedeemedAmount={0},AmountToGo={1})", this.RedeemedAmount, this.AmountToGo);
+        }
     }
 }
 #endif

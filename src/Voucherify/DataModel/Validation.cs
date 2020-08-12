@@ -34,9 +34,12 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "applicable_to")]
         public VoucherSubjectList ApplicableTo { get; private set; }
 
+        [JsonProperty(PropertyName = "error")]
+        public ValidationError Error { get; private set; }
+
         public override string ToString()
         {
-            return string.Format("Validation(Code={0},IsValid={1},ApplicableTo={2})", this.Code, this.Valid, this.ApplicableTo);
+            return string.Format("Validation(Code={0},IsValid={1},ApplicableTo={2},Erorr:{3})", this.Code, this.Valid, this.ApplicableTo, this.Error);
         }
     }
 }

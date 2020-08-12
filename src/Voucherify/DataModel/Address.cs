@@ -29,7 +29,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Address(County={0},City={1})", this.Country, this.City);
+            return string.Format("Address(Country={0},City={1})", this.Country, this.City);
         }
     }
 }
