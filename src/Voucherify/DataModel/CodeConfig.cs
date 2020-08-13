@@ -28,7 +28,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("CodeConfig(Pattern={0})", this.Pattern);
+            return string.Format("CodeConfig(Pattern={0},Length={1})", this.Pattern, this.Length);
         }
 
         public static CodeConfig WithAlphabeticCharset()

@@ -5,16 +5,16 @@ using Voucherify.Core.DataModel;
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class QR : ApiObjectWithId
+    public class Barcode : ApiObjectWithId
     {
         [JsonProperty(PropertyName = "url")]
         public string Url { get; private set; }
 
-        private QR () { }
+        private Barcode () { }
 
         public override string ToString()
         {
-            return string.Format("QR(Id={0},Url={1})", this.Id, this.Url);
+            return string.Format("Barcode(Id={0},Url={1})", this.Id, this.Url);
         }
     }
 }

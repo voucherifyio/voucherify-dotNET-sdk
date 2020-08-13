@@ -8,6 +8,9 @@ namespace Voucherify.DataModel
     [JsonObject]
     public class Campaign : ApiObject
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; private set; }
+
         [JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
 
@@ -45,7 +48,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Campaign(Name={0},Type={1})", this.Name, this.Type);
+            return string.Format("Campaign(Id={0},Name={1},Type={2})", this.Id, this.Name, this.Type);
         }
     }
 }

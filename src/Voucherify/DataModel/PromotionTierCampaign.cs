@@ -23,7 +23,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("PromotionTierCampaign()");
+            return string.Format("PromotionTierCampaign(Active={0})", this.Active);
         }
     }
 }
