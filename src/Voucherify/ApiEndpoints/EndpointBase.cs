@@ -35,11 +35,8 @@ namespace Voucherify.ApiEndpoints
                 api.BasePath,
                 api.Port,
                 headers,
-                new List<Newtonsoft.Json.JsonConverter>()
-                {
-                    new Core.Serialization.ObjectListFromArrayConverter<DataModel.Voucher, DataModel.VoucherList>(api.Version, Core.ApiVersion.v2017_04_05),
-                    new Core.Serialization.ObjectListFromArrayConverter<DataModel.Campaign, DataModel.CampaignList>(api.Version, Core.ApiVersion.v2017_04_05)
-                });
+                new List<Newtonsoft.Json.JsonConverter>() {}
+            );
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Voucherify.DataModel
         public string Currency { get; private set; }
 
         [JsonProperty(PropertyName = "price")]
-        public int? Price { get; private set; }
+        public long? Price { get; private set; }
 
         [JsonProperty(PropertyName = "attributes")]
         public List<string> Attributes { get; private  set; }

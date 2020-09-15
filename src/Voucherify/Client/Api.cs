@@ -85,6 +85,36 @@ namespace Voucherify.Client
             }
         }
 
+        private Client.ApiEndpoints.Consents consents;
+
+        public Client.ApiEndpoints.Consents Consents
+        {
+            get
+            {
+                if (consents == null)
+                {
+                    consents = new ApiEndpoints.Consents(this);
+                }
+
+                return consents;
+            }
+        }
+
+        private Client.ApiEndpoints.Customers customers;
+
+        public Client.ApiEndpoints.Customers Customers
+        {
+            get
+            {
+                if (customers == null)
+                {
+                    customers = new ApiEndpoints.Customers(this);
+                }
+
+                return customers;
+            }
+        }
+
         public Api(string appId, string appToken, string origin)
         {
             if (string.IsNullOrEmpty(appToken))
@@ -118,6 +148,8 @@ namespace Voucherify.Client
             this.redemptions = null;
             this.events = null;
             this.promotions = null;
+            this.consents = null;
+            this.customers = null;
             return this;
         }
 
@@ -128,6 +160,8 @@ namespace Voucherify.Client
             this.redemptions = null;
             this.events = null;
             this.promotions = null;
+            this.consents = null;
+            this.customers = null;
             return this;
         }
 
@@ -138,6 +172,8 @@ namespace Voucherify.Client
             this.redemptions = null;
             this.events = null;
             this.promotions = null;
+            this.consents = null;
+            this.customers = null;
 
             return this;
         }
@@ -149,6 +185,8 @@ namespace Voucherify.Client
             this.redemptions = null;
             this.events = null;
             this.promotions = null;
+            this.consents = null;
+            this.customers = null;
 
             return this;
         }
@@ -161,6 +199,8 @@ namespace Voucherify.Client
             this.redemptions = null;
             this.events = null;
             this.promotions = null;
+            this.consents = null;
+            this.customers = null;
 
             return this;
         }

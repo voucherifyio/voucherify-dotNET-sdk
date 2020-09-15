@@ -6,11 +6,8 @@ using Voucherify.Core.DataModel;
 namespace Voucherify.DataModel
 {
     [JsonObject]
-    public class Campaign : ApiObject
+    public class Campaign : ApiObjectWithId
     {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
-
         [JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
 

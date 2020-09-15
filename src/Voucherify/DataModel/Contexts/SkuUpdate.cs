@@ -11,7 +11,7 @@ namespace Voucherify.DataModel.Contexts
         public string SkuValue { get; set; }
 
         [JsonProperty(PropertyName = "price")]
-        public int? Price { get; set; }
+        public long? Price { get; set; }
 
         [JsonProperty(PropertyName = "attributes")]
         public Metadata Attributes { get; set; }
@@ -70,7 +70,7 @@ namespace Voucherify.DataModel.Contexts
             return this;
         }
 
-        public SkuUpdate WithPrice(int? price)
+        public SkuUpdate WithPrice(long? price)
         {
             this.Price = price;
             return this;

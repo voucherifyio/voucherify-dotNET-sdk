@@ -42,6 +42,12 @@ namespace Voucherify.ApiEndpoints
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder("/customers/"), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
+
+        public void UpdateConsents (string customerId, DataModel.Contexts.CustomerConsentUpdate udpate, Action<ApiResponse<Core.DataModel.Empty>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}/consents", Uri.EscapeDataString(customerId)));
+            this.client.DoPutRequest(uriBuilder.Uri, udpate, callback);
+        }
     }
 }
 #endif

@@ -203,6 +203,21 @@ namespace Voucherify
                 return vouchers;
             }
         }
+       
+        private ApiEndpoints.Consents consents;
+
+        public ApiEndpoints.Consents Consents
+        {
+            get
+            {
+                if (consents == null)
+                {
+                    consents = new ApiEndpoints.Consents(this);
+                }
+
+                return consents;
+            }
+        }
 
         public Api(string appId, string appToken) : this (appId, appToken, ApiVersion.Default)
         {
@@ -244,6 +259,7 @@ namespace Voucherify
             this.validations = null;
             this.validationRules = null;
             this.vouchers = null;
+            this.consents = null;
 
             return this;
         }
@@ -264,6 +280,7 @@ namespace Voucherify
             this.validations = null;
             this.validationRules = null;
             this.vouchers = null;
+            this.consents = null;
 
             return this;
         }
@@ -284,6 +301,7 @@ namespace Voucherify
             this.validations = null;
             this.validationRules = null;
             this.vouchers = null;
+            this.consents = null;
 
             return this;
         }
@@ -304,6 +322,7 @@ namespace Voucherify
             this.validations = null;
             this.validationRules = null;
             this.vouchers = null;
+            this.consents = null;
 
             if (host == null)
             {
@@ -329,6 +348,7 @@ namespace Voucherify
             this.validations = null;
             this.validationRules = null;
             this.vouchers = null;
+            this.consents = null;
 
             return this;
         }

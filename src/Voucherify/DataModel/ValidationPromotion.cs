@@ -14,7 +14,7 @@ namespace Voucherify.DataModel
         public Discount Discount { get; private set; }
 
         [JsonProperty(PropertyName = "discounted_amount")]
-        public int DiscountedAmount { get; private set; }
+        public long? DiscountedAmount { get; private set; }
 
         public override string ToString()
         {

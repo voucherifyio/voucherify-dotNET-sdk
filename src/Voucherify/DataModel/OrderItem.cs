@@ -29,13 +29,13 @@ namespace Voucherify.DataModel
         public OrderItemSku Sku { get; set; }
 
         [JsonProperty(PropertyName = "amount")]
-        public int? Amount { get;set; }
+        public long? Amount { get;set; }
 
         [JsonProperty(PropertyName = "price")]
-        public int? Price { get;set; }
+        public long? Price { get;set; }
 
         [JsonProperty(PropertyName = "discount_amount")]
-        public int? DiscountAmount { get;set; }
+        public long? DiscountAmount { get;set; }
 
         public OrderItem WithSourceId(string sourceId, string relatedObject)
         {
