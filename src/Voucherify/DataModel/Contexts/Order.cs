@@ -11,7 +11,7 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
-        public new Order WithAmount(int amount)
+        public new Order WithAmount(long amount)
         {
             base.WithAmount(amount);
             return this;

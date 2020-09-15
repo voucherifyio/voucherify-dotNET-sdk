@@ -28,6 +28,9 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
+
+        [JsonProperty(PropertyName = "system_metadata")]
+        public CustomerSystemMetadata SystemMetadata { get; private set; }
 #if VOUCHERIFYSERVER
         [JsonProperty(PropertyName = "summary")]
         public CustomerSummary Summary { get; private set; }
@@ -38,6 +41,7 @@ namespace Voucherify.DataModel
         public Customer()
         {
             this.Metadata = new Metadata();
+            this.SystemMetadata = new CustomerSystemMetadata();
         }
 
         public override string ToString()

@@ -12,7 +12,7 @@ namespace Voucherify.DataModel
         public DiscountType Type { get; private set; }
 
         [JsonProperty(PropertyName = "amount_off", NullValueHandling = NullValueHandling.Ignore)]
-        public int? AmountOff { get; private set; }
+        public long? AmountOff { get; private set; }
 
         [JsonProperty(PropertyName = "percent_off", NullValueHandling = NullValueHandling.Ignore)]
         public double? PercentOff { get; private set; }
@@ -24,7 +24,7 @@ namespace Voucherify.DataModel
         public string UnitType { get; private set; }
 
         [JsonProperty(PropertyName = "discount_amount_limit", NullValueHandling = NullValueHandling.Ignore)]
-        public int? AmountLimit { get; private set; }
+        public long? AmountLimit { get; private set; }
 
         public Discount() { }
 
@@ -55,7 +55,7 @@ namespace Voucherify.DataModel
             return discount;
         }
 
-        public Discount WithAmountOff(int amountOff)
+        public Discount WithAmountOff(long amountOff)
         {
             this.Type = DiscountType.Amount;
             this.AmountOff = amountOff;
@@ -71,7 +71,7 @@ namespace Voucherify.DataModel
             return this.WithPercentOff(percentOff, null);
         }
 
-        public Discount WithPercentOff(double percentOff, int? amountLimit)
+        public Discount WithPercentOff(double percentOff, long? amountLimit)
         {
             this.Type = DiscountType.Percent;
             this.AmountOff = null;

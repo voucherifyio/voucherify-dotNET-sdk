@@ -7,10 +7,10 @@ namespace Voucherify.DataModel
     public class CustomerSummaryRedemptionsGift
     {
         [JsonProperty(PropertyName = "redeemed_amount")]
-        public int RedeemedAmount { get; private set; }
+        public long RedeemedAmount { get; private set; }
 
         [JsonProperty(PropertyName = "amount_to_go")]
-        public int AmountToGo { get; private set; }
+        public long AmountToGo { get; private set; }
 
         public override string ToString()
         {

@@ -12,7 +12,7 @@ namespace Voucherify.DataModel.Contexts
         public string Status { get; set; }
 
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; set; }
+        public long? Amount { get; set; }
 
         [JsonProperty(PropertyName = "items")]
         public List<OrderItem> Items { get; private set; }
@@ -26,7 +26,7 @@ namespace Voucherify.DataModel.Contexts
             this.Metadata = new Metadata();
         }
 
-        public OrderUpdate WithAmount(int amount)
+        public OrderUpdate WithAmount(long? amount)
         {
             this.Amount = amount;
             return this;

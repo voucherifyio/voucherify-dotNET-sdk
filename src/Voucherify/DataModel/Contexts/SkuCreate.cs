@@ -14,7 +14,7 @@ namespace Voucherify.DataModel.Contexts
         public string SkuValue { get; set; }
 
         [JsonProperty(PropertyName = "price")]
-        public int? Price { get; set; }
+        public long? Price { get; set; }
 
         [JsonProperty(PropertyName = "attributes")]
         public Metadata Attributes { get; set; }

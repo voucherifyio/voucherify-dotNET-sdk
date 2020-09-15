@@ -8,10 +8,10 @@ namespace Voucherify.DataModel
     public class Gift : ApiObject
     {
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; private set; }
+        public long Amount { get; private set; }
 
         [JsonProperty(PropertyName = "balance")]
-        public int Balance { get; private set; }
+        public long Balance { get; private set; }
 
         public Gift() { }
         

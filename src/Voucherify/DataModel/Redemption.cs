@@ -42,7 +42,7 @@ namespace Voucherify.DataModel
         public Metadata Metadata { get; private set; }
 
         [JsonProperty(PropertyName = "amount", NullValueHandling = NullValueHandling.Ignore)]
-        public int Amount { get; private set; }
+        public long Amount { get; private set; }
 
         public override string ToString()
         {

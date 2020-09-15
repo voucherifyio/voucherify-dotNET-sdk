@@ -9,10 +9,10 @@ namespace Voucherify.DataModel
     public class ValidationOrder : ApiObject
     {
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; set; }
+        public long? Amount { get; set; }
 
         [JsonProperty(PropertyName = "discounted_amount")]
-        public int DiscountedAmount { get; set; }
+        public long? DiscountedAmount { get; set; }
 
         [JsonProperty(PropertyName = "items")]
         public List<OrderItem> Items { get; private set; }

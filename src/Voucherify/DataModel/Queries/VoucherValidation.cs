@@ -14,7 +14,7 @@ namespace Voucherify.DataModel.Queries
         public string TrackingId { get; set; }
 
         [JsonProperty(PropertyName = "amount")]
-        public int? Amount { get; set; }
+        public long? Amount { get; set; }
 
         [JsonProperty(PropertyName = "item")]
         public IList<OrderItem> Items { get; set; }

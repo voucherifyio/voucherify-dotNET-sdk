@@ -51,6 +51,8 @@ API:
 |
 <a href="#customers-api">Customers</a>
 |
+<a href="#consents-api">Consents</a>
+|
 <a href="#products-api">Products</a>
 |
 <a href="#events-api">Products</a>
@@ -492,6 +494,7 @@ Methods are provided within `Api.Customers.*` namespace.
 - [Update Customer](#update-customer)
 - [Delete Customer](#delete-customer)
 - [List Customers](#list-customers)
+- [Update Consents](#update-consents)
 
 #### [Create Customer]
 ```csharp
@@ -524,6 +527,27 @@ public void Delete(string customerId, Action<ApiResponse> callback)
 public async Task<DataModel.CustomerList> List(DataModel.Queries.CustomerFilter filter)
 
 public void List(DataModel.Queries.CustomerFilter filter, Action<ApiResponse<DataModel.CustomerList>> callback)
+```
+
+#### [Update Consents]
+```csharp
+public async Task<Core.DataModel.Empty> UpdateConsents(string customerId, DataModel.Contexts.CustomerConsentUpdate update)
+
+public void UpdateConsents(string customerId, DataModel.Contexts.CustomerConsentUpdate update, Action<ApiResponse<Core.DataModel.Empty>> callback)
+```
+
+---
+
+### Consents API
+Methods are provided within `Api.Consents.*` namespace.
+
+- [List Consents](#list-consents)
+
+#### [List Consents]
+```csharp
+public async Task<DataModel.ConsentAndGroupList> List()
+
+public void List(Action<ApiResponse<DataModel.ConsentAndGroupList>> callback)
 ```
 
 ---
@@ -813,6 +837,9 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+
+- **2020-09-15** - `7.2.0` - Added Support for Consents. Drop deprecated API Versions. Changed Amounts from int to long.
+- **2020-08-12** - `7.1.0` - Added Barcode property for VoucherAssets. Introduced ValidationError and BusinessValidationRuleError to support custom error messages.
 - **2019-06-19** - `7.0.0` - Api class improvements, split Endpoint into Host, BasePath and Port
 - **2019-06-10** - `6.4.3` - Added `Assignments` property at Voucher and Campaign level
 - **2019-05-09** - `6.4.2` - Change `Address` properties accessors from private to public

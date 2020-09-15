@@ -19,10 +19,10 @@ namespace Voucherify.DataModel
         public RelatedObject Customer { get; set; }
 
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; set; }
+        public long? Amount { get; set; }
 
         [JsonProperty(PropertyName = "discount_amount", NullValueHandling = NullValueHandling.Ignore)]
-        public int DiscountAmount { get; private set; }
+        public long? DiscountAmount { get; private set; }
 
         [JsonProperty(PropertyName = "items")]
         public List<OrderItem> Items { get; private set; }
