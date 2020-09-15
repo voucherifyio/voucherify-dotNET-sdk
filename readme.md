@@ -841,6 +841,9 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 - **2020-09-15** - `7.2.0` - Added Support for Consents. Drop deprecated API Versions. Changed Amounts from int to long.
 - **2020-08-12** - `7.1.0` - Added Barcode property for VoucherAssets. Introduced ValidationError and BusinessValidationRuleError to support custom error messages.
 - **2019-06-19** - `7.0.0` - Api class improvements, split Endpoint into Host, BasePath and Port
+
+-------------------------------
+
 - **2019-06-10** - `6.4.3` - Added `Assignments` property at Voucher and Campaign level
 - **2019-05-09** - `6.4.2` - Change `Address` properties accessors from private to public
 - **2019-02-06** - `6.4.1` - Added `amount` in Redemption  and `discount_amount` in Order
