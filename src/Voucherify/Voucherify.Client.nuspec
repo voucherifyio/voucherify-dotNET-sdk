@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>7.2.0.0</version>
+    <version>7.2.1.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2020-09-17: 7.2.1
+      - Fixed returning ProductSKuList in async implementation.
+
       2020-09-15: 7.2.0
       - Added Support for Consents. Drop deprecated API Versions. Changed Amounts from int to long.
 
@@ -19,47 +22,7 @@
 
       2019-06-19: 7.0.0
       - Api class improvements, split Endpoint into Host, BasePath and Port
-
-      2019-06-10: 6.4.3
-      - Added `Assignments` property at Voucher and Campaign level
-
-      2019-05-09: 6.4.2
-      - Change `Address` properties accessors from private to public
-
-      2019-02-06: 6.4.1
-      - Added `amount` in Redemption  and `discount_amount` in Order
-
-      2019-02-03: 6.4.0:
-      - Replaced ApplicableProductList with correct VoucherSubjectList and ApplicableProduct with VoucherSubject.
-      - Added listing Promotion Tiers method to server and client side api.
-
-      2019-01-29: 6.3.0:
-      - Reorganized Delete methods with force option for: Voucher, Campaign, Product and Sku
-
-      2019-01-28: 6.2.0:
-      - Added ApplicableTo property to Validation class
-
-      2019-01-25: 6.1.0:
-      - Extended OrderItem OrderItemProduct OrderItemSKU
-      - Improved QuerySerializer
-
-      2018-12-27: 6.0.1:
-      - Added CreatedAt and UpdatedAt property to VoucherFilter
-
-      2018-12-20: 6.0.0:
-      - Replaced Voucher Validation Rules with Business Validation Rules
-      - Added API Verions 2018-08-01
-
-      2018-11-15: 5.0.1:
-      - Fixed QuerySerializer for Array objects
-      - Added RelatedObject to OrderItem and dedicated method for setting SourceId
-
-      2018-11-09: 5.0.0:
-      - Introduced support for TLS 1.2.
-      - Added missing CreatePublication endpoint in Distributions namespace.
-      - Added Support for .Net Standard 2.0 and dropped for Unity and PLC as Standard version should be used instead.
-      - Moved solution to VS2017 nad use new type of projects.
-
+      
       Rest available in readme.md in repository.
     </releaseNotes>
     <copyright>Copyright 2016</copyright>
