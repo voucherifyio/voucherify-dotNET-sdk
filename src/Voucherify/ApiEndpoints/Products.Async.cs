@@ -76,10 +76,10 @@ namespace Voucherify.ApiEndpoints
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 
-        public async Task<DataModel.Sku> ListSkus(string productId)
+        public async Task<DataModel.ProductSkuList> ListSkus(string productId)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/products/{0}/skus", Uri.EscapeDataString(productId)));
-            return await this.client.DoGetRequest<DataModel.Sku>(uriBuilder.Uri).ConfigureAwait(false);
+            return await this.client.DoGetRequest<DataModel.ProductSkuList>(uriBuilder.Uri).ConfigureAwait(false);
         }
     }
 }

@@ -837,7 +837,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-
+- **2020-09-17** - `7.2.1` - Fixed returning ProductSKuList in async implementation.
 - **2020-09-15** - `7.2.0` - Added Support for Consents. Drop deprecated API Versions. Changed Amounts from int to long.
 - **2020-08-12** - `7.1.0` - Added Barcode property for VoucherAssets. Introduced ValidationError and BusinessValidationRuleError to support custom error messages.
 - **2019-06-19** - `7.0.0` - Api class improvements, split Endpoint into Host, BasePath and Port
