@@ -8,7 +8,7 @@ namespace Voucherify.DataModel
     public class CustomerSummaryOrders
     {
         [JsonProperty(PropertyName = "total_amount")]
-        public long TotalAmount { get; private set; }
+        public long? TotalAmount { get; private set; }
 
         [JsonProperty(PropertyName = "total_count")]
         public int TotalCount { get; private set; }
