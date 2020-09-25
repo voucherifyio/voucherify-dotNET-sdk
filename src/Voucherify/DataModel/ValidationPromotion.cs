@@ -18,7 +18,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("ValidationOrder(Id={0},Discount={1},Amount={2})", this.Id, this.Discount, this.DiscountedAmount);
+            return string.Format("ValidationPromotion(Id={0},Discount={1},Amount={2})", this.Id, this.Discount, this.DiscountedAmount);
         }
     }
 }
