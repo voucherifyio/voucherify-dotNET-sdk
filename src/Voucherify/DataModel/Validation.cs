@@ -10,6 +10,12 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "code")]
         public string Code { get; private set; }
 
+        [JsonProperty(PropertyName = "campaign")]
+        public string Campaign { get; private set; }
+
+        [JsonProperty(PropertyName = "campaign_id")]
+        public string CampaignId { get; private set; }
+
         [JsonProperty(PropertyName = "valid")]
         public bool Valid { get; private set; }
 
@@ -24,13 +30,13 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "tracking_id")]
         public string TrackingId { get; private set; }
-        
+
         [JsonProperty(PropertyName = "order")]
         public ValidationOrder Order { get; private set; }
 
         [JsonProperty(PropertyName = "promotions")]
         public List<ValidationPromotion> Promotions { get; private set; }
-        
+
         [JsonProperty(PropertyName = "applicable_to")]
         public VoucherSubjectList ApplicableTo { get; private set; }
 

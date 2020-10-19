@@ -837,6 +837,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2020-09-25** - `7.3.0` - Add `campaign` and `campaign_id` in Voucher validation response
 - **2020-09-17** - `7.2.1` - Fixed returning ProductSKuList in async implementation.
 - **2020-09-15** - `7.2.0` - Added Support for Consents. Drop deprecated API Versions. Changed Amounts from int to long.
 - **2020-08-12** - `7.1.0` - Added Barcode property for VoucherAssets. Introduced ValidationError and BusinessValidationRuleError to support custom error messages.
