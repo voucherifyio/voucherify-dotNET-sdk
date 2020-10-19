@@ -20,6 +20,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "campaign")]
         public string Campaign { get; private set; }
 
+        [JsonProperty(PropertyName = "campaign_id")]
+        public string CampaignId { get; private set; }
+
         [JsonProperty(PropertyName = "category")]
         public string Category { get; private set; }
 
@@ -55,6 +58,9 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "applicable_to")]
         public VoucherSubjectList ApplicableTo { get; private set; }
+
+        [JsonProperty(PropertyName = "is_referral_code")]
+        public bool IsReferralCode { get; private set; }
 
         #if VOUCHERIFYSERVER
 
