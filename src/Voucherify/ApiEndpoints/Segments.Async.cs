@@ -13,7 +13,7 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.Segment> Get(string segmentId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", Uri.EscapeDataString(segmentId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", UriBuilderExtension.EnsureEscapedDataString("segmentId", segmentId)));
             return await this.client.DoGetRequest<DataModel.Segment>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
@@ -25,7 +25,7 @@ namespace Voucherify.ApiEndpoints
 
         public async Task Delete(string segmentId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", Uri.EscapeDataString(segmentId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", UriBuilderExtension.EnsureEscapedDataString("segmentId", segmentId)));
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
     }

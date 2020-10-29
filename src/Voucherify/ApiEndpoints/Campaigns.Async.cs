@@ -20,13 +20,13 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.Campaign> Get(string name)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             return await this.client.DoGetRequest<DataModel.Campaign>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Campaign> Update(string name, DataModel.Contexts.CampaignUpdate campaign)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             return await this.client.DoPutRequest<DataModel.Campaign, DataModel.Contexts.CampaignUpdate>(uriBuilder.Uri, campaign).ConfigureAwait(false);
         }
 
@@ -37,19 +37,19 @@ namespace Voucherify.ApiEndpoints
 
         public async Task Delete(string name, Core.DataModel.ForcedOperation query)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name))), query);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", UriBuilderExtension.EnsureEscapedDataString("name", name))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Voucher> AddVoucher(string name, DataModel.Contexts.CampaignAddVoucher addVoucherContext)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Contexts.CampaignAddVoucher>(uriBuilder.Uri, addVoucherContext).ConfigureAwait(false);
         }
 
         public async Task<Core.DataModel.Empty> ImportVouchers(string name, List<DataModel.Contexts.CampaignVoucherImport> addVoucherContext)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             return await this.client.DoPostRequest<Core.DataModel.Empty, List<DataModel.Contexts.CampaignVoucherImport>>(uriBuilder.Uri, addVoucherContext).ConfigureAwait(false);
         }
 

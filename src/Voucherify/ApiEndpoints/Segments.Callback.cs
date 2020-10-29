@@ -14,7 +14,7 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string segmentId, Action<ApiResponse<DataModel.Segment>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", Uri.EscapeDataString(segmentId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", UriBuilderExtension.EnsureEscapedDataString("segmentId", segmentId)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
@@ -27,7 +27,7 @@ namespace Voucherify.ApiEndpoints
 
         public void Delete(string segmentId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}", Uri.EscapeDataString(segmentId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/segments/{0}",  UriBuilderExtension.EnsureEscapedDataString("segmentId", segmentId)));
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
     }

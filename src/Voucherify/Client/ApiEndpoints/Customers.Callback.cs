@@ -15,7 +15,7 @@ namespace Voucherify.Client.ApiEndpoints
 
         public void UpdateConsents (string customerId, DataModel.Contexts.CustomerConsentUpdate udpate, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}/consents", Uri.EscapeDataString(customerId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}/consents", UriBuilderExtension.EnsureEscapedDataString("customerId", customerId)));
             this.client.DoPutRequest(uriBuilder.Uri, udpate, callback);
         }
     }

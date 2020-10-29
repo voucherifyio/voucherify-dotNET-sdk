@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>7.3.0.0</version>
+    <version>7.4.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2020-10-29: 7.4.0
+      - Throw ArgumentNullException when url parameter is not defined.
+
       2020-10-19: 7.3.0
       - Add `campaign` and `campaign_id` in Voucher validation response. Add 'is_referral_code' in voucher model.
 

@@ -19,13 +19,13 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string promotionTierId, Action<ApiResponse<DataModel.PromotionTier>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}", Uri.EscapeDataString(promotionTierId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}", UriBuilderExtension.EnsureEscapedDataString("promotionTierId", promotionTierId)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
         public void ListForCampaign(string campaign, Action<ApiResponse<DataModel.PromotionTierList>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/{0}/tiers", Uri.EscapeDataString(campaign)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/{0}/tiers", UriBuilderExtension.EnsureEscapedDataString("campaign", campaign)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
@@ -37,20 +37,20 @@ namespace Voucherify.ApiEndpoints
 
         public void AddTierToCampaign(string campaignId, DataModel.Contexts.PromotionTierCreate promotionTier, Action<ApiResponse<DataModel.PromotionTier>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/{0}/tiers", Uri.EscapeDataString(campaignId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/{0}/tiers", UriBuilderExtension.EnsureEscapedDataString("campaignId", campaignId)));
             this.client.DoPutRequest(uriBuilder.Uri, promotionTier, callback);
         }
 
 
         public void Update(string promotionTierId, DataModel.Contexts.PromotionTierUpdate promotionTier, Action<ApiResponse<DataModel.PromotionTier>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}", Uri.EscapeDataString(promotionTierId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}", UriBuilderExtension.EnsureEscapedDataString("promotionTierId", promotionTierId)));
             this.client.DoPutRequest(uriBuilder.Uri, promotionTier, callback);
         }
 
         public void Delete(string promotionTierId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}", Uri.EscapeDataString(promotionTierId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/tiers/{0}", UriBuilderExtension.EnsureEscapedDataString("promotionTierId", promotionTierId)));
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
     }

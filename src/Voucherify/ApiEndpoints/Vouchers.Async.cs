@@ -14,7 +14,7 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.Voucher> Get(string code)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoGetRequest<DataModel.Voucher>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
@@ -26,19 +26,19 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.Voucher> Create(string code, DataModel.Contexts.VoucherCreate voucher)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoPostRequest<DataModel.Voucher, DataModel.Contexts.VoucherCreate>(uriBuilder.Uri, voucher).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Voucher> Update(string code, DataModel.Contexts.VoucherUpdate voucher)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoPutRequest< DataModel.Voucher, DataModel.Contexts.VoucherUpdate>(uriBuilder.Uri, voucher).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Balance> AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance balance)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/balance", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/balance", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoPostRequest<DataModel.Balance, DataModel.Contexts.VoucherAddGiftBalance>(uriBuilder.Uri, balance).ConfigureAwait(false);
         }
 
@@ -49,19 +49,19 @@ namespace Voucherify.ApiEndpoints
 
         public async Task Delete(string code, Core.DataModel.ForcedOperation query)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code))), query);
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
         
         public async Task<DataModel.Voucher> Disable(string code)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoPostRequest<DataModel.Voucher>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Voucher> Enable(string code)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoPostRequest<DataModel.Voucher>(uriBuilder.Uri).ConfigureAwait(false);
         }
 

@@ -16,7 +16,7 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
@@ -28,19 +28,19 @@ namespace Voucherify.ApiEndpoints
 
         public void Create(string code, DataModel.Contexts.VoucherCreate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPostRequest(uriBuilder.Uri, voucher, callback);
         }
 
         public void Update(string code, DataModel.Contexts.VoucherUpdate voucher, Action<ApiResponse<DataModel.Voucher>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPutRequest(uriBuilder.Uri, voucher, callback);
         }
 
         public void AddGiftBalance(string code, DataModel.Contexts.VoucherAddGiftBalance balance, Action<ApiResponse<DataModel.Balance>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/balance", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/balance", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPostRequest(uriBuilder.Uri, balance, callback);
         }
 
@@ -51,19 +51,19 @@ namespace Voucherify.ApiEndpoints
 
         public void Delete(string code, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", Uri.EscapeDataString(code))), query);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}", UriBuilderExtension.EnsureEscapedDataString("code", code))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
         public void Disable(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/disable", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 
         public void Enable(string code, Action<ApiResponse<DataModel.Voucher>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/enable", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPostRequest(uriBuilder.Uri, callback);
         }
 

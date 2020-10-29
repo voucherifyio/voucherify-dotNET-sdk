@@ -12,5 +12,15 @@ namespace Voucherify.Core.Extensions
             builder.Query = serializerFilter.Serialize(payload);
             return builder;
         }
+
+        public static String EnsureEscapedDataString(String paramName, String paramValue)
+        {
+            if (string.IsNullOrEmpty(paramValue))
+            {
+                throw new ArgumentNullException(String.Format("Missing required '{0}' parameter", paramName));
+            }
+
+            return Uri.EscapeDataString(paramValue);
+        }
     }
 }

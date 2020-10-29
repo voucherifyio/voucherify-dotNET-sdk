@@ -25,5 +25,30 @@ namespace Voucherify.Tests.Core.Extensions
             // Assert
             Assert.Equal(queryExpectedSerializedObject, uriBulder.Query);
         }
+
+        [Fact]
+        public void UriBuilderExtensionEnsureEscapedDataString()
+        {
+            //-- Arrange
+            string paramName = "param";
+            string paramValue = "<value>";
+
+            // Act
+            String escapedParam = UriBuilderExtension.EnsureEscapedDataString(paramName, paramValue);
+
+            // Assert
+            Assert.Equal(escapedParam, Uri.EscapeDataString(paramValue));
+        }
+
+        [Fact]
+        public void UriBuilderExtensionEnsureEscapedDataStrinEmpty()
+        {
+            //-- Arrange
+            string paramName = "param";
+            string paramValue = "";
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => UriBuilderExtension.EnsureEscapedDataString(paramName, paramValue));
+        }
     }
 }
