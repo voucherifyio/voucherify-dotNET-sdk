@@ -14,7 +14,7 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.Validation> ValidateVoucher(string code, DataModel.Contexts.Validation context)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             return await this.client.DoPostRequest<DataModel.Validation, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
 
@@ -34,7 +34,7 @@ namespace Voucherify.ApiEndpoints
             }
             else
             {
-                uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
+                uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             }
 
             return await this.client.DoPostRequest<DataModel.Validation, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);

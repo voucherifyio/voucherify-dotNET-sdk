@@ -16,7 +16,7 @@ namespace Voucherify.ApiEndpoints
 
         public void ValidateVoucher(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
@@ -36,7 +36,7 @@ namespace Voucherify.ApiEndpoints
             }
             else
             {
-                uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", Uri.EscapeDataString(code)));
+                uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             }
              
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);

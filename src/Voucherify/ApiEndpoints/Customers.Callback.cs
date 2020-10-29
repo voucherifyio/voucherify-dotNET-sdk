@@ -21,19 +21,19 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string customerId, Action<ApiResponse<DataModel.Customer>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", UriBuilderExtension.EnsureEscapedDataString("customerId", customerId)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
         public void Update(string customerId, DataModel.Contexts.CustomerUpdate customer, Action<ApiResponse<DataModel.Customer>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", UriBuilderExtension.EnsureEscapedDataString("customerId", customerId)));
             this.client.DoPutRequest(uriBuilder.Uri, customer, callback);
         }
 
         public void Delete(string customerId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", Uri.EscapeDataString(customerId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}", UriBuilderExtension.EnsureEscapedDataString("customerId", customerId)));
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
@@ -45,7 +45,7 @@ namespace Voucherify.ApiEndpoints
 
         public void UpdateConsents (string customerId, DataModel.Contexts.CustomerConsentUpdate udpate, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}/consents", Uri.EscapeDataString(customerId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/customers/{0}/consents",  UriBuilderExtension.EnsureEscapedDataString("customerId", customerId)));
             this.client.DoPutRequest(uriBuilder.Uri, udpate, callback);
         }
     }

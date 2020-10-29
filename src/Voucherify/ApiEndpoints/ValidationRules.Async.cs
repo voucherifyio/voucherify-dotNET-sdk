@@ -13,7 +13,7 @@ namespace Voucherify.ApiEndpoints
    
         public async Task<DataModel.BusinessValidationRule> Get(string validationRuleId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             return await this.client.DoGetRequest<DataModel.BusinessValidationRule>(uriBuilder.Uri).ConfigureAwait(false);
         }
 
@@ -25,25 +25,25 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.BusinessValidationRule> Update(string validationRuleId, DataModel.Contexts.BusinessValidationRuleUpdate validationRule)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             return await this.client.DoPutRequest<DataModel.BusinessValidationRule, DataModel.Contexts.BusinessValidationRuleUpdate>(uriBuilder.Uri, validationRule).ConfigureAwait(false);
         }
 
         public async Task Delete(string validationRuleId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 
         public async Task<DataModel.BusinessValidationRuleAssignment> CreateAssignment(string validationRuleId, DataModel.Contexts.BusinessValidationRuleAssignmentCreate validationRule)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             return await this.client.DoPostRequest<DataModel.BusinessValidationRuleAssignment, DataModel.Contexts.BusinessValidationRuleAssignmentCreate>(uriBuilder.Uri, validationRule).ConfigureAwait(false);
         }
 
         public async Task DeleteAssignment(string validationRuleId, string assignmentId)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments/{1}", Uri.EscapeDataString(validationRuleId), Uri.EscapeDataString(assignmentId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments/{1}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId), UriBuilderExtension.EnsureEscapedDataString("assignmentId", assignmentId)));
             await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
         }
 
@@ -55,7 +55,7 @@ namespace Voucherify.ApiEndpoints
 
         public async Task<DataModel.BusinessValidationRuleAssignmentList> ListAssignments(string validationRuleId, DataModel.Queries.BusinessValidationRuleAssignmentFilter filter)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", Uri.EscapeDataString(validationRuleId))), filter);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId))), filter);
             return await this.client.DoGetRequest<DataModel.BusinessValidationRuleAssignmentList>(uriBuilder.Uri).ConfigureAwait(false);
         }
     }

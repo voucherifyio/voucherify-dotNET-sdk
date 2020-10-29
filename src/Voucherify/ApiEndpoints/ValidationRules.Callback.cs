@@ -13,7 +13,7 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string validationRuleId, Action<ApiResponse<DataModel.BusinessValidationRule>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             this.client.DoGetRequest<DataModel.BusinessValidationRule>(uriBuilder.Uri, callback);
         }
 
@@ -25,25 +25,25 @@ namespace Voucherify.ApiEndpoints
 
         public void Update(string validationRuleId, DataModel.Contexts.BusinessValidationRuleUpdate validationRule, Action<ApiResponse<DataModel.BusinessValidationRule>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             this.client.DoPutRequest(uriBuilder.Uri, validationRule, callback);
         }
 
         public void Delete(string validationRuleId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
         public void CreateAssignment(string validationRuleId, DataModel.Contexts.BusinessValidationRuleAssignmentCreate validationRule, Action<ApiResponse<DataModel.BusinessValidationRuleAssignment>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", Uri.EscapeDataString(validationRuleId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId)));
             this.client.DoPostRequest(uriBuilder.Uri, validationRule, callback);
         }
 
         public void DeleteAssignment(string validationRuleId, string assignmentId, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments/{1}", Uri.EscapeDataString(validationRuleId), Uri.EscapeDataString(assignmentId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments/{1}", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId), UriBuilderExtension.EnsureEscapedDataString("assignmentId", assignmentId)));
              this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
@@ -55,7 +55,7 @@ namespace Voucherify.ApiEndpoints
 
         public void ListAssignments(string validationRuleId, DataModel.Queries.BusinessValidationRuleAssignmentFilter filter, Action<ApiResponse<DataModel.BusinessValidationRuleAssignmentList>> callback)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", Uri.EscapeDataString(validationRuleId))), filter);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/validation-rules/{0}/assignments", UriBuilderExtension.EnsureEscapedDataString("validationRuleId", validationRuleId))), filter);
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
     }

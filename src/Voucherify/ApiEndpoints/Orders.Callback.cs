@@ -21,13 +21,13 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string orderId, Action<ApiResponse<DataModel.Order>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/orders/{0}", Uri.EscapeDataString(orderId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/orders/{0}", UriBuilderExtension.EnsureEscapedDataString("orderId", orderId)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
         public void Update(string orderId, DataModel.Contexts.OrderUpdate order, Action<ApiResponse<DataModel.Order>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/orders/{0}", Uri.EscapeDataString(orderId)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/orders/{0}", UriBuilderExtension.EnsureEscapedDataString("orderId", orderId)));
             this.client.DoPutRequest(uriBuilder.Uri, order, callback);
         }
 

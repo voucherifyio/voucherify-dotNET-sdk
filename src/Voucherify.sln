@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voucherify", "Voucherify\Voucherify.csproj", "{18E6D436-CEBC-436D-B185-911289E7AC2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voucherify", "Voucherify\Voucherify.csproj", "{18E6D436-CEBC-436D-B185-911289E7AC2A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Voucherify.Client", "Voucherify\Voucherify.Client.csproj", "{94869AD2-C8CD-4131-9117-5FA49BF4096C}"
 EndProject

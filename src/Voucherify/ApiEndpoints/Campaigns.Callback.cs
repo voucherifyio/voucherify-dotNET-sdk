@@ -21,13 +21,13 @@ namespace Voucherify.ApiEndpoints
 
         public void Get(string name, Action<ApiResponse<DataModel.Campaign>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             this.client.DoGetRequest(uriBuilder.Uri, callback);
         }
 
         public void Update(string name, DataModel.Contexts.CampaignUpdate campaign, Action<ApiResponse<DataModel.Campaign>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             this.client.DoPutRequest(uriBuilder.Uri, campaign, callback);
         }
 
@@ -37,19 +37,19 @@ namespace Voucherify.ApiEndpoints
 
         public void Delete(string name, Core.DataModel.ForcedOperation query, Action<ApiResponse> callback)
         {
-            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", Uri.EscapeDataString(name))), query);
+            UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/campaigns/{0}", UriBuilderExtension.EnsureEscapedDataString("name", name))), query);
             this.client.DoDeleteRequest(uriBuilder.Uri, callback);
         }
 
         public void AddVoucher(string name, DataModel.Contexts.CampaignAddVoucher addVoucherContext, Action<ApiResponse<DataModel.Voucher>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/vouchers", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             this.client.DoPostRequest(uriBuilder.Uri, addVoucherContext, callback);
         }
 
         public void ImportVouchers(string name, List<DataModel.Contexts.CampaignVoucherImport> addVoucherContext, Action<ApiResponse<Core.DataModel.Empty>> callback)
         {
-            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", Uri.EscapeDataString(name)));
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/campaigns/{0}/import", UriBuilderExtension.EnsureEscapedDataString("name", name)));
             this.client.DoPostRequest(uriBuilder.Uri, addVoucherContext, callback);
         }
 
