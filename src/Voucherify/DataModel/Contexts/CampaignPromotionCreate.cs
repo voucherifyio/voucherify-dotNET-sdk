@@ -14,10 +14,10 @@ namespace Voucherify.DataModel.Contexts
         public string Name { get; set; }
 
         [JsonProperty(PropertyName = "type")]
-        public CampaignType Type { get; set; }
+        public CampaignExtensionType Type { get; set; }
 
         [JsonProperty(PropertyName = "campaign_type")]
-        public string CampaignType { get; private set; }
+        public CampaignType CampaignType { get; private set; }
 
         [JsonProperty(PropertyName = "start_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? StartDate { get; set; }
@@ -33,7 +33,7 @@ namespace Voucherify.DataModel.Contexts
 
         public CampaignPromotionCreate()
         {
-            this.CampaignType = "PROMOTION";
+            this.CampaignType = CampaignType.PROMOTION;
             this.Metadata = new Metadata();
         }
     }
