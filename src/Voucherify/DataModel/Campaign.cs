@@ -15,7 +15,10 @@ namespace Voucherify.DataModel
         public string Description { get; private set; }
 
         [JsonProperty(PropertyName = "type")]
-        public CampaignType Type { get; private set; }
+        public CampaignExtensionType Type { get; private set; }
+
+        [JsonProperty(PropertyName = "campaign_type")]
+        public CampaignType CampaignType { get; private set; }
 
         [JsonProperty(PropertyName = "start_date")]
         public DateTime? StartDate { get; private set; }

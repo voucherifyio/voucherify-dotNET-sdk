@@ -10,9 +10,6 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class CampaignUpdate
     {
-        [JsonProperty(PropertyName = "type")]
-        public CampaignType Type { get; set; }
-
         [JsonProperty(PropertyName = "start_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? StartDate { get; set; }
 
