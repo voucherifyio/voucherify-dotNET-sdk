@@ -23,7 +23,7 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "unit_type", NullValueHandling = NullValueHandling.Ignore)]
         public string UnitType { get; private set; }
 
-        [JsonProperty(PropertyName = "discount_amount_limit", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty(PropertyName = "amount_limit", NullValueHandling = NullValueHandling.Ignore)]
         public long? AmountLimit { get; private set; }
 
         public Discount() { }
