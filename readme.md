@@ -157,7 +157,7 @@ var api = new Voucherify.Api(
             "<app_id>",
             "<token>")            
             .WithSSL()
-            .WithVersion(Voucherify.Core.ApiVerions.v2017_04_20);
+            .WithVersion(Voucherify.Core.ApiVerions.v2018_08_01);
 ```
 
 #### API Endpoint
