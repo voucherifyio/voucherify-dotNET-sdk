@@ -200,7 +200,7 @@ var api = new Voucherify.Client.Api(
     "<client_token>",
     "<origin>")
     .WithSSL()
-    .WithHost("<region>.api.voucherify.io/client");
+    .WithHost("<region>.api.voucherify.io");
 ```
 
 ## Callback or Async?
@@ -838,6 +838,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2021-03-16** - `7.5.2` - Fixed API Endpoint for Clinet side methods
 - **2020-12-16** - `7.5.1` - Fixed mapping amount_limit for percent discount
 - **2020-11-19** - `7.5.0` - Added CampaignType for CampaignCreate, Changed existing CampaignType to CampaignExtensionType as it was not correct
 - **2020-10-29** - `7.4.0` - Throw ArgumentNullException when url parameter is not defined.

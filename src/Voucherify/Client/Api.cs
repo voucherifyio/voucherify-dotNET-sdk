@@ -167,13 +167,18 @@ namespace Voucherify.Client
 
         public Api WithHost(string host)
         {
-            this.Host = (host ?? Core.Constants.HostApi) + "/v1";
+            this.Host = host;
             this.validations = null;
             this.redemptions = null;
             this.events = null;
             this.promotions = null;
             this.consents = null;
             this.customers = null;
+
+            if (host == null)
+            {
+                this.Host = Core.Constants.HostApi;
+            }
 
             return this;
         }
