@@ -25,6 +25,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "tracking_id")]
         public string TrackingId { get; private set; }
 
+        [JsonProperty(PropertyName = "session")]
+        public ValidationSession Session { get; private set; }
+
         public override string ToString()
         {
             return string.Format("Validation(IsValid={0},ApplicableTo={1},InapplicableTo={2},Erorr={3})", this.Valid, this.ApplicableTo, this.InapplicableTo, this.Error);

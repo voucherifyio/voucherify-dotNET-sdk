@@ -35,6 +35,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "failure_code")]
         public FailureCode? FailureCode { get; private set; }
 
+        [JsonProperty(PropertyName = "failure_message")]
+        public string FailureMessage { get; private set; }
+
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
