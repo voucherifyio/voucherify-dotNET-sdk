@@ -839,6 +839,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 ## Changelog
 
 
+- **2021-04-06** - `7.7.0` - Reorganized Redemption result classes.
 - **2021-04-06** - `7.6.0` - Reorganized Validation result classes.
 - **2021-03-16** - `7.5.2` - Fixed API Endpoint for Clinet side methods
 - **2020-12-16** - `7.5.1` - Fixed mapping amount_limit for percent discount
