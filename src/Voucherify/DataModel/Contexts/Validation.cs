@@ -15,6 +15,15 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; set; }
+
+        [JsonProperty(PropertyName = "reward")]
+        public ValidationReward Reward { get; set; }
+
+        [JsonProperty(PropertyName = "gift")]
+        public ValidationGift Gift { get; set; }
+
+        [JsonProperty(PropertyName = "session")]
+        public ValidationSession Session { get; set; }
     }
 }
 #endif

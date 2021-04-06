@@ -14,13 +14,13 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public void ValidateVoucher(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
+        public void ValidateVoucher(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.ValidationPromotions>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", UriBuilderExtension.EnsureEscapedDataString("code", code)));
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
-        public void ValidatePromotion(DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
+        public void ValidatePromotion(DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.ValidationVoucher>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/promotions/validation");
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);

@@ -22,7 +22,10 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
-        
+
+        [JsonProperty(PropertyName = "order")]
+        public Order Order { get; private set; }
+
         public VoucherRedemption()
         {
             this.Metadata = new Metadata();
