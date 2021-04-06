@@ -12,16 +12,16 @@ namespace Voucherify.ApiEndpoints
         {
         }
 
-        public async Task<DataModel.Validation> ValidateVoucher(string code, DataModel.Contexts.Validation context)
+        public async Task<DataModel.ValidationVoucher> ValidateVoucher(string code, DataModel.Contexts.Validation context)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/validate", UriBuilderExtension.EnsureEscapedDataString("code", code)));
-            return await this.client.DoPostRequest<DataModel.Validation, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);
+            return await this.client.DoPostRequest<DataModel.ValidationVoucher, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
 
-        public async Task<DataModel.Validation> ValidatePromotion(DataModel.Contexts.Validation context)
+        public async Task<DataModel.ValidationPromotions> ValidatePromotion(DataModel.Contexts.Validation context)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder("/promotions/validation");
-            return await this.client.DoPostRequest<DataModel.Validation, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);
+            return await this.client.DoPostRequest<DataModel.ValidationPromotions, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
 
         public async Task<DataModel.Validation> Validate(string code, DataModel.Contexts.Validation context)
