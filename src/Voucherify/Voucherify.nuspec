@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify</id>
-    <version>7.7.0.0</version>
+    <version>7.7.1.0</version>
     <title>Voucherify</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2021-04-16: 7.7.1
+      - Fixed circural dependency for ToSting methods.
+
       2021-04-06: 7.7.0
       - Reorganized Redemption result classes.
 
