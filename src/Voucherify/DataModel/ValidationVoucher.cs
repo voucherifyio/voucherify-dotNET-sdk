@@ -27,7 +27,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Validation(Code={0},Result={1})", this.Code, this.ToString());
+            return string.Format("Validation(Code={0},Result={1})", this.Code, base.ToString());
         }
     }
 }
