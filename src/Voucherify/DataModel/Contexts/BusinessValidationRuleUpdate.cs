@@ -15,6 +15,12 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "rules", NullValueHandling = NullValueHandling.Ignore)]
         public Json Rules { get; set; }
+        
+        [JsonProperty(PropertyName = "applicable_to", NullValueHandling = NullValueHandling.Ignore)]
+        public BusinessValidationRuleApplicableTo ApplicableTo { get; set; }
+        
+        [JsonProperty(PropertyName = "error", NullValueHandling = NullValueHandling.Ignore)]
+        public BusinessValidationRuleError Error { get; set;  }
 
         public BusinessValidationRuleUpdate()
         {

@@ -15,6 +15,12 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "rules")]
         public Json Rules { get; set; }
+        
+        [JsonProperty(PropertyName = "applicable_to")]
+        public BusinessValidationRuleApplicableTo ApplicableTo { get; set; }
+
+        [JsonProperty(PropertyName = "error")]
+        public BusinessValidationRuleError Error { get; set;  }
 
         public BusinessValidationRuleCreate()
         {
