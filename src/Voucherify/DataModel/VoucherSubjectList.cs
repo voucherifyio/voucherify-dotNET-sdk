@@ -11,7 +11,7 @@ namespace Voucherify.DataModel
     public class VoucherSubjectList : ApiListObject
     {
         [JsonProperty(PropertyName = "data")]
-        public List<VoucherSubject> Entries { get; private set; }
+        public List<VoucherSubject> Entries { get; set; }
 
         public override string ToString()
         {

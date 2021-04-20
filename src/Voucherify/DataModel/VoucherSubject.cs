@@ -10,13 +10,13 @@ namespace Voucherify.DataModel
     public class VoucherSubject
     {
         [JsonProperty(PropertyName = "object")]
-        public string Object { get; private set; }
+        public string Object { get; set; }
 
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         [JsonProperty(PropertyName = "source_id")]
-        public string SourceId { get; private set; }
+        public string SourceId { get; set; }
 
         public override string ToString()
         {
