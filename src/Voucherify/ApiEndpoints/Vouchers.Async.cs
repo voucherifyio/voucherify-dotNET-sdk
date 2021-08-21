@@ -76,6 +76,12 @@ namespace Voucherify.ApiEndpoints
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/import");
             return await this.client.DoPostRequest<Core.DataModel.Empty, List<DataModel.Contexts.VoucherImport>>(uriBuilder.Uri, vouchers).ConfigureAwait(false);
         }
+
+        public async Task DeleteSession(string code, string sessionId)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/sessions/{1}", UriBuilderExtension.EnsureEscapedDataString("code", code), UriBuilderExtension.EnsureEscapedDataString("sessionId", sessionId)));
+            await this.client.DoDeleteRequest(uriBuilder.Uri).ConfigureAwait(false);
+        }
     }
 }
 #endif
