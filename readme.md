@@ -838,6 +838,8 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2021-08-21** - `7.7.4` - Fill missing properties for ValidationSession
+- **2021-04-20** - `7.7.3` - Changed accessors for VoucherSubject.
 - **2021-04-20** - `7.7.2` - Added ApplicableTo and Error to BusinessValidationRule objects.
 - **2021-04-16** - `7.7.1` - Fixed circural dependency for ToSting methods.
 - **2021-04-06** - `7.7.0` - Reorganized Redemption result classes.
