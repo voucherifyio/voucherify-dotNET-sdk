@@ -78,6 +78,12 @@ namespace Voucherify.ApiEndpoints
             UriBuilder uriBuilder = this.client.GetUriBuilder("/vouchers/import");
             this.client.DoPostRequest(uriBuilder.Uri, vouchers, callback);
         }
+
+        public void DeleteSession(string code, String sessionId, Action<ApiResponse> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/vouchers/{0}/sessions/{1}", UriBuilderExtension.EnsureEscapedDataString("code", code), UriBuilderExtension.EnsureEscapedDataString("sessionId", sessionId)));
+            this.client.DoDeleteRequest(uriBuilder.Uri, callback);
+        }
     }
 }
 #endif

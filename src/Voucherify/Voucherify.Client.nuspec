@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>7.7.4.0</version>
+    <version>7.7.5.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,8 +11,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2021-08-21: 7.7.5
+      - Added missing DeleteSession method in Voucher's endpoints
+
       2021-08-21: 7.7.4
-      - Fill missing properties for ValidationSession
+      - Added missing properties for ValidationSession
 
       2021-04-20: 7.7.3
       - Changed accessors for VoucherSubject.
