@@ -7,6 +7,12 @@ namespace Voucherify.DataModel
     [JsonObject]
     public class ValidationError
     {
+        [JsonProperty(PropertyName = "key")]
+        public string Key { get; private set; }
+
+        [JsonProperty(PropertyName = "code")]
+        public string Code { get; private set; }
+        
         [JsonProperty(PropertyName = "message")]
         public string Message { get; private set; }
 
