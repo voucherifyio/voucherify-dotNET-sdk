@@ -11,6 +11,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "type", NullValueHandling = NullValueHandling.Ignore)]
         public DiscountType Type { get; private set; }
 
+        [JsonProperty(PropertyName = "effect", NullValueHandling = NullValueHandling.Ignore)]
+        public DiscountEffect Effect { get; private set; }
+
         [JsonProperty(PropertyName = "amount_off", NullValueHandling = NullValueHandling.Ignore)]
         public long? AmountOff { get; private set; }
 
