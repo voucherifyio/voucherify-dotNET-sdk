@@ -10,7 +10,9 @@ namespace Voucherify.DataModel
         [JsonEnumValue(Value = "PERCENT")]
         Percent,
         [JsonEnumValue(Value = "UNIT")]
-        Unit
+        Unit,
+        [JsonEnumValue(Value = "FIXED")]
+        Fixed
     }
 }
 #endif
