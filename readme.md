@@ -839,6 +839,8 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 ## Changelog
 
 
+
+- **2021-09-21** - `7.8.0` - Added FIXED discount type and new effects. Extended ValidationError.
 - **2021-08-21** - `7.7.5` - Added missing DeleteSession method in Voucher's endpoints
 - **2021-08-21** - `7.7.4` - Added missing properties for ValidationSession
 - **2021-04-20** - `7.7.3` - Changed accessors for VoucherSubject.
