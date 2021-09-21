@@ -11,7 +11,7 @@ namespace Voucherify.DataModel
         public string Key { get; private set; }
 
         [JsonProperty(PropertyName = "code")]
-        public string Code { get; private set; }
+        public int? Code { get; private set; }
         
         [JsonProperty(PropertyName = "message")]
         public string Message { get; private set; }
