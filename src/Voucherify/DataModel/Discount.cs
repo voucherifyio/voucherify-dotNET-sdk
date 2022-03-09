@@ -33,7 +33,7 @@ namespace Voucherify.DataModel
 
         public override string ToString()
         {
-            return string.Format("Discount(Type={0},AmountOff={1},PercentOff={2),UnitOff={3}", this.Type, this.AmountOff, this.PercentOff, this.UnitOff);
+            return string.Format("Discount(Type={0},AmountOff={1},PercentOff={2},UnitOff={3}", this.Type, this.AmountOff, this.PercentOff, this.UnitOff);
         }
 
         public static Discount From(DiscountType type, int value)

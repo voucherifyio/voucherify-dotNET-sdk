@@ -89,6 +89,18 @@ namespace Voucherify.Core.Serialization
                 return values.ToArray();
             }
 
+            if (typeof(DateTime).IsAssignableFrom(propertyType) || typeof(DateTime?).IsAssignableFrom(propertyType))
+            {
+                if (propertyValue == null)
+                {
+                    return new string[] { };
+                }
+
+                return new string[] {
+                    string.Format("{0}={1}", propertyName, ((DateTime)propertyValue).ToString(Constants.DateTimeFormat))
+                };
+            }
+
             if (propertyType.GetCustomAttributes(typeof(JsonObjectAttribute), true).Length > 0)
             {
                 PropertyInfo[] properties = propertyType.GetProperties();
@@ -99,11 +111,11 @@ namespace Voucherify.Core.Serialization
                     var jsonPropertyAttributes = property.GetCustomAttributes(typeof(JsonPropertyAttribute), true);
                     if (jsonPropertyAttributes == null || jsonPropertyAttributes.Length == 0) { continue; }
                     JsonPropertyAttribute jsonPropertyAttribute = (JsonPropertyAttribute)jsonPropertyAttributes[0];
-                    object chilPropertyValue = property.GetValue(propertyValue, null);
+                    object childPropertyValue = property.GetValue(propertyValue, null);
 
-                    if (chilPropertyValue == null) { continue; }
+                    if (childPropertyValue == null) { continue; }
 
-                    values.AddRange(this.ConvertProperty(string.Format("{0}[{1}]", propertyName, jsonPropertyAttribute.PropertyName ?? property.Name), property.PropertyType, chilPropertyValue));
+                    values.AddRange(this.ConvertProperty(string.Format("{0}[{1}]", propertyName, jsonPropertyAttribute.PropertyName ?? property.Name), property.PropertyType, childPropertyValue));
                 }
 
                 return values.ToArray();

@@ -55,7 +55,7 @@ namespace Voucherify.Core.Serialization
             this.settings = new JsonSerializerSettings()
             {
                 Formatting = Formatting.None,
-                DateFormatString = "yyyy-MM-ddTHH:mm:ssZ",
+                DateFormatString = Constants.DateTimeFormat,
                 ContractResolver = new DefaultContractResolver() {
 #if !PORTABLE
                     IgnoreSerializableInterface = true
