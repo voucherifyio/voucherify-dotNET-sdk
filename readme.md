@@ -838,8 +838,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-
-
+- **2022-03-09** - `7.9.0` - Fixed datetime serialization to ISO format.
 - **2021-09-21** - `7.8.0` - Added FIXED discount type and new effects. Extended ValidationError.
 - **2021-08-21** - `7.7.5` - Added missing DeleteSession method in Voucher's endpoints
 - **2021-08-21** - `7.7.4` - Added missing properties for ValidationSession

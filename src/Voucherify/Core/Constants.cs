@@ -76,5 +76,7 @@
         /// A default endpoint of Voucherify api.
         /// </summary>
         public const string HostApi = "api.voucherify.io";
+
+        public const string DateTimeFormat = "yyyy-MM-ddTHH:mm:ssZ";
     }
 }

@@ -20,7 +20,7 @@ namespace Examples.Voucherify.net45
             }
 
             Console.WriteLine("[run] Channel: {0}", voucherifyApi.Channel);
-            
+
             try
             {
                 var result = voucherifyApi.Validations.ValidateVoucher(

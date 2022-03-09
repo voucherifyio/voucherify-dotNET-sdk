@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace Voucherify.Tests.TestModel
@@ -9,6 +10,9 @@ namespace Voucherify.Tests.TestModel
 
         [JsonProperty(PropertyName = "property_test", NullValueHandling = NullValueHandling.Ignore)]
         public string Property { get; set; }
+
+        [JsonProperty(PropertyName = "property_datetime", NullValueHandling = NullValueHandling.Ignore)]
+        public DateTime? PropertyDateTime { get; set; }
 
         [JsonProperty(PropertyName = "array_test", NullValueHandling = NullValueHandling.Ignore)]
         public IList<string> Array { get; set; }
