@@ -30,7 +30,7 @@ namespace Voucherify.DataModel
         public string TrackingId { get; private set; }
 
         [JsonProperty(PropertyName = "customer")]
-        public Customer Customer { get; private set; }
+        public CustomerSimple Customer { get; private set; }
 
         [JsonProperty(PropertyName = "order")]
         public Order Order { get; private set; }
