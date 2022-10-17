@@ -37,6 +37,13 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "discount_amount")]
         public long? DiscountAmount { get; private set; }
 
+        [JsonProperty(PropertyName = "metadata")]
+        public Metadata Metadata { get; private set; }
+
+        public OrderItem() {
+            this.Metadata = new Metadata();
+        }
+
         public OrderItem WithSourceId(string sourceId, string relatedObject)
         {
             this.SourceId = sourceId;
