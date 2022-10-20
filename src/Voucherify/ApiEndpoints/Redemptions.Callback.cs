@@ -30,6 +30,12 @@ namespace Voucherify.ApiEndpoints
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
 
+        public void Redeem(DataModel.Contexts.StackableRedemptionRedeem context, Action<ApiResponse<DataModel.StackableRedemption>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/redemptions");
+            this.client.DoPostRequest(uriBuilder.Uri, context, callback);
+        }
+
         public void RedeemVoucher(string code, DataModel.Queries.RedemptionRedeem query, DataModel.Contexts.RedemptionRedeem context, Action<ApiResponse<DataModel.Redemption>> callback)
         {
             UriBuilder uriBuilder = UriBuilderExtension.WithQuery(this.client.GetUriBuilder(string.Format("/vouchers/{0}/redemption", UriBuilderExtension.EnsureEscapedDataString("code", code))), query);
