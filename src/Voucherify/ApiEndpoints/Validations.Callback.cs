@@ -41,6 +41,12 @@ namespace Voucherify.ApiEndpoints
              
             this.client.DoPostRequest(uriBuilder.Uri, context, callback);
         }
+
+        public void Validate(DataModel.Contexts.StackableValidation context, Action<ApiResponse<DataModel.StackableValidation>> callback)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/validationS");
+            this.client.DoPostRequest(uriBuilder.Uri, context, callback);
+        }
     }
 }
 

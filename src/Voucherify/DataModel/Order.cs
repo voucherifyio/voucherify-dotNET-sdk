@@ -39,15 +39,19 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
+        [JsonProperty(PropertyName = "redemptions")]
+        public Dictionary<string, OrderRedemption> Redemptions { get; private set; }
+
         public Order() {
             this.Items = new List<OrderItem>();
             this.Metadata = new Metadata();
+            this.Redemptions = new Dictionary<string, OrderRedemption>();
         }
 
         public override string ToString()
         {
             return string.Format("Order(Id={0},SourceId={1},Status={2},Amount={3},DiscountAmount={4},TotalDiscountAmount={5},TotalAmount={6},Items={7})", 
-                this.Id, this.SourceId, this.Status, this.Amount, this.DiscountAmount, this.TotalDiscountAmount, this.TotalAmount, ListExtensions.ToString<OrderItem>(this.Items));
+                this.Id, this.SourceId, this.Status, this.Amount, this.DiscountAmount, this.TotalDiscountAmount, this.TotalAmount, ListExtensions.ToString(this.Items));
         }
     }
 }

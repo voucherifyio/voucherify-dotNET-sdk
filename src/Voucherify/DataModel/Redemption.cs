@@ -44,9 +44,12 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "amount", NullValueHandling = NullValueHandling.Ignore)]
         public long Amount { get; private set; }
 
+        [JsonProperty(PropertyName = "redemption")]
+        public string ParentRedemptionId { get; private set; }
+
         public override string ToString()
         {
-            return string.Format("Redemption(Id={0},Result={1},Customer={2},Tracking={3},Order={4})", this.Id, this.Result, this.CustomerId, this.TrackingId, this.Order);
+            return string.Format("Redemption(Id={0},Result={1},Customer={2},Tracking={3},Order={4},Redemption={5})", this.Id, this.Result, this.CustomerId, this.TrackingId, this.Order, this.ParentRedemptionId);
         }
     }
 }

@@ -39,6 +39,12 @@ namespace Voucherify.ApiEndpoints
 
             return await this.client.DoPostRequest<DataModel.Validation, DataModel.Contexts.Validation>(uriBuilder.Uri, context).ConfigureAwait(false);
         }
+
+        public async Task<DataModel.StackableValidation> Validate(DataModel.Contexts.StackableValidation context)
+        {
+            UriBuilder uriBuilder = this.client.GetUriBuilder("/validations");
+            return await this.client.DoPostRequest<DataModel.StackableValidation, DataModel.Contexts.StackableValidation>(uriBuilder.Uri, context).ConfigureAwait(false);
+        }
     }
 }
 
