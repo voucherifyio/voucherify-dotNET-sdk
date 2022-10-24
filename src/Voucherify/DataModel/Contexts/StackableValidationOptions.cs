@@ -10,28 +10,36 @@ namespace Voucherify.DataModel.Contexts
     public class StackableValidationOptions
     {
         [JsonProperty(PropertyName = "expand")]
-        public HashSet<string> Expand { get; set; }
+        public IList<string> Expand { get; set; }
+
+        private void EnsureExpandEntry(string expandEntry)
+        {
+            if (!this.Expand.Contains(expandEntry))
+            {
+                this.Expand.Add(expandEntry);
+            }
+        }
 
         public StackableValidationOptions()
         {
-            this.Expand = new HashSet<string>();
+            this.Expand = new List<string>();
         }
 
         public StackableValidationOptions WithOrder()
         {
-            this.Expand.Add("order");
+            this.EnsureExpandEntry("order");
             return this;
         }
 
         public StackableValidationOptions WithRedeemable()
         {
-            this.Expand.Add("redeemable");
+            this.EnsureExpandEntry("redeemable");
             return this;
         }
 
         public StackableValidationOptions WithCategory()
         {
-            this.Expand.Add("category");
+            this.EnsureExpandEntry("category");
             return this;
         }
     }

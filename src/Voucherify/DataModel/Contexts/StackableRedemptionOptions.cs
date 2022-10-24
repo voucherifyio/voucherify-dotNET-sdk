@@ -10,34 +10,42 @@ namespace Voucherify.DataModel.Contexts
     public class StackableRedemptionOptions
     {
         [JsonProperty(PropertyName = "expand")]
-        public HashSet<string> Expand { get; set; }
+        public IList<string> Expand { get; set; }
 
         public StackableRedemptionOptions()
         {
-            this.Expand = new HashSet<string>();
+            this.Expand = new List<string>();
+        }
+
+        private void EnsureExpandEntry(string expandEntry)
+        {
+            if (!this.Expand.Contains(expandEntry))
+            {
+                this.Expand.Add(expandEntry);
+            }
         }
 
         public StackableRedemptionOptions WithOrder()
         {
-            this.Expand.Add("order");
+            this.EnsureExpandEntry("order");
             return this;
         }
 
         public StackableRedemptionOptions WithRedeemable()
         {
-            this.Expand.Add("redeemable");
+            this.EnsureExpandEntry("redeemable");
             return this;
         }
 
         public StackableRedemptionOptions WithCategory()
         {
-            this.Expand.Add("category");
+            this.EnsureExpandEntry("category");
             return this;
         }
 
         public StackableRedemptionOptions WithRedemption()
         {
-            this.Expand.Add("redemption");
+            this.EnsureExpandEntry("redemption");
             return this;
         }
     }
