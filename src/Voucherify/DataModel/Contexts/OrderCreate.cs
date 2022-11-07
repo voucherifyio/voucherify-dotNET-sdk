@@ -11,6 +11,9 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "source_id")]
         public string SourceId { get; set; }
 
+        [JsonProperty(PropertyName = "status")]
+        public string Status { get; set; }
+
         [JsonProperty(PropertyName = "amount")]
         public long? Amount { get; set; }
 
@@ -19,6 +22,9 @@ namespace Voucherify.DataModel.Contexts
 
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
+
+        [JsonProperty(PropertyName = "customer")]
+        public Customer Customer { get; set; }
 
         public OrderCreate()
         {

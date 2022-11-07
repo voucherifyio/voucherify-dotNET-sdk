@@ -37,6 +37,12 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "discount_amount")]
         public long? DiscountAmount { get; private set; }
 
+        [JsonProperty(PropertyName = "applied_discount_amount", NullValueHandling = NullValueHandling.Ignore)]
+        public long? AppliedDiscountAmount { get; private set; }
+
+        [JsonProperty(PropertyName = "subtotal_amount", NullValueHandling = NullValueHandling.Ignore)]
+        public long? SubtotalAmount { get; private set; }
+
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 

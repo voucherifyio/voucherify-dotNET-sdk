@@ -27,6 +27,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "discount_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long? DiscountAmount { get; private set; }
 
+        [JsonProperty(PropertyName = "items_discount_amount", NullValueHandling = NullValueHandling.Ignore)]
+        public long? ItemsDiscountAmount { get; private set; }
+
         [JsonProperty(PropertyName = "total_discount_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long? TotalDiscountAmount { get; private set; }
 
@@ -35,6 +38,9 @@ namespace Voucherify.DataModel
 
         [JsonProperty(PropertyName = "applied_discount_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long? AppliedDiscountAmount { get; private set; }
+
+        [JsonProperty(PropertyName = "items_applied_discount_amount", NullValueHandling = NullValueHandling.Ignore)]
+        public long? ItemsAppliedDiscountAmount { get; private set; }
 
         [JsonProperty(PropertyName = "total_applied_discount_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long? TotalAppliedDiscountAmount { get; private set; }
