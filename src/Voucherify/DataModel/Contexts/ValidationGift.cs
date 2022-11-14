@@ -6,7 +6,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class ValidationGift
     {
-        [JsonProperty(PropertyName = "credits")]
+        [JsonProperty(PropertyName = "credits", NullValueHandling = NullValueHandling.Ignore)]
         public long? Credits { get; set; }
     }
 }

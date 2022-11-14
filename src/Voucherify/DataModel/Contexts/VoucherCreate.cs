@@ -8,16 +8,16 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class VoucherCreate
     {
-        [JsonProperty(PropertyName = "code_config")]
+        [JsonProperty(PropertyName = "code_config", NullValueHandling = NullValueHandling.Ignore)]
         public CodeConfig CodeConfig { get; set; }
 
-        [JsonProperty(PropertyName = "type")]
+        [JsonProperty(PropertyName = "type", NullValueHandling = NullValueHandling.Ignore)]
         public VoucherType Type { get; private set; }
 
-        [JsonProperty(PropertyName = "campaign")]
+        [JsonProperty(PropertyName = "campaign", NullValueHandling = NullValueHandling.Ignore)]
         public string Campaign { get; set; }
 
-        [JsonProperty(PropertyName = "category")]
+        [JsonProperty(PropertyName = "category", NullValueHandling = NullValueHandling.Ignore)]
         public string Category { get; set; }
 
         [JsonProperty(PropertyName = "discount", NullValueHandling = NullValueHandling.Ignore)]
@@ -26,22 +26,22 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
         public GiftCreate Gift { get; private set; }
 
-        [JsonProperty(PropertyName = "start_date")]
+        [JsonProperty(PropertyName = "start_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? StartDate { get; set; }
 
-        [JsonProperty(PropertyName = "expiration_date")]
+        [JsonProperty(PropertyName = "expiration_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? ExpirationDate { get; set; }
 
-        [JsonProperty(PropertyName = "active")]
+        [JsonProperty(PropertyName = "active", NullValueHandling = NullValueHandling.Ignore)]
         public bool Active { get; set; }
 
-        [JsonProperty(PropertyName = "redemption")]
+        [JsonProperty(PropertyName = "redemption", NullValueHandling = NullValueHandling.Ignore)]
         public VoucherRedemption Redemption { get; set; }
 
-        [JsonProperty(PropertyName = "additional_info")]
+        [JsonProperty(PropertyName = "additional_info", NullValueHandling = NullValueHandling.Ignore)]
         public string AdditionalInfo { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         public VoucherCreate()

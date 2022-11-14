@@ -10,22 +10,22 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class StackableValidation
     {
-        [JsonProperty(PropertyName = "customer")]
+        [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public Customer Customer { get; set; }
 
-        [JsonProperty(PropertyName = "order")]
+        [JsonProperty(PropertyName = "order", NullValueHandling = NullValueHandling.Ignore)]
         public Order Order { get; set; }
 
-        [JsonProperty(PropertyName = "options")]
+        [JsonProperty(PropertyName = "options", NullValueHandling = NullValueHandling.Ignore)]
         public StackableValidationOptions Options { get; set; }
 
-        [JsonProperty(PropertyName = "redeemables")]
+        [JsonProperty(PropertyName = "redeemables", NullValueHandling = NullValueHandling.Ignore)]
         public List<Redeemable> Redeemables { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
-        [JsonProperty(PropertyName = "session")]
+        [JsonProperty(PropertyName = "session", NullValueHandling = NullValueHandling.Ignore)]
         public ValidationSession Session { get; set; }
 
         public StackableValidation()

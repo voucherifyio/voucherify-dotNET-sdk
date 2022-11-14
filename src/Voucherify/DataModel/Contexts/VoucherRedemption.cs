@@ -6,7 +6,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class VoucherRedemption
     {
-        [JsonProperty(PropertyName = "quantity")]
+        [JsonProperty(PropertyName = "quantity", NullValueHandling = NullValueHandling.Ignore)]
         public int? Quantity { get; private set; }
 
         public VoucherRedemption() { }

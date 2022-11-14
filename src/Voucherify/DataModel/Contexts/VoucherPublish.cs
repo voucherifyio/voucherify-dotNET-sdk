@@ -10,10 +10,10 @@ namespace Voucherify.DataModel.Contexts
         [JsonObject]
         public class VoucherPublishCampaign
         {
-            [JsonProperty(PropertyName = "name")]
+            [JsonProperty(PropertyName = "name", NullValueHandling = NullValueHandling.Ignore)]
             public string Name { get; set; }
 
-            [JsonProperty(PropertyName = "count")]
+            [JsonProperty(PropertyName = "count", NullValueHandling = NullValueHandling.Ignore)]
             public int Count { get; set; }
 
             public VoucherPublishCampaign()
@@ -22,19 +22,19 @@ namespace Voucherify.DataModel.Contexts
             }
         }
        
-        [JsonProperty(PropertyName = "campaign")]
+        [JsonProperty(PropertyName = "campaign", NullValueHandling = NullValueHandling.Ignore)]
         public VoucherPublishCampaign Campaign { get; set; }
 
-        [JsonProperty(PropertyName = "channel")]
+        [JsonProperty(PropertyName = "channel", NullValueHandling = NullValueHandling.Ignore)]
         public string Channel { get; set; }
 
-        [JsonProperty(PropertyName = "voucher")]
+        [JsonProperty(PropertyName = "voucher", NullValueHandling = NullValueHandling.Ignore)]
         public string Voucher { get; set; }
 
-        [JsonProperty(PropertyName = "customer")]
+        [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public Customer Customer { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         public VoucherPublish()

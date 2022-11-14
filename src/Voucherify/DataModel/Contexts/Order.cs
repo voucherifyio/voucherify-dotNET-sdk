@@ -8,7 +8,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class Order : OrderCreate
     {
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         public Order WithAmount(long amount)

@@ -6,7 +6,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class RedemptionRollback
     {
-        [JsonProperty(PropertyName = "customer")]
+        [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public object Customer { get; private set; }
 
         public RedemptionRollback WithCustomer(CustomerCreate customer)

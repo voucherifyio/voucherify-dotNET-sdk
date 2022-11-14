@@ -6,7 +6,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class GiftCreate
     {
-        [JsonProperty(PropertyName = "amount")]
+        [JsonProperty(PropertyName = "amount", NullValueHandling = NullValueHandling.Ignore)]
         public long Amount { get; set; }
 
         public GiftCreate() { }

@@ -7,7 +7,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class Customer : CustomerCreate
     {
-        [JsonProperty(PropertyName = "id")]
+        [JsonProperty(PropertyName = "id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
     }
 }

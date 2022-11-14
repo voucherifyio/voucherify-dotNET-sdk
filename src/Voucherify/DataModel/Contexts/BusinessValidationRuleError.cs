@@ -9,7 +9,7 @@ namespace Voucherify.DataModel.Contexts {
     [JsonObject]
     public class BusinessValidationRuleError
     {
-        [JsonProperty(PropertyName = "message")]
+        [JsonProperty(PropertyName = "message", NullValueHandling = NullValueHandling.Ignore)]
         public string Message { get; set; }
 
         public override string ToString()

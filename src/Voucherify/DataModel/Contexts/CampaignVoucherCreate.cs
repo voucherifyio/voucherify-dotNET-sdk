@@ -11,7 +11,7 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "code_config", NullValueHandling = NullValueHandling.Ignore)]
         public CodeConfig CodeConfig { get; set; }
 
-        [JsonProperty(PropertyName = "type")]
+        [JsonProperty(PropertyName = "type", NullValueHandling = NullValueHandling.Ignore)]
         public VoucherType Type { get; private set; }
 
         [JsonProperty(PropertyName = "discount", NullValueHandling = NullValueHandling.Ignore)]
@@ -20,7 +20,7 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
         public Gift Gift { get; private set; }
         
-        [JsonProperty(PropertyName = "redemption")]
+        [JsonProperty(PropertyName = "redemption", NullValueHandling = NullValueHandling.Ignore)]
         public VoucherRedemption Redemption { get; set; }
         
         public CampaignVoucherCreate()

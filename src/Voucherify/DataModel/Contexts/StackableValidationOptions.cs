@@ -9,7 +9,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class StackableValidationOptions
     {
-        [JsonProperty(PropertyName = "expand")]
+        [JsonProperty(PropertyName = "expand", NullValueHandling = NullValueHandling.Ignore)]
         public IList<string> Expand { get; set; }
 
         private void EnsureExpandEntry(string expandEntry)

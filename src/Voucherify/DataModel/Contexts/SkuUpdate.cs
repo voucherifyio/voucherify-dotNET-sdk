@@ -7,16 +7,16 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class SkuUpdate
     {
-        [JsonProperty(PropertyName = "sku")]
+        [JsonProperty(PropertyName = "sku", NullValueHandling = NullValueHandling.Ignore)]
         public string SkuValue { get; set; }
 
-        [JsonProperty(PropertyName = "price")]
+        [JsonProperty(PropertyName = "price", NullValueHandling = NullValueHandling.Ignore)]
         public long? Price { get; set; }
 
-        [JsonProperty(PropertyName = "attributes")]
+        [JsonProperty(PropertyName = "attributes", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Attributes { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         private SkuUpdate()

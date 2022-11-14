@@ -7,16 +7,16 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class CampaignAddVoucher
     {
-        [JsonProperty(PropertyName = "additional_info")]
+        [JsonProperty(PropertyName = "additional_info", NullValueHandling = NullValueHandling.Ignore)]
         public string AdditionalInfo { get; set; }
 
-        [JsonProperty(PropertyName = "code")]
+        [JsonProperty(PropertyName = "code", NullValueHandling = NullValueHandling.Ignore)]
         public string Code { get; set; }
 
-        [JsonProperty(PropertyName = "redemption")]
+        [JsonProperty(PropertyName = "redemption", NullValueHandling = NullValueHandling.Ignore)]
         public VoucherRedemption VoucherRedemption { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         public CampaignAddVoucher()

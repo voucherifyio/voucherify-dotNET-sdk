@@ -7,22 +7,22 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class Validation
     {
-        [JsonProperty(PropertyName = "customer")]
+        [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public Customer Customer { get; set; }
 
-        [JsonProperty(PropertyName = "order")]
+        [JsonProperty(PropertyName = "order", NullValueHandling = NullValueHandling.Ignore)]
         public Order Order { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
-        [JsonProperty(PropertyName = "reward")]
+        [JsonProperty(PropertyName = "reward", NullValueHandling = NullValueHandling.Ignore)]
         public ValidationReward Reward { get; set; }
 
-        [JsonProperty(PropertyName = "gift")]
+        [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
         public ValidationGift Gift { get; set; }
 
-        [JsonProperty(PropertyName = "session")]
+        [JsonProperty(PropertyName = "session", NullValueHandling = NullValueHandling.Ignore)]
         public ValidationSession Session { get; set; }
     }
 }

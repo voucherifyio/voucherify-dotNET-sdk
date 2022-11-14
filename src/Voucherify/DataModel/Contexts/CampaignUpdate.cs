@@ -16,10 +16,10 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "expiration_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? ExpirationDate { get; set; }
 
-        [JsonProperty(PropertyName = "description")]
+        [JsonProperty(PropertyName = "description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         public CampaignUpdate()

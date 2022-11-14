@@ -838,6 +838,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+- **2022-11-14** - `7.13.0` - Added NullValueHandling.Ignore for all context payloads.
 - **2022-11-07** - `7.12.0` - Added new fields for Order and Order Item
 - **2022-10-24** - `7.11.0` - Introduced support for Stackable API.
 - **2022-05-18** - `7.10.0` - Introduced CustomerSimple model and apply it in Redemption and VoucherRedemption.

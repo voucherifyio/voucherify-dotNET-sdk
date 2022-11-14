@@ -8,16 +8,16 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class CustomerUpdate
     {
-        [JsonProperty(PropertyName = "name")]
+        [JsonProperty(PropertyName = "name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "email")]
+        [JsonProperty(PropertyName = "email", NullValueHandling = NullValueHandling.Ignore)]
         public string Email { get; set; }
 
-        [JsonProperty(PropertyName = "description")]
+        [JsonProperty(PropertyName = "description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         private CustomerUpdate()

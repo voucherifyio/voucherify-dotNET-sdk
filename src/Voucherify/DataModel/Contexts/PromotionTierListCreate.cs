@@ -10,7 +10,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class PromotionTierListCreate
     {
-        [JsonProperty(PropertyName = "tiers")]
+        [JsonProperty(PropertyName = "tiers", NullValueHandling = NullValueHandling.Ignore)]
         public List<PromotionTierCreate> Tiers { get; private set; }
 
         public PromotionTierListCreate()

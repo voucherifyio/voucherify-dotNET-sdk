@@ -10,16 +10,16 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class PromotionTierCreate
     {
-        [JsonProperty(PropertyName = "name")]
+        [JsonProperty(PropertyName = "name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "banner")]
+        [JsonProperty(PropertyName = "banner", NullValueHandling = NullValueHandling.Ignore)]
         public string Banner { get; set; }
 
-        [JsonProperty(PropertyName = "action")]
+        [JsonProperty(PropertyName = "action", NullValueHandling = NullValueHandling.Ignore)]
         public PromotionTierAction Action { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; private set; }
 
         public PromotionTierCreate()

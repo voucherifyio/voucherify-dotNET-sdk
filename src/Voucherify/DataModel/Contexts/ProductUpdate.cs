@@ -10,19 +10,19 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class ProductUpdate
     {
-        [JsonProperty(PropertyName = "source_id")]
+        [JsonProperty(PropertyName = "source_id", NullValueHandling = NullValueHandling.Ignore)]
         public string SourceId { get; set; }
 
-        [JsonProperty(PropertyName = "name")]
+        [JsonProperty(PropertyName = "name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
         
-        [JsonProperty(PropertyName = "price")]
+        [JsonProperty(PropertyName = "price", NullValueHandling = NullValueHandling.Ignore)]
         public long? Price { get; set; }
 
-        [JsonProperty(PropertyName = "attributes")]
+        [JsonProperty(PropertyName = "attributes", NullValueHandling = NullValueHandling.Ignore)]
         public List<string> Attributes { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         private ProductUpdate()

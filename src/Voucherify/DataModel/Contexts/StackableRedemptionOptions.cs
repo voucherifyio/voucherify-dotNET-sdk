@@ -9,7 +9,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class StackableRedemptionOptions
     {
-        [JsonProperty(PropertyName = "expand")]
+        [JsonProperty(PropertyName = "expand", NullValueHandling = NullValueHandling.Ignore)]
         public IList<string> Expand { get; set; }
 
         public StackableRedemptionOptions()

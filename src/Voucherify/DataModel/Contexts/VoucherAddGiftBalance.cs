@@ -6,7 +6,7 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class VoucherAddGiftBalance
     {
-        [JsonProperty("amount")]
+        [JsonProperty("amount", NullValueHandling = NullValueHandling.Ignore)]
         public long Amount { get; set; }
     }
 }

@@ -7,19 +7,19 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class SkuCreate
     {
-        [JsonProperty(PropertyName = "source_id")]
+        [JsonProperty(PropertyName = "source_id", NullValueHandling = NullValueHandling.Ignore)]
         public string SourceId { get; set; }
 
-        [JsonProperty(PropertyName = "sku")]
+        [JsonProperty(PropertyName = "sku", NullValueHandling = NullValueHandling.Ignore)]
         public string SkuValue { get; set; }
 
-        [JsonProperty(PropertyName = "price")]
+        [JsonProperty(PropertyName = "price", NullValueHandling = NullValueHandling.Ignore)]
         public long? Price { get; set; }
 
-        [JsonProperty(PropertyName = "attributes")]
+        [JsonProperty(PropertyName = "attributes", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Attributes { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         public SkuCreate()

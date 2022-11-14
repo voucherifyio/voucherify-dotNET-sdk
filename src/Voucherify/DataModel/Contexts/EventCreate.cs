@@ -7,13 +7,13 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class EventCreate
     {
-        [JsonProperty(PropertyName = "event")]
+        [JsonProperty(PropertyName = "event", NullValueHandling = NullValueHandling.Ignore)]
         public string Event { get; set; }
 
-        [JsonProperty(PropertyName = "customer")]
+        [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public Customer Customer { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
         public EventCreate()

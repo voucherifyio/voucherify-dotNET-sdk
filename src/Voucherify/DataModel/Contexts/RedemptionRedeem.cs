@@ -8,22 +8,22 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class RedemptionRedeem
     {
-        [JsonProperty(PropertyName = "customer")]
+        [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public Customer Customer { get; private set; }
         
-        [JsonProperty(PropertyName = "order")]
+        [JsonProperty(PropertyName = "order", NullValueHandling = NullValueHandling.Ignore)]
         public Order Order { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
-        [JsonProperty(PropertyName = "reward")]
+        [JsonProperty(PropertyName = "reward", NullValueHandling = NullValueHandling.Ignore)]
         public RedemptionReward Reward { get; set; }
 
-        [JsonProperty(PropertyName = "gift")]
+        [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
         public RedemptionGift Gift { get; set; }
 
-        [JsonProperty(PropertyName = "session")]
+        [JsonProperty(PropertyName = "session", NullValueHandling = NullValueHandling.Ignore)]
         public RedemptionSession Session { get; set; }
 
         public RedemptionRedeem()

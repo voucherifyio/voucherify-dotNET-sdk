@@ -10,13 +10,13 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class CampaignPromotionCreate
     {
-        [JsonProperty(PropertyName = "name")]
+        [JsonProperty(PropertyName = "name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "type")]
+        [JsonProperty(PropertyName = "type", NullValueHandling = NullValueHandling.Ignore)]
         public CampaignExtensionType Type { get; set; }
 
-        [JsonProperty(PropertyName = "campaign_type")]
+        [JsonProperty(PropertyName = "campaign_type", NullValueHandling = NullValueHandling.Ignore)]
         public CampaignType CampaignType { get; private set; }
 
         [JsonProperty(PropertyName = "start_date", NullValueHandling = NullValueHandling.Ignore)]
@@ -25,10 +25,10 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "expiration_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? ExpirationDate { get; set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
         
-        [JsonProperty(PropertyName = "promotion")]
+        [JsonProperty(PropertyName = "promotion", NullValueHandling = NullValueHandling.Ignore)]
         public PromotionTierListCreate Promotion { get; set; }
 
         public CampaignPromotionCreate()

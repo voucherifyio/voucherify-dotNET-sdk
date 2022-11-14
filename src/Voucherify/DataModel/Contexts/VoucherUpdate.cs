@@ -8,25 +8,25 @@ namespace Voucherify.DataModel.Contexts
     [JsonObject]
     public class VoucherUpdate
     {
-        [JsonProperty(PropertyName = "category")]
+        [JsonProperty(PropertyName = "category", NullValueHandling = NullValueHandling.Ignore)]
         public string Category { get; private set; }
 
-        [JsonProperty(PropertyName = "start_date")]
+        [JsonProperty(PropertyName = "start_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? StartDate { get; private set; }
 
-        [JsonProperty(PropertyName = "expiration_date")]
+        [JsonProperty(PropertyName = "expiration_date", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime? ExpirationDate { get; private set; }
 
-        [JsonProperty(PropertyName = "active")]
+        [JsonProperty(PropertyName = "active", NullValueHandling = NullValueHandling.Ignore)]
         public bool Active { get; private set; }
 
-        [JsonProperty(PropertyName = "additional_info")]
+        [JsonProperty(PropertyName = "additional_info", NullValueHandling = NullValueHandling.Ignore)]
         public string AdditionalInfo { get; private set; }
 
         [JsonProperty(PropertyName = "gift", NullValueHandling = NullValueHandling.Ignore)]
         public GiftUpdate Gift { get; private set; }
 
-        [JsonProperty(PropertyName = "metadata")]
+        [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; private set; }
 
         private VoucherUpdate()
