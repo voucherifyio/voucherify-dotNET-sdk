@@ -2,13 +2,14 @@
 using Newtonsoft.Json;
 using Voucherify.Tests.TestModel;
 using Voucherify.Core.Serialization;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.Serialization
 {
+    [TestFixture]
     public class JsonSerializerTest
     {
-        [Fact]
+        [Test]
         public void JsonSerializerSerialize()
         {
             //-- Arrange
@@ -30,10 +31,10 @@ namespace Voucherify.Tests.Core.Serialization
             string jsonSerializedObject = new JsonSerializer<JsonType>(new List<JsonConverter>() { }).Serialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonSerializedExpectedObject, jsonSerializedObject);
+            Assert.AreEqual(jsonSerializedExpectedObject, jsonSerializedObject);
         }
 
-        [Fact]
+        [Test]
         public void JsonSerializerDeserialize()
         {
             //-- Arrange
@@ -55,15 +56,15 @@ namespace Voucherify.Tests.Core.Serialization
             JsonType jsonSerializedObject = new JsonSerializer<JsonType>(new List<JsonConverter>() { }).Deserialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonExpectedDeserializedObject.Property, jsonSerializedObject.Property);
-            Assert.Equal(jsonExpectedDeserializedObject.Enum, jsonSerializedObject.Enum);
-            Assert.Equal(jsonExpectedDeserializedObject.Array.Count, jsonSerializedObject.Array.Count);
-            Assert.Equal(jsonExpectedDeserializedObject.Array[0], jsonSerializedObject.Array[0]);
-            Assert.Equal(jsonExpectedDeserializedObject.Array[1], jsonSerializedObject.Array[1]);
-            Assert.Equal(jsonExpectedDeserializedObject.Dictionary.Count, jsonSerializedObject.Dictionary.Count);
-            Assert.Equal(jsonExpectedDeserializedObject.Dictionary["property_1"], jsonSerializedObject.Dictionary["property_1"]);
-            Assert.Equal(jsonExpectedDeserializedObject.Dictionary["property_2"], jsonSerializedObject.Dictionary["property_2"]);
-            Assert.Equal(jsonExpectedDeserializedObject.Dictionary["property_3"] is object, jsonSerializedObject.Dictionary["property_1"] is object);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Property, jsonSerializedObject.Property);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Enum, jsonSerializedObject.Enum);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Array.Count, jsonSerializedObject.Array.Count);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Array[0], jsonSerializedObject.Array[0]);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Array[1], jsonSerializedObject.Array[1]);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Dictionary.Count, jsonSerializedObject.Dictionary.Count);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Dictionary["property_1"], jsonSerializedObject.Dictionary["property_1"]);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Dictionary["property_2"], jsonSerializedObject.Dictionary["property_2"]);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Dictionary["property_3"] is object, jsonSerializedObject.Dictionary["property_1"] is object);
         }
     }
 }

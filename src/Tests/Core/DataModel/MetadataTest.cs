@@ -2,13 +2,14 @@
 using Newtonsoft.Json;
 using Voucherify.Core.DataModel;
 using Voucherify.Core.Serialization;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.DataModel
 {
+    [TestFixture]
     public class MetadataTest
     {
-        [Fact]
+        [Test]
         public void MetadataSerialize()
         {
             // Arrange
@@ -24,10 +25,10 @@ namespace Voucherify.Tests.Core.DataModel
             string jsonSerializedObject = new JsonSerializer<Metadata>(new List<JsonConverter>() { new MetadataConverter() }).Serialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonSerializedExpectedObject, jsonSerializedObject);
+            Assert.AreEqual(jsonSerializedExpectedObject, jsonSerializedObject);
         }
 
-        [Fact]
+        [Test]
         public void MetadataDeserialize()
         {
             //-- Arrange
@@ -42,9 +43,9 @@ namespace Voucherify.Tests.Core.DataModel
             Metadata jsonSerializedObject = new JsonSerializer<Metadata>(new List<JsonConverter>() { new MetadataConverter() }).Deserialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonExpectedDeserializedObject["property_1"], jsonSerializedObject["property_1"]);
-            Assert.Equal(jsonExpectedDeserializedObject["property_2"], jsonSerializedObject["property_2"]);
-            Assert.Equal(jsonExpectedDeserializedObject["property_3"], jsonSerializedObject["property_3"]);
+            Assert.AreEqual(jsonExpectedDeserializedObject["property_1"], jsonSerializedObject["property_1"]);
+            Assert.AreEqual(jsonExpectedDeserializedObject["property_2"], jsonSerializedObject["property_2"]);
+            Assert.AreEqual(jsonExpectedDeserializedObject["property_3"], jsonSerializedObject["property_3"]);
         }
     }
 }

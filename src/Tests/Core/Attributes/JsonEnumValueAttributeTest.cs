@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
 using Voucherify.Core.Serialization;
 using Voucherify.Tests.TestModel;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.Attributes
 {
+    [TestFixture]
     public class JsonEnumValueAttributeTest
     {
-        [Fact]
+        [Test]
         public void JsonEnumValueAttributeSerilize()
         {
             //-- Arrange
@@ -23,10 +23,10 @@ namespace Voucherify.Tests.Core.Attributes
             string jsonSerializedObject = new JsonSerializer<JsonTypeWithEnum>(new List<JsonConverter>() { new JsonEnumValueConverter() }).Serialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonSerializedExpectedObject, jsonSerializedObject);
+            Assert.AreEqual(jsonSerializedExpectedObject, jsonSerializedObject);
         }
 
-        [Fact]
+        [Test]
         public void JsonEnumValueAttributeDeserilize()
         {
             //-- Arrange
@@ -40,7 +40,7 @@ namespace Voucherify.Tests.Core.Attributes
             JsonTypeWithEnum jsonSerializedObject = new JsonSerializer<JsonTypeWithEnum>(new List<JsonConverter>() { new JsonEnumValueConverter() }).Deserialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonExpectedDeserializedObject.Enum, jsonSerializedObject.Enum);
+            Assert.AreEqual(jsonExpectedDeserializedObject.Enum, jsonSerializedObject.Enum);
         }
     }
 }

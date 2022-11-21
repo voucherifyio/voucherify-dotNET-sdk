@@ -1,13 +1,14 @@
 ﻿using System;
 using Voucherify.Core.Extensions;
 using Voucherify.Tests.TestModel;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.Extensions
 {
+    [TestFixture]
     public class UriBuilderExtensionTest
     {
-        [Fact]
+        [Test]
         public void UriBuilderExtensionWithQuery()
         {
             //-- Arrange
@@ -23,10 +24,10 @@ namespace Voucherify.Tests.Core.Extensions
             uriBulder = UriBuilderExtension.WithQuery<QueryType>(uriBulder, queryObject);
 
             // Assert
-            Assert.Equal(queryExpectedSerializedObject, uriBulder.Query);
+            Assert.AreEqual(queryExpectedSerializedObject, uriBulder.Query);
         }
 
-        [Fact]
+        [Test]
         public void UriBuilderExtensionEnsureEscapedDataString()
         {
             //-- Arrange
@@ -37,10 +38,10 @@ namespace Voucherify.Tests.Core.Extensions
             String escapedParam = UriBuilderExtension.EnsureEscapedDataString(paramName, paramValue);
 
             // Assert
-            Assert.Equal(escapedParam, Uri.EscapeDataString(paramValue));
+            Assert.AreEqual(escapedParam, Uri.EscapeDataString(paramValue));
         }
 
-        [Fact]
+        [Test]
         public void UriBuilderExtensionEnsureEscapedDataStrinEmpty()
         {
             //-- Arrange

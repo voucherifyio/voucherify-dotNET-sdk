@@ -1,15 +1,16 @@
 ﻿using System;
 using Voucherify.Tests.TestModel;
 using Voucherify.Core.Serialization;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.Serialization
 {
+    [TestFixture]
     public class QuerySerializerTest
     {
         public const string DateTimeFormat = "yyyy-MM-ddTHH:mm:ssZ";
 
-        [Fact]
+        [Test]
         public void QuerySerializerSerialize()
         {
             DateTime now = DateTime.UtcNow;
@@ -64,7 +65,7 @@ namespace Voucherify.Tests.Core.Serialization
             string querySerializedObject = querySerializer.Serialize(queryObject);
 
             //-- Assert
-            Assert.Equal(queryExpectedSerializedObject, querySerializedObject);
+            Assert.AreEqual(queryExpectedSerializedObject, querySerializedObject);
         }
     }
 }
