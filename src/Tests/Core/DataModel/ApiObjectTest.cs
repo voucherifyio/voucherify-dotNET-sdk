@@ -2,13 +2,14 @@
 using Newtonsoft.Json;
 using Voucherify.Core.DataModel;
 using Voucherify.Core.Serialization;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.DataModel
 {
+    [TestFixture]
     public class ApiObjectTest
     {
-        [Fact]
+        [Test]
         public void ApiObjectDeserialize()
         {
             // Arrange
@@ -18,7 +19,7 @@ namespace Voucherify.Tests.Core.DataModel
             ApiObject jsonSerializedObject = new JsonSerializer<ApiObject>(new List<JsonConverter>() { }).Deserialize(jsonObject);
 
             // Assert
-            Assert.Equal("object_type", jsonSerializedObject.Object);
+            Assert.AreEqual("object_type", jsonSerializedObject.Object);
         }
     }
 }

@@ -70,7 +70,14 @@ API:
 
 ## Build
 
-### Prerequisites MacOS
+## Run with dotnet cli
+
+Build & Pack: `sh ./run-build.sh`
+Tests: `sh ./run-tests.sh`
+
+## Run with nuget
+
+### Prerequisites
 
 - Visual Studio
 - `nuget install xunit.runner.console -Version 2.2.0 -OutputDirectory testrunner`

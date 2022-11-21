@@ -2,13 +2,14 @@
 using Newtonsoft.Json;
 using Voucherify.Core.Exceptions;
 using Voucherify.Core.Serialization;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.Exceptions
 {
+    [TestFixture]
     public class VoucherifyClientExceptionTest
     {
-        [Fact]
+        [Test]
         public void VoucherifyClientExceptionDeserialize()
         {
             //-- Arrange
@@ -19,10 +20,10 @@ namespace Voucherify.Tests.Core.Exceptions
             VoucherifyClientException clientExceptionObject = new JsonSerializer<VoucherifyClientException>(new List<JsonConverter>() { }).Deserialize(jsonObject);
 
             //-- Assert
-            Assert.Equal(jsonExpectedClientExceptionObject.Message, clientExceptionObject.Message);
-            Assert.Equal(jsonExpectedClientExceptionObject.Key, clientExceptionObject.Key);
-            Assert.Equal(jsonExpectedClientExceptionObject.Code, clientExceptionObject.Code);
-            Assert.Equal(jsonExpectedClientExceptionObject.Details, clientExceptionObject.Details);
+            Assert.AreEqual(jsonExpectedClientExceptionObject.Message, clientExceptionObject.Message);
+            Assert.AreEqual(jsonExpectedClientExceptionObject.Key, clientExceptionObject.Key);
+            Assert.AreEqual(jsonExpectedClientExceptionObject.Code, clientExceptionObject.Code);
+            Assert.AreEqual(jsonExpectedClientExceptionObject.Details, clientExceptionObject.Details);
         }
     }
 }

@@ -1,17 +1,18 @@
 ﻿using Voucherify.Core.Extensions;
 using Voucherify.Tests.TestModel;
-using Xunit;
+using NUnit.Framework;
 
 namespace Voucherify.Tests.Core.Extensions
 {
+    [TestFixture]
     public class JsonEnumValueAttributeExtensionTest
     {
-        [Fact]
+        [Test]
         public void JsonEnumValueAttributeExtensionGetValue()
         {
             // Arrange && Act && Assert
-            Assert.Equal("Enum-Value-1", JsonEnumValueAttributeExtension.GetValue(EnumType.EnumValue1));
-            Assert.Equal("Enum-Value-2", JsonEnumValueAttributeExtension.GetValue(EnumType.EnumValue2));
+            Assert.AreEqual("Enum-Value-1", JsonEnumValueAttributeExtension.GetValue(EnumType.EnumValue1));
+            Assert.AreEqual("Enum-Value-2", JsonEnumValueAttributeExtension.GetValue(EnumType.EnumValue2));
         }
     }
 }
