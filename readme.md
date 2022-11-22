@@ -412,6 +412,7 @@ Methods are provided within `Api.Validations.*` namespace.
 - [Validate Voucher](#validate-voucher)
 - [Validate Promotion](#validate-promotion)
 - [Validate](#validate)
+- [Validate Stackable](#validate-stackable)
 
 #### [Validate Voucher]
 ```csharp
@@ -420,7 +421,7 @@ public async Task<DataModel.Validation> ValidateVoucher(string code, DataModel.C
 public void ValidateVoucher(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
 ```
 
-#### [Validate Promotions]
+#### [Validate Promotion]
 ```csharp
 public async Task<DataModel.Validation> ValidatePromotion(DataModel.Contexts.Validation context)
 
@@ -432,6 +433,13 @@ public void ValidatePromotion(DataModel.Contexts.Validation context, Action<ApiR
 public async Task<DataModel.Validation> Validate(string code, DataModel.Contexts.Validation context)
 
 public void Validate(string code, DataModel.Contexts.Validation context, Action<ApiResponse<DataModel.Validation>> callback)
+```
+
+### [Validate Stackable]
+```csharp
+public async Task<DataModel.StackableValidation> Validate(DataModel.Contexts.StackableValidation context)
+
+public void Validate(DataModel.Contexts.StackableValidation context, Action<ApiResponse<DataModel.StackableValidation>> callback)
 ```
 
 ---
@@ -446,6 +454,7 @@ Methods are provided within `Api.Redemptions.*` namespace.
 - [List Redemptions](#list-redemptions)
 - [Get Voucher's Redemptions](#get-vouchers-redemptions)
 - [Rollback Redemption](#rollback-redemption)
+- [Redeem Stackable](#redeem-stackable)
 
 #### [Redeem Voucher]
 ```csharp
@@ -490,6 +499,13 @@ public async Task<DataModel.Results.RedemptionRollback> Rollback(string redempti
 public void Rollback(string redemptionId, DataModel.Queries.RedemptionRollback query, DataModel.Contexts.RedemptionRollback context, Action<ApiResponse<DataModel.Results.RedemptionRollback>> callback)
 ```
 Check [redemption rollback object](https://docs.voucherify.io/reference?utm_source=github&utm_medium=sdk&utm_campaign=acq#the-redemption-rollback-object).
+
+### [Redeem Stackable]
+```csharp
+public async Task<DataModel.StackableRedemption> Redeem(DataModel.Contexts.StackableRedemptionRedeem context)
+
+public void Redeem(DataModel.Contexts.StackableRedemptionRedeem context, Action<ApiResponse<DataModel.StackableRedemption>> callback)
+```
 
 ---
 
