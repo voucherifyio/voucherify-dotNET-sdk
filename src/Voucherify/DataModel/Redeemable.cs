@@ -34,6 +34,11 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "metadata")]
         public Metadata Metadata { get; private set; }
 
+        public Redeemable()
+        {
+            this.Metadata = new Metadata();
+        }
+
         public override string ToString()
         {
             return string.Format("Redeemable(Id={0},Object={1},Status={2},Order={3},ApplicableTo={4},InapplicableTo={5},Result={6},Metadata={7})", this.Id, this.Object, this.Status, this.Order, this.ApplicableTo, this.InapplicableTo, this.Result, this.Metadata);
