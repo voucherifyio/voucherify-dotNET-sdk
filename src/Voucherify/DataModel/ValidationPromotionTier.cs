@@ -28,6 +28,14 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "inapplicable_to")]
         public VoucherSubjectList InapplicableTo { get; private set; }
 
+        [JsonProperty(PropertyName = "metadata")]
+        public Metadata Metadata { get; private set; }
+
+        public ValidationPromotionTier()
+        {
+            this.Metadata = new Metadata();
+        }
+
         public override string ToString()
         {
             return string.Format("ValidationPromotionTier(Id={0},Discount={1},DiscountAmount={2},Order={3},ApplicableTo={4},InapplicableTo={5})",
