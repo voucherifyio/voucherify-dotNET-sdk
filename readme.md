@@ -861,7 +861,7 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
-
+- **2022-12-16** - `7.16.0` - Added Metadata in ValidationVoucher
 - **2022-12-14** - `7.15.0` - Init Metadata in Redeemable
 - **2022-12-13** - `7.14.0` - Added Metadata to ValidationPromotion result
 - **2022-11-14** - `7.13.0` - Added NullValueHandling.Ignore for all context payloads.
