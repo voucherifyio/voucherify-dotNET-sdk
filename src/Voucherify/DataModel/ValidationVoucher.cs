@@ -1,6 +1,7 @@
 ﻿#if VOUCHERIFYSERVER || VOUCHERIFYCLIENT
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Voucherify.Core.DataModel;
 
 namespace Voucherify.DataModel
 {
@@ -25,6 +26,13 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "order")]
         public Order Order { get; private set; }
 
+        [JsonProperty(PropertyName = "metadata")]
+        public Metadata Metadata { get; private set; }
+
+        public ValidationVoucher()
+        {
+            this.Metadata = new Metadata();
+        }
         public override string ToString()
         {
             return string.Format("Validation(Code={0},Result={1})", this.Code, base.ToString());
