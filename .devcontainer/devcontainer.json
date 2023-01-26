@@ -1,8 +1,7 @@
 {
 	"name": "C# (.NET)",
-	"image": "apt",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
 	"features": {
-		"ghcr.io/devcontainers/features/node:1": {}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
