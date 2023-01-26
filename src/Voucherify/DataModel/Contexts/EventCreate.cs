@@ -13,6 +13,9 @@ namespace Voucherify.DataModel.Contexts
         [JsonProperty(PropertyName = "customer", NullValueHandling = NullValueHandling.Ignore)]
         public Customer Customer { get; set; }
 
+        [JsonProperty(PropertyName = "referral", NullValueHandling = NullValueHandling.Ignore)]
+        public Referral Referral { get; set; }
+
         [JsonProperty(PropertyName = "metadata", NullValueHandling = NullValueHandling.Ignore)]
         public Metadata Metadata { get; set; }
 
