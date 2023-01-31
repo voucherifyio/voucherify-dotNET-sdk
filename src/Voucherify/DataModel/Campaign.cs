@@ -11,6 +11,9 @@ namespace Voucherify.DataModel
         [JsonProperty(PropertyName = "name")]
         public string Name { get; private set; }
 
+        [JsonProperty(PropertyName = "active")]
+        public bool Active { get; private set; }
+
         [JsonProperty(PropertyName = "description")]
         public string Description { get; private set; }
 

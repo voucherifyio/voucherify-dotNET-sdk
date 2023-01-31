@@ -861,6 +861,8 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+
+- **2023-01-31** - `7.18.0` - Added `active` in Campaign, extended Exception model
 - **2023-01-26** - `7.17.0` - Added `referral` in CustomEvent
 - **2022-12-16** - `7.16.0` - Added Metadata in ValidationVoucher
 - **2022-12-14** - `7.15.0` - Init Metadata in Redeemable

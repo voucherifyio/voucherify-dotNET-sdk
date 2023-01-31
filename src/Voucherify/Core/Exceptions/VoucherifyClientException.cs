@@ -21,6 +21,18 @@ namespace Voucherify.Core.Exceptions
         [JsonProperty(PropertyName = "key")]
         public string Key { get; private set; }
 
+        [JsonProperty(PropertyName = "request_id")]
+        public string RequestId { get; private set; }
+
+        [JsonProperty(PropertyName = "resource_id")]
+        public string ResourceId { get; private set; }
+
+        [JsonProperty(PropertyName = "resource_type")]
+        public string ResourceType { get; private set; }
+
+        [JsonProperty(PropertyName = "error")]
+        public VoucherifyClientExceptionError Error { get; private set; }
+
         public VoucherifyClientException() { }
 
         public VoucherifyClientException(string message, int code, string details, string key)
