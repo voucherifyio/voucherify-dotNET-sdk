@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>7.18.0.0</version>
+    <version>7.18.1.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2023-02-02: 7.18.1 
+      - Added missing mapping for Error property
+
       2023-01-31: 7.18.0 
       - Added `active` in Campaign, extended Exception model
 

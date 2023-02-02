@@ -35,12 +35,13 @@ namespace Voucherify.Core.Exceptions
 
         public VoucherifyClientException() { }
 
-        public VoucherifyClientException(string message, int code, string details, string key)
+        public VoucherifyClientException(string message, int code, string details, string key, VoucherifyClientExceptionError error)
         {
             this.Message = message;
             this.Code = code;
             this.Details = details;
             this.Key = key;
+            this.Error = error;
         }
 
         public VoucherifyClientException(Exception internalException)
