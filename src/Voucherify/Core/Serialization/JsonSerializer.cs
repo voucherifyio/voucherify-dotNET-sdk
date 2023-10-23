@@ -56,11 +56,7 @@ namespace Voucherify.Core.Serialization
             {
                 Formatting = Formatting.None,
                 DateFormatString = Constants.DateTimeFormat,
-                ContractResolver = new DefaultContractResolver() {
-#if !PORTABLE
-                    IgnoreSerializableInterface = true
-#endif
-                },
+                ContractResolver = new DefaultContractResolver() {},
                 Converters = converters
             };
         }
