@@ -21,7 +21,7 @@
 
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <DefineConstants>VOUCHERIFYCLIENT;NET60;</DefineConstants>
+    <DefineConstants>VOUCHERIFYCLIENT;NET60;APIASYNC;</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'net4.5'">
