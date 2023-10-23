@@ -118,6 +118,7 @@ mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.ne
 * .NET 3.5 (Server, Client)
 * .NET 4.0 (Server, Client)
 * .NET 4.5 (Server, Client)
+* .NET 6.0 (Server, Client)
 * .NET Standard 2.0 (Client, Server) - for Unity, Xamarin, etc.
 
 
@@ -228,7 +229,7 @@ api.Vouchers.Get("<your-voucher-code>", (response) =>
             });
 ```
 
-### Async Usage (.NET 4.5, .NET Standard 2.0)
+### Async Usage (.NET 4.5, .NET 6.0 .NET Standard 2.0)
 
 ```csharp
         try
