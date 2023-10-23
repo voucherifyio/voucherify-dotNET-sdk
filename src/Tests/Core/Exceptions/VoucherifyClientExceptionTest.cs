@@ -13,7 +13,7 @@ namespace Voucherify.Tests.Core.Exceptions
         public void VoucherifyClientExceptionDeserialize()
         {
             //-- Arrange
-            VoucherifyClientException jsonExpectedClientExceptionObject = new VoucherifyClientException("message_1", 1, "details_1", "key_1");
+            VoucherifyClientException jsonExpectedClientExceptionObject = new VoucherifyClientException("message_1", 1, "details_1", "key_1", null);
             string jsonObject = "{\"message\":\"message_1\",\"code\":1,\"details\":\"details_1\",\"key\":\"key_1\"}";
 
             //-- Act

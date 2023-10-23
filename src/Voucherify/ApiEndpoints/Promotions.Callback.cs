@@ -38,7 +38,7 @@ namespace Voucherify.ApiEndpoints
         public void AddTierToCampaign(string campaignId, DataModel.Contexts.PromotionTierCreate promotionTier, Action<ApiResponse<DataModel.PromotionTier>> callback)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/{0}/tiers", UriBuilderExtension.EnsureEscapedDataString("campaignId", campaignId)));
-            this.client.DoPutRequest(uriBuilder.Uri, promotionTier, callback);
+            this.client.DoPostRequest(uriBuilder.Uri, promotionTier, callback);
         }
 
 

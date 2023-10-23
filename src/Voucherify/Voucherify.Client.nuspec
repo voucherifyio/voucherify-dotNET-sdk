@@ -2,7 +2,7 @@
 <package >
   <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Voucherify.Client</id>
-    <version>7.18.1.0</version>
+    <version>7.19.0.0</version>
     <title>Voucherify.Client</title>
     <authors>Rspective</authors>
     <owners>Rspective</owners>
@@ -11,6 +11,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <releaseNotes>
+      2023-10-23: 7.19.0 
+      - Added dediceted library for dotNet 6.0. Bump up Newtonsoft.Json to 13.0.3. Fixed add tiers method type.
+
       2023-02-02: 7.18.1 
       - Added missing mapping for Error property
 
@@ -98,20 +101,20 @@
     <tags>Voucher Coupon Discount Voucherify Voucherify.io Rspective</tags>
     <dependencies>
       <group targetFramework="net35">
-        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
       </group>
       <group targetFramework="net40">
-        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
       </group>
       <group targetFramework="net45">
-        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
         <dependency id="System.Net.Http" version="4.3.4" />
       </group>
       <group targetFramework="net20">
-        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
       </group>
       <group targetFramework="netstandard20">
-        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
         <dependency id="System.Net.Http" version="4.3.4" />
       </group>
     </dependencies>
@@ -121,6 +124,7 @@
     <file src="..\..\lib\net3.5\Voucherify.Client.dll" target="lib\net35\Voucherify.Client.dll" />
     <file src="..\..\lib\net4.0\Voucherify.Client.dll" target="lib\net40\Voucherify.Client.dll" />
     <file src="..\..\lib\net4.5\Voucherify.Client.dll" target="lib\net45\Voucherify.Client.dll" />
+    <file src="..\..\lib\net6.0\Voucherify.Client.dll" target="lib\net60\Voucherify.Client.dll" />
     <file src="..\..\lib\netstandard2.0\Voucherify.Client.dll" target="lib\netstandard20\Voucherify.Client.dll" />
   </files>
 </package>

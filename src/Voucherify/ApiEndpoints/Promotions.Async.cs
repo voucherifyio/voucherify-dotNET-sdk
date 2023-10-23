@@ -38,7 +38,7 @@ namespace Voucherify.ApiEndpoints
         public async Task<DataModel.PromotionTier> AddTierToCampaign(string campaignId, DataModel.Contexts.PromotionTierCreate promotionTier)
         {
             UriBuilder uriBuilder = this.client.GetUriBuilder(string.Format("/promotions/{0}/tiers", UriBuilderExtension.EnsureEscapedDataString("campaignId", campaignId)));
-            return await this.client.DoPutRequest<DataModel.PromotionTier, DataModel.Contexts.PromotionTierCreate>(uriBuilder.Uri, promotionTier).ConfigureAwait(false);
+            return await this.client.DoPostRequest<DataModel.PromotionTier, DataModel.Contexts.PromotionTierCreate>(uriBuilder.Uri, promotionTier).ConfigureAwait(false);
         }
 
 

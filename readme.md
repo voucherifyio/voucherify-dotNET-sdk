@@ -118,6 +118,7 @@ mono ./src/Examples/Examples.Voucherify.net45/bin/Release/Examples.Voucherify.ne
 * .NET 3.5 (Server, Client)
 * .NET 4.0 (Server, Client)
 * .NET 4.5 (Server, Client)
+* .NET 6.0 (Server, Client)
 * .NET Standard 2.0 (Client, Server) - for Unity, Xamarin, etc.
 
 
@@ -228,7 +229,7 @@ api.Vouchers.Get("<your-voucher-code>", (response) =>
             });
 ```
 
-### Async Usage (.NET 4.5, .NET Standard 2.0)
+### Async Usage (.NET 4.5, .NET 6.0 .NET Standard 2.0)
 
 ```csharp
         try
@@ -861,6 +862,8 @@ Bug reports and pull requests are welcome through [GitHub Issues](https://github
 
 ## Changelog
 
+
+- **2023-10-23** - `7.19.0` - Added dediceted library for dotNet 6.0. Bump up Newtonsoft.Json to 13.0.3. Fixed add tiers method type.
 - **2023-02-02** - `7.18.1` - Added missing mapping for Error property
 - **2023-01-31** - `7.18.0` - Added `active` in Campaign, extended Exception model
 - **2023-01-26** - `7.17.0` - Added `referral` in CustomEvent
