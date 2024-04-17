@@ -39,7 +39,7 @@ namespace Voucherify.DataModel
         public DateTime? ExpirationDate { get; private set; }
 
         [JsonProperty(PropertyName = "active")]
-        public bool Active { get; private set; }
+        public bool? Active { get; private set; }
 
         [JsonProperty(PropertyName = "assets")]
         public VoucherAssets Assets { get; private set; }
