@@ -1,58 +1,45 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net2.0;net3.5;net4.0;net4.5;net6.0;netstandard2.0;</TargetFrameworks>
-    <NuspecFile>Voucherify.nuspec</NuspecFile>
-  </PropertyGroup>
-  
-  <PropertyGroup>
-    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <OutputPath>..\..\lib\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <DefineConstants>VOUCHERIFYSERVER;APIASYNC;NET60;APIASYNC;</DefineConstants>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFrameworks>netstandard2.0;net9.0</TargetFrameworks>
+    <AssemblyName>Voucherify</AssemblyName>
+    <PackageId>Voucherify</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Voucherify</Authors>
+    <Company>Voucherify</Company>
+    <AssemblyTitle>VoucherifySDK</AssemblyTitle>
+    <Description>A library generated from a OpenAPI doc</Description>
+    <Copyright>MIT</Copyright>
+    <RootNamespace>Voucherify</RootNamespace>
+    <Version>8.0.0</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Voucherify.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net4.5'">
-    <DefineConstants>VOUCHERIFYSERVER;APIASYNC;NET45;</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net4.0'">
-    <DefineConstants>VOUCHERIFYSERVER;NET40;</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net3.5'">
-    <DefineConstants>VOUCHERIFYSERVER;NET35;</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net2.0'">
-    <DefineConstants>VOUCHERIFYSERVER;NET20;</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <DefineConstants>VOUCHERIFYSERVER;NETSTANDARD20;PORTABLE;APIASYNC;</DefineConstants>
-  </PropertyGroup>
-
+  <!-- References specific to .NET Standard 2.0 -->
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net4.5'">
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <!-- Reference System.Web for .NET Standard -->
+    <Reference Include="System.Web" />
   </ItemGroup>
 
+  <!-- References specific to .NET 9.0 -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+    <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.4.24156.5" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0-preview.4.24156.5" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-preview.4.24156.5" />
+  </ItemGroup>
 </Project>
