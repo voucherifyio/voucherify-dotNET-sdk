@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **LoyaltyTierId** | **string** | Unique loyalty tier ID assigned by Voucherify. | [optional] 
 **Id** | **string** | Unique reward ID. | [optional] 
 **Name** | **string** | Name of the reward. | [optional] 
-**Object** | **string** | The type of the object represented by the JSON | [optional] [default to ObjectEnum.Reward]
+**Object** | **string** | The type of the object represented by the JSON | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp in ISO 8601 format indicating when the reward was updated. | [optional] 
 **Parameters** | [**RedemptionRewardResultParameters**](RedemptionRewardResultParameters.md) |  | [optional] 

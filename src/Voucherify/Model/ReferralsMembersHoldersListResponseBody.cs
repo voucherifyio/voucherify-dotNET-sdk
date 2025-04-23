@@ -35,14 +35,24 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferralsMembersHoldersListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about redeemables holders (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of holders. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about redeemables holders.</param>
+        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of holders..</param>
         /// <param name="data">A dictionary that contains an array of holders..</param>
         /// <param name="total">Total number of holders assigned to the redeemable..</param>
         /// <param name="hasMore">As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request with a &#x60;starting_after_id&#x60; query or a different limit to get more records returned in the results..</param>
         /// <param name="moreStartingAfter">Returns an ID that can be used to return another page of results. Use the ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results occuring after the field with that ID..</param>
-        public ReferralsMembersHoldersListResponseBody(string varObject = @"list", string dataRef = @"data", List<RedeemableHolder> data = default(List<RedeemableHolder>), int? total = default(int?), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
+        public ReferralsMembersHoldersListResponseBody(string varObject = default(string), string dataRef = default(string), List<RedeemableHolder> data = default(List<RedeemableHolder>), int? total = default(int?), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

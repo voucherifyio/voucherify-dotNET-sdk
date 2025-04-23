@@ -5,8 +5,8 @@ Object containing a list of brand configurations. It always contains one item.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the brand in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of brand objects. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the brand in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of brand objects. | [optional] 
 **Data** | [**List&lt;ManagementProjectsBranding&gt;**](ManagementProjectsBranding.md) | Array of brand objects. It contains only one object. | [optional] 
 **Total** | **int?** | The total number of brand objects. It is always &#x60;1&#x60;. | [optional] 
 

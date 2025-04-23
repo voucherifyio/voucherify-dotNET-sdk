@@ -82,14 +82,14 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="CustomEvent" /> class.
         /// </summary>
         /// <param name="id">Unique custom event ID..</param>
-        /// <param name="varObject">The object represented is an &#x60;event&#x60;. (default to ObjectEnum.Event).</param>
+        /// <param name="varObject">The object represented is an &#x60;event&#x60;..</param>
         /// <param name="type">The event name..</param>
         /// <param name="customer">customer (required).</param>
         /// <param name="referral">referral.</param>
         /// <param name="loyalty">loyalty.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer object..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the custom event was created. The value is shown in the ISO 8601 format..</param>
-        public CustomEvent(string id = default(string), ObjectEnum? varObject = ObjectEnum.Event, string type = default(string), SimpleCustomerRequiredObjectType customer = default(SimpleCustomerRequiredObjectType), CustomEventReferral referral = default(CustomEventReferral), CustomEventLoyalty loyalty = default(CustomEventLoyalty), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?))
+        public CustomEvent(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), string type = default(string), SimpleCustomerRequiredObjectType customer = default(SimpleCustomerRequiredObjectType), CustomEventReferral referral = default(CustomEventReferral), CustomEventLoyalty loyalty = default(CustomEventLoyalty), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?))
         {
             // to ensure "customer" is required (not null)
             if (customer == null)
@@ -101,6 +101,11 @@ namespace Voucherify.Model
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Type = type;
             if (this.Type != null)

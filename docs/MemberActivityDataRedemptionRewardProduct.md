@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ImageUrl** | **string** | The HTTPS URL pointing to the .png or .jpg file that will be used to render the product image. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the product was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the product was updated. The value is shown in the ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the product. | [optional] [default to ObjectEnum.Product]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the product. | [optional] 
 **Skus** | [**SkusListForProduct**](SkusListForProduct.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -81,11 +81,11 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignLoyaltyVoucher" /> class.
         /// </summary>
-        /// <param name="type">Type of voucher. (default to TypeEnum.LOYALTYCARD).</param>
+        /// <param name="type">Type of voucher..</param>
         /// <param name="loyaltyCard">loyaltyCard (required).</param>
         /// <param name="redemption">redemption.</param>
         /// <param name="codeConfig">codeConfig.</param>
-        public CampaignLoyaltyVoucher(TypeEnum? type = TypeEnum.LOYALTYCARD, CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), CampaignLoyaltyVoucherRedemption redemption = default(CampaignLoyaltyVoucherRedemption), CodeConfig codeConfig = default(CodeConfig))
+        public CampaignLoyaltyVoucher(TypeEnum? type = default(TypeEnum?), CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), CampaignLoyaltyVoucherRedemption redemption = default(CampaignLoyaltyVoucherRedemption), CodeConfig codeConfig = default(CodeConfig))
         {
             // to ensure "loyaltyCard" is required (not null)
             if (loyaltyCard == null)
@@ -93,6 +93,11 @@ namespace Voucherify.Model
                 throw new ArgumentNullException("loyaltyCard is a required property for CampaignLoyaltyVoucher and cannot be null");
             }
             this._LoyaltyCard = loyaltyCard;
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
             this._Redemption = redemption;
             if (this.Redemption != null)
             {

@@ -134,14 +134,14 @@ namespace Voucherify.Model
         /// <param name="sku">sku.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID assigned by Voucherify..</param>
         /// <param name="id">id.</param>
-        /// <param name="varObject">varObject (default to ObjectEnum.Reward).</param>
+        /// <param name="varObject">varObject.</param>
         /// <param name="name">name.</param>
         /// <param name="createdAt">createdAt.</param>
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward..</param>
         /// <param name="type">Reward type..</param>
-        public MemberActivityDataRedemptionReward(MemberActivityDataRedemptionRewardCustomer customer = default(MemberActivityDataRedemptionRewardCustomer), string assignmentId = default(string), MemberActivityDataRedemptionRewardVoucher voucher = default(MemberActivityDataRedemptionRewardVoucher), MemberActivityDataRedemptionRewardProduct product = default(MemberActivityDataRedemptionRewardProduct), MemberActivityDataRedemptionRewardSku sku = default(MemberActivityDataRedemptionRewardSku), string loyaltyTierId = default(string), string id = default(string), ObjectEnum? varObject = ObjectEnum.Reward, string name = default(string), string createdAt = default(string), string updatedAt = default(string), MemberActivityDataRedemptionRewardParameters parameters = default(MemberActivityDataRedemptionRewardParameters), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?))
+        public MemberActivityDataRedemptionReward(MemberActivityDataRedemptionRewardCustomer customer = default(MemberActivityDataRedemptionRewardCustomer), string assignmentId = default(string), MemberActivityDataRedemptionRewardVoucher voucher = default(MemberActivityDataRedemptionRewardVoucher), MemberActivityDataRedemptionRewardProduct product = default(MemberActivityDataRedemptionRewardProduct), MemberActivityDataRedemptionRewardSku sku = default(MemberActivityDataRedemptionRewardSku), string loyaltyTierId = default(string), string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), string name = default(string), string createdAt = default(string), string updatedAt = default(string), MemberActivityDataRedemptionRewardParameters parameters = default(MemberActivityDataRedemptionRewardParameters), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?))
         {
             this._Customer = customer;
             if (this.Customer != null)
@@ -177,6 +177,11 @@ namespace Voucherify.Model
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Name = name;
             if (this.Name != null)

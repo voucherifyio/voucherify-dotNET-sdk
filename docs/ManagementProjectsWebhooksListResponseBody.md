@@ -5,8 +5,8 @@ Object containing a list of webhook configurations.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the webhook configurations in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of webhook objects. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the webhook configurations in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of webhook objects. | [optional] 
 **Data** | [**List&lt;ManagementProjectsWebhook&gt;**](ManagementProjectsWebhook.md) | Array of webhook objects. | [optional] 
 **Total** | **int?** | The total number of webhook objects. | [optional] 
 

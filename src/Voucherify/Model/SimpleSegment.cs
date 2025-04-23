@@ -78,8 +78,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="id">Unique segment ID..</param>
         /// <param name="name">Segment name..</param>
-        /// <param name="varObject">The type of the object represented by the ID. (default to ObjectEnum.Segment).</param>
-        public SimpleSegment(string id = default(string), string name = default(string), ObjectEnum? varObject = ObjectEnum.Segment)
+        /// <param name="varObject">The type of the object represented by the ID..</param>
+        public SimpleSegment(string id = default(string), string name = default(string), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -90,6 +90,11 @@ namespace Voucherify.Model
             if (this.Name != null)
             {
                 this._flagName = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

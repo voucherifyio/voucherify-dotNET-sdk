@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccessSettingsCampaignAssignmentsList" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of campaign assignments. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores.</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of campaign assignments..</param>
         /// <param name="data">Contains an array of campaign assignments..</param>
         /// <param name="total">Total number of areas and stores to which the campaign is assigned..</param>
-        public AccessSettingsCampaignAssignmentsList(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<AreaStoreCampaignAssignment> data = default(List<AreaStoreCampaignAssignment>), int? total = default(int?))
+        public AccessSettingsCampaignAssignmentsList(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<AreaStoreCampaignAssignment> data = default(List<AreaStoreCampaignAssignment>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

@@ -168,10 +168,10 @@ namespace Voucherify.Model
         /// <param name="total">Total income incurred over the lifespan of the gift card or loyalty card..</param>
         /// <param name="balance">The balance after adding or subtracting a specified amount. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;..</param>
         /// <param name="type">The type of voucher being modified..</param>
-        /// <param name="operationType">The type of the operation being performed. (default to OperationTypeEnum.MANUAL).</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;balance&#x60;. (default to ObjectEnum.Balance).</param>
+        /// <param name="operationType">The type of the operation being performed..</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;balance&#x60;..</param>
         /// <param name="relatedObject">relatedObject.</param>
-        public VouchersBalanceUpdateResponseBody(int? amount = default(int?), int? total = default(int?), int? balance = default(int?), TypeEnum? type = default(TypeEnum?), OperationTypeEnum? operationType = OperationTypeEnum.MANUAL, ObjectEnum? varObject = ObjectEnum.Balance, VouchersBalanceUpdateResponseBodyRelatedObject relatedObject = default(VouchersBalanceUpdateResponseBodyRelatedObject))
+        public VouchersBalanceUpdateResponseBody(int? amount = default(int?), int? total = default(int?), int? balance = default(int?), TypeEnum? type = default(TypeEnum?), OperationTypeEnum? operationType = default(OperationTypeEnum?), ObjectEnum? varObject = default(ObjectEnum?), VouchersBalanceUpdateResponseBodyRelatedObject relatedObject = default(VouchersBalanceUpdateResponseBodyRelatedObject))
         {
             this._Amount = amount;
             if (this.Amount != null)
@@ -192,6 +192,16 @@ namespace Voucherify.Model
             if (this.Type != null)
             {
                 this._flagType = true;
+            }
+            this._OperationType = operationType;
+            if (this.OperationType != null)
+            {
+                this._flagOperationType = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._RelatedObject = relatedObject;
             if (this.RelatedObject != null)

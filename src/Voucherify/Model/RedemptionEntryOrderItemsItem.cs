@@ -142,10 +142,10 @@ namespace Voucherify.Model
         /// <param name="subtotalAmount">Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;applied_discount_amount&#x60;.</param>
         /// <param name="product">product.</param>
         /// <param name="sku">sku.</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.OrderItem).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to an item object. It can be useful for storing additional information about the item in a structured format. It can be used to define business validation rules or discount formulas..</param>
         /// <param name="applicationDetails">Array containing details about the items that are replaced and the items that are replacements for discounts with the &#x60;REPLACE_ITEMS&#x60; effect..</param>
-        public RedemptionEntryOrderItemsItem(string id = default(string), string skuId = default(string), string productId = default(string), RelatedObjectEnum? relatedObject = default(RelatedObjectEnum?), string sourceId = default(string), int? quantity = default(int?), int? discountQuantity = default(int?), int? initialQuantity = default(int?), int? amount = default(int?), int? discountAmount = default(int?), int? appliedDiscountAmount = default(int?), int? appliedDiscountQuantity = default(int?), int? appliedQuantity = default(int?), int? appliedQuantityAmount = default(int?), int? initialAmount = default(int?), int? price = default(int?), int? subtotalAmount = default(int?), RedemptionEntryOrderItemsItemProduct product = default(RedemptionEntryOrderItemsItemProduct), RedemptionEntryOrderItemsItemSku sku = default(RedemptionEntryOrderItemsItemSku), ObjectEnum? varObject = ObjectEnum.OrderItem, Object metadata = default(Object), List<ApplicationDetailsItem> applicationDetails = default(List<ApplicationDetailsItem>))
+        public RedemptionEntryOrderItemsItem(string id = default(string), string skuId = default(string), string productId = default(string), RelatedObjectEnum? relatedObject = default(RelatedObjectEnum?), string sourceId = default(string), int? quantity = default(int?), int? discountQuantity = default(int?), int? initialQuantity = default(int?), int? amount = default(int?), int? discountAmount = default(int?), int? appliedDiscountAmount = default(int?), int? appliedDiscountQuantity = default(int?), int? appliedQuantity = default(int?), int? appliedQuantityAmount = default(int?), int? initialAmount = default(int?), int? price = default(int?), int? subtotalAmount = default(int?), RedemptionEntryOrderItemsItemProduct product = default(RedemptionEntryOrderItemsItemProduct), RedemptionEntryOrderItemsItemSku sku = default(RedemptionEntryOrderItemsItemSku), ObjectEnum? varObject = default(ObjectEnum?), Object metadata = default(Object), List<ApplicationDetailsItem> applicationDetails = default(List<ApplicationDetailsItem>))
         {
             this._Id = id;
             if (this.Id != null)
@@ -241,6 +241,11 @@ namespace Voucherify.Model
             if (this.Sku != null)
             {
                 this._flagSku = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Metadata = metadata;
             if (this.Metadata != null)

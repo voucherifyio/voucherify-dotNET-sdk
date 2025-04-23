@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Category** | **string** | The category assigned to the campaign. Either pass this parameter OR the &#x60;category_id&#x60;. | [optional] 
 **Metadata** | **Object** | The metadata object stores all custom attributes assigned to the campaign. A set of key/value pairs that you can attach to a campaign object. It can be useful for storing additional information about the campaign in a structured format. | [optional] 
 **AccessSettings** | [**AccessSettings**](AccessSettings.md) |  | [optional] 
-**CampaignType** | **string** | Type of campaign. | [optional] [default to CampaignTypeEnum.LOYALTYPROGRAM]
+**CampaignType** | **string** | Type of campaign. | [optional] 
 **Voucher** | [**CampaignLoyaltyVoucher**](CampaignLoyaltyVoucher.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

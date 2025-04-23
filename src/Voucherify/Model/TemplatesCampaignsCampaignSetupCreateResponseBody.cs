@@ -83,8 +83,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="createdResources">Contains a list of resources that have been added to the project when the campaign has been created out of the template..</param>
         /// <param name="campaign">campaign (required).</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template. (default to ObjectEnum.CampaignSetup).</param>
-        public TemplatesCampaignsCampaignSetupCreateResponseBody(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem> createdResources = default(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem>), Campaign campaign = default(Campaign), ObjectEnum? varObject = ObjectEnum.CampaignSetup)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template..</param>
+        public TemplatesCampaignsCampaignSetupCreateResponseBody(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem> createdResources = default(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem>), Campaign campaign = default(Campaign), ObjectEnum? varObject = default(ObjectEnum?))
         {
             // to ensure "campaign" is required (not null)
             if (campaign == null)
@@ -96,6 +96,11 @@ namespace Voucherify.Model
             if (this.CreatedResources != null)
             {
                 this._flagCreatedResources = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

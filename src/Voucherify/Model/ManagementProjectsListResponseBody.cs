@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManagementProjectsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the projects in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of project objects. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the projects in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of project objects..</param>
         /// <param name="data">Array of project objects..</param>
         /// <param name="total">The total number of projects..</param>
-        public ManagementProjectsListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<ManagementProject> data = default(List<ManagementProject>), int? total = default(int?))
+        public ManagementProjectsListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<ManagementProject> data = default(List<ManagementProject>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

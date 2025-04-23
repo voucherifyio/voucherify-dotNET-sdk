@@ -126,7 +126,7 @@ namespace Voucherify.Model
         /// <param name="loyaltyTier">loyaltyTier.</param>
         /// <param name="pendingPoints">pendingPoints.</param>
         /// <param name="source">source.</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is earning_rule. (default to ObjectEnum.EarningRule).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is earning_rule..</param>
         /// <param name="automationId">For internal use by Voucherify..</param>
         /// <param name="startDate">Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default..</param>
         /// <param name="expirationDate">Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. The earning rule is inactive after this date. If you do not define the expiration date for an earning rule, it will inherit the campaign expiration date by default..</param>
@@ -135,8 +135,8 @@ namespace Voucherify.Model
         /// <param name="validityHours">validityHours.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the earning rule. A set of key/value pairs that you can attach to an earning rule object. It can be useful for storing additional information about the earning rule in a structured format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the earning rule was last updated in ISO 8601 format..</param>
-        /// <param name="active">A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date. (default to false).</param>
-        public LoyaltiesEarningRulesDisableResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty = default(LoyaltiesEarningRulesDisableResponseBodyLoyalty), string varEvent = default(string), LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent = default(LoyaltiesEarningRulesDisableResponseBodyCustomEvent), LoyaltiesEarningRulesDisableResponseBodySegment segment = default(LoyaltiesEarningRulesDisableResponseBodySegment), LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier = default(LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier), LoyaltiesEarningRulesDisableResponseBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesDisableResponseBodyPendingPoints), LoyaltiesEarningRulesDisableResponseBodySource source = default(LoyaltiesEarningRulesDisableResponseBodySource), ObjectEnum? varObject = ObjectEnum.EarningRule, string automationId = default(string), string startDate = default(string), string expirationDate = default(string), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object), DateTimeOffset? updatedAt = default(DateTimeOffset?), bool? active = false)
+        /// <param name="active">A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date..</param>
+        public LoyaltiesEarningRulesDisableResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), LoyaltiesEarningRulesDisableResponseBodyLoyalty loyalty = default(LoyaltiesEarningRulesDisableResponseBodyLoyalty), string varEvent = default(string), LoyaltiesEarningRulesDisableResponseBodyCustomEvent customEvent = default(LoyaltiesEarningRulesDisableResponseBodyCustomEvent), LoyaltiesEarningRulesDisableResponseBodySegment segment = default(LoyaltiesEarningRulesDisableResponseBodySegment), LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier loyaltyTier = default(LoyaltiesEarningRulesDisableResponseBodyLoyaltyTier), LoyaltiesEarningRulesDisableResponseBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesDisableResponseBodyPendingPoints), LoyaltiesEarningRulesDisableResponseBodySource source = default(LoyaltiesEarningRulesDisableResponseBodySource), ObjectEnum? varObject = default(ObjectEnum?), string automationId = default(string), string startDate = default(string), string expirationDate = default(string), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object), DateTimeOffset? updatedAt = default(DateTimeOffset?), bool? active = default(bool?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -183,6 +183,11 @@ namespace Voucherify.Model
             {
                 this._flagSource = true;
             }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._AutomationId = automationId;
             if (this.AutomationId != null)
             {
@@ -222,6 +227,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Active = active;
+            if (this.Active != null)
+            {
+                this._flagActive = true;
             }
         }
 

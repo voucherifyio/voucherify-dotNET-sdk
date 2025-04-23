@@ -129,7 +129,7 @@ namespace Voucherify.Model
         /// <param name="category">Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint..</param>
         /// <param name="categoryId">Unique category ID assigned by Voucherify..</param>
         /// <param name="categories">categories.</param>
-        /// <param name="type">Defines the type of the voucher. (default to TypeEnum.LOYALTYCARD).</param>
+        /// <param name="type">Defines the type of the voucher..</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="startDate">Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is inactive before this date..</param>
         /// <param name="expirationDate">Expiration timestamp defines when the code expires in ISO 8601 format. Voucher is inactive after this date..</param>
@@ -146,7 +146,7 @@ namespace Voucherify.Model
         /// <param name="holderId">Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the voucher was last updated in ISO 8601 format..</param>
         /// <param name="createdAt">createdAt.</param>
-        public LoyaltiesMembersTransfersCreateResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), List<Category> categories = default(List<Category>), TypeEnum? type = TypeEnum.LOYALTYCARD, LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), LoyaltiesMembersTransfersCreateResponseBodyPublish publish = default(LoyaltiesMembersTransfersCreateResponseBodyPublish), LoyaltiesMembersTransfersCreateResponseBodyRedemption redemption = default(LoyaltiesMembersTransfersCreateResponseBodyRedemption), string active = default(string), string additionalInfo = default(string), Object metadata = default(Object), LoyaltiesMembersTransfersCreateResponseBodyAssets assets = default(LoyaltiesMembersTransfersCreateResponseBodyAssets), bool? isReferralCode = default(bool?), string holderId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), DateTimeOffset? createdAt = default(DateTimeOffset?))
+        public LoyaltiesMembersTransfersCreateResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), List<Category> categories = default(List<Category>), TypeEnum? type = default(TypeEnum?), LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), LoyaltiesMembersTransfersCreateResponseBodyPublish publish = default(LoyaltiesMembersTransfersCreateResponseBodyPublish), LoyaltiesMembersTransfersCreateResponseBodyRedemption redemption = default(LoyaltiesMembersTransfersCreateResponseBodyRedemption), string active = default(string), string additionalInfo = default(string), Object metadata = default(Object), LoyaltiesMembersTransfersCreateResponseBodyAssets assets = default(LoyaltiesMembersTransfersCreateResponseBodyAssets), bool? isReferralCode = default(bool?), string holderId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), DateTimeOffset? createdAt = default(DateTimeOffset?))
         {
             // to ensure "validityTimeframe" is required (not null)
             if (validityTimeframe == null)
@@ -194,6 +194,11 @@ namespace Voucherify.Model
             if (this.Categories != null)
             {
                 this._flagCategories = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
             this._LoyaltyCard = loyaltyCard;
             if (this.LoyaltyCard != null)

@@ -5,8 +5,8 @@ Response body schema for **GET** `v1/product-collections`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about product collections. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the JSON property that contains the array of product collections. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about product collections. | [optional] 
+**DataRef** | **string** | Identifies the name of the JSON property that contains the array of product collections. | [optional] 
 **Data** | [**List&lt;ProductCollectionsItem&gt;**](ProductCollectionsItem.md) | A dictionary that contains an array of product collections and their details. | [optional] 
 **Total** | **int?** | Total number of product collections. | [optional] 
 

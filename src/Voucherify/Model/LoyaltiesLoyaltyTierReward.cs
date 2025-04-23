@@ -83,8 +83,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="reward">reward (required).</param>
         /// <param name="assignment">assignment (required).</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the loyalty tier reward. (required) (default to ObjectEnum.LoyaltyTierReward).</param>
-        public LoyaltiesLoyaltyTierReward(Reward reward = default(Reward), RewardAssignment assignment = default(RewardAssignment), ObjectEnum varObject = ObjectEnum.LoyaltyTierReward)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the loyalty tier reward. (required).</param>
+        public LoyaltiesLoyaltyTierReward(Reward reward = default(Reward), RewardAssignment assignment = default(RewardAssignment), ObjectEnum varObject = default(ObjectEnum))
         {
             // to ensure "reward" is required (not null)
             if (reward == null)

@@ -79,9 +79,9 @@ namespace Voucherify.Model
         /// <param name="quantity">How many times a voucher can be redeemed. A null value means unlimited..</param>
         /// <param name="redeemedPoints">Total loyalty points redeemed..</param>
         /// <param name="redeemedQuantity">How many times a voucher has already been redeemed..</param>
-        /// <param name="varObject">The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute. (default to ObjectEnum.List).</param>
+        /// <param name="varObject">The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute..</param>
         /// <param name="url">The endpoint where this list of redemptions can be accessed using a **GET** method. /v1/vouchers/{voucher_code}/redemptions.</param>
-        public LoyaltiesMembersTransfersCreateResponseBodyRedemption(int? quantity = default(int?), int? redeemedPoints = default(int?), int? redeemedQuantity = default(int?), ObjectEnum? varObject = ObjectEnum.List, string url = default(string))
+        public LoyaltiesMembersTransfersCreateResponseBodyRedemption(int? quantity = default(int?), int? redeemedPoints = default(int?), int? redeemedQuantity = default(int?), ObjectEnum? varObject = default(ObjectEnum?), string url = default(string))
         {
             this._Quantity = quantity;
             if (this.Quantity != null)
@@ -97,6 +97,11 @@ namespace Voucherify.Model
             if (this.RedeemedQuantity != null)
             {
                 this._flagRedeemedQuantity = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Url = url;
             if (this.Url != null)

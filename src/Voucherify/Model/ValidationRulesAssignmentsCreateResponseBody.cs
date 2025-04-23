@@ -152,8 +152,8 @@ namespace Voucherify.Model
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned..</param>
         /// <param name="relatedObjectType">The type of resource to which the validation rule was assigned..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the validation rule assignment was created. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by the ID. (default to ObjectEnum.ValidationRulesAssignment).</param>
-        public ValidationRulesAssignmentsCreateResponseBody(string id = default(string), string ruleId = default(string), string relatedObjectId = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.ValidationRulesAssignment)
+        /// <param name="varObject">The type of the object represented by the ID..</param>
+        public ValidationRulesAssignmentsCreateResponseBody(string id = default(string), string ruleId = default(string), string relatedObjectId = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -179,6 +179,11 @@ namespace Voucherify.Model
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

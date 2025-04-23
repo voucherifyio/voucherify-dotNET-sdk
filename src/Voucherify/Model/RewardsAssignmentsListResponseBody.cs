@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RewardsAssignmentsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about reward assignments in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of reward assignments. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about reward assignments in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of reward assignments..</param>
         /// <param name="data">data.</param>
         /// <param name="total">Total number of reward assignments..</param>
-        public RewardsAssignmentsListResponseBody(string varObject = @"list", string dataRef = @"data", List<RewardAssignment> data = default(List<RewardAssignment>), int? total = default(int?))
+        public RewardsAssignmentsListResponseBody(string varObject = default(string), string dataRef = default(string), List<RewardAssignment> data = default(List<RewardAssignment>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

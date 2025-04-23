@@ -144,8 +144,8 @@ namespace Voucherify.Model
         /// <param name="parameters">parameters.</param>
         /// <param name="createdAt">Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward. (required) (default to ObjectEnum.Reward).</param>
-        public Reward(string id = default(string), string name = default(string), int? stock = default(int?), int? redeemed = default(int?), RewardAttributes attributes = default(RewardAttributes), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?), RewardType parameters = default(RewardType), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum varObject = ObjectEnum.Reward)
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward. (required).</param>
+        public Reward(string id = default(string), string name = default(string), int? stock = default(int?), int? redeemed = default(int?), RewardAttributes attributes = default(RewardAttributes), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?), RewardType parameters = default(RewardType), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum varObject = default(ObjectEnum))
         {
             this._Object = varObject;
             this._Id = id;

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Timezone** | **string** | The time zone in which the project is established. It can be in the GMT format or in accordance with IANA time zone database. | [optional] 
 **Currency** | **string** | The currency used in the project. It is equal to a 3-letter ISO 4217 code. | [optional] 
 **DialCode** | **string** | The country dial code for the project. It is equal to an ITU country code. | [optional] 
-**WebhookVersion** | **string** | The webhook version used in the project. | [optional] [default to WebhookVersionEnum.V20240101]
+**WebhookVersion** | **string** | The webhook version used in the project. | [optional] 
 **ClientTrustedDomains** | **List&lt;string&gt;** | An array of URL addresses that allow client requests. | [optional] 
 **ClientRedeemEnabled** | **bool?** | Enables client-side redemption. | [optional] 
 **ClientPublishEnabled** | **bool?** | Enables client-side publication. | [optional] 

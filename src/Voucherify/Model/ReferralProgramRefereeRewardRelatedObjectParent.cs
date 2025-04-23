@@ -78,8 +78,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="id">Unique ID of the reward source..</param>
         /// <param name="name">Name of the reward source..</param>
-        /// <param name="varObject">Type of resource represented by the source of the reward. (default to ObjectEnum.CAMPAIGN).</param>
-        public ReferralProgramRefereeRewardRelatedObjectParent(string id = default(string), string name = default(string), ObjectEnum? varObject = ObjectEnum.CAMPAIGN)
+        /// <param name="varObject">Type of resource represented by the source of the reward..</param>
+        public ReferralProgramRefereeRewardRelatedObjectParent(string id = default(string), string name = default(string), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -90,6 +90,11 @@ namespace Voucherify.Model
             if (this.Name != null)
             {
                 this._flagName = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

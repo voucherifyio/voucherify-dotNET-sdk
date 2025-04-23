@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Sku** | [**SimpleSku**](SimpleSku.md) |  | [optional] 
 **LoyaltyTierId** | **string** | Unique loyalty tier ID assigned by Voucherify. | [optional] 
 **Id** | **string** | Unique reward ID, assigned by Voucherify. | [optional] 
-**Object** | **string** | The type of the object represented by the JSON. This object stores information about the reward. | [optional] [default to ObjectEnum.Reward]
+**Object** | **string** | The type of the object represented by the JSON. This object stores information about the reward. | [optional] 
 **Name** | **string** | Reward name. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format. | [optional] 

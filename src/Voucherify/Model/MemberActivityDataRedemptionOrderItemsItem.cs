@@ -120,7 +120,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="MemberActivityDataRedemptionOrderItemsItem" /> class.
         /// </summary>
         /// <param name="id">Unique identifier of the order line item..</param>
-        /// <param name="varObject">varObject (default to ObjectEnum.OrderItem).</param>
+        /// <param name="varObject">varObject.</param>
         /// <param name="sourceId">The merchant&#39;s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service..</param>
         /// <param name="relatedObject">relatedObject.</param>
         /// <param name="productId">Unique identifier of the product. It is assigned by Voucherify..</param>
@@ -140,12 +140,17 @@ namespace Voucherify.Model
         /// <param name="product">product.</param>
         /// <param name="sku">sku.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to an item object. It can be useful for storing additional information about the item in a structured format. It can be used to define business validation rules or discount formulas..</param>
-        public MemberActivityDataRedemptionOrderItemsItem(string id = default(string), ObjectEnum? varObject = ObjectEnum.OrderItem, string sourceId = default(string), RelatedObjectEnum? relatedObject = default(RelatedObjectEnum?), string productId = default(string), string skuId = default(string), int quantity = default(int), int? appliedQuantity = default(int?), int? appliedQuantityAmount = default(int?), int discountQuantity = default(int), int? appliedDiscountQuantity = default(int?), int amount = default(int), int? discountAmount = default(int?), int appliedDiscountAmount = default(int), int? price = default(int?), int subtotalAmount = default(int), int? initialQuantity = default(int?), int? initialAmount = default(int?), MemberActivityDataRedemptionOrderItemsItemProduct product = default(MemberActivityDataRedemptionOrderItemsItemProduct), MemberActivityDataRedemptionOrderItemsItemSku sku = default(MemberActivityDataRedemptionOrderItemsItemSku), Object metadata = default(Object))
+        public MemberActivityDataRedemptionOrderItemsItem(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), string sourceId = default(string), RelatedObjectEnum? relatedObject = default(RelatedObjectEnum?), string productId = default(string), string skuId = default(string), int quantity = default(int), int? appliedQuantity = default(int?), int? appliedQuantityAmount = default(int?), int discountQuantity = default(int), int? appliedDiscountQuantity = default(int?), int amount = default(int), int? discountAmount = default(int?), int appliedDiscountAmount = default(int), int? price = default(int?), int subtotalAmount = default(int), int? initialQuantity = default(int?), int? initialAmount = default(int?), MemberActivityDataRedemptionOrderItemsItemProduct product = default(MemberActivityDataRedemptionOrderItemsItemProduct), MemberActivityDataRedemptionOrderItemsItemSku sku = default(MemberActivityDataRedemptionOrderItemsItemSku), Object metadata = default(Object))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._SourceId = sourceId;
             if (this.SourceId != null)

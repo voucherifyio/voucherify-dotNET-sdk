@@ -38,11 +38,11 @@ namespace Voucherify.Model
         /// <param name="id">Unique permanent deletion object ID..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the customer was requested to be deleted in ISO 8601 format..</param>
         /// <param name="relatedObjectId">Unique customer ID that is being deleted..</param>
-        /// <param name="relatedObject">Object being deleted. (default to &quot;customer&quot;).</param>
-        /// <param name="status">Deletion status. (default to &quot;DONE&quot;).</param>
+        /// <param name="relatedObject">Object being deleted..</param>
+        /// <param name="status">Deletion status..</param>
         /// <param name="dataJson">dataJson.</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to &quot;pernament_deletion&quot;).</param>
-        public CustomersPermanentDeletionCreateResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string relatedObjectId = default(string), string relatedObject = @"customer", string status = @"DONE", CustomersPermanentDeletionCreateResponseBodyDataJson dataJson = default(CustomersPermanentDeletionCreateResponseBodyDataJson), string varObject = @"pernament_deletion")
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public CustomersPermanentDeletionCreateResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string relatedObjectId = default(string), string relatedObject = default(string), string status = default(string), CustomersPermanentDeletionCreateResponseBodyDataJson dataJson = default(CustomersPermanentDeletionCreateResponseBodyDataJson), string varObject = default(string))
         {
             this._Id = id;
             if (this.Id != null)
@@ -59,10 +59,25 @@ namespace Voucherify.Model
             {
                 this._flagRelatedObjectId = true;
             }
+            this._RelatedObject = relatedObject;
+            if (this.RelatedObject != null)
+            {
+                this._flagRelatedObject = true;
+            }
+            this._Status = status;
+            if (this.Status != null)
+            {
+                this._flagStatus = true;
+            }
             this._DataJson = dataJson;
             if (this.DataJson != null)
             {
                 this._flagDataJson = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

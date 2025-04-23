@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ExpiresAt** | **DateTime?** | Date when the number of points defined in the bucket object are due to expire. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the loyalty point bucket. | [optional] [default to ObjectEnum.LoyaltyPointsBucket]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the loyalty point bucket. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

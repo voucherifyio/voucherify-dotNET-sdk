@@ -149,8 +149,8 @@ namespace Voucherify.Model
         /// <param name="startDate">Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date..</param>
         /// <param name="expirationDate">Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date..</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a voucher. The metadata object stores all custom attributes assigned to the voucher..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Voucher).</param>
-        public SimpleVoucher(string id = default(string), string code = default(string), Gift gift = default(Gift), Discount discount = default(Discount), SimpleLoyaltyCard loyaltyCard = default(SimpleLoyaltyCard), TypeEnum? type = default(TypeEnum?), string campaign = default(string), string campaignId = default(string), bool? isReferralCode = default(bool?), string holderId = default(string), string referrerId = default(string), string categoryId = default(string), List<Category> categories = default(List<Category>), bool? active = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), SimpleVoucherRedemption redemption = default(SimpleVoucherRedemption), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), Object metadata = default(Object), ObjectEnum? varObject = ObjectEnum.Voucher)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public SimpleVoucher(string id = default(string), string code = default(string), Gift gift = default(Gift), Discount discount = default(Discount), SimpleLoyaltyCard loyaltyCard = default(SimpleLoyaltyCard), TypeEnum? type = default(TypeEnum?), string campaign = default(string), string campaignId = default(string), bool? isReferralCode = default(bool?), string holderId = default(string), string referrerId = default(string), string categoryId = default(string), List<Category> categories = default(List<Category>), bool? active = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), SimpleVoucherRedemption redemption = default(SimpleVoucherRedemption), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), Object metadata = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -251,6 +251,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

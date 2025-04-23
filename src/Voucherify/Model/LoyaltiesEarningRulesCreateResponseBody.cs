@@ -126,7 +126,7 @@ namespace Voucherify.Model
         /// <param name="loyaltyTier">loyaltyTier.</param>
         /// <param name="pendingPoints">pendingPoints.</param>
         /// <param name="source">source.</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is earning_rule. (default to ObjectEnum.EarningRule).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is earning_rule..</param>
         /// <param name="automationId">For internal use by Voucherify..</param>
         /// <param name="startDate">Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default..</param>
         /// <param name="expirationDate">Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. The earning rule is inactive after this date. If you do not define the expiration date for an earning rule, it will inherit the campaign expiration date by default..</param>
@@ -137,7 +137,7 @@ namespace Voucherify.Model
         /// <param name="validationRuleId">A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the earning rule was last updated in ISO 8601 format..</param>
         /// <param name="active">A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date.  - &#x60;true&#x60; indicates an active earning rule - &#x60;false&#x60; indicates an inactive earning rule.</param>
-        public LoyaltiesEarningRulesCreateResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), LoyaltiesEarningRulesCreateResponseBodyLoyalty loyalty = default(LoyaltiesEarningRulesCreateResponseBodyLoyalty), string varEvent = default(string), LoyaltiesEarningRulesCreateResponseBodyCustomEvent customEvent = default(LoyaltiesEarningRulesCreateResponseBodyCustomEvent), LoyaltiesEarningRulesCreateResponseBodySegment segment = default(LoyaltiesEarningRulesCreateResponseBodySegment), LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier loyaltyTier = default(LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier), LoyaltiesEarningRulesCreateResponseBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesCreateResponseBodyPendingPoints), LoyaltiesEarningRulesCreateResponseBodySource source = default(LoyaltiesEarningRulesCreateResponseBodySource), ObjectEnum? varObject = ObjectEnum.EarningRule, string automationId = default(string), string startDate = default(string), string expirationDate = default(string), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object), string validationRuleId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), bool? active = default(bool?))
+        public LoyaltiesEarningRulesCreateResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), LoyaltiesEarningRulesCreateResponseBodyLoyalty loyalty = default(LoyaltiesEarningRulesCreateResponseBodyLoyalty), string varEvent = default(string), LoyaltiesEarningRulesCreateResponseBodyCustomEvent customEvent = default(LoyaltiesEarningRulesCreateResponseBodyCustomEvent), LoyaltiesEarningRulesCreateResponseBodySegment segment = default(LoyaltiesEarningRulesCreateResponseBodySegment), LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier loyaltyTier = default(LoyaltiesEarningRulesCreateResponseBodyLoyaltyTier), LoyaltiesEarningRulesCreateResponseBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesCreateResponseBodyPendingPoints), LoyaltiesEarningRulesCreateResponseBodySource source = default(LoyaltiesEarningRulesCreateResponseBodySource), ObjectEnum? varObject = default(ObjectEnum?), string automationId = default(string), string startDate = default(string), string expirationDate = default(string), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object), string validationRuleId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), bool? active = default(bool?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -183,6 +183,11 @@ namespace Voucherify.Model
             if (this.Source != null)
             {
                 this._flagSource = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._AutomationId = automationId;
             if (this.AutomationId != null)

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **StartDate** | **DateTimeOffset?** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is *inactive before* this date. | [optional] 
 **ExpirationDate** | **DateTimeOffset?** | Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date. | [optional] 
 **Metadata** | **Object** | A set of custom key/value pairs that you can attach to a voucher. The metadata object stores all custom attributes assigned to the voucher. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.Voucher]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

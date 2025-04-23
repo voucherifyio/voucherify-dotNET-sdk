@@ -193,25 +193,35 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="ExportsCreateResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique export ID..</param>
-        /// <param name="varObject">The type of object being represented. This object stores information about the export. (default to ObjectEnum.Export).</param>
+        /// <param name="varObject">The type of object being represented. This object stores information about the export..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the export was scheduled in ISO 8601 format..</param>
-        /// <param name="status">Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated. (default to StatusEnum.SCHEDULED).</param>
+        /// <param name="status">Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated..</param>
         /// <param name="channel">The channel through which the export was triggered..</param>
         /// <param name="result">Contains the URL of the CSV file..</param>
         /// <param name="userId">Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the channel value is WEBSITE..</param>
         /// <param name="exportedObject">exportedObject.</param>
         /// <param name="parameters">parameters.</param>
-        public ExportsCreateResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.Export, DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = StatusEnum.SCHEDULED, string channel = default(string), Object result = default(Object), string userId = default(string), ExportedObjectEnum? exportedObject = default(ExportedObjectEnum?), ExportsCreateResponseBodyParameters parameters = default(ExportsCreateResponseBodyParameters))
+        public ExportsCreateResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = default(StatusEnum?), string channel = default(string), Object result = default(Object), string userId = default(string), ExportedObjectEnum? exportedObject = default(ExportedObjectEnum?), ExportsCreateResponseBodyParameters parameters = default(ExportsCreateResponseBodyParameters))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
             }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._Status = status;
+            if (this.Status != null)
+            {
+                this._flagStatus = true;
             }
             this._Channel = channel;
             if (this.Channel != null)

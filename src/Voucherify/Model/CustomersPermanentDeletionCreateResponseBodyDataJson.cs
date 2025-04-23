@@ -41,8 +41,8 @@ namespace Voucherify.Model
         /// <param name="segments">Number of segments deleted..</param>
         /// <param name="orders">Number of orders deleted..</param>
         /// <param name="orderEvents">Number of order events deleted..</param>
-        /// <param name="customer">Number of customers deleted. (default to 1).</param>
-        public CustomersPermanentDeletionCreateResponseBodyDataJson(int? events = default(int?), int? customerEvents = default(int?), int? dailyEvents = default(int?), int? segments = default(int?), int? orders = default(int?), int? orderEvents = default(int?), int? customer = 1)
+        /// <param name="customer">Number of customers deleted..</param>
+        public CustomersPermanentDeletionCreateResponseBodyDataJson(int? events = default(int?), int? customerEvents = default(int?), int? dailyEvents = default(int?), int? segments = default(int?), int? orders = default(int?), int? orderEvents = default(int?), int? customer = default(int?))
         {
             this._Events = events;
             if (this.Events != null)
@@ -73,6 +73,11 @@ namespace Voucherify.Model
             if (this.OrderEvents != null)
             {
                 this._flagOrderEvents = true;
+            }
+            this._Customer = customer;
+            if (this.Customer != null)
+            {
+                this._flagCustomer = true;
             }
         }
 

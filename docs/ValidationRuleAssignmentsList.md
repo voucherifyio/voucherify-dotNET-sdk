@@ -5,8 +5,8 @@ Validation Rule Assignments List
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about validation rule assignments. | [optional] [default to "list"]
-**DataRef** | **string** | Identifies the name of the JSON property that contains the array of validation rule assignments. | [optional] [default to "data"]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about validation rule assignments. | [optional] 
+**DataRef** | **string** | Identifies the name of the JSON property that contains the array of validation rule assignments. | [optional] 
 **Data** | [**List&lt;ValidationRuleAssignment&gt;**](ValidationRuleAssignment.md) | A dictionary that contains an array of validation rule assignments. | [optional] 
 **Total** | **int?** | Total number of validation rule assignments. | [optional] 
 

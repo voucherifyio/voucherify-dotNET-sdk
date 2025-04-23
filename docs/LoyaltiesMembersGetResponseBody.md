@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CampaignId** | **string** | Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign. | [optional] 
 **Category** | **string** | Tag defining the category that this voucher belongs to. | [optional] 
 **CategoryId** | **string** | Unique category ID assigned by Voucherify. | [optional] 
-**Type** | **string** | Defines the type of the voucher.  | [optional] [default to TypeEnum.LOYALTYCARD]
+**Type** | **string** | Defines the type of the voucher.  | [optional] 
 **Discount** | **Object** |  | [optional] 
 **Gift** | **Object** |  | [optional] 
 **LoyaltyCard** | [**LoyaltiesMembersGetResponseBodyLoyaltyCard**](LoyaltiesMembersGetResponseBodyLoyaltyCard.md) |  | [optional] 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the voucher was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. | [optional] 
 **HolderId** | **string** | Unique identifier of the customer who owns the voucher. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] [default to "voucher"]
+**Object** | **string** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] 
 **Publish** | [**LoyaltiesMembersGetResponseBodyPublish**](LoyaltiesMembersGetResponseBodyPublish.md) |  | [optional] 
 **Redemption** | [**LoyaltiesMembersGetResponseBodyRedemption**](LoyaltiesMembersGetResponseBodyRedemption.md) |  | [optional] 
 

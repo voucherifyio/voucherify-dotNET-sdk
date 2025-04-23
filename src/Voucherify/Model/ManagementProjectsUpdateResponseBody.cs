@@ -123,7 +123,7 @@ namespace Voucherify.Model
         /// <param name="timezone">The time zone in which the project is established. It can be in the GMT format or in accordance with IANA time zone database..</param>
         /// <param name="currency">The currency used in the project. It is equal to a 3-letter ISO 4217 code..</param>
         /// <param name="dialCode">The country dial code for the project. It is equal to an ITU country code..</param>
-        /// <param name="webhookVersion">The webhook version used in the project. (default to WebhookVersionEnum.V20240101).</param>
+        /// <param name="webhookVersion">The webhook version used in the project..</param>
         /// <param name="clientTrustedDomains">An array of URL addresses that allow client requests..</param>
         /// <param name="clientRedeemEnabled">Enables client-side redemption..</param>
         /// <param name="clientPublishEnabled">Enables client-side publication..</param>
@@ -135,12 +135,12 @@ namespace Voucherify.Model
         /// <param name="apiUsageNotifications">apiUsageNotifications.</param>
         /// <param name="clusterId">The identifier of the cluster where the project will be created..</param>
         /// <param name="caseSensitiveCodes">Determines if the vouchers in the project will be: - case sensitive - if &#x60;true&#x60;, &#x60;C0dE-cfV&#x60; is **not** equal to &#x60;c0de-cfv&#x60;), - case insensitive - if &#x60;false&#x60;, &#x60;C0dE-cfV&#x60; is equal to &#x60;c0de-cfv&#x60;..</param>
-        /// <param name="apiVersion">The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;. (default to ApiVersionEnum.V20180801).</param>
+        /// <param name="apiVersion">The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;..</param>
         /// <param name="isSandbox">Determines if the project is a sandbox project..</param>
         /// <param name="webhookToken">Webhook token used for authentication..</param>
         /// <param name="defaultCodeConfig">defaultCodeConfig.</param>
         /// <param name="limits">limits.</param>
-        public ManagementProjectsUpdateResponseBody(string id = default(string), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), string dialCode = default(string), WebhookVersionEnum? webhookVersion = WebhookVersionEnum.V20240101, List<string> clientTrustedDomains = default(List<string>), bool? clientRedeemEnabled = default(bool?), bool? clientPublishEnabled = default(bool?), bool? clientListVouchersEnabled = default(bool?), bool? clientCreateCustomerEnabled = default(bool?), bool? clientLoyaltyEventsEnabled = default(bool?), bool? clientSetVoucherExpirationDateEnabled = default(bool?), ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications webhooksCalloutNotifications = default(ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications), ManagementProjectsUpdateResponseBodyApiUsageNotifications apiUsageNotifications = default(ManagementProjectsUpdateResponseBodyApiUsageNotifications), string clusterId = default(string), bool? caseSensitiveCodes = default(bool?), ApiVersionEnum? apiVersion = ApiVersionEnum.V20180801, bool? isSandbox = default(bool?), string webhookToken = default(string), ManagementProjectsUpdateResponseBodyDefaultCodeConfig defaultCodeConfig = default(ManagementProjectsUpdateResponseBodyDefaultCodeConfig), ManagementProjectsUpdateResponseBodyLimits limits = default(ManagementProjectsUpdateResponseBodyLimits))
+        public ManagementProjectsUpdateResponseBody(string id = default(string), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), string dialCode = default(string), WebhookVersionEnum? webhookVersion = default(WebhookVersionEnum?), List<string> clientTrustedDomains = default(List<string>), bool? clientRedeemEnabled = default(bool?), bool? clientPublishEnabled = default(bool?), bool? clientListVouchersEnabled = default(bool?), bool? clientCreateCustomerEnabled = default(bool?), bool? clientLoyaltyEventsEnabled = default(bool?), bool? clientSetVoucherExpirationDateEnabled = default(bool?), ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications webhooksCalloutNotifications = default(ManagementProjectsUpdateResponseBodyWebhooksCalloutNotifications), ManagementProjectsUpdateResponseBodyApiUsageNotifications apiUsageNotifications = default(ManagementProjectsUpdateResponseBodyApiUsageNotifications), string clusterId = default(string), bool? caseSensitiveCodes = default(bool?), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), bool? isSandbox = default(bool?), string webhookToken = default(string), ManagementProjectsUpdateResponseBodyDefaultCodeConfig defaultCodeConfig = default(ManagementProjectsUpdateResponseBodyDefaultCodeConfig), ManagementProjectsUpdateResponseBodyLimits limits = default(ManagementProjectsUpdateResponseBodyLimits))
         {
             this._Id = id;
             if (this.Id != null)
@@ -171,6 +171,11 @@ namespace Voucherify.Model
             if (this.DialCode != null)
             {
                 this._flagDialCode = true;
+            }
+            this._WebhookVersion = webhookVersion;
+            if (this.WebhookVersion != null)
+            {
+                this._flagWebhookVersion = true;
             }
             this._ClientTrustedDomains = clientTrustedDomains;
             if (this.ClientTrustedDomains != null)
@@ -226,6 +231,11 @@ namespace Voucherify.Model
             if (this.CaseSensitiveCodes != null)
             {
                 this._flagCaseSensitiveCodes = true;
+            }
+            this._ApiVersion = apiVersion;
+            if (this.ApiVersion != null)
+            {
+                this._flagApiVersion = true;
             }
             this._IsSandbox = isSandbox;
             if (this.IsSandbox != null)

@@ -117,13 +117,23 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesTransactionsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of transaction objects. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of transaction objects..</param>
         /// <param name="data">A dictionary that contains an array of transactions. Each entry in the array is a separate transaction object..</param>
         /// <param name="hasMore">As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different paging or a different start date filter) to get more records returned in the results..</param>
         /// <param name="moreStartingAfter">Returns an ID that can be used to return another page of results. Use the transaction ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results starting after the transaction with that ID..</param>
-        public LoyaltiesTransactionsListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<LoyaltyCardTransaction> data = default(List<LoyaltyCardTransaction>), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
+        public LoyaltiesTransactionsListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<LoyaltyCardTransaction> data = default(List<LoyaltyCardTransaction>), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

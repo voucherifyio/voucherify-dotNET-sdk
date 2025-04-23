@@ -224,7 +224,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="RedemptionsRollbackCreateResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique identifier of the redemption rollback..</param>
-        /// <param name="varObject">The type of the object represented by the JSON (default to ObjectEnum.RedemptionRollback).</param>
+        /// <param name="varObject">The type of the object represented by the JSON.</param>
         /// <param name="date">Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="customerId">Unique customer ID of the redeeming customer..</param>
         /// <param name="trackingId">Hashed customer source ID..</param>
@@ -246,12 +246,17 @@ namespace Voucherify.Model
         /// <param name="reward">reward.</param>
         /// <param name="gift">gift.</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
-        public RedemptionsRollbackCreateResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.RedemptionRollback, DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string redemption = default(string), string reason = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), string failureCode = default(string), string failureMessage = default(string), RedemptionsRollbackCreateResponseBodyOrder order = default(RedemptionsRollbackCreateResponseBodyOrder), RedemptionsRollbackCreateResponseBodyChannel channel = default(RedemptionsRollbackCreateResponseBodyChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), Voucher voucher = default(Voucher), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionsRollbackCreateResponseBodyGift gift = default(RedemptionsRollbackCreateResponseBodyGift), RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard = default(RedemptionsRollbackCreateResponseBodyLoyaltyCard))
+        public RedemptionsRollbackCreateResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string redemption = default(string), string reason = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), string failureCode = default(string), string failureMessage = default(string), RedemptionsRollbackCreateResponseBodyOrder order = default(RedemptionsRollbackCreateResponseBodyOrder), RedemptionsRollbackCreateResponseBodyChannel channel = default(RedemptionsRollbackCreateResponseBodyChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), Voucher voucher = default(Voucher), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionsRollbackCreateResponseBodyGift gift = default(RedemptionsRollbackCreateResponseBodyGift), RedemptionsRollbackCreateResponseBodyLoyaltyCard loyaltyCard = default(RedemptionsRollbackCreateResponseBodyLoyaltyCard))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Date = date;
             if (this.Date != null)

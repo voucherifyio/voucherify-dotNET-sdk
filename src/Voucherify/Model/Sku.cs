@@ -87,8 +87,8 @@ namespace Voucherify.Model
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the SKU. A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format. It can be used to create product collections..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the SKU was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the SKU was updated. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;. (default to ObjectEnum.Sku).</param>
-        public Sku(string id = default(string), string sourceId = default(string), string productId = default(string), string varSku = default(string), int? price = default(int?), string currency = default(string), Object attributes = default(Object), string imageUrl = default(string), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.Sku)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;..</param>
+        public Sku(string id = default(string), string sourceId = default(string), string productId = default(string), string varSku = default(string), int? price = default(int?), string currency = default(string), Object attributes = default(Object), string imageUrl = default(string), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -144,6 +144,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

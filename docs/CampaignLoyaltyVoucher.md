@@ -5,7 +5,7 @@ Schema model for a discount voucher.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Type of voucher. | [optional] [default to TypeEnum.LOYALTYCARD]
+**Type** | **string** | Type of voucher. | [optional] 
 **LoyaltyCard** | [**CampaignLoyaltyCard**](CampaignLoyaltyCard.md) |  | 
 **Redemption** | [**CampaignLoyaltyVoucherRedemption**](CampaignLoyaltyVoucherRedemption.md) |  | [optional] 
 **CodeConfig** | [**CodeConfig**](CodeConfig.md) |  | [optional] 

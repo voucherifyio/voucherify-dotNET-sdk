@@ -123,7 +123,7 @@ namespace Voucherify.Model
         /// <param name="timezone">The time zone in which the project is established. It can be in the GMT format or in accordance with IANA time zone database..</param>
         /// <param name="currency">The currency used in the project. It is equal to a 3-letter ISO 4217 code..</param>
         /// <param name="dialCode">The country dial code for the project. It is equal to an ITU country code..</param>
-        /// <param name="webhookVersion">The webhook version used in the project. (default to WebhookVersionEnum.V20240101).</param>
+        /// <param name="webhookVersion">The webhook version used in the project..</param>
         /// <param name="clientTrustedDomains">An array of URL addresses that allow client requests..</param>
         /// <param name="clientRedeemEnabled">Enables client-side redemption..</param>
         /// <param name="clientPublishEnabled">Enables client-side publication..</param>
@@ -134,9 +134,9 @@ namespace Voucherify.Model
         /// <param name="webhooksCalloutNotifications">webhooksCalloutNotifications.</param>
         /// <param name="apiUsageNotifications">apiUsageNotifications.</param>
         /// <param name="clusterId">The identifier of the cluster where the project will be created. The default cluster is &#x60;eu1&#x60; unless otherwise configured..</param>
-        /// <param name="apiVersion">The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;. (default to ApiVersionEnum.V20180801).</param>
+        /// <param name="apiVersion">The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;..</param>
         /// <param name="users">The users (their identifiers, logins, and roles) who will be assigned to the project. You can assign only existing Voucherify users.  It must be used either in the following combinations: - &#x60;id&#x60; and &#x60;role&#x60;, or - &#x60;login&#x60; and &#x60;role&#x60;..</param>
-        public ManagementProjectsCreateRequestBody(bool? caseSensitiveCodes = default(bool?), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), string dialCode = default(string), WebhookVersionEnum? webhookVersion = WebhookVersionEnum.V20240101, List<string> clientTrustedDomains = default(List<string>), bool? clientRedeemEnabled = default(bool?), bool? clientPublishEnabled = default(bool?), bool? clientListVouchersEnabled = default(bool?), bool? clientCreateCustomerEnabled = default(bool?), bool? clientLoyaltyEventsEnabled = default(bool?), bool? clientSetVoucherExpirationDateEnabled = default(bool?), ManagementProjectsCreateRequestBodyWebhooksCalloutNotifications webhooksCalloutNotifications = default(ManagementProjectsCreateRequestBodyWebhooksCalloutNotifications), ManagementProjectsCreateRequestBodyApiUsageNotifications apiUsageNotifications = default(ManagementProjectsCreateRequestBodyApiUsageNotifications), string clusterId = default(string), ApiVersionEnum? apiVersion = ApiVersionEnum.V20180801, List<ManagementProjectsCreateRequestBodyUsersItem> users = default(List<ManagementProjectsCreateRequestBodyUsersItem>))
+        public ManagementProjectsCreateRequestBody(bool? caseSensitiveCodes = default(bool?), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), string dialCode = default(string), WebhookVersionEnum? webhookVersion = default(WebhookVersionEnum?), List<string> clientTrustedDomains = default(List<string>), bool? clientRedeemEnabled = default(bool?), bool? clientPublishEnabled = default(bool?), bool? clientListVouchersEnabled = default(bool?), bool? clientCreateCustomerEnabled = default(bool?), bool? clientLoyaltyEventsEnabled = default(bool?), bool? clientSetVoucherExpirationDateEnabled = default(bool?), ManagementProjectsCreateRequestBodyWebhooksCalloutNotifications webhooksCalloutNotifications = default(ManagementProjectsCreateRequestBodyWebhooksCalloutNotifications), ManagementProjectsCreateRequestBodyApiUsageNotifications apiUsageNotifications = default(ManagementProjectsCreateRequestBodyApiUsageNotifications), string clusterId = default(string), ApiVersionEnum? apiVersion = default(ApiVersionEnum?), List<ManagementProjectsCreateRequestBodyUsersItem> users = default(List<ManagementProjectsCreateRequestBodyUsersItem>))
         {
             this._CaseSensitiveCodes = caseSensitiveCodes;
             if (this.CaseSensitiveCodes != null)
@@ -167,6 +167,11 @@ namespace Voucherify.Model
             if (this.DialCode != null)
             {
                 this._flagDialCode = true;
+            }
+            this._WebhookVersion = webhookVersion;
+            if (this.WebhookVersion != null)
+            {
+                this._flagWebhookVersion = true;
             }
             this._ClientTrustedDomains = clientTrustedDomains;
             if (this.ClientTrustedDomains != null)
@@ -217,6 +222,11 @@ namespace Voucherify.Model
             if (this.ClusterId != null)
             {
                 this._flagClusterId = true;
+            }
+            this._ApiVersion = apiVersion;
+            if (this.ApiVersion != null)
+            {
+                this._flagApiVersion = true;
             }
             this._Users = users;
             if (this.Users != null)

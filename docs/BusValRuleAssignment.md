@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **RelatedObjectType** | **string** | The type of related object | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the object was last updated in ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.ValidationRulesAssignment]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 **ValidationStatus** | **string** | The validation status of the assignment | [optional] 
 **ValidationOmittedRules** | **List&lt;string&gt;** | The list of omitted rules | [optional] 
 

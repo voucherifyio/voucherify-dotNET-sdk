@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesTiersRewardsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty tier rewards in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty tier reward objects. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty tier rewards in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty tier reward objects..</param>
         /// <param name="data">Contains array of loyalty tier reward objects..</param>
         /// <param name="total">Total number of loyalty tier reward objects..</param>
-        public LoyaltiesTiersRewardsListResponseBody(string varObject = @"list", string dataRef = @"data", List<LoyaltiesLoyaltyTierReward> data = default(List<LoyaltiesLoyaltyTierReward>), int? total = default(int?))
+        public LoyaltiesTiersRewardsListResponseBody(string varObject = default(string), string dataRef = default(string), List<LoyaltiesLoyaltyTierReward> data = default(List<LoyaltiesLoyaltyTierReward>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

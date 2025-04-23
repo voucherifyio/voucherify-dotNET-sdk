@@ -118,7 +118,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="ListPublicationsItemValidSingleVoucher" /> class.
         /// </summary>
         /// <param name="id">Unique publication ID, assigned by Voucherify..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;. (default to ObjectEnum.Publication).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the publication was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="customerId">Unique customer ID of the customer receiving the publication..</param>
         /// <param name="trackingId">Customer&#39;s &#x60;source_id&#x60;..</param>
@@ -128,14 +128,19 @@ namespace Voucherify.Model
         /// <param name="customer">customer.</param>
         /// <param name="vouchers">Contains the voucher IDs that was assigned by Voucherify..</param>
         /// <param name="vouchersId">Contains the unique internal voucher IDs that was assigned by Voucherify..</param>
-        /// <param name="result">Status of the publication attempt. (default to ResultEnum.SUCCESS).</param>
+        /// <param name="result">Status of the publication attempt..</param>
         /// <param name="voucher">voucher.</param>
-        public ListPublicationsItemValidSingleVoucher(string id = default(string), ObjectEnum? varObject = ObjectEnum.Publication, DateTimeOffset? createdAt = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), ListPublicationsItemValidSingleVoucherMetadata metadata = default(ListPublicationsItemValidSingleVoucherMetadata), string channel = default(string), string sourceId = default(string), CustomerWithSummaryLoyaltyReferrals customer = default(CustomerWithSummaryLoyaltyReferrals), List<string> vouchers = default(List<string>), List<string> vouchersId = default(List<string>), ResultEnum? result = ResultEnum.SUCCESS, ListPublicationsItemVoucher voucher = default(ListPublicationsItemVoucher))
+        public ListPublicationsItemValidSingleVoucher(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), ListPublicationsItemValidSingleVoucherMetadata metadata = default(ListPublicationsItemValidSingleVoucherMetadata), string channel = default(string), string sourceId = default(string), CustomerWithSummaryLoyaltyReferrals customer = default(CustomerWithSummaryLoyaltyReferrals), List<string> vouchers = default(List<string>), List<string> vouchersId = default(List<string>), ResultEnum? result = default(ResultEnum?), ListPublicationsItemVoucher voucher = default(ListPublicationsItemVoucher))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
@@ -181,6 +186,11 @@ namespace Voucherify.Model
             if (this.VouchersId != null)
             {
                 this._flagVouchersId = true;
+            }
+            this._Result = result;
+            if (this.Result != null)
+            {
+                this._flagResult = true;
             }
             this._Voucher = voucher;
             if (this.Voucher != null)

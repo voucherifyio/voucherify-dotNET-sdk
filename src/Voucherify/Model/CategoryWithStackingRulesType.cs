@@ -126,11 +126,11 @@ namespace Voucherify.Model
         /// <param name="id">Unique category ID assigned by Voucherify..</param>
         /// <param name="name">Category name..</param>
         /// <param name="hierarchy">Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the category. (default to ObjectEnum.Category).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the category..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the category was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the category was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="stackingRulesType">The type of the stacking rule eligibility..</param>
-        public CategoryWithStackingRulesType(string id = default(string), string name = default(string), int? hierarchy = default(int?), ObjectEnum? varObject = ObjectEnum.Category, DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), StackingRulesTypeEnum? stackingRulesType = default(StackingRulesTypeEnum?))
+        public CategoryWithStackingRulesType(string id = default(string), string name = default(string), int? hierarchy = default(int?), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), StackingRulesTypeEnum? stackingRulesType = default(StackingRulesTypeEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -146,6 +146,11 @@ namespace Voucherify.Model
             if (this.Hierarchy != null)
             {
                 this._flagHierarchy = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)

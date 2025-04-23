@@ -77,17 +77,22 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LocationsGetResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique location ID, assigned by the Voucherify API..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about a &#x60;location&#x60;. (default to ObjectEnum.Location).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about a &#x60;location&#x60;..</param>
         /// <param name="name">Location name..</param>
         /// <param name="shape">shape.</param>
         /// <param name="createdAt">Timestamp representing the date and time when the location was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the location was updated. The value is shown in the ISO 8601 format..</param>
-        public LocationsGetResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.Location, string name = default(string), LocationsGetResponseBodyShape shape = default(LocationsGetResponseBodyShape), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?))
+        public LocationsGetResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), string name = default(string), LocationsGetResponseBodyShape shape = default(LocationsGetResponseBodyShape), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Name = name;
             if (this.Name != null)

@@ -81,13 +81,13 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientEventsCreateResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The object represented is an &#x60;event&#x60;. (default to ObjectEnum.Event).</param>
+        /// <param name="varObject">The object represented is an &#x60;event&#x60;..</param>
         /// <param name="type">The event name..</param>
         /// <param name="customer">customer (required).</param>
         /// <param name="referral">A &#x60;null&#x60; referral object..</param>
         /// <param name="loyalty">A &#x60;null&#x60; loyalty object..</param>
         /// <param name="metadata">metadata.</param>
-        public ClientEventsCreateResponseBody(ObjectEnum? varObject = ObjectEnum.Event, string type = default(string), SimpleCustomerRequiredObjectType customer = default(SimpleCustomerRequiredObjectType), Object referral = default(Object), Object loyalty = default(Object), Object metadata = default(Object))
+        public ClientEventsCreateResponseBody(ObjectEnum? varObject = default(ObjectEnum?), string type = default(string), SimpleCustomerRequiredObjectType customer = default(SimpleCustomerRequiredObjectType), Object referral = default(Object), Object loyalty = default(Object), Object metadata = default(Object))
         {
             // to ensure "customer" is required (not null)
             if (customer == null)
@@ -95,6 +95,11 @@ namespace Voucherify.Model
                 throw new ArgumentNullException("customer is a required property for ClientEventsCreateResponseBody and cannot be null");
             }
             this._Customer = customer;
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._Type = type;
             if (this.Type != null)
             {

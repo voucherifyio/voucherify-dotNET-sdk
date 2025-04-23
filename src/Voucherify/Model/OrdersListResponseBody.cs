@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrdersListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about orders in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of order objects. (default to DataRefEnum.Orders).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about orders in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of order objects..</param>
         /// <param name="orders">Contains array of order objects..</param>
         /// <param name="total">Total number of orders..</param>
-        public OrdersListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Orders, List<OrdersListResponseBodyOrdersItem> orders = default(List<OrdersListResponseBodyOrdersItem>), int? total = default(int?))
+        public OrdersListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<OrdersListResponseBodyOrdersItem> orders = default(List<OrdersListResponseBodyOrdersItem>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Orders = orders;
             if (this.Orders != null)
             {

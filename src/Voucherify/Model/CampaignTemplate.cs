@@ -128,9 +128,9 @@ namespace Voucherify.Model
         /// <param name="description">User-defined description of the campaign template..</param>
         /// <param name="campaignType">Type of the campaign used to create the campaign template. Templates created from a promotion tier are converted to &#x60;DISCOUNT_COUPONS&#x60;..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the campaign template was created. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.CampaignTemplate).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the campaign template was last updated. The value is shown in the ISO 8601 format..</param>
-        public CampaignTemplate(string id = default(string), string name = default(string), string description = default(string), CampaignTypeEnum? campaignType = default(CampaignTypeEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.CampaignTemplate, DateTimeOffset? updatedAt = default(DateTimeOffset?))
+        public CampaignTemplate(string id = default(string), string name = default(string), string description = default(string), CampaignTypeEnum? campaignType = default(CampaignTypeEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? updatedAt = default(DateTimeOffset?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -156,6 +156,11 @@ namespace Voucherify.Model
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._UpdatedAt = updatedAt;
             if (this.UpdatedAt != null)

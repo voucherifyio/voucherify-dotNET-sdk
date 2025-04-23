@@ -76,10 +76,15 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesEarningRulesCreateResponseBodyPendingPoints" /> class.
         /// </summary>
-        /// <param name="periodType">Defines the type of the period during which the points are in the pending state. Currently, only &#x60;DAY&#x60; value is accepted. (default to PeriodTypeEnum.DAY).</param>
+        /// <param name="periodType">Defines the type of the period during which the points are in the pending state. Currently, only &#x60;DAY&#x60; value is accepted..</param>
         /// <param name="periodValue">Defines for how long the points are in the pending state. The minimum value is 1, maximum is 90..</param>
-        public LoyaltiesEarningRulesCreateResponseBodyPendingPoints(PeriodTypeEnum? periodType = PeriodTypeEnum.DAY, int? periodValue = default(int?))
+        public LoyaltiesEarningRulesCreateResponseBodyPendingPoints(PeriodTypeEnum? periodType = default(PeriodTypeEnum?), int? periodValue = default(int?))
         {
+            this._PeriodType = periodType;
+            if (this.PeriodType != null)
+            {
+                this._flagPeriodType = true;
+            }
             this._PeriodValue = periodValue;
             if (this.PeriodValue != null)
             {

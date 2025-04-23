@@ -148,8 +148,8 @@ namespace Voucherify.Model
         /// <param name="description">An optional field to keep extra textual information about the campaign such as a campaign description and details..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the campaign was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the campaign was updated in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign. (default to ObjectEnum.Campaign).</param>
-        public SimpleCampaign(string id = default(string), string name = default(string), string campaignType = default(string), TypeEnum? type = default(TypeEnum?), bool? isReferralCode = default(bool?), SimpleCampaignVoucher voucher = default(SimpleCampaignVoucher), ReferralProgram referralProgram = default(ReferralProgram), bool? autoJoin = default(bool?), bool? joinOnce = default(bool?), bool? active = default(bool?), string categoryId = default(string), string category = default(string), List<Category> categories = default(List<Category>), Object metadata = default(Object), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), string description = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.Campaign)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign..</param>
+        public SimpleCampaign(string id = default(string), string name = default(string), string campaignType = default(string), TypeEnum? type = default(TypeEnum?), bool? isReferralCode = default(bool?), SimpleCampaignVoucher voucher = default(SimpleCampaignVoucher), ReferralProgram referralProgram = default(ReferralProgram), bool? autoJoin = default(bool?), bool? joinOnce = default(bool?), bool? active = default(bool?), string categoryId = default(string), string category = default(string), List<Category> categories = default(List<Category>), Object metadata = default(Object), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), string description = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -245,6 +245,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

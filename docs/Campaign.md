@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **Protected** | **bool?** | Indicates whether the resource can be deleted. | [optional] 
 **CategoryId** | **string** | Unique category ID that this campaign belongs to. | [optional] 
 **Categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the campaign. | [optional] [default to "campaign"]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the campaign. | [optional] 
 **ReferralProgram** | [**ReferralProgram**](ReferralProgram.md) |  | [optional] 
 **LoyaltyTiersExpiration** | [**LoyaltyTiersExpirationAll**](LoyaltyTiersExpirationAll.md) |  | [optional] 
 **AccessSettingsAssignments** | [**AccessSettingsCampaignAssignmentsList**](AccessSettingsCampaignAssignmentsList.md) |  | [optional] 

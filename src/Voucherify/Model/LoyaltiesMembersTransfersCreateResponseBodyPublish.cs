@@ -76,12 +76,17 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesMembersTransfersCreateResponseBodyPublish" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute. (default to ObjectEnum.List).</param>
+        /// <param name="varObject">The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute..</param>
         /// <param name="count">Publication events counter..</param>
         /// <param name="entries">entries.</param>
         /// <param name="url">The endpoint where this list of publications can be accessed using a **GET** method. /v1/vouchers/{voucher_code}/publications.</param>
-        public LoyaltiesMembersTransfersCreateResponseBodyPublish(ObjectEnum? varObject = ObjectEnum.List, int? count = default(int?), List<string> entries = default(List<string>), string url = default(string))
+        public LoyaltiesMembersTransfersCreateResponseBodyPublish(ObjectEnum? varObject = default(ObjectEnum?), int? count = default(int?), List<string> entries = default(List<string>), string url = default(string))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._Count = count;
             if (this.Count != null)
             {

@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomersSegmentsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about customer segments. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of segment IDs. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about customer segments..</param>
+        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of segment IDs..</param>
         /// <param name="data">A dictionary that contains an array of segment IDs and names..</param>
         /// <param name="total">Total number of segments the customer belongs to..</param>
-        public CustomersSegmentsListResponseBody(string varObject = @"list", string dataRef = @"data", List<SimpleSegment> data = default(List<SimpleSegment>), int? total = default(int?))
+        public CustomersSegmentsListResponseBody(string varObject = default(string), string dataRef = default(string), List<SimpleSegment> data = default(List<SimpleSegment>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

@@ -42,12 +42,12 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="quantity">The maximum number of times a voucher can be redeemed..</param>
         /// <param name="redeemedQuantity">The number of times the voucher was redeemed successfully..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about redemptions in a dictionary. (default to &quot;list&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about redemptions in a dictionary..</param>
         /// <param name="url">URL.</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of &#x60;redemption_entries&#x60;. (default to &quot;redemption_entries&quot;).</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of &#x60;redemption_entries&#x60;..</param>
         /// <param name="total">Total number of redemption objects..</param>
         /// <param name="redemptionEntries">Contains the array of successful and failed redemption objects. (required).</param>
-        public VouchersRedemptionGetResponseBody(int? quantity = default(int?), int? redeemedQuantity = default(int?), string varObject = @"list", string url = default(string), string dataRef = @"redemption_entries", int? total = default(int?), List<RedemptionEntry> redemptionEntries = default(List<RedemptionEntry>))
+        public VouchersRedemptionGetResponseBody(int? quantity = default(int?), int? redeemedQuantity = default(int?), string varObject = default(string), string url = default(string), string dataRef = default(string), int? total = default(int?), List<RedemptionEntry> redemptionEntries = default(List<RedemptionEntry>))
         {
             // to ensure "redemptionEntries" is required (not null)
             if (redemptionEntries == null)
@@ -65,10 +65,20 @@ namespace Voucherify.Model
             {
                 this._flagRedeemedQuantity = true;
             }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._Url = url;
             if (this.Url != null)
             {
                 this._flagUrl = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
             }
             this._Total = total;
             if (this.Total != null)

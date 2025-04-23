@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **CustomerId** | **string** | Unique identifier of the customer. | [optional] 
 **HolderRole** | **string** | Role of the holder. | [optional] 
 **CampaignId** | **string** | Unique identifier of the campaign as assigned by Voucherify. | [optional] 
-**CampaignType** | **string** | Defines the type of the campaign. | [optional] [default to CampaignTypeEnum.REFERRALPROGRAM]
+**CampaignType** | **string** | Defines the type of the campaign. | [optional] 
 **VoucherType** | **string** | Defines the type of the voucher. | [optional] 
 **Metadata** | **Object** | A set of custom key/value pairs that you can attach to a redeemable holder. The metadata object stores all custom attributes assigned to the &#x60;redeemable_holder&#x60; object. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.RedeemableHolder]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

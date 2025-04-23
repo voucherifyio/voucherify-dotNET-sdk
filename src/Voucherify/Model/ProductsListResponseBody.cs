@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about products in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of product objects. (default to &quot;products&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about products in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of product objects..</param>
         /// <param name="products">Contains array of product objects..</param>
         /// <param name="total">Total number of product objects..</param>
-        public ProductsListResponseBody(string varObject = @"list", string dataRef = @"products", List<Product> products = default(List<Product>), int? total = default(int?))
+        public ProductsListResponseBody(string varObject = default(string), string dataRef = default(string), List<Product> products = default(List<Product>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Products = products;
             if (this.Products != null)
             {

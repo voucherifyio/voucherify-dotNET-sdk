@@ -106,10 +106,15 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationRulesAssignmentsCreateRequestBody" /> class.
         /// </summary>
-        /// <param name="relatedObjectType">Defines the related object, e.g. &#x60;voucher&#x60;. (default to RelatedObjectTypeEnum.Voucher).</param>
+        /// <param name="relatedObjectType">Defines the related object, e.g. &#x60;voucher&#x60;..</param>
         /// <param name="relatedObjectId">Unique related object ID assigned by Voucherify, e.g. &#x60;v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno&#x60; for a voucher..</param>
-        public ValidationRulesAssignmentsCreateRequestBody(RelatedObjectTypeEnum? relatedObjectType = RelatedObjectTypeEnum.Voucher, string relatedObjectId = default(string))
+        public ValidationRulesAssignmentsCreateRequestBody(RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string))
         {
+            this._RelatedObjectType = relatedObjectType;
+            if (this.RelatedObjectType != null)
+            {
+                this._flagRelatedObjectType = true;
+            }
             this._RelatedObjectId = relatedObjectId;
             if (this.RelatedObjectId != null)
             {

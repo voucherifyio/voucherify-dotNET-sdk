@@ -6,7 +6,7 @@ This is an object representing a redemption for **POST** `v1/redemptions` and **
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique redemption ID. | [optional] 
-**Object** | **string** | The type of the object represented by the JSON | [optional] [default to ObjectEnum.Redemption]
+**Object** | **string** | The type of the object represented by the JSON | [optional] 
 **Date** | **DateTimeOffset?** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. | [optional] 
 **CustomerId** | **string** | Unique customer ID of the redeeming customer. | [optional] 
 **TrackingId** | **string** | Hashed customer source ID. | [optional] 

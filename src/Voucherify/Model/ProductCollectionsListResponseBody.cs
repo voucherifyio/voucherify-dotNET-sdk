@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCollectionsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about product collections. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of product collections. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about product collections..</param>
+        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of product collections..</param>
         /// <param name="data">A dictionary that contains an array of product collections and their details..</param>
         /// <param name="total">Total number of product collections..</param>
-        public ProductCollectionsListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<ProductCollectionsItem> data = default(List<ProductCollectionsItem>), int? total = default(int?))
+        public ProductCollectionsListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<ProductCollectionsItem> data = default(List<ProductCollectionsItem>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

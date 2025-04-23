@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about exports. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of exports. (default to DataRefEnum.Exports).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about exports..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of exports..</param>
         /// <param name="exports">An array of export objects..</param>
         /// <param name="total">Total number of exports..</param>
-        public ExportsListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Exports, List<Export> exports = default(List<Export>), int? total = default(int?))
+        public ExportsListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<Export> exports = default(List<Export>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Exports = exports;
             if (this.Exports != null)
             {

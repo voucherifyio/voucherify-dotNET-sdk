@@ -5,7 +5,7 @@ Schema model for a campaign voucher.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Type of voucher. | [optional] [default to TypeEnum.LOYALTYCARD]
+**Type** | **string** | Type of voucher. | [optional] 
 **LoyaltyCard** | [**CampaignLoyaltyCard**](CampaignLoyaltyCard.md) |  | [optional] 
 **Redemption** | [**LoyaltyCampaignVoucherRedemption**](LoyaltyCampaignVoucherRedemption.md) |  | [optional] 
 **CodeConfig** | [**CodeConfig**](CodeConfig.md) |  | 

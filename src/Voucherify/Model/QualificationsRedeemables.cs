@@ -117,14 +117,24 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QualificationsRedeemables" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;list&#x60;. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of qualified redeemables. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;list&#x60;..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of qualified redeemables..</param>
         /// <param name="data">Array of qualified redeemables..</param>
         /// <param name="total">The number of redeemables returned in the API request..</param>
         /// <param name="hasMore">As results are always limited, the &#x60;has_more&#x60; flag indicates if there are more records for given parameters. This lets you know if you can run another request (with different options) to get more records returned in the results..</param>
         /// <param name="moreStartingAfter">Timestamp representing the date and time to use in &#x60;starting_after&#x60; cursor to get more redeemables..</param>
-        public QualificationsRedeemables(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<QualificationsRedeemable> data = default(List<QualificationsRedeemable>), int? total = default(int?), bool? hasMore = default(bool?), DateTimeOffset? moreStartingAfter = default(DateTimeOffset?))
+        public QualificationsRedeemables(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<QualificationsRedeemable> data = default(List<QualificationsRedeemable>), int? total = default(int?), bool? hasMore = default(bool?), DateTimeOffset? moreStartingAfter = default(DateTimeOffset?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

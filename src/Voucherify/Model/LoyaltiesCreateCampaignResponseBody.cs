@@ -297,7 +297,7 @@ namespace Voucherify.Model
         /// <param name="id">Unique campaign ID, assigned by Voucherify..</param>
         /// <param name="name">Campaign name..</param>
         /// <param name="description">An optional field to keep any extra textual information about the campaign such as a campaign description and details..</param>
-        /// <param name="campaignType">Type of campaign. (default to CampaignTypeEnum.LOYALTYPROGRAM).</param>
+        /// <param name="campaignType">Type of campaign..</param>
         /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published.</param>
         /// <param name="voucher">voucher.</param>
         /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
@@ -321,11 +321,11 @@ namespace Voucherify.Model
         /// <param name="varProtected">Indicates whether the resource can be deleted..</param>
         /// <param name="categoryId">Unique category ID that this campaign belongs to..</param>
         /// <param name="categories">Contains details about the category..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign. (default to &quot;campaign&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign..</param>
         /// <param name="loyaltyTiersExpiration">loyaltyTiersExpiration.</param>
         /// <param name="validationRulesAssignments">validationRulesAssignments.</param>
         /// <param name="accessSettingsAssignments">accessSettingsAssignments.</param>
-        public LoyaltiesCreateCampaignResponseBody(string id = default(string), string name = default(string), string description = default(string), CampaignTypeEnum? campaignType = CampaignTypeEnum.LOYALTYPROGRAM, TypeEnum? type = default(TypeEnum?), LoyaltyCampaignVoucher voucher = default(LoyaltyCampaignVoucher), bool? autoJoin = default(bool?), bool? joinOnce = default(bool?), bool? useVoucherMetadataSchema = default(bool?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), string activityDurationAfterPublishing = default(string), int? vouchersCount = default(int?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), bool? active = default(bool?), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string category = default(string), CreationStatusEnum? creationStatus = default(CreationStatusEnum?), VouchersGenerationStatusEnum? vouchersGenerationStatus = default(VouchersGenerationStatusEnum?), bool? varReadonly = default(bool?), bool? varProtected = default(bool?), string categoryId = default(string), List<Category> categories = default(List<Category>), string varObject = @"campaign", LoyaltyTiersExpirationAll loyaltyTiersExpiration = default(LoyaltyTiersExpirationAll), ValidationRulesAssignmentsList validationRulesAssignments = default(ValidationRulesAssignmentsList), AccessSettingsCampaignAssignmentsList accessSettingsAssignments = default(AccessSettingsCampaignAssignmentsList))
+        public LoyaltiesCreateCampaignResponseBody(string id = default(string), string name = default(string), string description = default(string), CampaignTypeEnum? campaignType = default(CampaignTypeEnum?), TypeEnum? type = default(TypeEnum?), LoyaltyCampaignVoucher voucher = default(LoyaltyCampaignVoucher), bool? autoJoin = default(bool?), bool? joinOnce = default(bool?), bool? useVoucherMetadataSchema = default(bool?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), string activityDurationAfterPublishing = default(string), int? vouchersCount = default(int?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), bool? active = default(bool?), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string category = default(string), CreationStatusEnum? creationStatus = default(CreationStatusEnum?), VouchersGenerationStatusEnum? vouchersGenerationStatus = default(VouchersGenerationStatusEnum?), bool? varReadonly = default(bool?), bool? varProtected = default(bool?), string categoryId = default(string), List<Category> categories = default(List<Category>), string varObject = default(string), LoyaltyTiersExpirationAll loyaltyTiersExpiration = default(LoyaltyTiersExpirationAll), ValidationRulesAssignmentsList validationRulesAssignments = default(ValidationRulesAssignmentsList), AccessSettingsCampaignAssignmentsList accessSettingsAssignments = default(AccessSettingsCampaignAssignmentsList))
         {
             this._Id = id;
             if (this.Id != null)
@@ -341,6 +341,11 @@ namespace Voucherify.Model
             if (this.Description != null)
             {
                 this._flagDescription = true;
+            }
+            this._CampaignType = campaignType;
+            if (this.CampaignType != null)
+            {
+                this._flagCampaignType = true;
             }
             this._Type = type;
             if (this.Type != null)
@@ -456,6 +461,11 @@ namespace Voucherify.Model
             if (this.Categories != null)
             {
                 this._flagCategories = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._LoyaltyTiersExpiration = loyaltyTiersExpiration;
             if (this.LoyaltyTiersExpiration != null)

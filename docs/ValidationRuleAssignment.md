@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **RelatedObjectId** | **string** | The resource ID to which the validation rule was assigned. | [optional] 
 **RelatedObjectType** | **string** | The type of resource to which the validation rule was assigned. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the validation rule assignment was created. The value is shown in the ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by the ID. | [optional] [default to ObjectEnum.ValidationRulesAssignment]
+**Object** | **string** | The type of the object represented by the ID. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | Indicates whether the redeemable can be applied or not applied based on the validation rules. | [optional] [default to StatusEnum.SKIPPED]
+**Status** | **string** | Indicates whether the redeemable can be applied or not applied based on the validation rules. | [optional] 
 **Id** | **string** | Redeemable ID, i.e. the voucher code. | [optional] 
 **Object** | **string** | Redeemable&#39;s object type. | [optional] 
 **Result** | [**ValidationsRedeemableSkippedResult**](ValidationsRedeemableSkippedResult.md) |  | [optional] 

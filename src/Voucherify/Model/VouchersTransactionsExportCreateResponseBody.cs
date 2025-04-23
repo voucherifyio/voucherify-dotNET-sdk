@@ -164,15 +164,15 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="VouchersTransactionsExportCreateResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique export ID..</param>
-        /// <param name="varObject">The type of object being represented. This object stores information about the &#x60;export&#x60;. (default to ObjectEnum.Export).</param>
+        /// <param name="varObject">The type of object being represented. This object stores information about the &#x60;export&#x60;..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the export was scheduled in ISO 8601 format..</param>
-        /// <param name="status">Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated. (default to StatusEnum.SCHEDULED).</param>
-        /// <param name="channel">The channel through which the export was triggered. (default to &quot;API&quot;).</param>
-        /// <param name="exportedObject">The type of exported object. (default to ExportedObjectEnum.VoucherTransactions).</param>
+        /// <param name="status">Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated..</param>
+        /// <param name="channel">The channel through which the export was triggered..</param>
+        /// <param name="exportedObject">The type of exported object..</param>
         /// <param name="parameters">parameters (required).</param>
         /// <param name="result">result.</param>
         /// <param name="userId">Identifies the specific user who initiated the export through the Voucherify Dashboard; returned when the &#x60;channel&#x60; value is &#x60;WEBSITE&#x60;..</param>
-        public VouchersTransactionsExportCreateResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.Export, DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = StatusEnum.SCHEDULED, string channel = @"API", ExportedObjectEnum? exportedObject = ExportedObjectEnum.VoucherTransactions, VoucherTransactionsFilters parameters = default(VoucherTransactionsFilters), VouchersTransactionsExportCreateResponseBodyResult result = default(VouchersTransactionsExportCreateResponseBodyResult), string userId = default(string))
+        public VouchersTransactionsExportCreateResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = default(StatusEnum?), string channel = default(string), ExportedObjectEnum? exportedObject = default(ExportedObjectEnum?), VoucherTransactionsFilters parameters = default(VoucherTransactionsFilters), VouchersTransactionsExportCreateResponseBodyResult result = default(VouchersTransactionsExportCreateResponseBodyResult), string userId = default(string))
         {
             // to ensure "parameters" is required (not null)
             if (parameters == null)
@@ -185,10 +185,30 @@ namespace Voucherify.Model
             {
                 this._flagId = true;
             }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._Status = status;
+            if (this.Status != null)
+            {
+                this._flagStatus = true;
+            }
+            this._Channel = channel;
+            if (this.Channel != null)
+            {
+                this._flagChannel = true;
+            }
+            this._ExportedObject = exportedObject;
+            if (this.ExportedObject != null)
+            {
+                this._flagExportedObject = true;
             }
             this._Result = result;
             if (this.Result != null)

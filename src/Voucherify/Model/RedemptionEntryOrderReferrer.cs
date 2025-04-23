@@ -77,13 +77,18 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="RedemptionEntryOrderReferrer" /> class.
         /// </summary>
         /// <param name="id">A unique identifier of an existing customer..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Customer).</param>
-        public RedemptionEntryOrderReferrer(string id = default(string), ObjectEnum? varObject = ObjectEnum.Customer)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public RedemptionEntryOrderReferrer(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

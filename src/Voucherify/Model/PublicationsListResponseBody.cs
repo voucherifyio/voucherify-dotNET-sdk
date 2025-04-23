@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PublicationsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about publications in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of publications. (default to &quot;publications&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about publications in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of publications..</param>
         /// <param name="publications">Response schema model for publishing vouchers to a specific customer..</param>
         /// <param name="total">Total number of publications..</param>
-        public PublicationsListResponseBody(string varObject = @"list", string dataRef = @"publications", List<PublicationsListResponseBodyPublicationsItem> publications = default(List<PublicationsListResponseBodyPublicationsItem>), int? total = default(int?))
+        public PublicationsListResponseBody(string varObject = default(string), string dataRef = default(string), List<PublicationsListResponseBodyPublicationsItem> publications = default(List<PublicationsListResponseBodyPublicationsItem>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Publications = publications;
             if (this.Publications != null)
             {

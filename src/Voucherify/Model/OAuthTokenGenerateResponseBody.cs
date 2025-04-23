@@ -43,7 +43,13 @@ namespace Voucherify.Model
             /// Enum Bearer for value: Bearer
             /// </summary>
             [EnumMember(Value = "Bearer")]
-            Bearer = 1
+            Bearer = 1,
+
+            /// <summary>
+            /// Enum XDdddHeader for value: x-dddd-header
+            /// </summary>
+            [EnumMember(Value = "x-dddd-header")]
+            XDdddHeader = 2
         }
 
 
@@ -80,9 +86,9 @@ namespace Voucherify.Model
         /// <param name="clientId">Unique client identifier, assigned by Voucherify, for OAuth..</param>
         /// <param name="expiresAt">Timestamp in seconds in the Unix format indicating when the token expires..</param>
         /// <param name="expiresIn">Number of seconds left until the token expires..</param>
+        /// <param name="tokenType">Type of the token. Use the value as the header prefix for authorization..</param>
         /// <param name="scope">Defines the scope of possible actions that can be done with the OAuth token. The &#x60;api&#x60; scope allows using the server-side API. The &#x60;client_api&#x60; scope allows using the whole client-side API. Possible values: &#x60;api&#x60;, &#x60;assets&#x60;, &#x60;async-actions&#x60;, &#x60;campaigns&#x60;, &#x60;categories&#x60;, &#x60;client_api&#x60;, &#x60;client_consents&#x60;, &#x60;client_customers&#x60;, &#x60;client_events&#x60;, &#x60;client_promotions&#x60;, &#x60;client_publish&#x60;, &#x60;client_qualifications&#x60;, &#x60;client_redeem&#x60;, &#x60;client_redemptions&#x60;, &#x60;client_validate&#x60;, &#x60;client_validations&#x60;, &#x60;client_vouchers&#x60;, &#x60;consents&#x60;, &#x60;customers&#x60;, &#x60;events&#x60;, &#x60;exports&#x60;, &#x60;locations&#x60;, &#x60;loyalties&#x60;, &#x60;metadata-schemas&#x60;, &#x60;orders&#x60;, &#x60;product-collections&#x60;, &#x60;products&#x60;, &#x60;promotions&#x60;, &#x60;publications&#x60;, &#x60;qualifications&#x60;, &#x60;redemptions&#x60;, &#x60;referrals&#x60;, &#x60;rewards&#x60;, &#x60;segments&#x60;, &#x60;skus&#x60;, &#x60;task-results&#x60;, &#x60;templates&#x60;, &#x60;trash-bin&#x60;, &#x60;validation-rules-assignments&#x60;, &#x60;validation-rules&#x60;, &#x60;validations&#x60;, &#x60;vouchers&#x60;..</param>
-        /// <param name="tokenType">Type of the token. Use the value as the header prefix for authorization. (default to TokenTypeEnum.Bearer).</param>
-        public OAuthTokenGenerateResponseBody(string accessToken = default(string), string clientId = default(string), int? expiresAt = default(int?), int? expiresIn = default(int?), string scope = default(string), TokenTypeEnum? tokenType = TokenTypeEnum.Bearer)
+        public OAuthTokenGenerateResponseBody(string accessToken = default(string), string clientId = default(string), int? expiresAt = default(int?), int? expiresIn = default(int?), TokenTypeEnum? tokenType = default(TokenTypeEnum?), string scope = default(string))
         {
             this._AccessToken = accessToken;
             if (this.AccessToken != null)
@@ -103,6 +109,11 @@ namespace Voucherify.Model
             if (this.ExpiresIn != null)
             {
                 this._flagExpiresIn = true;
+            }
+            this._TokenType = tokenType;
+            if (this.TokenType != null)
+            {
+                this._flagTokenType = true;
             }
             this._Scope = scope;
             if (this.Scope != null)
@@ -248,8 +259,8 @@ namespace Voucherify.Model
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("  ExpiresIn: ").Append(ExpiresIn).Append("\n");
-            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  TokenType: ").Append(TokenType).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

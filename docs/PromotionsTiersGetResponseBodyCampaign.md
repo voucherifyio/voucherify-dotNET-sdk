@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ValidityHours** | [**ValidityHours**](ValidityHours.md) |  | [optional] 
 **Active** | **bool?** | A flag indicating whether the campaign is active or not active. A campaign can be disabled even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60; using the &lt;!- - [Disable Campaign](OpenAPI.json/paths/~1campaigns~1{campaignId}~1disable) - -&gt;[Disable Campaign](ref:disable-campaign) endpoint.    - &#x60;true&#x60; indicates an *active* campaign - &#x60;false&#x60; indicates an *inactive* campaign | [optional] 
 **CategoryId** | **string** | Unique category ID that this campaign belongs to. | [optional] 
-**Object** | **string** | The type of the object represented by the campaign object. This object stores information about the campaign. | [optional] [default to "campaign"]
+**Object** | **string** | The type of the object represented by the campaign object. This object stores information about the campaign. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

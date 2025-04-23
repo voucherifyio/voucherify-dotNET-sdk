@@ -35,10 +35,20 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerSummaryRedemptionsGift" /> class.
         /// </summary>
-        /// <param name="redeemedAmount">Total amount of gift card credits redeemed by customer. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;. (default to 0).</param>
-        /// <param name="amountToGo">Remaining gift card balance across all gift cards. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;. (default to 0).</param>
-        public CustomerSummaryRedemptionsGift(int? redeemedAmount = 0, int? amountToGo = 0)
+        /// <param name="redeemedAmount">Total amount of gift card credits redeemed by customer. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;..</param>
+        /// <param name="amountToGo">Remaining gift card balance across all gift cards. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;..</param>
+        public CustomerSummaryRedemptionsGift(int? redeemedAmount = default(int?), int? amountToGo = default(int?))
         {
+            this._RedeemedAmount = redeemedAmount;
+            if (this.RedeemedAmount != null)
+            {
+                this._flagRedeemedAmount = true;
+            }
+            this._AmountToGo = amountToGo;
+            if (this.AmountToGo != null)
+            {
+                this._flagAmountToGo = true;
+            }
         }
 
         /// <summary>

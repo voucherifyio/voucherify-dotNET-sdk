@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Sku** | [**MemberActivityDataRedemptionRewardSku**](MemberActivityDataRedemptionRewardSku.md) |  | [optional] 
 **LoyaltyTierId** | **string** | Unique loyalty tier ID assigned by Voucherify. | [optional] 
 **Id** | **string** |  | [optional] 
-**Object** | **string** |  | [optional] [default to ObjectEnum.Reward]
+**Object** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **CreatedAt** | **string** |  | [optional] 
 **UpdatedAt** | **string** |  | [optional] 

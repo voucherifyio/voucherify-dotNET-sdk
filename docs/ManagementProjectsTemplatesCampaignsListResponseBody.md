@@ -5,8 +5,8 @@ Response body schema for **GET** `/management/v1/projects/{projectId}/templates/
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about campaign templates. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the JSON property that contains the array of campaign templates. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about campaign templates. | [optional] 
+**DataRef** | **string** | Identifies the name of the JSON property that contains the array of campaign templates. | [optional] 
 **Data** | [**List&lt;CampaignTemplate&gt;**](CampaignTemplate.md) | Dictionary that contains an array of campaign templates. | [optional] 
 **Total** | **int?** | Total number of templates, regardless of the applied query parameters. Displayed only if the &#x60;include_total&#x60; query paremeter is set to &#x60;true&#x60;. | [optional] 
 **HasMore** | **bool?** | As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request to get more records returned in the results. | [optional] 

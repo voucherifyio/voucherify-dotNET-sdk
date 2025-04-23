@@ -82,10 +82,10 @@ namespace Voucherify.Model
         /// <param name="createdAt">Timestamp representing the date and time when the promotion stack was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the promotion stack was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="campaignId">Promotion stack&#39;s parent campaign&#39;s unique ID..</param>
-        /// <param name="varObject">The type of the object represented by JSON.  (default to ObjectEnum.PromotionStack).</param>
+        /// <param name="varObject">The type of the object represented by JSON. .</param>
         /// <param name="categoryId">Promotion stack category ID..</param>
         /// <param name="categories">Details about the category assigned to the promotion stack..</param>
-        public PromotionsStacksGetResponseBody(string name = default(string), PromotionsStacksGetResponseBodyTiers tiers = default(PromotionsStacksGetResponseBodyTiers), string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string campaignId = default(string), ObjectEnum? varObject = ObjectEnum.PromotionStack, string categoryId = default(string), List<Category> categories = default(List<Category>))
+        public PromotionsStacksGetResponseBody(string name = default(string), PromotionsStacksGetResponseBodyTiers tiers = default(PromotionsStacksGetResponseBodyTiers), string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string campaignId = default(string), ObjectEnum? varObject = default(ObjectEnum?), string categoryId = default(string), List<Category> categories = default(List<Category>))
         {
             this._Name = name;
             if (this.Name != null)
@@ -116,6 +116,11 @@ namespace Voucherify.Model
             if (this.CampaignId != null)
             {
                 this._flagCampaignId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CategoryId = categoryId;
             if (this.CategoryId != null)

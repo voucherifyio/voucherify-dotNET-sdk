@@ -129,8 +129,8 @@ namespace Voucherify.Model
         /// <param name="filter">Defines a set of criteria and boundary conditions for an &#x60;AUTO_UPDATE&#x60; product collection type..</param>
         /// <param name="products">Defines a set of products for a &#x60;STATIC&#x60; product collection type..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the product collection was created. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the static product collection. (default to ObjectEnum.ProductsCollection).</param>
-        public ProductCollectionsCreateResponseBody(string id = default(string), string name = default(string), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), List<ProductCollectionsCreateResponseBodyProductsItem> products = default(List<ProductCollectionsCreateResponseBodyProductsItem>), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.ProductsCollection)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the static product collection..</param>
+        public ProductCollectionsCreateResponseBody(string id = default(string), string name = default(string), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), List<ProductCollectionsCreateResponseBodyProductsItem> products = default(List<ProductCollectionsCreateResponseBodyProductsItem>), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -161,6 +161,11 @@ namespace Voucherify.Model
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

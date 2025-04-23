@@ -76,10 +76,15 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VouchersBalanceUpdateResponseBodyRelatedObject" /> class.
         /// </summary>
-        /// <param name="type">The object being modified, i.e. &#x60;voucher&#x60;. (default to TypeEnum.Voucher).</param>
+        /// <param name="type">The object being modified, i.e. &#x60;voucher&#x60;..</param>
         /// <param name="id">Identifies the voucher that is being modified, this is the ID that was assigned by the Voucherify API..</param>
-        public VouchersBalanceUpdateResponseBodyRelatedObject(TypeEnum? type = TypeEnum.Voucher, string id = default(string))
+        public VouchersBalanceUpdateResponseBodyRelatedObject(TypeEnum? type = default(TypeEnum?), string id = default(string))
         {
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
             this._Id = id;
             if (this.Id != null)
             {

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Metadata** | **Object** | The metadata object stores all custom attributes assigned to the SKU. A set of key/value pairs that you can attach to a SKU object. It can be useful for storing additional information about the SKU in a structured format. It can be used to create product collections. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the SKU was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the SKU was updated. The value is shown in the ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;. | [optional] [default to ObjectEnum.Sku]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

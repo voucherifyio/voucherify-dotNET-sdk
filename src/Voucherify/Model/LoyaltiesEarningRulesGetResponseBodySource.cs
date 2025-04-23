@@ -78,8 +78,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="banner">Name of the earning rule. This is displayed as a header for the earning rule in the Dashboard..</param>
         /// <param name="objectId">A unique campaign identifier assigned by the Voucherify API..</param>
-        /// <param name="objectType">Defines the object associated with the earning rule. Defaults to &#x60;campaign&#x60;. (default to ObjectTypeEnum.Campaign).</param>
-        public LoyaltiesEarningRulesGetResponseBodySource(string banner = default(string), string objectId = default(string), ObjectTypeEnum? objectType = ObjectTypeEnum.Campaign)
+        /// <param name="objectType">Defines the object associated with the earning rule. Defaults to &#x60;campaign&#x60;..</param>
+        public LoyaltiesEarningRulesGetResponseBodySource(string banner = default(string), string objectId = default(string), ObjectTypeEnum? objectType = default(ObjectTypeEnum?))
         {
             this._Banner = banner;
             if (this.Banner != null)
@@ -90,6 +90,11 @@ namespace Voucherify.Model
             if (this.ObjectId != null)
             {
                 this._flagObjectId = true;
+            }
+            this._ObjectType = objectType;
+            if (this.ObjectType != null)
+            {
+                this._flagObjectType = true;
             }
         }
 

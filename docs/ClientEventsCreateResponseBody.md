@@ -5,7 +5,7 @@ Response body schema for **POST** `v1/events`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The object represented is an &#x60;event&#x60;. | [optional] [default to ObjectEnum.Event]
+**Object** | **string** | The object represented is an &#x60;event&#x60;. | [optional] 
 **Type** | **string** | The event name. | [optional] 
 **Customer** | [**SimpleCustomerRequiredObjectType**](SimpleCustomerRequiredObjectType.md) |  | 
 **Referral** | **Object** | A &#x60;null&#x60; referral object. | [optional] 

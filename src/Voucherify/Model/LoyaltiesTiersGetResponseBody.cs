@@ -87,8 +87,8 @@ namespace Voucherify.Model
         /// <param name="updatedAt">Timestamp representing the date and time when the loyalty tier was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="config">config.</param>
         /// <param name="expiration">expiration.</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the loyalty. (default to ObjectEnum.LoyaltyTier).</param>
-        public LoyaltiesTiersGetResponseBody(string name = default(string), Dictionary<string, MappingPoints> earningRules = default(Dictionary<string, MappingPoints>), Dictionary<string, MappingPoints> rewards = default(Dictionary<string, MappingPoints>), LoyaltiesTiersGetResponseBodyPoints points = default(LoyaltiesTiersGetResponseBodyPoints), string id = default(string), string campaignId = default(string), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), LoyaltiesTiersGetResponseBodyConfig config = default(LoyaltiesTiersGetResponseBodyConfig), LoyaltyTierExpiration expiration = default(LoyaltyTierExpiration), ObjectEnum? varObject = ObjectEnum.LoyaltyTier)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the loyalty..</param>
+        public LoyaltiesTiersGetResponseBody(string name = default(string), Dictionary<string, MappingPoints> earningRules = default(Dictionary<string, MappingPoints>), Dictionary<string, MappingPoints> rewards = default(Dictionary<string, MappingPoints>), LoyaltiesTiersGetResponseBodyPoints points = default(LoyaltiesTiersGetResponseBodyPoints), string id = default(string), string campaignId = default(string), Object metadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), LoyaltiesTiersGetResponseBodyConfig config = default(LoyaltiesTiersGetResponseBodyConfig), LoyaltyTierExpiration expiration = default(LoyaltyTierExpiration), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Name = name;
             if (this.Name != null)
@@ -144,6 +144,11 @@ namespace Voucherify.Model
             if (this.Expiration != null)
             {
                 this._flagExpiration = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

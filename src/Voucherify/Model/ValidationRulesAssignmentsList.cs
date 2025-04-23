@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationRulesAssignmentsList" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about validation rules assignments. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of validation rules assignments. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about validation rules assignments..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of validation rules assignments..</param>
         /// <param name="data">Contains array of validation rules assignments..</param>
         /// <param name="total">Total number of validation rules assignments..</param>
-        public ValidationRulesAssignmentsList(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<BusValRuleAssignment> data = default(List<BusValRuleAssignment>), int? total = default(int?))
+        public ValidationRulesAssignmentsList(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<BusValRuleAssignment> data = default(List<BusValRuleAssignment>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

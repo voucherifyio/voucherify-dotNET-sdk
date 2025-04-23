@@ -35,13 +35,23 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LocationsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about locations in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of metadata schema objects. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about locations in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of metadata schema objects..</param>
         /// <param name="data">Array of location objects..</param>
         /// <param name="total">Total number of locations..</param>
         /// <param name="hasMore">As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request (with a different end date filter) to get more records returned in the results..</param>
-        public LocationsListResponseBody(string varObject = @"list", string dataRef = @"data", List<Location> data = default(List<Location>), int? total = default(int?), bool? hasMore = default(bool?))
+        public LocationsListResponseBody(string varObject = default(string), string dataRef = default(string), List<Location> data = default(List<Location>), int? total = default(int?), bool? hasMore = default(bool?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

@@ -174,8 +174,8 @@ namespace Voucherify.Model
         /// <param name="type">Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers)..</param>
         /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; segment type.  .</param>
         /// <param name="initialSyncStatus">initialSyncStatus.</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the customer segment. (default to ObjectEnum.Segment).</param>
-        public SegmentsCreateResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), InitialSyncStatusEnum? initialSyncStatus = default(InitialSyncStatusEnum?), ObjectEnum? varObject = ObjectEnum.Segment)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the customer segment..</param>
+        public SegmentsCreateResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), InitialSyncStatusEnum? initialSyncStatus = default(InitialSyncStatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -206,6 +206,11 @@ namespace Voucherify.Model
             if (this.InitialSyncStatus != null)
             {
                 this._flagInitialSyncStatus = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

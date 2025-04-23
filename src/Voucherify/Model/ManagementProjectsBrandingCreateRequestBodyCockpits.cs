@@ -118,16 +118,51 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManagementProjectsBrandingCreateRequestBodyCockpits" /> class.
         /// </summary>
-        /// <param name="campaignsOverviewEnabled">Enables the campaign overview for customers. (default to false).</param>
-        /// <param name="loyaltyEnabled">Enables the loyalty campaign overview for customers. (default to true).</param>
-        /// <param name="giftCardsEnabled">Enables the gift card overview for customers. (default to true).</param>
-        /// <param name="couponsEnabled">Enables the discount coupon overview for customers. (default to true).</param>
-        /// <param name="referralsEnabled">Enables the referral campaign overview for customers. (default to true).</param>
-        /// <param name="theme">Determines the color scheme of the customer cockpit. (default to ThemeEnum.Default).</param>
-        /// <param name="useCustomDoubleOptInRedirectUrl">Enables the double opt-in option. It must be a valid URL format. (default to false).</param>
+        /// <param name="campaignsOverviewEnabled">Enables the campaign overview for customers..</param>
+        /// <param name="loyaltyEnabled">Enables the loyalty campaign overview for customers..</param>
+        /// <param name="giftCardsEnabled">Enables the gift card overview for customers..</param>
+        /// <param name="couponsEnabled">Enables the discount coupon overview for customers..</param>
+        /// <param name="referralsEnabled">Enables the referral campaign overview for customers..</param>
+        /// <param name="theme">Determines the color scheme of the customer cockpit..</param>
+        /// <param name="useCustomDoubleOptInRedirectUrl">Enables the double opt-in option. It must be a valid URL format..</param>
         /// <param name="customDoubleOptInRedirectUrl">Defines the URL for the double opt-in consent. It must be a valid URL format..</param>
-        public ManagementProjectsBrandingCreateRequestBodyCockpits(bool? campaignsOverviewEnabled = false, bool? loyaltyEnabled = true, bool? giftCardsEnabled = true, bool? couponsEnabled = true, bool? referralsEnabled = true, ThemeEnum? theme = ThemeEnum.Default, bool? useCustomDoubleOptInRedirectUrl = false, string customDoubleOptInRedirectUrl = default(string))
+        public ManagementProjectsBrandingCreateRequestBodyCockpits(bool? campaignsOverviewEnabled = default(bool?), bool? loyaltyEnabled = default(bool?), bool? giftCardsEnabled = default(bool?), bool? couponsEnabled = default(bool?), bool? referralsEnabled = default(bool?), ThemeEnum? theme = default(ThemeEnum?), bool? useCustomDoubleOptInRedirectUrl = default(bool?), string customDoubleOptInRedirectUrl = default(string))
         {
+            this._CampaignsOverviewEnabled = campaignsOverviewEnabled;
+            if (this.CampaignsOverviewEnabled != null)
+            {
+                this._flagCampaignsOverviewEnabled = true;
+            }
+            this._LoyaltyEnabled = loyaltyEnabled;
+            if (this.LoyaltyEnabled != null)
+            {
+                this._flagLoyaltyEnabled = true;
+            }
+            this._GiftCardsEnabled = giftCardsEnabled;
+            if (this.GiftCardsEnabled != null)
+            {
+                this._flagGiftCardsEnabled = true;
+            }
+            this._CouponsEnabled = couponsEnabled;
+            if (this.CouponsEnabled != null)
+            {
+                this._flagCouponsEnabled = true;
+            }
+            this._ReferralsEnabled = referralsEnabled;
+            if (this.ReferralsEnabled != null)
+            {
+                this._flagReferralsEnabled = true;
+            }
+            this._Theme = theme;
+            if (this.Theme != null)
+            {
+                this._flagTheme = true;
+            }
+            this._UseCustomDoubleOptInRedirectUrl = useCustomDoubleOptInRedirectUrl;
+            if (this.UseCustomDoubleOptInRedirectUrl != null)
+            {
+                this._flagUseCustomDoubleOptInRedirectUrl = true;
+            }
             this._CustomDoubleOptInRedirectUrl = customDoubleOptInRedirectUrl;
             if (this.CustomDoubleOptInRedirectUrl != null)
             {

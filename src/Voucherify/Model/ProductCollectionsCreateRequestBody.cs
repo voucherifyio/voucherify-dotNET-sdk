@@ -76,12 +76,17 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCollectionsCreateRequestBody" /> class.
         /// </summary>
-        /// <param name="type">Show that the product collection is static (manually selected products). (default to TypeEnum.STATIC).</param>
+        /// <param name="type">Show that the product collection is static (manually selected products)..</param>
         /// <param name="name">Unique user-defined product collection name..</param>
         /// <param name="products">Defines a set of products for a &#x60;STATIC&#x60; product collection type..</param>
         /// <param name="filter">Defines a set of criteria and boundary conditions for an &#x60;AUTO_UPDATE&#x60; product collection type..</param>
-        public ProductCollectionsCreateRequestBody(TypeEnum? type = TypeEnum.STATIC, string name = default(string), List<ProductCollectionsCreateRequestBodyProductsItem> products = default(List<ProductCollectionsCreateRequestBodyProductsItem>), Object filter = default(Object))
+        public ProductCollectionsCreateRequestBody(TypeEnum? type = default(TypeEnum?), string name = default(string), List<ProductCollectionsCreateRequestBodyProductsItem> products = default(List<ProductCollectionsCreateRequestBodyProductsItem>), Object filter = default(Object))
         {
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
             this._Name = name;
             if (this.Name != null)
             {

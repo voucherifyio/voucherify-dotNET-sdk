@@ -81,8 +81,8 @@ namespace Voucherify.Model
         /// <param name="allStores">Determines if the campaign is assigned to all of the stores in the area, i.e. if an area ID is passed in the &#x60;access_settings.assign.area_all_stores_ids&#x60; in the request..</param>
         /// <param name="areaStoreId">Unique identifier of the store to which the campaign is assigned..</param>
         /// <param name="createdAt">Date and time when the assignment was made. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign assignment to areas or stores. (default to ObjectEnum.AreaStoreCampaignAssignment).</param>
-        public AreaStoreCampaignAssignment(string id = default(string), string areaId = default(string), bool? allStores = default(bool?), string areaStoreId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.AreaStoreCampaignAssignment)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign assignment to areas or stores..</param>
+        public AreaStoreCampaignAssignment(string id = default(string), string areaId = default(string), bool? allStores = default(bool?), string areaStoreId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -108,6 +108,11 @@ namespace Voucherify.Model
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

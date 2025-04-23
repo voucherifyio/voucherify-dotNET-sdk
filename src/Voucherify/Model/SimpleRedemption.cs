@@ -151,8 +151,8 @@ namespace Voucherify.Model
         /// <param name="failureMessage">If the result is &#x60;FAILURE&#x60;, this parameter will provide an expanded reason as to why the redemption failed..</param>
         /// <param name="reason">The reason for the redemption rollback..</param>
         /// <param name="channel">channel.</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;. (default to &quot;redemption&quot;).</param>
-        public SimpleRedemption(string id = default(string), string customerId = default(string), string trackingId = default(string), DateTimeOffset? date = default(DateTimeOffset?), int? amount = default(int?), SimpleOrder order = default(SimpleOrder), SimpleRedemptionRewardResult reward = default(SimpleRedemptionRewardResult), SimpleCustomer customer = default(SimpleCustomer), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), SimpleVoucher voucher = default(SimpleVoucher), SimplePromotionTier promotionTier = default(SimplePromotionTier), string redemption = default(string), Object metadata = default(Object), string failureCode = default(string), string failureMessage = default(string), string reason = default(string), SimpleRedemptionChannel channel = default(SimpleRedemptionChannel), string varObject = @"redemption")
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;..</param>
+        public SimpleRedemption(string id = default(string), string customerId = default(string), string trackingId = default(string), DateTimeOffset? date = default(DateTimeOffset?), int? amount = default(int?), SimpleOrder order = default(SimpleOrder), SimpleRedemptionRewardResult reward = default(SimpleRedemptionRewardResult), SimpleCustomer customer = default(SimpleCustomer), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), SimpleVoucher voucher = default(SimpleVoucher), SimplePromotionTier promotionTier = default(SimplePromotionTier), string redemption = default(string), Object metadata = default(Object), string failureCode = default(string), string failureMessage = default(string), string reason = default(string), SimpleRedemptionChannel channel = default(SimpleRedemptionChannel), string varObject = default(string))
         {
             this._Id = id;
             if (this.Id != null)
@@ -243,6 +243,11 @@ namespace Voucherify.Model
             if (this.Channel != null)
             {
                 this._flagChannel = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

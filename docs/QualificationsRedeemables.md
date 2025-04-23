@@ -5,8 +5,8 @@ List of redeemables for examine qualification.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. Default is &#x60;list&#x60;. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of qualified redeemables. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. Default is &#x60;list&#x60;. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of qualified redeemables. | [optional] 
 **Data** | [**List&lt;QualificationsRedeemable&gt;**](QualificationsRedeemable.md) | Array of qualified redeemables. | [optional] 
 **Total** | **int?** | The number of redeemables returned in the API request. | [optional] 
 **HasMore** | **bool?** | As results are always limited, the &#x60;has_more&#x60; flag indicates if there are more records for given parameters. This lets you know if you can run another request (with different options) to get more records returned in the results. | [optional] 

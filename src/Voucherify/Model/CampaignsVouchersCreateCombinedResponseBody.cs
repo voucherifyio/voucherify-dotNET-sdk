@@ -153,13 +153,13 @@ namespace Voucherify.Model
         /// <param name="updatedAt">Timestamp representing the date and time when the voucher was last updated in ISO 8601 format..</param>
         /// <param name="holderId">Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify..</param>
         /// <param name="referrerId">Unique identifier of the referring person..</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;voucher&#x60;. (default to &quot;voucher&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;voucher&#x60;..</param>
         /// <param name="publish">publish.</param>
         /// <param name="redemption">redemption.</param>
         /// <param name="categories">Contains details about the category..</param>
         /// <param name="validationRulesAssignments">validationRulesAssignments.</param>
         /// <param name="asyncActionId">The ID of the scheduled asynchronous action..</param>
-        public CampaignsVouchersCreateCombinedResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), TypeEnum? type = default(TypeEnum?), Discount discount = default(Discount), CampaignsVouchersCreateCombinedResponseBodyGift gift = default(CampaignsVouchersCreateCombinedResponseBodyGift), CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard = default(CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), bool? active = default(bool?), string additionalInfo = default(string), Object metadata = default(Object), VoucherAssets assets = default(VoucherAssets), bool? isReferralCode = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string holderId = default(string), string referrerId = default(string), string varObject = @"voucher", CampaignsVouchersCreateCombinedResponseBodyPublish publish = default(CampaignsVouchersCreateCombinedResponseBodyPublish), CampaignsVouchersCreateCombinedResponseBodyRedemption redemption = default(CampaignsVouchersCreateCombinedResponseBodyRedemption), List<Category> categories = default(List<Category>), ValidationRulesAssignmentsList validationRulesAssignments = default(ValidationRulesAssignmentsList), string asyncActionId = default(string))
+        public CampaignsVouchersCreateCombinedResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), TypeEnum? type = default(TypeEnum?), Discount discount = default(Discount), CampaignsVouchersCreateCombinedResponseBodyGift gift = default(CampaignsVouchersCreateCombinedResponseBodyGift), CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard loyaltyCard = default(CampaignsVouchersCreateCombinedResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), bool? active = default(bool?), string additionalInfo = default(string), Object metadata = default(Object), VoucherAssets assets = default(VoucherAssets), bool? isReferralCode = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string holderId = default(string), string referrerId = default(string), string varObject = default(string), CampaignsVouchersCreateCombinedResponseBodyPublish publish = default(CampaignsVouchersCreateCombinedResponseBodyPublish), CampaignsVouchersCreateCombinedResponseBodyRedemption redemption = default(CampaignsVouchersCreateCombinedResponseBodyRedemption), List<Category> categories = default(List<Category>), ValidationRulesAssignmentsList validationRulesAssignments = default(ValidationRulesAssignmentsList), string asyncActionId = default(string))
         {
             this._Id = id;
             if (this.Id != null)
@@ -280,6 +280,11 @@ namespace Voucherify.Model
             if (this.ReferrerId != null)
             {
                 this._flagReferrerId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Publish = publish;
             if (this.Publish != null)

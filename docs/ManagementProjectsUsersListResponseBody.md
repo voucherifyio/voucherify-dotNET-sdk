@@ -5,8 +5,8 @@ Object containing a list of users assigned to the project.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the users in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of user objects. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the users in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of user objects. | [optional] 
 **Data** | [**List&lt;User&gt;**](User.md) | Array of user objects. | [optional] 
 **Total** | **int?** | The total number of users. | [optional] 
 

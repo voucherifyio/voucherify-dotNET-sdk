@@ -464,14 +464,14 @@ namespace Voucherify.Model
         /// <param name="bundleRules">Contains all the definitions for the bundle rules. It is a set of key value pairs representing the rules and logic between them. The keys are numbered consecutively beginning from &#x60;1&#x60;. The values are objects containing the rule conditions.  While updating with the PUT method, you can pass &#x60;\&quot;bundle_rules\&quot;: null&#x60; to delete the configuration; in the response, an empty object is then returned..</param>
         /// <param name="error">error.</param>
         /// <param name="applicableTo">applicableTo.</param>
-        /// <param name="type">Type of validation rule. (default to TypeEnum.Expression).</param>
-        /// <param name="contextType">Validation rule context type.    | **Context Type** | **Definition** | |:- --|:- --| | earning_rule.order.paid |  | | earning_rule.custom_event |  | | earning_rule.customer.segment.entered |  | | campaign.discount_coupons |  | | campaign.discount_coupons.discount.apply_to_order |  | | campaign.discount_coupons.discount.apply_to_items |  | | campaign.discount_coupons.discount.apply_to_items_proportionally |  | | campaign.discount_coupons.discount.apply_to_items_proportionally_by_quantity |  | | campaign.discount_coupons.discount.fixed.apply_to_items |  | | campaign.gift_vouchers |  | | campaign.gift_vouchers.gift.apply_to_order |  | | campaign.gift_vouchers.gift.apply_to_items |  | | campaign.referral_program |  | | campaign.referral_program.discount.apply_to_order |  | | campaign.referral_program.discount.apply_to_items |  | | campaign.referral_program.discount.apply_to_items_proportionally |  | | campaign.referral_program.discount.apply_to_items_proportionally_by_quantity |  | | campaign.referral_program.discount.fixed.apply_to_items |  | | campaign.promotion |  | | campaign.promotion.discount.apply_to_order |  | | campaign.promotion.discount.apply_to_items |  | | campaign.promotion.discount.apply_to_items_proportionally |  | | campaign.promotion.discount.apply_to_items_proportionally_by_quantity |  | | campaign.promotion.discount.fixed.apply_to_items |  | | campaign.loyalty_program |  | | voucher.discount_voucher |  | | voucher.discount_voucher.discount.apply_to_order |  | | voucher.discount_voucher.discount.apply_to_items |  | | voucher.discount_voucher.discount.apply_to_items_proportionally |  | | voucher.discount_voucher.discount.apply_to_items_proportionally_by_quantity |  | | voucher.discount_voucher.discount.fixed.apply_to_items |  | | voucher.gift_voucher |  | | voucher.gift_voucher.gift.apply_to_order |  | | voucher.gift_voucher.gift.apply_to_items |  | | voucher.loyalty_card |  | | distribution.custom_event |  | | reward_assignment.pay_with_points |  | | global |  | (default to ContextTypeEnum.Global).</param>
+        /// <param name="type">Type of validation rule..</param>
+        /// <param name="contextType">Validation rule context type.    | **Context Type** | **Definition** | |:- --|:- --| | earning_rule.order.paid |  | | earning_rule.custom_event |  | | earning_rule.customer.segment.entered |  | | campaign.discount_coupons |  | | campaign.discount_coupons.discount.apply_to_order |  | | campaign.discount_coupons.discount.apply_to_items |  | | campaign.discount_coupons.discount.apply_to_items_proportionally |  | | campaign.discount_coupons.discount.apply_to_items_proportionally_by_quantity |  | | campaign.discount_coupons.discount.fixed.apply_to_items |  | | campaign.gift_vouchers |  | | campaign.gift_vouchers.gift.apply_to_order |  | | campaign.gift_vouchers.gift.apply_to_items |  | | campaign.referral_program |  | | campaign.referral_program.discount.apply_to_order |  | | campaign.referral_program.discount.apply_to_items |  | | campaign.referral_program.discount.apply_to_items_proportionally |  | | campaign.referral_program.discount.apply_to_items_proportionally_by_quantity |  | | campaign.referral_program.discount.fixed.apply_to_items |  | | campaign.promotion |  | | campaign.promotion.discount.apply_to_order |  | | campaign.promotion.discount.apply_to_items |  | | campaign.promotion.discount.apply_to_items_proportionally |  | | campaign.promotion.discount.apply_to_items_proportionally_by_quantity |  | | campaign.promotion.discount.fixed.apply_to_items |  | | campaign.loyalty_program |  | | voucher.discount_voucher |  | | voucher.discount_voucher.discount.apply_to_order |  | | voucher.discount_voucher.discount.apply_to_items |  | | voucher.discount_voucher.discount.apply_to_items_proportionally |  | | voucher.discount_voucher.discount.apply_to_items_proportionally_by_quantity |  | | voucher.discount_voucher.discount.fixed.apply_to_items |  | | voucher.gift_voucher |  | | voucher.gift_voucher.gift.apply_to_order |  | | voucher.gift_voucher.gift.apply_to_items |  | | voucher.loyalty_card |  | | distribution.custom_event |  | | reward_assignment.pay_with_points |  | | global |  |.</param>
         /// <param name="id">Unique validation rule ID..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the validation rule was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the validation rule was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="assignmentsCount">The number of instances the validation rule has been assigned to different types of redeemables..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the validation rule. (default to &quot;validation_rules&quot;).</param>
-        public ValidationRulesUpdateResponseBody(string name = default(string), Object rules = default(Object), Object bundleRules = default(Object), ValidationRulesUpdateResponseBodyError error = default(ValidationRulesUpdateResponseBodyError), ValidationRulesUpdateResponseBodyApplicableTo applicableTo = default(ValidationRulesUpdateResponseBodyApplicableTo), TypeEnum? type = TypeEnum.Expression, ContextTypeEnum? contextType = ContextTypeEnum.Global, string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), int? assignmentsCount = default(int?), string varObject = @"validation_rules")
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the validation rule..</param>
+        public ValidationRulesUpdateResponseBody(string name = default(string), Object rules = default(Object), Object bundleRules = default(Object), ValidationRulesUpdateResponseBodyError error = default(ValidationRulesUpdateResponseBodyError), ValidationRulesUpdateResponseBodyApplicableTo applicableTo = default(ValidationRulesUpdateResponseBodyApplicableTo), TypeEnum? type = default(TypeEnum?), ContextTypeEnum? contextType = default(ContextTypeEnum?), string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), int? assignmentsCount = default(int?), string varObject = default(string))
         {
             this._Name = name;
             if (this.Name != null)
@@ -498,6 +498,16 @@ namespace Voucherify.Model
             {
                 this._flagApplicableTo = true;
             }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
+            this._ContextType = contextType;
+            if (this.ContextType != null)
+            {
+                this._flagContextType = true;
+            }
             this._Id = id;
             if (this.Id != null)
             {
@@ -517,6 +527,11 @@ namespace Voucherify.Model
             if (this.AssignmentsCount != null)
             {
                 this._flagAssignmentsCount = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

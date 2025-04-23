@@ -5,8 +5,8 @@ Response body schema for **GET** `v1/promotions/stacks` and for **GET** `v1/prom
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about promotion stacks in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of promotion stack objects. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about promotion stacks in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of promotion stack objects. | [optional] 
 **Data** | [**List&lt;PromotionStack&gt;**](PromotionStack.md) | Contains array of promotion stack objects. | [optional] 
 **Total** | **int?** | Total number of promotion stacks. | [optional] 
 

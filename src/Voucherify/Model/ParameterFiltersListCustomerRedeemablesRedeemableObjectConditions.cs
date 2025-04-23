@@ -145,13 +145,13 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="varIn">Array of resource values that should be included in the results (multiple values)..</param>
         /// <param name="notIn">Array of resource values that should be included in the results (multiple values)..</param>
-        /// <param name="varIs">Value is exactly this value (single value). (default to IsEnum.Voucher).</param>
-        /// <param name="isNot">Results omit this value (single value). (default to IsNotEnum.Voucher).</param>
+        /// <param name="varIs">Value is exactly this value (single value)..</param>
+        /// <param name="isNot">Results omit this value (single value)..</param>
         /// <param name="hasValue">Value is NOT null. The value for this parameter is an empty string..</param>
         /// <param name="isUnknown">Value is null. The value for this parameter is an empty string..</param>
         /// <param name="startsWith">Value starts with the specified string..</param>
         /// <param name="endsWith">Value ends with the specified string..</param>
-        public ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions(List<InEnum> varIn = default(List<InEnum>), List<NotInEnum> notIn = default(List<NotInEnum>), IsEnum? varIs = IsEnum.Voucher, IsNotEnum? isNot = IsNotEnum.Voucher, string hasValue = default(string), string isUnknown = default(string), string startsWith = default(string), string endsWith = default(string))
+        public ParameterFiltersListCustomerRedeemablesRedeemableObjectConditions(List<InEnum> varIn = default(List<InEnum>), List<NotInEnum> notIn = default(List<NotInEnum>), IsEnum? varIs = default(IsEnum?), IsNotEnum? isNot = default(IsNotEnum?), string hasValue = default(string), string isUnknown = default(string), string startsWith = default(string), string endsWith = default(string))
         {
             this._In = varIn;
             if (this.In != null)
@@ -162,6 +162,16 @@ namespace Voucherify.Model
             if (this.NotIn != null)
             {
                 this._flagNotIn = true;
+            }
+            this._Is = varIs;
+            if (this.Is != null)
+            {
+                this._flagIs = true;
+            }
+            this._IsNot = isNot;
+            if (this.IsNot != null)
+            {
+                this._flagIsNot = true;
             }
             this._HasValue = hasValue;
             if (this.HasValue != null)

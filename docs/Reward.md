@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **Parameters** | [**RewardType**](RewardType.md) |  | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by the JSON. This object stores information about the reward. | [default to ObjectEnum.Reward]
+**Object** | **string** | The type of the object represented by the JSON. This object stores information about the reward. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

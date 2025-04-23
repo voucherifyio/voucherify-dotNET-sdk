@@ -181,9 +181,9 @@ namespace Voucherify.Model
         /// <param name="category">The category assigned to the campaign. Either pass this parameter OR the &#x60;category_id&#x60;..</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the campaign. A set of key/value pairs that you can attach to a campaign object. It can be useful for storing additional information about the campaign in a structured format..</param>
         /// <param name="accessSettings">accessSettings.</param>
-        /// <param name="campaignType">Type of campaign. (default to CampaignTypeEnum.LOYALTYPROGRAM).</param>
+        /// <param name="campaignType">Type of campaign..</param>
         /// <param name="voucher">voucher.</param>
-        public LoyaltiesCreateCampaignRequestBody(string name = default(string), string description = default(string), TypeEnum? type = default(TypeEnum?), bool? joinOnce = default(bool?), bool? autoJoin = default(bool?), bool? useVoucherMetadataSchema = default(bool?), int? vouchersCount = default(int?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), string activityDurationAfterPublishing = default(string), string categoryId = default(string), string category = default(string), Object metadata = default(Object), AccessSettings accessSettings = default(AccessSettings), CampaignTypeEnum? campaignType = CampaignTypeEnum.LOYALTYPROGRAM, CampaignLoyaltyVoucher voucher = default(CampaignLoyaltyVoucher))
+        public LoyaltiesCreateCampaignRequestBody(string name = default(string), string description = default(string), TypeEnum? type = default(TypeEnum?), bool? joinOnce = default(bool?), bool? autoJoin = default(bool?), bool? useVoucherMetadataSchema = default(bool?), int? vouchersCount = default(int?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), string activityDurationAfterPublishing = default(string), string categoryId = default(string), string category = default(string), Object metadata = default(Object), AccessSettings accessSettings = default(AccessSettings), CampaignTypeEnum? campaignType = default(CampaignTypeEnum?), CampaignLoyaltyVoucher voucher = default(CampaignLoyaltyVoucher))
         {
             this._Name = name;
             if (this.Name != null)
@@ -269,6 +269,11 @@ namespace Voucherify.Model
             if (this.AccessSettings != null)
             {
                 this._flagAccessSettings = true;
+            }
+            this._CampaignType = campaignType;
+            if (this.CampaignType != null)
+            {
+                this._flagCampaignType = true;
             }
             this._Voucher = voucher;
             if (this.Voucher != null)

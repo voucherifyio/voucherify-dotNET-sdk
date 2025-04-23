@@ -122,7 +122,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="PublicationsListResponseBodyPublicationsItem" /> class.
         /// </summary>
         /// <param name="id">Unique publication ID, assigned by Voucherify..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;. (default to ObjectEnum.Publication).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the publication was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="customerId">Unique customer ID of the customer receiving the publication..</param>
         /// <param name="trackingId">Customer&#39;s &#x60;source_id&#x60;..</param>
@@ -136,12 +136,17 @@ namespace Voucherify.Model
         /// <param name="voucher">voucher.</param>
         /// <param name="failureCode">Generic reason as to why the create publication operation failed..</param>
         /// <param name="failureMessage">This parameter will provide more expanded reason as to why the create publication operation failed..</param>
-        public PublicationsListResponseBodyPublicationsItem(string id = default(string), ObjectEnum? varObject = ObjectEnum.Publication, DateTimeOffset? createdAt = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), PublicationsListResponseBodyPublicationsItemMetadata metadata = default(PublicationsListResponseBodyPublicationsItemMetadata), string channel = default(string), string sourceId = default(string), CustomerWithSummaryLoyaltyReferrals customer = default(CustomerWithSummaryLoyaltyReferrals), List<string> vouchers = default(List<string>), List<string> vouchersId = default(List<string>), ResultEnum? result = default(ResultEnum?), ListPublicationsItemVoucher voucher = default(ListPublicationsItemVoucher), string failureCode = default(string), string failureMessage = default(string))
+        public PublicationsListResponseBodyPublicationsItem(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), PublicationsListResponseBodyPublicationsItemMetadata metadata = default(PublicationsListResponseBodyPublicationsItemMetadata), string channel = default(string), string sourceId = default(string), CustomerWithSummaryLoyaltyReferrals customer = default(CustomerWithSummaryLoyaltyReferrals), List<string> vouchers = default(List<string>), List<string> vouchersId = default(List<string>), ResultEnum? result = default(ResultEnum?), ListPublicationsItemVoucher voucher = default(ListPublicationsItemVoucher), string failureCode = default(string), string failureMessage = default(string))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)

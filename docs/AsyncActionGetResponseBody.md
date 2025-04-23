@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **RequestId** | **string** | Unique request ID. | [optional] 
 **ProcessingTime** | **int?** | The length of time it took to process the request in milliseconds. | [optional] 
 **Progress** | **int?** | % progress to completion of the asynchronous action. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;. | [optional] [default to ObjectEnum.AsyncAction]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;. | [optional] 
 **Result** | **Object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

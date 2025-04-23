@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RedemptionsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about redemptions in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of redemption objects. (default to &quot;redemptions&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about redemptions in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of redemption objects..</param>
         /// <param name="redemptions">redemptions.</param>
         /// <param name="total">Total number of redemptions..</param>
-        public RedemptionsListResponseBody(string varObject = @"list", string dataRef = @"redemptions", List<RedemptionsListResponseBodyRedemptionsItem> redemptions = default(List<RedemptionsListResponseBodyRedemptionsItem>), int? total = default(int?))
+        public RedemptionsListResponseBody(string varObject = default(string), string dataRef = default(string), List<RedemptionsListResponseBodyRedemptionsItem> redemptions = default(List<RedemptionsListResponseBodyRedemptionsItem>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Redemptions = redemptions;
             if (this.Redemptions != null)
             {

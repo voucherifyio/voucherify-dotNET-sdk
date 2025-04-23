@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Segments** | **int?** | Number of segments deleted. | [optional] 
 **Orders** | **int?** | Number of orders deleted. | [optional] 
 **OrderEvents** | **int?** | Number of order events deleted. | [optional] 
-**Customer** | **int?** | Number of customers deleted. | [optional] [default to 1]
+**Customer** | **int?** | Number of customers deleted. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

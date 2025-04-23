@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationRulesListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about validation rules. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of validation rules. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about validation rules..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of validation rules..</param>
         /// <param name="data">An array of validation rules..</param>
         /// <param name="total">Total number of validation rules in the project..</param>
-        public ValidationRulesListResponseBody(string varObject = @"list", string dataRef = @"data", List<ValidationRule> data = default(List<ValidationRule>), int? total = default(int?))
+        public ValidationRulesListResponseBody(string varObject = default(string), string dataRef = default(string), List<ValidationRule> data = default(List<ValidationRule>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

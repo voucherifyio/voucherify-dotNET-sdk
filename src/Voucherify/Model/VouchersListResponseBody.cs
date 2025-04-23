@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VouchersListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of voucher objects. (default to DataRefEnum.Vouchers).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of voucher objects..</param>
         /// <param name="vouchers">A dictionary that contains an array of  vouchers. Each entry in the array is a separate voucher object..</param>
         /// <param name="total">Returns how many vouchers in the project meet the limits defined by the query parameter definitions..</param>
-        public VouchersListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Vouchers, List<VoucherWithCategories> vouchers = default(List<VoucherWithCategories>), int? total = default(int?))
+        public VouchersListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<VoucherWithCategories> vouchers = default(List<VoucherWithCategories>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Vouchers = vouchers;
             if (this.Vouchers != null)
             {

@@ -78,8 +78,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="createdResources">Contains a list of resources that have been added to the project when the promotion tier has been created out of the template..</param>
         /// <param name="promotionTier">promotionTier.</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template. (default to ObjectEnum.PromotionTierSetup).</param>
-        public TemplatesCampaignsTierSetupCreateResponseBody(List<TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem> createdResources = default(List<TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem>), PromotionTier promotionTier = default(PromotionTier), ObjectEnum? varObject = ObjectEnum.PromotionTierSetup)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template..</param>
+        public TemplatesCampaignsTierSetupCreateResponseBody(List<TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem> createdResources = default(List<TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem>), PromotionTier promotionTier = default(PromotionTier), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._CreatedResources = createdResources;
             if (this.CreatedResources != null)
@@ -90,6 +90,11 @@ namespace Voucherify.Model
             if (this.PromotionTier != null)
             {
                 this._flagPromotionTier = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

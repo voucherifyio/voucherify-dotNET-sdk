@@ -5,8 +5,8 @@ Retrieves a list of the resources moved the bin.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the bin entries in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of bin entry objects. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the bin entries in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of bin entry objects. | [optional] 
 **Data** | [**List&lt;TrashBinItem&gt;**](TrashBinItem.md) | Array of bin entry objects. | [optional] 
 **Total** | **int?** | The total number of bin entries. This is the number of the entries returned in the array, not the number of all matching results or all resources currently moved to the bin. | [optional] 
 **HasMore** | **bool?** | As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request with a &#x60;starting_after_id&#x60; query or a different limit to get more records returned in the results. | [optional] 

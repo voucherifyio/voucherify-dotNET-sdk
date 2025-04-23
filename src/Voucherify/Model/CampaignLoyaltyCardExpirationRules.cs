@@ -141,12 +141,17 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignLoyaltyCardExpirationRules" /> class.
         /// </summary>
-        /// <param name="periodType">Type of period (default to PeriodTypeEnum.MONTH).</param>
+        /// <param name="periodType">Type of period.</param>
         /// <param name="periodValue">Value of the period.</param>
         /// <param name="roundingType">Type of rounding.</param>
         /// <param name="roundingValue">Value of rounding.</param>
-        public CampaignLoyaltyCardExpirationRules(PeriodTypeEnum? periodType = PeriodTypeEnum.MONTH, int? periodValue = default(int?), RoundingTypeEnum? roundingType = default(RoundingTypeEnum?), int? roundingValue = default(int?))
+        public CampaignLoyaltyCardExpirationRules(PeriodTypeEnum? periodType = default(PeriodTypeEnum?), int? periodValue = default(int?), RoundingTypeEnum? roundingType = default(RoundingTypeEnum?), int? roundingValue = default(int?))
         {
+            this._PeriodType = periodType;
+            if (this.PeriodType != null)
+            {
+                this._flagPeriodType = true;
+            }
             this._PeriodValue = periodValue;
             if (this.PeriodValue != null)
             {

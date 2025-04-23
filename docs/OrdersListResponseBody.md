@@ -5,8 +5,8 @@ Response body schema representing **GET** `v1/orders`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about orders in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of order objects. | [optional] [default to DataRefEnum.Orders]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about orders in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of order objects. | [optional] 
 **Orders** | [**List&lt;OrdersListResponseBodyOrdersItem&gt;**](OrdersListResponseBodyOrdersItem.md) | Contains array of order objects. | [optional] 
 **Total** | **int?** | Total number of orders. | [optional] 
 

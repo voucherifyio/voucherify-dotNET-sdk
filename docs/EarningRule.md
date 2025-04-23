@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **LoyaltyTier** | [**EarningRuleLoyaltyTier**](EarningRuleLoyaltyTier.md) |  | [optional] 
 **PendingPoints** | [**EarningRulePendingPoints**](EarningRulePendingPoints.md) |  | [optional] 
 **Source** | [**EarningRuleSource**](EarningRuleSource.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by JSON. Default is earning_rule. | [optional] [default to ObjectEnum.EarningRule]
+**Object** | **string** | The type of the object represented by JSON. Default is earning_rule. | [optional] 
 **AutomationId** | **string** | For internal use by Voucherify. | [optional] 
 **StartDate** | **string** | Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. The earning rule is inactive before this date. If you do not define the start date for an earning rule, it will inherit the campaign start date by default. | [optional] 
 **ExpirationDate** | **string** | Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format. The earning rule is inactive after this date. If you do not define the expiration date for an earning rule, it will inherit the campaign expiration date by default. | [optional] 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the customer was updated. The value is shown in the ISO 8601 format. | [optional] 
 **Assets** | [**CustomersCreateResponseBodyAssets**](CustomersCreateResponseBodyAssets.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.Customer]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 **Name** | **string** | Customer&#39;s first and last name. | [optional] 
 **Description** | **string** | An arbitrary string that you can attach to a customer object. | [optional] 
 **Email** | **string** | Customer&#39;s email address. | [optional] 

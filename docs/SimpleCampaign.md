@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **Description** | **string** | An optional field to keep extra textual information about the campaign such as a campaign description and details. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the campaign was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the campaign was updated in the ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the campaign. | [optional] [default to ObjectEnum.Campaign]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the campaign. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

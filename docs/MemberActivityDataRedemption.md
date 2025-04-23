@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **FailureMessage** | **string** |  | [optional] 
 **Reason** | **string** |  | [optional] 
 **Channel** | [**MemberActivityDataRedemptionChannel**](MemberActivityDataRedemptionChannel.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;. | [optional] [default to "redemption"]
+**Object** | **string** | The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format. | [optional] 
 **ChannelType** | **string** | The source of the channel for the redemption rollback. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API. | [optional] 
 **ChannelId** | **string** | Unique channel ID of the user performing the redemption. This is either a user ID from a user using the Voucherify Dashboard or an X-APP-Id of a user using the API. | [optional] 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the promotion stack was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the promotion stack was updated. The value is shown in the ISO 8601 format. | [optional] 
 **CampaignId** | **string** | Promotion stack&#39;s parent campaign&#39;s unique ID. | [optional] 
-**Object** | **string** | The type of the object represented by JSON.  | [optional] [default to ObjectEnum.PromotionStack]
+**Object** | **string** | The type of the object represented by JSON.  | [optional] 
 **CategoryId** | **string** | Promotion stack category ID. | [optional] 
 **Categories** | [**List&lt;Category&gt;**](Category.md) | Details about the category assigned to the promotion stack. | [optional] 
 

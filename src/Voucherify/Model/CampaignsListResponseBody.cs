@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about campaigns in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of campaign objects. (default to &quot;campaigns&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about campaigns in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of campaign objects..</param>
         /// <param name="campaigns">Contains array of campaign objects..</param>
         /// <param name="total">Total number of campaigns..</param>
-        public CampaignsListResponseBody(string varObject = @"list", string dataRef = @"campaigns", List<CampaignBase> campaigns = default(List<CampaignBase>), int? total = default(int?))
+        public CampaignsListResponseBody(string varObject = default(string), string dataRef = default(string), List<CampaignBase> campaigns = default(List<CampaignBase>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Campaigns = campaigns;
             if (this.Campaigns != null)
             {

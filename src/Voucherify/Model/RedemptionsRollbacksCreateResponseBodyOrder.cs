@@ -148,7 +148,7 @@ namespace Voucherify.Model
         /// <param name="itemsAppliedDiscountAmount">Sum of all product-specific discounts applied in a particular request. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).   &#x60;sum(items, i &#x3D;&gt; i.applied_discount_amount)&#x60;.</param>
         /// <param name="totalAppliedDiscountAmount">Sum of all order-level AND all product-specific discounts applied in a particular request. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00).   &#x60;total_applied_discount_amount&#x60; &#x3D; &#x60;applied_discount_amount&#x60; + &#x60;items_applied_discount_amount&#x60;.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. It can be used to define business validation rules or discount formulas..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Order).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the order was last updated in ISO 8601 format..</param>
         /// <param name="customerId">Unique customer identifier of the customer making the purchase. The ID is assigned by Voucherify..</param>
@@ -157,7 +157,7 @@ namespace Voucherify.Model
         /// <param name="referrer">referrer.</param>
         /// <param name="redemptions">redemptions.</param>
         /// <param name="items">Array of items applied to the order. It can include up to 500 items..</param>
-        public RedemptionsRollbacksCreateResponseBodyOrder(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), int? amount = default(int?), int? initialAmount = default(int?), int? discountAmount = default(int?), int? itemsDiscountAmount = default(int?), int? totalDiscountAmount = default(int?), int? totalAmount = default(int?), int? appliedDiscountAmount = default(int?), int? itemsAppliedDiscountAmount = default(int?), int? totalAppliedDiscountAmount = default(int?), Object metadata = default(Object), ObjectEnum? varObject = ObjectEnum.Order, DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string customerId = default(string), string referrerId = default(string), CustomerId customer = default(CustomerId), ReferrerId referrer = default(ReferrerId), Dictionary<string, OrderRedemptionsEntry> redemptions = default(Dictionary<string, OrderRedemptionsEntry>), List<OrderCalculatedItem> items = default(List<OrderCalculatedItem>))
+        public RedemptionsRollbacksCreateResponseBodyOrder(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), int? amount = default(int?), int? initialAmount = default(int?), int? discountAmount = default(int?), int? itemsDiscountAmount = default(int?), int? totalDiscountAmount = default(int?), int? totalAmount = default(int?), int? appliedDiscountAmount = default(int?), int? itemsAppliedDiscountAmount = default(int?), int? totalAppliedDiscountAmount = default(int?), Object metadata = default(Object), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string customerId = default(string), string referrerId = default(string), CustomerId customer = default(CustomerId), ReferrerId referrer = default(ReferrerId), Dictionary<string, OrderRedemptionsEntry> redemptions = default(Dictionary<string, OrderRedemptionsEntry>), List<OrderCalculatedItem> items = default(List<OrderCalculatedItem>))
         {
             this._Id = id;
             if (this.Id != null)
@@ -223,6 +223,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)

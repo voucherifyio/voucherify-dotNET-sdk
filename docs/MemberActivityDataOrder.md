@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **TotalAmount** | **int?** | Order amount after undoing all the discounts through the rollback redemption. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00). | [optional] 
 **Items** | [**List&lt;MemberActivityDataOrderItemsItem&gt;**](MemberActivityDataOrderItemsItem.md) | Array of items applied to the order. It can include up to 500 items. | [optional] 
 **Metadata** | **Object** | A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. It can be used to define business validation rules or discount formulas. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.Order]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 **InitialAmount** | **int?** | This is the sum of the order items&#39; amounts before any discount or other effect (e.g. add missing units) is applied. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00). | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the order was last updated in ISO 8601 format. | [optional] 

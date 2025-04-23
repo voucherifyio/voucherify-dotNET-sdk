@@ -172,12 +172,12 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="type">The type of voucher whose balance is being adjusted due to the transaction..</param>
         /// <param name="total">The number of all points or credits accumulated on the card as affected by add or subtract operations..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. (default to ObjectEnum.Balance).</param>
+        /// <param name="varObject">The type of the object represented by the JSON..</param>
         /// <param name="points">Points added or subtracted in the transaction of a loyalty card..</param>
         /// <param name="balance">The available points or credits on the card after the transaction as affected by redemption or rollback..</param>
         /// <param name="operationType">The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption..</param>
         /// <param name="relatedObject">relatedObject.</param>
-        public VoucherBalance(TypeEnum? type = default(TypeEnum?), int? total = default(int?), ObjectEnum? varObject = ObjectEnum.Balance, int? points = default(int?), int? balance = default(int?), OperationTypeEnum? operationType = default(OperationTypeEnum?), VoucherBalanceRelatedObject relatedObject = default(VoucherBalanceRelatedObject))
+        public VoucherBalance(TypeEnum? type = default(TypeEnum?), int? total = default(int?), ObjectEnum? varObject = default(ObjectEnum?), int? points = default(int?), int? balance = default(int?), OperationTypeEnum? operationType = default(OperationTypeEnum?), VoucherBalanceRelatedObject relatedObject = default(VoucherBalanceRelatedObject))
         {
             this._Type = type;
             if (this.Type != null)
@@ -188,6 +188,11 @@ namespace Voucherify.Model
             if (this.Total != null)
             {
                 this._flagTotal = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Points = points;
             if (this.Points != null)

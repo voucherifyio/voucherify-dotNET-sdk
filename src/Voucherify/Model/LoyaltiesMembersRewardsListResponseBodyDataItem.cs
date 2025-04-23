@@ -78,8 +78,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="reward">reward.</param>
         /// <param name="assignment">assignment.</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.LoyaltyReward).</param>
-        public LoyaltiesMembersRewardsListResponseBodyDataItem(Reward reward = default(Reward), RewardAssignment assignment = default(RewardAssignment), ObjectEnum? varObject = ObjectEnum.LoyaltyReward)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public LoyaltiesMembersRewardsListResponseBodyDataItem(Reward reward = default(Reward), RewardAssignment assignment = default(RewardAssignment), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Reward = reward;
             if (this.Reward != null)
@@ -90,6 +90,11 @@ namespace Voucherify.Model
             if (this.Assignment != null)
             {
                 this._flagAssignment = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

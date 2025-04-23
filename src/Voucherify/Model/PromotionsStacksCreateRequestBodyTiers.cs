@@ -75,13 +75,18 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="PromotionsStacksCreateRequestBodyTiers" /> class.
         /// </summary>
         /// <param name="ids">Contains the list of tiers in a pre-defined sequence..</param>
-        /// <param name="hierarchyMode">hierarchyMode (default to HierarchyModeEnum.MANUAL).</param>
-        public PromotionsStacksCreateRequestBodyTiers(List<string> ids = default(List<string>), HierarchyModeEnum? hierarchyMode = HierarchyModeEnum.MANUAL)
+        /// <param name="hierarchyMode">hierarchyMode.</param>
+        public PromotionsStacksCreateRequestBodyTiers(List<string> ids = default(List<string>), HierarchyModeEnum? hierarchyMode = default(HierarchyModeEnum?))
         {
             this._Ids = ids;
             if (this.Ids != null)
             {
                 this._flagIds = true;
+            }
+            this._HierarchyMode = hierarchyMode;
+            if (this.HierarchyMode != null)
+            {
+                this._flagHierarchyMode = true;
             }
         }
 

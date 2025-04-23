@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Category** | **string** | Tag defining the category that this voucher belongs to. Useful when listing vouchers using the List Vouchers endpoint. | [optional] 
 **CategoryId** | **string** | Unique category ID assigned by Voucherify. | [optional] 
 **Categories** | [**List&lt;Category&gt;**](Category.md) |  | [optional] 
-**Type** | **string** | Defines the type of the voucher. | [optional] [default to TypeEnum.LOYALTYCARD]
+**Type** | **string** | Defines the type of the voucher. | [optional] 
 **LoyaltyCard** | [**LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard**](LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard.md) |  | [optional] 
 **StartDate** | **DateTimeOffset?** | Activation timestamp defines when the code starts to be active in ISO 8601 format. Voucher is inactive before this date. | [optional] 
 **ExpirationDate** | **DateTimeOffset?** | Expiration timestamp defines when the code expires in ISO 8601 format. Voucher is inactive after this date. | [optional] 

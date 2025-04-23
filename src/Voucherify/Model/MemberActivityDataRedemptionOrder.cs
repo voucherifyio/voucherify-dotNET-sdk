@@ -150,14 +150,14 @@ namespace Voucherify.Model
         /// <param name="totalAmount">Order amount after undoing all the discounts through the rollback redemption. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00)..</param>
         /// <param name="items">Array of items applied to the order. It can include up to 500 items..</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. It can be used to define business validation rules or discount formulas..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Order).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="initialAmount">This is the sum of the order items&#39; amounts before any discount or other effect (e.g. add missing units) is applied. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00)..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the order was last updated in ISO 8601 format..</param>
         /// <param name="customer">customer.</param>
         /// <param name="referrer">referrer.</param>
         /// <param name="redemptions">redemptions.</param>
-        public MemberActivityDataRedemptionOrder(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), string customerId = default(string), string referrerId = default(string), int? amount = default(int?), int? discountAmount = default(int?), int? appliedDiscountAmount = default(int?), int? itemsDiscountAmount = default(int?), int? itemsAppliedDiscountAmount = default(int?), int? totalDiscountAmount = default(int?), int? totalAppliedDiscountAmount = default(int?), int? totalAmount = default(int?), List<MemberActivityDataRedemptionOrderItemsItem> items = default(List<MemberActivityDataRedemptionOrderItemsItem>), Object metadata = default(Object), ObjectEnum? varObject = ObjectEnum.Order, int? initialAmount = default(int?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), MemberActivityDataRedemptionOrderCustomer customer = default(MemberActivityDataRedemptionOrderCustomer), MemberActivityDataRedemptionOrderReferrer referrer = default(MemberActivityDataRedemptionOrderReferrer), Dictionary<string, OrderRedemptionsEntry> redemptions = default(Dictionary<string, OrderRedemptionsEntry>))
+        public MemberActivityDataRedemptionOrder(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), string customerId = default(string), string referrerId = default(string), int? amount = default(int?), int? discountAmount = default(int?), int? appliedDiscountAmount = default(int?), int? itemsDiscountAmount = default(int?), int? itemsAppliedDiscountAmount = default(int?), int? totalDiscountAmount = default(int?), int? totalAppliedDiscountAmount = default(int?), int? totalAmount = default(int?), List<MemberActivityDataRedemptionOrderItemsItem> items = default(List<MemberActivityDataRedemptionOrderItemsItem>), Object metadata = default(Object), ObjectEnum? varObject = default(ObjectEnum?), int? initialAmount = default(int?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), MemberActivityDataRedemptionOrderCustomer customer = default(MemberActivityDataRedemptionOrderCustomer), MemberActivityDataRedemptionOrderReferrer referrer = default(MemberActivityDataRedemptionOrderReferrer), Dictionary<string, OrderRedemptionsEntry> redemptions = default(Dictionary<string, OrderRedemptionsEntry>))
         {
             this._Id = id;
             if (this.Id != null)
@@ -233,6 +233,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._InitialAmount = initialAmount;
             if (this.InitialAmount != null)

@@ -77,13 +77,18 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="MemberActivityDataBalanceRelatedObject" /> class.
         /// </summary>
         /// <param name="id">Identifies the voucher that is being modified. The ID is assigned by the Voucherify API..</param>
-        /// <param name="type">The object being modified, i.e. voucher. (default to TypeEnum.Voucher).</param>
-        public MemberActivityDataBalanceRelatedObject(string id = default(string), TypeEnum? type = TypeEnum.Voucher)
+        /// <param name="type">The object being modified, i.e. voucher..</param>
+        public MemberActivityDataBalanceRelatedObject(string id = default(string), TypeEnum? type = default(TypeEnum?))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
         }
 

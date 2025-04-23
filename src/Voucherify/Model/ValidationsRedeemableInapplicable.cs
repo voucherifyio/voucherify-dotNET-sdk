@@ -123,7 +123,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidationsRedeemableInapplicable" /> class.
         /// </summary>
-        /// <param name="status">Indicates whether the redeemable can be applied or not applied based on the validation rules. (default to StatusEnum.INAPPLICABLE).</param>
+        /// <param name="status">Indicates whether the redeemable can be applied or not applied based on the validation rules..</param>
         /// <param name="id">Redeemable ID, i.e. the voucher code..</param>
         /// <param name="varObject">Redeemable&#39;s object type..</param>
         /// <param name="result">result.</param>
@@ -132,8 +132,13 @@ namespace Voucherify.Model
         /// <param name="campaignName">Campaign name. Displayed only if the &#x60;options.expand&#x60; is passed with a &#x60;redeemable&#x60; value in the validation request body..</param>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify. Displayed only if the &#x60;options.expand&#x60; is passed with a &#x60;redeemable&#x60; value in the validation request body..</param>
         /// <param name="name">Name of the promotion tier. Displayed only if the &#x60;options.expand&#x60; is passed with a &#x60;redeemable&#x60; value in the validation request body..</param>
-        public ValidationsRedeemableInapplicable(StatusEnum? status = StatusEnum.INAPPLICABLE, string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), ValidationsRedeemableInapplicableResult result = default(ValidationsRedeemableInapplicableResult), Object metadata = default(Object), List<CategoryWithStackingRulesType> categories = default(List<CategoryWithStackingRulesType>), string campaignName = default(string), string campaignId = default(string), string name = default(string))
+        public ValidationsRedeemableInapplicable(StatusEnum? status = default(StatusEnum?), string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), ValidationsRedeemableInapplicableResult result = default(ValidationsRedeemableInapplicableResult), Object metadata = default(Object), List<CategoryWithStackingRulesType> categories = default(List<CategoryWithStackingRulesType>), string campaignName = default(string), string campaignId = default(string), string name = default(string))
         {
+            this._Status = status;
+            if (this.Status != null)
+            {
+                this._flagStatus = true;
+            }
             this._Id = id;
             if (this.Id != null)
             {

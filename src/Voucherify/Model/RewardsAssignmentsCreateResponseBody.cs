@@ -121,11 +121,11 @@ namespace Voucherify.Model
         /// <param name="rewardId">Associated reward ID..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the reward assignment was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the reward assignment was updated. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward assignment. (default to ObjectEnum.RewardAssignment).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward assignment..</param>
         /// <param name="relatedObjectId">Related object ID to which the reward was assigned..</param>
-        /// <param name="relatedObjectType">Related object type to which the reward was assigned. (default to RelatedObjectTypeEnum.Campaign).</param>
+        /// <param name="relatedObjectType">Related object type to which the reward was assigned..</param>
         /// <param name="parameters">parameters.</param>
-        public RewardsAssignmentsCreateResponseBody(string id = default(string), string rewardId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.RewardAssignment, string relatedObjectId = default(string), RelatedObjectTypeEnum? relatedObjectType = RelatedObjectTypeEnum.Campaign, RewardsAssignmentsCreateResponseBodyParameters parameters = default(RewardsAssignmentsCreateResponseBodyParameters))
+        public RewardsAssignmentsCreateResponseBody(string id = default(string), string rewardId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?), string relatedObjectId = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), RewardsAssignmentsCreateResponseBodyParameters parameters = default(RewardsAssignmentsCreateResponseBodyParameters))
         {
             this._Id = id;
             if (this.Id != null)
@@ -147,10 +147,20 @@ namespace Voucherify.Model
             {
                 this._flagUpdatedAt = true;
             }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._RelatedObjectId = relatedObjectId;
             if (this.RelatedObjectId != null)
             {
                 this._flagRelatedObjectId = true;
+            }
+            this._RelatedObjectType = relatedObjectType;
+            if (this.RelatedObjectType != null)
+            {
+                this._flagRelatedObjectType = true;
             }
             this._Parameters = parameters;
             if (this.Parameters != null)

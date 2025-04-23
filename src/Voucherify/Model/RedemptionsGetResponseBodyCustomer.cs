@@ -81,8 +81,8 @@ namespace Voucherify.Model
         /// <param name="email">Customer&#39;s email address..</param>
         /// <param name="sourceId">A unique identifier of the customer. It can be a customer ID or email from a CRM system, database, or a third-party service..</param>
         /// <param name="metadata">A set of custom key/value pairs that are attached to the customer. It stores all custom attributes assigned to the customer..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Customer).</param>
-        public RedemptionsGetResponseBodyCustomer(string id = default(string), string name = default(string), string email = default(string), string sourceId = default(string), Object metadata = default(Object), ObjectEnum? varObject = ObjectEnum.Customer)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public RedemptionsGetResponseBodyCustomer(string id = default(string), string name = default(string), string email = default(string), string sourceId = default(string), Object metadata = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -108,6 +108,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

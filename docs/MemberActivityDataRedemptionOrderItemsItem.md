@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique identifier of the order line item. | [optional] 
-**Object** | **string** |  | [optional] [default to ObjectEnum.OrderItem]
+**Object** | **string** |  | [optional] 
 **SourceId** | **string** | The merchant&#39;s product/SKU ID (if it is different from the Voucherify product/SKU ID). It is useful in the integration between multiple systems. It can be an ID from an eCommerce site, a database, or a third-party service. | [optional] 
 **RelatedObject** | **string** |  | [optional] 
 **ProductId** | **string** | Unique identifier of the product. It is assigned by Voucherify. | [optional] 

@@ -174,10 +174,10 @@ namespace Voucherify.Model
         /// <param name="total">The total of points accrued over the lifetime of the loyalty card..</param>
         /// <param name="balance">The balance after adding/removing points..</param>
         /// <param name="type">The type of voucher being modified..</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is balance. (default to ObjectEnum.Balance).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is balance..</param>
         /// <param name="relatedObject">relatedObject.</param>
         /// <param name="operationType">The type of operation being performed..</param>
-        public LoyaltiesMembersBalanceUpdateResponseBody(int? points = default(int?), int? total = default(int?), int? balance = default(int?), TypeEnum? type = default(TypeEnum?), ObjectEnum? varObject = ObjectEnum.Balance, LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject relatedObject = default(LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject), OperationTypeEnum? operationType = default(OperationTypeEnum?))
+        public LoyaltiesMembersBalanceUpdateResponseBody(int? points = default(int?), int? total = default(int?), int? balance = default(int?), TypeEnum? type = default(TypeEnum?), ObjectEnum? varObject = default(ObjectEnum?), LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject relatedObject = default(LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject), OperationTypeEnum? operationType = default(OperationTypeEnum?))
         {
             this._Points = points;
             if (this.Points != null)
@@ -198,6 +198,11 @@ namespace Voucherify.Model
             if (this.Type != null)
             {
                 this._flagType = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._RelatedObject = relatedObject;
             if (this.RelatedObject != null)

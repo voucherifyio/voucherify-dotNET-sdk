@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique custom event ID. | [optional] 
-**Object** | **string** | The object represented is an &#x60;event&#x60;. | [optional] [default to ObjectEnum.Event]
+**Object** | **string** | The object represented is an &#x60;event&#x60;. | [optional] 
 **Type** | **string** | The event name. | [optional] 
 **Customer** | [**SimpleCustomerRequiredObjectType**](SimpleCustomerRequiredObjectType.md) |  | 
 **Referral** | [**CustomEventReferral**](CustomEventReferral.md) |  | [optional] 

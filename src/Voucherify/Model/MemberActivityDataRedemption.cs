@@ -245,7 +245,7 @@ namespace Voucherify.Model
         /// <param name="failureMessage">failureMessage.</param>
         /// <param name="reason">reason.</param>
         /// <param name="channel">channel.</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;. (default to &quot;redemption&quot;).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="channelType">The source of the channel for the redemption rollback. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard and an &#x60;API&#x60; corresponds to the API..</param>
         /// <param name="channelId">Unique channel ID of the user performing the redemption. This is either a user ID from a user using the Voucherify Dashboard or an X-APP-Id of a user using the API..</param>
@@ -256,7 +256,7 @@ namespace Voucherify.Model
         /// <param name="relatedObjectId">Unique related object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher..</param>
         /// <param name="relatedObjectParentId">Unique related parent object ID assigned by Voucherify, i.e. v_lfZi4rcEGe0sN9gmnj40bzwK2FH6QUno for a voucher..</param>
         /// <param name="campaignName">Campaign name.</param>
-        public MemberActivityDataRedemption(string id = default(string), string customerId = default(string), string trackingId = default(string), DateTimeOffset? date = default(DateTimeOffset?), int? amount = default(int?), MemberActivityDataRedemptionOrder order = default(MemberActivityDataRedemptionOrder), MemberActivityDataRedemptionReward reward = default(MemberActivityDataRedemptionReward), SimpleCustomer customer = default(SimpleCustomer), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), MemberActivityDataRedemptionVoucher voucher = default(MemberActivityDataRedemptionVoucher), MemberActivityDataRedemptionPromotionTier promotionTier = default(MemberActivityDataRedemptionPromotionTier), string redemption = default(string), Object metadata = default(Object), string failureCode = default(string), string failureMessage = default(string), string reason = default(string), MemberActivityDataRedemptionChannel channel = default(MemberActivityDataRedemptionChannel), string varObject = @"redemption", DateTimeOffset? createdAt = default(DateTimeOffset?), ChannelTypeEnum? channelType = default(ChannelTypeEnum?), string channelId = default(string), MemberActivityDataRedemptionPreviousOrder previousOrder = default(MemberActivityDataRedemptionPreviousOrder), MemberActivityDataRedemptionRelatedRedemptions relatedRedemptions = default(MemberActivityDataRedemptionRelatedRedemptions), string parentRedemptionId = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), string relatedObjectParentId = default(string), string campaignName = default(string))
+        public MemberActivityDataRedemption(string id = default(string), string customerId = default(string), string trackingId = default(string), DateTimeOffset? date = default(DateTimeOffset?), int? amount = default(int?), MemberActivityDataRedemptionOrder order = default(MemberActivityDataRedemptionOrder), MemberActivityDataRedemptionReward reward = default(MemberActivityDataRedemptionReward), SimpleCustomer customer = default(SimpleCustomer), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), MemberActivityDataRedemptionVoucher voucher = default(MemberActivityDataRedemptionVoucher), MemberActivityDataRedemptionPromotionTier promotionTier = default(MemberActivityDataRedemptionPromotionTier), string redemption = default(string), Object metadata = default(Object), string failureCode = default(string), string failureMessage = default(string), string reason = default(string), MemberActivityDataRedemptionChannel channel = default(MemberActivityDataRedemptionChannel), string varObject = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), ChannelTypeEnum? channelType = default(ChannelTypeEnum?), string channelId = default(string), MemberActivityDataRedemptionPreviousOrder previousOrder = default(MemberActivityDataRedemptionPreviousOrder), MemberActivityDataRedemptionRelatedRedemptions relatedRedemptions = default(MemberActivityDataRedemptionRelatedRedemptions), string parentRedemptionId = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), string relatedObjectParentId = default(string), string campaignName = default(string))
         {
             this._Id = id;
             if (this.Id != null)
@@ -347,6 +347,11 @@ namespace Voucherify.Model
             if (this.Channel != null)
             {
                 this._flagChannel = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)

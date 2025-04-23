@@ -124,18 +124,23 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltyPendingPointsDetailsEvent" /> class.
         /// </summary>
         /// <param name="id">Unique event identifier, assigned by Voucherify..</param>
-        /// <param name="type">Type of the event that triggered the creation of pending points. (default to TypeEnum.CustomerOrderPaid).</param>
+        /// <param name="type">Type of the event that triggered the creation of pending points..</param>
         /// <param name="groupId">Unique identifier of the request that triggered the event, assigned by Voucherify..</param>
         /// <param name="entityId">Unique identifier of the entity that triggered the event, assigned by Voucherify. For pending points, it is the &#x60;customer_id&#x60; of the customer who paid for the order..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the event occurred. The value is shown in the ISO 8601 format..</param>
         /// <param name="category">Type of the event..</param>
         /// <param name="eventSource">eventSource.</param>
-        public LoyaltyPendingPointsDetailsEvent(string id = default(string), TypeEnum? type = TypeEnum.CustomerOrderPaid, string groupId = default(string), string entityId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), CategoryEnum? category = default(CategoryEnum?), EventSource eventSource = default(EventSource))
+        public LoyaltyPendingPointsDetailsEvent(string id = default(string), TypeEnum? type = default(TypeEnum?), string groupId = default(string), string entityId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), CategoryEnum? category = default(CategoryEnum?), EventSource eventSource = default(EventSource))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
             this._GroupId = groupId;
             if (this.GroupId != null)

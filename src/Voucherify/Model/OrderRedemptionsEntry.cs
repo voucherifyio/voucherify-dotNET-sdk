@@ -38,12 +38,12 @@ namespace Voucherify.Model
         /// <param name="date">Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="rollbackId">Unique ID of the redemption rollback..</param>
         /// <param name="rollbackDate">Timestamp representing the date and time when the redemption rollback was created. The value is shown in the ISO 8601 format..</param>
-        /// <param name="relatedObjectType">The source of the incentive. (default to &quot;redemption&quot;).</param>
+        /// <param name="relatedObjectType">The source of the incentive..</param>
         /// <param name="relatedObjectId">Unique ID of the parent redemption..</param>
         /// <param name="relatedObjectParentId">Represent&#39;s the campaign ID of the voucher if the redemption was based on a voucher that was part of bulk codes generated within a campaign. In case of a promotion tier, this represents the campaign ID of the promotion tier&#39;s parent campaign..</param>
         /// <param name="stacked">Contains a list of unique IDs of child redemptions, which belong to the stacked incentives..</param>
         /// <param name="rollbackStacked">Lists the rollback redemption IDs of the particular child redemptions..</param>
-        public OrderRedemptionsEntry(DateTimeOffset? date = default(DateTimeOffset?), string rollbackId = default(string), DateTimeOffset? rollbackDate = default(DateTimeOffset?), string relatedObjectType = @"redemption", string relatedObjectId = default(string), string relatedObjectParentId = default(string), List<string> stacked = default(List<string>), List<string> rollbackStacked = default(List<string>))
+        public OrderRedemptionsEntry(DateTimeOffset? date = default(DateTimeOffset?), string rollbackId = default(string), DateTimeOffset? rollbackDate = default(DateTimeOffset?), string relatedObjectType = default(string), string relatedObjectId = default(string), string relatedObjectParentId = default(string), List<string> stacked = default(List<string>), List<string> rollbackStacked = default(List<string>))
         {
             this._Date = date;
             if (this.Date != null)
@@ -59,6 +59,11 @@ namespace Voucherify.Model
             if (this.RollbackDate != null)
             {
                 this._flagRollbackDate = true;
+            }
+            this._RelatedObjectType = relatedObjectType;
+            if (this.RelatedObjectType != null)
+            {
+                this._flagRelatedObjectType = true;
             }
             this._RelatedObjectId = relatedObjectId;
             if (this.RelatedObjectId != null)

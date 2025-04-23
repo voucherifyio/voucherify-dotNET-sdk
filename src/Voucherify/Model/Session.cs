@@ -154,15 +154,20 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="Session" /> class.
         /// </summary>
         /// <param name="key">The session unique ID assigned by Voucherify or your own unique session ID. Sending an existing ID will result in overwriting an existing session. If no session key is provided, then a new ID will be generated..</param>
-        /// <param name="type">This parameter is required to establish a new session. (default to TypeEnum.LOCK).</param>
+        /// <param name="type">This parameter is required to establish a new session..</param>
         /// <param name="ttl">Value for the period of time that the session is active. Units for this parameter are defined by the session.ttl_unit parameter..</param>
         /// <param name="ttlUnit">Defines the type of unit in which the session time is counted..</param>
-        public Session(string key = default(string), TypeEnum? type = TypeEnum.LOCK, decimal? ttl = default(decimal?), TtlUnitEnum? ttlUnit = default(TtlUnitEnum?))
+        public Session(string key = default(string), TypeEnum? type = default(TypeEnum?), decimal? ttl = default(decimal?), TtlUnitEnum? ttlUnit = default(TtlUnitEnum?))
         {
             this._Key = key;
             if (this.Key != null)
             {
                 this._flagKey = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
             this._Ttl = ttl;
             if (this.Ttl != null)

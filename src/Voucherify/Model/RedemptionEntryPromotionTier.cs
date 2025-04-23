@@ -94,11 +94,11 @@ namespace Voucherify.Model
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
         /// <param name="validityHours">validityHours.</param>
         /// <param name="summary">summary.</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the promotion tier. (default to &quot;promotion_tier&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the promotion tier..</param>
         /// <param name="validationRuleAssignments">validationRuleAssignments.</param>
         /// <param name="categoryId">Promotion tier category ID..</param>
         /// <param name="categories">categories.</param>
-        public RedemptionEntryPromotionTier(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string name = default(string), string banner = default(string), RedemptionEntryPromotionTierAction action = default(RedemptionEntryPromotionTierAction), Object metadata = default(Object), int? hierarchy = default(int?), string promotionId = default(string), RedemptionEntryPromotionTierCampaign campaign = default(RedemptionEntryPromotionTierCampaign), string campaignId = default(string), bool? active = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), RedemptionEntryPromotionTierSummary summary = default(RedemptionEntryPromotionTierSummary), string varObject = @"promotion_tier", ValidationRuleAssignmentsList validationRuleAssignments = default(ValidationRuleAssignmentsList), string categoryId = default(string), List<Category> categories = default(List<Category>))
+        public RedemptionEntryPromotionTier(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string name = default(string), string banner = default(string), RedemptionEntryPromotionTierAction action = default(RedemptionEntryPromotionTierAction), Object metadata = default(Object), int? hierarchy = default(int?), string promotionId = default(string), RedemptionEntryPromotionTierCampaign campaign = default(RedemptionEntryPromotionTierCampaign), string campaignId = default(string), bool? active = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), RedemptionEntryPromotionTierSummary summary = default(RedemptionEntryPromotionTierSummary), string varObject = default(string), ValidationRuleAssignmentsList validationRuleAssignments = default(ValidationRuleAssignmentsList), string categoryId = default(string), List<Category> categories = default(List<Category>))
         {
             this._Id = id;
             if (this.Id != null)
@@ -189,6 +189,11 @@ namespace Voucherify.Model
             if (this.Summary != null)
             {
                 this._flagSummary = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._ValidationRuleAssignments = validationRuleAssignments;
             if (this.ValidationRuleAssignments != null)

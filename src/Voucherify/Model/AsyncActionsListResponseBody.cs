@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AsyncActionsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about asynchronous actions. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of asynchronous actions. (default to DataRefEnum.AsyncActions).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about asynchronous actions..</param>
+        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of asynchronous actions..</param>
         /// <param name="asyncActions">asyncActions.</param>
         /// <param name="hasMore">As query results are always limited by parameters, the &#x60;has_more&#x60; flag indicates if there are more records available. This lets you know if you can run another request to get more records returned in the results..</param>
-        public AsyncActionsListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.AsyncActions, List<AsyncActionBase> asyncActions = default(List<AsyncActionBase>), bool? hasMore = default(bool?))
+        public AsyncActionsListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<AsyncActionBase> asyncActions = default(List<AsyncActionBase>), bool? hasMore = default(bool?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._AsyncActions = asyncActions;
             if (this.AsyncActions != null)
             {

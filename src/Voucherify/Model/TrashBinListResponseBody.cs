@@ -117,14 +117,24 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TrashBinListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the bin entries in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of bin entry objects. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the bin entries in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of bin entry objects..</param>
         /// <param name="data">Array of bin entry objects..</param>
         /// <param name="total">The total number of bin entries. This is the number of the entries returned in the array, not the number of all matching results or all resources currently moved to the bin..</param>
         /// <param name="hasMore">As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request with a &#x60;starting_after_id&#x60; query or a different limit to get more records returned in the results..</param>
         /// <param name="moreStartingAfter">If &#x60;has_more&#x60; is &#x60;true&#x60;, it returns an ID that can be used to return another page of results. Use the ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results occuring after the field with that ID..</param>
-        public TrashBinListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<TrashBinItem> data = default(List<TrashBinItem>), int? total = default(int?), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
+        public TrashBinListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<TrashBinItem> data = default(List<TrashBinItem>), int? total = default(int?), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

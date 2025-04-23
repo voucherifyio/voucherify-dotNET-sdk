@@ -150,8 +150,8 @@ namespace Voucherify.Model
         /// <param name="totalAmount">Order amount after undoing all the discounts through the rollback redemption. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00)..</param>
         /// <param name="items">Array of items applied to the order. It can include up to 500 items..</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. It can be used to define business validation rules or discount formulas..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Order).</param>
-        public SimpleOrder(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), string customerId = default(string), string referrerId = default(string), int? amount = default(int?), int? discountAmount = default(int?), int? appliedDiscountAmount = default(int?), int? itemsDiscountAmount = default(int?), int? itemsAppliedDiscountAmount = default(int?), int? totalDiscountAmount = default(int?), int? totalAppliedDiscountAmount = default(int?), int? totalAmount = default(int?), List<SimpleOrderItem> items = default(List<SimpleOrderItem>), Object metadata = default(Object), ObjectEnum? varObject = ObjectEnum.Order)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public SimpleOrder(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), string customerId = default(string), string referrerId = default(string), int? amount = default(int?), int? discountAmount = default(int?), int? appliedDiscountAmount = default(int?), int? itemsDiscountAmount = default(int?), int? itemsAppliedDiscountAmount = default(int?), int? totalDiscountAmount = default(int?), int? totalAppliedDiscountAmount = default(int?), int? totalAmount = default(int?), List<SimpleOrderItem> items = default(List<SimpleOrderItem>), Object metadata = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -227,6 +227,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

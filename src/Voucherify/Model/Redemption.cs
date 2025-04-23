@@ -230,7 +230,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="Redemption" /> class.
         /// </summary>
         /// <param name="id">Unique redemption ID..</param>
-        /// <param name="varObject">The type of the object represented by the JSON (default to ObjectEnum.Redemption).</param>
+        /// <param name="varObject">The type of the object represented by the JSON.</param>
         /// <param name="date">Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="customerId">Unique customer ID of the redeeming customer..</param>
         /// <param name="trackingId">Hashed customer source ID..</param>
@@ -252,12 +252,17 @@ namespace Voucherify.Model
         /// <param name="gift">gift.</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="voucher">voucher.</param>
-        public Redemption(string id = default(string), ObjectEnum? varObject = ObjectEnum.Redemption, DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string varRedemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), RedemptionRelatedRedemptions relatedRedemptions = default(RedemptionRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), RedemptionOrder order = default(RedemptionOrder), RedemptionChannel channel = default(RedemptionChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionGift gift = default(RedemptionGift), RedemptionLoyaltyCard loyaltyCard = default(RedemptionLoyaltyCard), RedemptionVoucher voucher = default(RedemptionVoucher))
+        public Redemption(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string varRedemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), RedemptionRelatedRedemptions relatedRedemptions = default(RedemptionRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), RedemptionOrder order = default(RedemptionOrder), RedemptionChannel channel = default(RedemptionChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionGift gift = default(RedemptionGift), RedemptionLoyaltyCard loyaltyCard = default(RedemptionLoyaltyCard), RedemptionVoucher voucher = default(RedemptionVoucher))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Date = date;
             if (this.Date != null)

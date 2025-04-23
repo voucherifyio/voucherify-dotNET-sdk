@@ -239,11 +239,11 @@ namespace Voucherify.Model
         /// <param name="customerId">Unique identifier of the customer..</param>
         /// <param name="holderRole">Role of the holder..</param>
         /// <param name="campaignId">Unique identifier of the campaign as assigned by Voucherify..</param>
-        /// <param name="campaignType">Defines the type of the campaign. (default to CampaignTypeEnum.REFERRALPROGRAM).</param>
+        /// <param name="campaignType">Defines the type of the campaign..</param>
         /// <param name="voucherType">Defines the type of the voucher..</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a redeemable holder. The metadata object stores all custom attributes assigned to the &#x60;redeemable_holder&#x60; object..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.RedeemableHolder).</param>
-        public RedeemableHolder(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string redeemableId = default(string), string redeemableObject = default(string), string customerId = default(string), HolderRoleEnum? holderRole = default(HolderRoleEnum?), string campaignId = default(string), CampaignTypeEnum? campaignType = CampaignTypeEnum.REFERRALPROGRAM, VoucherTypeEnum? voucherType = default(VoucherTypeEnum?), Object metadata = default(Object), ObjectEnum? varObject = ObjectEnum.RedeemableHolder)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public RedeemableHolder(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string redeemableId = default(string), string redeemableObject = default(string), string customerId = default(string), HolderRoleEnum? holderRole = default(HolderRoleEnum?), string campaignId = default(string), CampaignTypeEnum? campaignType = default(CampaignTypeEnum?), VoucherTypeEnum? voucherType = default(VoucherTypeEnum?), Object metadata = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -280,6 +280,11 @@ namespace Voucherify.Model
             {
                 this._flagCampaignId = true;
             }
+            this._CampaignType = campaignType;
+            if (this.CampaignType != null)
+            {
+                this._flagCampaignType = true;
+            }
             this._VoucherType = voucherType;
             if (this.VoucherType != null)
             {
@@ -289,6 +294,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

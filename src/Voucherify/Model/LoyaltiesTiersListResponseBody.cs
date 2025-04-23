@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesTiersListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty tiers in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty tier objects. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty tiers in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty tier objects..</param>
         /// <param name="data">This is an object representing a loyalty tier. Loyalty tiers are used to create a loyalty program with different levels of membership and varied earning rules and rewards based on customer&#39;s tiers..</param>
         /// <param name="total">Total number of loyalty tier objects..</param>
-        public LoyaltiesTiersListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<LoyaltyTier> data = default(List<LoyaltyTier>), int? total = default(int?))
+        public LoyaltiesTiersListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<LoyaltyTier> data = default(List<LoyaltyTier>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

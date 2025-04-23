@@ -76,13 +76,23 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomersActivityListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about customer activities in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of customer activity objects. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about customer activities in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of customer activity objects..</param>
         /// <param name="data">Array of customer activity objects..</param>
         /// <param name="hasMore">As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request with a &#x60;starting_after_id&#x60; query or a different limit to get more records returned in the results..</param>
         /// <param name="moreStartingAfter">Returns an ID that can be used to return another page of results. Use the event ID in the &#x60;starting_after_id&#x60; query parameter to display another page of the results starting after the event with that ID..</param>
-        public CustomersActivityListResponseBody(ObjectEnum? varObject = ObjectEnum.List, string dataRef = @"data", List<CustomerActivity> data = default(List<CustomerActivity>), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
+        public CustomersActivityListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), string dataRef = default(string), List<CustomerActivity> data = default(List<CustomerActivity>), bool? hasMore = default(bool?), string moreStartingAfter = default(string))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

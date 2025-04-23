@@ -35,12 +35,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCollectionsProductsListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about products and SKUs. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of products and SKUs. (default to &quot;data&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about products and SKUs..</param>
+        /// <param name="dataRef">Identifies the name of the JSON property that contains the array of products and SKUs..</param>
         /// <param name="data">data.</param>
         /// <param name="total">Total number of products &amp; SKUs in the product collection..</param>
-        public ProductCollectionsProductsListResponseBody(string varObject = @"list", string dataRef = @"data", List<ProductCollectionsProductsListResponseBodyDataItem> data = default(List<ProductCollectionsProductsListResponseBodyDataItem>), int? total = default(int?))
+        public ProductCollectionsProductsListResponseBody(string varObject = default(string), string dataRef = default(string), List<ProductCollectionsProductsListResponseBodyDataItem> data = default(List<ProductCollectionsProductsListResponseBodyDataItem>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

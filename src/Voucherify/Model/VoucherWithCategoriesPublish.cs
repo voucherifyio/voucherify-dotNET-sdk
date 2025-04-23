@@ -35,11 +35,16 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoucherWithCategoriesPublish" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented is by default &#x60;list&#x60;. To get this list, you need to make a call to the endpoint returned in the &#x60;url&#x60; attribute. (default to &quot;list&quot;).</param>
+        /// <param name="varObject">The type of the object represented is by default &#x60;list&#x60;. To get this list, you need to make a call to the endpoint returned in the &#x60;url&#x60; attribute..</param>
         /// <param name="count">Publication events counter..</param>
         /// <param name="url">The endpoint where this list of publications can be accessed using a **GET** method. &#x60;/v1/vouchers/{voucher_code}/publications&#x60;.</param>
-        public VoucherWithCategoriesPublish(string varObject = @"list", int? count = default(int?), string url = default(string))
+        public VoucherWithCategoriesPublish(string varObject = default(string), int? count = default(int?), string url = default(string))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._Count = count;
             if (this.Count != null)
             {

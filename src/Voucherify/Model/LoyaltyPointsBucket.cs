@@ -84,8 +84,8 @@ namespace Voucherify.Model
         /// <param name="expiresAt">Date when the number of points defined in the bucket object are due to expire..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the loyalty point bucket. (default to ObjectEnum.LoyaltyPointsBucket).</param>
-        public LoyaltyPointsBucket(string id = default(string), string voucherId = default(string), string campaignId = default(string), LoyaltyPointsBucketBucket bucket = default(LoyaltyPointsBucketBucket), string status = default(string), DateTime? expiresAt = default(DateTime?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.LoyaltyPointsBucket)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the loyalty point bucket..</param>
+        public LoyaltyPointsBucket(string id = default(string), string voucherId = default(string), string campaignId = default(string), LoyaltyPointsBucketBucket bucket = default(LoyaltyPointsBucketBucket), string status = default(string), DateTime? expiresAt = default(DateTime?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -126,6 +126,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

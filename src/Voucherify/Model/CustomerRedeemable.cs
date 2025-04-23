@@ -220,12 +220,12 @@ namespace Voucherify.Model
         /// <param name="redeemableId">Identifier of the redeemable item..</param>
         /// <param name="redeemableObject">Type of the redeemable..</param>
         /// <param name="customerId">Identifier of the customer..</param>
-        /// <param name="holderRole">Role of the holder. (default to HolderRoleEnum.OWNER).</param>
+        /// <param name="holderRole">Role of the holder..</param>
         /// <param name="campaignId">Unique campaign identifier, assigned by Voucherify..</param>
-        /// <param name="campaignType">Defines the type of the campaign. (default to CampaignTypeEnum.DISCOUNTCOUPONS).</param>
-        /// <param name="voucherType">Defines the type of the voucher. (default to VoucherTypeEnum.DISCOUNTVOUCHER).</param>
+        /// <param name="campaignType">Defines the type of the campaign..</param>
+        /// <param name="voucherType">Defines the type of the voucher..</param>
         /// <param name="redeemable">redeemable.</param>
-        public CustomerRedeemable(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string redeemableId = default(string), string redeemableObject = default(string), string customerId = default(string), HolderRoleEnum? holderRole = HolderRoleEnum.OWNER, string campaignId = default(string), CampaignTypeEnum? campaignType = CampaignTypeEnum.DISCOUNTCOUPONS, VoucherTypeEnum? voucherType = VoucherTypeEnum.DISCOUNTVOUCHER, CustomerRedeemableRedeemable redeemable = default(CustomerRedeemableRedeemable))
+        public CustomerRedeemable(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string redeemableId = default(string), string redeemableObject = default(string), string customerId = default(string), HolderRoleEnum? holderRole = default(HolderRoleEnum?), string campaignId = default(string), CampaignTypeEnum? campaignType = default(CampaignTypeEnum?), VoucherTypeEnum? voucherType = default(VoucherTypeEnum?), CustomerRedeemableRedeemable redeemable = default(CustomerRedeemableRedeemable))
         {
             this._Id = id;
             if (this.Id != null)
@@ -252,10 +252,25 @@ namespace Voucherify.Model
             {
                 this._flagCustomerId = true;
             }
+            this._HolderRole = holderRole;
+            if (this.HolderRole != null)
+            {
+                this._flagHolderRole = true;
+            }
             this._CampaignId = campaignId;
             if (this.CampaignId != null)
             {
                 this._flagCampaignId = true;
+            }
+            this._CampaignType = campaignType;
+            if (this.CampaignType != null)
+            {
+                this._flagCampaignType = true;
+            }
+            this._VoucherType = voucherType;
+            if (this.VoucherType != null)
+            {
+                this._flagVoucherType = true;
             }
             this._Redeemable = redeemable;
             if (this.Redeemable != null)

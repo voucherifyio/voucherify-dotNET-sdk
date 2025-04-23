@@ -116,8 +116,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="type">Type of the redeemable..</param>
         /// <param name="voucher">voucher (required).</param>
-        /// <param name="status">Status of the redeemable. (default to StatusEnum.ACTIVE).</param>
-        public CustomerRedeemableRedeemable(string type = default(string), RedeemableVoucher voucher = default(RedeemableVoucher), StatusEnum? status = StatusEnum.ACTIVE)
+        /// <param name="status">Status of the redeemable..</param>
+        public CustomerRedeemableRedeemable(string type = default(string), RedeemableVoucher voucher = default(RedeemableVoucher), StatusEnum? status = default(StatusEnum?))
         {
             // to ensure "voucher" is required (not null)
             if (voucher == null)
@@ -129,6 +129,11 @@ namespace Voucherify.Model
             if (this.Type != null)
             {
                 this._flagType = true;
+            }
+            this._Status = status;
+            if (this.Status != null)
+            {
+                this._flagStatus = true;
             }
         }
 

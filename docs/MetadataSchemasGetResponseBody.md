@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **AllowDefinedOnly** | **bool?** | Restricts the creation of metadata fields when set to &#x60;true&#x60;. It indicates whether or not you can create new metadata definitions, e.g. in the campaign or publication manager. If set to &#x60;true&#x60;, then only the defined fields are available for assigning values. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the metadata schema was created. The value for this parameter is shown in the ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the metadata schema was updated. The value for this parameter is shown in the ISO 8601 format. | [optional] 
-**Object** | **string** | The type of the object represented by the JSON. This object stores information about the metadata schema. | [optional] [default to "metadata_schema"]
+**Object** | **string** | The type of the object represented by the JSON. This object stores information about the metadata schema. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

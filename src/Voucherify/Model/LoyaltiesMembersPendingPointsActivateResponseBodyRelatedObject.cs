@@ -76,10 +76,15 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject" /> class.
         /// </summary>
-        /// <param name="type">The object being modified, i.e. &#x60;voucher&#x60;. (default to TypeEnum.Voucher).</param>
+        /// <param name="type">The object being modified, i.e. &#x60;voucher&#x60;..</param>
         /// <param name="id">Identifies the voucher that is being modified. This is the unique identifer that was assigned by Voucherify..</param>
-        public LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject(TypeEnum? type = TypeEnum.Voucher, string id = default(string))
+        public LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject(TypeEnum? type = default(TypeEnum?), string id = default(string))
         {
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
             this._Id = id;
             if (this.Id != null)
             {

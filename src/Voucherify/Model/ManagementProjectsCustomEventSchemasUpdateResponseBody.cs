@@ -84,8 +84,8 @@ namespace Voucherify.Model
         /// <param name="schema">schema.</param>
         /// <param name="createdAt">Timestamp representing the date and time when the custom event schema was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the custom event schema was updated. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.CustomEventSchema).</param>
-        public ManagementProjectsCustomEventSchemasUpdateResponseBody(string id = default(string), string name = default(string), ManagementProjectsCustomEventSchemasUpdateResponseBodySchema schema = default(ManagementProjectsCustomEventSchemasUpdateResponseBodySchema), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.CustomEventSchema)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        public ManagementProjectsCustomEventSchemasUpdateResponseBody(string id = default(string), string name = default(string), ManagementProjectsCustomEventSchemasUpdateResponseBodySchema schema = default(ManagementProjectsCustomEventSchemasUpdateResponseBodySchema), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -111,6 +111,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

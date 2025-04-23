@@ -77,9 +77,9 @@ namespace Voucherify.Model
         /// <param name="id">Unique category ID assigned by Voucherify..</param>
         /// <param name="name">Category name..</param>
         /// <param name="hierarchy">Category hierarchy. Categories with lower hierarchy are processed before categories with higher hierarchy value..</param>
-        /// <param name="varObject">varObject (default to ObjectEnum.Category).</param>
+        /// <param name="varObject">varObject.</param>
         /// <param name="createdAt">Timestamp representing the date and time when the category was created. The value is shown in the ISO 8601 format..</param>
-        public CategoriesCreateResponseBody(string id = default(string), string name = default(string), int? hierarchy = default(int?), ObjectEnum? varObject = ObjectEnum.Category, DateTimeOffset? createdAt = default(DateTimeOffset?))
+        public CategoriesCreateResponseBody(string id = default(string), string name = default(string), int? hierarchy = default(int?), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -95,6 +95,11 @@ namespace Voucherify.Model
             if (this.Hierarchy != null)
             {
                 this._flagHierarchy = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)

@@ -38,9 +38,9 @@ namespace Voucherify.Model
         /// <param name="name">Defines brand name..</param>
         /// <param name="privacyPolicyUrl">Defines the URL to the brand&#39;s privacy policy. It must be a valid URL format..</param>
         /// <param name="termsOfUseUrl">Defines the URL to the brand&#39;s terms of use.  It must be a valid URL format..</param>
-        /// <param name="permissionReminder">Defines the message that is displayed to customers who opted in an email newsletter. (default to &quot;You are receiving this email because you opted in at our website.&quot;).</param>
+        /// <param name="permissionReminder">Defines the message that is displayed to customers who opted in an email newsletter..</param>
         /// <param name="websiteUrl">Defines the URL to the brand&#39;s website. It must be a valid URL format..</param>
-        public ManagementProjectsBrandingCreateRequestBodyBrand(string name = default(string), string privacyPolicyUrl = default(string), string termsOfUseUrl = default(string), string permissionReminder = @"You are receiving this email because you opted in at our website.", string websiteUrl = default(string))
+        public ManagementProjectsBrandingCreateRequestBodyBrand(string name = default(string), string privacyPolicyUrl = default(string), string termsOfUseUrl = default(string), string permissionReminder = default(string), string websiteUrl = default(string))
         {
             this._Name = name;
             if (this.Name != null)
@@ -56,6 +56,11 @@ namespace Voucherify.Model
             if (this.TermsOfUseUrl != null)
             {
                 this._flagTermsOfUseUrl = true;
+            }
+            this._PermissionReminder = permissionReminder;
+            if (this.PermissionReminder != null)
+            {
+                this._flagPermissionReminder = true;
             }
             this._WebsiteUrl = websiteUrl;
             if (this.WebsiteUrl != null)

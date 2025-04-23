@@ -76,12 +76,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesListCampaignsResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty campaigns in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty campaign objects. (default to DataRefEnum.Campaigns).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty campaigns in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty campaign objects..</param>
         /// <param name="campaigns">Contains an array of loyalty campaign objects..</param>
         /// <param name="total">Total number of loyalty campaign objects..</param>
-        public LoyaltiesListCampaignsResponseBody(string varObject = @"list", DataRefEnum? dataRef = DataRefEnum.Campaigns, List<LoyaltyCampaign> campaigns = default(List<LoyaltyCampaign>), int? total = default(int?))
+        public LoyaltiesListCampaignsResponseBody(string varObject = default(string), DataRefEnum? dataRef = default(DataRefEnum?), List<LoyaltyCampaign> campaigns = default(List<LoyaltyCampaign>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Campaigns = campaigns;
             if (this.Campaigns != null)
             {

@@ -161,11 +161,11 @@ namespace Voucherify.Model
         /// <param name="points">The number of pending points added to the loyalty card..</param>
         /// <param name="total">Total number of points incurred over the lifespan of the loyalty card, minus the expired points..</param>
         /// <param name="balance">The current number of loyalty points after the pending points have been added..</param>
-        /// <param name="type">The type of the voucher being modified. For pending points, it is always &#x60;loyalty_card&#x60;. (default to TypeEnum.LoyaltyCard).</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;balance&#x60;. (default to ObjectEnum.Balance).</param>
+        /// <param name="type">The type of the voucher being modified. For pending points, it is always &#x60;loyalty_card&#x60;..</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;balance&#x60;..</param>
         /// <param name="relatedObject">relatedObject.</param>
-        /// <param name="operationType">The type of the operation being performed. (default to OperationTypeEnum.MANUAL).</param>
-        public LoyaltiesMembersPendingPointsActivateResponseBody(int? points = default(int?), int? total = default(int?), int? balance = default(int?), TypeEnum? type = TypeEnum.LoyaltyCard, ObjectEnum? varObject = ObjectEnum.Balance, LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject relatedObject = default(LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject), OperationTypeEnum? operationType = OperationTypeEnum.MANUAL)
+        /// <param name="operationType">The type of the operation being performed..</param>
+        public LoyaltiesMembersPendingPointsActivateResponseBody(int? points = default(int?), int? total = default(int?), int? balance = default(int?), TypeEnum? type = default(TypeEnum?), ObjectEnum? varObject = default(ObjectEnum?), LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject relatedObject = default(LoyaltiesMembersPendingPointsActivateResponseBodyRelatedObject), OperationTypeEnum? operationType = default(OperationTypeEnum?))
         {
             this._Points = points;
             if (this.Points != null)
@@ -182,10 +182,25 @@ namespace Voucherify.Model
             {
                 this._flagBalance = true;
             }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._RelatedObject = relatedObject;
             if (this.RelatedObject != null)
             {
                 this._flagRelatedObject = true;
+            }
+            this._OperationType = operationType;
+            if (this.OperationType != null)
+            {
+                this._flagOperationType = true;
             }
         }
 

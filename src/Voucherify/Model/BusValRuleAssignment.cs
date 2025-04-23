@@ -135,10 +135,10 @@ namespace Voucherify.Model
         /// <param name="relatedObjectType">The type of related object.</param>
         /// <param name="createdAt">Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the object was last updated in ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.ValidationRulesAssignment).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="validationStatus">The validation status of the assignment.</param>
         /// <param name="validationOmittedRules">The list of omitted rules.</param>
-        public BusValRuleAssignment(string id = default(string), string ruleId = default(string), string relatedObjectId = default(string), string relatedObjectType = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.ValidationRulesAssignment, ValidationStatusEnum? validationStatus = default(ValidationStatusEnum?), List<string> validationOmittedRules = default(List<string>))
+        public BusValRuleAssignment(string id = default(string), string ruleId = default(string), string relatedObjectId = default(string), string relatedObjectType = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?), ValidationStatusEnum? validationStatus = default(ValidationStatusEnum?), List<string> validationOmittedRules = default(List<string>))
         {
             this._Id = id;
             if (this.Id != null)
@@ -169,6 +169,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._ValidationStatus = validationStatus;
             if (this.ValidationStatus != null)

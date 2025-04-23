@@ -5,7 +5,7 @@ This object stores a summary of publish events: an events counter and an endpoin
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute. | [optional] [default to ObjectEnum.List]
+**Object** | **string** | The type of the object represented is by default list. To get this list, you need to make a call to the endpoint returned in the url attribute. | [optional] 
 **Count** | **int?** | Publication events counter. | [optional] 
 **Entries** | **List&lt;string&gt;** |  | [optional] 
 **Url** | **string** | The endpoint where this list of publications can be accessed using a **GET** method. /v1/vouchers/{voucher_code}/publications | [optional] 

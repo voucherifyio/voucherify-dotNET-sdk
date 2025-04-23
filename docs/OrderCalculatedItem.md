@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SubtotalAmount** | **int?** | Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;applied_discount_amount&#x60; | [optional] 
 **Product** | [**OrderCalculatedItemProduct**](OrderCalculatedItemProduct.md) |  | [optional] 
 **Sku** | [**OrderCalculatedItemSku**](OrderCalculatedItemSku.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.OrderItem]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 **Metadata** | **Object** | A set of custom key/value pairs that you can attach to an item object. It can be useful for storing additional information about the item in a structured format. It can be used to define business validation rules or discount formulas. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

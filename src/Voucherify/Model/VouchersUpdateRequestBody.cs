@@ -127,9 +127,9 @@ namespace Voucherify.Model
         /// <param name="active">A flag to toggle the voucher on or off. You can disable a voucher even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* voucher - &#x60;false&#x60; indicates an *inactive* voucher.</param>
         /// <param name="additionalInfo">An optional field to keep any extra textual information about the code such as a code description and details..</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format..</param>
-        /// <param name="type">Defines the type of the voucher.  (default to TypeEnum.DISCOUNTVOUCHER).</param>
+        /// <param name="type">Defines the type of the voucher. .</param>
         /// <param name="discount">discount.</param>
-        public VouchersUpdateRequestBody(string category = default(string), string categoryId = default(string), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), bool? active = default(bool?), string additionalInfo = default(string), Object metadata = default(Object), TypeEnum? type = TypeEnum.DISCOUNTVOUCHER, Discount discount = default(Discount))
+        public VouchersUpdateRequestBody(string category = default(string), string categoryId = default(string), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), bool? active = default(bool?), string additionalInfo = default(string), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?), Discount discount = default(Discount))
         {
             this._Category = category;
             if (this.Category != null)
@@ -180,6 +180,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
             this._Discount = discount;
             if (this.Discount != null)

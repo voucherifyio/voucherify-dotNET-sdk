@@ -41,8 +41,8 @@ namespace Voucherify.Model
         /// <param name="allowDefinedOnly">Restricts the creation of metadata fields when set to &#x60;true&#x60;. It indicates whether or not you can create new metadata definitions, e.g. in the campaign or publication manager. If set to &#x60;true&#x60;, then only the defined fields are available for assigning values..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the metadata schema was created. The value for this parameter is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the metadata schema was updated. The value for this parameter is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the metadata schema. (default to &quot;metadata_schema&quot;).</param>
-        public ManagementProjectsMetadataSchemasUpdateResponseBody(string id = default(string), string relatedObject = default(string), Dictionary<string, ManagementProjectsMetadataSchemaDefinition> properties = default(Dictionary<string, ManagementProjectsMetadataSchemaDefinition>), bool? allowDefinedOnly = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string varObject = @"metadata_schema")
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the metadata schema..</param>
+        public ManagementProjectsMetadataSchemasUpdateResponseBody(string id = default(string), string relatedObject = default(string), Dictionary<string, ManagementProjectsMetadataSchemaDefinition> properties = default(Dictionary<string, ManagementProjectsMetadataSchemaDefinition>), bool? allowDefinedOnly = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string varObject = default(string))
         {
             this._Id = id;
             if (this.Id != null)
@@ -73,6 +73,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PeriodType** | **string** | Type of period | [optional] [default to PeriodTypeEnum.MONTH]
+**PeriodType** | **string** | Type of period | [optional] 
 **PeriodValue** | **int?** | Value of the period | [optional] 
 **RoundingType** | **string** | Type of rounding | [optional] 
 **RoundingValue** | **int?** | Value of rounding | [optional] 

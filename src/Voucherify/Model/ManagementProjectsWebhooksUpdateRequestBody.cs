@@ -404,8 +404,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="targetUrl">URL address that receives webhooks..</param>
         /// <param name="events">Lists the events that trigger webhook sendout..</param>
-        /// <param name="active">Determines if the webhook configuration is active. (default to true).</param>
-        public ManagementProjectsWebhooksUpdateRequestBody(string targetUrl = default(string), List<EventsEnum> events = default(List<EventsEnum>), bool? active = true)
+        /// <param name="active">Determines if the webhook configuration is active..</param>
+        public ManagementProjectsWebhooksUpdateRequestBody(string targetUrl = default(string), List<EventsEnum> events = default(List<EventsEnum>), bool? active = default(bool?))
         {
             this._TargetUrl = targetUrl;
             if (this.TargetUrl != null)
@@ -416,6 +416,11 @@ namespace Voucherify.Model
             if (this.Events != null)
             {
                 this._flagEvents = true;
+            }
+            this._Active = active;
+            if (this.Active != null)
+            {
+                this._flagActive = true;
             }
         }
 

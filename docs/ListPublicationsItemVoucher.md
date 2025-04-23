@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** | Voucher code. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.Voucher]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 **Campaign** | **string** | Campaign name | [optional] 
 **Gift** | [**Gift**](Gift.md) |  | [optional] 
 **LoyaltyCard** | **Object** | Defines the loyalty card details. | [optional] 

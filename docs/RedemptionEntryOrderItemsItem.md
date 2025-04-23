@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **SubtotalAmount** | **int?** | Final order item amount after the applied item-level discount.  If there are no item-level discounts applied, this item is equal to the &#x60;amount&#x60;.    &#x60;subtotal_amount&#x60;&#x3D;&#x60;amount&#x60;-&#x60;applied_discount_amount&#x60; | [optional] 
 **Product** | [**RedemptionEntryOrderItemsItemProduct**](RedemptionEntryOrderItemsItemProduct.md) |  | [optional] 
 **Sku** | [**RedemptionEntryOrderItemsItemSku**](RedemptionEntryOrderItemsItemSku.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by JSON. | [optional] [default to ObjectEnum.OrderItem]
+**Object** | **string** | The type of the object represented by JSON. | [optional] 
 **Metadata** | **Object** | A set of custom key/value pairs that you can attach to an item object. It can be useful for storing additional information about the item in a structured format. It can be used to define business validation rules or discount formulas. | [optional] 
 **ApplicationDetails** | [**List&lt;ApplicationDetailsItem&gt;**](ApplicationDetailsItem.md) | Array containing details about the items that are replaced and the items that are replacements for discounts with the &#x60;REPLACE_ITEMS&#x60; effect. | [optional] 
 

@@ -230,7 +230,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltiesMembersRedemptionRedeemResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique redemption ID..</param>
-        /// <param name="varObject">The type of the object represented by the JSON (default to ObjectEnum.Redemption).</param>
+        /// <param name="varObject">The type of the object represented by the JSON.</param>
         /// <param name="date">Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="customerId">Unique customer ID of the redeeming customer..</param>
         /// <param name="trackingId">Hashed customer source ID..</param>
@@ -252,12 +252,17 @@ namespace Voucherify.Model
         /// <param name="gift">gift.</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="voucher">voucher.</param>
-        public LoyaltiesMembersRedemptionRedeemResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.Redemption, DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string redemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions = default(LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), LoyaltiesMembersRedemptionRedeemResponseBodyOrder order = default(LoyaltiesMembersRedemptionRedeemResponseBodyOrder), LoyaltiesMembersRedemptionRedeemResponseBodyChannel channel = default(LoyaltiesMembersRedemptionRedeemResponseBodyChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), LoyaltiesMembersRedemptionRedeemResponseBodyGift gift = default(LoyaltiesMembersRedemptionRedeemResponseBodyGift), LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard), LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher = default(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher))
+        public LoyaltiesMembersRedemptionRedeemResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string redemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions relatedRedemptions = default(LoyaltiesMembersRedemptionRedeemResponseBodyRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), LoyaltiesMembersRedemptionRedeemResponseBodyOrder order = default(LoyaltiesMembersRedemptionRedeemResponseBodyOrder), LoyaltiesMembersRedemptionRedeemResponseBodyChannel channel = default(LoyaltiesMembersRedemptionRedeemResponseBodyChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), LoyaltiesMembersRedemptionRedeemResponseBodyGift gift = default(LoyaltiesMembersRedemptionRedeemResponseBodyGift), LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersRedemptionRedeemResponseBodyLoyaltyCard), LoyaltiesMembersRedemptionRedeemResponseBodyVoucher voucher = default(LoyaltiesMembersRedemptionRedeemResponseBodyVoucher))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Date = date;
             if (this.Date != null)

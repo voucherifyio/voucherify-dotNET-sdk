@@ -119,9 +119,9 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="data">Contains array of items to which the discount cannot apply..</param>
         /// <param name="total">Total number of objects defining included products, SKUs, or product collections..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">The type of the object represented by JSON. (default to DataRefEnum.Data).</param>
-        public InapplicableToResultList(List<InapplicableTo> data = default(List<InapplicableTo>), int? total = default(int?), ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data)
+        /// <param name="varObject">The type of the object represented by JSON..</param>
+        /// <param name="dataRef">The type of the object represented by JSON..</param>
+        public InapplicableToResultList(List<InapplicableTo> data = default(List<InapplicableTo>), int? total = default(int?), ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?))
         {
             this._Data = data;
             if (this.Data != null)
@@ -132,6 +132,16 @@ namespace Voucherify.Model
             if (this.Total != null)
             {
                 this._flagTotal = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
             }
         }
 

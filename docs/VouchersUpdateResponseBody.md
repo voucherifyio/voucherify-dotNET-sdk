@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. | [optional] 
 **HolderId** | **string** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. | [optional] 
 **ReferrerId** | **string** | Unique identifier of the referring person. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] [default to "voucher"]
+**Object** | **string** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. | [optional] 
 **Publish** | [**VouchersUpdateResponseBodyPublish**](VouchersUpdateResponseBodyPublish.md) |  | [optional] 
 **Redemption** | [**VouchersUpdateResponseBodyRedemption**](VouchersUpdateResponseBodyRedemption.md) |  | [optional] 
 **Categories** | [**List&lt;Category&gt;**](Category.md) | Contains details about the category. | [optional] 

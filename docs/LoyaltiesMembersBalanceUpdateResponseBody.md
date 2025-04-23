@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Total** | **int?** | The total of points accrued over the lifetime of the loyalty card. | [optional] 
 **Balance** | **int?** | The balance after adding/removing points. | [optional] 
 **Type** | **string** | The type of voucher being modified. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. Default is balance. | [optional] [default to ObjectEnum.Balance]
+**Object** | **string** | The type of the object represented by JSON. Default is balance. | [optional] 
 **RelatedObject** | [**LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject**](LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject.md) |  | [optional] 
 **OperationType** | **string** | The type of operation being performed. | [optional] 
 

@@ -159,24 +159,29 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="PublicationsCreateResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique publication ID, assigned by Voucherify..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;. (default to ObjectEnum.Publication).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the &#x60;publication&#x60;..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the publication was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="customerId">Unique customer ID of the customer receiving the publication..</param>
         /// <param name="trackingId">Customer&#39;s &#x60;source_id&#x60;..</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format..</param>
-        /// <param name="channel">How the publication was originated. It can be your own custom channel or an example value provided here. (default to ChannelEnum.API).</param>
+        /// <param name="channel">How the publication was originated. It can be your own custom channel or an example value provided here..</param>
         /// <param name="sourceId">The merchant&#39;s publication ID if it is different from the Voucherify publication ID. It&#39;s an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service. .</param>
-        /// <param name="result">Status of the publication attempt. (default to ResultEnum.SUCCESS).</param>
+        /// <param name="result">Status of the publication attempt..</param>
         /// <param name="customer">customer.</param>
         /// <param name="vouchersId">Contains the unique internal voucher ID that was assigned by Voucherify..</param>
         /// <param name="voucher">voucher.</param>
         /// <param name="vouchers">Contains the unique voucher codes that was assigned by Voucherify..</param>
-        public PublicationsCreateResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.Publication, DateTimeOffset? createdAt = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), ChannelEnum? channel = ChannelEnum.API, string sourceId = default(string), ResultEnum? result = ResultEnum.SUCCESS, CustomerWithSummaryLoyaltyReferrals customer = default(CustomerWithSummaryLoyaltyReferrals), List<string> vouchersId = default(List<string>), Voucher voucher = default(Voucher), List<string> vouchers = default(List<string>))
+        public PublicationsCreateResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), ChannelEnum? channel = default(ChannelEnum?), string sourceId = default(string), ResultEnum? result = default(ResultEnum?), CustomerWithSummaryLoyaltyReferrals customer = default(CustomerWithSummaryLoyaltyReferrals), List<string> vouchersId = default(List<string>), Voucher voucher = default(Voucher), List<string> vouchers = default(List<string>))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
@@ -198,10 +203,20 @@ namespace Voucherify.Model
             {
                 this._flagMetadata = true;
             }
+            this._Channel = channel;
+            if (this.Channel != null)
+            {
+                this._flagChannel = true;
+            }
             this._SourceId = sourceId;
             if (this.SourceId != null)
             {
                 this._flagSourceId = true;
+            }
+            this._Result = result;
+            if (this.Result != null)
+            {
+                this._flagResult = true;
             }
             this._Customer = customer;
             if (this.Customer != null)

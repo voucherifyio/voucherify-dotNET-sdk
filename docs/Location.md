@@ -6,7 +6,7 @@ This is an object representing a location.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Unique location ID, assigned by the Voucherify API. | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about a &#x60;location&#x60;. | [optional] [default to ObjectEnum.Location]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about a &#x60;location&#x60;. | [optional] 
 **Name** | **string** | Location name. | [optional] 
 **Shape** | [**LocationShape**](LocationShape.md) |  | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the location was created. The value is shown in the ISO 8601 format. | [optional] 

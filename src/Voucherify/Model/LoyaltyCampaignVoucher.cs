@@ -122,7 +122,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyCampaignVoucher" /> class.
         /// </summary>
-        /// <param name="type">Type of voucher. (default to TypeEnum.LOYALTYCARD).</param>
+        /// <param name="type">Type of voucher..</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="redemption">redemption.</param>
         /// <param name="codeConfig">codeConfig (required).</param>
@@ -132,7 +132,7 @@ namespace Voucherify.Model
         /// <param name="validityTimeframe">validityTimeframe.</param>
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
         /// <param name="validityHours">validityHours.</param>
-        public LoyaltyCampaignVoucher(TypeEnum? type = TypeEnum.LOYALTYCARD, CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), LoyaltyCampaignVoucherRedemption redemption = default(LoyaltyCampaignVoucherRedemption), CodeConfig codeConfig = default(CodeConfig), bool? isReferralCode = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours))
+        public LoyaltyCampaignVoucher(TypeEnum? type = default(TypeEnum?), CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), LoyaltyCampaignVoucherRedemption redemption = default(LoyaltyCampaignVoucherRedemption), CodeConfig codeConfig = default(CodeConfig), bool? isReferralCode = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours))
         {
             // to ensure "codeConfig" is required (not null)
             if (codeConfig == null)
@@ -140,6 +140,11 @@ namespace Voucherify.Model
                 throw new ArgumentNullException("codeConfig is a required property for LoyaltyCampaignVoucher and cannot be null");
             }
             this._CodeConfig = codeConfig;
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
             this._LoyaltyCard = loyaltyCard;
             if (this.LoyaltyCard != null)
             {

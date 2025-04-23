@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesMembersPointsExpirationListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty points expiration buckets in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty points expiration bucket objects. (default to DataRefEnum.Data).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about loyalty points expiration buckets in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of loyalty points expiration bucket objects..</param>
         /// <param name="data">Contains array of loyalty points expiration buckets..</param>
         /// <param name="total">Total number of point expiration buckets..</param>
-        public LoyaltiesMembersPointsExpirationListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Data, List<LoyaltyPointsBucket> data = default(List<LoyaltyPointsBucket>), int? total = default(int?))
+        public LoyaltiesMembersPointsExpirationListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<LoyaltyPointsBucket> data = default(List<LoyaltyPointsBucket>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Data = data;
             if (this.Data != null)
             {

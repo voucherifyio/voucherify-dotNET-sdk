@@ -85,8 +85,8 @@ namespace Voucherify.Model
         /// <param name="imageUrl">The HTTPS URL pointing to the .png or .jpg file that will be used to render the product image..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the product was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the product was updated. The value is shown in the ISO 8601 format..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the product. (default to ObjectEnum.Product).</param>
-        public ProductWithoutSkus(string id = default(string), string sourceId = default(string), string name = default(string), int? price = default(int?), List<string> attributes = default(List<string>), Object metadata = default(Object), string imageUrl = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = ObjectEnum.Product)
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the product..</param>
+        public ProductWithoutSkus(string id = default(string), string sourceId = default(string), string name = default(string), int? price = default(int?), List<string> attributes = default(List<string>), Object metadata = default(Object), string imageUrl = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -132,6 +132,11 @@ namespace Voucherify.Model
             if (this.UpdatedAt != null)
             {
                 this._flagUpdatedAt = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
         }
 

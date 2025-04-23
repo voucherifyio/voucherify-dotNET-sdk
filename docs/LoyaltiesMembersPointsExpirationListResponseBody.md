@@ -5,8 +5,8 @@ Response body schema for **GET** `v1/loyalties/{campaignId}/members/{memberId}/p
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about loyalty points expiration buckets in a dictionary. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of loyalty points expiration bucket objects. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about loyalty points expiration buckets in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of loyalty points expiration bucket objects. | [optional] 
 **Data** | [**List&lt;LoyaltyPointsBucket&gt;**](LoyaltyPointsBucket.md) | Contains array of loyalty points expiration buckets. | [optional] 
 **Total** | **int?** | Total number of point expiration buckets. | [optional] 
 

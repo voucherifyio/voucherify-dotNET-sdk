@@ -123,7 +123,7 @@ namespace Voucherify.Model
         /// <param name="campaignId">Assigned by the Voucherify API, identifies the voucher&#39;s parent campaign..</param>
         /// <param name="category">Tag defining the category that this voucher belongs to..</param>
         /// <param name="categoryId">Unique category ID assigned by Voucherify..</param>
-        /// <param name="type">Defines the type of the voucher.  (default to TypeEnum.LOYALTYCARD).</param>
+        /// <param name="type">Defines the type of the voucher. .</param>
         /// <param name="discount">discount.</param>
         /// <param name="gift">gift.</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
@@ -140,10 +140,10 @@ namespace Voucherify.Model
         /// <param name="createdAt">Timestamp representing the date and time when the voucher was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the voucher was last updated in ISO 8601 format..</param>
         /// <param name="holderId">Unique identifier of the customer who owns the voucher..</param>
-        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;voucher&#x60;. (default to &quot;voucher&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. Default is &#x60;voucher&#x60;..</param>
         /// <param name="publish">publish.</param>
         /// <param name="redemption">redemption.</param>
-        public LoyaltiesMembersGetResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), TypeEnum? type = TypeEnum.LOYALTYCARD, Object discount = default(Object), Object gift = default(Object), LoyaltiesMembersGetResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersGetResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), bool? active = default(bool?), string additionalInfo = default(string), Object metadata = default(Object), VoucherAssets assets = default(VoucherAssets), bool? isReferralCode = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string holderId = default(string), string varObject = @"voucher", LoyaltiesMembersGetResponseBodyPublish publish = default(LoyaltiesMembersGetResponseBodyPublish), LoyaltiesMembersGetResponseBodyRedemption redemption = default(LoyaltiesMembersGetResponseBodyRedemption))
+        public LoyaltiesMembersGetResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), TypeEnum? type = default(TypeEnum?), Object discount = default(Object), Object gift = default(Object), LoyaltiesMembersGetResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersGetResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), bool? active = default(bool?), string additionalInfo = default(string), Object metadata = default(Object), VoucherAssets assets = default(VoucherAssets), bool? isReferralCode = default(bool?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string holderId = default(string), string varObject = default(string), LoyaltiesMembersGetResponseBodyPublish publish = default(LoyaltiesMembersGetResponseBodyPublish), LoyaltiesMembersGetResponseBodyRedemption redemption = default(LoyaltiesMembersGetResponseBodyRedemption))
         {
             this._Id = id;
             if (this.Id != null)
@@ -174,6 +174,11 @@ namespace Voucherify.Model
             if (this.CategoryId != null)
             {
                 this._flagCategoryId = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
             this._Discount = discount;
             if (this.Discount != null)
@@ -254,6 +259,11 @@ namespace Voucherify.Model
             if (this.HolderId != null)
             {
                 this._flagHolderId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Publish = publish;
             if (this.Publish != null)

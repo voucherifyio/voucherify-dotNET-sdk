@@ -117,12 +117,22 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MetadataSchemasListResponseBody" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the metadata schemas in a dictionary. (default to ObjectEnum.List).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of metadata schema objects. (default to DataRefEnum.Schemas).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the metadata schemas in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of metadata schema objects..</param>
         /// <param name="schemas">Array of metadata schema objects. The metadata schemas are listed by related object properties..</param>
         /// <param name="total">The total number of metadata schema objects..</param>
-        public MetadataSchemasListResponseBody(ObjectEnum? varObject = ObjectEnum.List, DataRefEnum? dataRef = DataRefEnum.Schemas, List<MetadataSchemaDeprecated> schemas = default(List<MetadataSchemaDeprecated>), int? total = default(int?))
+        public MetadataSchemasListResponseBody(ObjectEnum? varObject = default(ObjectEnum?), DataRefEnum? dataRef = default(DataRefEnum?), List<MetadataSchemaDeprecated> schemas = default(List<MetadataSchemaDeprecated>), int? total = default(int?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Schemas = schemas;
             if (this.Schemas != null)
             {

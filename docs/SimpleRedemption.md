@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **FailureMessage** | **string** | If the result is &#x60;FAILURE&#x60;, this parameter will provide an expanded reason as to why the redemption failed. | [optional] 
 **Reason** | **string** | The reason for the redemption rollback. | [optional] 
 **Channel** | [**SimpleRedemptionChannel**](SimpleRedemptionChannel.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;. | [optional] [default to "redemption"]
+**Object** | **string** | The type of the object represented by the JSON. This object stores information about the &#x60;redemption&#x60;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

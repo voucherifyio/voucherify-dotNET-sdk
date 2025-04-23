@@ -5,8 +5,8 @@ Response body schema for **GET** `v1/redemptions`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about redemptions in a dictionary. | [optional] [default to "list"]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of redemption objects. | [optional] [default to "redemptions"]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about redemptions in a dictionary. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of redemption objects. | [optional] 
 **Redemptions** | [**List&lt;RedemptionsListResponseBodyRedemptionsItem&gt;**](RedemptionsListResponseBodyRedemptionsItem.md) |  | [optional] 
 **Total** | **int?** | Total number of redemptions. | [optional] 
 

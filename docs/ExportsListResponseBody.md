@@ -5,8 +5,8 @@ Response body schema for **GET** `v1/exports`.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. This object stores information about exports. | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of exports. | [optional] [default to DataRefEnum.Exports]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about exports. | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of exports. | [optional] 
 **Exports** | [**List&lt;Export&gt;**](Export.md) | An array of export objects. | [optional] 
 **Total** | **int?** | Total number of exports. | [optional] 
 

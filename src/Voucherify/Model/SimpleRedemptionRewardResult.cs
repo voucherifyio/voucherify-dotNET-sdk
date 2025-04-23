@@ -136,14 +136,14 @@ namespace Voucherify.Model
         /// <param name="sku">sku.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID assigned by Voucherify..</param>
         /// <param name="id">Unique reward ID, assigned by Voucherify..</param>
-        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward. (default to ObjectEnum.Reward).</param>
+        /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward..</param>
         /// <param name="name">Reward name..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward..</param>
         /// <param name="type">Reward type..</param>
-        public SimpleRedemptionRewardResult(SimpleCustomer customer = default(SimpleCustomer), string assignmentId = default(string), SimpleVoucher voucher = default(SimpleVoucher), SimpleProduct product = default(SimpleProduct), SimpleSku sku = default(SimpleSku), string loyaltyTierId = default(string), string id = default(string), ObjectEnum? varObject = ObjectEnum.Reward, string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), RewardType parameters = default(RewardType), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?))
+        public SimpleRedemptionRewardResult(SimpleCustomer customer = default(SimpleCustomer), string assignmentId = default(string), SimpleVoucher voucher = default(SimpleVoucher), SimpleProduct product = default(SimpleProduct), SimpleSku sku = default(SimpleSku), string loyaltyTierId = default(string), string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), RewardType parameters = default(RewardType), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?))
         {
             this._Customer = customer;
             if (this.Customer != null)
@@ -179,6 +179,11 @@ namespace Voucherify.Model
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Name = name;
             if (this.Name != null)

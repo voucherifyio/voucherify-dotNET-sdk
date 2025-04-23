@@ -444,17 +444,22 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="ManagementProjectsWebhook" /> class.
         /// </summary>
         /// <param name="id">Unique identifier of the webhook..</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Webhook).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the webhook configuration was created. The value for this parameter is shown in the ISO 8601 format..</param>
         /// <param name="targetUrl">URL address that receives webhooks..</param>
         /// <param name="events">Lists the events that trigger webhook sendout..</param>
-        /// <param name="active">Determines if the webhook configuration is active. (default to true).</param>
-        public ManagementProjectsWebhook(string id = default(string), ObjectEnum? varObject = ObjectEnum.Webhook, DateTimeOffset? createdAt = default(DateTimeOffset?), string targetUrl = default(string), List<EventsEnum> events = default(List<EventsEnum>), bool? active = true)
+        /// <param name="active">Determines if the webhook configuration is active..</param>
+        public ManagementProjectsWebhook(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), string targetUrl = default(string), List<EventsEnum> events = default(List<EventsEnum>), bool? active = default(bool?))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
@@ -470,6 +475,11 @@ namespace Voucherify.Model
             if (this.Events != null)
             {
                 this._flagEvents = true;
+            }
+            this._Active = active;
+            if (this.Active != null)
+            {
+                this._flagActive = true;
             }
         }
 

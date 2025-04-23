@@ -85,7 +85,7 @@ namespace Voucherify.Model
         /// <param name="createdAt">Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the customer was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="assets">assets.</param>
-        /// <param name="varObject">The type of the object represented by JSON. (default to ObjectEnum.Customer).</param>
+        /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="name">Customer&#39;s first and last name..</param>
         /// <param name="description">An arbitrary string that you can attach to a customer object..</param>
         /// <param name="email">Customer&#39;s email address..</param>
@@ -94,7 +94,7 @@ namespace Voucherify.Model
         /// <param name="birthdate">Customer&#39;s birthdate; format YYYY-MM-DD..</param>
         /// <param name="address">address.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments..</param>
-        public CustomersUpdateResponseBody(string id = default(string), string sourceId = default(string), CustomerSummary summary = default(CustomerSummary), CustomerLoyalty loyalty = default(CustomerLoyalty), CustomerReferrals referrals = default(CustomerReferrals), Object systemMetadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), CustomersUpdateResponseBodyAssets assets = default(CustomersUpdateResponseBodyAssets), ObjectEnum? varObject = ObjectEnum.Customer, string name = default(string), string description = default(string), string email = default(string), string phone = default(string), DateTime? birthday = default(DateTime?), DateTime? birthdate = default(DateTime?), CustomersUpdateResponseBodyAddress address = default(CustomersUpdateResponseBodyAddress), Object metadata = default(Object))
+        public CustomersUpdateResponseBody(string id = default(string), string sourceId = default(string), CustomerSummary summary = default(CustomerSummary), CustomerLoyalty loyalty = default(CustomerLoyalty), CustomerReferrals referrals = default(CustomerReferrals), Object systemMetadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), CustomersUpdateResponseBodyAssets assets = default(CustomersUpdateResponseBodyAssets), ObjectEnum? varObject = default(ObjectEnum?), string name = default(string), string description = default(string), string email = default(string), string phone = default(string), DateTime? birthday = default(DateTime?), DateTime? birthdate = default(DateTime?), CustomersUpdateResponseBodyAddress address = default(CustomersUpdateResponseBodyAddress), Object metadata = default(Object))
         {
             this._Id = id;
             if (this.Id != null)
@@ -140,6 +140,11 @@ namespace Voucherify.Model
             if (this.Assets != null)
             {
                 this._flagAssets = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Name = name;
             if (this.Name != null)

@@ -206,30 +206,45 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltiesPointsExpirationExportCreateResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique export ID..</param>
-        /// <param name="varObject">The type of object being represented. This object stores information about the export. (default to ObjectEnum.Export).</param>
+        /// <param name="varObject">The type of object being represented. This object stores information about the export..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the export was scheduled in ISO 8601 format..</param>
-        /// <param name="status">Status of the export. Informs you whether the export has already been completed. (default to StatusEnum.SCHEDULED).</param>
+        /// <param name="status">Status of the export. Informs you whether the export has already been completed..</param>
         /// <param name="channel">The channel through which the export was triggered..</param>
-        /// <param name="exportedObject">The type of exported object. (default to ExportedObjectEnum.PointsExpiration).</param>
+        /// <param name="exportedObject">The type of exported object..</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="result">Always null..</param>
         /// <param name="userId">&#x60;user_id&#x60; identifies the specific user who initiated the export through the Voucherify Dashboard. &#x60;user_id&#x60; is returned when the channel value is &#x60;WEBSITE&#x60;..</param>
-        public LoyaltiesPointsExpirationExportCreateResponseBody(string id = default(string), ObjectEnum? varObject = ObjectEnum.Export, DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = StatusEnum.SCHEDULED, ChannelEnum? channel = default(ChannelEnum?), ExportedObjectEnum? exportedObject = ExportedObjectEnum.PointsExpiration, LoyaltiesPointsExpirationExportCreateResponseBodyParameters parameters = default(LoyaltiesPointsExpirationExportCreateResponseBodyParameters), Object result = default(Object), string userId = default(string))
+        public LoyaltiesPointsExpirationExportCreateResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = default(StatusEnum?), ChannelEnum? channel = default(ChannelEnum?), ExportedObjectEnum? exportedObject = default(ExportedObjectEnum?), LoyaltiesPointsExpirationExportCreateResponseBodyParameters parameters = default(LoyaltiesPointsExpirationExportCreateResponseBodyParameters), Object result = default(Object), string userId = default(string))
         {
             this._Id = id;
             if (this.Id != null)
             {
                 this._flagId = true;
             }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
             }
+            this._Status = status;
+            if (this.Status != null)
+            {
+                this._flagStatus = true;
+            }
             this._Channel = channel;
             if (this.Channel != null)
             {
                 this._flagChannel = true;
+            }
+            this._ExportedObject = exportedObject;
+            if (this.ExportedObject != null)
+            {
+                this._flagExportedObject = true;
             }
             this._Parameters = parameters;
             if (this.Parameters != null)

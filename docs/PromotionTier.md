@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **ValidityDayOfWeek** | **List&lt;PromotionTier.ValidityDayOfWeekEnum&gt;** | Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday | [optional] 
 **ValidityHours** | [**ValidityHours**](ValidityHours.md) |  | [optional] 
 **Summary** | [**PromotionTierSummary**](PromotionTierSummary.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the promotion tier. | [optional] [default to "promotion_tier"]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the promotion tier. | [optional] 
 **ValidationRuleAssignments** | [**ValidationRuleAssignmentsList**](ValidationRuleAssignmentsList.md) |  | [optional] 
 **CategoryId** | **string** | Promotion tier category ID. | [optional] 
 **Categories** | [**List&lt;Category&gt;**](Category.md) |  | [optional] 

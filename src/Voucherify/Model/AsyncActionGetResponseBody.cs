@@ -197,9 +197,9 @@ namespace Voucherify.Model
         /// <param name="requestId">Unique request ID..</param>
         /// <param name="processingTime">The length of time it took to process the request in milliseconds..</param>
         /// <param name="progress">% progress to completion of the asynchronous action..</param>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;. (default to ObjectEnum.AsyncAction).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;..</param>
         /// <param name="result">result.</param>
-        public AsyncActionGetResponseBody(string id = default(string), string type = default(string), StatusEnum? status = default(StatusEnum?), OperationStatusEnum? operationStatus = default(OperationStatusEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string requestId = default(string), int? processingTime = default(int?), int? progress = default(int?), ObjectEnum? varObject = ObjectEnum.AsyncAction, Object result = default(Object))
+        public AsyncActionGetResponseBody(string id = default(string), string type = default(string), StatusEnum? status = default(StatusEnum?), OperationStatusEnum? operationStatus = default(OperationStatusEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string requestId = default(string), int? processingTime = default(int?), int? progress = default(int?), ObjectEnum? varObject = default(ObjectEnum?), Object result = default(Object))
         {
             this._Id = id;
             if (this.Id != null)
@@ -245,6 +245,11 @@ namespace Voucherify.Model
             if (this.Progress != null)
             {
                 this._flagProgress = true;
+            }
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
             }
             this._Result = result;
             if (this.Result != null)

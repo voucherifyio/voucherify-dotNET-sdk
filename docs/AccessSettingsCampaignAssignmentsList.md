@@ -5,8 +5,8 @@ Lists all assignments of the campaign to areas and stores. For [GET List Campaig
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | **string** | The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores | [optional] [default to ObjectEnum.List]
-**DataRef** | **string** | Identifies the name of the attribute that contains the array of campaign assignments. | [optional] [default to DataRefEnum.Data]
+**Object** | **string** | The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores | [optional] 
+**DataRef** | **string** | Identifies the name of the attribute that contains the array of campaign assignments. | [optional] 
 **Data** | [**List&lt;AreaStoreCampaignAssignment&gt;**](AreaStoreCampaignAssignment.md) | Contains an array of campaign assignments. | [optional] 
 **Total** | **int?** | Total number of areas and stores to which the campaign is assigned. | [optional] 
 

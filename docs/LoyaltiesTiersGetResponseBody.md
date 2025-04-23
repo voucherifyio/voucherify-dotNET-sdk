@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the loyalty tier was updated. The value is shown in the ISO 8601 format. | [optional] 
 **Config** | [**LoyaltiesTiersGetResponseBodyConfig**](LoyaltiesTiersGetResponseBodyConfig.md) |  | [optional] 
 **Expiration** | [**LoyaltyTierExpiration**](LoyaltyTierExpiration.md) |  | [optional] 
-**Object** | **string** | The type of the object represented by JSON. This object stores information about the loyalty. | [optional] [default to ObjectEnum.LoyaltyTier]
+**Object** | **string** | The type of the object represented by JSON. This object stores information about the loyalty. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

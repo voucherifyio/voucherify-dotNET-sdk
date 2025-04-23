@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Show that the product collection is static (manually selected products). | [optional] [default to TypeEnum.STATIC]
+**Type** | **string** | Show that the product collection is static (manually selected products). | [optional] 
 **Name** | **string** | Unique user-defined product collection name. | [optional] 
 **Products** | [**List&lt;ProductCollectionsCreateRequestBodyProductsItem&gt;**](ProductCollectionsCreateRequestBodyProductsItem.md) | Defines a set of products for a &#x60;STATIC&#x60; product collection type. | [optional] 
 **Filter** | **Object** | Defines a set of criteria and boundary conditions for an &#x60;AUTO_UPDATE&#x60; product collection type. | [optional] 

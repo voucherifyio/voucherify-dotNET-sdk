@@ -270,20 +270,45 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StackingRules" /> class.
         /// </summary>
-        /// <param name="redeemablesLimit">Defines how many redeemables can be sent in one stacking request (note: more redeemables means more processing time!). (default to 30).</param>
-        /// <param name="applicableRedeemablesLimit">Defines how many of the sent redeemables will be applied to the order. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be labelled as SKIPPED. (default to 5).</param>
-        /// <param name="applicableRedeemablesPerCategoryLimit">Defines how many redeemables per category can be applied in one request. (default to 1).</param>
-        /// <param name="applicableExclusiveRedeemablesLimit">Defines how many redeemables with an exclusive category can be applied in one request. (default to 1).</param>
-        /// <param name="applicableExclusiveRedeemablesPerCategoryLimit">Defines how many redeemables with an exclusive category per category in stacking rules can be applied in one request. (default to 1).</param>
+        /// <param name="redeemablesLimit">Defines how many redeemables can be sent in one stacking request (note: more redeemables means more processing time!)..</param>
+        /// <param name="applicableRedeemablesLimit">Defines how many of the sent redeemables will be applied to the order. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be labelled as SKIPPED..</param>
+        /// <param name="applicableRedeemablesPerCategoryLimit">Defines how many redeemables per category can be applied in one request..</param>
+        /// <param name="applicableExclusiveRedeemablesLimit">Defines how many redeemables with an exclusive category can be applied in one request..</param>
+        /// <param name="applicableExclusiveRedeemablesPerCategoryLimit">Defines how many redeemables with an exclusive category per category in stacking rules can be applied in one request..</param>
         /// <param name="exclusiveCategories">Lists all exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint..</param>
         /// <param name="jointCategories">Lists all joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns..</param>
         /// <param name="redeemablesApplicationMode">Defines redeemables application mode..</param>
-        /// <param name="redeemablesSortingRule">Defines redeemables sorting rule. (default to RedeemablesSortingRuleEnum.REQUESTEDORDER).</param>
+        /// <param name="redeemablesSortingRule">Defines redeemables sorting rule..</param>
         /// <param name="redeemablesProductsApplicationMode">Defines redeemables products application mode..</param>
         /// <param name="redeemablesNoEffectRule">Defines redeemables no effect rule..</param>
         /// <param name="redeemablesRollbackOrderMode">Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data..</param>
-        public StackingRules(int? redeemablesLimit = 30, int? applicableRedeemablesLimit = 5, int? applicableRedeemablesPerCategoryLimit = 1, int? applicableExclusiveRedeemablesLimit = 1, int? applicableExclusiveRedeemablesPerCategoryLimit = 1, List<string> exclusiveCategories = default(List<string>), List<string> jointCategories = default(List<string>), RedeemablesApplicationModeEnum? redeemablesApplicationMode = default(RedeemablesApplicationModeEnum?), RedeemablesSortingRuleEnum? redeemablesSortingRule = RedeemablesSortingRuleEnum.REQUESTEDORDER, RedeemablesProductsApplicationModeEnum? redeemablesProductsApplicationMode = default(RedeemablesProductsApplicationModeEnum?), RedeemablesNoEffectRuleEnum? redeemablesNoEffectRule = default(RedeemablesNoEffectRuleEnum?), RedeemablesRollbackOrderModeEnum? redeemablesRollbackOrderMode = default(RedeemablesRollbackOrderModeEnum?))
+        public StackingRules(int? redeemablesLimit = default(int?), int? applicableRedeemablesLimit = default(int?), int? applicableRedeemablesPerCategoryLimit = default(int?), int? applicableExclusiveRedeemablesLimit = default(int?), int? applicableExclusiveRedeemablesPerCategoryLimit = default(int?), List<string> exclusiveCategories = default(List<string>), List<string> jointCategories = default(List<string>), RedeemablesApplicationModeEnum? redeemablesApplicationMode = default(RedeemablesApplicationModeEnum?), RedeemablesSortingRuleEnum? redeemablesSortingRule = default(RedeemablesSortingRuleEnum?), RedeemablesProductsApplicationModeEnum? redeemablesProductsApplicationMode = default(RedeemablesProductsApplicationModeEnum?), RedeemablesNoEffectRuleEnum? redeemablesNoEffectRule = default(RedeemablesNoEffectRuleEnum?), RedeemablesRollbackOrderModeEnum? redeemablesRollbackOrderMode = default(RedeemablesRollbackOrderModeEnum?))
         {
+            this._RedeemablesLimit = redeemablesLimit;
+            if (this.RedeemablesLimit != null)
+            {
+                this._flagRedeemablesLimit = true;
+            }
+            this._ApplicableRedeemablesLimit = applicableRedeemablesLimit;
+            if (this.ApplicableRedeemablesLimit != null)
+            {
+                this._flagApplicableRedeemablesLimit = true;
+            }
+            this._ApplicableRedeemablesPerCategoryLimit = applicableRedeemablesPerCategoryLimit;
+            if (this.ApplicableRedeemablesPerCategoryLimit != null)
+            {
+                this._flagApplicableRedeemablesPerCategoryLimit = true;
+            }
+            this._ApplicableExclusiveRedeemablesLimit = applicableExclusiveRedeemablesLimit;
+            if (this.ApplicableExclusiveRedeemablesLimit != null)
+            {
+                this._flagApplicableExclusiveRedeemablesLimit = true;
+            }
+            this._ApplicableExclusiveRedeemablesPerCategoryLimit = applicableExclusiveRedeemablesPerCategoryLimit;
+            if (this.ApplicableExclusiveRedeemablesPerCategoryLimit != null)
+            {
+                this._flagApplicableExclusiveRedeemablesPerCategoryLimit = true;
+            }
             this._ExclusiveCategories = exclusiveCategories;
             if (this.ExclusiveCategories != null)
             {
@@ -298,6 +323,11 @@ namespace Voucherify.Model
             if (this.RedeemablesApplicationMode != null)
             {
                 this._flagRedeemablesApplicationMode = true;
+            }
+            this._RedeemablesSortingRule = redeemablesSortingRule;
+            if (this.RedeemablesSortingRule != null)
+            {
+                this._flagRedeemablesSortingRule = true;
             }
             this._RedeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
             if (this.RedeemablesProductsApplicationMode != null)

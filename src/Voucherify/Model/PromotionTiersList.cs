@@ -35,13 +35,23 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PromotionTiersList" /> class.
         /// </summary>
-        /// <param name="varObject">The type of the object represented by JSON. This object stores information about promotion tiers in a dictionary. (default to &quot;list&quot;).</param>
-        /// <param name="dataRef">Identifies the name of the attribute that contains the array of promotion tier objects. (default to &quot;tiers&quot;).</param>
+        /// <param name="varObject">The type of the object represented by JSON. This object stores information about promotion tiers in a dictionary..</param>
+        /// <param name="dataRef">Identifies the name of the attribute that contains the array of promotion tier objects..</param>
         /// <param name="tiers">Contains array of promotion tier objects..</param>
         /// <param name="total">Total number of promotion tiers..</param>
         /// <param name="hasMore">As query results are always limited (by the limit parameter), the &#x60;has_more&#x60; flag indicates if there are more records for given filter parameters. This lets you know if you can run another request to get more records returned in the results..</param>
-        public PromotionTiersList(string varObject = @"list", string dataRef = @"tiers", List<PromotionTier> tiers = default(List<PromotionTier>), int? total = default(int?), bool? hasMore = default(bool?))
+        public PromotionTiersList(string varObject = default(string), string dataRef = default(string), List<PromotionTier> tiers = default(List<PromotionTier>), int? total = default(int?), bool? hasMore = default(bool?))
         {
+            this._Object = varObject;
+            if (this.Object != null)
+            {
+                this._flagObject = true;
+            }
+            this._DataRef = dataRef;
+            if (this.DataRef != null)
+            {
+                this._flagDataRef = true;
+            }
             this._Tiers = tiers;
             if (this.Tiers != null)
             {

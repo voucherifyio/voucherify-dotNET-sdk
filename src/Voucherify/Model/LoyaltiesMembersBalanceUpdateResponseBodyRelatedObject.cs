@@ -76,10 +76,15 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject" /> class.
         /// </summary>
-        /// <param name="type">The object being modified. (default to TypeEnum.Voucher).</param>
+        /// <param name="type">The object being modified..</param>
         /// <param name="id">Identifies the loyalty card that is being modified, this is the ID that was assigned by the Voucherify API..</param>
-        public LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject(TypeEnum? type = TypeEnum.Voucher, string id = default(string))
+        public LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject(TypeEnum? type = default(TypeEnum?), string id = default(string))
         {
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
+            }
             this._Id = id;
             if (this.Id != null)
             {
