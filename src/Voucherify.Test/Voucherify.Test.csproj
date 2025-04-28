@@ -20,6 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Voucherify\Voucherify.csproj" />
+    <Compile Remove="**\*.cs" />
+    <Compile Include="src\**\*.cs" />
   </ItemGroup>
 
   <ItemGroup>

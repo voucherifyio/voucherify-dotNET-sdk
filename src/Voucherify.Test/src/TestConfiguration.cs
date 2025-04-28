@@ -48,15 +48,15 @@ namespace Voucherify.Test
                 {
                     // Try to find env file in parent directories (useful for development)
                     string currentDir = Directory.GetCurrentDirectory();
-                    while (!File.Exists(Path.Combine(currentDir, "env")) && Directory.GetParent(currentDir) != null)
+                    while (!File.Exists(Path.Combine(currentDir, ".env")) && Directory.GetParent(currentDir) != null)
                     {
                         currentDir = Directory.GetParent(currentDir).FullName;
                     }
 
-                    if (File.Exists(Path.Combine(currentDir, "env")))
+                    if (File.Exists(Path.Combine(currentDir, ".env")))
                     {
                         // Load environment variables from file
-                        foreach (var line in File.ReadAllLines(Path.Combine(currentDir, "env")))
+                        foreach (var line in File.ReadAllLines(Path.Combine(currentDir, ".env")))
                         {
                             if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#")) continue;
 
