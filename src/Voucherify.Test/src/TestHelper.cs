@@ -5,7 +5,7 @@ using Voucherify.Model;
 
 namespace Voucherify.Test
 {
-    public static class TestHelpers
+    public static class TestHelper
     {
         public static string GenerateRandomString(int length = 8)
         {

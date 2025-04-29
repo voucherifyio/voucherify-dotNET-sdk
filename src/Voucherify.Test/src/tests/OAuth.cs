@@ -18,18 +18,20 @@ using Xunit.Extensions.Ordering;
 namespace Voucherify.Test
 {
     [TestCaseOrderer("Xunit.Extensions.Ordering.TestCaseOrderer", "Xunit.Extensions.Ordering")]
-    [Collection("RequiresClientCredentials")]
-    public class ClientApiTests
+    [Collection("RequiresOAuthCredentials")]
+    public class OAuthTest
     {
         private readonly ITestOutputHelper _output;
-        private readonly CampaignsApi _campaignsApi;
-        private readonly CustomersApi _customersApi;
-        private readonly VouchersApi _vouchersApi;
-        private readonly AsyncActionsApi _asyncActionsApi;
-        private readonly QualificationsApi _qualificationsApi;
-        private readonly ValidationsApi _validationsApi;
-        private readonly RedemptionsApi _redemptionsApi;
-        private readonly PublicationsApi _publicationsApi;
+
+        private readonly OAuthApi _oauthApi;
+        private static CampaignsApi _campaignsApi;
+        private static CustomersApi _customersApi;
+        private static VouchersApi _vouchersApi;
+        private static AsyncActionsApi _asyncActionsApi;
+        private static QualificationsApi _qualificationsApi;
+        private static ValidationsApi _validationsApi;
+        private static RedemptionsApi _redemptionsApi;
+        private static PublicationsApi _publicationsApi;
 
         private static CustomersCreateResponseBody _customer;
         private static CampaignsCreateResponseBody _campaign;
@@ -37,46 +39,54 @@ namespace Voucherify.Test
         private int _delayMilliseconds = 2000;
         private int _voucherDiscountAmount = 15;
 
-        public ClientApiTests(ITestOutputHelper output)
+        public OAuthTest(ITestOutputHelper output)
         {
             _output = output;
-
-            // Skip tests if credentials are not provided
-            if (!TestConfiguration.HasClientCredentials)
-            {
-                _output.WriteLine("Client credentials not provided. Skipping tests.");
-                return;
-            }
-
-            var configuration = TestConfiguration.GetClientConfiguration();
-            _campaignsApi = new CampaignsApi(configuration);
-            _customersApi = new CustomersApi(configuration);
-            _vouchersApi = new VouchersApi(configuration);
-            _qualificationsApi = new QualificationsApi(configuration);
-            _validationsApi = new ValidationsApi(configuration);
-            _redemptionsApi = new RedemptionsApi(configuration);
-            _asyncActionsApi = new AsyncActionsApi(configuration);
-            _publicationsApi = new PublicationsApi(configuration);
+            _oauthApi = new OAuthApi(TestConfiguration.GetClientConfiguration());
         }
 
-        [Fact, Order(1)]
-        public void Test_ClientConfiguration()
-        {
-            // Arrange
-            var config = TestConfiguration.GetClientConfiguration();
 
-            // Assert
-            config.Should().NotBeNull();
-            config.BasePath.Should().NotBeNullOrEmpty();
+        [SkippableFact, Order(1)]
+        public async Task Test_Create_OAuth_Token()
+        {
+            Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
+
+            Console.WriteLine("dsadasddssdadsa");
+            // Generate an OAuth token
+            var tokenResponse = await _oauthApi.GenerateOauthTokenAsync(
+                "client_credentials",
+                "api");
+
+            // Assert token response
+            tokenResponse.Should().NotBeNull();
+            tokenResponse.AccessToken.Should().NotBeNullOrEmpty();
+            //FIXME tokenResponse.TokenType.Should().Be(OAuthTokenGenerateResponseBody.TokenTypeEnum.Bearer);
+            tokenResponse.ExpiresIn.Should().BeGreaterThan(0);
+            tokenResponse.Scope.Should().Contain("api");
+
+            _output.WriteLine($"Generated OAuth token with scope: {tokenResponse.Scope}");
+
+            // Create configuration with the OAuth token
+            var oauthConfig = TestConfiguration.GetOAuthConfiguration(tokenResponse.AccessToken);
+
+            // Initialize APIs with the OAuth token
+            _campaignsApi = new CampaignsApi(oauthConfig);
+            _customersApi = new CustomersApi(oauthConfig);
+            _vouchersApi = new VouchersApi(oauthConfig);
+            _qualificationsApi = new QualificationsApi(oauthConfig);
+            _validationsApi = new ValidationsApi(oauthConfig);
+            _redemptionsApi = new RedemptionsApi(oauthConfig);
+            _asyncActionsApi = new AsyncActionsApi(oauthConfig);
+            _publicationsApi = new PublicationsApi(oauthConfig);
         }
 
         [SkippableFact, Order(2)]
         public async Task Test_Create_Campaign_And_Customer()
         {
-            Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
+            Skip.If(!TestConfiguration.HasOAuthCredentials, "Client credentials not provided");
 
             // Create a campaign
-            var campaignName = TestHelpers.GenerateUniqueName("TestCampaign");
+            var campaignName = TestHelper.GenerateUniqueName("TestCampaign");
             var campaignsCreateRequestBody = new CampaignsCreateRequestBody(
                 name: campaignName,
                 type: CampaignsCreateRequestBody.TypeEnum.AUTOUPDATE,
@@ -103,7 +113,7 @@ namespace Voucherify.Test
             _output.WriteLine($"Created campaign: {_campaign.Name} with ID: {_campaign.Id}");
 
             // Create a customer
-            var customerEmail = TestHelpers.GenerateUniqueEmail();
+            var customerEmail = TestHelper.GenerateUniqueEmail();
             var customersCreateRequestBody = new CustomersCreateRequestBody(
                 name: "Test Customer",
                 email: customerEmail,
@@ -124,10 +134,10 @@ namespace Voucherify.Test
         [SkippableFact, Order(3)]
         public async Task Test_Import_CSV_With_Vouchers()
         {
-            Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
+            Skip.If(!TestConfiguration.HasOAuthCredentials, "Client credentials not provided");
             Skip.If(_campaign == null, "Campaign is not created");
 
-            string csvPath = Path.Combine(Directory.GetCurrentDirectory(), "standalone_discount_vouchers_template_voucherify_client.csv");
+            string csvPath = Path.Combine(Directory.GetCurrentDirectory(), "standalone_discount_vouchers_template_voucherify_oauth.csv");
 
             // Ensure CSV file exists
             var fileInfo = new FileInfo(csvPath);
@@ -190,7 +200,7 @@ namespace Voucherify.Test
         [SkippableFact, Order(4)]
         public async Task Test_Retrieve_Voucher_From_Campaign_And_Publish_For_Customer()
         {
-            Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
+            Skip.If(!TestConfiguration.HasOAuthCredentials, "Client credentials not provided");
             Skip.If(_customer == null, "Customer not created");
             Skip.If(_campaign == null, "Campaign not created");
             Skip.If(_voucher == null, "Voucher not created");
@@ -219,7 +229,7 @@ namespace Voucherify.Test
         [SkippableFact, Order(5)]
         public async Task Test_Qualifications()
         {
-            Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
+            Skip.If(!TestConfiguration.HasOAuthCredentials, "Client credentials not provided");
             Skip.If(_customer == null, "Customer not created");
             Skip.If(_voucher == null, "Voucher not created");
 
@@ -268,7 +278,7 @@ namespace Voucherify.Test
             var order = new Order(
                 amount: 100
             );
-            var sessionKey = TestHelpers.GenerateUniqueName("Session");
+            var sessionKey = TestHelper.GenerateUniqueName("Session");
 
             var validateRequest = new ValidationsValidateRequestBody(
                 redeemables: new List<ValidationsValidateRequestBodyRedeemablesItem>
@@ -333,7 +343,7 @@ namespace Voucherify.Test
         public void Test_CsvFile_Exists()
         {
             // Generate a random code for the voucher
-            string randomCode = TestHelpers.GenerateUniqueName("VoucherCode");
+            string randomCode = TestHelper.GenerateUniqueName("VoucherCode");
 
             // Define the CSV content with the random code
             string csvContent =
@@ -341,7 +351,7 @@ namespace Voucherify.Test
                 $"{randomCode},DISCOUNT_VOUCHER,TRUE,,,AMOUNT,{_voucherDiscountAmount},New,,Planned release in Fall 2022,Europe";
 
             // Determine the file path
-            string csvPath = Path.Combine(Directory.GetCurrentDirectory(), "standalone_discount_vouchers_template_voucherify_client.csv");
+            string csvPath = Path.Combine(Directory.GetCurrentDirectory(), "standalone_discount_vouchers_template_voucherify_oauth.csv");
 
             // Write the content to the file
             File.WriteAllText(csvPath, csvContent);

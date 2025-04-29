@@ -13,13 +13,13 @@ namespace Voucherify.Test
 {
     [TestCaseOrderer("Xunit.Extensions.Ordering.TestCaseOrderer", "Xunit.Extensions.Ordering")]
     [Collection("RequiresManagementCredentials")]
-    public class ManagementApiTests
+    public class ManagementTest
     {
         private readonly ITestOutputHelper _output;
         private readonly ManagementApi _managementApi;
         private static string _projectId = TestConfiguration.GetTestProjectId();
 
-        public ManagementApiTests(ITestOutputHelper output)
+        public ManagementTest(ITestOutputHelper output)
         {
             _output = output;
 
@@ -145,7 +145,7 @@ namespace Voucherify.Test
 
             existingSchema.Should().NotBeNull();
 
-            var newSchemaName = TestHelpers.GenerateUniqueName("Schema");
+            var newSchemaName = TestHelper.GenerateUniqueName("Schema");
             // Prepare update - add a new property or modify existing one
             var properties = new Dictionary<string, ManagementProjectsMetadataSchemaDefinition>
                  {
