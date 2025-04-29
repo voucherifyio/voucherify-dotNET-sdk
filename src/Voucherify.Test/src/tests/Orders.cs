@@ -10,7 +10,6 @@ using Xunit.Abstractions;
 
 namespace Voucherify.Test
 {
-    [TestCaseOrderer("Xunit.Extensions.Ordering.TestCaseOrderer", "Xunit.Extensions.Ordering")]
     [Collection("RequiresClientCredentials")]
     public class OrdersTest
     {
@@ -22,7 +21,7 @@ namespace Voucherify.Test
             _ordersFlow = new OrdersFlow();
         }
 
-        [SkippableFact, Order(1)]
+        [SkippableFact]
         public async Task CreateOrder()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
@@ -41,7 +40,7 @@ namespace Voucherify.Test
             order.Status.Should().Be(OrdersGetResponseBody.StatusEnum.CREATED);
         }
 
-        [SkippableFact, Order(2)]
+        [SkippableFact]
         public async Task UpdateOrder()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
@@ -58,7 +57,7 @@ namespace Voucherify.Test
             updatedOrder.Status.Should().Be(OrdersUpdateResponseBody.StatusEnum.PAID);
         }
 
-        [SkippableFact, Order(3)]
+        [SkippableFact]
         public async Task ListOrders()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");

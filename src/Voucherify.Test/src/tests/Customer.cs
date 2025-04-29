@@ -10,7 +10,6 @@ using Xunit.Extensions.Ordering;
 
 namespace Voucherify.Test
 {
-    [TestCaseOrderer("Xunit.Extensions.Ordering.TestCaseOrderer", "Xunit.Extensions.Ordering")]
     [Collection("RequiresClientCredentials")]
     public class CustomerTest
     {
@@ -22,12 +21,11 @@ namespace Voucherify.Test
             _customerFlow = new CustomerFlow();
         }
 
-        [SkippableFact, Order(1)]
+        [SkippableFact]
         public async Task CreateAndDeleteCustomer()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
 
-            // Create customer
             var createdCustomer = await _customerFlow.createCustomer(
                 TestHelper.GenerateUniqueName("CustomerName"),
                 TestHelper.GenerateUniqueEmail()

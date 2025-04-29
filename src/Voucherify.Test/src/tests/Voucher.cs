@@ -9,7 +9,6 @@ using Xunit.Extensions.Ordering;
 
 namespace Voucherify.Test
 {
-    [TestCaseOrderer("Xunit.Extensions.Ordering.TestCaseOrderer", "Xunit.Extensions.Ordering")]
     [Collection("RequiresClientCredentials")]
     public class VoucherTest
     {
@@ -27,7 +26,7 @@ namespace Voucherify.Test
             _customerFlow = new CustomerFlow();
         }
 
-        [SkippableFact, Order(1)]
+        [SkippableFact]
         public async Task TestVoucherEnableDisable()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
@@ -57,7 +56,7 @@ namespace Voucherify.Test
             enableResponse.Active.Should().BeTrue();
         }
 
-        [SkippableFact, Order(2)]
+        [SkippableFact]
         public async Task TestUpdateLoyaltyCardBalance()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
