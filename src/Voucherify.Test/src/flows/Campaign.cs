@@ -64,17 +64,6 @@ namespace Voucherify.Test
             return await _vouchersApi.ListVouchersAsync(10, 1, null, campaignId);
         }
 
-        public async Task<PublicationsCreateResponseBody> createPublication(Customer customer, string voucherCode)
-        {
-            var publicationsCreateRequestBody = new PublicationsCreateRequestBody
-            {
-                Customer = customer,
-                Voucher = voucherCode
-            };
-
-            return await _publicationsApi.CreatePublicationAsync(publicationsCreateRequestBody: publicationsCreateRequestBody);
-        }
-
         public async Task<CampaignsVouchersCreateCombinedResponseBody> addVoucherToCampaign(string campaignId)
         {
             return await _campaignsApi.AddVouchersToCampaignAsync(campaignId, 1);

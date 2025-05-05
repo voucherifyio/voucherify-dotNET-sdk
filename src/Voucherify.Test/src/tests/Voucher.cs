@@ -16,6 +16,7 @@ namespace Voucherify.Test
         private readonly VoucherFlow _voucherFlow;
         private readonly CampaignFlow _campaignFlow;
         private readonly CustomerFlow _customerFlow;
+        private readonly PublicationFlow _publicationFlow;
         private readonly int _delayMilliseconds = 2000;
 
         public VoucherTest(ITestOutputHelper output)
@@ -24,6 +25,7 @@ namespace Voucherify.Test
             _voucherFlow = new VoucherFlow();
             _campaignFlow = new CampaignFlow();
             _customerFlow = new CustomerFlow();
+            _publicationFlow = new PublicationFlow();
         }
 
         [SkippableFact]
@@ -70,11 +72,8 @@ namespace Voucherify.Test
             var vouchers = await _campaignFlow.getCampaignVouchers(campaign.Id);
             var firstVoucher = vouchers.Vouchers[0];
 
-            var customerResponse = await _customerFlow.createCustomer(
-                TestHelper.GenerateUniqueName("CustomerName"),
-                TestHelper.GenerateUniqueEmail()
-            );
-            await _campaignFlow.createPublication(new Customer(customerResponse.Id), firstVoucher.Code);
+            var customerResponse = await _customerFlow.createCustomer();
+            await _publicationFlow.createPublication(customerResponse.Id, firstVoucher.Code);
 
             var sourceId = TestHelper.GenerateUniqueName("Source");
             var amount = 10000;
@@ -91,4 +90,4 @@ namespace Voucherify.Test
             response.Balance.Should().Be(amount + initialAmount);
         }
     }
-} 
+}

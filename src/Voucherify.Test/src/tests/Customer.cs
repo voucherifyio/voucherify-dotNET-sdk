@@ -26,11 +26,8 @@ namespace Voucherify.Test
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
 
-            var createdCustomer = await _customerFlow.createCustomer(
-                TestHelper.GenerateUniqueName("CustomerName"),
-                TestHelper.GenerateUniqueEmail()
-            );
-            
+            var createdCustomer = await _customerFlow.createCustomer();
+
             createdCustomer.Should().NotBeNull();
             createdCustomer.Id.Should().NotBeNull();
 
@@ -44,8 +41,8 @@ namespace Voucherify.Test
 
             var exception = await Record.ExceptionAsync(async () =>
                 await _customerFlow.getCustomer(createdCustomer.Id));
-            
+
             exception.Should().NotBeNull();
         }
     }
-} 
+}

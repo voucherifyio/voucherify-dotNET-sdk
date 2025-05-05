@@ -16,6 +16,7 @@ namespace Voucherify.Test
         private readonly ITestOutputHelper _output;
         private readonly CampaignFlow _campaignFlow;
         private readonly CustomerFlow _customerFlow;
+        private readonly PublicationFlow _publicationFlow;
 
         private int _delayMilliseconds = 3000;
 
@@ -24,6 +25,7 @@ namespace Voucherify.Test
             _output = output;
             _campaignFlow = new CampaignFlow();
             _customerFlow = new CustomerFlow();
+            _publicationFlow = new PublicationFlow();
         }
 
         [SkippableFact]
@@ -58,7 +60,7 @@ namespace Voucherify.Test
             customerResponse.Name.Should().Be(customerName);
             customerResponse.Email.Should().Be(customerEmail);
 
-            var publication = await _campaignFlow.createPublication(new Customer(customerResponse.Id), firstVoucher.Code);
+            var publication = await _publicationFlow.createPublication(customerResponse.Id, firstVoucher.Code);
             publication.Should().NotBeNull();
             publication.Id.Should().NotBeNullOrEmpty();
         }
@@ -67,7 +69,7 @@ namespace Voucherify.Test
         public async Task TestAddVouchersToCampaign()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
-            
+
             var campaignName = TestHelper.GenerateUniqueName("Campaign");
             var createdCampaign = await _campaignFlow.createDiscountCampaign(campaignName, 0);
 

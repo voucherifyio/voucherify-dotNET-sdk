@@ -15,13 +15,14 @@ namespace Voucherify.Test
             _customersApi = new CustomersApi(TestConfiguration.GetClientConfiguration());
         }
 
-        public async Task<CustomersCreateResponseBody> createCustomer(string name, string email)
+        public async Task<CustomersCreateResponseBody> createCustomer(string name = "", string email = "")
         {
-            var customersCreateRequestBody = new CustomersCreateRequestBody
-            {
-                Name = name,
-                Email = email
-            };
+            var customersCreateRequestBody = new CustomersCreateRequestBody(
+                sourceId: TestHelper.GenerateUniqueName("CustomerSourceId"),
+                name: name ?? TestHelper.GenerateUniqueName("CustomerName"),
+                email: email ?? TestHelper.GenerateUniqueEmail(),
+                description: "Test customer for .NET SDK tests"
+            );
 
             return await _customersApi.CreateCustomerAsync(customersCreateRequestBody);
         }

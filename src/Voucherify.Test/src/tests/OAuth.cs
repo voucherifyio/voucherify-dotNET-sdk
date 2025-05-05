@@ -51,7 +51,6 @@ namespace Voucherify.Test
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
 
-            Console.WriteLine("dsadasddssdadsa");
             // Generate an OAuth token
             var tokenResponse = await _oauthApi.GenerateOauthTokenAsync(
                 "client_credentials",

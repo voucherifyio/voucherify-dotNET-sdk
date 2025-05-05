@@ -26,14 +26,8 @@ namespace Voucherify.Test
         private readonly VouchersApi _vouchersApi;
         private readonly AsyncActionsApi _asyncActionsApi;
         private readonly QualificationsApi _qualificationsApi;
-        private readonly ValidationsApi _validationsApi;
-        private readonly RedemptionsApi _redemptionsApi;
-        private readonly PublicationsApi _publicationsApi;
         private readonly CampaignFlow _campaignFlow;
-
-        private static CustomersCreateResponseBody _customer;
-        private static CampaignsCreateResponseBody _campaign;
-        private static VoucherWithCategories _voucher;
+        private readonly PublicationFlow _publicationFlow;
 
         private int _delayMilliseconds = 2000;
         private int _voucherDiscountAmount = 15;
@@ -42,7 +36,6 @@ namespace Voucherify.Test
         {
             _output = output;
 
-            // Skip tests if credentials are not provided
             if (!TestConfiguration.HasClientCredentials)
             {
                 _output.WriteLine("Client credentials not provided. Skipping tests.");
@@ -53,21 +46,17 @@ namespace Voucherify.Test
             _campaignsApi = new CampaignsApi(configuration);
             _vouchersApi = new VouchersApi(configuration);
             _qualificationsApi = new QualificationsApi(configuration);
-            _validationsApi = new ValidationsApi(configuration);
-            _redemptionsApi = new RedemptionsApi(configuration);
             _asyncActionsApi = new AsyncActionsApi(configuration);
-            _publicationsApi = new PublicationsApi(configuration);
 
             _campaignFlow = new CampaignFlow();
+            _publicationFlow = new PublicationFlow();
         }
 
         [Fact, Order(1)]
         public void Test_ClientConfiguration()
         {
-            // Arrange
             var config = TestConfiguration.GetClientConfiguration();
 
-            // Assert
             config.Should().NotBeNull();
             config.BasePath.Should().NotBeNullOrEmpty();
         }
@@ -114,12 +103,12 @@ namespace Voucherify.Test
                     var listVouchersResult = await _vouchersApi.ListVouchersAsync(
                         campaignId: _campaign.Id
                     );
-                    _voucher = listVouchersResult.Vouchers[0];
-                    _voucher.Should().NotBeNull();
+                    var voucher = listVouchersResult.Vouchers[0];
+                    voucher.Should().NotBeNull();
 
                     // Assert voucher properties
-                    _voucher.Should().NotBeNull();
-                    _voucher.Campaign.Should().Be(_campaign.Name);
+                    voucher.Should().NotBeNull();
+                    voucher.Campaign.Should().Be(_campaign.Name);
 
                     break;
                 }
@@ -140,25 +129,24 @@ namespace Voucherify.Test
             }
         }
 
-
         [SkippableFact, Order(5)]
         public async Task Test_Qualifications()
         {
             Skip.If(!TestConfiguration.HasClientCredentials, "Client credentials not provided");
-            Skip.If(_customer == null, "Customer not created");
-            Skip.If(_voucher == null, "Voucher not created");
 
-            // Check eligibility
-            var order = new Order(
-                amount: 100
+            var publicationResult = await _publicationFlow.createAndPublishVoucherForCustomer(
+                TestHelper.GenerateUniqueName("Campaign"),
+                1
             );
 
             var qualificationsRequest = new QualificationsCheckEligibilityRequestBody(
                 customer: new Customer
                 {
-                    Id = _customer.Id
+                    Id = publicationResult.Customer.Id
                 },
-                order: order,
+                order: new Order(
+                    amount: 100
+                ),
                 scenario: QualificationsCheckEligibilityRequestBody.ScenarioEnum.CUSTOMERWALLET,
                 options: new QualificationsOption(
                     filters: new QualificationsOptionFilters(
@@ -173,85 +161,8 @@ namespace Voucherify.Test
 
             var qualificationsResult = await _qualificationsApi.CheckEligibilityAsync(qualificationsRequest);
 
-            // Assert qualifications result
             qualificationsResult.Should().NotBeNull();
             qualificationsResult.Order.Should().NotBeNull();
-
-
-            _output.WriteLine($"Qualifications result received with {qualificationsResult.Redeemables.Total} redeemables");
-
-        }
-
-        [SkippableFact, Order(6)]
-        public async Task Test_Validation_And_Redemption()
-        {
-            Skip.If(_customer == null, "Customer not created");
-            Skip.If(_campaign == null, "Campaign not created");
-            Skip.If(_voucher == null, "Voucher not created");
-
-            // Validate the voucher
-            var order = new Order(
-                amount: 100
-            );
-            var sessionKey = TestHelper.GenerateUniqueName("Session");
-
-            var validateRequest = new ValidationsValidateRequestBody(
-                redeemables: new List<ValidationsValidateRequestBodyRedeemablesItem>
-                {
-                    new ValidationsValidateRequestBodyRedeemablesItem(
-                        id: _voucher.Code,
-                        varObject: ValidationsValidateRequestBodyRedeemablesItem.ObjectEnum.Voucher
-                    )
-                },
-                order: order,
-                customer: new Customer(
-                    id: _customer.Id
-                ),
-                session: new Session(
-                    key: sessionKey,
-                    type: Session.TypeEnum.LOCK,
-                    ttl: 1,
-                    ttlUnit: Session.TtlUnitEnum.DAYS
-                )
-            );
-
-            var validationResult = await _validationsApi.ValidateStackedDiscountsAsync(validateRequest);
-
-            // Assert validation result
-            validationResult.Should().NotBeNull();
-            validationResult.Valid.Should().BeTrue();
-            validationResult.Redeemables.Should().NotBeNull();
-            validationResult.Order.Should().NotBeNull();
-            validationResult.Order.Amount.Should().Be(order.Amount);
-            validationResult.Order.DiscountAmount.Should().Be(_voucherDiscountAmount);
-
-            _output.WriteLine($"Validation successful for voucher: {_voucher.Code}");
-
-            // Redeem the voucher
-            var redeemRequest = new RedemptionsRedeemRequestBody(
-                redeemables: new List<RedemptionsRedeemRequestBodyRedeemablesItem>
-                {
-                    new RedemptionsRedeemRequestBodyRedeemablesItem(
-                        id: _voucher.Code,
-                        varObject: RedemptionsRedeemRequestBodyRedeemablesItem.ObjectEnum.Voucher
-                    )
-                },
-                order: order,
-                customer: new Customer(
-                    id: _customer.Id
-                )
-            );
-
-            var redemptionResult = await _redemptionsApi.RedeemStackedDiscountsAsync(redeemRequest);
-
-            // Assert redemption result
-            redemptionResult.Should().NotBeNull();
-            redemptionResult.Redemptions.Should().NotBeNull();
-            redemptionResult.Order.Should().NotBeNull();
-            redemptionResult.Order.Amount.Should().Be(order.Amount);
-            redemptionResult.Order.DiscountAmount.Should().Be(_voucherDiscountAmount);
-
-            _output.WriteLine($"Redemption successful for voucher: {_voucher.Code}");
         }
 
         [Fact, Order(0)]

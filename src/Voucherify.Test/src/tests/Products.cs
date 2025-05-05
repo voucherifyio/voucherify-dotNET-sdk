@@ -164,7 +164,7 @@ namespace Voucherify.Test
 
             var exception = await Record.ExceptionAsync(async () =>
                 await _productsFlow.getProduct(product.SourceId));
-            
+
             exception.Should().NotBeNull();
         }
 
@@ -184,10 +184,10 @@ namespace Voucherify.Test
 
             var exception = await Record.ExceptionAsync(async () =>
                 await _productsFlow.getSku(sku.SourceId));
-            
+
             exception.Should().NotBeNull();
 
             await _productsFlow.deleteProduct(product.SourceId);
         }
     }
-} 
+}
