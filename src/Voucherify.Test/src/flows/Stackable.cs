@@ -107,7 +107,10 @@ namespace Voucherify.Test
                 )
             );
 
-            return await _redemptionsApi.ListRedemptionsAsync();
+
+            return await _redemptionsApi.ListRedemptionsAsync(
+                filters: filters
+            );
         }
     }
-} 
+}

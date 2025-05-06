@@ -49,6 +49,11 @@ namespace Voucherify.Client
         {
             var parameters = new Multimap<string, string>();
 
+            if (value == null) 
+            {
+                return parameters;
+            }
+
             if (value is ICollection collection && collectionFormat == "multi")
             {
                 foreach (var item in collection)
@@ -71,12 +76,99 @@ namespace Voucherify.Client
                     }
                 }
             }
+            else if (value.GetType().IsClass && !(value is string) && !(value is DateTime) && !(value is DateTimeOffset) && !(value is Enum))
+            {
+                // This is a complex object (not a primitive type, string, or collection)
+                // We need to handle it as a nested object
+                ProcessComplexParameter(parameters, name, value);
+            }
             else
             {
                 parameters.Add(name, ParameterToString(value));
             }
 
             return parameters;
+        }
+        
+        /// <summary>
+        /// Process complex object parameters recursively and add them to the parameters collection
+        /// </summary>
+        /// <param name="parameters">The parameters collection to add to</param>
+        /// <param name="prefix">The prefix for parameter names (parent property path)</param>
+        /// <param name="obj">The object to process</param>
+        private static void ProcessComplexParameter(Multimap<string, string> parameters, string prefix, object obj)
+        {
+            if (obj == null)
+            {
+                return;
+            }
+
+            var type = obj.GetType();
+            
+            // Process all public properties
+            foreach (var prop in type.GetProperties())
+            {
+                // Skip if property has a ShouldSerialize method that returns false
+                var shouldSerializeMethod = type.GetMethod($"ShouldSerialize{prop.Name}");
+                if (shouldSerializeMethod != null && 
+                    shouldSerializeMethod.ReturnType == typeof(bool) &&
+                    !(bool)shouldSerializeMethod.Invoke(obj, null))
+                {
+                    continue;
+                }
+
+                var value = prop.GetValue(obj);
+                if (value == null)
+                {
+                    continue;
+                }
+
+                // Get the JSON property name from DataMember attribute or use the property name
+                var propName = prop.Name;
+                var dataMemberAttr = prop.GetCustomAttributes(typeof(System.Runtime.Serialization.DataMemberAttribute), true)
+                    .FirstOrDefault() as System.Runtime.Serialization.DataMemberAttribute;
+                if (dataMemberAttr != null && !string.IsNullOrEmpty(dataMemberAttr.Name))
+                {
+                    propName = dataMemberAttr.Name;
+                }
+
+                var paramName = $"{prefix}[{propName}]";
+
+                if (value is ICollection collection)
+                {
+                    // Handle collections
+                    int index = 0;
+                    foreach (var item in collection)
+                    {
+                        if (item == null)
+                        {
+                            continue;
+                        }
+                        
+                        if (item.GetType().IsClass && !(item is string) && !(item is DateTime) && !(item is DateTimeOffset) && !(item is Enum))
+                        {
+                            // Complex object in a collection
+                            ProcessComplexParameter(parameters, $"{paramName}[{index}]", item);
+                        }
+                        else
+                        {
+                            // Simple value in a collection
+                            parameters.Add($"{paramName}[{index}]", ParameterToString(item));
+                        }
+                        index++;
+                    }
+                }
+                else if (value.GetType().IsClass && !(value is string) && !(value is DateTime) && !(value is DateTimeOffset) && !(value is Enum))
+                {
+                    // Nested complex object, process it recursively
+                    ProcessComplexParameter(parameters, paramName, value);
+                }
+                else
+                {
+                    // Simple value
+                    parameters.Add(paramName, ParameterToString(value));
+                }
+            }
         }
 
         /// <summary>
