@@ -104,8 +104,7 @@ namespace Voucherify.Test
             var inapplicableRedeemables = validationResult.InapplicableRedeemables[0];
             inapplicableRedeemables.Should().NotBeNull();
             inapplicableRedeemables.Should().BeOfType<ValidationsRedeemableInapplicable>();
-            //TODO: potential openapi error
-//             inapplicableRedeemables.Status.Should().Be(ValidationsRedeemableInapplicable.StatusEnum.INAPPLICABLE);
+            inapplicableRedeemables.Status.Should().Be(ValidationsRedeemableInapplicable.StatusEnum.INAPPLICABLE);
             inapplicableRedeemables.Id.Should().NotBeNull();
             inapplicableRedeemables.Object.Should().Be(ValidationsRedeemableInapplicable.ObjectEnum.Voucher);
             inapplicableRedeemables.Result.Should().NotBeNull();
