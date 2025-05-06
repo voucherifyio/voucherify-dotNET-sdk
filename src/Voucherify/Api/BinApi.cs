@@ -533,15 +533,15 @@ namespace Voucherify.Api
                 }
                 if (filters.ResourceType != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[resourceType]", filters.ResourceType));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[resource_type]", filters.ResourceType));
                 }
                 if (filters.ResourceName != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[resourceName]", filters.ResourceName));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[resource_name]", filters.ResourceName));
                 }
                 if (filters.ResourceId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[resourceId]", filters.ResourceId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[resource_id]", filters.ResourceId));
                 }
             }
 

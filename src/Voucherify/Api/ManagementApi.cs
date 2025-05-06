@@ -7214,7 +7214,7 @@ namespace Voucherify.Api
                 }
                 if (filters.CampaignType != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaignType]", filters.CampaignType));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaign_type]", filters.CampaignType));
                 }
             }
 

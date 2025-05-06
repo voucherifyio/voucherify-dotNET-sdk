@@ -2185,31 +2185,31 @@ namespace Voucherify.Api
                 }
                 if (filters.CreatedAt != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[createdAt]", filters.CreatedAt));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[created_at]", filters.CreatedAt));
                 }
                 if (filters.RedeemableId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[redeemableId]", filters.RedeemableId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[redeemable_id]", filters.RedeemableId));
                 }
                 if (filters.RedeemableObject != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[redeemableObject]", filters.RedeemableObject));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[redeemable_object]", filters.RedeemableObject));
                 }
                 if (filters.HolderRole != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[holderRole]", filters.HolderRole));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[holder_role]", filters.HolderRole));
                 }
                 if (filters.CampaignId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaignId]", filters.CampaignId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaign_id]", filters.CampaignId));
                 }
                 if (filters.CampaignType != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaignType]", filters.CampaignType));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaign_type]", filters.CampaignType));
                 }
                 if (filters.VoucherType != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucherType]", filters.VoucherType));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucher_type]", filters.VoucherType));
                 }
                 if (filters.Junction != null)
                 {

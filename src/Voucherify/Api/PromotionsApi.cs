@@ -2574,22 +2574,22 @@ namespace Voucherify.Api
             {
                 if (createdAt.Before != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "createdAt[before]", createdAt.Before));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "created_at[before]", createdAt.Before));
                 }
                 if (createdAt.After != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "createdAt[after]", createdAt.After));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "created_at[after]", createdAt.After));
                 }
             }
             if (updatedAt != null)
             {
                 if (updatedAt.Before != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updatedAt[before]", updatedAt.Before));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updated_at[before]", updatedAt.Before));
                 }
                 if (updatedAt.After != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updatedAt[after]", updatedAt.After));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updated_at[after]", updatedAt.After));
                 }
             }
 

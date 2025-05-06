@@ -364,12 +364,9 @@ FodyWeavers.xsd
 
 # Additional files
 /.openapi-generator/
-
-# Env file with sensitive credentials
-src/Voucherify.Test/.env
 .idea
 .openapi-generator
 
 # Env file with sensitive credentials
-src/Voucherify.Test/env
+src/Voucherify.Test/.env
 
