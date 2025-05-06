@@ -114,7 +114,7 @@ namespace Voucherify.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/8.0.0/csharp");
+            UserAgent = WebUtility.UrlEncode("DOTNET-SDK-8.0.0");
             BasePath = "https://api.voucherify.io";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -200,7 +200,7 @@ namespace Voucherify.Client
         /// <summary>
         /// Gets or sets the base path for API access.
         /// </summary>
-        public virtual string BasePath 
+        public virtual string BasePath
         {
             get { return _basePath; }
             set { _basePath = value; }
@@ -568,7 +568,7 @@ namespace Voucherify.Client
 
             return url;
         }
-        
+
         /// <summary>
         /// Gets and Sets the RemoteCertificateValidationCallback
         /// </summary>

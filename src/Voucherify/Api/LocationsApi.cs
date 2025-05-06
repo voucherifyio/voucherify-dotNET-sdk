@@ -654,11 +654,11 @@ namespace Voucherify.Api
                 }
                 if (filters.CreatedAt != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[createdAt]", filters.CreatedAt));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[created_at]", filters.CreatedAt));
                 }
                 if (filters.UpdatedAt != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[updatedAt]", filters.UpdatedAt));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[updated_at]", filters.UpdatedAt));
                 }
             }
             if (endDate != null)

@@ -3131,7 +3131,7 @@ namespace Voucherify.Api
                 }
                 if (filters.VoucherId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucherId]", filters.VoucherId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucher_id]", filters.VoucherId));
                 }
             }
 
@@ -3491,11 +3491,11 @@ namespace Voucherify.Api
                 }
                 if (filters.CampaignsId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaignsId]", filters.CampaignsId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaigns_id]", filters.CampaignsId));
                 }
                 if (filters.CampaignStatus != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaignStatus]", filters.CampaignStatus));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaign_status]", filters.CampaignStatus));
                 }
                 if (filters.Status != null)
                 {
@@ -3507,15 +3507,15 @@ namespace Voucherify.Api
                 }
                 if (filters.IsReferralCode != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[isReferralCode]", filters.IsReferralCode));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[is_referral_code]", filters.IsReferralCode));
                 }
                 if (filters.ValidityTimeframe != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[validityTimeframe]", filters.ValidityTimeframe));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[validity_timeframe]", filters.ValidityTimeframe));
                 }
                 if (filters.VoucherType != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucherType]", filters.VoucherType));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucher_type]", filters.VoucherType));
                 }
                 if (filters.Categories != null)
                 {
@@ -3523,7 +3523,7 @@ namespace Voucherify.Api
                 }
                 if (filters.CategoryIds != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[categoryIds]", filters.CategoryIds));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[category_ids]", filters.CategoryIds));
                 }
                 if (filters.Type != null)
                 {
@@ -3531,23 +3531,23 @@ namespace Voucherify.Api
                 }
                 if (filters.CreatedDate != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[createdDate]", filters.CreatedDate));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[created_date]", filters.CreatedDate));
                 }
                 if (filters.UpdatedAt != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[updatedAt]", filters.UpdatedAt));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[updated_at]", filters.UpdatedAt));
                 }
                 if (filters.StartDate != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[startDate]", filters.StartDate));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[start_date]", filters.StartDate));
                 }
                 if (filters.ExpirationDate != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[expirationDate]", filters.ExpirationDate));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[expiration_date]", filters.ExpirationDate));
                 }
                 if (filters.ValidityDayOfWeek != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[validityDayOfWeek]", filters.ValidityDayOfWeek));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[validity_day_of_week]", filters.ValidityDayOfWeek));
                 }
                 if (filters.Junction != null)
                 {
@@ -3558,7 +3558,7 @@ namespace Voucherify.Api
             {
                 if (accessSettings.Filter != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "accessSettings[filter]", accessSettings.Filter));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "access_settings[filter]", accessSettings.Filter));
                 }
             }
 

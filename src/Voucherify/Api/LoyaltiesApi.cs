@@ -8589,7 +8589,7 @@ namespace Voucherify.Api
                 }
                 if (filters.VoucherId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucherId]", filters.VoucherId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucher_id]", filters.VoucherId));
                 }
             }
 
@@ -8840,7 +8840,7 @@ namespace Voucherify.Api
             {
                 if (filters.CreatedAt != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[createdAt]", filters.CreatedAt));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[created_at]", filters.CreatedAt));
                 }
                 if (filters.Id != null)
                 {
@@ -9117,7 +9117,7 @@ namespace Voucherify.Api
             {
                 if (filters.CreatedAt != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[createdAt]", filters.CreatedAt));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[created_at]", filters.CreatedAt));
                 }
                 if (filters.Id != null)
                 {
@@ -11631,22 +11631,22 @@ namespace Voucherify.Api
             {
                 if (createdAt.Before != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "createdAt[before]", createdAt.Before));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "created_at[before]", createdAt.Before));
                 }
                 if (createdAt.After != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "createdAt[after]", createdAt.After));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "created_at[after]", createdAt.After));
                 }
             }
             if (updatedAt != null)
             {
                 if (updatedAt.Before != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updatedAt[before]", updatedAt.Before));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updated_at[before]", updatedAt.Before));
                 }
                 if (updatedAt.After != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updatedAt[after]", updatedAt.After));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "updated_at[after]", updatedAt.After));
                 }
             }
             if (order != null)

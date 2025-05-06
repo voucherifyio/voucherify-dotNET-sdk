@@ -1155,7 +1155,7 @@ namespace Voucherify.Api
                 }
                 if (filters.FailureCode != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[failureCode]", filters.FailureCode));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[failure_code]", filters.FailureCode));
                 }
                 if (filters.Result != null)
                 {
@@ -1163,31 +1163,31 @@ namespace Voucherify.Api
                 }
                 if (filters.CustomerId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[customerId]", filters.CustomerId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[customer_id]", filters.CustomerId));
                 }
                 if (filters.CampaignName != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaignName]", filters.CampaignName));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[campaign_name]", filters.CampaignName));
                 }
                 if (filters.VoucherType != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucherType]", filters.VoucherType));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[voucher_type]", filters.VoucherType));
                 }
                 if (filters.IsReferralCode != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[isReferralCode]", filters.IsReferralCode));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[is_referral_code]", filters.IsReferralCode));
                 }
                 if (filters.ParentObjectId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[parentObjectId]", filters.ParentObjectId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[parent_object_id]", filters.ParentObjectId));
                 }
                 if (filters.RelatedObjectId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[relatedObjectId]", filters.RelatedObjectId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[related_object_id]", filters.RelatedObjectId));
                 }
                 if (filters.SourceId != null)
                 {
-                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[sourceId]", filters.SourceId));
+                    localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "filters[source_id]", filters.SourceId));
                 }
             }
             if (sourceId != null)
