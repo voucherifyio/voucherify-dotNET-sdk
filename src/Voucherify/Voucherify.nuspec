@@ -1,133 +1,55 @@
-<?xml version="1.0"?>
-<package >
-  <metadata  xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
     <id>Voucherify</id>
-    <version>7.19.0.0</version>
     <title>Voucherify</title>
-    <authors>Rspective</authors>
-    <owners>Rspective</owners>
+    <authors>Voucherify</authors>
+    <owners>Voucherify</owners>
+    <readme>docs\readme.md</readme>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <version>8.0.0</version>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
+    <copyright>MIT</copyright>
+    <repository type="git" url="https://github.com/voucherifyio/voucherify-dotNET-sdk" />
     <releaseNotes>
-      2023-10-23: 7.19.0 
-      - Added dediceted library for dotNet 6.0. Fixed add tiers method type.
+        2025-05-07: 8.0.0
+            - New complete version of Voucherify SDK, generated out of OpenApi specification.
 
-      2023-02-02: 7.18.1 
-      - Added missing mapping for Error property
-
-      2023-01-31: 7.18.0 
-      - Added `active` in Campaign, extended Exception model
-
-      2023-01-26: 7.17.0 
-      - Added `referral` in CustomEvent
-
-      2022-12-16: 7.16.0
-      - Added Metadata in ValidationVoucher
-
-      2022-12-14: 7.15.0
-      - Init Metadata in Redeemable
-
-      2022-12-13: 7.14.0
-      - Added Metadata to ValidationPromotion result
-
-      2022-11-14: 7.13.0
-      - Added NullValueHandling.Ignore for all context payloads.
-
-      2022-11-07: 7.12.0
-      - Added new fields for Order and Order Item
-
-      2022-10-24: 7.11.0
-      - Introduced support for Stackable API.
-
-      2022-05-18: 7.10.0
-      - Introduced CustomerSimple model and apply it in Redemption and VoucherRedemption.
-
-      2022-03-09: 7.9.0
-      - Fixed datetime serialization to ISO format
-
-      2021-09-21: 7.8.0
-      - Added FIXED discount type and new effects. Extended ValidationError.
-
-      2021-08-21: 7.7.5
-      - Added missing DeleteSession method in Voucher's endpoints
-
-      2021-08-21: 7.7.4
-      - Added missing properties for ValidationSession
-
-      2021-04-20: 7.7.3
-      - Changed accessors for VoucherSubject.
-
-      2021-04-20: 7.7.2
-      - Added ApplicableTo and Error to BusinessValidationRule objects.
-
-      2021-04-16: 7.7.1
-      - Fixed circural dependency for ToSting methods.
-
-      2021-04-06: 7.7.0
-      - Reorganized Redemption result classes.
-
-      2021-04-06: 7.6.0
-      - Reorganized Validation result classes.
-
-      2021-03-16: 7.5.2
-      - Fixed API Endpoint for Clinet side methods
-
-      2020-12-16: 7.5.1
-      - Fixed mapping amount_limit for percent discount
-
-      2020-11-19: 7.5.0
-      - Added CampaignType for CampaignCreate, Changed existing CampaignType to CampaignExtensionType as it was not correct
-    
-      2020-10-29: 7.4.0
-      - Throw ArgumentNullException when url parameter is not defined.
-      
-      2020-10-19: 7.3.0
-      - Add `campaign` and `campaign_id` in Voucher validation response. Add 'is_referral_code' in voucher model.
-
-      2020-09-17: 7.2.1
-      - Fixed returning ProductSKuList in async implementation.
-
-      2020-09-15: 7.2.0
-      - Added Support for Consents. Drop deprecated API Versions. Changed Amounts from int to long.
-
-      2020-08-12: 7.1.0
-      - Added Barcode property for VoucherAssets. Introduced ValidationError and BusinessValidationRuleError to support custom error messages.
-
-      Rest available in readme.md in repository.
+        Other notes available in readme.md in repository.
     </releaseNotes>
-    <copyright>Copyright 2016</copyright>
-    <tags>Voucher Coupon Discount Voucherify Voucherify.io Rspective</tags>
     <dependencies>
-      <group targetFramework="net35">
-        <dependency id="Newtonsoft.Json" version="9.0.1" />
-      </group>
-      <group targetFramework="net40">
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="JsonSubTypes" version="2.0.1" />
         <dependency id="Newtonsoft.Json" version="13.0.3" />
+        <dependency id="RestSharp" version="112.0.0" />
+        <dependency id="Polly" version="8.1.0" />
+        <dependency id="System.ComponentModel.Annotations" version="5.0.0" />
       </group>
-      <group targetFramework="net60">
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="JsonSubTypes" version="2.0.1" />
         <dependency id="Newtonsoft.Json" version="13.0.3" />
+        <dependency id="RestSharp" version="112.0.0" />
+        <dependency id="Polly" version="8.1.0" />
+        <dependency id="System.ComponentModel.Annotations" version="5.0.0" />
       </group>
-      <group targetFramework="net45">
+      <group targetFramework="net9.0">
+        <dependency id="JsonSubTypes" version="2.0.1" />
         <dependency id="Newtonsoft.Json" version="13.0.3" />
-        <dependency id="System.Net.Http" version="4.3.4" />
-      </group>
-      <group targetFramework="net20">
-        <dependency id="Newtonsoft.Json" version="13.0.3" />
-      </group>
-      <group targetFramework="netstandard20">
-        <dependency id="Newtonsoft.Json" version="13.0.3" />
-        <dependency id="System.Net.Http" version="4.3.4" />
+        <dependency id="RestSharp" version="112.0.0" />
+        <dependency id="Polly" version="8.1.0" />
+        <dependency id="Polly.Extensions.Http" version="3.0.0" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="9.0.0-preview.4.24156.5" />
+        <dependency id="Microsoft.Extensions.Http" version="9.0.0-preview.4.24156.5" />
+        <dependency id="Microsoft.Extensions.Hosting" version="9.0.0-preview.4.24156.5" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\lib\net2.0\Voucherify.dll" target="lib\net20\Voucherify.dll" />
-    <file src="..\..\lib\net3.5\Voucherify.dll" target="lib\net35\Voucherify.dll" />
-    <file src="..\..\lib\net4.0\Voucherify.dll" target="lib\net40\Voucherify.dll" />
-    <file src="..\..\lib\net4.5\Voucherify.dll" target="lib\net45\Voucherify.dll" />
-    <file src="..\..\lib\net6.0\Voucherify.dll" target="lib\net60\Voucherify.dll" />
-    <file src="..\..\lib\netstandard2.0\Voucherify.dll" target="lib\netstandard20\Voucherify.dll" />
+    <file src="..\..\readme.md" target="docs\readme.md" />
+    <file src="..\..\lib\net9.0\Voucherify.dll" target="lib\net9.0\Voucherify.dll" />
+    <file src="..\..\lib\netstandard2.0\Voucherify.dll" target="lib\netstandard2.0\Voucherify.dll" />
+    <file src="..\..\lib\netstandard2.1\Voucherify.dll" target="lib\netstandard2.1\Voucherify.dll" />
   </files>
 </package>
