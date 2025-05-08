@@ -88,6 +88,8 @@ namespace Example
             config.AddApiKey("X-App-Token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("X-App-Token", "Bearer");
+            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | Unique loyalty card code assigned to a particular customer.
@@ -143,7 +145,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token), [X-Voucherify-OAuth](../README.md#X-Voucherify-OAuth)
 
 ### HTTP request headers
 
@@ -294,6 +296,8 @@ namespace Example
             config.AddApiKey("X-App-Token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("X-App-Token", "Bearer");
+            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | Unique loyalty card code assigned to a particular customer.
@@ -345,7 +349,7 @@ void (empty response body)
 
 ### Authorization
 
-[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token), [X-Voucherify-OAuth](../README.md#X-Voucherify-OAuth)
 
 ### HTTP request headers
 
@@ -2564,6 +2568,8 @@ namespace Example
             config.AddApiKey("X-App-Token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("X-App-Token", "Bearer");
+            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID.
@@ -2623,7 +2629,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token), [X-Voucherify-OAuth](../README.md#X-Voucherify-OAuth)
 
 ### HTTP request headers
 
@@ -3856,6 +3862,8 @@ namespace Example
             config.AddApiKey("X-App-Token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("X-App-Token", "Bearer");
+            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | Unique loyalty card code assigned to a particular customer.
@@ -3915,7 +3923,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token), [X-Voucherify-OAuth](../README.md#X-Voucherify-OAuth)
 
 ### HTTP request headers
 
@@ -3962,6 +3970,8 @@ namespace Example
             config.AddApiKey("X-App-Token", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("X-App-Token", "Bearer");
+            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID.
@@ -4023,7 +4033,7 @@ catch (ApiException e)
 
 ### Authorization
 
-[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token)
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token), [X-Voucherify-OAuth](../README.md#X-Voucherify-OAuth)
 
 ### HTTP request headers
 

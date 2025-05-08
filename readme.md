@@ -51,11 +51,7 @@ NOTE: RestSharp for .Net Core creates a new socket for each api call, which can 
 
 <a id="installation"></a>
 ## Installation
-`Install-Package Voucherify` / `dotnet add package Voucherify`
-
-Or
-
-Generate the DLL using your preferred tool (e.g. `dotnet build`), alternatively use libraries from lib/{target-framework} folder.
+Generate the DLL using your preferred tool (e.g. `dotnet build`)
 
 Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
@@ -143,6 +139,8 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 ## 📅 Changelog
 
+- **2024-05-06** - `8.0.1`
+    -  Added OAuth support for Loyalty Pending Points endpoints.
 - **2024-05-06** - `8.0.0`
     -  The new version of the SDK includes coverage for all Voucherify endpoints and supports typed models.
 
@@ -1784,48 +1782,48 @@ Authentication schemes defined for the API:
 - **Flow**: implicit
 - **Authorization URL**: https://api.voucherify.io/v1/oauth/token
 - **Scopes**: 
-  - api: 
-  - vouchers: 
-  - client_api: 
-  - client_vouchers: 
-  - promotions: 
-  - client_promotions: 
-  - campaigns: 
-  - client_publish: 
-  - exports: 
-  - publications: 
-  - client_validate: 
-  - validations: 
-  - client_validations: 
-  - qualifications: 
-  - client_qualifications: 
-  - client_redeem: 
-  - redemptions: 
-  - client_redemptions: 
-  - customers: 
-  - client_customers: 
-  - orders: 
-  - products: 
-  - skus: 
-  - validation-rules: 
-  - validation-rules-assignments: 
-  - segments: 
-  - events: 
-  - client_events: 
-  - rewards: 
-  - assets: 
-  - task-results: 
-  - loyalties: 
-  - client_consents: 
-  - consents: 
-  - async-actions: 
-  - product-collections: 
-  - categories: 
-  - metadata-schemas: 
-  - locations: 
-  - referrals: 
-  - trash-bin: 
-  - templates: 
+  - api: Gives access to whole server-side API.
+  - vouchers: Gives access to all endpoints and methods starting with &#x60;v1/vouchers&#x60;.
+  - client_api: Gives access to whole client-side API.
+  - client_vouchers: Gives access to all endpoints and methods starting with &#x60;/client/v1/vouchers&#x60;.
+  - promotions: Gives access to all endpoints and methods starting with &#x60;/v1/promotions&#x60;.
+  - client_promotions: Gives access to all endpoints and methods starting with &#x60;/client/v1/promotions&#x60;
+  - campaigns: Gives access to all endpoints and methods starting with &#x60;v1/campaigns&#x60;.
+  - client_publish: Gives access to all endpoints and methods starting with &#x60;/client/v1/publish&#x60;.
+  - exports: Gives access to all endpoints and methods starting with &#x60;/v1/exports&#x60;.
+  - publications: Gives access to all endpoints and methods starting with &#x60;/v1/publications&#x60;.
+  - client_validate: Gives access to all endpoints and methods starting with &#x60;/client/v1/validate&#x60;.
+  - validations: Gives access to all endpoints and methods starting with &#x60;/v1/validations&#x60;.
+  - client_validations: Gives access to all endpoints and methods starting with &#x60;/client/v1/validations&#x60;.
+  - qualifications: Gives access to all endpoints and methods starting with &#x60;/v1/qualifications&#x60;.
+  - client_qualifications: Gives access to all endpoints and methods starting with &#x60;/client/v1/qualifications&#x60;.
+  - client_redeem: Gives access to all endpoints and methods starting with &#x60;/client/v1/redeem
+  - redemptions: Gives access to all endpoints and methods starting with &#x60;/v1/redemptions&#x60;.
+  - client_redemptions: Gives access to all endpoints and methods starting with &#x60;/client/v1/redemptions&#x60;
+  - customers: Gives access to all endpoints and methods starting with &#x60;/v1/customers&#x60;.
+  - client_customers: Gives access to all endpoints and methods starting with &#x60;/client/v1/customers&#x60;.
+  - orders: Gives access to all endpoints and methods starting with &#x60;/v1/orders&#x60;.
+  - products: Gives access to all endpoints and methods starting with &#x60;/v1/products&#x60;.
+  - skus: Gives access to all endpoints and methods starting with &#x60;/v1/skus&#x60;.
+  - validation-rules: Gives access to all endpoints and methods starting with &#x60;/v1/validation-rules&#x60;.
+  - validation-rules-assignments: Gives access to all endpoints and methods starting with &#x60;/v1/validation-rules-assignments
+  - segments: Gives access to all endpoints and methods starting with &#x60;/v1/segments&#x60;.
+  - events: Gives access to all endpoints and methods starting with &#x60;/v1/events&#x60;.
+  - client_events: Gives access to all endpoints and methods starting with &#x60;client/v1/events&#x60;.
+  - rewards: Gives access to all endpoints and methods starting with &#x60;/v1/rewards&#x60;.
+  - assets: Gives access to all endpoints and methods starting with &#x60;/v1/assets&#x60;.
+  - task-results: Gives access to all endpoints and methods starting with &#x60;/v1/task-results&#x60;.
+  - loyalties: Gives access to all endpoints and methods starting with &#x60;/v1/loyalties&#x60;.
+  - client_consents: Gives access to all endpoints and methods starting with &#x60;client/v1/consents&#x60;.
+  - consents: Gives access to all endpoints and methods starting with &#x60;/v1/consents&#x60;.
+  - async-actions: Gives access to all endpoints and methods starting with &#x60;/v1/async-actions&#x60;.
+  - product-collections: Gives access to all endpoints and methods starting with &#x60;/v1/product-collections&#x60;.
+  - categories: Gives access to all endpoints and methods starting with &#x60;/v1/categories&#x60;.
+  - metadata-schemas: Gives access to all endpoints and methods starting with &#x60;/v1/metadata-schemas&#x60;.
+  - locations: Gives access to all endpoints and methods starting with &#x60;/v1/locations&#x60;.
+  - referrals: Gives access to all endpoints and methods starting with &#x60;/v1/referrals&#x60;.
+  - trash-bin: Gives access to all endpoints and methods starting with &#x60;/v1/trash-bin&#x60;.
+  - templates: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 
 ## Recommendation

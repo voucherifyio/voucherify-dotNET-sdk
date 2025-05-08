@@ -9,11 +9,13 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <version>8.0.0</version>
+    <version>8.0.1</version>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <copyright>MIT</copyright>
     <repository type="git" url="https://github.com/voucherifyio/voucherify-dotNET-sdk" />
     <releaseNotes>
+        2025-05-07: 8.0.1
+            - Added OAuth support for Loyalty Pending Points endpoints.
         2025-05-07: 8.0.0
             - New complete version of Voucherify SDK, generated out of OpenApi specification.
 

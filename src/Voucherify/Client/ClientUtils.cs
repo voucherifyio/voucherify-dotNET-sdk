@@ -49,7 +49,7 @@ namespace Voucherify.Client
         {
             var parameters = new Multimap<string, string>();
 
-            if (value == null) 
+            if (value == null)
             {
                 return parameters;
             }
@@ -89,7 +89,7 @@ namespace Voucherify.Client
 
             return parameters;
         }
-        
+
         /// <summary>
         /// Process complex object parameters recursively and add them to the parameters collection
         /// </summary>
@@ -104,13 +104,13 @@ namespace Voucherify.Client
             }
 
             var type = obj.GetType();
-            
+
             // Process all public properties
             foreach (var prop in type.GetProperties())
             {
                 // Skip if property has a ShouldSerialize method that returns false
                 var shouldSerializeMethod = type.GetMethod($"ShouldSerialize{prop.Name}");
-                if (shouldSerializeMethod != null && 
+                if (shouldSerializeMethod != null &&
                     shouldSerializeMethod.ReturnType == typeof(bool) &&
                     !(bool)shouldSerializeMethod.Invoke(obj, null))
                 {
@@ -144,7 +144,7 @@ namespace Voucherify.Client
                         {
                             continue;
                         }
-                        
+
                         if (item.GetType().IsClass && !(item is string) && !(item is DateTime) && !(item is DateTimeOffset) && !(item is Enum))
                         {
                             // Complex object in a collection
