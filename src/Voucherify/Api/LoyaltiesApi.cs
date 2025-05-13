@@ -3060,6 +3060,22 @@ namespace Voucherify.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
             }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<LoyaltiesMembersPendingPointsActivateResponseBody>("/v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate", localVarRequestOptions, this.Configuration);
@@ -3151,6 +3167,22 @@ namespace Voucherify.Api
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-App-Token")))
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
+            }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
             // make the HTTP request
@@ -3446,6 +3478,22 @@ namespace Voucherify.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
             }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post<Object>("/v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel", localVarRequestOptions, this.Configuration);
@@ -3535,6 +3583,22 @@ namespace Voucherify.Api
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-App-Token")))
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
+            }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
             // make the HTTP request
@@ -8021,6 +8085,22 @@ namespace Voucherify.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
             }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LoyaltiesPendingPointsListResponseBody>("/v1/loyalties/{campaignId}/pending-points", localVarRequestOptions, this.Configuration);
@@ -8121,6 +8201,22 @@ namespace Voucherify.Api
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-App-Token")))
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
+            }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
             // make the HTTP request
@@ -10841,6 +10937,22 @@ namespace Voucherify.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
             }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LoyaltiesMembersPendingPointsListResponseBody>("/v1/loyalties/members/{memberId}/pending-points", localVarRequestOptions, this.Configuration);
@@ -10941,6 +11053,22 @@ namespace Voucherify.Api
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-App-Token")))
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
+            }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
             // make the HTTP request
@@ -11051,6 +11179,22 @@ namespace Voucherify.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
             }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Get<LoyaltiesMembersPendingPointsListResponseBody>("/v1/loyalties/{campaignId}/members/{memberId}/pending-points", localVarRequestOptions, this.Configuration);
@@ -11160,6 +11304,22 @@ namespace Voucherify.Api
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-App-Token")))
             {
                 localVarRequestOptions.HeaderParameters.Add("X-App-Token", this.Configuration.GetApiKeyWithPrefix("X-App-Token"));
+            }
+            // authentication (X-Voucherify-OAuth) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
             }
 
             // make the HTTP request
