@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,8 +37,9 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="InapplicableToOrderItemUnitsItem" /> class.
         /// </summary>
         /// <param name="index">Number assigned to the order line item in accordance with the order sent in the request..</param>
-        /// <param name="units">Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;..</param>
-        public InapplicableToOrderItemUnitsItem(int index = default(int), List<int> units = default(List<int>))
+        /// <param name="units">Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;. The maximum quantity of all handled units is 1000. If the quantity of all order items exceeds 1000, this array is not returned, but &#x60;units_limit_exceeded: true&#x60;. However, the discount is calculated properly for all relevant units..</param>
+        /// <param name="unitsLimitExceeded">Returned as &#x60;true&#x60; only when the sum total of &#x60;quantity&#x60; of all order items exceeds 1000..</param>
+        public InapplicableToOrderItemUnitsItem(int index = default(int), List<int> units = default(List<int>), bool unitsLimitExceeded = default(bool))
         {
             this._Index = index;
             if (this.Index != null)
@@ -48,6 +50,11 @@ namespace Voucherify.Model
             if (this.Units != null)
             {
                 this._flagUnits = true;
+            }
+            this._UnitsLimitExceeded = unitsLimitExceeded;
+            if (this.UnitsLimitExceeded != null)
+            {
+                this._flagUnitsLimitExceeded = true;
             }
         }
 
@@ -77,9 +84,9 @@ namespace Voucherify.Model
             return _flagIndex;
         }
         /// <summary>
-        /// Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;.
+        /// Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;. The maximum quantity of all handled units is 1000. If the quantity of all order items exceeds 1000, this array is not returned, but &#x60;units_limit_exceeded: true&#x60;. However, the discount is calculated properly for all relevant units.
         /// </summary>
-        /// <value>Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;.</value>
+        /// <value>Numbers of units in the order line covered by the discount; e.g. &#x60;2, 5, 8&#x60; for 10 units with the setting &#x60;\&quot;skip_initially\&quot;: 1&#x60;, &#x60;\&quot;repeat\&quot;: 3&#x60;. The counting of units starts from &#x60;1&#x60;. The maximum quantity of all handled units is 1000. If the quantity of all order items exceeds 1000, this array is not returned, but &#x60;units_limit_exceeded: true&#x60;. However, the discount is calculated properly for all relevant units.</value>
         [DataMember(Name = "units", EmitDefaultValue = true)]
         public List<int> Units
         {
@@ -102,6 +109,31 @@ namespace Voucherify.Model
             return _flagUnits;
         }
         /// <summary>
+        /// Returned as &#x60;true&#x60; only when the sum total of &#x60;quantity&#x60; of all order items exceeds 1000.
+        /// </summary>
+        /// <value>Returned as &#x60;true&#x60; only when the sum total of &#x60;quantity&#x60; of all order items exceeds 1000.</value>
+        [DataMember(Name = "units_limit_exceeded", EmitDefaultValue = true)]
+        public bool UnitsLimitExceeded
+        {
+            get{ return _UnitsLimitExceeded;}
+            set
+            {
+                _UnitsLimitExceeded = value;
+                _flagUnitsLimitExceeded = true;
+            }
+        }
+        private bool _UnitsLimitExceeded;
+        private bool _flagUnitsLimitExceeded;
+
+        /// <summary>
+        /// Returns false as UnitsLimitExceeded should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeUnitsLimitExceeded()
+        {
+            return _flagUnitsLimitExceeded;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +143,7 @@ namespace Voucherify.Model
             sb.Append("class InapplicableToOrderItemUnitsItem {\n");
             sb.Append("  Index: ").Append(Index).Append("\n");
             sb.Append("  Units: ").Append(Units).Append("\n");
+            sb.Append("  UnitsLimitExceeded: ").Append(UnitsLimitExceeded).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

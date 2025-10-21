@@ -5,11 +5,11 @@ All URIs are relative to *https://api.voucherify.io*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**ReferralsAddHolders**](ReferralsApi.md#referralsaddholders) | **POST** /v1/referrals/members/{memberId}/holders | Add Referral Code Holders |
-| [**ReferralsAddHolders1**](ReferralsApi.md#referralsaddholders1) | **POST** /v1/referrals/{campaignId}/members/{memberId}/holders | Add Referral Code Holders |
-| [**ReferralsCodeHolders**](ReferralsApi.md#referralscodeholders) | **GET** /v1/referrals/{campaignId}/members/{memberId}/holders | List Referral Code Holders |
+| [**ReferralsAddHolders1**](ReferralsApi.md#referralsaddholders1) | **POST** /v1/referrals/{campaignId}/members/{memberId}/holders | Add Referral Code Holders with Campaign ID |
+| [**ReferralsCodeHolders**](ReferralsApi.md#referralscodeholders) | **GET** /v1/referrals/{campaignId}/members/{memberId}/holders | List Referral Code Holders with campaign ID |
 | [**ReferralsCodeHolders1**](ReferralsApi.md#referralscodeholders1) | **GET** /v1/referrals/members/{memberId}/holders | List Referral Code Holders |
 | [**ReferralsRemoveHolder**](ReferralsApi.md#referralsremoveholder) | **DELETE** /v1/referrals/members/{memberId}/holders/{holderId} | Remove Referral Card Holder |
-| [**ReferralsRemoveHolder1**](ReferralsApi.md#referralsremoveholder1) | **DELETE** /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | Remove Referral Card Holder |
+| [**ReferralsRemoveHolder1**](ReferralsApi.md#referralsremoveholder1) | **DELETE** /v1/referrals/{campaignId}/members/{memberId}/holders/{holderId} | Remove Referral Card Holder with campaign ID |
 
 <a id="referralsaddholders"></a>
 # **ReferralsAddHolders**
@@ -17,7 +17,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Add Referral Code Holders
 
-Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.  📘 Alternative endpoint This endpoint is an alternative to the Add Referral Code Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.  📘 Alternative endpoint This endpoint is an alternative to the [Add Referral Code Holders endpoint](/api-reference/referrals/add-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
 
 ### Example
 ```csharp
@@ -119,9 +119,9 @@ catch (ApiException e)
 # **ReferralsAddHolders1**
 > ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1 (string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = null)
 
-Add Referral Code Holders
+Add Referral Code Holders with Campaign ID
 
-Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referer, use the Create Publication endpoint.
+Adds new holders to a referral code as **referees**. The data sent in the request is upserted into the customer data. If the request returns an error even for one customer, you have to resend the whole request. Customer data is upserted if the data for all customers is correct. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  👍 To add a holder as a referrer, use the [Create Publication](/api-reference/publications/create-publication) endpoint.
 
 ### Example
 ```csharp
@@ -157,7 +157,7 @@ namespace Example
 
             try
             {
-                // Add Referral Code Holders
+                // Add Referral Code Holders with Campaign ID
                 ReferralsMembersHoldersCreateInBulkResponseBody result = apiInstance.ReferralsAddHolders1(campaignId, memberId, referralsMembersHoldersCreateInBulkRequestBody);
                 Debug.WriteLine(result);
             }
@@ -178,7 +178,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Add Referral Code Holders
+    // Add Referral Code Holders with Campaign ID
     ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> response = apiInstance.ReferralsAddHolders1WithHttpInfo(campaignId, memberId, referralsMembersHoldersCreateInBulkRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -225,7 +225,7 @@ catch (ApiException e)
 # **ReferralsCodeHolders**
 > ReferralsMembersHoldersListResponseBody ReferralsCodeHolders (string campaignId, string memberId, int? limit = null, ParameterOrderListRedeemables? order = null, string startingAfterId = null, ParameterFiltersListReferralsRedeemableHolders filters = null)
 
-List Referral Code Holders
+List Referral Code Holders with campaign ID
 
 Retrieves all the redeemables that have been assigned to the customer. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)
 
@@ -266,7 +266,7 @@ namespace Example
 
             try
             {
-                // List Referral Code Holders
+                // List Referral Code Holders with campaign ID
                 ReferralsMembersHoldersListResponseBody result = apiInstance.ReferralsCodeHolders(campaignId, memberId, limit, order, startingAfterId, filters);
                 Debug.WriteLine(result);
             }
@@ -287,7 +287,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Referral Code Holders
+    // List Referral Code Holders with campaign ID
     ApiResponse<ReferralsMembersHoldersListResponseBody> response = apiInstance.ReferralsCodeHoldersWithHttpInfo(campaignId, memberId, limit, order, startingAfterId, filters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -339,7 +339,7 @@ catch (ApiException e)
 
 List Referral Code Holders
 
-Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)  📘 Alternative endpoint This endpoint is an alternative to the List Member Holders endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+Retrieves the holders of the referral code from a referral campaign. To use this endpoint, you must have the following permissions: - Read Customers (customers.details.read)  📘 Alternative endpoint This endpoint is an alternative to the [List Member Holders endpoint](/api-reference/referrals/list-referral-code-holders-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
 
 ### Example
 ```csharp
@@ -449,7 +449,7 @@ catch (ApiException e)
 
 Remove Referral Card Holder
 
-Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the Remove Referral Card Holder endpoint. The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
+Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)  📘 Alternative endpoint This endpoint is an alternative to the [Remove Referral Card Holder endpoint](/api-reference/referrals/remove-referral-card-holder-with-campaign-id). The URL was re-designed to retrieve the referral member holders without providing the campaignId as a path paremeter.
 
 ### Example
 ```csharp
@@ -547,7 +547,7 @@ void (empty response body)
 # **ReferralsRemoveHolder1**
 > void ReferralsRemoveHolder1 (string campaignId, string memberId, string holderId)
 
-Remove Referral Card Holder
+Remove Referral Card Holder with campaign ID
 
 Removes the holder from a referral card. You can remove a referee only. To use this endpoint, you must have the following permissions: - Create and modify Customers and Segments (customers.modify) - Publish Voucher (vouchers.publish)
 
@@ -585,7 +585,7 @@ namespace Example
 
             try
             {
-                // Remove Referral Card Holder
+                // Remove Referral Card Holder with campaign ID
                 apiInstance.ReferralsRemoveHolder1(campaignId, memberId, holderId);
             }
             catch (ApiException  e)
@@ -605,7 +605,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Remove Referral Card Holder
+    // Remove Referral Card Holder with campaign ID
     apiInstance.ReferralsRemoveHolder1WithHttpInfo(campaignId, memberId, holderId);
 }
 catch (ApiException e)

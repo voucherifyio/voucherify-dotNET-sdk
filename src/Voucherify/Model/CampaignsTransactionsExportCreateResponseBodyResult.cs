@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignsTransactionsExportCreateResponseBodyResult" /> class.
         /// </summary>
-        /// <param name="url">URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](ref:download-export) method..</param>
+        /// <param name="url">URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](/api-reference/exports/download-export) method..</param>
         public CampaignsTransactionsExportCreateResponseBodyResult(string url = default(string))
         {
             this._Url = url;
@@ -46,9 +47,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](ref:download-export) method.
+        /// URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](/api-reference/exports/download-export) method.
         /// </summary>
-        /// <value>URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](ref:download-export) method.</value>
+        /// <value>URL of the CSV file location. It contains the &#x60;token&#x60; used for authorization in the [Download export](/api-reference/exports/download-export) method.</value>
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url
         {

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,15 +36,21 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Bundle" /> class.
         /// </summary>
-        /// <param name="quantity">Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;..</param>
+        /// <param name="quantity">Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;. The maximum number of identified bundles can equal the number set in &#x60;limit&#x60;. Also defines the multiplier of the discount for &#x60;AMOUNT&#x60;, &#x60;PERCENT&#x60;, and &#x60;UNIT&#x60; discount types. To inform end-customers that more products can be added to meet additional bundles, compare this parameter with &#x60;limit&#x60;..</param>
+        /// <param name="limit">Determines the maximum number of identified bundles. This also defines the maximum multiplier of the bundle discount..</param>
         /// <param name="identified">Determines products from the customer&#39;s order items that meet bundle conditions. SKUs meet the conditions for their product that is used in the bundle. Returns only the products and their quantity that meet the bundle..</param>
-        /// <param name="missing">Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection..</param>
-        public Bundle(int? quantity = default(int?), List<BundleIdentifiedItem> identified = default(List<BundleIdentifiedItem>), List<BundleMissingItem> missing = default(List<BundleMissingItem>))
+        /// <param name="missing">Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection. Not returned when all required bundle items are in the order..</param>
+        public Bundle(int? quantity = default(int?), int? limit = default(int?), List<BundleIdentifiedItem> identified = default(List<BundleIdentifiedItem>), List<BundleMissingItem> missing = default(List<BundleMissingItem>))
         {
             this._Quantity = quantity;
             if (this.Quantity != null)
             {
                 this._flagQuantity = true;
+            }
+            this._Limit = limit;
+            if (this.Limit != null)
+            {
+                this._flagLimit = true;
             }
             this._Identified = identified;
             if (this.Identified != null)
@@ -58,9 +65,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;.
+        /// Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;. The maximum number of identified bundles can equal the number set in &#x60;limit&#x60;. Also defines the multiplier of the discount for &#x60;AMOUNT&#x60;, &#x60;PERCENT&#x60;, and &#x60;UNIT&#x60; discount types. To inform end-customers that more products can be added to meet additional bundles, compare this parameter with &#x60;limit&#x60;.
         /// </summary>
-        /// <value>Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;.</value>
+        /// <value>Determines how many bundles are qualified. If there are missing bundle products, the value is &#x60;0&#x60;. If the bundle is qualified, the value is &#x60;1&#x60;. The maximum number of identified bundles can equal the number set in &#x60;limit&#x60;. Also defines the multiplier of the discount for &#x60;AMOUNT&#x60;, &#x60;PERCENT&#x60;, and &#x60;UNIT&#x60; discount types. To inform end-customers that more products can be added to meet additional bundles, compare this parameter with &#x60;limit&#x60;.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public int? Quantity
         {
@@ -81,6 +88,31 @@ namespace Voucherify.Model
         public bool ShouldSerializeQuantity()
         {
             return _flagQuantity;
+        }
+        /// <summary>
+        /// Determines the maximum number of identified bundles. This also defines the maximum multiplier of the bundle discount.
+        /// </summary>
+        /// <value>Determines the maximum number of identified bundles. This also defines the maximum multiplier of the bundle discount.</value>
+        [DataMember(Name = "limit", EmitDefaultValue = true)]
+        public int? Limit
+        {
+            get{ return _Limit;}
+            set
+            {
+                _Limit = value;
+                _flagLimit = true;
+            }
+        }
+        private int? _Limit;
+        private bool _flagLimit;
+
+        /// <summary>
+        /// Returns false as Limit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLimit()
+        {
+            return _flagLimit;
         }
         /// <summary>
         /// Determines products from the customer&#39;s order items that meet bundle conditions. SKUs meet the conditions for their product that is used in the bundle. Returns only the products and their quantity that meet the bundle.
@@ -108,9 +140,9 @@ namespace Voucherify.Model
             return _flagIdentified;
         }
         /// <summary>
-        /// Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection.
+        /// Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection. Not returned when all required bundle items are in the order.
         /// </summary>
-        /// <value>Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection.</value>
+        /// <value>Determines products, SKUs, or collections from the bundle that are missing in the customer&#39;s order items. Determines also the missing quantity. For collections, this means that order items do not include a sufficient number of items that belong to the collection. Not returned when all required bundle items are in the order.</value>
         [DataMember(Name = "missing", EmitDefaultValue = true)]
         public List<BundleMissingItem> Missing
         {
@@ -141,6 +173,7 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class Bundle {\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Identified: ").Append(Identified).Append("\n");
             sb.Append("  Missing: ").Append(Missing).Append("\n");
             sb.Append("}\n");
@@ -163,10 +196,28 @@ namespace Voucherify.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Quantity (int?) maximum
+            if (this.Quantity > (int?)100)
+            {
+                yield return new ValidationResult("Invalid value for Quantity, must be a value less than or equal to 100.", new [] { "Quantity" });
+            }
+
             // Quantity (int?) minimum
             if (this.Quantity < (int?)0)
             {
                 yield return new ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 0.", new [] { "Quantity" });
+            }
+
+            // Limit (int?) maximum
+            if (this.Limit > (int?)100)
+            {
+                yield return new ValidationResult("Invalid value for Limit, must be a value less than or equal to 100.", new [] { "Limit" });
+            }
+
+            // Limit (int?) minimum
+            if (this.Limit < (int?)1)
+            {
+                yield return new ValidationResult("Invalid value for Limit, must be a value greater than or equal to 1.", new [] { "Limit" });
             }
 
             yield break;

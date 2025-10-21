@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Value is exactly this value (single value).
         /// </summary>
         /// <value>Value is exactly this value (single value).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<IsEnum>))]
         public enum IsEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Value is exactly this value (single value).</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<IsEnum>))]
         [DataMember(Name = "$is", EmitDefaultValue = true)]
         public IsEnum? Is
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// Results omit this value (single value).
         /// </summary>
         /// <value>Results omit this value (single value).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<IsNotEnum>))]
         public enum IsNotEnum
         {
             /// <summary>
@@ -105,6 +107,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Results omit this value (single value).</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<IsNotEnum>))]
         [DataMember(Name = "$is_not", EmitDefaultValue = true)]
         public IsNotEnum? IsNot
         {

@@ -23,11 +23,12 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
     /// <summary>
-    /// ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard
+    /// Stores the amount of loyalty card points to be applied in the redemption.
     /// </summary>
     [DataContract(Name = "ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard")]
     public partial class ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard : IValidatableObject

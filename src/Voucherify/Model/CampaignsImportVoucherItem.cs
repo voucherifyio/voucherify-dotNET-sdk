@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -76,7 +77,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -103,6 +104,7 @@ namespace Voucherify.Model
         /// Gets or Sets Type
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -131,7 +133,7 @@ namespace Voucherify.Model
         /// <param name="redemption">redemption.</param>
         /// <param name="active">A flag to toggle the voucher on or off. You can disable a voucher even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* voucher - &#x60;false&#x60; indicates an *inactive* voucher.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the code. A set of key/value pairs that you can attach to a voucher object. It can be useful for storing additional information about the voucher in a structured format..</param>
-        /// <param name="category">Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint..</param>
+        /// <param name="category">Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint..</param>
         /// <param name="startDate">Activation timestamp presented in the ISO 8601 format. Voucher is *inactive before* this date. Start date defines when the code starts to be active. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ.</param>
         /// <param name="expirationDate">Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date. Allowed date formats are: - YYYY-MM-DD - YYYY-MM-DDTHH - YYYY-MM-DDTHH:mm - YYYY-MM-DDTHH:mm:ss - YYYY-MM-DDTHH:mm:ssZ - YYYY-MM-DDTHH:mm:ss.SSSZ.</param>
         /// <param name="validityTimeframe">validityTimeframe.</param>
@@ -315,9 +317,9 @@ namespace Voucherify.Model
             return _flagMetadata;
         }
         /// <summary>
-        /// Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.
+        /// Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
         /// </summary>
-        /// <value>Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers) endpoint.</value>
+        /// <value>Tag defining the category that this voucher belongs to. Useful when listing vouchers using the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.</value>
         [DataMember(Name = "category", EmitDefaultValue = true)]
         public string Category
         {

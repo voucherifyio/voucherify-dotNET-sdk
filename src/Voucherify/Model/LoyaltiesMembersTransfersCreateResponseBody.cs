@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Defines the type of the voucher.
         /// </summary>
         /// <value>Defines the type of the voucher.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the type of the voucher.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -149,16 +151,8 @@ namespace Voucherify.Model
         public LoyaltiesMembersTransfersCreateResponseBody(string id = default(string), string code = default(string), string campaign = default(string), string campaignId = default(string), string category = default(string), string categoryId = default(string), List<Category> categories = default(List<Category>), TypeEnum? type = default(TypeEnum?), LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard loyaltyCard = default(LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), LoyaltiesMembersTransfersCreateResponseBodyPublish publish = default(LoyaltiesMembersTransfersCreateResponseBodyPublish), LoyaltiesMembersTransfersCreateResponseBodyRedemption redemption = default(LoyaltiesMembersTransfersCreateResponseBodyRedemption), string active = default(string), string additionalInfo = default(string), Object metadata = default(Object), LoyaltiesMembersTransfersCreateResponseBodyAssets assets = default(LoyaltiesMembersTransfersCreateResponseBodyAssets), bool? isReferralCode = default(bool?), string holderId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), DateTimeOffset? createdAt = default(DateTimeOffset?))
         {
             // to ensure "validityTimeframe" is required (not null)
-            if (validityTimeframe == null)
-            {
-                throw new ArgumentNullException("validityTimeframe is a required property for LoyaltiesMembersTransfersCreateResponseBody and cannot be null");
-            }
             this._ValidityTimeframe = validityTimeframe;
             // to ensure "validityDayOfWeek" is required (not null)
-            if (validityDayOfWeek == null)
-            {
-                throw new ArgumentNullException("validityDayOfWeek is a required property for LoyaltiesMembersTransfersCreateResponseBody and cannot be null");
-            }
             this._ValidityDayOfWeek = validityDayOfWeek;
             this._Id = id;
             if (this.Id != null)
@@ -523,7 +517,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets ValidityTimeframe
         /// </summary>
-        [DataMember(Name = "validity_timeframe", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "validity_timeframe", IsRequired = false, EmitDefaultValue = true)]
         public ValidityTimeframe ValidityTimeframe
         {
             get{ return _ValidityTimeframe;}
@@ -548,7 +542,7 @@ namespace Voucherify.Model
         /// Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday
         /// </summary>
         /// <value>Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday</value>
-        [DataMember(Name = "validity_day_of_week", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "validity_day_of_week", IsRequired = false, EmitDefaultValue = true)]
         public List<LoyaltiesMembersTransfersCreateResponseBody.ValidityDayOfWeekEnum> ValidityDayOfWeek
         {
             get{ return _ValidityDayOfWeek;}

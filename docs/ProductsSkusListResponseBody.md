@@ -1,5 +1,5 @@
 # Voucherify.Model.ProductsSkusListResponseBody
-Response body schema for **GET** `v1/products/{productId}/skus`.
+Response body schema for **GET** `v1/products/{productId}/SKUs`.
 
 ## Properties
 

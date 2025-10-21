@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -37,7 +38,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="error">error.</param>
         /// <param name="details">details.</param>
-        public ValidationsRedeemableInapplicableResult(Error error = default(Error), ValidationsRedeemableInapplicableResultDetails details = default(ValidationsRedeemableInapplicableResultDetails))
+        /// <param name="bundle">bundle.</param>
+        public ValidationsRedeemableInapplicableResult(Error error = default(Error), ValidationsRedeemableInapplicableResultDetails details = default(ValidationsRedeemableInapplicableResultDetails), Bundle bundle = default(Bundle))
         {
             this._Error = error;
             if (this.Error != null)
@@ -48,6 +50,11 @@ namespace Voucherify.Model
             if (this.Details != null)
             {
                 this._flagDetails = true;
+            }
+            this._Bundle = bundle;
+            if (this.Bundle != null)
+            {
+                this._flagBundle = true;
             }
         }
 
@@ -100,6 +107,30 @@ namespace Voucherify.Model
             return _flagDetails;
         }
         /// <summary>
+        /// Gets or Sets Bundle
+        /// </summary>
+        [DataMember(Name = "bundle", EmitDefaultValue = true)]
+        public Bundle Bundle
+        {
+            get{ return _Bundle;}
+            set
+            {
+                _Bundle = value;
+                _flagBundle = true;
+            }
+        }
+        private Bundle _Bundle;
+        private bool _flagBundle;
+
+        /// <summary>
+        /// Returns false as Bundle should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeBundle()
+        {
+            return _flagBundle;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +140,7 @@ namespace Voucherify.Model
             sb.Append("class ValidationsRedeemableInapplicableResult {\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  Bundle: ").Append(Bundle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

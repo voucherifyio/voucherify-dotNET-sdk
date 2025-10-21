@@ -6,55 +6,56 @@ All URIs are relative to *https://api.voucherify.io*
 |--------|--------------|-------------|
 | [**ActivateMemberPendingPoints**](LoyaltiesApi.md#activatememberpendingpoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/activate | Activate Member Pending Points |
 | [**AddMember**](LoyaltiesApi.md#addmember) | **POST** /v1/loyalties/{campaignId}/members | Add Member |
+| [**AdjustMemberPendingPoints**](LoyaltiesApi.md#adjustmemberpendingpoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/balance | Adjust Member Pending Points |
 | [**CancelMemberPendingPoints**](LoyaltiesApi.md#cancelmemberpendingpoints) | **POST** /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/cancel | Cancel Member Pending Points |
 | [**CreateEarningRule**](LoyaltiesApi.md#createearningrule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule |
 | [**CreateInBulkLoyaltyTiers**](LoyaltiesApi.md#createinbulkloyaltytiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers |
 | [**CreateLoyaltyProgram**](LoyaltiesApi.md#createloyaltyprogram) | **POST** /v1/loyalties | Create Loyalty Campaign |
 | [**CreatePointsExpirationExport**](LoyaltiesApi.md#createpointsexpirationexport) | **POST** /v1/loyalties/{campaignId}/points-expiration/export | Export Loyalty Campaign Point Expiration |
-| [**CreateRewardAssignment1**](LoyaltiesApi.md#createrewardassignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Reward Assignment |
+| [**CreateRewardAssignment1**](LoyaltiesApi.md#createrewardassignment1) | **POST** /v1/loyalties/{campaignId}/rewards | Create Loyalty Campaign Reward Assignment |
 | [**DeleteEarningRule**](LoyaltiesApi.md#deleteearningrule) | **DELETE** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Delete Earning Rule |
 | [**DeleteLoyaltyProgram**](LoyaltiesApi.md#deleteloyaltyprogram) | **DELETE** /v1/loyalties/{campaignId} | Delete Loyalty Campaign |
-| [**DeleteRewardAssignment1**](LoyaltiesApi.md#deleterewardassignment1) | **DELETE** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Delete Reward Assignment |
+| [**DeleteRewardAssignment1**](LoyaltiesApi.md#deleterewardassignment1) | **DELETE** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Delete Campaign Reward Assignment |
 | [**DisableEarningRule**](LoyaltiesApi.md#disableearningrule) | **POST** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable | Disable Earning Rule |
 | [**EnableEarningRule**](LoyaltiesApi.md#enableearningrule) | **POST** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable | Enable Earning Rule |
 | [**ExportLoyaltyCampaignTransactions**](LoyaltiesApi.md#exportloyaltycampaigntransactions) | **POST** /v1/loyalties/{campaignId}/transactions/export | Export Loyalty Campaign Transactions |
 | [**ExportLoyaltyCardTransactions**](LoyaltiesApi.md#exportloyaltycardtransactions) | **POST** /v1/loyalties/members/{memberId}/transactions/export | Export Loyalty Card Transactions |
-| [**ExportLoyaltyCardTransactions1**](LoyaltiesApi.md#exportloyaltycardtransactions1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transactions/export | Export Loyalty Card Transactions |
+| [**ExportLoyaltyCardTransactions1**](LoyaltiesApi.md#exportloyaltycardtransactions1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transactions/export | Export Loyalty Card Transactions with campaign ID |
 | [**GetEarningRule**](LoyaltiesApi.md#getearningrule) | **GET** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Get Earning Rule |
 | [**GetLoyaltyProgram**](LoyaltiesApi.md#getloyaltyprogram) | **GET** /v1/loyalties/{campaignId} | Get Loyalty Campaign |
 | [**GetLoyaltyTier**](LoyaltiesApi.md#getloyaltytier) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId} | Get Loyalty Tier |
 | [**GetMember**](LoyaltiesApi.md#getmember) | **GET** /v1/loyalties/members/{memberId} | Get Member |
-| [**GetMember1**](LoyaltiesApi.md#getmember1) | **GET** /v1/loyalties/{campaignId}/members/{memberId} | Get Member |
-| [**GetRewardAssignment1**](LoyaltiesApi.md#getrewardassignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Reward Assignment |
-| [**GetRewardAssignment2**](LoyaltiesApi.md#getrewardassignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Reward Assignment |
+| [**GetMember1**](LoyaltiesApi.md#getmember1) | **GET** /v1/loyalties/{campaignId}/members/{memberId} | Get Member with campaign ID |
+| [**GetRewardAssignment1**](LoyaltiesApi.md#getrewardassignment1) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId} | Get Campaign Reward Assignments |
+| [**GetRewardAssignment2**](LoyaltiesApi.md#getrewardassignment2) | **GET** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Get Campaign Reward Assignment |
 | [**GetRewardDetails**](LoyaltiesApi.md#getrewarddetails) | **GET** /v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward | Get Reward Details |
 | [**ListCampaignPendingPoints**](LoyaltiesApi.md#listcampaignpendingpoints) | **GET** /v1/loyalties/{campaignId}/pending-points | List Campaign Pending Points |
 | [**ListEarningRules**](LoyaltiesApi.md#listearningrules) | **GET** /v1/loyalties/{campaignId}/earning-rules | List Earning Rules |
 | [**ListLoyaltyCampaignTransactions**](LoyaltiesApi.md#listloyaltycampaigntransactions) | **GET** /v1/loyalties/{campaignId}/transactions | List Loyalty Campaign Transactions |
 | [**ListLoyaltyCardTransactions**](LoyaltiesApi.md#listloyaltycardtransactions) | **GET** /v1/loyalties/members/{memberId}/transactions | List Loyalty Card Transactions |
-| [**ListLoyaltyCardTransactions1**](LoyaltiesApi.md#listloyaltycardtransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions |
+| [**ListLoyaltyCardTransactions1**](LoyaltiesApi.md#listloyaltycardtransactions1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/transactions | List Loyalty Card Transactions with campaign ID |
 | [**ListLoyaltyPrograms**](LoyaltiesApi.md#listloyaltyprograms) | **GET** /v1/loyalties | List Loyalty Campaigns |
 | [**ListLoyaltyTierEarningRules**](LoyaltiesApi.md#listloyaltytierearningrules) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules | List Loyalty Tier Earning Rules |
 | [**ListLoyaltyTierRewards**](LoyaltiesApi.md#listloyaltytierrewards) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards | List Loyalty Tier Rewards |
 | [**ListLoyaltyTiers**](LoyaltiesApi.md#listloyaltytiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers |
 | [**ListMemberActivity**](LoyaltiesApi.md#listmemberactivity) | **GET** /v1/loyalties/members/{memberId}/activity | List Member Activity |
-| [**ListMemberActivity1**](LoyaltiesApi.md#listmemberactivity1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/activity | List Member Activity |
+| [**ListMemberActivity1**](LoyaltiesApi.md#listmemberactivity1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/activity | List Member Activity with campaign ID |
 | [**ListMemberLoyaltyTier**](LoyaltiesApi.md#listmemberloyaltytier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers |
 | [**ListMemberPendingPoints**](LoyaltiesApi.md#listmemberpendingpoints) | **GET** /v1/loyalties/members/{memberId}/pending-points | List Member Pending Points |
-| [**ListMemberPendingPoints1**](LoyaltiesApi.md#listmemberpendingpoints1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/pending-points | List Member Pending Points |
+| [**ListMemberPendingPoints1**](LoyaltiesApi.md#listmemberpendingpoints1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/pending-points | List Member Pending Points with campaign ID |
 | [**ListMemberRewards**](LoyaltiesApi.md#listmemberrewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards |
 | [**ListMembers**](LoyaltiesApi.md#listmembers) | **GET** /v1/loyalties/{campaignId}/members | List Members |
 | [**ListPointsExpiration**](LoyaltiesApi.md#listpointsexpiration) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/points-expiration | List Loyalty Card Point Expiration |
-| [**ListRewardAssignments1**](LoyaltiesApi.md#listrewardassignments1) | **GET** /v1/loyalties/{campaignId}/reward-assignments | List Reward Assignments |
-| [**ListRewardAssignments2**](LoyaltiesApi.md#listrewardassignments2) | **GET** /v1/loyalties/{campaignId}/rewards | List Reward Assignments |
+| [**ListRewardAssignments1**](LoyaltiesApi.md#listrewardassignments1) | **GET** /v1/loyalties/{campaignId}/reward-assignments | List Reward Assignments with campaign ID |
+| [**ListRewardAssignments2**](LoyaltiesApi.md#listrewardassignments2) | **GET** /v1/loyalties/{campaignId}/rewards | List Campaign Rewards |
 | [**RedeemReward**](LoyaltiesApi.md#redeemreward) | **POST** /v1/loyalties/members/{memberId}/redemption | Redeem Reward |
-| [**RedeemReward1**](LoyaltiesApi.md#redeemreward1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/redemption | Redeem Reward |
+| [**RedeemReward1**](LoyaltiesApi.md#redeemreward1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/redemption | Redeem Reward with campaign ID |
 | [**TransferPoints**](LoyaltiesApi.md#transferpoints) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/transfers | Transfer Loyalty Points |
 | [**UpdateEarningRule**](LoyaltiesApi.md#updateearningrule) | **PUT** /v1/loyalties/{campaignId}/earning-rules/{earningRuleId} | Update Earning Rule |
 | [**UpdateLoyaltyCardBalance**](LoyaltiesApi.md#updateloyaltycardbalance) | **POST** /v1/loyalties/members/{memberId}/balance | Adjust Loyalty Card Balance |
-| [**UpdateLoyaltyCardBalance1**](LoyaltiesApi.md#updateloyaltycardbalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Adjust Loyalty Card Balance |
+| [**UpdateLoyaltyCardBalance1**](LoyaltiesApi.md#updateloyaltycardbalance1) | **POST** /v1/loyalties/{campaignId}/members/{memberId}/balance | Adjust Loyalty Card Balance with campaign ID |
 | [**UpdateLoyaltyProgram**](LoyaltiesApi.md#updateloyaltyprogram) | **PUT** /v1/loyalties/{campaignId} | Update Loyalty Campaign |
-| [**UpdateRewardAssignment1**](LoyaltiesApi.md#updaterewardassignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Reward Assignment |
+| [**UpdateRewardAssignment1**](LoyaltiesApi.md#updaterewardassignment1) | **PUT** /v1/loyalties/{campaignId}/rewards/{assignmentId} | Update Campaign Reward Assignment |
 
 <a id="activatememberpendingpoints"></a>
 # **ActivateMemberPendingPoints**
@@ -62,7 +63,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Activate Member Pending Points
 
->🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
+Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
 
 ### Example
 ```csharp
@@ -166,7 +167,7 @@ catch (ApiException e)
 
 Add Member
 
-This method assigns a loyalty card to a customer. It selects a loyalty card suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
 
 ### Example
 ```csharp
@@ -197,7 +198,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID of the loyalty program.
-            var loyaltiesMembersCreateRequestBody = new LoyaltiesMembersCreateRequestBody(); // LoyaltiesMembersCreateRequestBody | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the List Publications endpoint. (optional) 
+            var loyaltiesMembersCreateRequestBody = new LoyaltiesMembersCreateRequestBody(); // LoyaltiesMembersCreateRequestBody | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional) 
 
             try
             {
@@ -241,7 +242,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID of the loyalty program. |  |
-| **loyaltiesMembersCreateRequestBody** | [**LoyaltiesMembersCreateRequestBody**](LoyaltiesMembersCreateRequestBody.md) | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the List Publications endpoint. | [optional]  |
+| **loyaltiesMembersCreateRequestBody** | [**LoyaltiesMembersCreateRequestBody**](LoyaltiesMembersCreateRequestBody.md) | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. | [optional]  |
 
 ### Return type
 
@@ -264,13 +265,119 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="adjustmemberpendingpoints"></a>
+# **AdjustMemberPendingPoints**
+> LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints (string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = null)
+
+Adjust Member Pending Points
+
+Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Voucherify.Api;
+using Voucherify.Client;
+using Voucherify.Model;
+
+namespace Example
+{
+    public class AdjustMemberPendingPointsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.voucherify.io";
+            // Configure API key authorization: X-App-Id
+            config.AddApiKey("X-App-Id", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-App-Id", "Bearer");
+            // Configure API key authorization: X-App-Token
+            config.AddApiKey("X-App-Token", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-App-Token", "Bearer");
+            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new LoyaltiesApi(config);
+            var memberId = "memberId_example";  // string | Unique loyalty card code assigned to a particular customer.
+            var pendingPointsId = "pendingPointsId_example";  // string | Unique pending point identifier, assigned by Voucherify.
+            var loyaltiesMembersPendingPointsBalanceRequestBody = new LoyaltiesMembersPendingPointsBalanceRequestBody(); // LoyaltiesMembersPendingPointsBalanceRequestBody | Define the number of pending points to be added or subtracted. (optional) 
+
+            try
+            {
+                // Adjust Member Pending Points
+                LoyaltiesMembersPendingPointsBalanceResponseBody result = apiInstance.AdjustMemberPendingPoints(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LoyaltiesApi.AdjustMemberPendingPoints: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AdjustMemberPendingPointsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Adjust Member Pending Points
+    ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> response = apiInstance.AdjustMemberPendingPointsWithHttpInfo(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling LoyaltiesApi.AdjustMemberPendingPointsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **memberId** | **string** | Unique loyalty card code assigned to a particular customer. |  |
+| **pendingPointsId** | **string** | Unique pending point identifier, assigned by Voucherify. |  |
+| **loyaltiesMembersPendingPointsBalanceRequestBody** | [**LoyaltiesMembersPendingPointsBalanceRequestBody**](LoyaltiesMembersPendingPointsBalanceRequestBody.md) | Define the number of pending points to be added or subtracted. | [optional]  |
+
+### Return type
+
+[**LoyaltiesMembersPendingPointsBalanceResponseBody**](LoyaltiesMembersPendingPointsBalanceResponseBody.md)
+
+### Authorization
+
+[X-App-Id](../README.md#X-App-Id), [X-App-Token](../README.md#X-App-Token), [X-Voucherify-OAuth](../README.md#X-Voucherify-OAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns the details about the balance adjustment of the pending points with a given ID for a loyalty card. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="cancelmemberpendingpoints"></a>
 # **CancelMemberPendingPoints**
 > void CancelMemberPendingPoints (string memberId, string pendingPointsId)
 
 Cancel Member Pending Points
 
->🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member (with campaign ID, without campaign ID), List campaign pending points. This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
+Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
 
 ### Example
 ```csharp
@@ -370,7 +477,7 @@ void (empty response body)
 
 Create Earning Rule
 
-Create earning rules for a loyalty campaign.
+Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
 
 ### Example
 ```csharp
@@ -578,7 +685,7 @@ catch (ApiException e)
 
 Create Loyalty Campaign
 
-Creates a batch of loyalty cards aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asyncronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the loyalty campaign object description.
+Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
 
 ### Example
 ```csharp
@@ -680,7 +787,7 @@ catch (ApiException e)
 
 Export Loyalty Campaign Point Expiration
 
-Schedule the generation of a points expiration CSV file for a particular campaign.
+Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
 
 ### Example
 ```csharp
@@ -774,7 +881,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns an object with the export ID of the scheduled generation of CSV file with exported points expirations. You can use either the &lt;!- - [Get Export](OpenAPI.json/paths/~1exports~1{exportId}/get) - -&gt;[Get Export](ref:get-export) endpoint to view the status and obtain the URL of the CSV file or &lt;!- - [Download Export](OpenAPI.json/paths/~1exports~1{export_Id}/get) - -&gt;[Download Export](ref:download-export) endpoint to download the CSV file. |  -  |
+| **200** | Returns an object with the export ID of the scheduled generation of CSV file with exported points expirations. You can use either the [Download Export](/api-reference/exports/download-export) endpoint to download the CSV file. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -782,7 +889,7 @@ catch (ApiException e)
 # **CreateRewardAssignment1**
 > LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1 (string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = null)
 
-Create Reward Assignment
+Create Loyalty Campaign Reward Assignment
 
 Add rewards to a loyalty campaign.
 
@@ -819,7 +926,7 @@ namespace Example
 
             try
             {
-                // Create Reward Assignment
+                // Create Loyalty Campaign Reward Assignment
                 LoyaltiesRewardsCreateAssignmentResponseBody result = apiInstance.CreateRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
                 Debug.WriteLine(result);
             }
@@ -840,7 +947,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create Reward Assignment
+    // Create Loyalty Campaign Reward Assignment
     ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> response = apiInstance.CreateRewardAssignment1WithHttpInfo(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -988,7 +1095,7 @@ void (empty response body)
 
 Delete Loyalty Campaign
 
-Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin.
+Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
 
 ### Example
 ```csharp
@@ -1082,7 +1189,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the loyalty campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using &lt;!- - [Get Async Action](OpenAPI.json/paths/~1async-actions~1{asyncActionId}/get) - -&gt;[Get Async Action](ref:get-async-action) endpoint. |  -  |
+| **200** | Returns the ID of the scheduled asynchronous action, informing you that your request has been accepted and the loyalty campaign will be deleted from the repository asynchronously. To check the deletion status and result, copy the &#x60;async_action_id&#x60; from the response and pass it using [Get Async Action](/api-reference/async-actions/get-async-action) endpoint. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1090,7 +1197,7 @@ catch (ApiException e)
 # **DeleteRewardAssignment1**
 > void DeleteRewardAssignment1 (string campaignId, string assignmentId)
 
-Delete Reward Assignment
+Delete Campaign Reward Assignment
 
 This method deletes a reward assignment for a particular loyalty campaign.
 
@@ -1127,7 +1234,7 @@ namespace Example
 
             try
             {
-                // Delete Reward Assignment
+                // Delete Campaign Reward Assignment
                 apiInstance.DeleteRewardAssignment1(campaignId, assignmentId);
             }
             catch (ApiException  e)
@@ -1147,7 +1254,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete Reward Assignment
+    // Delete Campaign Reward Assignment
     apiInstance.DeleteRewardAssignment1WithHttpInfo(campaignId, assignmentId);
 }
 catch (ApiException e)
@@ -1400,7 +1507,7 @@ catch (ApiException e)
 
 Export Loyalty Campaign Transactions
 
-Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the GET Export method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the POST Export Campaign Transactions does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
 
 ### Example
 ```csharp
@@ -1606,7 +1713,7 @@ catch (ApiException e)
 # **ExportLoyaltyCardTransactions1**
 > LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1 (string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = null)
 
-Export Loyalty Card Transactions
+Export Loyalty Card Transactions with campaign ID
 
 Export transactions that are associated with point movements on a loyalty card.   
 
@@ -1644,7 +1751,7 @@ namespace Example
 
             try
             {
-                // Export Loyalty Card Transactions
+                // Export Loyalty Card Transactions with campaign ID
                 LoyaltiesMembersTransactionsExportCreateResponseBody result = apiInstance.ExportLoyaltyCardTransactions1(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
                 Debug.WriteLine(result);
             }
@@ -1665,7 +1772,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Export Loyalty Card Transactions
+    // Export Loyalty Card Transactions with campaign ID
     ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> response = apiInstance.ExportLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2024,7 +2131,7 @@ catch (ApiException e)
 
 Get Member
 
-Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
 
 ### Example
 ```csharp
@@ -2124,7 +2231,7 @@ catch (ApiException e)
 # **GetMember1**
 > LoyaltiesMembersGetResponseBody GetMember1 (string campaignId, string memberId)
 
-Get Member
+Get Member with campaign ID
 
 Retrieves the loyalty card with the given member ID (i.e. voucher code).
 
@@ -2161,7 +2268,7 @@ namespace Example
 
             try
             {
-                // Get Member
+                // Get Member with campaign ID
                 LoyaltiesMembersGetResponseBody result = apiInstance.GetMember1(campaignId, memberId);
                 Debug.WriteLine(result);
             }
@@ -2182,7 +2289,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get Member
+    // Get Member with campaign ID
     ApiResponse<LoyaltiesMembersGetResponseBody> response = apiInstance.GetMember1WithHttpInfo(campaignId, memberId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2228,7 +2335,7 @@ catch (ApiException e)
 # **GetRewardAssignment1**
 > LoyaltiesRewardAssignmentsGetResponseBody GetRewardAssignment1 (string campaignId, string assignmentId)
 
-Get Reward Assignment
+Get Campaign Reward Assignments
 
 Retrieve specific reward assignment.
 
@@ -2265,7 +2372,7 @@ namespace Example
 
             try
             {
-                // Get Reward Assignment
+                // Get Campaign Reward Assignments
                 LoyaltiesRewardAssignmentsGetResponseBody result = apiInstance.GetRewardAssignment1(campaignId, assignmentId);
                 Debug.WriteLine(result);
             }
@@ -2286,7 +2393,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get Reward Assignment
+    // Get Campaign Reward Assignments
     ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> response = apiInstance.GetRewardAssignment1WithHttpInfo(campaignId, assignmentId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2332,9 +2439,9 @@ catch (ApiException e)
 # **GetRewardAssignment2**
 > LoyaltiesRewardsGetResponseBody GetRewardAssignment2 (string campaignId, string assignmentId)
 
-Get Reward Assignment
+Get Campaign Reward Assignment
 
-Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. 
+Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
 
 ### Example
 ```csharp
@@ -2369,7 +2476,7 @@ namespace Example
 
             try
             {
-                // Get Reward Assignment
+                // Get Campaign Reward Assignment
                 LoyaltiesRewardsGetResponseBody result = apiInstance.GetRewardAssignment2(campaignId, assignmentId);
                 Debug.WriteLine(result);
             }
@@ -2390,7 +2497,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get Reward Assignment
+    // Get Campaign Reward Assignment
     ApiResponse<LoyaltiesRewardsGetResponseBody> response = apiInstance.GetRewardAssignment2WithHttpInfo(campaignId, assignmentId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2542,7 +2649,7 @@ catch (ApiException e)
 
 List Campaign Pending Points
 
->🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
+Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
 
 ### Example
 ```csharp
@@ -2976,7 +3083,7 @@ catch (ApiException e)
 # **ListLoyaltyCardTransactions1**
 > LoyaltiesMembersTransactionsListResponseBody ListLoyaltyCardTransactions1 (string campaignId, string memberId, int? limit = null, ParameterOrderListTransactions? order = null, ParameterFiltersListMemberTransactions filters = null, string startingAfterId = null)
 
-List Loyalty Card Transactions
+List Loyalty Card Transactions with campaign ID
 
 Retrieve transaction data related to point movements for a specific loyalty card.
 
@@ -3017,7 +3124,7 @@ namespace Example
 
             try
             {
-                // List Loyalty Card Transactions
+                // List Loyalty Card Transactions with campaign ID
                 LoyaltiesMembersTransactionsListResponseBody result = apiInstance.ListLoyaltyCardTransactions1(campaignId, memberId, limit, order, filters, startingAfterId);
                 Debug.WriteLine(result);
             }
@@ -3038,7 +3145,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Loyalty Card Transactions
+    // List Loyalty Card Transactions with campaign ID
     ApiResponse<LoyaltiesMembersTransactionsListResponseBody> response = apiInstance.ListLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, order, filters, startingAfterId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -3516,7 +3623,7 @@ catch (ApiException e)
 
 List Member Activity
 
-  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
 
 ### Example
 ```csharp
@@ -3622,7 +3729,7 @@ catch (ApiException e)
 # **ListMemberActivity1**
 > LoyaltiesMemberActivityListResponseBody ListMemberActivity1 (string campaignId, string memberId, int? limit = null, ParameterOrderCreatedAt? order = null, string startingAfterId = null)
 
-List Member Activity
+List Member Activity with campaign ID
 
 Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
 
@@ -3662,7 +3769,7 @@ namespace Example
 
             try
             {
-                // List Member Activity
+                // List Member Activity with campaign ID
                 LoyaltiesMemberActivityListResponseBody result = apiInstance.ListMemberActivity1(campaignId, memberId, limit, order, startingAfterId);
                 Debug.WriteLine(result);
             }
@@ -3683,7 +3790,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Member Activity
+    // List Member Activity with campaign ID
     ApiResponse<LoyaltiesMemberActivityListResponseBody> response = apiInstance.ListMemberActivity1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -3836,7 +3943,7 @@ catch (ApiException e)
 
 List Member Pending Points
 
->🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
+  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
 
 ### Example
 ```csharp
@@ -3942,9 +4049,9 @@ catch (ApiException e)
 # **ListMemberPendingPoints1**
 > LoyaltiesMembersPendingPointsListResponseBody ListMemberPendingPoints1 (string campaignId, string memberId, int? limit = null, ParameterOrderListPendingPoints? order = null, string startingAfterId = null)
 
-List Member Pending Points
+List Member Pending Points with campaign ID
 
->🚧 Beta endpoint The endpoint is behind a feature flag as it is still in development. Contact [Voucherify support](https://www.voucherify.io/contact-support) to unlock the feature for your organization. All current parameters and fields are listed and described. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with POST Create earning rule or PUT Update earning rule.
+Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
 
 ### Example
 ```csharp
@@ -3982,7 +4089,7 @@ namespace Example
 
             try
             {
-                // List Member Pending Points
+                // List Member Pending Points with campaign ID
                 LoyaltiesMembersPendingPointsListResponseBody result = apiInstance.ListMemberPendingPoints1(campaignId, memberId, limit, order, startingAfterId);
                 Debug.WriteLine(result);
             }
@@ -4003,7 +4110,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Member Pending Points
+    // List Member Pending Points with campaign ID
     ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> response = apiInstance.ListMemberPendingPoints1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -4276,7 +4383,7 @@ catch (ApiException e)
 
 List Loyalty Card Point Expiration
 
-Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the Exports API to retrieve a list of both ACTIVE and EXPIRED point buckets.
+Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
 
 ### Example
 ```csharp
@@ -4382,9 +4489,9 @@ catch (ApiException e)
 # **ListRewardAssignments1**
 > LoyaltiesRewardAssignmentsListResponseBody ListRewardAssignments1 (string campaignId, int? limit = null, int? page = null, string assignmentId = null)
 
-List Reward Assignments
+List Reward Assignments with campaign ID
 
-Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to be more contextual to the type of data returned in the response.
+Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
 
 ### Example
 ```csharp
@@ -4421,7 +4528,7 @@ namespace Example
 
             try
             {
-                // List Reward Assignments
+                // List Reward Assignments with campaign ID
                 LoyaltiesRewardAssignmentsListResponseBody result = apiInstance.ListRewardAssignments1(campaignId, limit, page, assignmentId);
                 Debug.WriteLine(result);
             }
@@ -4442,7 +4549,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Reward Assignments
+    // List Reward Assignments with campaign ID
     ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> response = apiInstance.ListRewardAssignments1WithHttpInfo(campaignId, limit, page, assignmentId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -4490,7 +4597,7 @@ catch (ApiException e)
 # **ListRewardAssignments2**
 > LoyaltiesRewardsListAssignmentsResponseBody ListRewardAssignments2 (string campaignId, int? limit = null, int? page = null, string assignmentId = null)
 
-List Reward Assignments
+List Campaign Rewards
 
 Returns active rewards from a given loyalty campaign.
 
@@ -4529,7 +4636,7 @@ namespace Example
 
             try
             {
-                // List Reward Assignments
+                // List Campaign Rewards
                 LoyaltiesRewardsListAssignmentsResponseBody result = apiInstance.ListRewardAssignments2(campaignId, limit, page, assignmentId);
                 Debug.WriteLine(result);
             }
@@ -4550,7 +4657,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // List Reward Assignments
+    // List Campaign Rewards
     ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> response = apiInstance.ListRewardAssignments2WithHttpInfo(campaignId, limit, page, assignmentId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -4600,7 +4707,7 @@ catch (ApiException e)
 
 Redeem Reward
 
-  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+  📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
 
 ### Example
 ```csharp
@@ -4702,7 +4809,7 @@ catch (ApiException e)
 # **RedeemReward1**
 > LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1 (string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = null)
 
-Redeem Reward
+Redeem Reward with campaign ID
 
 Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
 
@@ -4740,7 +4847,7 @@ namespace Example
 
             try
             {
-                // Redeem Reward
+                // Redeem Reward with campaign ID
                 LoyaltiesMembersRedemptionRedeemResponseBody result = apiInstance.RedeemReward1(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody);
                 Debug.WriteLine(result);
             }
@@ -4761,7 +4868,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Redeem Reward
+    // Redeem Reward with campaign ID
     ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> response = apiInstance.RedeemReward1WithHttpInfo(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -4810,7 +4917,7 @@ catch (ApiException e)
 
 Transfer Loyalty Points
 
-Transfer points between different loyalty cards which have holders. You need to provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters in the URL. In the request body, you provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning they were published to customers.
+Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
 
 ### Example
 ```csharp
@@ -5022,7 +5129,7 @@ catch (ApiException e)
 
 Adjust Loyalty Card Balance
 
-This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   >🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   >🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
 
 ### Example
 ```csharp
@@ -5124,7 +5231,7 @@ catch (ApiException e)
 # **UpdateLoyaltyCardBalance1**
 > LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1 (string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = null)
 
-Adjust Loyalty Card Balance
+Adjust Loyalty Card Balance with campaign ID
 
 This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   >🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
 
@@ -5162,7 +5269,7 @@ namespace Example
 
             try
             {
-                // Adjust Loyalty Card Balance
+                // Adjust Loyalty Card Balance with campaign ID
                 LoyaltiesMembersBalanceUpdateResponseBody result = apiInstance.UpdateLoyaltyCardBalance1(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody);
                 Debug.WriteLine(result);
             }
@@ -5183,7 +5290,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Adjust Loyalty Card Balance
+    // Adjust Loyalty Card Balance with campaign ID
     ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> response = apiInstance.UpdateLoyaltyCardBalance1WithHttpInfo(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -5232,7 +5339,7 @@ catch (ApiException e)
 
 Update Loyalty Campaign
 
-Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the loyalty cards which have not been published or redeemed yet.
+Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
 
 ### Example
 ```csharp
@@ -5334,7 +5441,7 @@ catch (ApiException e)
 # **UpdateRewardAssignment1**
 > LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1 (string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = null)
 
-Update Reward Assignment
+Update Campaign Reward Assignment
 
 Updates rewards parameters, i.e. the points cost for the specific reward.
 
@@ -5372,7 +5479,7 @@ namespace Example
 
             try
             {
-                // Update Reward Assignment
+                // Update Campaign Reward Assignment
                 LoyaltiesRewardsUpdateAssignmentResponseBody result = apiInstance.UpdateRewardAssignment1(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody);
                 Debug.WriteLine(result);
             }
@@ -5393,7 +5500,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update Reward Assignment
+    // Update Campaign Reward Assignment
     ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> response = apiInstance.UpdateRewardAssignment1WithHttpInfo(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

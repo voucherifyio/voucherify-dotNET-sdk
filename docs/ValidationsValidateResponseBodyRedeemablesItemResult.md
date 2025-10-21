@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Discount** | [**ValidationsValidateResponseBodyRedeemablesItemResultDiscount**](ValidationsValidateResponseBodyRedeemablesItemResultDiscount.md) |  | [optional] 
+**Bundle** | [**Bundle**](Bundle.md) |  | [optional] 
 **Gift** | [**ValidationsValidateResponseBodyRedeemablesItemResultGift**](ValidationsValidateResponseBodyRedeemablesItemResultGift.md) |  | [optional] 
 **LoyaltyCard** | [**ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard**](ValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard.md) |  | [optional] 
 **Error** | [**Error**](Error.md) |  | [optional] 

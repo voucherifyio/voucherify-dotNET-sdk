@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **VarRedemption** | **string** | Unique redemption ID of the parent redemption. | [optional] 
 **Result** | **string** | Redemption result. | [optional] 
 **Status** | **string** | Redemption status. | [optional] 
+**Session** | [**RedemptionSession**](RedemptionSession.md) |  | [optional] 
 **RelatedRedemptions** | [**RedemptionRelatedRedemptions**](RedemptionRelatedRedemptions.md) |  | [optional] 
 **FailureCode** | **string** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed. | [optional] 
 **FailureMessage** | **string** | If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed. | [optional] 

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Indicates the type of the custom event.
         /// </summary>
         /// <value>Indicates the type of the custom event.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -76,7 +77,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Indicates the type of the custom event.</value>
 
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
+        [DataMember(Name = "type", IsRequired = false, EmitDefaultValue = true)]
         public TypeEnum Type
         {
             get{ return _Type;}
@@ -123,7 +125,7 @@ namespace Voucherify.Model
         /// Indicates if this property is optional or not for the resource.
         /// </summary>
         /// <value>Indicates if this property is optional or not for the resource.</value>
-        [DataMember(Name = "optional", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "optional", IsRequired = false, EmitDefaultValue = true)]
         public bool Optional
         {
             get{ return _Optional;}

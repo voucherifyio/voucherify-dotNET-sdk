@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -37,6 +38,7 @@ namespace Voucherify.Model
         /// Gets or Sets Junction
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<Junction>))]
         [DataMember(Name = "junction", EmitDefaultValue = true)]
         public Junction? Junction
         {

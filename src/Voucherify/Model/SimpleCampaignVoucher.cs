@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Type of the voucher.
         /// </summary>
         /// <value>Type of the voucher.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -64,6 +65,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Type of the voucher.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -102,10 +104,6 @@ namespace Voucherify.Model
         public SimpleCampaignVoucher(TypeEnum? type = default(TypeEnum?), Discount discount = default(Discount), Gift gift = default(Gift), CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), SimpleCampaignVoucherRedemption redemption = default(SimpleCampaignVoucherRedemption), CodeConfig codeConfig = default(CodeConfig))
         {
             // to ensure "codeConfig" is required (not null)
-            if (codeConfig == null)
-            {
-                throw new ArgumentNullException("codeConfig is a required property for SimpleCampaignVoucher and cannot be null");
-            }
             this._CodeConfig = codeConfig;
             this._Type = type;
             if (this.Type != null)
@@ -233,7 +231,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets CodeConfig
         /// </summary>
-        [DataMember(Name = "code_config", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code_config", IsRequired = false, EmitDefaultValue = true)]
         public CodeConfig CodeConfig
         {
             get{ return _CodeConfig;}

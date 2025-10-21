@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Status of the redeemable.
         /// </summary>
         /// <value>Status of the redeemable.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -85,6 +86,7 @@ namespace Voucherify.Model
         <example>ACTIVE</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -120,10 +122,6 @@ namespace Voucherify.Model
         public CustomerRedeemableRedeemable(string type = default(string), RedeemableVoucher voucher = default(RedeemableVoucher), StatusEnum? status = default(StatusEnum?))
         {
             // to ensure "voucher" is required (not null)
-            if (voucher == null)
-            {
-                throw new ArgumentNullException("voucher is a required property for CustomerRedeemableRedeemable and cannot be null");
-            }
             this._Voucher = voucher;
             this._Type = type;
             if (this.Type != null)
@@ -168,7 +166,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Voucher
         /// </summary>
-        [DataMember(Name = "voucher", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "voucher", IsRequired = false, EmitDefaultValue = true)]
         public RedeemableVoucher Voucher
         {
             get{ return _Voucher;}

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -53,10 +54,6 @@ namespace Voucherify.Model
         public LoyaltyPendingPoints(string id = default(string), string voucherId = default(string), string campaignId = default(string), string customerId = default(string), string orderId = default(string), int? points = default(int?), DateTime? activatesAt = default(DateTime?), LoyaltyPendingPointsDetails details = default(LoyaltyPendingPointsDetails), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?))
         {
             // to ensure "details" is required (not null)
-            if (details == null)
-            {
-                throw new ArgumentNullException("details is a required property for LoyaltyPendingPoints and cannot be null");
-            }
             this._Details = details;
             this._Id = id;
             if (this.Id != null)
@@ -299,7 +296,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Details
         /// </summary>
-        [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "details", IsRequired = false, EmitDefaultValue = true)]
         public LoyaltyPendingPointsDetails Details
         {
             get{ return _Details;}

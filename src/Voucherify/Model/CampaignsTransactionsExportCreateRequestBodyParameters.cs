@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// How the export is ordered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order.
         /// </summary>
         /// <value>How the export is ordered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OrderEnum>))]
         public enum OrderEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>How the export is ordered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<OrderEnum>))]
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public OrderEnum? Order
         {
@@ -82,7 +84,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Fields
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<FieldsEnum>))]
         public enum FieldsEnum
         {
             /// <summary>

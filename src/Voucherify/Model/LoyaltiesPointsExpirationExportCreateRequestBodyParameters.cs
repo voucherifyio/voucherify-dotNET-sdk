@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// How the export is filtered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order.
         /// </summary>
         /// <value>How the export is filtered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OrderEnum>))]
         public enum OrderEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>How the export is filtered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<OrderEnum>))]
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public OrderEnum? Order
         {
@@ -82,7 +84,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Fields
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<FieldsEnum>))]
         public enum FieldsEnum
         {
             /// <summary>
@@ -126,7 +128,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltiesPointsExpirationExportCreateRequestBodyParameters" /> class.
         /// </summary>
         /// <param name="order">How the export is filtered, where the dash &#x60;-&#x60; preceding a sorting option means sorting in a descending order..</param>
-        /// <param name="fields">Array of strings containing the data that was exported. These fields define the headers in the CSV file.    The array can be a combination of any of the following available fields:    | **Field** | **Definition** | **Example Export** | |:- --|:- --|:- --| | id | Loyalty points bucket ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n | | campaign_id | Campaign ID of the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic | | voucher_id | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 | | status | Status of the loyalty points bucket. | &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; | | expires_at | Timestamp in ISO 8601 format representing the date when the points expire. | 2022-06-30 | | points | Number of points. | 1000 |.</param>
+        /// <param name="fields">Array of strings containing the data that was exported. These fields define the headers in the CSV file.    The array can be a combination of any of the following available fields:    | **Field** | **Definition** | **Example Export** | |:- --|:- --|:- --| | id | Loyalty points bucket ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n | | campaign_id | Campaign ID of the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic | | voucher_id | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 | | status | Status of the loyalty point bucket. | &#x60;ACTIVE&#x60; or &#x60;EXPIRED&#x60; | | expires_at | Timestamp in ISO 8601 format representing the date when the points expire. | 2022-06-30 | | points | Number of points. | 1000 |.</param>
         /// <param name="filters">filters.</param>
         public LoyaltiesPointsExpirationExportCreateRequestBodyParameters(OrderEnum? order = default(OrderEnum?), List<FieldsEnum> fields = default(List<FieldsEnum>), LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters filters = default(LoyaltiesPointsExpirationExportCreateRequestBodyParametersFilters))
         {
@@ -148,9 +150,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Array of strings containing the data that was exported. These fields define the headers in the CSV file.    The array can be a combination of any of the following available fields:    | **Field** | **Definition** | **Example Export** | |:- --|:- --|:- --| | id | Loyalty points bucket ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n | | campaign_id | Campaign ID of the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic | | voucher_id | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 | | status | Status of the loyalty points bucket. | &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; | | expires_at | Timestamp in ISO 8601 format representing the date when the points expire. | 2022-06-30 | | points | Number of points. | 1000 |
+        /// Array of strings containing the data that was exported. These fields define the headers in the CSV file.    The array can be a combination of any of the following available fields:    | **Field** | **Definition** | **Example Export** | |:- --|:- --|:- --| | id | Loyalty points bucket ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n | | campaign_id | Campaign ID of the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic | | voucher_id | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 | | status | Status of the loyalty point bucket. | &#x60;ACTIVE&#x60; or &#x60;EXPIRED&#x60; | | expires_at | Timestamp in ISO 8601 format representing the date when the points expire. | 2022-06-30 | | points | Number of points. | 1000 |
         /// </summary>
-        /// <value>Array of strings containing the data that was exported. These fields define the headers in the CSV file.    The array can be a combination of any of the following available fields:    | **Field** | **Definition** | **Example Export** | |:- --|:- --|:- --| | id | Loyalty points bucket ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n | | campaign_id | Campaign ID of the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic | | voucher_id | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 | | status | Status of the loyalty points bucket. | &#x60;ACTIVE&#x60; or &#x60;INACTIVE&#x60; | | expires_at | Timestamp in ISO 8601 format representing the date when the points expire. | 2022-06-30 | | points | Number of points. | 1000 |</value>
+        /// <value>Array of strings containing the data that was exported. These fields define the headers in the CSV file.    The array can be a combination of any of the following available fields:    | **Field** | **Definition** | **Example Export** | |:- --|:- --|:- --| | id | Loyalty points bucket ID. | lopb_Wl1o3EjJIHSNjvO5BDLy4z1n | | campaign_id | Campaign ID of the parent loyalty campaign. | camp_7s3uXI44aKfIk5IhmeOPr6ic | | voucher_id | Voucher ID of the parent loyalty card. | v_YLn0WVWXSXbUfDvxgrgUbtfJ3SQIY655 | | status | Status of the loyalty point bucket. | &#x60;ACTIVE&#x60; or &#x60;EXPIRED&#x60; | | expires_at | Timestamp in ISO 8601 format representing the date when the points expire. | 2022-06-30 | | points | Number of points. | 1000 |</value>
         [DataMember(Name = "fields", EmitDefaultValue = true)]
         public List<LoyaltiesPointsExpirationExportCreateRequestBodyParameters.FieldsEnum> Fields
         {

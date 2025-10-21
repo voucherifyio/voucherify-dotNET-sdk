@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Order
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OrderEnum>))]
         public enum OrderEnum
         {
             /// <summary>
@@ -200,6 +201,7 @@ namespace Voucherify.Model
         /// Gets or Sets Order
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<OrderEnum>))]
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public OrderEnum? Order
         {
@@ -224,7 +226,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Fields
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<FieldsEnum>))]
         public enum FieldsEnum
         {
             /// <summary>
@@ -768,7 +770,8 @@ namespace Voucherify.Model
         /// <param name="order">order.</param>
         /// <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file..</param>
         /// <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;.</param>
-        public ExportsGetResponseBodyParameters(OrderEnum? order = default(OrderEnum?), List<FieldsEnum> fields = default(List<FieldsEnum>), Object filters = default(Object))
+        /// <param name="campaignId">Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered..</param>
+        public ExportsGetResponseBodyParameters(OrderEnum? order = default(OrderEnum?), List<FieldsEnum> fields = default(List<FieldsEnum>), Object filters = default(Object), string campaignId = default(string))
         {
             this._Order = order;
             if (this.Order != null)
@@ -784,6 +787,11 @@ namespace Voucherify.Model
             if (this.Filters != null)
             {
                 this._flagFilters = true;
+            }
+            this._CampaignId = campaignId;
+            if (this.CampaignId != null)
+            {
+                this._flagCampaignId = true;
             }
         }
 
@@ -838,6 +846,34 @@ namespace Voucherify.Model
             return _flagFilters;
         }
         /// <summary>
+        /// Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered.
+        /// </summary>
+        /// <value>Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered.</value>
+        /*
+        <example>camp_0dJG7cCAjquzcxWmZ634bA0C</example>
+        */
+        [DataMember(Name = "campaign_id", EmitDefaultValue = true)]
+        public string CampaignId
+        {
+            get{ return _CampaignId;}
+            set
+            {
+                _CampaignId = value;
+                _flagCampaignId = true;
+            }
+        }
+        private string _CampaignId;
+        private bool _flagCampaignId;
+
+        /// <summary>
+        /// Returns false as CampaignId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCampaignId()
+        {
+            return _flagCampaignId;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -848,6 +884,7 @@ namespace Voucherify.Model
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("  Filters: ").Append(Filters).Append("\n");
+            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

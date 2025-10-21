@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -62,6 +63,7 @@ namespace Voucherify.Model
         /// Gets or Sets Type
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {

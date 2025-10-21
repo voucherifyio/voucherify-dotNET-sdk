@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// What triggers the tier to be valid for a customer.     &#x60;IMMEDIATE&#x60;: After reaching the minimum required points.  &#x60;NEXT_PERIOD&#x60;: When the next qualification period starts.
         /// </summary>
         /// <value>What triggers the tier to be valid for a customer.     &#x60;IMMEDIATE&#x60;: After reaching the minimum required points.  &#x60;NEXT_PERIOD&#x60;: When the next qualification period starts.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>What triggers the tier to be valid for a customer.     &#x60;IMMEDIATE&#x60;: After reaching the minimum required points.  &#x60;NEXT_PERIOD&#x60;: When the next qualification period starts.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -46,10 +47,6 @@ namespace Voucherify.Model
         public ManagementProjectsCreateRequestBodyUsersItem(string id = default(string), string login = default(string), string role = default(string))
         {
             // to ensure "role" is required (not null)
-            if (role == null)
-            {
-                throw new ArgumentNullException("role is a required property for ManagementProjectsCreateRequestBodyUsersItem and cannot be null");
-            }
             this._Role = role;
             this._Id = id;
             if (this.Id != null)
@@ -117,7 +114,7 @@ namespace Voucherify.Model
         /// The role of the user to be added. It can be one of the following predefined roles: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; or an ID of a custom role.
         /// </summary>
         /// <value>The role of the user to be added. It can be one of the following predefined roles: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; or an ID of a custom role.</value>
-        [DataMember(Name = "role", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "role", IsRequired = false, EmitDefaultValue = true)]
         public string Role
         {
             get{ return _Role;}

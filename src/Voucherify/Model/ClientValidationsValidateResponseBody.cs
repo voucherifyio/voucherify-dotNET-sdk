@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -52,10 +53,6 @@ namespace Voucherify.Model
         public ClientValidationsValidateResponseBody(string id = default(string), bool? valid = default(bool?), List<ClientValidationsValidateResponseBodyRedeemablesItem> redeemables = default(List<ClientValidationsValidateResponseBodyRedeemablesItem>), List<ValidationsRedeemableSkipped> skippedRedeemables = default(List<ValidationsRedeemableSkipped>), List<ValidationsRedeemableInapplicable> inapplicableRedeemables = default(List<ValidationsRedeemableInapplicable>), ClientValidationsValidateResponseBodyOrder order = default(ClientValidationsValidateResponseBodyOrder), string trackingId = default(string), Session session = default(Session), StackingRules stackingRules = default(StackingRules))
         {
             // to ensure "stackingRules" is required (not null)
-            if (stackingRules == null)
-            {
-                throw new ArgumentNullException("stackingRules is a required property for ClientValidationsValidateResponseBody and cannot be null");
-            }
             this._StackingRules = stackingRules;
             this._Id = id;
             if (this.Id != null)
@@ -305,7 +302,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets StackingRules
         /// </summary>
-        [DataMember(Name = "stacking_rules", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stacking_rules", IsRequired = false, EmitDefaultValue = true)]
         public StackingRules StackingRules
         {
             get{ return _StackingRules;}

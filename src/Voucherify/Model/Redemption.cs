@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON
         /// </summary>
         /// <value>The type of the object represented by the JSON</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Redemption result.
         /// </summary>
         /// <value>Redemption result.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         public enum ResultEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Redemption result.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public ResultEnum? Result
         {
@@ -124,7 +127,7 @@ namespace Voucherify.Model
         /// Redemption status.
         /// </summary>
         /// <value>Redemption status.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -152,6 +155,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Redemption status.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -177,7 +181,7 @@ namespace Voucherify.Model
         /// Defines the related object.
         /// </summary>
         /// <value>Defines the related object.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         public enum RelatedObjectTypeEnum
         {
             /// <summary>
@@ -205,6 +209,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the related object.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         [DataMember(Name = "related_object_type", EmitDefaultValue = true)]
         public RelatedObjectTypeEnum? RelatedObjectType
         {
@@ -239,6 +244,7 @@ namespace Voucherify.Model
         /// <param name="varRedemption">Unique redemption ID of the parent redemption..</param>
         /// <param name="result">Redemption result..</param>
         /// <param name="status">Redemption status..</param>
+        /// <param name="session">session.</param>
         /// <param name="relatedRedemptions">relatedRedemptions.</param>
         /// <param name="failureCode">If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed..</param>
         /// <param name="failureMessage">If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed..</param>
@@ -252,7 +258,7 @@ namespace Voucherify.Model
         /// <param name="gift">gift.</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="voucher">voucher.</param>
-        public Redemption(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string varRedemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), RedemptionRelatedRedemptions relatedRedemptions = default(RedemptionRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), RedemptionOrder order = default(RedemptionOrder), RedemptionChannel channel = default(RedemptionChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionGift gift = default(RedemptionGift), RedemptionLoyaltyCard loyaltyCard = default(RedemptionLoyaltyCard), RedemptionVoucher voucher = default(RedemptionVoucher))
+        public Redemption(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string varRedemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), RedemptionSession session = default(RedemptionSession), RedemptionRelatedRedemptions relatedRedemptions = default(RedemptionRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), RedemptionOrder order = default(RedemptionOrder), RedemptionChannel channel = default(RedemptionChannel), SimpleCustomer customer = default(SimpleCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), PromotionTier promotionTier = default(PromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionGift gift = default(RedemptionGift), RedemptionLoyaltyCard loyaltyCard = default(RedemptionLoyaltyCard), RedemptionVoucher voucher = default(RedemptionVoucher))
         {
             this._Id = id;
             if (this.Id != null)
@@ -303,6 +309,11 @@ namespace Voucherify.Model
             if (this.Status != null)
             {
                 this._flagStatus = true;
+            }
+            this._Session = session;
+            if (this.Session != null)
+            {
+                this._flagSession = true;
             }
             this._RelatedRedemptions = relatedRedemptions;
             if (this.RelatedRedemptions != null)
@@ -560,6 +571,30 @@ namespace Voucherify.Model
         public bool ShouldSerializeVarRedemption()
         {
             return _flagVarRedemption;
+        }
+        /// <summary>
+        /// Gets or Sets Session
+        /// </summary>
+        [DataMember(Name = "session", EmitDefaultValue = true)]
+        public RedemptionSession Session
+        {
+            get{ return _Session;}
+            set
+            {
+                _Session = value;
+                _flagSession = true;
+            }
+        }
+        private RedemptionSession _Session;
+        private bool _flagSession;
+
+        /// <summary>
+        /// Returns false as Session should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeSession()
+        {
+            return _flagSession;
         }
         /// <summary>
         /// Gets or Sets RelatedRedemptions
@@ -873,6 +908,7 @@ namespace Voucherify.Model
             sb.Append("  VarRedemption: ").Append(VarRedemption).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Session: ").Append(Session).Append("\n");
             sb.Append("  RelatedRedemptions: ").Append(RelatedRedemptions).Append("\n");
             sb.Append("  FailureCode: ").Append(FailureCode).Append("\n");
             sb.Append("  FailureMessage: ").Append(FailureMessage).Append("\n");

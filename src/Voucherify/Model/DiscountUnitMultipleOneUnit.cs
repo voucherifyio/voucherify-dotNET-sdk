@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Defines how the unit is added to the customer&#39;s order.  
         /// </summary>
         /// <value>Defines how the unit is added to the customer&#39;s order.  </value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<EffectEnum>))]
         public enum EffectEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines how the unit is added to the customer&#39;s order.  </value>
 
+        [JsonConverter(typeof(SafeEnumConverter<EffectEnum>))]
         [DataMember(Name = "effect", EmitDefaultValue = true)]
         public EffectEnum? Effect
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="DiscountUnitMultipleOneUnit" /> class.
         /// </summary>
         /// <param name="unitOff">Number of units to be granted a full value discount..</param>
-        /// <param name="unitOffFormula">Formula used to calculate the number of units..</param>
+        /// <param name="unitOffFormula">Formula used to dynamically calculate the number of units..</param>
         /// <param name="effect">Defines how the unit is added to the customer&#39;s order.  .</param>
         /// <param name="unitType">The product deemed as free, chosen from product inventory (e.g. time, items)..</param>
         /// <param name="product">product.</param>
@@ -148,9 +150,9 @@ namespace Voucherify.Model
             return _flagUnitOff;
         }
         /// <summary>
-        /// Formula used to calculate the number of units.
+        /// Formula used to dynamically calculate the number of units.
         /// </summary>
-        /// <value>Formula used to calculate the number of units.</value>
+        /// <value>Formula used to dynamically calculate the number of units.</value>
         [DataMember(Name = "unit_off_formula", EmitDefaultValue = true)]
         public string UnitOffFormula
         {

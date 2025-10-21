@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Type of campaign.
         /// </summary>
         /// <value>Type of campaign.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CampaignTypeEnum>))]
         public enum CampaignTypeEnum
         {
             /// <summary>
@@ -76,6 +77,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Type of campaign.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<CampaignTypeEnum>))]
         [DataMember(Name = "campaign_type", EmitDefaultValue = true)]
         public CampaignTypeEnum? CampaignType
         {
@@ -98,10 +100,10 @@ namespace Voucherify.Model
             return _flagCampaignType;
         }
         /// <summary>
-        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
+        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
         /// </summary>
-        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers</value>
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -125,10 +127,11 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
+        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers
         /// </summary>
-        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers</value>
+        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -195,7 +198,7 @@ namespace Voucherify.Model
         /// Indicates the status of the campaign creation.
         /// </summary>
         /// <value>Indicates the status of the campaign creation.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CreationStatusEnum>))]
         public enum CreationStatusEnum
         {
             /// <summary>
@@ -235,6 +238,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Indicates the status of the campaign creation.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<CreationStatusEnum>))]
         [DataMember(Name = "creation_status", EmitDefaultValue = true)]
         public CreationStatusEnum? CreationStatus
         {
@@ -260,7 +264,7 @@ namespace Voucherify.Model
         /// Indicates the status of the campaign&#39;s voucher generation.
         /// </summary>
         /// <value>Indicates the status of the campaign&#39;s voucher generation.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<VouchersGenerationStatusEnum>))]
         public enum VouchersGenerationStatusEnum
         {
             /// <summary>
@@ -300,6 +304,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Indicates the status of the campaign&#39;s voucher generation.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<VouchersGenerationStatusEnum>))]
         [DataMember(Name = "vouchers_generation_status", EmitDefaultValue = true)]
         public VouchersGenerationStatusEnum? VouchersGenerationStatus
         {
@@ -328,10 +333,10 @@ namespace Voucherify.Model
         /// <param name="name">Campaign name..</param>
         /// <param name="description">An optional field to keep any extra textual information about the campaign such as a campaign description and details..</param>
         /// <param name="campaignType">Type of campaign..</param>
-        /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of standalone vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers.</param>
+        /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers.</param>
         /// <param name="voucher">voucher.</param>
         /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
-        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them..</param>
+        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them..</param>
         /// <param name="useVoucherMetadataSchema">Flag indicating whether the campaign is to use the voucher&#39;s metadata schema instead of the campaign metadata schema..</param>
         /// <param name="validityTimeframe">validityTimeframe.</param>
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
@@ -347,10 +352,10 @@ namespace Voucherify.Model
         /// <param name="category">Unique category name..</param>
         /// <param name="creationStatus">Indicates the status of the campaign creation..</param>
         /// <param name="vouchersGenerationStatus">Indicates the status of the campaign&#39;s voucher generation..</param>
-        /// <param name="varReadonly">Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles..</param>
+        /// <param name="varReadonly">Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. It is also not returned for restricted users who use the [GET Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint..</param>
         /// <param name="varProtected">Indicates whether the resource can be deleted..</param>
         /// <param name="categoryId">Unique category ID that this campaign belongs to..</param>
-        /// <param name="categories">Contains details about the category..</param>
+        /// <param name="categories">Contains details about the campaign category. For the GET [List campaigns](/api-reference/campaigns/list-campaigns) endpoint, this is returned only if the &#x60;expand&#x3D;category&#x60; query parameter is passed in the request. Otherwise, it is returned as an empty array. For GET [Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint, it is always returned as an empty array..</param>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about the campaign..</param>
         /// <param name="referralProgram">referralProgram.</param>
         /// <param name="loyaltyTiersExpiration">loyaltyTiersExpiration.</param>
@@ -642,9 +647,9 @@ namespace Voucherify.Model
             return _flagAutoJoin;
         }
         /// <summary>
-        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them.
+        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.
         /// </summary>
-        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them.</value>
+        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.</value>
         [DataMember(Name = "join_once", EmitDefaultValue = true)]
         public bool? JoinOnce
         {
@@ -1002,9 +1007,9 @@ namespace Voucherify.Model
             return _flagCategory;
         }
         /// <summary>
-        /// Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles.
+        /// Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. It is also not returned for restricted users who use the [GET Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint.
         /// </summary>
-        /// <value>Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles.</value>
+        /// <value>Indicates whether the campaign can be only read by a restricted user in the Areas and Stores enterprise feature. It is returned only to restricted users; this field is not returned for users with other roles. It is also not returned for restricted users who use the [GET Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint.</value>
         [DataMember(Name = "readonly", EmitDefaultValue = true)]
         public bool? Readonly
         {
@@ -1080,9 +1085,9 @@ namespace Voucherify.Model
             return _flagCategoryId;
         }
         /// <summary>
-        /// Contains details about the category.
+        /// Contains details about the campaign category. For the GET [List campaigns](/api-reference/campaigns/list-campaigns) endpoint, this is returned only if the &#x60;expand&#x3D;category&#x60; query parameter is passed in the request. Otherwise, it is returned as an empty array. For GET [Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint, it is always returned as an empty array.
         /// </summary>
-        /// <value>Contains details about the category.</value>
+        /// <value>Contains details about the campaign category. For the GET [List campaigns](/api-reference/campaigns/list-campaigns) endpoint, this is returned only if the &#x60;expand&#x3D;category&#x60; query parameter is passed in the request. Otherwise, it is returned as an empty array. For GET [Campaign summary](/api-reference/campaigns/get-campaign-summary) endpoint, it is always returned as an empty array.</value>
         [DataMember(Name = "categories", EmitDefaultValue = true)]
         public List<Category> Categories
         {

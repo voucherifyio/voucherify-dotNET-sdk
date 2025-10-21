@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -50,10 +51,6 @@ namespace Voucherify.Model
         public VouchersRedemptionGetResponseBody(int? quantity = default(int?), int? redeemedQuantity = default(int?), string varObject = default(string), string url = default(string), string dataRef = default(string), int? total = default(int?), List<RedemptionEntry> redemptionEntries = default(List<RedemptionEntry>))
         {
             // to ensure "redemptionEntries" is required (not null)
-            if (redemptionEntries == null)
-            {
-                throw new ArgumentNullException("redemptionEntries is a required property for VouchersRedemptionGetResponseBody and cannot be null");
-            }
             this._RedemptionEntries = redemptionEntries;
             this._Quantity = quantity;
             if (this.Quantity != null)
@@ -244,7 +241,7 @@ namespace Voucherify.Model
         /// Contains the array of successful and failed redemption objects.
         /// </summary>
         /// <value>Contains the array of successful and failed redemption objects.</value>
-        [DataMember(Name = "redemption_entries", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "redemption_entries", IsRequired = false, EmitDefaultValue = true)]
         public List<RedemptionEntry> RedemptionEntries
         {
             get{ return _RedemptionEntries;}

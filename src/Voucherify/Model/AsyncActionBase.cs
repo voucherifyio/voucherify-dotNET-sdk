@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Status of the async action. Informs you whether the async action has already been completed.
         /// </summary>
         /// <value>Status of the async action. Informs you whether the async action has already been completed.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -70,6 +71,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Status of the async action. Informs you whether the async action has already been completed.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -95,7 +97,7 @@ namespace Voucherify.Model
         /// Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown.
         /// </summary>
         /// <value>Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OperationStatusEnum>))]
         public enum OperationStatusEnum
         {
             /// <summary>
@@ -123,6 +125,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Status of async action processing. Informs about the async action status, whether it failed, succeeded, or the status is unknown.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<OperationStatusEnum>))]
         [DataMember(Name = "operation_status", EmitDefaultValue = true)]
         public OperationStatusEnum? OperationStatus
         {
@@ -148,7 +151,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -164,6 +167,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the &#x60;async_action&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {

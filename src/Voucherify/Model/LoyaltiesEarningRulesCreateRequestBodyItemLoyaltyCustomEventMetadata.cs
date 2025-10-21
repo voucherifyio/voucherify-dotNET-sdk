@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -37,8 +38,9 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="every">For how many increments of the customer metadata property to grant points for..</param>
         /// <param name="points">Number of points to be awarded, i.e. how many points to be added to the loyalty card..</param>
+        /// <param name="pointsFormula">Formula used to dynamically calculate the rewarded points..</param>
         /// <param name="property"> Custom event metadata property..</param>
-        public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEventMetadata(int? every = default(int?), int? points = default(int?), string property = default(string))
+        public LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEventMetadata(int? every = default(int?), int? points = default(int?), string pointsFormula = default(string), string property = default(string))
         {
             this._Every = every;
             if (this.Every != null)
@@ -49,6 +51,11 @@ namespace Voucherify.Model
             if (this.Points != null)
             {
                 this._flagPoints = true;
+            }
+            this._PointsFormula = pointsFormula;
+            if (this.PointsFormula != null)
+            {
+                this._flagPointsFormula = true;
             }
             this._Property = property;
             if (this.Property != null)
@@ -108,6 +115,31 @@ namespace Voucherify.Model
             return _flagPoints;
         }
         /// <summary>
+        /// Formula used to dynamically calculate the rewarded points.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the rewarded points.</value>
+        [DataMember(Name = "points_formula", EmitDefaultValue = true)]
+        public string PointsFormula
+        {
+            get{ return _PointsFormula;}
+            set
+            {
+                _PointsFormula = value;
+                _flagPointsFormula = true;
+            }
+        }
+        private string _PointsFormula;
+        private bool _flagPointsFormula;
+
+        /// <summary>
+        /// Returns false as PointsFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePointsFormula()
+        {
+            return _flagPointsFormula;
+        }
+        /// <summary>
         ///  Custom event metadata property.
         /// </summary>
         /// <value> Custom event metadata property.</value>
@@ -142,6 +174,7 @@ namespace Voucherify.Model
             sb.Append("class LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEventMetadata {\n");
             sb.Append("  Every: ").Append(Every).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
+            sb.Append("  PointsFormula: ").Append(PointsFormula).Append("\n");
             sb.Append("  Property: ").Append(Property).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

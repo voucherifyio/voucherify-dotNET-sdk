@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of voucher being modified.
         /// </summary>
         /// <value>The type of voucher being modified.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of voucher being modified.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. Default is balance.
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is balance.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is balance.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -124,7 +127,7 @@ namespace Voucherify.Model
         /// The type of operation being performed.
         /// </summary>
         /// <value>The type of operation being performed.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OperationTypeEnum>))]
         public enum OperationTypeEnum
         {
             /// <summary>
@@ -146,6 +149,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of operation being performed.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<OperationTypeEnum>))]
         [DataMember(Name = "operation_type", EmitDefaultValue = true)]
         public OperationTypeEnum? OperationType
         {

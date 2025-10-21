@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -77,7 +78,7 @@ namespace Voucherify.Model
         /// Defines whether the campaign can be updated with new vouchers after campaign creation.  - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method). -  &#x60;STATIC&#x60;: vouchers need to be manually published.  If the &#x60;type&#x60; of the campaign is &#x60;STANDALONE&#x60;, the type cannot be changed. Also, the &#x60;type&#x60; cannot be changed to &#x60;STANDALONE&#x60;.
         /// </summary>
         /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation.  - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method). -  &#x60;STATIC&#x60;: vouchers need to be manually published.  If the &#x60;type&#x60; of the campaign is &#x60;STANDALONE&#x60;, the type cannot be changed. Also, the &#x60;type&#x60; cannot be changed to &#x60;STANDALONE&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -99,6 +100,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation.  - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method). -  &#x60;STATIC&#x60;: vouchers need to be manually published.  If the &#x60;type&#x60; of the campaign is &#x60;STANDALONE&#x60;, the type cannot be changed. Also, the &#x60;type&#x60; cannot be changed to &#x60;STANDALONE&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -135,7 +137,7 @@ namespace Voucherify.Model
         /// <param name="categoryId">Unique category ID that this campaign belongs to. Either pass this parameter OR the &#x60;category&#x60;..</param>
         /// <param name="accessSettings">accessSettings.</param>
         /// <param name="activityDurationAfterPublishing">Defines the amount of time the vouchers will be active after publishing. The value is shown in the ISO 8601 format. For example, a voucher with the value of P24D will be valid for a duration of 24 days..</param>
-        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them..</param>
+        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them..</param>
         /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
         /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation.  - &#x60;AUTO_UPDATE&#x60;: By choosing the auto update option you will create a campaign that can be enhanced by new vouchers after the time of creation (e.g. by publish vouchers method). -  &#x60;STATIC&#x60;: vouchers need to be manually published.  If the &#x60;type&#x60; of the campaign is &#x60;STANDALONE&#x60;, the type cannot be changed. Also, the &#x60;type&#x60; cannot be changed to &#x60;STANDALONE&#x60;..</param>
         /// <param name="discount">discount.</param>
@@ -554,9 +556,9 @@ namespace Voucherify.Model
             return _flagActivityDurationAfterPublishing;
         }
         /// <summary>
-        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them.
+        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.
         /// </summary>
-        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for standalone voucher campaigns and it cannot be changed in them.</value>
+        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.</value>
         [DataMember(Name = "join_once", EmitDefaultValue = true)]
         public bool? JoinOnce
         {

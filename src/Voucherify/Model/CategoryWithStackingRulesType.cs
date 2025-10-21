@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON. This object stores information about the category.
         /// </summary>
         /// <value>The type of the object represented by the JSON. This object stores information about the category.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON. This object stores information about the category.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// The type of the stacking rule eligibility.
         /// </summary>
         /// <value>The type of the stacking rule eligibility.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StackingRulesTypeEnum>))]
         public enum StackingRulesTypeEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the stacking rule eligibility.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StackingRulesTypeEnum>))]
         [DataMember(Name = "stacking_rules_type", EmitDefaultValue = true)]
         public StackingRulesTypeEnum? StackingRulesType
         {

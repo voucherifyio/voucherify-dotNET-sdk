@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Determines the channel that initiated the event.
         /// </summary>
         /// <value>Determines the channel that initiated the event.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ChannelEnum>))]
         public enum ChannelEnum
         {
             /// <summary>
@@ -73,6 +74,7 @@ namespace Voucherify.Model
         <example>API</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<ChannelEnum>))]
         [DataMember(Name = "channel", EmitDefaultValue = true)]
         public ChannelEnum? Channel
         {

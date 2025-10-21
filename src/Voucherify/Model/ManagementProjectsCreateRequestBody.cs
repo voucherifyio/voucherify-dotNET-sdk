@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The webhook version used in the project.
         /// </summary>
         /// <value>The webhook version used in the project.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<WebhookVersionEnum>))]
         public enum WebhookVersionEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The webhook version used in the project.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<WebhookVersionEnum>))]
         [DataMember(Name = "webhook_version", EmitDefaultValue = true)]
         public WebhookVersionEnum? WebhookVersion
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;.
         /// </summary>
         /// <value>The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ApiVersionEnum>))]
         public enum ApiVersionEnum
         {
             /// <summary>
@@ -93,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The API version used in the project. Currently, the default and only value is &#x60;v2018-08-01&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ApiVersionEnum>))]
         [DataMember(Name = "api_version", EmitDefaultValue = true)]
         public ApiVersionEnum? ApiVersion
         {

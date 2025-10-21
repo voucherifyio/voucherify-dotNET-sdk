@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -38,7 +39,7 @@ namespace Voucherify.Model
         /// <param name="email">Email address to which the invitation will be sent. Must be a valid email address..</param>
         /// <param name="firstName">First name of the person who will receive the invitation. The name will be used in the user profile..</param>
         /// <param name="lastName">Last name of the person who will receive the invitation. The name will be used in the user profile..</param>
-        /// <param name="projects">In the key, provide the project ID to which the new user will be assigned. In the value, provide the role which the user will have in the project. The predefined Voucherify roles are: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60;, &#x60;USER_RESTRICTED&#x60; (for the Areas and Stores, an Enterprise feature). Send a custom role ID (Enterprise feature) to assign a custom role..</param>
+        /// <param name="projects">In the key, provide the project ID to which the new user will be assigned. In the value, provide the role which the user will have in the project. The predefined Voucherify roles are: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60;, &#x60;USER_RESTRICTED&#x60; (for the Areas and Stores, an Enterprise feature). Send a custom role ID (Enterprise feature) to assign a custom role. To find the custom role ID: If you are an admin, go to Voucherify Dashboard, Team settings, and Roles tab. Click on a custom role. The custom role ID is in the URL in the format &#x60;role_XyZ7aB9cD2eF4gH1iJ0kL5mN6oP8qR3s&#x60;..</param>
         public ManagementProjectsUsersInviteCreateRequestBody(string email = default(string), string firstName = default(string), string lastName = default(string), Dictionary<string, string> projects = default(Dictionary<string, string>))
         {
             this._Email = email;
@@ -148,11 +149,11 @@ namespace Voucherify.Model
             return _flagLastName;
         }
         /// <summary>
-        /// In the key, provide the project ID to which the new user will be assigned. In the value, provide the role which the user will have in the project. The predefined Voucherify roles are: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60;, &#x60;USER_RESTRICTED&#x60; (for the Areas and Stores, an Enterprise feature). Send a custom role ID (Enterprise feature) to assign a custom role.
+        /// In the key, provide the project ID to which the new user will be assigned. In the value, provide the role which the user will have in the project. The predefined Voucherify roles are: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60;, &#x60;USER_RESTRICTED&#x60; (for the Areas and Stores, an Enterprise feature). Send a custom role ID (Enterprise feature) to assign a custom role. To find the custom role ID: If you are an admin, go to Voucherify Dashboard, Team settings, and Roles tab. Click on a custom role. The custom role ID is in the URL in the format &#x60;role_XyZ7aB9cD2eF4gH1iJ0kL5mN6oP8qR3s&#x60;.
         /// </summary>
-        /// <value>In the key, provide the project ID to which the new user will be assigned. In the value, provide the role which the user will have in the project. The predefined Voucherify roles are: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60;, &#x60;USER_RESTRICTED&#x60; (for the Areas and Stores, an Enterprise feature). Send a custom role ID (Enterprise feature) to assign a custom role.</value>
+        /// <value>In the key, provide the project ID to which the new user will be assigned. In the value, provide the role which the user will have in the project. The predefined Voucherify roles are: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60;, &#x60;USER_RESTRICTED&#x60; (for the Areas and Stores, an Enterprise feature). Send a custom role ID (Enterprise feature) to assign a custom role. To find the custom role ID: If you are an admin, go to Voucherify Dashboard, Team settings, and Roles tab. Click on a custom role. The custom role ID is in the URL in the format &#x60;role_XyZ7aB9cD2eF4gH1iJ0kL5mN6oP8qR3s&#x60;.</value>
         /*
-        <example>{&quot;proj_ExPr0jID&quot;:&quot;USER&quot;}</example>
+        <example>{&quot;proj_ExPr0jID&quot;:&quot;USER&quot;,&quot;proj_ExPr0jId&quot;:&quot;role_XyZ7aB9cD2eF4gH1iJ0kL5mN6oP8qR3s&quot;}</example>
         */
         [DataMember(Name = "projects", EmitDefaultValue = true)]
         public Dictionary<string, string> Projects

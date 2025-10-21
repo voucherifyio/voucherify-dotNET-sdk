@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Reward type.
         /// </summary>
         /// <value>Reward type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -64,6 +65,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Reward type.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -89,7 +91,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON. This object stores information about the reward.
         /// </summary>
         /// <value>The type of the object represented by the JSON. This object stores information about the reward.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -105,7 +107,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON. This object stores information about the reward.</value>
 
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
+        [DataMember(Name = "object", IsRequired = false, EmitDefaultValue = true)]
         public ObjectEnum Object
         {
             get{ return _Object;}
@@ -136,7 +139,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="id">Unique reward ID, assigned by Voucherify..</param>
         /// <param name="name">Reward name..</param>
-        /// <param name="stock">Configurable for **material rewards**. The number of units of the product that you want to share as reward..</param>
+        /// <param name="stock">Configurable for **material rewards**. The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic..</param>
         /// <param name="redeemed">Defines the number of already invoked (successful) reward redemptions. .</param>
         /// <param name="attributes">attributes.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format..</param>
@@ -254,9 +257,9 @@ namespace Voucherify.Model
             return _flagName;
         }
         /// <summary>
-        /// Configurable for **material rewards**. The number of units of the product that you want to share as reward.
+        /// Configurable for **material rewards**. The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic.
         /// </summary>
-        /// <value>Configurable for **material rewards**. The number of units of the product that you want to share as reward.</value>
+        /// <value>Configurable for **material rewards**. The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic.</value>
         [DataMember(Name = "stock", EmitDefaultValue = true)]
         public int? Stock
         {

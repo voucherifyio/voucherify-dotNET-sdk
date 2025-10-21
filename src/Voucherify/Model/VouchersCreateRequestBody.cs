@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -76,7 +77,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -103,6 +104,7 @@ namespace Voucherify.Model
         /// Gets or Sets Type
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -130,8 +132,8 @@ namespace Voucherify.Model
         /// <param name="code">Code that identifies a voucher. The pattern can use all the letters of the English alphabet, Arabic numerals, and special characters. Pass this attribute in the request body to create a distinct code. Otherwise, either use the &#x60;code_config&#x60; object to set the rules that the Voucherify API will use to create a random code, or don&#39;t pass any code and Voucherify will generate a random code..</param>
         /// <param name="campaign">Identifies the voucher&#39;s parent campaign using a unique campaign name..</param>
         /// <param name="campaignId">Identifies the voucher&#39;s parent campaign using a unique campaign ID assigned by the Voucherify API..</param>
-        /// <param name="category">The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint..</param>
-        /// <param name="categoryId">Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint..</param>
+        /// <param name="category">The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint..</param>
+        /// <param name="categoryId">Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint..</param>
         /// <param name="startDate">Start date defines when the code starts to be active. Activation timestamp is presented in the ISO 8601 format. Voucher is *inactive before* this date..</param>
         /// <param name="expirationDate">Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date..</param>
         /// <param name="validityTimeframe">validityTimeframe.</param>
@@ -336,9 +338,9 @@ namespace Voucherify.Model
             return _flagCampaignId;
         }
         /// <summary>
-        /// The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
+        /// The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
         /// </summary>
-        /// <value>The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.</value>
+        /// <value>The name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.</value>
         [DataMember(Name = "category", EmitDefaultValue = true)]
         public string Category
         {
@@ -361,9 +363,9 @@ namespace Voucherify.Model
             return _flagCategory;
         }
         /// <summary>
-        /// Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.
+        /// Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.
         /// </summary>
-        /// <value>Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint.</value>
+        /// <value>Unique identifier assigned by Voucherify to the name of the category that this voucher belongs to. Useful when listing vouchers with the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint.</value>
         /*
         <example>cat_0b6152ce12414820dc</example>
         */

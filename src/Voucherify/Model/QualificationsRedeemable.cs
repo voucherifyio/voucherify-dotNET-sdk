@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Object type of the redeemable.
         /// </summary>
         /// <value>Object type of the redeemable.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -70,6 +71,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Object type of the redeemable.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -94,7 +96,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QualificationsRedeemable" /> class.
         /// </summary>
-        /// <param name="id">Id of the redeemable..</param>
+        /// <param name="id">ID of the redeemable. For a voucher, it&#39;s its &#x60;code&#x60; value..</param>
         /// <param name="varObject">Object type of the redeemable..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="result">result.</param>
@@ -195,9 +197,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Id of the redeemable.
+        /// ID of the redeemable. For a voucher, it&#39;s its &#x60;code&#x60; value.
         /// </summary>
-        /// <value>Id of the redeemable.</value>
+        /// <value>ID of the redeemable. For a voucher, it&#39;s its &#x60;code&#x60; value.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id
         {

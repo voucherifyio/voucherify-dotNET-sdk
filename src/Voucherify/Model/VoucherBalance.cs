@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of voucher whose balance is being adjusted due to the transaction.
         /// </summary>
         /// <value>The type of voucher whose balance is being adjusted due to the transaction.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of voucher whose balance is being adjusted due to the transaction.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON.
         /// </summary>
         /// <value>The type of the object represented by the JSON.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -124,7 +127,7 @@ namespace Voucherify.Model
         /// The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.
         /// </summary>
         /// <value>The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OperationTypeEnum>))]
         public enum OperationTypeEnum
         {
             /// <summary>
@@ -146,6 +149,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<OperationTypeEnum>))]
         [DataMember(Name = "operation_type", EmitDefaultValue = true)]
         public OperationTypeEnum? OperationType
         {
@@ -173,11 +177,12 @@ namespace Voucherify.Model
         /// <param name="type">The type of voucher whose balance is being adjusted due to the transaction..</param>
         /// <param name="total">The number of all points or credits accumulated on the card as affected by add or subtract operations..</param>
         /// <param name="varObject">The type of the object represented by the JSON..</param>
+        /// <param name="amount">Credits added or subtracted on a gift card..</param>
         /// <param name="points">Points added or subtracted in the transaction of a loyalty card..</param>
         /// <param name="balance">The available points or credits on the card after the transaction as affected by redemption or rollback..</param>
         /// <param name="operationType">The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption..</param>
         /// <param name="relatedObject">relatedObject.</param>
-        public VoucherBalance(TypeEnum? type = default(TypeEnum?), int? total = default(int?), ObjectEnum? varObject = default(ObjectEnum?), int? points = default(int?), int? balance = default(int?), OperationTypeEnum? operationType = default(OperationTypeEnum?), VoucherBalanceRelatedObject relatedObject = default(VoucherBalanceRelatedObject))
+        public VoucherBalance(TypeEnum? type = default(TypeEnum?), int? total = default(int?), ObjectEnum? varObject = default(ObjectEnum?), int? amount = default(int?), int? points = default(int?), int? balance = default(int?), OperationTypeEnum? operationType = default(OperationTypeEnum?), VoucherBalanceRelatedObject relatedObject = default(VoucherBalanceRelatedObject))
         {
             this._Type = type;
             if (this.Type != null)
@@ -193,6 +198,11 @@ namespace Voucherify.Model
             if (this.Object != null)
             {
                 this._flagObject = true;
+            }
+            this._Amount = amount;
+            if (this.Amount != null)
+            {
+                this._flagAmount = true;
             }
             this._Points = points;
             if (this.Points != null)
@@ -240,6 +250,31 @@ namespace Voucherify.Model
         public bool ShouldSerializeTotal()
         {
             return _flagTotal;
+        }
+        /// <summary>
+        /// Credits added or subtracted on a gift card.
+        /// </summary>
+        /// <value>Credits added or subtracted on a gift card.</value>
+        [DataMember(Name = "amount", EmitDefaultValue = true)]
+        public int? Amount
+        {
+            get{ return _Amount;}
+            set
+            {
+                _Amount = value;
+                _flagAmount = true;
+            }
+        }
+        private int? _Amount;
+        private bool _flagAmount;
+
+        /// <summary>
+        /// Returns false as Amount should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeAmount()
+        {
+            return _flagAmount;
         }
         /// <summary>
         /// Points added or subtracted in the transaction of a loyalty card.
@@ -326,6 +361,7 @@ namespace Voucherify.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
             sb.Append("  Balance: ").Append(Balance).Append("\n");
             sb.Append("  OperationType: ").Append(OperationType).Append("\n");

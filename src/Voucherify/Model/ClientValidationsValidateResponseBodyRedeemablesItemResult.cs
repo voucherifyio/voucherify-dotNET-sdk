@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,16 +37,22 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="ClientValidationsValidateResponseBodyRedeemablesItemResult" /> class.
         /// </summary>
         /// <param name="discount">discount.</param>
+        /// <param name="bundle">bundle.</param>
         /// <param name="gift">gift.</param>
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="error">error.</param>
         /// <param name="details">details.</param>
-        public ClientValidationsValidateResponseBodyRedeemablesItemResult(ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount discount = default(ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount), ClientValidationsValidateResponseBodyRedeemablesItemResultGift gift = default(ClientValidationsValidateResponseBodyRedeemablesItemResultGift), ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard loyaltyCard = default(ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard), Error error = default(Error), ClientValidationsValidateResponseBodyRedeemablesItemResultDetails details = default(ClientValidationsValidateResponseBodyRedeemablesItemResultDetails))
+        public ClientValidationsValidateResponseBodyRedeemablesItemResult(ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount discount = default(ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount), Bundle bundle = default(Bundle), ClientValidationsValidateResponseBodyRedeemablesItemResultGift gift = default(ClientValidationsValidateResponseBodyRedeemablesItemResultGift), ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard loyaltyCard = default(ClientValidationsValidateResponseBodyRedeemablesItemResultLoyaltyCard), Error error = default(Error), ClientValidationsValidateResponseBodyRedeemablesItemResultDetails details = default(ClientValidationsValidateResponseBodyRedeemablesItemResultDetails))
         {
             this._Discount = discount;
             if (this.Discount != null)
             {
                 this._flagDiscount = true;
+            }
+            this._Bundle = bundle;
+            if (this.Bundle != null)
+            {
+                this._flagBundle = true;
             }
             this._Gift = gift;
             if (this.Gift != null)
@@ -92,6 +99,30 @@ namespace Voucherify.Model
         public bool ShouldSerializeDiscount()
         {
             return _flagDiscount;
+        }
+        /// <summary>
+        /// Gets or Sets Bundle
+        /// </summary>
+        [DataMember(Name = "bundle", EmitDefaultValue = true)]
+        public Bundle Bundle
+        {
+            get{ return _Bundle;}
+            set
+            {
+                _Bundle = value;
+                _flagBundle = true;
+            }
+        }
+        private Bundle _Bundle;
+        private bool _flagBundle;
+
+        /// <summary>
+        /// Returns false as Bundle should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeBundle()
+        {
+            return _flagBundle;
         }
         /// <summary>
         /// Gets or Sets Gift
@@ -198,6 +229,7 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ClientValidationsValidateResponseBodyRedeemablesItemResult {\n");
             sb.Append("  Discount: ").Append(Discount).Append("\n");
+            sb.Append("  Bundle: ").Append(Bundle).Append("\n");
             sb.Append("  Gift: ").Append(Gift).Append("\n");
             sb.Append("  LoyaltyCard: ").Append(LoyaltyCard).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");

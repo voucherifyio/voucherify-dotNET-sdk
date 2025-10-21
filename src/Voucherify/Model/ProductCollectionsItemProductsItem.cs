@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Denotes the type of the object represented by the ID.
         /// </summary>
         /// <value>Denotes the type of the object represented by the ID.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -58,7 +59,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Denotes the type of the object represented by the ID.</value>
 
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
+        [DataMember(Name = "object", IsRequired = false, EmitDefaultValue = true)]
         public ObjectEnum Object
         {
             get{ return _Object;}
@@ -93,10 +95,6 @@ namespace Voucherify.Model
         public ProductCollectionsItemProductsItem(string id = default(string), string productId = default(string), ObjectEnum varObject = default(ObjectEnum))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for ProductCollectionsItemProductsItem and cannot be null");
-            }
             this._Id = id;
             this._Object = varObject;
             this._ProductId = productId;
@@ -113,7 +111,7 @@ namespace Voucherify.Model
         /*
         <example>prod_0a41bcf807c5fcaaf6</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = true)]
         public string Id
         {
             get{ return _Id;}

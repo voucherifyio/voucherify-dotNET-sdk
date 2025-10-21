@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManagementProjectsUsersUpdateRoleRequestBody" /> class.
         /// </summary>
-        /// <param name="role">The role of the user to be added. It can be a custom role or one of following predefined roles: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; or an ID of a custom role...</param>
+        /// <param name="role">The role of the user to be added. It can be a custom role or one of following predefined roles: - &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; - or an ID of a custom role..</param>
         public ManagementProjectsUsersUpdateRoleRequestBody(string role = default(string))
         {
             this._Role = role;
@@ -46,9 +47,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// The role of the user to be added. It can be a custom role or one of following predefined roles: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; or an ID of a custom role..
+        /// The role of the user to be added. It can be a custom role or one of following predefined roles: - &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; - or an ID of a custom role.
         /// </summary>
-        /// <value>The role of the user to be added. It can be a custom role or one of following predefined roles: &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; or an ID of a custom role..</value>
+        /// <value>The role of the user to be added. It can be a custom role or one of following predefined roles: - &#x60;ADMIN&#x60;, &#x60;USER&#x60;, &#x60;VIEWER&#x60;, &#x60;MERCHANT&#x60; - or an ID of a custom role.</value>
         [DataMember(Name = "role", EmitDefaultValue = true)]
         public string Role
         {

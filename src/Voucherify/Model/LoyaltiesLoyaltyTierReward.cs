@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. This object stores information about the loyalty tier reward.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the loyalty tier reward.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,7 +53,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the loyalty tier reward.</value>
 
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
+        [DataMember(Name = "object", IsRequired = false, EmitDefaultValue = true)]
         public ObjectEnum Object
         {
             get{ return _Object;}
@@ -87,16 +89,8 @@ namespace Voucherify.Model
         public LoyaltiesLoyaltyTierReward(Reward reward = default(Reward), RewardAssignment assignment = default(RewardAssignment), ObjectEnum varObject = default(ObjectEnum))
         {
             // to ensure "reward" is required (not null)
-            if (reward == null)
-            {
-                throw new ArgumentNullException("reward is a required property for LoyaltiesLoyaltyTierReward and cannot be null");
-            }
             this._Reward = reward;
             // to ensure "assignment" is required (not null)
-            if (assignment == null)
-            {
-                throw new ArgumentNullException("assignment is a required property for LoyaltiesLoyaltyTierReward and cannot be null");
-            }
             this._Assignment = assignment;
             this._Object = varObject;
         }
@@ -104,7 +98,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Reward
         /// </summary>
-        [DataMember(Name = "reward", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "reward", IsRequired = false, EmitDefaultValue = true)]
         public Reward Reward
         {
             get{ return _Reward;}
@@ -128,7 +122,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Assignment
         /// </summary>
-        [DataMember(Name = "assignment", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "assignment", IsRequired = false, EmitDefaultValue = true)]
         public RewardAssignment Assignment
         {
             get{ return _Assignment;}

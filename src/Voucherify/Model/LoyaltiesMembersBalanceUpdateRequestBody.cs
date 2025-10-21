@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -37,6 +38,7 @@ namespace Voucherify.Model
         /// Gets or Sets ExpirationType
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<PointsExpirationTypes>))]
         [DataMember(Name = "expiration_type", EmitDefaultValue = true)]
         public PointsExpirationTypes? ExpirationType
         {

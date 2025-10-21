@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of voucher whose balance is being adjusted due to the transaction.
         /// </summary>
         /// <value>The type of voucher whose balance is being adjusted due to the transaction.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of voucher whose balance is being adjusted due to the transaction.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON.
         /// </summary>
         /// <value>The type of the object represented by the JSON.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -124,7 +127,7 @@ namespace Voucherify.Model
         /// The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.
         /// </summary>
         /// <value>The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<OperationTypeEnum>))]
         public enum OperationTypeEnum
         {
             /// <summary>
@@ -146,6 +149,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the operation being performed. The operation type is &#x60;AUTOMATIC&#x60; if it is an automatic redemption.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<OperationTypeEnum>))]
         [DataMember(Name = "operation_type", EmitDefaultValue = true)]
         public OperationTypeEnum? OperationType
         {
@@ -170,7 +174,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MemberActivityDataBalance" /> class.
         /// </summary>
-        /// <param name="amount">amount.</param>
+        /// <param name="amount">Credits added or subtracted on a gift card..</param>
         /// <param name="points">Points added or subtracted in the transaction of a loyalty card..</param>
         /// <param name="type">The type of voucher whose balance is being adjusted due to the transaction..</param>
         /// <param name="total">The number of all points or credits accumulated on the card as affected by add or subtract operations..</param>
@@ -223,8 +227,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// Credits added or subtracted on a gift card.
         /// </summary>
+        /// <value>Credits added or subtracted on a gift card.</value>
         [DataMember(Name = "amount", EmitDefaultValue = true)]
         public int? Amount
         {

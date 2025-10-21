@@ -12,7 +12,7 @@
     <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>MIT</Copyright>
     <RootNamespace>Voucherify</RootNamespace>
-    <Version>8.0.1</Version>
+    <Version>8.1.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Voucherify.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -38,8 +38,8 @@
         <PackageReference Include="RestSharp" Version="112.0.0" />
         <PackageReference Include="Polly" Version="8.1.0" />
         <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.4.24156.5" />
-        <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0-preview.4.24156.5" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0-preview.4.24156.5" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.10" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
     </ItemGroup>
 </Project>

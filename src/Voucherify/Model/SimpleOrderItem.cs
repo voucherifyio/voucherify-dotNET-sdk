@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. This object stores information about the &#x60;order_item&#x60;.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the &#x60;order_item&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the &#x60;order_item&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Used along with the &#x60;source_id&#x60; property, can be set to either SKU or product.
         /// </summary>
         /// <value>Used along with the &#x60;source_id&#x60; property, can be set to either SKU or product.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectEnum>))]
         public enum RelatedObjectEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Used along with the &#x60;source_id&#x60; property, can be set to either SKU or product.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectEnum>))]
         [DataMember(Name = "related_object", EmitDefaultValue = true)]
         public RelatedObjectEnum? RelatedObject
         {

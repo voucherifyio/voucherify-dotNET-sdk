@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of object being represented. This object stores information about the export.
         /// </summary>
         /// <value>The type of object being represented. This object stores information about the export.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of object being represented. This object stores information about the export.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Status of the export. Informs you whether the export has already been completed.
         /// </summary>
         /// <value>Status of the export. Informs you whether the export has already been completed.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -93,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Status of the export. Informs you whether the export has already been completed.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -118,7 +121,7 @@ namespace Voucherify.Model
         /// The channel through which the export was triggered.
         /// </summary>
         /// <value>The channel through which the export was triggered.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ChannelEnum>))]
         public enum ChannelEnum
         {
             /// <summary>
@@ -140,6 +143,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The channel through which the export was triggered.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ChannelEnum>))]
         [DataMember(Name = "channel", EmitDefaultValue = true)]
         public ChannelEnum? Channel
         {
@@ -165,7 +169,7 @@ namespace Voucherify.Model
         /// The type of exported object.
         /// </summary>
         /// <value>The type of exported object.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ExportedObjectEnum>))]
         public enum ExportedObjectEnum
         {
             /// <summary>
@@ -181,6 +185,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of exported object.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ExportedObjectEnum>))]
         [DataMember(Name = "exported_object", EmitDefaultValue = true)]
         public ExportedObjectEnum? ExportedObject
         {

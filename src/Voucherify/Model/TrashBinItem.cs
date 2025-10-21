@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Type of the resource moved to the bin.
         /// </summary>
         /// <value>Type of the resource moved to the bin.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ResourceTypeEnum>))]
         public enum ResourceTypeEnum
         {
             /// <summary>
@@ -73,6 +74,7 @@ namespace Voucherify.Model
         <example>voucher</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<ResourceTypeEnum>))]
         [DataMember(Name = "resource_type", EmitDefaultValue = true)]
         public ResourceTypeEnum? ResourceType
         {
@@ -98,7 +100,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. It is equal to the &#x60;resource_type&#x60;.
         /// </summary>
         /// <value>The type of the object represented by JSON. It is equal to the &#x60;resource_type&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -135,6 +137,7 @@ namespace Voucherify.Model
         <example>voucher</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -165,7 +168,7 @@ namespace Voucherify.Model
         /// <param name="resourceId">Unique identifier of the resource moved to the bin, i.e. an ID of a campaign, product, SKU, or voucher..</param>
         /// <param name="resourceType">Type of the resource moved to the bin..</param>
         /// <param name="resourceName">Name of the resouce moved to the bin. It is the name of the campaign, product or SKU, or the voucher code..</param>
-        /// <param name="resourceParentId">Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for standalone vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products..</param>
+        /// <param name="resourceParentId">Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for generic (standalone) vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products..</param>
         /// <param name="varObject">The type of the object represented by JSON. It is equal to the &#x60;resource_type&#x60;..</param>
         public TrashBinItem(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), string deletedByUserId = default(string), string resourceId = default(string), ResourceTypeEnum? resourceType = default(ResourceTypeEnum?), string resourceName = default(string), string resourceParentId = default(string), ObjectEnum? varObject = default(ObjectEnum?))
         {
@@ -352,9 +355,9 @@ namespace Voucherify.Model
             return _flagResourceName;
         }
         /// <summary>
-        /// Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for standalone vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.
+        /// Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for generic (standalone) vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.
         /// </summary>
-        /// <value>Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for standalone vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.</value>
+        /// <value>Unique identifier of the parent resource. For a voucher, it is a campaign ID, except for generic (standalone) vouchers. For an SKU, it is the product ID. It returns &#x60;null&#x60; for campaigns and base products.</value>
         /*
         <example>camp_snn0eQL0PYWl5b6lY6HQNPfb</example>
         */

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -48,7 +49,13 @@ namespace Voucherify.Model
             /// Enum AutoUpdate for value: auto-update
             /// </summary>
             [EnumMember(Value = "auto-update")]
-            AutoUpdate = 2
+            AutoUpdate = 2,
+
+            /// <summary>
+            /// Enum Passive for value: passive
+            /// </summary>
+            [EnumMember(Value = "passive")]
+            Passive = 3
         }
 
 
@@ -56,6 +63,7 @@ namespace Voucherify.Model
         /// Gets or Sets Type
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -83,7 +91,7 @@ namespace Voucherify.Model
         /// <param name="name">Segment name..</param>
         /// <param name="type">type.</param>
         /// <param name="customers">Array of customer IDs..</param>
-        /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; segment type..</param>
+        /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type..</param>
         public SegmentsCreateRequestBody(string name = default(string), TypeEnum? type = default(TypeEnum?), List<string> customers = default(List<string>), Object filter = default(Object))
         {
             this._Name = name;
@@ -159,9 +167,9 @@ namespace Voucherify.Model
             return _flagCustomers;
         }
         /// <summary>
-        /// Defines a set of criteria for an &#x60;auto-update&#x60; segment type.
+        /// Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
         /// </summary>
-        /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; segment type.</value>
+        /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.</value>
         [DataMember(Name = "filter", EmitDefaultValue = true)]
         public Object Filter
         {

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Id of the redeemable. | [optional] 
+**Id** | **string** | ID of the redeemable. For a voucher, it&#39;s its &#x60;code&#x60; value. | [optional] 
 **Object** | **string** | Object type of the redeemable. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the object was created. The value is shown in the ISO 8601 format. | [optional] 
 **Result** | [**RedeemableResult**](RedeemableResult.md) |  | [optional] 

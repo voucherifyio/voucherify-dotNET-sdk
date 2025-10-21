@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -48,28 +49,12 @@ namespace Voucherify.Model
         public CustomerReferralsCampaignsItem(string campaignId = default(string), string referrerId = default(string), string relatedObjectId = default(string), string relatedObjectType = default(string), DateTimeOffset date = default(DateTimeOffset))
         {
             // to ensure "campaignId" is required (not null)
-            if (campaignId == null)
-            {
-                throw new ArgumentNullException("campaignId is a required property for CustomerReferralsCampaignsItem and cannot be null");
-            }
             this._CampaignId = campaignId;
             // to ensure "referrerId" is required (not null)
-            if (referrerId == null)
-            {
-                throw new ArgumentNullException("referrerId is a required property for CustomerReferralsCampaignsItem and cannot be null");
-            }
             this._ReferrerId = referrerId;
             // to ensure "relatedObjectId" is required (not null)
-            if (relatedObjectId == null)
-            {
-                throw new ArgumentNullException("relatedObjectId is a required property for CustomerReferralsCampaignsItem and cannot be null");
-            }
             this._RelatedObjectId = relatedObjectId;
             // to ensure "relatedObjectType" is required (not null)
-            if (relatedObjectType == null)
-            {
-                throw new ArgumentNullException("relatedObjectType is a required property for CustomerReferralsCampaignsItem and cannot be null");
-            }
             this._RelatedObjectType = relatedObjectType;
             this._Date = date;
         }
@@ -81,7 +66,7 @@ namespace Voucherify.Model
         /*
         <example>camp_rRsfatlwN7unSeUIJDCYedal</example>
         */
-        [DataMember(Name = "campaign_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "campaign_id", IsRequired = false, EmitDefaultValue = true)]
         public string CampaignId
         {
             get{ return _CampaignId;}
@@ -109,7 +94,7 @@ namespace Voucherify.Model
         /*
         <example>cust_sehkNIi8Uq2qQuRqSr7xn4Zi</example>
         */
-        [DataMember(Name = "referrer_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "referrer_id", IsRequired = false, EmitDefaultValue = true)]
         public string ReferrerId
         {
             get{ return _ReferrerId;}
@@ -137,7 +122,7 @@ namespace Voucherify.Model
         /*
         <example>r_0b9d4cc4aa164dd073</example>
         */
-        [DataMember(Name = "related_object_id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "related_object_id", IsRequired = false, EmitDefaultValue = true)]
         public string RelatedObjectId
         {
             get{ return _RelatedObjectId;}
@@ -162,7 +147,7 @@ namespace Voucherify.Model
         /// Related object type, i.e. &#x60;redemption&#x60;.
         /// </summary>
         /// <value>Related object type, i.e. &#x60;redemption&#x60;.</value>
-        [DataMember(Name = "related_object_type", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "related_object_type", IsRequired = false, EmitDefaultValue = true)]
         public string RelatedObjectType
         {
             get{ return _RelatedObjectType;}
@@ -190,7 +175,7 @@ namespace Voucherify.Model
         /*
         <example>2022-08-30T10:19:39.196Z</example>
         */
-        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "date", IsRequired = false, EmitDefaultValue = true)]
         public DateTimeOffset Date
         {
             get{ return _Date;}

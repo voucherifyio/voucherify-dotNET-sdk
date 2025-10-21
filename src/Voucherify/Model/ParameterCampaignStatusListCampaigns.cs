@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -30,7 +31,7 @@ namespace Voucherify.Model
     /// Status of the campaign. Allowed values: &#x60;DONE&#x60;, &#x60;IN_PROGRESS&#x60;, &#x60;DRAFT&#x60;, &#x60;FAILED&#x60; &#x60;MODIFYING&#x60;
     /// </summary>
     /// <value>Status of the campaign. Allowed values: &#x60;DONE&#x60;, &#x60;IN_PROGRESS&#x60;, &#x60;DRAFT&#x60;, &#x60;FAILED&#x60; &#x60;MODIFYING&#x60;</value>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(SafeEnumConverter<ParameterCampaignStatusListCampaigns>))]
     public enum ParameterCampaignStatusListCampaigns
     {
         /// <summary>

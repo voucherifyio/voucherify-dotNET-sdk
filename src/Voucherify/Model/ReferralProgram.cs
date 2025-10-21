@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Define how a referral is triggered.
         /// </summary>
         /// <value>Define how a referral is triggered.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ConversionEventTypeEnum>))]
         public enum ConversionEventTypeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Define how a referral is triggered.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ConversionEventTypeEnum>))]
         [DataMember(Name = "conversion_event_type", EmitDefaultValue = true)]
         public ConversionEventTypeEnum? ConversionEventType
         {

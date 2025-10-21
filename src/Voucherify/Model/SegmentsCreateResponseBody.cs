@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -33,10 +34,10 @@ namespace Voucherify.Model
     public partial class SegmentsCreateResponseBody : IValidatableObject
     {
         /// <summary>
-        /// Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers).
+        /// Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.
         /// </summary>
-        /// <value>Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.</value>
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -46,18 +47,25 @@ namespace Voucherify.Model
             AutoUpdate = 1,
 
             /// <summary>
+            /// Enum Passive for value: passive
+            /// </summary>
+            [EnumMember(Value = "passive")]
+            Passive = 2,
+
+            /// <summary>
             /// Enum Static for value: static
             /// </summary>
             [EnumMember(Value = "static")]
-            Static = 2
+            Static = 3
         }
 
 
         /// <summary>
-        /// Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers).
+        /// Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.
         /// </summary>
-        /// <value>Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers).</value>
+        /// <value>Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -82,7 +90,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines InitialSyncStatus
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<InitialSyncStatusEnum>))]
         public enum InitialSyncStatusEnum
         {
             /// <summary>
@@ -103,6 +111,7 @@ namespace Voucherify.Model
         /// Gets or Sets InitialSyncStatus
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<InitialSyncStatusEnum>))]
         [DataMember(Name = "initial_sync_status", EmitDefaultValue = true)]
         public InitialSyncStatusEnum? InitialSyncStatus
         {
@@ -128,7 +137,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. This object stores information about the customer segment.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the customer segment.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -144,6 +153,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the customer segment.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -171,8 +181,8 @@ namespace Voucherify.Model
         /// <param name="id">Unique segment ID..</param>
         /// <param name="name">Segment name..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the segment was created. The value is shown in the ISO 8601 format..</param>
-        /// <param name="type">Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers)..</param>
-        /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; segment type.  .</param>
+        /// <param name="type">Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers..</param>
+        /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type..</param>
         /// <param name="initialSyncStatus">initialSyncStatus.</param>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about the customer segment..</param>
         public SegmentsCreateResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), InitialSyncStatusEnum? initialSyncStatus = default(InitialSyncStatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
@@ -296,9 +306,9 @@ namespace Voucherify.Model
             return _flagCreatedAt;
         }
         /// <summary>
-        /// Defines a set of criteria for an &#x60;auto-update&#x60; segment type.  
+        /// Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
         /// </summary>
-        /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; segment type.  </value>
+        /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.</value>
         [DataMember(Name = "filter", EmitDefaultValue = true)]
         public Object Filter
         {

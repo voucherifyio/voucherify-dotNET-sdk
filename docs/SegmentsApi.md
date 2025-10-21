@@ -14,7 +14,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Create Segment
 
-Create a customer segment.  🚧 Limit on Static Segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
 
 ### Example
 ```csharp
@@ -214,7 +214,7 @@ void (empty response body)
 
 Get Segment
 
-Retrieves the segment with given segment ID.
+Retrieves the segment with a given segment ID.
 
 ### Example
 ```csharp

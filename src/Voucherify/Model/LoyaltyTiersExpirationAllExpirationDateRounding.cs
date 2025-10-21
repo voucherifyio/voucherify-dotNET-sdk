@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// This mechanism describes a custom rounding for the expiration date.
         /// </summary>
         /// <value>This mechanism describes a custom rounding for the expiration date.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -76,6 +77,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>This mechanism describes a custom rounding for the expiration date.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -101,7 +103,7 @@ namespace Voucherify.Model
         /// This mechanism describes a rounding strategy for the expiration date.
         /// </summary>
         /// <value>This mechanism describes a rounding strategy for the expiration date.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StrategyEnum>))]
         public enum StrategyEnum
         {
             /// <summary>
@@ -123,6 +125,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>This mechanism describes a rounding strategy for the expiration date.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StrategyEnum>))]
         [DataMember(Name = "strategy", EmitDefaultValue = true)]
         public StrategyEnum? Strategy
         {
@@ -148,7 +151,7 @@ namespace Voucherify.Model
         /// Defines the type of unit of time in which the rounding period is counted.
         /// </summary>
         /// <value>Defines the type of unit of time in which the rounding period is counted.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<UnitEnum>))]
         public enum UnitEnum
         {
             /// <summary>
@@ -164,6 +167,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the type of unit of time in which the rounding period is counted.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<UnitEnum>))]
         [DataMember(Name = "unit", EmitDefaultValue = true)]
         public UnitEnum? Unit
         {

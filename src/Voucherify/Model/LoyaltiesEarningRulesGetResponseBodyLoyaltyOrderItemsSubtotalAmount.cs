@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -33,10 +34,10 @@ namespace Voucherify.Model
     public partial class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmount : IValidatableObject
     {
         /// <summary>
-        /// Type of object taken under consideration.
+        /// Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used.
         /// </summary>
-        /// <value>Type of object taken under consideration.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used.</value>
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -60,10 +61,11 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Type of object taken under consideration.
+        /// Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used.
         /// </summary>
-        /// <value>Type of object taken under consideration.</value>
+        /// <value>Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -90,9 +92,11 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="every">Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 order amount is written as 1000..</param>
         /// <param name="points">Number of points to be awarded, i.e. how many points to be added to the loyalty card..</param>
-        /// <param name="varObject">Type of object taken under consideration..</param>
-        /// <param name="id">Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6, prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619..</param>
-        public LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmount(int? every = default(int?), int? points = default(int?), ObjectEnum? varObject = default(ObjectEnum?), string id = default(string))
+        /// <param name="pointsFormula">Formula used to dynamically calculate the rewarded points..</param>
+        /// <param name="varObject">Type of object which will be covered by the earning rule. This is required together with &#x60;id&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used..</param>
+        /// <param name="id">Unique ID of the resource assigned by Voucherify. This is required together with &#x60;object&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used. Values are, for example, &#x60;pc_75U0dHlr7u75BJodrW1AE3t6&#x60; for product collection, &#x60;prod_0bae32322150fd0546&#x60; for a product, or &#x60;sku_0b7d7dfb090be5c619&#x60; for a SKU..</param>
+        /// <param name="applicableTo">Defines products, SKUs, or product collections covered by the earning rule. Can be replaced by &#x60;object&#x60; and &#x60;id&#x60; to define only one object..</param>
+        public LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmount(int? every = default(int?), int? points = default(int?), string pointsFormula = default(string), ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), List<LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmountApplicableToItem> applicableTo = default(List<LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmountApplicableToItem>))
         {
             this._Every = every;
             if (this.Every != null)
@@ -104,6 +108,11 @@ namespace Voucherify.Model
             {
                 this._flagPoints = true;
             }
+            this._PointsFormula = pointsFormula;
+            if (this.PointsFormula != null)
+            {
+                this._flagPointsFormula = true;
+            }
             this._Object = varObject;
             if (this.Object != null)
             {
@@ -113,6 +122,11 @@ namespace Voucherify.Model
             if (this.Id != null)
             {
                 this._flagId = true;
+            }
+            this._ApplicableTo = applicableTo;
+            if (this.ApplicableTo != null)
+            {
+                this._flagApplicableTo = true;
             }
         }
 
@@ -167,9 +181,34 @@ namespace Voucherify.Model
             return _flagPoints;
         }
         /// <summary>
-        /// Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6, prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619.
+        /// Formula used to dynamically calculate the rewarded points.
         /// </summary>
-        /// <value>Unique ID of the resource, i.e. pc_75U0dHlr7u75BJodrW1AE3t6, prod_0bae32322150fd0546, or sku_0b7d7dfb090be5c619.</value>
+        /// <value>Formula used to dynamically calculate the rewarded points.</value>
+        [DataMember(Name = "points_formula", EmitDefaultValue = true)]
+        public string PointsFormula
+        {
+            get{ return _PointsFormula;}
+            set
+            {
+                _PointsFormula = value;
+                _flagPointsFormula = true;
+            }
+        }
+        private string _PointsFormula;
+        private bool _flagPointsFormula;
+
+        /// <summary>
+        /// Returns false as PointsFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePointsFormula()
+        {
+            return _flagPointsFormula;
+        }
+        /// <summary>
+        /// Unique ID of the resource assigned by Voucherify. This is required together with &#x60;object&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used. Values are, for example, &#x60;pc_75U0dHlr7u75BJodrW1AE3t6&#x60; for product collection, &#x60;prod_0bae32322150fd0546&#x60; for a product, or &#x60;sku_0b7d7dfb090be5c619&#x60; for a SKU.
+        /// </summary>
+        /// <value>Unique ID of the resource assigned by Voucherify. This is required together with &#x60;object&#x60;. Can be replaced by the &#x60;applicable_to&#x60; array. In response, the value of the first object is returned even if &#x60;applicable_to&#x60; array was used. Values are, for example, &#x60;pc_75U0dHlr7u75BJodrW1AE3t6&#x60; for product collection, &#x60;prod_0bae32322150fd0546&#x60; for a product, or &#x60;sku_0b7d7dfb090be5c619&#x60; for a SKU.</value>
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id
         {
@@ -192,6 +231,31 @@ namespace Voucherify.Model
             return _flagId;
         }
         /// <summary>
+        /// Defines products, SKUs, or product collections covered by the earning rule. Can be replaced by &#x60;object&#x60; and &#x60;id&#x60; to define only one object.
+        /// </summary>
+        /// <value>Defines products, SKUs, or product collections covered by the earning rule. Can be replaced by &#x60;object&#x60; and &#x60;id&#x60; to define only one object.</value>
+        [DataMember(Name = "applicable_to", EmitDefaultValue = true)]
+        public List<LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmountApplicableToItem> ApplicableTo
+        {
+            get{ return _ApplicableTo;}
+            set
+            {
+                _ApplicableTo = value;
+                _flagApplicableTo = true;
+            }
+        }
+        private List<LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmountApplicableToItem> _ApplicableTo;
+        private bool _flagApplicableTo;
+
+        /// <summary>
+        /// Returns false as ApplicableTo should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeApplicableTo()
+        {
+            return _flagApplicableTo;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -201,8 +265,10 @@ namespace Voucherify.Model
             sb.Append("class LoyaltiesEarningRulesGetResponseBodyLoyaltyOrderItemsSubtotalAmount {\n");
             sb.Append("  Every: ").Append(Every).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
+            sb.Append("  PointsFormula: ").Append(PointsFormula).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ApplicableTo: ").Append(ApplicableTo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

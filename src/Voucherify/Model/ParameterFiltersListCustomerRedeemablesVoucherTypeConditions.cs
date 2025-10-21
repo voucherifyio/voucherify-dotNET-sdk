@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines In
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<InEnum>))]
         public enum InEnum
         {
             /// <summary>
@@ -60,7 +61,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines NotIn
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<NotInEnum>))]
         public enum NotInEnum
         {
             /// <summary>
@@ -86,7 +87,7 @@ namespace Voucherify.Model
         /// Value is exactly this value (single value).
         /// </summary>
         /// <value>Value is exactly this value (single value).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<IsEnum>))]
         public enum IsEnum
         {
             /// <summary>
@@ -139,7 +140,7 @@ namespace Voucherify.Model
         /// Results omit this value (single value).
         /// </summary>
         /// <value>Results omit this value (single value).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<IsNotEnum>))]
         public enum IsNotEnum
         {
             /// <summary>

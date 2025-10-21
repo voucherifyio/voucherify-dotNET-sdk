@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -38,7 +39,7 @@ namespace Voucherify.Model
         /// <param name="name">Reward name..</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format..</param>
-        /// <param name="stock">The number of units of the product that you want to share as a reward..</param>
+        /// <param name="stock">The number of units of the product that you want to share as a reward.  Use this parameter to code a stock-taking logic..</param>
         /// <param name="attributes">attributes.</param>
         public RewardsUpdateRequestBody(string name = default(string), RewardsUpdateRequestBodyParameters parameters = default(RewardsUpdateRequestBodyParameters), Object metadata = default(Object), int? stock = default(int?), RewardsUpdateRequestBodyAttributes attributes = default(RewardsUpdateRequestBodyAttributes))
         {
@@ -144,9 +145,9 @@ namespace Voucherify.Model
             return _flagMetadata;
         }
         /// <summary>
-        /// The number of units of the product that you want to share as a reward.
+        /// The number of units of the product that you want to share as a reward.  Use this parameter to code a stock-taking logic.
         /// </summary>
-        /// <value>The number of units of the product that you want to share as a reward.</value>
+        /// <value>The number of units of the product that you want to share as a reward.  Use this parameter to code a stock-taking logic.</value>
         [DataMember(Name = "stock", EmitDefaultValue = true)]
         public int? Stock
         {
