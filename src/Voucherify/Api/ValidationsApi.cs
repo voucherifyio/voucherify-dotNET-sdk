@@ -32,7 +32,7 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -44,7 +44,7 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -64,7 +64,7 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -77,7 +77,7 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -206,7 +206,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -219,7 +219,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -298,7 +298,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>
@@ -312,7 +312,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys.
+        /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationsValidateRequestBody"> (optional)</param>

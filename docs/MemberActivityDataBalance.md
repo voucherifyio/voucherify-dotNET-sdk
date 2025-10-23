@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **int?** |  | [optional] 
+**Amount** | **int?** | Credits added or subtracted on a gift card. | [optional] 
 **Points** | **int?** | Points added or subtracted in the transaction of a loyalty card. | [optional] 
 **Type** | **string** | The type of voucher whose balance is being adjusted due to the transaction. | [optional] 
 **Total** | **int?** | The number of all points or credits accumulated on the card as affected by add or subtract operations. | [optional] 

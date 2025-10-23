@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -48,10 +49,6 @@ namespace Voucherify.Model
         public ClientEventsCreateRequestBody(string varEvent = default(string), Customer customer = default(Customer), ClientEventsCreateRequestBodyReferral referral = default(ClientEventsCreateRequestBodyReferral), ClientEventsCreateRequestBodyLoyalty loyalty = default(ClientEventsCreateRequestBodyLoyalty), Object metadata = default(Object))
         {
             // to ensure "customer" is required (not null)
-            if (customer == null)
-            {
-                throw new ArgumentNullException("customer is a required property for ClientEventsCreateRequestBody and cannot be null");
-            }
             this._Customer = customer;
             this._Event = varEvent;
             if (this.Event != null)
@@ -103,7 +100,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Customer
         /// </summary>
-        [DataMember(Name = "customer", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "customer", IsRequired = false, EmitDefaultValue = true)]
         public Customer Customer
         {
             get{ return _Customer;}

@@ -23,11 +23,12 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Response body schema for **GET** &#x60;v1/products/{productId}/skus&#x60;.
+    /// Response body schema for **GET** &#x60;v1/products/{productId}/SKUs&#x60;.
     /// </summary>
     [DataContract(Name = "ProductsSkusListResponseBody")]
     public partial class ProductsSkusListResponseBody : IValidatableObject

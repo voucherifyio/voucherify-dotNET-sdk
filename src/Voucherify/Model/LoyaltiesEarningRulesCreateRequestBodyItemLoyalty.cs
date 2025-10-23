@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -56,6 +57,7 @@ namespace Voucherify.Model
         /// Gets or Sets Type
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -80,7 +82,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines CalculationType
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CalculationTypeEnum>))]
         public enum CalculationTypeEnum
         {
             /// <summary>
@@ -137,6 +139,7 @@ namespace Voucherify.Model
         /// Gets or Sets CalculationType
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<CalculationTypeEnum>))]
         [DataMember(Name = "calculation_type", EmitDefaultValue = true)]
         public CalculationTypeEnum? CalculationType
         {
@@ -163,12 +166,13 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="type">type.</param>
         /// <param name="points">Defines how the points will be added to the loyalty card. FIXED adds a fixed number of points..</param>
+        /// <param name="pointsFormula">Formula used to dynamically calculate the rewarded points..</param>
         /// <param name="calculationType">calculationType.</param>
         /// <param name="order">order.</param>
         /// <param name="orderItems">orderItems.</param>
         /// <param name="customer">customer.</param>
         /// <param name="customEvent">customEvent.</param>
-        public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty(TypeEnum? type = default(TypeEnum?), int? points = default(int?), CalculationTypeEnum? calculationType = default(CalculationTypeEnum?), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems orderItems = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer customer = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent))
+        public LoyaltiesEarningRulesCreateRequestBodyItemLoyalty(TypeEnum? type = default(TypeEnum?), int? points = default(int?), string pointsFormula = default(string), CalculationTypeEnum? calculationType = default(CalculationTypeEnum?), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder order = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrder), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems orderItems = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyOrderItems), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer customer = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomer), LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent customEvent = default(LoyaltiesEarningRulesCreateRequestBodyItemLoyaltyCustomEvent))
         {
             this._Type = type;
             if (this.Type != null)
@@ -179,6 +183,11 @@ namespace Voucherify.Model
             if (this.Points != null)
             {
                 this._flagPoints = true;
+            }
+            this._PointsFormula = pointsFormula;
+            if (this.PointsFormula != null)
+            {
+                this._flagPointsFormula = true;
             }
             this._CalculationType = calculationType;
             if (this.CalculationType != null)
@@ -231,6 +240,31 @@ namespace Voucherify.Model
         public bool ShouldSerializePoints()
         {
             return _flagPoints;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the rewarded points.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the rewarded points.</value>
+        [DataMember(Name = "points_formula", EmitDefaultValue = true)]
+        public string PointsFormula
+        {
+            get{ return _PointsFormula;}
+            set
+            {
+                _PointsFormula = value;
+                _flagPointsFormula = true;
+            }
+        }
+        private string _PointsFormula;
+        private bool _flagPointsFormula;
+
+        /// <summary>
+        /// Returns false as PointsFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePointsFormula()
+        {
+            return _flagPointsFormula;
         }
         /// <summary>
         /// Gets or Sets Order
@@ -338,6 +372,7 @@ namespace Voucherify.Model
             sb.Append("class LoyaltiesEarningRulesCreateRequestBodyItemLoyalty {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
+            sb.Append("  PointsFormula: ").Append(PointsFormula).Append("\n");
             sb.Append("  CalculationType: ").Append(CalculationType).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  OrderItems: ").Append(OrderItems).Append("\n");

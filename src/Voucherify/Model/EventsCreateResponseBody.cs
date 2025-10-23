@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The object represented is an &#x60;event&#x60;.
         /// </summary>
         /// <value>The object represented is an &#x60;event&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The object represented is an &#x60;event&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -90,10 +92,6 @@ namespace Voucherify.Model
         public EventsCreateResponseBody(ObjectEnum? varObject = default(ObjectEnum?), string type = default(string), SimpleCustomerRequiredObjectType customer = default(SimpleCustomerRequiredObjectType), Object referral = default(Object), Object loyalty = default(Object), Object metadata = default(Object))
         {
             // to ensure "customer" is required (not null)
-            if (customer == null)
-            {
-                throw new ArgumentNullException("customer is a required property for EventsCreateResponseBody and cannot be null");
-            }
             this._Customer = customer;
             this._Object = varObject;
             if (this.Object != null)
@@ -150,7 +148,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Customer
         /// </summary>
-        [DataMember(Name = "customer", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "customer", IsRequired = false, EmitDefaultValue = true)]
         public SimpleCustomerRequiredObjectType Customer
         {
             get{ return _Customer;}

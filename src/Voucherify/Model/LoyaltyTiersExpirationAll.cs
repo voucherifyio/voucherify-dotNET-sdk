@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Tier qualification.     &#x60;BALANCE&#x60;: Points balance is based on the customer&#39;s current points balance. Customers qualify for the tier if their points balance is in the points range of the tier.   &#x60;POINTS_IN_PERIOD&#x60;: A customer qualifies for the tier only if the sum of the accumulated points in a **defined time interval** reaches the tier threshold.
         /// </summary>
         /// <value>Tier qualification.     &#x60;BALANCE&#x60;: Points balance is based on the customer&#39;s current points balance. Customers qualify for the tier if their points balance is in the points range of the tier.   &#x60;POINTS_IN_PERIOD&#x60;: A customer qualifies for the tier only if the sum of the accumulated points in a **defined time interval** reaches the tier threshold.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<QualificationTypeEnum>))]
         public enum QualificationTypeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Tier qualification.     &#x60;BALANCE&#x60;: Points balance is based on the customer&#39;s current points balance. Customers qualify for the tier if their points balance is in the points range of the tier.   &#x60;POINTS_IN_PERIOD&#x60;: A customer qualifies for the tier only if the sum of the accumulated points in a **defined time interval** reaches the tier threshold.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<QualificationTypeEnum>))]
         [DataMember(Name = "qualification_type", EmitDefaultValue = true)]
         public QualificationTypeEnum? QualificationType
         {
@@ -80,10 +82,10 @@ namespace Voucherify.Model
             return _flagQualificationType;
         }
         /// <summary>
-        /// Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |
+        /// Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |
         /// </summary>
-        /// <value>Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |</value>
+        [JsonConverter(typeof(SafeEnumConverter<QualificationPeriodEnum>))]
         public enum QualificationPeriodEnum
         {
             /// <summary>
@@ -113,10 +115,11 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |
+        /// Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |
         /// </summary>
-        /// <value>Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |</value>
+        /// <value>Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<QualificationPeriodEnum>))]
         [DataMember(Name = "qualification_period", EmitDefaultValue = true)]
         public QualificationPeriodEnum? QualificationPeriod
         {
@@ -142,7 +145,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltyTiersExpirationAll" /> class.
         /// </summary>
         /// <param name="qualificationType">Tier qualification.     &#x60;BALANCE&#x60;: Points balance is based on the customer&#39;s current points balance. Customers qualify for the tier if their points balance is in the points range of the tier.   &#x60;POINTS_IN_PERIOD&#x60;: A customer qualifies for the tier only if the sum of the accumulated points in a **defined time interval** reaches the tier threshold..</param>
-        /// <param name="qualificationPeriod">Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br&gt;- January - March&lt;br&gt;- April - June&lt;br&gt;- July - September&lt;br&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br&gt;- January - June&lt;br&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br&gt;January - December |.</param>
+        /// <param name="qualificationPeriod">Customers can qualify for the tier if they collected enough points in a given time period. So, in addition to the customer having to reach a points range, they also need to have collected the points within a set time period.      | **Period** | **Definition** | |:- --|:- --| | **Calendar Month** | Points collected in one calendar month&lt;br /&gt;January, February, March, etc. | | **Calendar Quarter** | Points collected in the quarter&lt;br /&gt;- January - March&lt;br /&gt;- April - June&lt;br /&gt;- July - September&lt;br /&gt;- October - December | | **Calendar Half-year** | Points collected in the half-year&lt;br /&gt;- January - June&lt;br /&gt;- July - December | | **Calendar Year** | Points collected in one calendar year&lt;br /&gt;January - December |.</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="expirationDate">expirationDate.</param>
         public LoyaltyTiersExpirationAll(QualificationTypeEnum? qualificationType = default(QualificationTypeEnum?), QualificationPeriodEnum? qualificationPeriod = default(QualificationPeriodEnum?), LoyaltyTiersExpirationAllStartDate startDate = default(LoyaltyTiersExpirationAllStartDate), LoyaltyTiersExpirationAllExpirationDate expirationDate = default(LoyaltyTiersExpirationAllExpirationDate))

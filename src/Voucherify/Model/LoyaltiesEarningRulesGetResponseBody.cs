@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. Default is earning_rule.
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is earning_rule.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is earning_rule.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -134,10 +136,11 @@ namespace Voucherify.Model
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
         /// <param name="validityHours">validityHours.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the earning rule. A set of key/value pairs that you can attach to an earning rule object. It can be useful for storing additional information about the earning rule in a structured format..</param>
+        /// <param name="expirationRules">expirationRules.</param>
         /// <param name="validationRuleId">A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the earning rule was last updated in ISO 8601 format..</param>
         /// <param name="active">A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the start_date and expiration_date of the campaign or the earning rule&#39;s own start_date and expiration_date.  - &#x60;true&#x60; indicates an active earning rule - &#x60;false&#x60; indicates an inactive earning rule.</param>
-        public LoyaltiesEarningRulesGetResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), LoyaltiesEarningRulesGetResponseBodyLoyalty loyalty = default(LoyaltiesEarningRulesGetResponseBodyLoyalty), string varEvent = default(string), LoyaltiesEarningRulesGetResponseBodyCustomEvent customEvent = default(LoyaltiesEarningRulesGetResponseBodyCustomEvent), LoyaltiesEarningRulesGetResponseBodySegment segment = default(LoyaltiesEarningRulesGetResponseBodySegment), LoyaltiesEarningRulesGetResponseBodyLoyaltyTier loyaltyTier = default(LoyaltiesEarningRulesGetResponseBodyLoyaltyTier), LoyaltiesEarningRulesGetResponseBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesGetResponseBodyPendingPoints), LoyaltiesEarningRulesGetResponseBodySource source = default(LoyaltiesEarningRulesGetResponseBodySource), ObjectEnum? varObject = default(ObjectEnum?), string automationId = default(string), string startDate = default(string), string expirationDate = default(string), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object), string validationRuleId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), bool? active = default(bool?))
+        public LoyaltiesEarningRulesGetResponseBody(string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), LoyaltiesEarningRulesGetResponseBodyLoyalty loyalty = default(LoyaltiesEarningRulesGetResponseBodyLoyalty), string varEvent = default(string), LoyaltiesEarningRulesGetResponseBodyCustomEvent customEvent = default(LoyaltiesEarningRulesGetResponseBodyCustomEvent), LoyaltiesEarningRulesGetResponseBodySegment segment = default(LoyaltiesEarningRulesGetResponseBodySegment), LoyaltiesEarningRulesGetResponseBodyLoyaltyTier loyaltyTier = default(LoyaltiesEarningRulesGetResponseBodyLoyaltyTier), LoyaltiesEarningRulesGetResponseBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesGetResponseBodyPendingPoints), LoyaltiesEarningRulesGetResponseBodySource source = default(LoyaltiesEarningRulesGetResponseBodySource), ObjectEnum? varObject = default(ObjectEnum?), string automationId = default(string), string startDate = default(string), string expirationDate = default(string), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object), EarningRuleExpirationRules expirationRules = default(EarningRuleExpirationRules), string validationRuleId = default(string), DateTimeOffset? updatedAt = default(DateTimeOffset?), bool? active = default(bool?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -223,6 +226,11 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
+            }
+            this._ExpirationRules = expirationRules;
+            if (this.ExpirationRules != null)
+            {
+                this._flagExpirationRules = true;
             }
             this._ValidationRuleId = validationRuleId;
             if (this.ValidationRuleId != null)
@@ -636,6 +644,30 @@ namespace Voucherify.Model
             return _flagMetadata;
         }
         /// <summary>
+        /// Gets or Sets ExpirationRules
+        /// </summary>
+        [DataMember(Name = "expiration_rules", EmitDefaultValue = true)]
+        public EarningRuleExpirationRules ExpirationRules
+        {
+            get{ return _ExpirationRules;}
+            set
+            {
+                _ExpirationRules = value;
+                _flagExpirationRules = true;
+            }
+        }
+        private EarningRuleExpirationRules _ExpirationRules;
+        private bool _flagExpirationRules;
+
+        /// <summary>
+        /// Returns false as ExpirationRules should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeExpirationRules()
+        {
+            return _flagExpirationRules;
+        }
+        /// <summary>
         /// A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance.
         /// </summary>
         /// <value>A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance.</value>
@@ -735,6 +767,7 @@ namespace Voucherify.Model
             sb.Append("  ValidityDayOfWeek: ").Append(ValidityDayOfWeek).Append("\n");
             sb.Append("  ValidityHours: ").Append(ValidityHours).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  ExpirationRules: ").Append(ExpirationRules).Append("\n");
             sb.Append("  ValidationRuleId: ").Append(ValidationRuleId).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Active: ").Append(Active).Append("\n");

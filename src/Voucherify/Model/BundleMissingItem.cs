@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Determines the type of the object that is missing in the customer&#39;s order items.
         /// </summary>
         /// <value>Determines the type of the object that is missing in the customer&#39;s order items.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -64,7 +65,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Determines the type of the object that is missing in the customer&#39;s order items.</value>
 
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
+        [DataMember(Name = "object", IsRequired = false, EmitDefaultValue = true)]
         public ObjectEnum Object
         {
             get{ return _Object;}
@@ -99,10 +101,6 @@ namespace Voucherify.Model
         public BundleMissingItem(string id = default(string), ObjectEnum varObject = default(ObjectEnum), int itemQuantity = default(int))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for BundleMissingItem and cannot be null");
-            }
             this._Id = id;
             this._Object = varObject;
             this._ItemQuantity = itemQuantity;
@@ -112,7 +110,7 @@ namespace Voucherify.Model
         /// Unique identifier of the collection, product, or SKU that is missing in the customer&#39;s order items. This is an ID assigned by Voucherify.
         /// </summary>
         /// <value>Unique identifier of the collection, product, or SKU that is missing in the customer&#39;s order items. This is an ID assigned by Voucherify.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = true)]
         public string Id
         {
             get{ return _Id;}
@@ -137,7 +135,7 @@ namespace Voucherify.Model
         /// Quantity of items that are missing in the order items to meet the bundle conditions.
         /// </summary>
         /// <value>Quantity of items that are missing in the order items to meet the bundle conditions.</value>
-        [DataMember(Name = "item_quantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "item_quantity", IsRequired = false, EmitDefaultValue = true)]
         public int ItemQuantity
         {
             get{ return _ItemQuantity;}

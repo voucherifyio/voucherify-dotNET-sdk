@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines HierarchyMode
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<HierarchyModeEnum>))]
         public enum HierarchyModeEnum
         {
             /// <summary>
@@ -50,6 +51,7 @@ namespace Voucherify.Model
         /// Gets or Sets HierarchyMode
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<HierarchyModeEnum>))]
         [DataMember(Name = "hierarchy_mode", EmitDefaultValue = true)]
         public HierarchyModeEnum? HierarchyMode
         {

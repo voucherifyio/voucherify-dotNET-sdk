@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON. This object stores information about the reward assignment.
         /// </summary>
         /// <value>The type of the object represented by the JSON. This object stores information about the reward assignment.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON. This object stores information about the reward assignment.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Related object type to which the reward was assigned.
         /// </summary>
         /// <value>Related object type to which the reward was assigned.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         public enum RelatedObjectTypeEnum
         {
             /// <summary>
@@ -93,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Related object type to which the reward was assigned.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         [DataMember(Name = "related_object_type", EmitDefaultValue = true)]
         public RelatedObjectTypeEnum? RelatedObjectType
         {

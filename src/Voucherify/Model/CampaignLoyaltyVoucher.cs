@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Type of voucher.
         /// </summary>
         /// <value>Type of voucher.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Type of voucher.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -88,10 +90,6 @@ namespace Voucherify.Model
         public CampaignLoyaltyVoucher(TypeEnum? type = default(TypeEnum?), CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), CampaignLoyaltyVoucherRedemption redemption = default(CampaignLoyaltyVoucherRedemption), CodeConfig codeConfig = default(CodeConfig))
         {
             // to ensure "loyaltyCard" is required (not null)
-            if (loyaltyCard == null)
-            {
-                throw new ArgumentNullException("loyaltyCard is a required property for CampaignLoyaltyVoucher and cannot be null");
-            }
             this._LoyaltyCard = loyaltyCard;
             this._Type = type;
             if (this.Type != null)
@@ -113,7 +111,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets LoyaltyCard
         /// </summary>
-        [DataMember(Name = "loyalty_card", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "loyalty_card", IsRequired = false, EmitDefaultValue = true)]
         public CampaignLoyaltyCard LoyaltyCard
         {
             get{ return _LoyaltyCard;}

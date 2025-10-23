@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Used along with the source_id property, can be set to either sku or product.
         /// </summary>
         /// <value>Used along with the source_id property, can be set to either sku or product.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectEnum>))]
         public enum RelatedObjectEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Used along with the source_id property, can be set to either sku or product.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectEnum>))]
         [DataMember(Name = "related_object", EmitDefaultValue = true)]
         public RelatedObjectEnum? RelatedObject
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON.
         /// </summary>
         /// <value>The type of the object represented by JSON.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {

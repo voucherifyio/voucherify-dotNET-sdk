@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Type
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -68,6 +69,7 @@ namespace Voucherify.Model
         /// Gets or Sets Type
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -92,7 +94,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Effect
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<EffectEnum>))]
         public enum EffectEnum
         {
             /// <summary>
@@ -149,6 +151,7 @@ namespace Voucherify.Model
         /// Gets or Sets Effect
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<EffectEnum>))]
         [DataMember(Name = "effect", EmitDefaultValue = true)]
         public EffectEnum? Effect
         {
@@ -175,21 +178,21 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="type">type.</param>
         /// <param name="amountOff">Amount taken off the subtotal of a price. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 discount is written as 1000..</param>
-        /// <param name="amountOffFormula">amountOffFormula.</param>
+        /// <param name="amountOffFormula">Formula used to dynamically calculate the discount..</param>
         /// <param name="aggregatedAmountLimit">Maximum discount amount per order..</param>
         /// <param name="effect">effect.</param>
         /// <param name="isDynamic">Flag indicating whether the discount was calculated using a formula..</param>
         /// <param name="unitOff">Number of units to be granted a full value discount..</param>
-        /// <param name="unitOffFormula">Formula used to calculate the number of units..</param>
+        /// <param name="unitOffFormula">Formula used to dynamically calculate the number of units..</param>
         /// <param name="unitType">The product deemed as free, chosen from product inventory (e.g. time, items)..</param>
         /// <param name="product">product.</param>
         /// <param name="sku">sku.</param>
         /// <param name="units">units.</param>
         /// <param name="percentOff">The percent discount that the customer will receive..</param>
-        /// <param name="percentOffFormula">percentOffFormula.</param>
+        /// <param name="percentOffFormula">Formula used to dynamically calculate the discount..</param>
         /// <param name="amountLimit">Upper limit allowed to be applied as a discount. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount is written as 600..</param>
         /// <param name="fixedAmount">Sets a fixed value for an order total or the item price. The value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 discount is written as 1000. If the fixed amount is calculated by the formula, i.e. the &#x60;fixed_amount_formula&#x60; parameter is present in the fixed amount definition, this value becomes the **fallback value**. As a result, if the formula cannot be calculated due to missing metadata, for example, this value will be used as the fixed value..</param>
-        /// <param name="fixedAmountFormula">fixedAmountFormula.</param>
+        /// <param name="fixedAmountFormula">Formula used to dynamically calculate the discount..</param>
         public Discount(TypeEnum? type = default(TypeEnum?), decimal? amountOff = default(decimal?), string amountOffFormula = default(string), int? aggregatedAmountLimit = default(int?), EffectEnum? effect = default(EffectEnum?), bool? isDynamic = default(bool?), int? unitOff = default(int?), string unitOffFormula = default(string), string unitType = default(string), DiscountProduct product = default(DiscountProduct), SimpleSkuDiscountUnit sku = default(SimpleSkuDiscountUnit), List<DiscountUnitMultipleOneUnit> units = default(List<DiscountUnitMultipleOneUnit>), decimal? percentOff = default(decimal?), string percentOffFormula = default(string), decimal? amountLimit = default(decimal?), decimal? fixedAmount = default(decimal?), string fixedAmountFormula = default(string))
         {
             this._Type = type;
@@ -305,8 +308,9 @@ namespace Voucherify.Model
             return _flagAmountOff;
         }
         /// <summary>
-        /// Gets or Sets AmountOffFormula
+        /// Formula used to dynamically calculate the discount.
         /// </summary>
+        /// <value>Formula used to dynamically calculate the discount.</value>
         [DataMember(Name = "amount_off_formula", EmitDefaultValue = true)]
         public string AmountOffFormula
         {
@@ -404,9 +408,9 @@ namespace Voucherify.Model
             return _flagUnitOff;
         }
         /// <summary>
-        /// Formula used to calculate the number of units.
+        /// Formula used to dynamically calculate the number of units.
         /// </summary>
-        /// <value>Formula used to calculate the number of units.</value>
+        /// <value>Formula used to dynamically calculate the number of units.</value>
         [DataMember(Name = "unit_off_formula", EmitDefaultValue = true)]
         public string UnitOffFormula
         {
@@ -551,8 +555,9 @@ namespace Voucherify.Model
             return _flagPercentOff;
         }
         /// <summary>
-        /// Gets or Sets PercentOffFormula
+        /// Formula used to dynamically calculate the discount.
         /// </summary>
+        /// <value>Formula used to dynamically calculate the discount.</value>
         [DataMember(Name = "percent_off_formula", EmitDefaultValue = true)]
         public string PercentOffFormula
         {
@@ -625,8 +630,9 @@ namespace Voucherify.Model
             return _flagFixedAmount;
         }
         /// <summary>
-        /// Gets or Sets FixedAmountFormula
+        /// Formula used to dynamically calculate the discount.
         /// </summary>
+        /// <value>Formula used to dynamically calculate the discount.</value>
         [DataMember(Name = "fixed_amount_formula", EmitDefaultValue = true)]
         public string FixedAmountFormula
         {

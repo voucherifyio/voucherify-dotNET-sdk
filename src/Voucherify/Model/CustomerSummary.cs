@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -45,23 +46,15 @@ namespace Voucherify.Model
         public CustomerSummary(CustomerSummaryRedemptions redemptions = default(CustomerSummaryRedemptions), CustomerSummaryOrders orders = default(CustomerSummaryOrders))
         {
             // to ensure "redemptions" is required (not null)
-            if (redemptions == null)
-            {
-                throw new ArgumentNullException("redemptions is a required property for CustomerSummary and cannot be null");
-            }
             this._Redemptions = redemptions;
             // to ensure "orders" is required (not null)
-            if (orders == null)
-            {
-                throw new ArgumentNullException("orders is a required property for CustomerSummary and cannot be null");
-            }
             this._Orders = orders;
         }
 
         /// <summary>
         /// Gets or Sets Redemptions
         /// </summary>
-        [DataMember(Name = "redemptions", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "redemptions", IsRequired = false, EmitDefaultValue = true)]
         public CustomerSummaryRedemptions Redemptions
         {
             get{ return _Redemptions;}
@@ -85,7 +78,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Orders
         /// </summary>
-        [DataMember(Name = "orders", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "orders", IsRequired = false, EmitDefaultValue = true)]
         public CustomerSummaryOrders Orders
         {
             get{ return _Orders;}

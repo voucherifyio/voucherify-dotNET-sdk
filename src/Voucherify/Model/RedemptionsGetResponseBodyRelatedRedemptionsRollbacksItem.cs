@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values. This is returned only in GET &#x60;v1/redemptions/&#x60; and GET &#x60;v1/redemptions/{redemptionId}&#x60; endpoints.
         /// </summary>
         /// <value>Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values. This is returned only in GET &#x60;v1/redemptions/&#x60; and GET &#x60;v1/redemptions/{redemptionId}&#x60; endpoints.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RollbackOrderModeEnum>))]
         public enum RollbackOrderModeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values. This is returned only in GET &#x60;v1/redemptions/&#x60; and GET &#x60;v1/redemptions/{redemptionId}&#x60; endpoints.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RollbackOrderModeEnum>))]
         [DataMember(Name = "rollback_order_mode", EmitDefaultValue = true)]
         public RollbackOrderModeEnum? RollbackOrderMode
         {

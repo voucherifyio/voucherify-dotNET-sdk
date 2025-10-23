@@ -1,4 +1,5 @@
 # Voucherify.Model.CustomerSummaryOrders
+Lists details about orders related to the customer. Lists only data for orders with the `PAID` or `FULFILLED` status. Data from orders with a `CREATED` or `CANCELED` status are not included. The data is updated also when an order changes status.
 
 ## Properties
 

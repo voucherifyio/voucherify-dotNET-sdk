@@ -5,7 +5,7 @@ All URIs are relative to *https://api.voucherify.io*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreatePublication**](PublicationsApi.md#createpublication) | **POST** /v1/publications | Create Publication |
-| [**CreatePublication1**](PublicationsApi.md#createpublication1) | **GET** /v1/publications/create | Create Publication |
+| [**CreatePublication1**](PublicationsApi.md#createpublication1) | **GET** /v1/publications/create | Create Publication with GET |
 | [**ListPublications**](PublicationsApi.md#listpublications) | **GET** /v1/publications | List Publications |
 
 <a id="createpublication"></a>
@@ -116,9 +116,9 @@ catch (ApiException e)
 # **CreatePublication1**
 > PublicationsCreateResponseBody CreatePublication1 (Customer customer, bool? joinOnce = null, string voucher = null, CreatePublicationCampaign campaign = null, string sourceId = null, Object metadata = null)
 
-Create Publication
+Create Publication with GET
 
-This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.  ❗️ Limited access  Access to this endpoint is limited. This endpoint is designed for specific integrations and the API keys need to be configured to access this endpoint. Navigate to the **Dashboard** &rarr; **Project Settings** &rarr; **General** &rarr; **Integration Keys** to set up a pair of API keys and use them to send the request.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  This endpoint does not support the publishing of multiple vouchers from a single campaign. In case you want to publish multiple vouchers within a single publication, you need to use a dedicated endpoint.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.   # Example Request      ❗️ Required    Query param voucher OR campaign MUST be filled out. If you provide both, campaign param will be skipped.
+This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.  ❗️ Limited access  Access to this endpoint is limited. This endpoint is designed for specific integrations and the API keys need to be configured to access this endpoint. Navigate to the **Dashboard** &rarr; **Project Settings** &rarr; **General** &rarr; **Integration Keys** to set up a pair of API keys and use them to send the request.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  This endpoint does not support the publishing of multiple vouchers from a single campaign. In case you want to publish multiple vouchers within a single publication, you need to use a [dedicated endpoint](/api-reference/publications/create-publication).    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.   # Example Request      ❗️ Required    Query param voucher OR campaign MUST be filled out. If you provide both, campaign param will be skipped.
 
 ### Example
 ```csharp
@@ -157,7 +157,7 @@ namespace Example
 
             try
             {
-                // Create Publication
+                // Create Publication with GET
                 PublicationsCreateResponseBody result = apiInstance.CreatePublication1(customer, joinOnce, voucher, campaign, sourceId, metadata);
                 Debug.WriteLine(result);
             }
@@ -178,7 +178,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Create Publication
+    // Create Publication with GET
     ApiResponse<PublicationsCreateResponseBody> response = apiInstance.CreatePublication1WithHttpInfo(customer, joinOnce, voucher, campaign, sourceId, metadata);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -230,7 +230,7 @@ catch (ApiException e)
 
 List Publications
 
-Retrieve a list of publications. To return a **particular** publication, you can use the source_id query parameter and provide the source_id of the publication you are looking for specifically. # Pagination  🚧 Important!  If you want to scroll through a huge set of records, it is recommended to use the Exports API. This API will return an error page_over_limit if you reach a page above 1000. # Filter Query The filters query parameter allows for joining multiple parameters with logical operators. The syntax looks as follows:  ## Operators:  ## Examples  
+Retrieve a list of publications. To return a **particular** publication, you can use the source_id query parameter and provide the source_id of the publication you are looking for specifically. # Pagination  🚧 Important!  If you want to scroll through a huge set of records, it is recommended to use the [Exports API](/api-reference/exports/create-export). This API will return an error page_over_limit if you reach a page above 1000. # Filter Query The filters query parameter allows for joining multiple parameters with logical operators. The syntax looks as follows:  ## Examples  
 
 ### Example
 ```csharp
@@ -342,7 +342,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns a list of publications you&#39;ve previously created with &lt;!- - [create publication](OpenAPI.json/paths/~1publications/post) - -&gt;[create publication](ref:create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. |  -  |
+| **200** | Returns a list of publications you&#39;ve previously created with [create publication](/api-reference/publications/create-publication) or implicitly by the distribution manager. The publications are returned in sorted order, with the most recent ones appearing first. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Redemption result.
         /// </summary>
         /// <value>Redemption result.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         public enum ResultEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Redemption result.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public ResultEnum? Result
         {
@@ -82,7 +84,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Status
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -109,6 +111,7 @@ namespace Voucherify.Model
         /// Gets or Sets Status
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {

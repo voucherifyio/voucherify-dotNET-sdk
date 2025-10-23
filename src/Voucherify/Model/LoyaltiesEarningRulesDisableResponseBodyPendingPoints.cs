@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Defines the type of the period during which the points are in the pending state. Currently, only &#x60;DAY&#x60; value is accepted.
         /// </summary>
         /// <value>Defines the type of the period during which the points are in the pending state. Currently, only &#x60;DAY&#x60; value is accepted.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<PeriodTypeEnum>))]
         public enum PeriodTypeEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the type of the period during which the points are in the pending state. Currently, only &#x60;DAY&#x60; value is accepted.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<PeriodTypeEnum>))]
         [DataMember(Name = "period_type", EmitDefaultValue = true)]
         public PeriodTypeEnum? PeriodType
         {

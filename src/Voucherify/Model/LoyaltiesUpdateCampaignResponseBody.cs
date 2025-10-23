@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Type of campaign.
         /// </summary>
         /// <value>Type of campaign.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CampaignTypeEnum>))]
         public enum CampaignTypeEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Type of campaign.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<CampaignTypeEnum>))]
         [DataMember(Name = "campaign_type", EmitDefaultValue = true)]
         public CampaignTypeEnum? CampaignType
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published
         /// </summary>
         /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -165,7 +168,7 @@ namespace Voucherify.Model
         /// Indicates the status of the campaign creation.
         /// </summary>
         /// <value>Indicates the status of the campaign creation.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CreationStatusEnum>))]
         public enum CreationStatusEnum
         {
             /// <summary>
@@ -205,6 +208,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Indicates the status of the campaign creation.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<CreationStatusEnum>))]
         [DataMember(Name = "creation_status", EmitDefaultValue = true)]
         public CreationStatusEnum? CreationStatus
         {
@@ -230,7 +234,7 @@ namespace Voucherify.Model
         /// Indicates the status of the campaign&#39;s voucher generation.
         /// </summary>
         /// <value>Indicates the status of the campaign&#39;s voucher generation.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<VouchersGenerationStatusEnum>))]
         public enum VouchersGenerationStatusEnum
         {
             /// <summary>
@@ -270,6 +274,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Indicates the status of the campaign&#39;s voucher generation.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<VouchersGenerationStatusEnum>))]
         [DataMember(Name = "vouchers_generation_status", EmitDefaultValue = true)]
         public VouchersGenerationStatusEnum? VouchersGenerationStatus
         {
@@ -301,7 +306,7 @@ namespace Voucherify.Model
         /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation.      - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria     -  &#x60;STATIC&#x60;: vouchers need to be manually published.</param>
         /// <param name="voucher">voucher.</param>
         /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
-        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once..</param>
+        /// <param name="joinOnce">Always set to &#x60;true&#x60; for loyalty campaigns, meaning customers can join the campaign only once. It can&#39;t be changed to &#x60;false&#x60;..</param>
         /// <param name="useVoucherMetadataSchema">Flag indicating whether the campaign is to use the voucher&#39;s metadata schema instead of the campaign metadata schema..</param>
         /// <param name="validityTimeframe">validityTimeframe.</param>
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
@@ -612,9 +617,9 @@ namespace Voucherify.Model
             return _flagAutoJoin;
         }
         /// <summary>
-        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.
+        /// Always set to &#x60;true&#x60; for loyalty campaigns, meaning customers can join the campaign only once. It can&#39;t be changed to &#x60;false&#x60;.
         /// </summary>
-        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once.</value>
+        /// <value>Always set to &#x60;true&#x60; for loyalty campaigns, meaning customers can join the campaign only once. It can&#39;t be changed to &#x60;false&#x60;.</value>
         [DataMember(Name = "join_once", EmitDefaultValue = true)]
         public bool? JoinOnce
         {

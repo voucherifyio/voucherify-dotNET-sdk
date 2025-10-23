@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The webhook version used in the project.
         /// </summary>
         /// <value>The webhook version used in the project.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<WebhookVersionEnum>))]
         public enum WebhookVersionEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The webhook version used in the project.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<WebhookVersionEnum>))]
         [DataMember(Name = "webhook_version", EmitDefaultValue = true)]
         public WebhookVersionEnum? WebhookVersion
         {

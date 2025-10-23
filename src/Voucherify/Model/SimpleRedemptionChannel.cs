@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The source of the channel for the redemption: &#x60;USER&#x60; - the redemption was made in the Voucherify Dashboard by a user,  &#x60;API&#x60; - redemption was made through the API, &#x60;AUTO_REDEEM&#x60; - the redemption was made automatically for a reward.
         /// </summary>
         /// <value>The source of the channel for the redemption: &#x60;USER&#x60; - the redemption was made in the Voucherify Dashboard by a user,  &#x60;API&#x60; - redemption was made through the API, &#x60;AUTO_REDEEM&#x60; - the redemption was made automatically for a reward.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ChannelTypeEnum>))]
         public enum ChannelTypeEnum
         {
             /// <summary>
@@ -64,6 +65,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The source of the channel for the redemption: &#x60;USER&#x60; - the redemption was made in the Voucherify Dashboard by a user,  &#x60;API&#x60; - redemption was made through the API, &#x60;AUTO_REDEEM&#x60; - the redemption was made automatically for a reward.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ChannelTypeEnum>))]
         [DataMember(Name = "channel_type", EmitDefaultValue = true)]
         public ChannelTypeEnum? ChannelType
         {

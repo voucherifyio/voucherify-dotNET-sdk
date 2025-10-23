@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Determines the color scheme of the customer cockpit.
         /// </summary>
         /// <value>Determines the color scheme of the customer cockpit.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ThemeEnum>))]
         public enum ThemeEnum
         {
             /// <summary>
@@ -94,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Determines the color scheme of the customer cockpit.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ThemeEnum>))]
         [DataMember(Name = "theme", EmitDefaultValue = true)]
         public ThemeEnum? Theme
         {

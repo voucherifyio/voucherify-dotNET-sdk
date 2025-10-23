@@ -415,7 +415,7 @@ This endpoint does not need any parameter.
 
 Update Category
 
-Update category using the category ID.
+Update a category using the category ID.
 
 ### Example
 ```csharp

@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the campaign created out of the campaign template.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -87,10 +89,6 @@ namespace Voucherify.Model
         public TemplatesCampaignsCampaignSetupCreateResponseBody(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem> createdResources = default(List<TemplatesCampaignsCampaignSetupCreateResponseBodyCreatedResourcesItem>), Campaign campaign = default(Campaign), ObjectEnum? varObject = default(ObjectEnum?))
         {
             // to ensure "campaign" is required (not null)
-            if (campaign == null)
-            {
-                throw new ArgumentNullException("campaign is a required property for TemplatesCampaignsCampaignSetupCreateResponseBody and cannot be null");
-            }
             this._Campaign = campaign;
             this._CreatedResources = createdResources;
             if (this.CreatedResources != null)
@@ -132,7 +130,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Campaign
         /// </summary>
-        [DataMember(Name = "campaign", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "campaign", IsRequired = false, EmitDefaultValue = true)]
         public Campaign Campaign
         {
             get{ return _Campaign;}

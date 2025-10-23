@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -80,14 +81,15 @@ namespace Voucherify.Model
         /// <param name="loyalty">loyalty.</param>
         /// <param name="source">source.</param>
         /// <param name="active">A flag to toggle the earning rule on or off. You can disable an earning rule even though it&#39;s within the active period defined by the &#x60;start_date&#x60; and &#x60;expiration_date&#x60; of the campaign or the earning rule&#39;s own &#x60;start_date&#x60; and &#x60;expiration_date&#x60;.    - &#x60;true&#x60; indicates an *active* earning rule - &#x60;false&#x60; indicates an *inactive* earning rule.</param>
-        /// <param name="startDate">Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default. .</param>
-        /// <param name="expirationDate">Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default..</param>
+        /// <param name="startDate">Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it will inherit the campaign start date by default. .</param>
+        /// <param name="expirationDate">Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it will inherit the campaign expiration date by default..</param>
         /// <param name="pendingPoints">pendingPoints.</param>
+        /// <param name="expirationRules">expirationRules.</param>
         /// <param name="validityTimeframe">validityTimeframe.</param>
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
         /// <param name="validityHours">validityHours.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the earning rule. A set of key/value pairs that you can attach to an earning rule object. It can be useful for storing additional information about the earning rule in a structured format..</param>
-        public LoyaltiesEarningRulesUpdateRequestBody(string validationRuleId = default(string), LoyaltiesEarningRulesUpdateRequestBodyLoyalty loyalty = default(LoyaltiesEarningRulesUpdateRequestBodyLoyalty), LoyaltiesEarningRulesUpdateRequestBodySource source = default(LoyaltiesEarningRulesUpdateRequestBodySource), bool? active = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesUpdateRequestBodyPendingPoints), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object))
+        public LoyaltiesEarningRulesUpdateRequestBody(string validationRuleId = default(string), LoyaltiesEarningRulesUpdateRequestBodyLoyalty loyalty = default(LoyaltiesEarningRulesUpdateRequestBodyLoyalty), LoyaltiesEarningRulesUpdateRequestBodySource source = default(LoyaltiesEarningRulesUpdateRequestBodySource), bool? active = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), LoyaltiesEarningRulesUpdateRequestBodyPendingPoints pendingPoints = default(LoyaltiesEarningRulesUpdateRequestBodyPendingPoints), EarningRuleExpirationRules expirationRules = default(EarningRuleExpirationRules), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours), Object metadata = default(Object))
         {
             this._ValidationRuleId = validationRuleId;
             if (this.ValidationRuleId != null)
@@ -123,6 +125,11 @@ namespace Voucherify.Model
             if (this.PendingPoints != null)
             {
                 this._flagPendingPoints = true;
+            }
+            this._ExpirationRules = expirationRules;
+            if (this.ExpirationRules != null)
+            {
+                this._flagExpirationRules = true;
             }
             this._ValidityTimeframe = validityTimeframe;
             if (this.ValidityTimeframe != null)
@@ -248,9 +255,9 @@ namespace Voucherify.Model
             return _flagActive;
         }
         /// <summary>
-        /// Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default. 
+        /// Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it will inherit the campaign start date by default. 
         /// </summary>
-        /// <value>Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it&#39;ll inherit the campaign start date by default. </value>
+        /// <value>Start date defines when the earning rule starts to be active. Activation timestamp is presented in the ISO 8601 format. Earning rule is *inactive before* this date. If you don&#39;t define the start date for an earning rule, it will inherit the campaign start date by default. </value>
         /*
         <example>2022-02-02T13:00Z</example>
         */
@@ -276,9 +283,9 @@ namespace Voucherify.Model
             return _flagStartDate;
         }
         /// <summary>
-        /// Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.
+        /// Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it will inherit the campaign expiration date by default.
         /// </summary>
-        /// <value>Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it&#39;ll inherit the campaign expiration date by default.</value>
+        /// <value>Expiration date defines when the earning rule expires. Expiration timestamp is presented in the ISO 8601 format.  Earning rule is *inactive after* this date.If you don&#39;t define the expiration date for an earning rule, it will inherit the campaign expiration date by default.</value>
         /*
         <example>2022-03-03T14:30Z</example>
         */
@@ -326,6 +333,30 @@ namespace Voucherify.Model
         public bool ShouldSerializePendingPoints()
         {
             return _flagPendingPoints;
+        }
+        /// <summary>
+        /// Gets or Sets ExpirationRules
+        /// </summary>
+        [DataMember(Name = "expiration_rules", EmitDefaultValue = true)]
+        public EarningRuleExpirationRules ExpirationRules
+        {
+            get{ return _ExpirationRules;}
+            set
+            {
+                _ExpirationRules = value;
+                _flagExpirationRules = true;
+            }
+        }
+        private EarningRuleExpirationRules _ExpirationRules;
+        private bool _flagExpirationRules;
+
+        /// <summary>
+        /// Returns false as ExpirationRules should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeExpirationRules()
+        {
+            return _flagExpirationRules;
         }
         /// <summary>
         /// Gets or Sets ValidityTimeframe
@@ -440,6 +471,7 @@ namespace Voucherify.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
+            sb.Append("  ExpirationRules: ").Append(ExpirationRules).Append("\n");
             sb.Append("  ValidityTimeframe: ").Append(ValidityTimeframe).Append("\n");
             sb.Append("  ValidityDayOfWeek: ").Append(ValidityDayOfWeek).Append("\n");
             sb.Append("  ValidityHours: ").Append(ValidityHours).Append("\n");

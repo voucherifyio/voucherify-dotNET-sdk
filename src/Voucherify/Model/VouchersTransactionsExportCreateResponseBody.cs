@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of object being represented. This object stores information about the &#x60;export&#x60;.
         /// </summary>
         /// <value>The type of object being represented. This object stores information about the &#x60;export&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of object being represented. This object stores information about the &#x60;export&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.
         /// </summary>
         /// <value>Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -93,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Status of the export. Informs you whether the export has already been completed, i.e. indicates whether the file containing the exported data has been generated.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -118,7 +121,7 @@ namespace Voucherify.Model
         /// The type of exported object.
         /// </summary>
         /// <value>The type of exported object.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ExportedObjectEnum>))]
         public enum ExportedObjectEnum
         {
             /// <summary>
@@ -134,6 +137,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of exported object.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ExportedObjectEnum>))]
         [DataMember(Name = "exported_object", EmitDefaultValue = true)]
         public ExportedObjectEnum? ExportedObject
         {
@@ -175,10 +179,6 @@ namespace Voucherify.Model
         public VouchersTransactionsExportCreateResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), StatusEnum? status = default(StatusEnum?), string channel = default(string), ExportedObjectEnum? exportedObject = default(ExportedObjectEnum?), VoucherTransactionsFilters parameters = default(VoucherTransactionsFilters), VouchersTransactionsExportCreateResponseBodyResult result = default(VouchersTransactionsExportCreateResponseBodyResult), string userId = default(string))
         {
             // to ensure "parameters" is required (not null)
-            if (parameters == null)
-            {
-                throw new ArgumentNullException("parameters is a required property for VouchersTransactionsExportCreateResponseBody and cannot be null");
-            }
             this._Parameters = parameters;
             this._Id = id;
             if (this.Id != null)
@@ -306,7 +306,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets Parameters
         /// </summary>
-        [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "parameters", IsRequired = false, EmitDefaultValue = true)]
         public VoucherTransactionsFilters Parameters
         {
             get{ return _Parameters;}

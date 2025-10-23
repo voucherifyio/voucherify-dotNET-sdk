@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Role of the holder.
         /// </summary>
         /// <value>Role of the holder.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<HolderRoleEnum>))]
         public enum HolderRoleEnum
         {
             /// <summary>
@@ -67,6 +68,7 @@ namespace Voucherify.Model
         <example>OWNER</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<HolderRoleEnum>))]
         [DataMember(Name = "holder_role", EmitDefaultValue = true)]
         public HolderRoleEnum? HolderRole
         {
@@ -92,7 +94,7 @@ namespace Voucherify.Model
         /// Defines the type of the campaign.
         /// </summary>
         /// <value>Defines the type of the campaign.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CampaignTypeEnum>))]
         public enum CampaignTypeEnum
         {
             /// <summary>
@@ -111,6 +113,7 @@ namespace Voucherify.Model
         <example>REFERRAL_PROGRAM</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<CampaignTypeEnum>))]
         [DataMember(Name = "campaign_type", EmitDefaultValue = true)]
         public CampaignTypeEnum? CampaignType
         {
@@ -136,7 +139,7 @@ namespace Voucherify.Model
         /// Defines the type of the voucher.
         /// </summary>
         /// <value>Defines the type of the voucher.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<VoucherTypeEnum>))]
         public enum VoucherTypeEnum
         {
             /// <summary>
@@ -167,6 +170,7 @@ namespace Voucherify.Model
         <example>DISCOUNT_VOUCHER</example>
         */
 
+        [JsonConverter(typeof(SafeEnumConverter<VoucherTypeEnum>))]
         [DataMember(Name = "voucher_type", EmitDefaultValue = true)]
         public VoucherTypeEnum? VoucherType
         {
@@ -192,7 +196,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON.
         /// </summary>
         /// <value>The type of the object represented by JSON.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -208,6 +212,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {

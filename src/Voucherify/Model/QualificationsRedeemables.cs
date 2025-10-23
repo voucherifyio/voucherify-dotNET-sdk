@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. Default is &#x60;list&#x60;.
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is &#x60;list&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is &#x60;list&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Identifies the name of the attribute that contains the array of qualified redeemables.
         /// </summary>
         /// <value>Identifies the name of the attribute that contains the array of qualified redeemables.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<DataRefEnum>))]
         public enum DataRefEnum
         {
             /// <summary>
@@ -93,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Identifies the name of the attribute that contains the array of qualified redeemables.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<DataRefEnum>))]
         [DataMember(Name = "data_ref", EmitDefaultValue = true)]
         public DataRefEnum? DataRef
         {

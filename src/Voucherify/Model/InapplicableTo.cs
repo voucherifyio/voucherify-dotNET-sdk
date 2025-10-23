@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// This object stores information about the resource to which the discount is applicable.
         /// </summary>
         /// <value>This object stores information about the resource to which the discount is applicable.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -64,6 +65,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>This object stores information about the resource to which the discount is applicable.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -90,7 +92,8 @@ namespace Voucherify.Model
         /// Gets or Sets Effect
         /// </summary>
 
-        [DataMember(Name = "effect", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<ApplicableToEffect>))]
+        [DataMember(Name = "effect", IsRequired = false, EmitDefaultValue = true)]
         public ApplicableToEffect Effect
         {
             get{ return _Effect;}
@@ -115,7 +118,7 @@ namespace Voucherify.Model
         /// Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.
         /// </summary>
         /// <value>Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TargetEnum>))]
         public enum TargetEnum
         {
             /// <summary>
@@ -137,6 +140,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TargetEnum>))]
         [DataMember(Name = "target", EmitDefaultValue = true)]
         public TargetEnum? Target
         {
@@ -172,7 +176,7 @@ namespace Voucherify.Model
         /// <param name="productId">Parent product&#39;s unique ID assigned by Voucherify..</param>
         /// <param name="productSourceId">Parent product&#39;s source ID from your inventory system..</param>
         /// <param name="price">New fixed price of an item. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $10 price is written as 1000. In case of the fixed price being calculated by the formula, i.e. the price_formula parameter is present in the fixed price definition, this value becomes the fallback value. Such that in a case where the formula cannot be calculated due to missing metadata, for example, this value will be used as the fixed price..</param>
-        /// <param name="priceFormula">Formula used to calculate the discounted price of an item..</param>
+        /// <param name="priceFormula">Formula used to dynamically calculate the discounted price of an item..</param>
         /// <param name="effect">effect (required).</param>
         /// <param name="quantityLimit">The maximum number of units allowed to be discounted per order line item..</param>
         /// <param name="aggregatedQuantityLimit">The maximum number of units allowed to be discounted combined across all matched order line items..</param>
@@ -394,9 +398,9 @@ namespace Voucherify.Model
             return _flagPrice;
         }
         /// <summary>
-        /// Formula used to calculate the discounted price of an item.
+        /// Formula used to dynamically calculate the discounted price of an item.
         /// </summary>
-        /// <value>Formula used to calculate the discounted price of an item.</value>
+        /// <value>Formula used to dynamically calculate the discounted price of an item.</value>
         [DataMember(Name = "price_formula", EmitDefaultValue = true)]
         public decimal? PriceFormula
         {

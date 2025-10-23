@@ -59,7 +59,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create validation rules.
+        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -71,7 +71,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create validation rules.
+        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -213,7 +213,7 @@ namespace Voucherify.Api
         /// List Validation Rules&#39; Assignment(s)
         /// </summary>
         /// <remarks>
-        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -229,7 +229,7 @@ namespace Voucherify.Api
         /// List Validation Rules&#39; Assignment(s)
         /// </summary>
         /// <remarks>
-        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -244,7 +244,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.
+        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -257,7 +257,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.
+        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -307,7 +307,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create validation rules.
+        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -320,7 +320,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create validation rules.
+        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -473,7 +473,7 @@ namespace Voucherify.Api
         /// List Validation Rules&#39; Assignment(s)
         /// </summary>
         /// <remarks>
-        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -490,7 +490,7 @@ namespace Voucherify.Api
         /// List Validation Rules&#39; Assignment(s)
         /// </summary>
         /// <remarks>
-        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -506,7 +506,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.
+        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -520,7 +520,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.
+        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -867,7 +867,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create validation rules.
+        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -880,7 +880,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create validation rules.
+        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -959,7 +959,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create validation rules.
+        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -973,7 +973,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create validation rules.
+        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
@@ -2127,7 +2127,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -2144,7 +2144,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -2245,7 +2245,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -2263,7 +2263,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.  # How to retrieve specific validation rule assignments(s) ## Related object ID To find an assignment for a particular resource, you can use the ID of the object to which the validation rule was assigned. This could be, for example, an ID of a: voucher, campaign, distribution, reward assignment, earning rule, promotion tier.    ## Validation rule ID You can use the validation rule ID to find assignment(s) for a specific validation rule.  
+        /// List Validation Rules&#39; Assignment(s) List all validation rules assignments or filter the results using the related object ID or the validation rule ID query parameters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="relatedObjectId">The resource ID to which the validation rule was assigned; this could be, for example, a resource ID of a voucher, campaign, earning rule, reward assignment, promotion tier, or distribution. (optional)</param>
@@ -2366,7 +2366,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.
+        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -2380,7 +2380,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.
+        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -2467,7 +2467,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.
+        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -2482,7 +2482,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.
+        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>

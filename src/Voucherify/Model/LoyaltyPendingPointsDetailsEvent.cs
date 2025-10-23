@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Type of the event that triggered the creation of pending points.
         /// </summary>
         /// <value>Type of the event that triggered the creation of pending points.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Type of the event that triggered the creation of pending points.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Type of the event.
         /// </summary>
         /// <value>Type of the event.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<CategoryEnum>))]
         public enum CategoryEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Type of the event.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<CategoryEnum>))]
         [DataMember(Name = "category", EmitDefaultValue = true)]
         public CategoryEnum? Category
         {

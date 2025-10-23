@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by the JSON
         /// </summary>
         /// <value>The type of the object represented by the JSON</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by the JSON</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Redemption result.
         /// </summary>
         /// <value>Redemption result.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         public enum ResultEnum
         {
             /// <summary>
@@ -99,6 +101,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Redemption result.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public ResultEnum? Result
         {
@@ -124,7 +127,7 @@ namespace Voucherify.Model
         /// Redemption status.
         /// </summary>
         /// <value>Redemption status.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -146,6 +149,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Redemption status.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -171,7 +175,7 @@ namespace Voucherify.Model
         /// Defines the related object.
         /// </summary>
         /// <value>Defines the related object.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         public enum RelatedObjectTypeEnum
         {
             /// <summary>
@@ -199,6 +203,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the related object.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         [DataMember(Name = "related_object_type", EmitDefaultValue = true)]
         public RelatedObjectTypeEnum? RelatedObjectType
         {

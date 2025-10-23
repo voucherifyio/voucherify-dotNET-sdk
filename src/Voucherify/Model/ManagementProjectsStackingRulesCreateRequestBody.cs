@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Defines if the discounts are applied by taking into account the initial order amount or the discounted order amount.
         /// </summary>
         /// <value>Defines if the discounts are applied by taking into account the initial order amount or the discounted order amount.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<DiscountCalculationModeEnum>))]
         public enum DiscountCalculationModeEnum
         {
             /// <summary>
@@ -58,6 +59,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines if the discounts are applied by taking into account the initial order amount or the discounted order amount.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<DiscountCalculationModeEnum>))]
         [DataMember(Name = "discount_calculation_mode", EmitDefaultValue = true)]
         public DiscountCalculationModeEnum? DiscountCalculationMode
         {
@@ -83,7 +85,7 @@ namespace Voucherify.Model
         /// Defines the application mode for redeemables. &#x60;\&quot;ALL\&quot;&#x60; means that all redeemables must be validated for the redemption to be successful. &#x60;\&quot;PARTIAL\&quot;&#x60; means that only those redeemables that can be validated will be redeemed. The redeemables that fail validaton will be skipped.
         /// </summary>
         /// <value>Defines the application mode for redeemables. &#x60;\&quot;ALL\&quot;&#x60; means that all redeemables must be validated for the redemption to be successful. &#x60;\&quot;PARTIAL\&quot;&#x60; means that only those redeemables that can be validated will be redeemed. The redeemables that fail validaton will be skipped.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesApplicationModeEnum>))]
         public enum RedeemablesApplicationModeEnum
         {
             /// <summary>
@@ -105,6 +107,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the application mode for redeemables. &#x60;\&quot;ALL\&quot;&#x60; means that all redeemables must be validated for the redemption to be successful. &#x60;\&quot;PARTIAL\&quot;&#x60; means that only those redeemables that can be validated will be redeemed. The redeemables that fail validaton will be skipped.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesApplicationModeEnum>))]
         [DataMember(Name = "redeemables_application_mode", EmitDefaultValue = true)]
         public RedeemablesApplicationModeEnum? RedeemablesApplicationMode
         {
@@ -127,10 +130,10 @@ namespace Voucherify.Model
             return _flagRedeemablesApplicationMode;
         }
         /// <summary>
-        /// Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request.
+        /// Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.
         /// </summary>
-        /// <value>Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.</value>
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesSortingRuleEnum>))]
         public enum RedeemablesSortingRuleEnum
         {
             /// <summary>
@@ -148,10 +151,11 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request.
+        /// Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.
         /// </summary>
-        /// <value>Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request.</value>
+        /// <value>Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesSortingRuleEnum>))]
         [DataMember(Name = "redeemables_sorting_rule", EmitDefaultValue = true)]
         public RedeemablesSortingRuleEnum? RedeemablesSortingRule
         {
@@ -174,10 +178,106 @@ namespace Voucherify.Model
             return _flagRedeemablesSortingRule;
         }
         /// <summary>
+        /// Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.
+        /// </summary>
+        /// <value>Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.</value>
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesProductsApplicationModeEnum>))]
+        public enum RedeemablesProductsApplicationModeEnum
+        {
+            /// <summary>
+            /// Enum STACK for value: STACK
+            /// </summary>
+            [EnumMember(Value = "STACK")]
+            STACK = 1,
+
+            /// <summary>
+            /// Enum ONCE for value: ONCE
+            /// </summary>
+            [EnumMember(Value = "ONCE")]
+            ONCE = 2
+        }
+
+
+        /// <summary>
+        /// Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.
+        /// </summary>
+        /// <value>Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product.</value>
+
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesProductsApplicationModeEnum>))]
+        [DataMember(Name = "redeemables_products_application_mode", EmitDefaultValue = true)]
+        public RedeemablesProductsApplicationModeEnum? RedeemablesProductsApplicationMode
+        {
+            get{ return _RedeemablesProductsApplicationMode;}
+            set
+            {
+                _RedeemablesProductsApplicationMode = value;
+                _flagRedeemablesProductsApplicationMode = true;
+            }
+        }
+        private RedeemablesProductsApplicationModeEnum? _RedeemablesProductsApplicationMode;
+        private bool _flagRedeemablesProductsApplicationMode;
+
+        /// <summary>
+        /// Returns false as RedeemablesProductsApplicationMode should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRedeemablesProductsApplicationMode()
+        {
+            return _flagRedeemablesProductsApplicationMode;
+        }
+        /// <summary>
+        /// Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.
+        /// </summary>
+        /// <value>Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.</value>
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesNoEffectRuleEnum>))]
+        public enum RedeemablesNoEffectRuleEnum
+        {
+            /// <summary>
+            /// Enum REDEEMANYWAY for value: REDEEM_ANYWAY
+            /// </summary>
+            [EnumMember(Value = "REDEEM_ANYWAY")]
+            REDEEMANYWAY = 1,
+
+            /// <summary>
+            /// Enum SKIP for value: SKIP
+            /// </summary>
+            [EnumMember(Value = "SKIP")]
+            SKIP = 2
+        }
+
+
+        /// <summary>
+        /// Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.
+        /// </summary>
+        /// <value>Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated.</value>
+
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesNoEffectRuleEnum>))]
+        [DataMember(Name = "redeemables_no_effect_rule", EmitDefaultValue = true)]
+        public RedeemablesNoEffectRuleEnum? RedeemablesNoEffectRule
+        {
+            get{ return _RedeemablesNoEffectRule;}
+            set
+            {
+                _RedeemablesNoEffectRule = value;
+                _flagRedeemablesNoEffectRule = true;
+            }
+        }
+        private RedeemablesNoEffectRuleEnum? _RedeemablesNoEffectRule;
+        private bool _flagRedeemablesNoEffectRule;
+
+        /// <summary>
+        /// Returns false as RedeemablesNoEffectRule should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRedeemablesNoEffectRule()
+        {
+            return _flagRedeemablesNoEffectRule;
+        }
+        /// <summary>
         /// Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.
         /// </summary>
         /// <value>Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesRollbackOrderModeEnum>))]
         public enum RedeemablesRollbackOrderModeEnum
         {
             /// <summary>
@@ -199,6 +299,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RedeemablesRollbackOrderModeEnum>))]
         [DataMember(Name = "redeemables_rollback_order_mode", EmitDefaultValue = true)]
         public RedeemablesRollbackOrderModeEnum? RedeemablesRollbackOrderMode
         {
@@ -223,20 +324,25 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManagementProjectsStackingRulesCreateRequestBody" /> class.
         /// </summary>
-        /// <param name="exclusiveCategories">Lists the IDs of the categories that are exclusive..</param>
-        /// <param name="jointCategories">Lists the IDs of the categories that are joint..</param>
-        /// <param name="redeemablesLimit">Defines how many redeemables can be sent to Voucherify for validation at the same time..</param>
-        /// <param name="applicableRedeemablesLimit">Defines how many redeemables can be applied at the same time. The number must be less than or equal to &#x60;\&quot;redeemables_limit\&quot;&#x60;..</param>
-        /// <param name="applicableRedeemablesPerCategoryLimit">Defines how many redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_redeemables_limit\&quot;&#x60;..</param>
-        /// <param name="applicableExclusiveRedeemablesLimit">Defines how many redeemables with an assigned exclusive category can be applied at the same time..</param>
-        /// <param name="applicableExclusiveRedeemablesPerCategoryLimit">Defines how many exclusive redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_exclusive_redeemables_limit\&quot;&#x60;..</param>
+        /// <param name="exclusiveCategories">Lists the IDs of exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint..</param>
+        /// <param name="jointCategories">Lists the IDs of the joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns..</param>
+        /// <param name="redeemablesLimit">Defines how many redeemables can be sent in one request. Note: more redeemables means more processing time..</param>
+        /// <param name="applicableRedeemablesLimit">Defines how many redeemables can be applied in one request. The number must be less than or equal to &#x60;redeemables_limit&#x60;. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;..</param>
+        /// <param name="applicableRedeemablesPerCategoryLimit">Defines how many redeemables with the same category can be applied in one request. The number must be less than or equal to &#x60;applicable_redeemables_limit&#x60;. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;..</param>
+        /// <param name="applicableRedeemablesCategoryLimits">Lists categories by category IDs (keys) and defines their limits (values) of applicable redeemables that belong to campaigns with that category..</param>
+        /// <param name="applicableExclusiveRedeemablesLimit">Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;..</param>
+        /// <param name="applicableExclusiveRedeemablesPerCategoryLimit">Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;. The number must be less than or equal to &#x60;applicable_exclusive_redeemables_limit&#x60;..</param>
         /// <param name="discountCalculationMode">Defines if the discounts are applied by taking into account the initial order amount or the discounted order amount..</param>
         /// <param name="initialAmountModeCategories">Lists the IDs of the categories that apply a discount based on the initial amount..</param>
         /// <param name="discountedAmountModeCategories">Lists the IDs of the categories that apply a discount based on the discounted amount..</param>
         /// <param name="redeemablesApplicationMode">Defines the application mode for redeemables. &#x60;\&quot;ALL\&quot;&#x60; means that all redeemables must be validated for the redemption to be successful. &#x60;\&quot;PARTIAL\&quot;&#x60; means that only those redeemables that can be validated will be redeemed. The redeemables that fail validaton will be skipped..</param>
-        /// <param name="redeemablesSortingRule">Defines the sorting rule for redeemables. &#x60;\&quot;CATEGORY_HIERARCHY\&quot;&#x60; means that redeemables are applied with the order established by the hierarchy of the categories. &#x60;\&quot;REQUESTED_ORDER\&quot;&#x60; means that redeemables are applied with the order established in the request..</param>
+        /// <param name="redeemablesSortingRule">Defines redeemables sorting rule. &#x60;CATEGORY_HIERARCHY&#x60; means that redeemables are applied oaccording to the category priority. &#x60;REQUESTED_ORDER&#x60; means that redeemables are applied in the sequence provided in the request..</param>
+        /// <param name="redeemablesProductsApplicationMode">Defines redeemables products application mode. &#x60;STACK&#x60; means that multiple discounts can be applied to a product. &#x60;ONCE&#x60; means that only one discount can be applied to the same product..</param>
+        /// <param name="redeemablesNoEffectRule">Defines redeemables no effect rule. &#x60;REDEEM_ANYWAY&#x60; means that the redeemable will be redeemed regardless of any restrictions or conditions in place. &#x60;SKIP&#x60; means that the redeemable will be processed only when an applicable effect is calculated..</param>
+        /// <param name="noEffectSkipCategories">Lists category IDs. Redeemables with a given category are skipped even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;REDEEM_ANYWAY&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_redeem_anyway_categories&#x60;..</param>
+        /// <param name="noEffectRedeemAnywayCategories">Lists category IDs. Redeemables with a given category are redeemed anyway even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;SKIP&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_skip_categories&#x60;..</param>
         /// <param name="redeemablesRollbackOrderMode">Defines the rollback mode for the order. &#x60;WITH_ORDER&#x60; is a default setting. The redemption is rolled back together with the data about the order, including related discount values. &#x60;WITHOUT_ORDER&#x60; allows rolling the redemption back without affecting order data, including the applied discount values..</param>
-        public ManagementProjectsStackingRulesCreateRequestBody(List<string> exclusiveCategories = default(List<string>), List<string> jointCategories = default(List<string>), int? redeemablesLimit = default(int?), int? applicableRedeemablesLimit = default(int?), int? applicableRedeemablesPerCategoryLimit = default(int?), int? applicableExclusiveRedeemablesLimit = default(int?), int? applicableExclusiveRedeemablesPerCategoryLimit = default(int?), DiscountCalculationModeEnum? discountCalculationMode = default(DiscountCalculationModeEnum?), List<string> initialAmountModeCategories = default(List<string>), List<string> discountedAmountModeCategories = default(List<string>), RedeemablesApplicationModeEnum? redeemablesApplicationMode = default(RedeemablesApplicationModeEnum?), RedeemablesSortingRuleEnum? redeemablesSortingRule = default(RedeemablesSortingRuleEnum?), RedeemablesRollbackOrderModeEnum? redeemablesRollbackOrderMode = default(RedeemablesRollbackOrderModeEnum?))
+        public ManagementProjectsStackingRulesCreateRequestBody(List<string> exclusiveCategories = default(List<string>), List<string> jointCategories = default(List<string>), int? redeemablesLimit = default(int?), int? applicableRedeemablesLimit = default(int?), int? applicableRedeemablesPerCategoryLimit = default(int?), Dictionary<string, int> applicableRedeemablesCategoryLimits = default(Dictionary<string, int>), int? applicableExclusiveRedeemablesLimit = default(int?), int? applicableExclusiveRedeemablesPerCategoryLimit = default(int?), DiscountCalculationModeEnum? discountCalculationMode = default(DiscountCalculationModeEnum?), List<string> initialAmountModeCategories = default(List<string>), List<string> discountedAmountModeCategories = default(List<string>), RedeemablesApplicationModeEnum? redeemablesApplicationMode = default(RedeemablesApplicationModeEnum?), RedeemablesSortingRuleEnum? redeemablesSortingRule = default(RedeemablesSortingRuleEnum?), RedeemablesProductsApplicationModeEnum? redeemablesProductsApplicationMode = default(RedeemablesProductsApplicationModeEnum?), RedeemablesNoEffectRuleEnum? redeemablesNoEffectRule = default(RedeemablesNoEffectRuleEnum?), List<string> noEffectSkipCategories = default(List<string>), List<string> noEffectRedeemAnywayCategories = default(List<string>), RedeemablesRollbackOrderModeEnum? redeemablesRollbackOrderMode = default(RedeemablesRollbackOrderModeEnum?))
         {
             this._ExclusiveCategories = exclusiveCategories;
             if (this.ExclusiveCategories != null)
@@ -262,6 +368,11 @@ namespace Voucherify.Model
             if (this.ApplicableRedeemablesPerCategoryLimit != null)
             {
                 this._flagApplicableRedeemablesPerCategoryLimit = true;
+            }
+            this._ApplicableRedeemablesCategoryLimits = applicableRedeemablesCategoryLimits;
+            if (this.ApplicableRedeemablesCategoryLimits != null)
+            {
+                this._flagApplicableRedeemablesCategoryLimits = true;
             }
             this._ApplicableExclusiveRedeemablesLimit = applicableExclusiveRedeemablesLimit;
             if (this.ApplicableExclusiveRedeemablesLimit != null)
@@ -298,6 +409,26 @@ namespace Voucherify.Model
             {
                 this._flagRedeemablesSortingRule = true;
             }
+            this._RedeemablesProductsApplicationMode = redeemablesProductsApplicationMode;
+            if (this.RedeemablesProductsApplicationMode != null)
+            {
+                this._flagRedeemablesProductsApplicationMode = true;
+            }
+            this._RedeemablesNoEffectRule = redeemablesNoEffectRule;
+            if (this.RedeemablesNoEffectRule != null)
+            {
+                this._flagRedeemablesNoEffectRule = true;
+            }
+            this._NoEffectSkipCategories = noEffectSkipCategories;
+            if (this.NoEffectSkipCategories != null)
+            {
+                this._flagNoEffectSkipCategories = true;
+            }
+            this._NoEffectRedeemAnywayCategories = noEffectRedeemAnywayCategories;
+            if (this.NoEffectRedeemAnywayCategories != null)
+            {
+                this._flagNoEffectRedeemAnywayCategories = true;
+            }
             this._RedeemablesRollbackOrderMode = redeemablesRollbackOrderMode;
             if (this.RedeemablesRollbackOrderMode != null)
             {
@@ -306,9 +437,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Lists the IDs of the categories that are exclusive.
+        /// Lists the IDs of exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint.
         /// </summary>
-        /// <value>Lists the IDs of the categories that are exclusive.</value>
+        /// <value>Lists the IDs of exclusive categories. A redeemable from a campaign with an exclusive category is the only redeemable to be redeemed when applied with redeemables from other campaigns unless these campaigns are exclusive or joint.</value>
         [DataMember(Name = "exclusive_categories", EmitDefaultValue = true)]
         public List<string> ExclusiveCategories
         {
@@ -331,9 +462,9 @@ namespace Voucherify.Model
             return _flagExclusiveCategories;
         }
         /// <summary>
-        /// Lists the IDs of the categories that are joint.
+        /// Lists the IDs of the joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns.
         /// </summary>
-        /// <value>Lists the IDs of the categories that are joint.</value>
+        /// <value>Lists the IDs of the joint categories. A campaign with a joint category is always applied regardless of the exclusivity of other campaigns.</value>
         [DataMember(Name = "joint_categories", EmitDefaultValue = true)]
         public List<string> JointCategories
         {
@@ -356,9 +487,9 @@ namespace Voucherify.Model
             return _flagJointCategories;
         }
         /// <summary>
-        /// Defines how many redeemables can be sent to Voucherify for validation at the same time.
+        /// Defines how many redeemables can be sent in one request. Note: more redeemables means more processing time.
         /// </summary>
-        /// <value>Defines how many redeemables can be sent to Voucherify for validation at the same time.</value>
+        /// <value>Defines how many redeemables can be sent in one request. Note: more redeemables means more processing time.</value>
         [DataMember(Name = "redeemables_limit", EmitDefaultValue = true)]
         public int? RedeemablesLimit
         {
@@ -381,9 +512,9 @@ namespace Voucherify.Model
             return _flagRedeemablesLimit;
         }
         /// <summary>
-        /// Defines how many redeemables can be applied at the same time. The number must be less than or equal to &#x60;\&quot;redeemables_limit\&quot;&#x60;.
+        /// Defines how many redeemables can be applied in one request. The number must be less than or equal to &#x60;redeemables_limit&#x60;. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.
         /// </summary>
-        /// <value>Defines how many redeemables can be applied at the same time. The number must be less than or equal to &#x60;\&quot;redeemables_limit\&quot;&#x60;.</value>
+        /// <value>Defines how many redeemables can be applied in one request. The number must be less than or equal to &#x60;redeemables_limit&#x60;. For example, a user can select 30 discounts but only 5 will be applied to the order and the remaining will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.</value>
         [DataMember(Name = "applicable_redeemables_limit", EmitDefaultValue = true)]
         public int? ApplicableRedeemablesLimit
         {
@@ -406,9 +537,9 @@ namespace Voucherify.Model
             return _flagApplicableRedeemablesLimit;
         }
         /// <summary>
-        /// Defines how many redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_redeemables_limit\&quot;&#x60;.
+        /// Defines how many redeemables with the same category can be applied in one request. The number must be less than or equal to &#x60;applicable_redeemables_limit&#x60;. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.
         /// </summary>
-        /// <value>Defines how many redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_redeemables_limit\&quot;&#x60;.</value>
+        /// <value>Defines how many redeemables with the same category can be applied in one request. The number must be less than or equal to &#x60;applicable_redeemables_limit&#x60;. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.</value>
         [DataMember(Name = "applicable_redeemables_per_category_limit", EmitDefaultValue = true)]
         public int? ApplicableRedeemablesPerCategoryLimit
         {
@@ -431,9 +562,34 @@ namespace Voucherify.Model
             return _flagApplicableRedeemablesPerCategoryLimit;
         }
         /// <summary>
-        /// Defines how many redeemables with an assigned exclusive category can be applied at the same time.
+        /// Lists categories by category IDs (keys) and defines their limits (values) of applicable redeemables that belong to campaigns with that category.
         /// </summary>
-        /// <value>Defines how many redeemables with an assigned exclusive category can be applied at the same time.</value>
+        /// <value>Lists categories by category IDs (keys) and defines their limits (values) of applicable redeemables that belong to campaigns with that category.</value>
+        [DataMember(Name = "applicable_redeemables_category_limits", EmitDefaultValue = true)]
+        public Dictionary<string, int> ApplicableRedeemablesCategoryLimits
+        {
+            get{ return _ApplicableRedeemablesCategoryLimits;}
+            set
+            {
+                _ApplicableRedeemablesCategoryLimits = value;
+                _flagApplicableRedeemablesCategoryLimits = true;
+            }
+        }
+        private Dictionary<string, int> _ApplicableRedeemablesCategoryLimits;
+        private bool _flagApplicableRedeemablesCategoryLimits;
+
+        /// <summary>
+        /// Returns false as ApplicableRedeemablesCategoryLimits should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeApplicableRedeemablesCategoryLimits()
+        {
+            return _flagApplicableRedeemablesCategoryLimits;
+        }
+        /// <summary>
+        /// Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.
+        /// </summary>
+        /// <value>Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;.</value>
         [DataMember(Name = "applicable_exclusive_redeemables_limit", EmitDefaultValue = true)]
         public int? ApplicableExclusiveRedeemablesLimit
         {
@@ -456,9 +612,9 @@ namespace Voucherify.Model
             return _flagApplicableExclusiveRedeemablesLimit;
         }
         /// <summary>
-        /// Defines how many exclusive redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_exclusive_redeemables_limit\&quot;&#x60;.
+        /// Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;. The number must be less than or equal to &#x60;applicable_exclusive_redeemables_limit&#x60;.
         /// </summary>
-        /// <value>Defines how many exclusive redeemables with the same category can be applied at the same time. The number must be less than or equal to &#x60;\&quot;applicable_exclusive_redeemables_limit\&quot;&#x60;.</value>
+        /// <value>Defines how many redeemables with an assigned exclusive category can be applied in one request. The ones above the limit will be &#x60;SKIPPED&#x60; according to the &#x60;redeemables_sorting_rule&#x60;. The number must be less than or equal to &#x60;applicable_exclusive_redeemables_limit&#x60;.</value>
         [DataMember(Name = "applicable_exclusive_redeemables_per_category_limit", EmitDefaultValue = true)]
         public int? ApplicableExclusiveRedeemablesPerCategoryLimit
         {
@@ -531,6 +687,56 @@ namespace Voucherify.Model
             return _flagDiscountedAmountModeCategories;
         }
         /// <summary>
+        /// Lists category IDs. Redeemables with a given category are skipped even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;REDEEM_ANYWAY&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_redeem_anyway_categories&#x60;.
+        /// </summary>
+        /// <value>Lists category IDs. Redeemables with a given category are skipped even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;REDEEM_ANYWAY&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_redeem_anyway_categories&#x60;.</value>
+        [DataMember(Name = "no_effect_skip_categories", EmitDefaultValue = true)]
+        public List<string> NoEffectSkipCategories
+        {
+            get{ return _NoEffectSkipCategories;}
+            set
+            {
+                _NoEffectSkipCategories = value;
+                _flagNoEffectSkipCategories = true;
+            }
+        }
+        private List<string> _NoEffectSkipCategories;
+        private bool _flagNoEffectSkipCategories;
+
+        /// <summary>
+        /// Returns false as NoEffectSkipCategories should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeNoEffectSkipCategories()
+        {
+            return _flagNoEffectSkipCategories;
+        }
+        /// <summary>
+        /// Lists category IDs. Redeemables with a given category are redeemed anyway even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;SKIP&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_skip_categories&#x60;.
+        /// </summary>
+        /// <value>Lists category IDs. Redeemables with a given category are redeemed anyway even if the &#x60;redeemables_no_effect_rule&#x60; is set to &#x60;SKIP&#x60;. Category IDs can&#39;t overlap with the IDs in &#x60;no_effect_skip_categories&#x60;.</value>
+        [DataMember(Name = "no_effect_redeem_anyway_categories", EmitDefaultValue = true)]
+        public List<string> NoEffectRedeemAnywayCategories
+        {
+            get{ return _NoEffectRedeemAnywayCategories;}
+            set
+            {
+                _NoEffectRedeemAnywayCategories = value;
+                _flagNoEffectRedeemAnywayCategories = true;
+            }
+        }
+        private List<string> _NoEffectRedeemAnywayCategories;
+        private bool _flagNoEffectRedeemAnywayCategories;
+
+        /// <summary>
+        /// Returns false as NoEffectRedeemAnywayCategories should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeNoEffectRedeemAnywayCategories()
+        {
+            return _flagNoEffectRedeemAnywayCategories;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -543,6 +749,7 @@ namespace Voucherify.Model
             sb.Append("  RedeemablesLimit: ").Append(RedeemablesLimit).Append("\n");
             sb.Append("  ApplicableRedeemablesLimit: ").Append(ApplicableRedeemablesLimit).Append("\n");
             sb.Append("  ApplicableRedeemablesPerCategoryLimit: ").Append(ApplicableRedeemablesPerCategoryLimit).Append("\n");
+            sb.Append("  ApplicableRedeemablesCategoryLimits: ").Append(ApplicableRedeemablesCategoryLimits).Append("\n");
             sb.Append("  ApplicableExclusiveRedeemablesLimit: ").Append(ApplicableExclusiveRedeemablesLimit).Append("\n");
             sb.Append("  ApplicableExclusiveRedeemablesPerCategoryLimit: ").Append(ApplicableExclusiveRedeemablesPerCategoryLimit).Append("\n");
             sb.Append("  DiscountCalculationMode: ").Append(DiscountCalculationMode).Append("\n");
@@ -550,6 +757,10 @@ namespace Voucherify.Model
             sb.Append("  DiscountedAmountModeCategories: ").Append(DiscountedAmountModeCategories).Append("\n");
             sb.Append("  RedeemablesApplicationMode: ").Append(RedeemablesApplicationMode).Append("\n");
             sb.Append("  RedeemablesSortingRule: ").Append(RedeemablesSortingRule).Append("\n");
+            sb.Append("  RedeemablesProductsApplicationMode: ").Append(RedeemablesProductsApplicationMode).Append("\n");
+            sb.Append("  RedeemablesNoEffectRule: ").Append(RedeemablesNoEffectRule).Append("\n");
+            sb.Append("  NoEffectSkipCategories: ").Append(NoEffectSkipCategories).Append("\n");
+            sb.Append("  NoEffectRedeemAnywayCategories: ").Append(NoEffectRedeemAnywayCategories).Append("\n");
             sb.Append("  RedeemablesRollbackOrderMode: ").Append(RedeemablesRollbackOrderMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -583,10 +794,28 @@ namespace Voucherify.Model
                 yield return new ValidationResult("Invalid value for RedeemablesLimit, must be a value greater than or equal to 1.", new [] { "RedeemablesLimit" });
             }
 
+            // ApplicableRedeemablesLimit (int?) maximum
+            if (this.ApplicableRedeemablesLimit > (int?)30)
+            {
+                yield return new ValidationResult("Invalid value for ApplicableRedeemablesLimit, must be a value less than or equal to 30.", new [] { "ApplicableRedeemablesLimit" });
+            }
+
             // ApplicableRedeemablesLimit (int?) minimum
             if (this.ApplicableRedeemablesLimit < (int?)1)
             {
                 yield return new ValidationResult("Invalid value for ApplicableRedeemablesLimit, must be a value greater than or equal to 1.", new [] { "ApplicableRedeemablesLimit" });
+            }
+
+            // ApplicableRedeemablesPerCategoryLimit (int?) maximum
+            if (this.ApplicableRedeemablesPerCategoryLimit > (int?)30)
+            {
+                yield return new ValidationResult("Invalid value for ApplicableRedeemablesPerCategoryLimit, must be a value less than or equal to 30.", new [] { "ApplicableRedeemablesPerCategoryLimit" });
+            }
+
+            // ApplicableRedeemablesPerCategoryLimit (int?) minimum
+            if (this.ApplicableRedeemablesPerCategoryLimit < (int?)1)
+            {
+                yield return new ValidationResult("Invalid value for ApplicableRedeemablesPerCategoryLimit, must be a value greater than or equal to 1.", new [] { "ApplicableRedeemablesPerCategoryLimit" });
             }
 
             // ApplicableExclusiveRedeemablesLimit (int?) maximum
@@ -599,6 +828,18 @@ namespace Voucherify.Model
             if (this.ApplicableExclusiveRedeemablesLimit < (int?)1)
             {
                 yield return new ValidationResult("Invalid value for ApplicableExclusiveRedeemablesLimit, must be a value greater than or equal to 1.", new [] { "ApplicableExclusiveRedeemablesLimit" });
+            }
+
+            // ApplicableExclusiveRedeemablesPerCategoryLimit (int?) maximum
+            if (this.ApplicableExclusiveRedeemablesPerCategoryLimit > (int?)30)
+            {
+                yield return new ValidationResult("Invalid value for ApplicableExclusiveRedeemablesPerCategoryLimit, must be a value less than or equal to 30.", new [] { "ApplicableExclusiveRedeemablesPerCategoryLimit" });
+            }
+
+            // ApplicableExclusiveRedeemablesPerCategoryLimit (int?) minimum
+            if (this.ApplicableExclusiveRedeemablesPerCategoryLimit < (int?)1)
+            {
+                yield return new ValidationResult("Invalid value for ApplicableExclusiveRedeemablesPerCategoryLimit, must be a value greater than or equal to 1.", new [] { "ApplicableExclusiveRedeemablesPerCategoryLimit" });
             }
 
             yield break;

@@ -23,11 +23,12 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Lists all assignments of the campaign to areas and stores. For [GET List Campaigns](ref:list-campaigns), this is returned if the &#x60;expand&#x3D;access_settings_assignments&#x60; query parameter is passed in the request.  **NOTE**: This object is returned only if the Areas and Stores enterprise feature is enabled. Contact [Voucherify Sales](https://www.voucherify.io/contact-sales) to learn more.
+    /// Lists all assignments of the campaign to areas and stores. For [GET List Campaigns](/api-reference/campaigns/list-campaigns), this is returned if the &#x60;expand&#x3D;access_settings_assignments&#x60; query parameter is passed in the request. This object is not returned for the [GET Campaign summary endpoint](/api-reference/campaigns/get-campaign-summary).  **NOTE**: This object is returned only if the Areas and Stores enterprise feature is enabled. Contact [Voucherify Sales](https://www.voucherify.io/contact-sales) to learn more.
     /// </summary>
     [DataContract(Name = "AccessSettingsCampaignAssignmentsList")]
     public partial class AccessSettingsCampaignAssignmentsList : IValidatableObject
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. Default is &#x60;list&#x60;. This object stores information about campaign assignments to areas and stores</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Identifies the name of the attribute that contains the array of campaign assignments.
         /// </summary>
         /// <value>Identifies the name of the attribute that contains the array of campaign assignments.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<DataRefEnum>))]
         public enum DataRefEnum
         {
             /// <summary>
@@ -93,6 +95,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Identifies the name of the attribute that contains the array of campaign assignments.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<DataRefEnum>))]
         [DataMember(Name = "data_ref", EmitDefaultValue = true)]
         public DataRefEnum? DataRef
         {

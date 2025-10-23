@@ -122,7 +122,7 @@ namespace Voucherify.Api
         /// Update Category
         /// </summary>
         /// <remarks>
-        /// Update category using the category ID.
+        /// Update a category using the category ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -135,7 +135,7 @@ namespace Voucherify.Api
         /// Update Category
         /// </summary>
         /// <remarks>
-        /// Update category using the category ID.
+        /// Update a category using the category ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -254,7 +254,7 @@ namespace Voucherify.Api
         /// Update Category
         /// </summary>
         /// <remarks>
-        /// Update category using the category ID.
+        /// Update a category using the category ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -268,7 +268,7 @@ namespace Voucherify.Api
         /// Update Category
         /// </summary>
         /// <remarks>
-        /// Update category using the category ID.
+        /// Update a category using the category ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -1154,7 +1154,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Category Update category using the category ID.
+        /// Update Category Update a category using the category ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -1168,7 +1168,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Category Update category using the category ID.
+        /// Update Category Update a category using the category ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -1255,7 +1255,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Category Update category using the category ID.
+        /// Update Category Update a category using the category ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
@@ -1270,7 +1270,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Category Update category using the category ID.
+        /// Update Category Update a category using the category ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>

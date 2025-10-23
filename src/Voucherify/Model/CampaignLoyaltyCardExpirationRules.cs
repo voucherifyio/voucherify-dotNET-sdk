@@ -23,35 +23,43 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
     /// <summary>
-    /// CampaignLoyaltyCardExpirationRules
+    /// Defines the loyalty point expiration rule. This expiration rule applies when there are no &#x60;expiration_rules&#x60; defined for an earning rule.
     /// </summary>
     [DataContract(Name = "CampaignLoyaltyCardExpirationRules")]
     public partial class CampaignLoyaltyCardExpirationRules : IValidatableObject
     {
         /// <summary>
-        /// Type of period
+        /// Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields.
         /// </summary>
-        /// <value>Type of period</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields.</value>
+        [JsonConverter(typeof(SafeEnumConverter<PeriodTypeEnum>))]
         public enum PeriodTypeEnum
         {
+            /// <summary>
+            /// Enum FIXEDDAYOFYEAR for value: FIXED_DAY_OF_YEAR
+            /// </summary>
+            [EnumMember(Value = "FIXED_DAY_OF_YEAR")]
+            FIXEDDAYOFYEAR = 1,
+
             /// <summary>
             /// Enum MONTH for value: MONTH
             /// </summary>
             [EnumMember(Value = "MONTH")]
-            MONTH = 1
+            MONTH = 2
         }
 
 
         /// <summary>
-        /// Type of period
+        /// Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields.
         /// </summary>
-        /// <value>Type of period</value>
+        /// <value>Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<PeriodTypeEnum>))]
         [DataMember(Name = "period_type", EmitDefaultValue = true)]
         public PeriodTypeEnum? PeriodType
         {
@@ -74,10 +82,10 @@ namespace Voucherify.Model
             return _flagPeriodType;
         }
         /// <summary>
-        /// Type of rounding
+        /// Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.
         /// </summary>
-        /// <value>Type of rounding</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        /// <value>Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.</value>
+        [JsonConverter(typeof(SafeEnumConverter<RoundingTypeEnum>))]
         public enum RoundingTypeEnum
         {
             /// <summary>
@@ -113,10 +121,11 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Type of rounding
+        /// Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.
         /// </summary>
-        /// <value>Type of rounding</value>
+        /// <value>Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RoundingTypeEnum>))]
         [DataMember(Name = "rounding_type", EmitDefaultValue = true)]
         public RoundingTypeEnum? RoundingType
         {
@@ -141,11 +150,13 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignLoyaltyCardExpirationRules" /> class.
         /// </summary>
-        /// <param name="periodType">Type of period.</param>
-        /// <param name="periodValue">Value of the period.</param>
-        /// <param name="roundingType">Type of rounding.</param>
-        /// <param name="roundingValue">Value of rounding.</param>
-        public CampaignLoyaltyCardExpirationRules(PeriodTypeEnum? periodType = default(PeriodTypeEnum?), int? periodValue = default(int?), RoundingTypeEnum? roundingType = default(RoundingTypeEnum?), int? roundingValue = default(int?))
+        /// <param name="periodType">Type of period. Can be set for &#x60;MONTH&#x60; or &#x60;FIXED_DAY_OF_YEAR&#x60;. &#x60;MONTH&#x60; requires the &#x60;period_value&#x60; field. &#x60;FIXED_DAY_OF_YEAR&#x60; requires the &#x60;fixed_month&#x60; and &#x60;fixed_day&#x60; fields..</param>
+        /// <param name="periodValue">Value of the period. Required for the &#x60;period_type: MONTH&#x60;..</param>
+        /// <param name="roundingType">Type of rounding of the expiration period. Optional for the &#x60;period_type: MONTH&#x60;..</param>
+        /// <param name="roundingValue">Value of rounding of the expiration period. Required for the &#x60;rounding_type&#x60;..</param>
+        /// <param name="fixedMonth">Determines the month when the points expire; &#x60;1&#x60; is January, &#x60;2&#x60; is February, and so on. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;..</param>
+        /// <param name="fixedDay">Determines the day of the month when the points expire. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;..</param>
+        public CampaignLoyaltyCardExpirationRules(PeriodTypeEnum? periodType = default(PeriodTypeEnum?), int? periodValue = default(int?), RoundingTypeEnum? roundingType = default(RoundingTypeEnum?), int? roundingValue = default(int?), int? fixedMonth = default(int?), int? fixedDay = default(int?))
         {
             this._PeriodType = periodType;
             if (this.PeriodType != null)
@@ -167,12 +178,22 @@ namespace Voucherify.Model
             {
                 this._flagRoundingValue = true;
             }
+            this._FixedMonth = fixedMonth;
+            if (this.FixedMonth != null)
+            {
+                this._flagFixedMonth = true;
+            }
+            this._FixedDay = fixedDay;
+            if (this.FixedDay != null)
+            {
+                this._flagFixedDay = true;
+            }
         }
 
         /// <summary>
-        /// Value of the period
+        /// Value of the period. Required for the &#x60;period_type: MONTH&#x60;.
         /// </summary>
-        /// <value>Value of the period</value>
+        /// <value>Value of the period. Required for the &#x60;period_type: MONTH&#x60;.</value>
         [DataMember(Name = "period_value", EmitDefaultValue = true)]
         public int? PeriodValue
         {
@@ -195,9 +216,9 @@ namespace Voucherify.Model
             return _flagPeriodValue;
         }
         /// <summary>
-        /// Value of rounding
+        /// Value of rounding of the expiration period. Required for the &#x60;rounding_type&#x60;.
         /// </summary>
-        /// <value>Value of rounding</value>
+        /// <value>Value of rounding of the expiration period. Required for the &#x60;rounding_type&#x60;.</value>
         [DataMember(Name = "rounding_value", EmitDefaultValue = true)]
         public int? RoundingValue
         {
@@ -220,6 +241,56 @@ namespace Voucherify.Model
             return _flagRoundingValue;
         }
         /// <summary>
+        /// Determines the month when the points expire; &#x60;1&#x60; is January, &#x60;2&#x60; is February, and so on. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;.
+        /// </summary>
+        /// <value>Determines the month when the points expire; &#x60;1&#x60; is January, &#x60;2&#x60; is February, and so on. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;.</value>
+        [DataMember(Name = "fixed_month", EmitDefaultValue = true)]
+        public int? FixedMonth
+        {
+            get{ return _FixedMonth;}
+            set
+            {
+                _FixedMonth = value;
+                _flagFixedMonth = true;
+            }
+        }
+        private int? _FixedMonth;
+        private bool _flagFixedMonth;
+
+        /// <summary>
+        /// Returns false as FixedMonth should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeFixedMonth()
+        {
+            return _flagFixedMonth;
+        }
+        /// <summary>
+        /// Determines the day of the month when the points expire. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;.
+        /// </summary>
+        /// <value>Determines the day of the month when the points expire. Required for the &#x60;period_type: FIXED_DAY_OF_YEAR&#x60;.</value>
+        [DataMember(Name = "fixed_day", EmitDefaultValue = true)]
+        public int? FixedDay
+        {
+            get{ return _FixedDay;}
+            set
+            {
+                _FixedDay = value;
+                _flagFixedDay = true;
+            }
+        }
+        private int? _FixedDay;
+        private bool _flagFixedDay;
+
+        /// <summary>
+        /// Returns false as FixedDay should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeFixedDay()
+        {
+            return _flagFixedDay;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -231,6 +302,8 @@ namespace Voucherify.Model
             sb.Append("  PeriodValue: ").Append(PeriodValue).Append("\n");
             sb.Append("  RoundingType: ").Append(RoundingType).Append("\n");
             sb.Append("  RoundingValue: ").Append(RoundingValue).Append("\n");
+            sb.Append("  FixedMonth: ").Append(FixedMonth).Append("\n");
+            sb.Append("  FixedDay: ").Append(FixedDay).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -251,6 +324,30 @@ namespace Voucherify.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // FixedMonth (int?) maximum
+            if (this.FixedMonth > (int?)12)
+            {
+                yield return new ValidationResult("Invalid value for FixedMonth, must be a value less than or equal to 12.", new [] { "FixedMonth" });
+            }
+
+            // FixedMonth (int?) minimum
+            if (this.FixedMonth < (int?)1)
+            {
+                yield return new ValidationResult("Invalid value for FixedMonth, must be a value greater than or equal to 1.", new [] { "FixedMonth" });
+            }
+
+            // FixedDay (int?) maximum
+            if (this.FixedDay > (int?)31)
+            {
+                yield return new ValidationResult("Invalid value for FixedDay, must be a value less than or equal to 31.", new [] { "FixedDay" });
+            }
+
+            // FixedDay (int?) minimum
+            if (this.FixedDay < (int?)1)
+            {
+                yield return new ValidationResult("Invalid value for FixedDay, must be a value greater than or equal to 1.", new [] { "FixedDay" });
+            }
+
             yield break;
         }
     }

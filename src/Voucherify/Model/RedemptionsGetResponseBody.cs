@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -35,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Object
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -56,6 +57,7 @@ namespace Voucherify.Model
         /// Gets or Sets Object
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {
@@ -81,7 +83,7 @@ namespace Voucherify.Model
         /// Redemption result.
         /// </summary>
         /// <value>Redemption result.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         public enum ResultEnum
         {
             /// <summary>
@@ -103,6 +105,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Redemption result.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ResultEnum>))]
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public ResultEnum? Result
         {
@@ -127,7 +130,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Defines Status
         /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
             /// <summary>
@@ -154,6 +157,7 @@ namespace Voucherify.Model
         /// Gets or Sets Status
         /// </summary>
 
+        [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public StatusEnum? Status
         {
@@ -179,7 +183,7 @@ namespace Voucherify.Model
         /// Defines the related object.
         /// </summary>
         /// <value>Defines the related object.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         public enum RelatedObjectTypeEnum
         {
             /// <summary>
@@ -207,6 +211,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the related object.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         [DataMember(Name = "related_object_type", EmitDefaultValue = true)]
         public RelatedObjectTypeEnum? RelatedObjectType
         {
@@ -241,6 +246,7 @@ namespace Voucherify.Model
         /// <param name="redemption">Unique redemption ID of the parent redemption..</param>
         /// <param name="result">Redemption result..</param>
         /// <param name="status">status.</param>
+        /// <param name="session">session.</param>
         /// <param name="relatedRedemptions">relatedRedemptions.</param>
         /// <param name="failureCode">If the result is &#x60;FAILURE&#x60;, this parameter will provide a generic reason as to why the redemption failed..</param>
         /// <param name="failureMessage">If the result is &#x60;FAILURE&#x60;, this parameter will provide a more expanded reason as to why the redemption failed..</param>
@@ -255,7 +261,7 @@ namespace Voucherify.Model
         /// <param name="loyaltyCard">loyaltyCard.</param>
         /// <param name="voucher">voucher.</param>
         /// <param name="reason">System generated cause for the redemption being invalid in the context of the provided parameters..</param>
-        public RedemptionsGetResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string redemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), RedemptionsGetResponseBodyRelatedRedemptions relatedRedemptions = default(RedemptionsGetResponseBodyRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), RedemptionsGetResponseBodyOrder order = default(RedemptionsGetResponseBodyOrder), RedemptionsGetResponseBodyChannel channel = default(RedemptionsGetResponseBodyChannel), RedemptionsGetResponseBodyCustomer customer = default(RedemptionsGetResponseBodyCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), RedemptionsGetResponseBodyPromotionTier promotionTier = default(RedemptionsGetResponseBodyPromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionsGetResponseBodyGift gift = default(RedemptionsGetResponseBodyGift), RedemptionsGetResponseBodyLoyaltyCard loyaltyCard = default(RedemptionsGetResponseBodyLoyaltyCard), RedemptionsGetResponseBodyVoucher voucher = default(RedemptionsGetResponseBodyVoucher), string reason = default(string))
+        public RedemptionsGetResponseBody(string id = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? date = default(DateTimeOffset?), string customerId = default(string), string trackingId = default(string), Object metadata = default(Object), int? amount = default(int?), string redemption = default(string), ResultEnum? result = default(ResultEnum?), StatusEnum? status = default(StatusEnum?), RedemptionsGetResponseBodySession session = default(RedemptionsGetResponseBodySession), RedemptionsGetResponseBodyRelatedRedemptions relatedRedemptions = default(RedemptionsGetResponseBodyRelatedRedemptions), string failureCode = default(string), string failureMessage = default(string), RedemptionsGetResponseBodyOrder order = default(RedemptionsGetResponseBodyOrder), RedemptionsGetResponseBodyChannel channel = default(RedemptionsGetResponseBodyChannel), RedemptionsGetResponseBodyCustomer customer = default(RedemptionsGetResponseBodyCustomer), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), string relatedObjectId = default(string), RedemptionsGetResponseBodyPromotionTier promotionTier = default(RedemptionsGetResponseBodyPromotionTier), RedemptionRewardResult reward = default(RedemptionRewardResult), RedemptionsGetResponseBodyGift gift = default(RedemptionsGetResponseBodyGift), RedemptionsGetResponseBodyLoyaltyCard loyaltyCard = default(RedemptionsGetResponseBodyLoyaltyCard), RedemptionsGetResponseBodyVoucher voucher = default(RedemptionsGetResponseBodyVoucher), string reason = default(string))
         {
             this._Id = id;
             if (this.Id != null)
@@ -306,6 +312,11 @@ namespace Voucherify.Model
             if (this.Status != null)
             {
                 this._flagStatus = true;
+            }
+            this._Session = session;
+            if (this.Session != null)
+            {
+                this._flagSession = true;
             }
             this._RelatedRedemptions = relatedRedemptions;
             if (this.RelatedRedemptions != null)
@@ -561,6 +572,30 @@ namespace Voucherify.Model
         public bool ShouldSerializeRedemption()
         {
             return _flagRedemption;
+        }
+        /// <summary>
+        /// Gets or Sets Session
+        /// </summary>
+        [DataMember(Name = "session", EmitDefaultValue = true)]
+        public RedemptionsGetResponseBodySession Session
+        {
+            get{ return _Session;}
+            set
+            {
+                _Session = value;
+                _flagSession = true;
+            }
+        }
+        private RedemptionsGetResponseBodySession _Session;
+        private bool _flagSession;
+
+        /// <summary>
+        /// Returns false as Session should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeSession()
+        {
+            return _flagSession;
         }
         /// <summary>
         /// Gets or Sets RelatedRedemptions
@@ -898,6 +933,7 @@ namespace Voucherify.Model
             sb.Append("  Redemption: ").Append(Redemption).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Session: ").Append(Session).Append("\n");
             sb.Append("  RelatedRedemptions: ").Append(RelatedRedemptions).Append("\n");
             sb.Append("  FailureCode: ").Append(FailureCode).Append("\n");
             sb.Append("  FailureMessage: ").Append(FailureMessage).Append("\n");

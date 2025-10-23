@@ -23,11 +23,12 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Response body schema for **PUT** &#x60;v1/products/{productId}/skus&#x60;.
+    /// Response body schema for **PUT** &#x60;v1/products/{productId}/SKUs&#x60;.
     /// </summary>
     [DataContract(Name = "ProductsSkusCreateResponseBody")]
     public partial class ProductsSkusCreateResponseBody : IValidatableObject
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the &#x60;SKU&#x60;.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
         public ObjectEnum? Object
         {

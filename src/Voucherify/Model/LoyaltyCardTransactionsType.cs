@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -30,7 +31,7 @@ namespace Voucherify.Model
     /// Transaction types concerning loyalty points.
     /// </summary>
     /// <value>Transaction types concerning loyalty points.</value>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(SafeEnumConverter<LoyaltyCardTransactionsType>))]
     public enum LoyaltyCardTransactionsType
     {
         /// <summary>

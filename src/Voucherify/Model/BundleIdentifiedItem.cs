@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// Determines the type of the object that meets the bundle condition.
         /// </summary>
         /// <value>Determines the type of the object that meets the bundle condition.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
             /// <summary>
@@ -58,7 +59,8 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Determines the type of the object that meets the bundle condition.</value>
 
-        [DataMember(Name = "object", IsRequired = true, EmitDefaultValue = true)]
+        [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
+        [DataMember(Name = "object", IsRequired = false, EmitDefaultValue = true)]
         public ObjectEnum Object
         {
             get{ return _Object;}
@@ -94,10 +96,6 @@ namespace Voucherify.Model
         public BundleIdentifiedItem(string id = default(string), ObjectEnum varObject = default(ObjectEnum), int itemIndex = default(int), int itemQuantity = default(int))
         {
             // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for BundleIdentifiedItem and cannot be null");
-            }
             this._Id = id;
             this._Object = varObject;
             this._ItemIndex = itemIndex;
@@ -108,7 +106,7 @@ namespace Voucherify.Model
         /// Unique identifier of the product or SKU that meets the bundle condition. This is an ID assigned by Voucherify.
         /// </summary>
         /// <value>Unique identifier of the product or SKU that meets the bundle condition. This is an ID assigned by Voucherify.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = true)]
         public string Id
         {
             get{ return _Id;}
@@ -133,7 +131,7 @@ namespace Voucherify.Model
         /// Number assigned to the order line item in accordance with the order sent in the request. It starts with &#x60;0&#x60; for the first order line item in the request.
         /// </summary>
         /// <value>Number assigned to the order line item in accordance with the order sent in the request. It starts with &#x60;0&#x60; for the first order line item in the request.</value>
-        [DataMember(Name = "item_index", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "item_index", IsRequired = false, EmitDefaultValue = true)]
         public int ItemIndex
         {
             get{ return _ItemIndex;}
@@ -158,7 +156,7 @@ namespace Voucherify.Model
         /// Quantity of items that meet the bundle conditions. If the quantity in the order is higher than the quantity required by the bundle, this returns only the number that meets the bundle. For example, if the bundle requires &#x60;5&#x60; coffees, but the order includes &#x60;10&#x60; coffees, &#x60;item_quantity&#x60; returns &#x60;5&#x60;.
         /// </summary>
         /// <value>Quantity of items that meet the bundle conditions. If the quantity in the order is higher than the quantity required by the bundle, this returns only the number that meets the bundle. For example, if the bundle requires &#x60;5&#x60; coffees, but the order includes &#x60;10&#x60; coffees, &#x60;item_quantity&#x60; returns &#x60;5&#x60;.</value>
-        [DataMember(Name = "item_quantity", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "item_quantity", IsRequired = false, EmitDefaultValue = true)]
         public int ItemQuantity
         {
             get{ return _ItemQuantity;}

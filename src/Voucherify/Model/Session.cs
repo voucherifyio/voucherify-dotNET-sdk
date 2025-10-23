@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -36,7 +37,7 @@ namespace Voucherify.Model
         /// This parameter is required to establish a new session.
         /// </summary>
         /// <value>This parameter is required to establish a new session.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
             /// <summary>
@@ -52,6 +53,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>This parameter is required to establish a new session.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public TypeEnum? Type
         {
@@ -77,7 +79,7 @@ namespace Voucherify.Model
         /// Defines the type of unit in which the session time is counted.
         /// </summary>
         /// <value>Defines the type of unit in which the session time is counted.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(SafeEnumConverter<TtlUnitEnum>))]
         public enum TtlUnitEnum
         {
             /// <summary>
@@ -129,6 +131,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Defines the type of unit in which the session time is counted.</value>
 
+        [JsonConverter(typeof(SafeEnumConverter<TtlUnitEnum>))]
         [DataMember(Name = "ttl_unit", EmitDefaultValue = true)]
         public TtlUnitEnum? TtlUnit
         {

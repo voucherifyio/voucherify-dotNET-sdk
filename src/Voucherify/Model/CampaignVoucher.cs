@@ -23,6 +23,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = Voucherify.Client.OpenAPIDateConverter;
+using Voucherify.Client;
 
 namespace Voucherify.Model
 {
@@ -96,10 +97,6 @@ namespace Voucherify.Model
         public CampaignVoucher(string type = default(string), Discount discount = default(Discount), Gift gift = default(Gift), CampaignLoyaltyCard loyaltyCard = default(CampaignLoyaltyCard), CampaignVoucherRedemption redemption = default(CampaignVoucherRedemption), CodeConfig codeConfig = default(CodeConfig), bool? isReferralCode = default(bool?), DateTimeOffset? startDate = default(DateTimeOffset?), DateTimeOffset? expirationDate = default(DateTimeOffset?), ValidityTimeframe validityTimeframe = default(ValidityTimeframe), List<ValidityDayOfWeekEnum> validityDayOfWeek = default(List<ValidityDayOfWeekEnum>), ValidityHours validityHours = default(ValidityHours))
         {
             // to ensure "codeConfig" is required (not null)
-            if (codeConfig == null)
-            {
-                throw new ArgumentNullException("codeConfig is a required property for CampaignVoucher and cannot be null");
-            }
             this._CodeConfig = codeConfig;
             this._Type = type;
             if (this.Type != null)
@@ -282,7 +279,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Gets or Sets CodeConfig
         /// </summary>
-        [DataMember(Name = "code_config", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "code_config", IsRequired = false, EmitDefaultValue = true)]
         public CodeConfig CodeConfig
         {
             get{ return _CodeConfig;}
