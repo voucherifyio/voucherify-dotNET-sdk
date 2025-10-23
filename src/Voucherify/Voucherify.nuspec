@@ -9,11 +9,23 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <version>8.0.1</version>
+    <version>8.1.0</version>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <copyright>MIT</copyright>
     <repository type="git" url="https://github.com/voucherifyio/voucherify-dotNET-sdk" />
     <releaseNotes>
+        2024-10-21: 8.1.0
+            - **Invalid/New Enums will be parsed as null**
+            - **If a property is missing will be simply skipped, please ensure on your side if parameter is expected**
+            - Added support for POST /v1/loyalties/members/{memberId}/pending-points/{pendingPointsId}/balance
+            - Added new properties:
+                - `Limit` in `Bundles`
+                - `UnitsLimitExceeded in `Applicable To`
+                - `ExpirationRules` in `ExpirationRule`
+                - `CampaignId` in `ExportParameters`
+                - `PointsFormula` is supported now
+                - `ManagementProjectsStackingRulesUpdateResponseBody` has many more properties now.
+            - Aligned with the latest OpenAPI definition.
         2025-05-07: 8.0.1
             - Added OAuth support for Loyalty Pending Points endpoints.
         2025-05-07: 8.0.0
@@ -42,9 +54,9 @@
         <dependency id="RestSharp" version="112.0.0" />
         <dependency id="Polly" version="8.1.0" />
         <dependency id="Polly.Extensions.Http" version="3.0.0" />
-        <dependency id="Microsoft.Extensions.DependencyInjection" version="9.0.0-preview.4.24156.5" />
-        <dependency id="Microsoft.Extensions.Http" version="9.0.0-preview.4.24156.5" />
-        <dependency id="Microsoft.Extensions.Hosting" version="9.0.0-preview.4.24156.5" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="9.0.10" />
+        <dependency id="Microsoft.Extensions.Http" version="9.0.10" />
+        <dependency id="Microsoft.Extensions.Hosting" version="9.0.10" />
       </group>
     </dependencies>
   </metadata>
