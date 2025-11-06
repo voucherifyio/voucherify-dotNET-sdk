@@ -69,7 +69,17 @@ using Voucherify.Client;
 using Voucherify.Model;
 ```
 
-## 🧑‍💻 Use with HTTP proxy
+## 🔒 Get your keys and address
+
+Get your Voucherify keys for valid authorization and setting the basePath (cluster) to match your server URL:
+1. In Voucherify dashboard, go to **Project settings**.
+2. In **Application information**, find your basePath (cluster) address. For shared clusters:
+   - Europe (default): `https://api.voucherify.io`
+   - United States: `https://us1.api.voucherify.io`
+   - Asia (Singapore): `https://as1.api.voucherify.io`
+3. Scroll down to **Application Keys** to grab your Application ID and Secret key.
+
+### 🧑‍💻 Use with HTTP proxy
 
 To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`.
 
