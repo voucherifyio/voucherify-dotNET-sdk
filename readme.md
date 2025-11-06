@@ -52,24 +52,27 @@ Install-Package Newtonsoft.Json
 Install-Package JsonSubTypes
 Install-Package System.ComponentModel.Annotations
 ```
+> [!NOTE]
+> RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742).
+>
+> RestSharp for .Net Core creates a new socket for each API call, which can lead to a socket exhaustion problem. See [RestSharp#1406](https://github.com/restsharp/RestSharp/issues/1406).
 
-NOTE: RestSharp versions greater than 105.1.0 have a bug which causes file uploads to fail. See [RestSharp#742](https://github.com/restsharp/RestSharp/issues/742).
-NOTE: RestSharp for .Net Core creates a new socket for each api call, which can lead to a socket exhaustion problem. See [RestSharp#1406](https://github.com/restsharp/RestSharp/issues/1406).
+## ⚙️ Install
 
-<a id="installation"></a>
-## Installation
-Generate the DLL using your preferred tool (e.g. `dotnet build`)
+To install the SDK:
+1. Generate the DLL using your preferred tool, for example `dotnet build`.
+2. Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 
-Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
 ```csharp
 using Voucherify.Api;
 using Voucherify.Client;
 using Voucherify.Model;
 ```
 
-## Usage
+## 🧑‍💻 Use with HTTP proxy
 
-To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
+To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`.
+
 ```csharp
 Configuration c = new Configuration();
 System.Net.WebProxy webProxy = new System.Net.WebProxy("http://myProxyUrl:80/");
@@ -77,9 +80,9 @@ webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 c.Proxy = webProxy;
 ```
 
-## 🚀 Running code
+## 🚀 Run code
 
-Please follow the [installation](#installation) instruction and execute the following Java code:
+Once installed, run the following code:
 
 ```csharp
 using System.Collections.Generic;
@@ -129,23 +132,29 @@ namespace Example
 }
 ```
 
-It may be useful to check the test implementation in the folder `(./src/Voucherify.Test)`
+> [!TIP]
+> 
+> Check the test implementation in the folder `(./src/Voucherify.Test)`.
 
-## 🐳 Running local tests with docker
 
+## 🐳 Run local tests with docker
+
+To run tests locally with docker:
 1. Copy `src/Voucherify.Test/.env.example` to `.env` and fill in the values.
 2. Run `docker build -t dotnet .` to build the image.
 3. Run `docker run --rm dotnet` to run the tests and delete container immediately after.
 
-## 🛠️ Contributing
+## 🛠️ Contribute
 
-Read more about how to Contribute to Voucherify Java SDK by visiting main repo [GENERATING-SDKS.md](https://github.com/voucherifyio/voucherify-openapi/blob/master/GENERATING-SDKS.md)
+Do you want to contribute?
 
-Remember that this SDK is auto generated (except of the tests) so changes made here will be overwritten by generator.
+Read more about how to contribute to this Voucherify SDK by reading the [Contributing guide](https://github.com/voucherifyio/voucherify-openapi/blob/master/GENERATING-SDKS.md) the main repo.
 
+This SDK is auto-generated (except for tests), so changes made here will be overwritten by the generator.
 
-## Link tags
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-8.1.0)
+## 🏷️ Link tags
+
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-8.1.0).
 
 ## 📅 Changelog
 
@@ -170,8 +179,96 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 *Changelog for previous versions could be found in the [DEPRECATED CHANGELOG file](https://github.com/voucherifyio/voucherify-dotNET-sdk/blob/versions/7.19.0/readme.md#changelog)*
 
+## 🔐 Authorization
 
-## Documentation for API Endpoints
+Authentication schemes defined for the API
+
+### X-App-Id
+
+- **Type**: API key
+- **API key parameter name**: X-App-Id
+- **Location**: HTTP header
+
+### X-App-Token
+
+- **Type**: API key
+- **API key parameter name**: X-App-Token
+- **Location**: HTTP header
+
+### X-Client-Token
+
+- **Type**: API key
+- **API key parameter name**: X-Client-Token
+- **Location**: HTTP header
+
+### X-Client-Application-Id
+
+- **Type**: API key
+- **API key parameter name**: X-Client-Application-Id
+- **Location**: HTTP header
+
+### X-Management-Id
+
+- **Type**: API key
+- **API key parameter name**: X-Management-Id
+- **Location**: HTTP header
+
+### X-Management-Token
+
+- **Type**: API key
+- **API key parameter name**: X-Management-Token
+- **Location**: HTTP header
+
+### X-Voucherify-OAuth
+
+- **Type**: OAuth
+- **Flow**: implicit
+- **Authorization URL**: https://api.voucherify.io/v1/oauth/token
+- **Scopes**: 
+  - `api`: Gives access to whole server-side API.
+  - `vouchers`: Gives access to all endpoints and methods starting with `v1/vouchers`.
+  - `client_api`: Gives access to whole client-side API.
+  - `client_vouchers`: Gives access to all endpoints and methods starting with `/client/v1/vouchers`.
+  - `promotions`: Gives access to all endpoints and methods starting with `/v1/promotions`.
+  - `client_promotions`: Gives access to all endpoints and methods starting with `/client/v1/promotions`
+  - `campaigns`: Gives access to all endpoints and methods starting with `v1/campaigns`.
+  - `client_publish`: Gives access to all endpoints and methods starting with `/client/v1/publish`.
+  - `exports`: Gives access to all endpoints and methods starting with `/v1/exports`.
+  - `publications`: Gives access to all endpoints and methods starting with `/v1/publications`.
+  - `client_validate`: Gives access to all endpoints and methods starting with `/client/v1/validate`.
+  - `validations`: Gives access to all endpoints and methods starting with `/v1/validations`.
+  - `client_validations`: Gives access to all endpoints and methods starting with `/client/v1/validations`.
+  - `qualifications`: Gives access to all endpoints and methods starting with `/v1/qualifications`.
+  - `client_qualifications`: Gives access to all endpoints and methods starting with `/client/v1/qualifications`.
+  - `client_redeem`: Gives access to all endpoints and methods starting with `/client/v1/redeem
+  - `redemptions`: Gives access to all endpoints and methods starting with `/v1/redemptions`.
+  - `client_redemptions`: Gives access to all endpoints and methods starting with `/client/v1/redemptions`
+  - `customers`: Gives access to all endpoints and methods starting with `/v1/customers`.
+  - `client_customers`: Gives access to all endpoints and methods starting with `/client/v1/customers`.
+  - `orders`: Gives access to all endpoints and methods starting with `/v1/orders`.
+  - `products`: Gives access to all endpoints and methods starting with `/v1/products`.
+  - `skus`: Gives access to all endpoints and methods starting with `/v1/SKUs`.
+  - `validation-rules`: Gives access to all endpoints and methods starting with `/v1/validation-rules`.
+  - `validation-rules-assignments`: Gives access to all endpoints and methods starting with `/v1/validation-rules-assignments
+  - `segments`: Gives access to all endpoints and methods starting with `/v1/segments`.
+  - `events`: Gives access to all endpoints and methods starting with `/v1/events`.
+  - `client_events`: Gives access to all endpoints and methods starting with `client/v1/events`.
+  - `rewards`: Gives access to all endpoints and methods starting with `/v1/rewards`.
+  - `assets`: Gives access to all endpoints and methods starting with `/v1/assets`.
+  - `task-results`: Gives access to all endpoints and methods starting with `/v1/task-results`.
+  - `loyalties`: Gives access to all endpoints and methods starting with `/v1/loyalties`.
+  - `client_consents`: Gives access to all endpoints and methods starting with `client/v1/consents`.
+  - `consents`: Gives access to all endpoints and methods starting with `/v1/consents`.
+  - `async-actions`: Gives access to all endpoints and methods starting with `/v1/async-actions`.
+  - `product-collections`: Gives access to all endpoints and methods starting with `/v1/product-collections`.
+  - `categories`: Gives access to all endpoints and methods starting with `/v1/categories`.
+  - `metadata-schemas`: Gives access to all endpoints and methods starting with `/v1/metadata-schemas`.
+  - `locations`: Gives access to all endpoints and methods starting with `/v1/locations`.
+  - `referrals`: Gives access to all endpoints and methods starting with `/v1/referrals`.
+  - `trash-bin`: Gives access to all endpoints and methods starting with `/v1/trash-bin`.
+  - `templates`: Gives access to all endpoints and methods starting with `/v1/templates`.
+
+## 🌐 Documentation of API endpoints
 
 All URIs are relative to *https://api.voucherify.io*
 
@@ -423,7 +520,7 @@ All URIs are relative to *https://api.voucherify.io*
 | *VouchersApi*           | [**UpdateVouchersMetadataInBulk**](docs/VouchersApi.md#updatevouchersmetadatainbulk)                  | **POST** /v1/vouchers/metadata/async                                                       | Update Vouchers' Metadata in Bulk                 |
 
 
-## Documentation for Models
+## 📚 Documentation for models
 
  - [Model.AccessSettings](docs/AccessSettings.md)
  - [Model.AccessSettingsAssign](docs/AccessSettingsAssign.md)
@@ -1785,98 +1882,3 @@ All URIs are relative to *https://api.voucherify.io*
  - [Model.VouchersUpdateResponseBodyLoyaltyCard](docs/VouchersUpdateResponseBodyLoyaltyCard.md)
  - [Model.VouchersUpdateResponseBodyPublish](docs/VouchersUpdateResponseBodyPublish.md)
  - [Model.VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
-
-
-## Documentation for Authorization
-
-Authentication schemes defined for the API:
-
-### X-App-Id
-
-- **Type**: API key
-- **API key parameter name**: X-App-Id
-- **Location**: HTTP header
-
-### X-App-Token
-
-- **Type**: API key
-- **API key parameter name**: X-App-Token
-- **Location**: HTTP header
-
-### X-Client-Token
-
-- **Type**: API key
-- **API key parameter name**: X-Client-Token
-- **Location**: HTTP header
-
-### X-Client-Application-Id
-
-- **Type**: API key
-- **API key parameter name**: X-Client-Application-Id
-- **Location**: HTTP header
-
-### X-Management-Id
-
-- **Type**: API key
-- **API key parameter name**: X-Management-Id
-- **Location**: HTTP header
-
-### X-Management-Token
-
-- **Type**: API key
-- **API key parameter name**: X-Management-Token
-- **Location**: HTTP header
-
-### X-Voucherify-OAuth
-
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: https://api.voucherify.io/v1/oauth/token
-- **Scopes**: 
-  - api: Gives access to whole server-side API.
-  - vouchers: Gives access to all endpoints and methods starting with &#x60;v1/vouchers&#x60;.
-  - client_api: Gives access to whole client-side API.
-  - client_vouchers: Gives access to all endpoints and methods starting with &#x60;/client/v1/vouchers&#x60;.
-  - promotions: Gives access to all endpoints and methods starting with &#x60;/v1/promotions&#x60;.
-  - client_promotions: Gives access to all endpoints and methods starting with &#x60;/client/v1/promotions&#x60;
-  - campaigns: Gives access to all endpoints and methods starting with &#x60;v1/campaigns&#x60;.
-  - client_publish: Gives access to all endpoints and methods starting with &#x60;/client/v1/publish&#x60;.
-  - exports: Gives access to all endpoints and methods starting with &#x60;/v1/exports&#x60;.
-  - publications: Gives access to all endpoints and methods starting with &#x60;/v1/publications&#x60;.
-  - client_validate: Gives access to all endpoints and methods starting with &#x60;/client/v1/validate&#x60;.
-  - validations: Gives access to all endpoints and methods starting with &#x60;/v1/validations&#x60;.
-  - client_validations: Gives access to all endpoints and methods starting with &#x60;/client/v1/validations&#x60;.
-  - qualifications: Gives access to all endpoints and methods starting with &#x60;/v1/qualifications&#x60;.
-  - client_qualifications: Gives access to all endpoints and methods starting with &#x60;/client/v1/qualifications&#x60;.
-  - client_redeem: Gives access to all endpoints and methods starting with &#x60;/client/v1/redeem
-  - redemptions: Gives access to all endpoints and methods starting with &#x60;/v1/redemptions&#x60;.
-  - client_redemptions: Gives access to all endpoints and methods starting with &#x60;/client/v1/redemptions&#x60;
-  - customers: Gives access to all endpoints and methods starting with &#x60;/v1/customers&#x60;.
-  - client_customers: Gives access to all endpoints and methods starting with &#x60;/client/v1/customers&#x60;.
-  - orders: Gives access to all endpoints and methods starting with &#x60;/v1/orders&#x60;.
-  - products: Gives access to all endpoints and methods starting with &#x60;/v1/products&#x60;.
-  - skus: Gives access to all endpoints and methods starting with &#x60;/v1/SKUs&#x60;.
-  - validation-rules: Gives access to all endpoints and methods starting with &#x60;/v1/validation-rules&#x60;.
-  - validation-rules-assignments: Gives access to all endpoints and methods starting with &#x60;/v1/validation-rules-assignments
-  - segments: Gives access to all endpoints and methods starting with &#x60;/v1/segments&#x60;.
-  - events: Gives access to all endpoints and methods starting with &#x60;/v1/events&#x60;.
-  - client_events: Gives access to all endpoints and methods starting with &#x60;client/v1/events&#x60;.
-  - rewards: Gives access to all endpoints and methods starting with &#x60;/v1/rewards&#x60;.
-  - assets: Gives access to all endpoints and methods starting with &#x60;/v1/assets&#x60;.
-  - task-results: Gives access to all endpoints and methods starting with &#x60;/v1/task-results&#x60;.
-  - loyalties: Gives access to all endpoints and methods starting with &#x60;/v1/loyalties&#x60;.
-  - client_consents: Gives access to all endpoints and methods starting with &#x60;client/v1/consents&#x60;.
-  - consents: Gives access to all endpoints and methods starting with &#x60;/v1/consents&#x60;.
-  - async-actions: Gives access to all endpoints and methods starting with &#x60;/v1/async-actions&#x60;.
-  - product-collections: Gives access to all endpoints and methods starting with &#x60;/v1/product-collections&#x60;.
-  - categories: Gives access to all endpoints and methods starting with &#x60;/v1/categories&#x60;.
-  - metadata-schemas: Gives access to all endpoints and methods starting with &#x60;/v1/metadata-schemas&#x60;.
-  - locations: Gives access to all endpoints and methods starting with &#x60;/v1/locations&#x60;.
-  - referrals: Gives access to all endpoints and methods starting with &#x60;/v1/referrals&#x60;.
-  - trash-bin: Gives access to all endpoints and methods starting with &#x60;/v1/trash-bin&#x60;.
-  - templates: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
-
-
-## Recommendation
-
-Please check out our [test suite for more examples](./src/Voucherify.Test).
