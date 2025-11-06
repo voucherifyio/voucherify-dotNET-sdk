@@ -29,17 +29,12 @@ For more info, here are some useful places to visit:
 - 🐛 Caught a bug? [Add an issue](https://github.com/voucherifyio/voucherify-js-sdk/issues "Visit issues in Voucherify JS SDK")!
 - 🧑‍💻 Need more help? [Contact support](https://www.voucherify.io/contact-support "Visit contact support page").
 
-
-<a id="frameworks-supported"></a>
-
 ## Frameworks supported
 
 Voucherify .NET SDK supports the following frameworks:
 - .NET Core >= 1.0
 - .NET Framework >= 4.6
 - Mono/Xamarin >= vNext
-
-<a id="dependencies"></a>
 
 ## Dependencies
 
@@ -71,7 +66,7 @@ using Voucherify.Api;
 using Voucherify.Client;
 using Voucherify.Model;
 ```
-<a id="usage"></a>
+
 ## Usage
 
 To use the API client with a HTTP proxy, setup a `System.Net.WebProxy`
@@ -82,7 +77,6 @@ webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 c.Proxy = webProxy;
 ```
 
-<a id="getting-started"></a>
 ## 🚀 Running code
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
@@ -176,7 +170,7 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
 
 *Changelog for previous versions could be found in the [DEPRECATED CHANGELOG file](https://github.com/voucherifyio/voucherify-dotNET-sdk/blob/versions/7.19.0/readme.md#changelog)*
 
-<a id="documentation-for-api-endpoints"></a>
+
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://api.voucherify.io*
@@ -429,7 +423,6 @@ All URIs are relative to *https://api.voucherify.io*
 | *VouchersApi*           | [**UpdateVouchersMetadataInBulk**](docs/VouchersApi.md#updatevouchersmetadatainbulk)                  | **POST** /v1/vouchers/metadata/async                                                       | Update Vouchers' Metadata in Bulk                 |
 
 
-<a id="documentation-for-models"></a>
 ## Documentation for Models
 
  - [Model.AccessSettings](docs/AccessSettings.md)
@@ -1794,54 +1787,46 @@ All URIs are relative to *https://api.voucherify.io*
  - [Model.VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
 
 
-<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-
 Authentication schemes defined for the API:
-<a id="X-App-Id"></a>
+
 ### X-App-Id
 
 - **Type**: API key
 - **API key parameter name**: X-App-Id
 - **Location**: HTTP header
 
-<a id="X-App-Token"></a>
 ### X-App-Token
 
 - **Type**: API key
 - **API key parameter name**: X-App-Token
 - **Location**: HTTP header
 
-<a id="X-Client-Token"></a>
 ### X-Client-Token
 
 - **Type**: API key
 - **API key parameter name**: X-Client-Token
 - **Location**: HTTP header
 
-<a id="X-Client-Application-Id"></a>
 ### X-Client-Application-Id
 
 - **Type**: API key
 - **API key parameter name**: X-Client-Application-Id
 - **Location**: HTTP header
 
-<a id="X-Management-Id"></a>
 ### X-Management-Id
 
 - **Type**: API key
 - **API key parameter name**: X-Management-Id
 - **Location**: HTTP header
 
-<a id="X-Management-Token"></a>
 ### X-Management-Token
 
 - **Type**: API key
 - **API key parameter name**: X-Management-Token
 - **Location**: HTTP header
 
-<a id="X-Voucherify-OAuth"></a>
 ### X-Voucherify-OAuth
 
 - **Type**: OAuth
