@@ -34,9 +34,8 @@ namespace Voucherify.Model
     public partial class ProductCollectionsCreateRequestBody : IValidatableObject
     {
         /// <summary>
-        /// Show that the product collection is static (manually selected products).
+        /// Defines Type
         /// </summary>
-        /// <value>Show that the product collection is static (manually selected products).</value>
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
@@ -44,14 +43,19 @@ namespace Voucherify.Model
             /// Enum STATIC for value: STATIC
             /// </summary>
             [EnumMember(Value = "STATIC")]
-            STATIC = 1
+            STATIC = 1,
+
+            /// <summary>
+            /// Enum AUTOUPDATE for value: AUTO_UPDATE
+            /// </summary>
+            [EnumMember(Value = "AUTO_UPDATE")]
+            AUTOUPDATE = 2
         }
 
 
         /// <summary>
-        /// Show that the product collection is static (manually selected products).
+        /// Gets or Sets Type
         /// </summary>
-        /// <value>Show that the product collection is static (manually selected products).</value>
 
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
@@ -78,7 +82,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductCollectionsCreateRequestBody" /> class.
         /// </summary>
-        /// <param name="type">Show that the product collection is static (manually selected products)..</param>
+        /// <param name="type">type.</param>
         /// <param name="name">Unique user-defined product collection name..</param>
         /// <param name="products">Defines a set of products for a &#x60;STATIC&#x60; product collection type..</param>
         /// <param name="filter">Defines a set of criteria and boundary conditions for an &#x60;AUTO_UPDATE&#x60; product collection type..</param>

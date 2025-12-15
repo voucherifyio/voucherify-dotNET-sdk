@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationsValidateResponseBody</returns>
-        ValidationsValidateResponseBody ValidateStackedDiscounts(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0);
+        ValidationsValidateResponseBody ValidateStackedDiscounts(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Validate Stackable Discounts
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationsValidateResponseBody</returns>
-        ApiResponse<ValidationsValidateResponseBody> ValidateStackedDiscountsWithHttpInfo(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0);
+        ApiResponse<ValidationsValidateResponseBody> ValidateStackedDiscountsWithHttpInfo(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -67,11 +67,11 @@ namespace Voucherify.Api
         /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationsValidateResponseBody</returns>
-        System.Threading.Tasks.Task<ValidationsValidateResponseBody> ValidateStackedDiscountsAsync(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ValidationsValidateResponseBody> ValidateStackedDiscountsAsync(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Validate Stackable Discounts
@@ -80,11 +80,11 @@ namespace Voucherify.Api
         /// Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationsValidateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ValidationsValidateResponseBody>> ValidateStackedDiscountsWithHttpInfoAsync(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ValidationsValidateResponseBody>> ValidateStackedDiscountsWithHttpInfoAsync(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -209,10 +209,10 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationsValidateResponseBody</returns>
-        public ValidationsValidateResponseBody ValidateStackedDiscounts(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0)
+        public ValidationsValidateResponseBody ValidateStackedDiscounts(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ValidationsValidateResponseBody> localVarResponse = ValidateStackedDiscountsWithHttpInfo(validationsValidateRequestBody);
             return localVarResponse.Data;
@@ -222,11 +222,17 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationsValidateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ValidationsValidateResponseBody> ValidateStackedDiscountsWithHttpInfo(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ValidationsValidateResponseBody> ValidateStackedDiscountsWithHttpInfo(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'validationsValidateRequestBody' is set
+            if (validationsValidateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationsValidateRequestBody' when calling ValidationsApi->ValidateStackedDiscounts");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -301,11 +307,11 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationsValidateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ValidationsValidateResponseBody> ValidateStackedDiscountsAsync(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValidationsValidateResponseBody> ValidateStackedDiscountsAsync(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ValidationsValidateResponseBody> localVarResponse = await ValidateStackedDiscountsWithHttpInfoAsync(validationsValidateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -315,12 +321,18 @@ namespace Voucherify.Api
         /// Validate Stackable Discounts Verify redeemables provided in the request. This method is designed for server side integration which means that it is accessible only through private keys. API keys with a Merchant role cant use this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationsValidateRequestBody"> (optional)</param>
+        /// <param name="validationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationsValidateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationsValidateResponseBody>> ValidateStackedDiscountsWithHttpInfoAsync(ValidationsValidateRequestBody validationsValidateRequestBody = default(ValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationsValidateResponseBody>> ValidateStackedDiscountsWithHttpInfoAsync(ValidationsValidateRequestBody validationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'validationsValidateRequestBody' is set
+            if (validationsValidateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationsValidateRequestBody' when calling ValidationsApi->ValidateStackedDiscounts");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Voucherify.Api;
 using Voucherify.Client;
@@ -97,16 +98,25 @@ namespace Voucherify.Test
             return await _redemptionsApi.RedeemStackedDiscountsAsync(requestBody);
         }
 
-        public async Task<RedemptionsListResponseBody> ListRedemptions()
+        public async Task<RedemptionsListResponseBody> ListRedemptions(List<string> voucherCodes)
         {
+            if (voucherCodes == null) throw new ArgumentNullException(nameof(voucherCodes));
+
+            var normalizedVoucherCodes = voucherCodes
+                .Where(code => !string.IsNullOrWhiteSpace(code))
+                .Distinct()
+                .ToList();
+
+            if (normalizedVoucherCodes.Count == 0)
+                throw new ArgumentException("voucherCodes must contain at least one non-empty voucher code.", nameof(voucherCodes));
+
             var filters = new ParameterFiltersListRedemptions(
                 voucherCode: new ParameterFiltersListRedemptionsVoucherCode(
                     conditions: new FilterConditionsString(
-                        notIn: new List<string> { "123" }
+                        varIn: normalizedVoucherCodes
                     )
                 )
             );
-
 
             return await _redemptionsApi.ListRedemptionsAsync(
                 filters: filters

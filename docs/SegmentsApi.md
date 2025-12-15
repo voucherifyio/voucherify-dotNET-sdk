@@ -10,7 +10,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createsegment"></a>
 # **CreateSegment**
-> SegmentsCreateResponseBody CreateSegment (SegmentsCreateRequestBody segmentsCreateRequestBody = null)
+> SegmentsCreateResponseBody CreateSegment (SegmentsCreateRequestBody segmentsCreateRequestBody)
 
 Create Segment
 
@@ -44,7 +44,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SegmentsApi(config);
-            var segmentsCreateRequestBody = new SegmentsCreateRequestBody(); // SegmentsCreateRequestBody | Specify the boundary conditions for the customer segment. (optional) 
+            var segmentsCreateRequestBody = new SegmentsCreateRequestBody(); // SegmentsCreateRequestBody | Specify the boundary conditions for the customer segment.
 
             try
             {
@@ -87,7 +87,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **segmentsCreateRequestBody** | [**SegmentsCreateRequestBody**](SegmentsCreateRequestBody.md) | Specify the boundary conditions for the customer segment. | [optional]  |
+| **segmentsCreateRequestBody** | [**SegmentsCreateRequestBody**](SegmentsCreateRequestBody.md) | Specify the boundary conditions for the customer segment. |  |
 
 ### Return type
 

@@ -42,61 +42,61 @@
 | ------------------ | ------ | ----------------- | ------------------------------------ | ------------- |
 | /v1/qualifications | post   | Check Eligibility | <font color='green'>supported</font> |               |
 ## Validations
-| endpoint                                 | method | summary                      | is supported                         | is deprecated |
-| ---------------------------------------- | ------ | ---------------------------- | ------------------------------------ | ------------- |
-| /v1/validations                          | post   | Validate Stackable Discounts | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/validate             | post   | Validate Voucher             |                                      |               |
-| /v1/promotions/validation                | post   | Validate Promotions          |                                      |               |
-| /v1/promotions/tiers/{tierId}/validation | post   | Validate Promotion Tier      |                                      |               |
+| endpoint                                 | method | summary                      | is supported                         | is deprecated                        |
+| ---------------------------------------- | ------ | ---------------------------- | ------------------------------------ | ------------------------------------ |
+| /v1/validations                          | post   | Validate Stackable Discounts | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/validate             | post   | Validate Voucher             |                                      |  <font color='red'>deprecated</font> |
+| /v1/promotions/validation                | post   | Validate Promotions          |                                      |  <font color='red'>deprecated</font> |
+| /v1/promotions/tiers/{tierId}/validation | post   | Validate Promotion Tier      |                                      |  <font color='red'>deprecated</font> |
 ## Redemptions
-| endpoint                                          | method | summary                        | is supported                         | is deprecated |
-| ------------------------------------------------- | ------ | ------------------------------ | ------------------------------------ | ------------- |
-| /v1/redemptions                                   | get    | List Redemptions               | <font color='green'>supported</font> |               |
-| /v1/redemptions                                   | post   | Redeem Stackable Discounts     | <font color='green'>supported</font> |               |
-| /v1/redemptions/{redemptionId}                    | get    | Get Redemption                 | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/redemption                    | get    | Get Voucher's Redemptions      | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/redemption                    | post   | Redeem Voucher                 |                                      |               |
-| /v1/redemptions/{redemptionId}/rollback           | post   | Rollback Redemption            | <font color='green'>supported</font> |               |
-| /v1/promotions/tiers/{promotionTierId}/redemption | post   | Redeem Promotion               |                                      |               |
-| /v1/redemptions/{parentRedemptionId}/rollbacks    | post   | Rollback Stackable Redemptions | <font color='green'>supported</font> |               |
+| endpoint                                          | method | summary                        | is supported                         | is deprecated                        |
+| ------------------------------------------------- | ------ | ------------------------------ | ------------------------------------ | ------------------------------------ |
+| /v1/redemptions                                   | get    | List Redemptions               | <font color='green'>supported</font> |                                      |
+| /v1/redemptions                                   | post   | Redeem Stackable Discounts     | <font color='green'>supported</font> |                                      |
+| /v1/redemptions/{redemptionId}                    | get    | Get Redemption                 | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/redemption                    | get    | Get Voucher's Redemptions      | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/redemption                    | post   | Redeem Voucher                 |                                      |  <font color='red'>deprecated</font> |
+| /v1/redemptions/{redemptionId}/rollback           | post   | Rollback Redemption            | <font color='green'>supported</font> |                                      |
+| /v1/promotions/tiers/{promotionTierId}/redemption | post   | Redeem Promotion               |                                      |  <font color='red'>deprecated</font> |
+| /v1/redemptions/{parentRedemptionId}/rollbacks    | post   | Rollback Stackable Redemptions | <font color='green'>supported</font> |                                      |
 ## Vouchers
-| endpoint                                  | method | summary                           | is supported                         | is deprecated |
-| ----------------------------------------- | ------ | --------------------------------- | ------------------------------------ | ------------- |
-| /v1/vouchers                              | get    | List Vouchers                     | <font color='green'>supported</font> |               |
-| /v1/vouchers                              | post   | Generate Random Code              | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}                       | get    | Get Voucher                       | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}                       | put    | Update Voucher                    | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}                       | delete | Delete Voucher                    | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}                       | post   | Create Voucher                    | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/enable                | post   | Enable Voucher                    | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/disable               | post   | Disable Voucher                   | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/balance               | post   | Adjust Voucher Balance            | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/transactions          | get    | List Voucher Transactions         | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/transactions/export   | post   | Export Voucher Transactions       | <font color='green'>supported</font> |               |
-| /v1/vouchers/import                       | post   | Import Vouchers                   | <font color='green'>supported</font> |               |
-| /v1/vouchers/importCSV                    | post   | Import Vouchers using CSV         | <font color='green'>supported</font> |               |
-| /v1/vouchers/bulk/async                   | post   | Update Vouchers in Bulk           | <font color='green'>supported</font> |               |
-| /v1/vouchers/metadata/async               | post   | Update Vouchers' Metadata in Bulk | <font color='green'>supported</font> |               |
-| /v1/vouchers/{code}/sessions/{sessionKey} | delete | Release Validation Session        | <font color='green'>supported</font> |               |
-| /v1/vouchers/qualification                | post   | Examine Voucher Qualification     |                                      |               |
+| endpoint                                  | method | summary                           | is supported                         | is deprecated                        |
+| ----------------------------------------- | ------ | --------------------------------- | ------------------------------------ | ------------------------------------ |
+| /v1/vouchers                              | get    | List Vouchers                     | <font color='green'>supported</font> |                                      |
+| /v1/vouchers                              | post   | Generate Random Code              | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}                       | get    | Get Voucher                       | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}                       | put    | Update Voucher                    | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}                       | delete | Delete Voucher                    | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}                       | post   | Create Voucher                    | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/enable                | post   | Enable Voucher                    | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/disable               | post   | Disable Voucher                   | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/balance               | post   | Adjust Voucher Balance            | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/transactions          | get    | List Voucher Transactions         | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/transactions/export   | post   | Export Voucher Transactions       | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/import                       | post   | Import Vouchers                   | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/importCSV                    | post   | Import Vouchers using CSV         | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/bulk/async                   | post   | Update Vouchers in Bulk           | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/metadata/async               | post   | Update Vouchers' Metadata in Bulk | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/{code}/sessions/{sessionKey} | delete | Release Validation Session        | <font color='green'>supported</font> |                                      |
+| /v1/vouchers/qualification                | post   | Examine Voucher Qualification     |                                      |  <font color='red'>deprecated</font> |
 ## Campaigns
-| endpoint                                       | method | summary                                    | is supported                         | is deprecated |
-| ---------------------------------------------- | ------ | ------------------------------------------ | ------------------------------------ | ------------- |
-| /v1/campaigns                                  | post   | Create Campaign                            | <font color='green'>supported</font> |               |
-| /v1/campaigns                                  | get    | List Campaigns                             | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}                     | get    | Get Campaign                               | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}                     | put    | Update Campaign                            | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}                     | delete | Delete Campaign                            | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/vouchers            | post   | Add Vouchers to Campaign                   | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/vouchers/{code}     | post   | Add Voucher with Specific Code to Campaign | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/import              | post   | Import Vouchers to Campaign                | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/importCSV           | post   | Import Vouchers to Campaign by CSV         | <font color='green'>supported</font> |               |
-| /v1/campaigns/qualification                    | post   | Examine Campaign Qualification             |                                      |               |
-| /v1/campaigns/{campaignId}/enable              | post   | Enable Campaign                            | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/disable             | post   | Disable Campaign                           | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/transactions        | get    | List Campaign Transactions                 | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/transactions/export | post   | Export Campaign Transactions               | <font color='green'>supported</font> |               |
-| /v1/campaigns/{campaignId}/summary             | get    | Get Campaign Summary                       | <font color='green'>supported</font> |               |
+| endpoint                                       | method | summary                                    | is supported                         | is deprecated                        |
+| ---------------------------------------------- | ------ | ------------------------------------------ | ------------------------------------ | ------------------------------------ |
+| /v1/campaigns                                  | post   | Create Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns                                  | get    | List Campaigns                             | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}                     | get    | Get Campaign                               | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}                     | put    | Update Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}                     | delete | Delete Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/vouchers            | post   | Add Vouchers to Campaign                   | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/vouchers/{code}     | post   | Add Voucher with Specific Code to Campaign | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/import              | post   | Import Vouchers to Campaign                | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/importCSV           | post   | Import Vouchers to Campaign by CSV         | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/qualification                    | post   | Examine Campaign Qualification             |                                      |  <font color='red'>deprecated</font> |
+| /v1/campaigns/{campaignId}/enable              | post   | Enable Campaign                            | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/disable             | post   | Disable Campaign                           | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/transactions        | get    | List Campaign Transactions                 | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/transactions/export | post   | Export Campaign Transactions               | <font color='green'>supported</font> |                                      |
+| /v1/campaigns/{campaignId}/summary             | get    | Get Campaign Summary                       | <font color='green'>supported</font> |                                      |
 ## Promotions
 | endpoint                                       | method | summary                            | is supported                         | is deprecated |
 | ---------------------------------------------- | ------ | ---------------------------------- | ------------------------------------ | ------------- |
@@ -182,22 +182,23 @@
 | /v1/loyalties/members/{memberId}/tiers                                     | get    | List Member's Loyalty Tiers                       | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules             | get    | List Loyalty Tier Earning Rules                   | <font color='green'>supported</font> |               |
 | /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards                   | get    | List Loyalty Tier Rewards                         | <font color='green'>supported</font> |               |
+| /v1/loyalties/{campaignId}/qualifications                                  | post   | Estimate loyalty points                           |                                      |               |
 ## Customers
-| endpoint                                      | method | summary                               | is supported                         | is deprecated |
-| --------------------------------------------- | ------ | ------------------------------------- | ------------------------------------ | ------------- |
-| /v1/customers                                 | get    | List Customers                        | <font color='green'>supported</font> |               |
-| /v1/customers                                 | post   | Create Customer                       | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}                    | get    | Get Customer                          | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}                    | delete | Delete Customer                       | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}                    | put    | Update Customer                       | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently           | <font color='green'>supported</font> |               |
-| /v1/customers/importCSV                       | post   | Import and Update Customers using CSV | <font color='green'>supported</font> |               |
-| /v1/customers/bulk/async                      | post   | Update Customers in Bulk              | <font color='green'>supported</font> |               |
-| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in Bulk    | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}/activity           | get    | List Customer Activity                | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}/activities         | get    | List Customer Activities              |                                      |               |
-| /v1/customers/{customerId}/segments           | get    | List Customer's Segments              | <font color='green'>supported</font> |               |
-| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables           | <font color='green'>supported</font> |               |
+| endpoint                                      | method | summary                               | is supported                         | is deprecated                        |
+| --------------------------------------------- | ------ | ------------------------------------- | ------------------------------------ | ------------------------------------ |
+| /v1/customers                                 | get    | List Customers                        | <font color='green'>supported</font> |                                      |
+| /v1/customers                                 | post   | Create Customer                       | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}                    | get    | Get Customer                          | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}                    | delete | Delete Customer                       | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}                    | put    | Update Customer                       | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/permanent-deletion | post   | Delete Customer Permanently           | <font color='green'>supported</font> |                                      |
+| /v1/customers/importCSV                       | post   | Import and Update Customers using CSV | <font color='green'>supported</font> |                                      |
+| /v1/customers/bulk/async                      | post   | Update Customers in Bulk              | <font color='green'>supported</font> |                                      |
+| /v1/customers/metadata/async                  | post   | Update Customers' Metadata in Bulk    | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/activity           | get    | List Customer Activity                | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/activities         | get    | List Customer Activities              |                                      |  <font color='red'>deprecated</font> |
+| /v1/customers/{customerId}/segments           | get    | List Customer's Segments              | <font color='green'>supported</font> |                                      |
+| /v1/customers/{customerId}/redeemables        | get    | List Customer's Redeemables           | <font color='green'>supported</font> |                                      |
 ## Orders
 | endpoint             | method | summary              | is supported                         | is deprecated |
 | -------------------- | ------ | -------------------- | ------------------------------------ | ------------- |
@@ -357,13 +358,13 @@
 | /v1/oauth/introspect   | post   | Introspect OAuth 2.0 Token | <font color='green'>supported</font> |               |
 | /v1/oauth/token/revoke | post   | Revoke OAuth 2.0 Token     | <font color='green'>supported</font> |               |
 ## Client-side
-| endpoint                    | method | summary                                    | is supported                         | is deprecated |
-| --------------------------- | ------ | ------------------------------------------ | ------------------------------------ | ------------- |
-| /client/v1/qualifications   | post   | Check Eligibility (client-side)            | <font color='green'>supported</font> |               |
-| /client/v1/promotions/tiers | get    | List Promotion Tiers (client-side)         | <font color='green'>supported</font> |               |
-| /client/v1/redemptions      | post   | Redeem Stackable Discounts (client-side)   | <font color='green'>supported</font> |               |
-| /client/v1/validations      | post   | Validate Stackable Discounts (client-side) | <font color='green'>supported</font> |               |
-| /client/v1/events           | post   | Track Custom Event (client-side)           | <font color='green'>supported</font> |               |
-| /client/v1/validate         | get    | Validate Voucher (client-side)             |                                      |               |
-| /client/v1/redeem           | post   | Redeem Voucher (client-side)               |                                      |               |
-| /client/v1/publish          | post   | Create Publication (client-side)           |                                      |               |
+| endpoint                    | method | summary                                    | is supported                         | is deprecated                        |
+| --------------------------- | ------ | ------------------------------------------ | ------------------------------------ | ------------------------------------ |
+| /client/v1/qualifications   | post   | Check Eligibility (client-side)            | <font color='green'>supported</font> |                                      |
+| /client/v1/promotions/tiers | get    | List Promotion Tiers (client-side)         | <font color='green'>supported</font> |                                      |
+| /client/v1/redemptions      | post   | Redeem Stackable Discounts (client-side)   | <font color='green'>supported</font> |                                      |
+| /client/v1/validations      | post   | Validate Stackable Discounts (client-side) | <font color='green'>supported</font> |                                      |
+| /client/v1/events           | post   | Track Custom Event (client-side)           | <font color='green'>supported</font> |                                      |
+| /client/v1/validate         | get    | Validate Voucher (client-side)             |                                      |  <font color='red'>deprecated</font> |
+| /client/v1/redeem           | post   | Redeem Voucher (client-side)               |                                      |  <font color='red'>deprecated</font> |
+| /client/v1/publish          | post   | Create Publication (client-side)           |                                      |                                      |

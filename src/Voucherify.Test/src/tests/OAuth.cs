@@ -215,7 +215,7 @@ namespace Voucherify.Test
                 Voucher = _voucher.Code
             };
 
-            var publication = await _publicationsApi.CreatePublicationAsync(true, publicationsCreateRequestBody);
+            var publication = await _publicationsApi.CreatePublicationAsync(publicationsCreateRequestBody, true);
 
             publication.Should().NotBeNull();
             publication.CustomerId.Should().Be(_customer.Id);

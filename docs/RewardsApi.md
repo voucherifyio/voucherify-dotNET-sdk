@@ -17,7 +17,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createreward"></a>
 # **CreateReward**
-> RewardsCreateResponseBody CreateReward (RewardsCreateRequestBody rewardsCreateRequestBody = null)
+> RewardsCreateResponseBody CreateReward (RewardsCreateRequestBody rewardsCreateRequestBody)
 
 Create Reward
 
@@ -51,7 +51,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RewardsApi(config);
-            var rewardsCreateRequestBody = new RewardsCreateRequestBody(); // RewardsCreateRequestBody | Define parameters of the new reward. (optional) 
+            var rewardsCreateRequestBody = new RewardsCreateRequestBody(); // RewardsCreateRequestBody | Define parameters of the new reward.
 
             try
             {
@@ -94,7 +94,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **rewardsCreateRequestBody** | [**RewardsCreateRequestBody**](RewardsCreateRequestBody.md) | Define parameters of the new reward. | [optional]  |
+| **rewardsCreateRequestBody** | [**RewardsCreateRequestBody**](RewardsCreateRequestBody.md) | Define parameters of the new reward. |  |
 
 ### Return type
 
@@ -119,7 +119,7 @@ catch (ApiException e)
 
 <a id="createrewardassignment"></a>
 # **CreateRewardAssignment**
-> RewardsAssignmentsCreateResponseBody CreateRewardAssignment (string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = null)
+> RewardsAssignmentsCreateResponseBody CreateRewardAssignment (string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody)
 
 Create Reward Assignment
 
@@ -154,7 +154,7 @@ namespace Example
 
             var apiInstance = new RewardsApi(config);
             var rewardId = "rewardId_example";  // string | A unique reward ID.
-            var rewardsAssignmentsCreateRequestBody = new RewardsAssignmentsCreateRequestBody(); // RewardsAssignmentsCreateRequestBody | Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional) 
+            var rewardsAssignmentsCreateRequestBody = new RewardsAssignmentsCreateRequestBody(); // RewardsAssignmentsCreateRequestBody | Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.
 
             try
             {
@@ -198,7 +198,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **rewardId** | **string** | A unique reward ID. |  |
-| **rewardsAssignmentsCreateRequestBody** | [**RewardsAssignmentsCreateRequestBody**](RewardsAssignmentsCreateRequestBody.md) | Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. | [optional]  |
+| **rewardsAssignmentsCreateRequestBody** | [**RewardsAssignmentsCreateRequestBody**](RewardsAssignmentsCreateRequestBody.md) | Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. |  |
 
 ### Return type
 
@@ -839,7 +839,7 @@ catch (ApiException e)
 
 <a id="updatereward"></a>
 # **UpdateReward**
-> RewardsUpdateResponseBody UpdateReward (string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = null)
+> RewardsUpdateResponseBody UpdateReward (string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody)
 
 Update Reward
 
@@ -874,7 +874,7 @@ namespace Example
 
             var apiInstance = new RewardsApi(config);
             var rewardId = "rewardId_example";  // string | A unique reward ID.
-            var rewardsUpdateRequestBody = new RewardsUpdateRequestBody(); // RewardsUpdateRequestBody | Define the parameters to be updated for the reward. (optional) 
+            var rewardsUpdateRequestBody = new RewardsUpdateRequestBody(); // RewardsUpdateRequestBody | Define the parameters to be updated for the reward.
 
             try
             {
@@ -918,7 +918,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **rewardId** | **string** | A unique reward ID. |  |
-| **rewardsUpdateRequestBody** | [**RewardsUpdateRequestBody**](RewardsUpdateRequestBody.md) | Define the parameters to be updated for the reward. | [optional]  |
+| **rewardsUpdateRequestBody** | [**RewardsUpdateRequestBody**](RewardsUpdateRequestBody.md) | Define the parameters to be updated for the reward. |  |
 
 ### Return type
 
@@ -943,7 +943,7 @@ catch (ApiException e)
 
 <a id="updaterewardassignment"></a>
 # **UpdateRewardAssignment**
-> RewardsAssignmentsUpdateResponseBody UpdateRewardAssignment (string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = null)
+> RewardsAssignmentsUpdateResponseBody UpdateRewardAssignment (string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody)
 
 Update Reward Assignment
 
@@ -979,7 +979,7 @@ namespace Example
             var apiInstance = new RewardsApi(config);
             var rewardId = "rewardId_example";  // string | A unique reward ID.
             var assignmentId = "assignmentId_example";  // string | A unique reward assignment ID.
-            var rewardsAssignmentsUpdateRequestBody = new RewardsAssignmentsUpdateRequestBody(); // RewardsAssignmentsUpdateRequestBody | Define the number of points required to exchange for the reward. (optional) 
+            var rewardsAssignmentsUpdateRequestBody = new RewardsAssignmentsUpdateRequestBody(); // RewardsAssignmentsUpdateRequestBody | Define the number of points required to exchange for the reward.
 
             try
             {
@@ -1024,7 +1024,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **rewardId** | **string** | A unique reward ID. |  |
 | **assignmentId** | **string** | A unique reward assignment ID. |  |
-| **rewardsAssignmentsUpdateRequestBody** | [**RewardsAssignmentsUpdateRequestBody**](RewardsAssignmentsUpdateRequestBody.md) | Define the number of points required to exchange for the reward. | [optional]  |
+| **rewardsAssignmentsUpdateRequestBody** | [**RewardsAssignmentsUpdateRequestBody**](RewardsAssignmentsUpdateRequestBody.md) | Define the number of points required to exchange for the reward. |  |
 
 ### Return type
 

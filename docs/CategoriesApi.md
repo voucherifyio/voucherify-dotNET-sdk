@@ -12,7 +12,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createcategory"></a>
 # **CreateCategory**
-> CategoriesCreateResponseBody CreateCategory (CategoriesCreateRequestBody categoriesCreateRequestBody = null)
+> CategoriesCreateResponseBody CreateCategory (CategoriesCreateRequestBody categoriesCreateRequestBody)
 
 Create Category
 
@@ -46,7 +46,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CategoriesApi(config);
-            var categoriesCreateRequestBody = new CategoriesCreateRequestBody(); // CategoriesCreateRequestBody | Specify the details of the category that you would like to create. (optional) 
+            var categoriesCreateRequestBody = new CategoriesCreateRequestBody(); // CategoriesCreateRequestBody | Specify the details of the category that you would like to create.
 
             try
             {
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **categoriesCreateRequestBody** | [**CategoriesCreateRequestBody**](CategoriesCreateRequestBody.md) | Specify the details of the category that you would like to create. | [optional]  |
+| **categoriesCreateRequestBody** | [**CategoriesCreateRequestBody**](CategoriesCreateRequestBody.md) | Specify the details of the category that you would like to create. |  |
 
 ### Return type
 
@@ -411,7 +411,7 @@ This endpoint does not need any parameter.
 
 <a id="updatecategory"></a>
 # **UpdateCategory**
-> CategoriesUpdateResponseBody UpdateCategory (string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = null)
+> CategoriesUpdateResponseBody UpdateCategory (string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody)
 
 Update Category
 
@@ -446,7 +446,7 @@ namespace Example
 
             var apiInstance = new CategoriesApi(config);
             var categoryId = "categoryId_example";  // string | Unique category ID assigned by Voucherify.
-            var categoriesUpdateRequestBody = new CategoriesUpdateRequestBody(); // CategoriesUpdateRequestBody | Specify the details of the category that you would like to update. (optional) 
+            var categoriesUpdateRequestBody = new CategoriesUpdateRequestBody(); // CategoriesUpdateRequestBody | Specify the details of the category that you would like to update.
 
             try
             {
@@ -490,7 +490,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **categoryId** | **string** | Unique category ID assigned by Voucherify. |  |
-| **categoriesUpdateRequestBody** | [**CategoriesUpdateRequestBody**](CategoriesUpdateRequestBody.md) | Specify the details of the category that you would like to update. | [optional]  |
+| **categoriesUpdateRequestBody** | [**CategoriesUpdateRequestBody**](CategoriesUpdateRequestBody.md) | Specify the details of the category that you would like to update. |  |
 
 ### Return type
 

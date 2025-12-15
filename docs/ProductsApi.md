@@ -21,7 +21,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createproduct"></a>
 # **CreateProduct**
-> ProductsCreateResponseBody CreateProduct (ProductsCreateRequestBody productsCreateRequestBody = null)
+> ProductsCreateResponseBody CreateProduct (ProductsCreateRequestBody productsCreateRequestBody)
 
 Create Product
 
@@ -55,7 +55,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProductsApi(config);
-            var productsCreateRequestBody = new ProductsCreateRequestBody(); // ProductsCreateRequestBody | Specify the product parameters. (optional) 
+            var productsCreateRequestBody = new ProductsCreateRequestBody(); // ProductsCreateRequestBody | Specify the product parameters.
 
             try
             {
@@ -98,7 +98,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **productsCreateRequestBody** | [**ProductsCreateRequestBody**](ProductsCreateRequestBody.md) | Specify the product parameters. | [optional]  |
+| **productsCreateRequestBody** | [**ProductsCreateRequestBody**](ProductsCreateRequestBody.md) | Specify the product parameters. |  |
 
 ### Return type
 
@@ -123,7 +123,7 @@ catch (ApiException e)
 
 <a id="createsku"></a>
 # **CreateSku**
-> ProductsSkusCreateResponseBody CreateSku (string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = null)
+> ProductsSkusCreateResponseBody CreateSku (string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody)
 
 Create SKU
 
@@ -158,7 +158,7 @@ namespace Example
 
             var apiInstance = new ProductsApi(config);
             var productId = "productId_example";  // string | A Voucherify [product](/api-reference/products/get-product) ID or product source ID.
-            var productsSkusCreateRequestBody = new ProductsSkusCreateRequestBody(); // ProductsSkusCreateRequestBody | Specify the SKU parameters to be created. (optional) 
+            var productsSkusCreateRequestBody = new ProductsSkusCreateRequestBody(); // ProductsSkusCreateRequestBody | Specify the SKU parameters to be created.
 
             try
             {
@@ -202,7 +202,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **productId** | **string** | A Voucherify [product](/api-reference/products/get-product) ID or product source ID. |  |
-| **productsSkusCreateRequestBody** | [**ProductsSkusCreateRequestBody**](ProductsSkusCreateRequestBody.md) | Specify the SKU parameters to be created. | [optional]  |
+| **productsSkusCreateRequestBody** | [**ProductsSkusCreateRequestBody**](ProductsSkusCreateRequestBody.md) | Specify the SKU parameters to be created. |  |
 
 ### Return type
 
@@ -1059,7 +1059,7 @@ catch (ApiException e)
 
 <a id="updateproduct"></a>
 # **UpdateProduct**
-> ProductsUpdateResponseBody UpdateProduct (string productId, ProductsUpdateRequestBody productsUpdateRequestBody = null)
+> ProductsUpdateResponseBody UpdateProduct (string productId, ProductsUpdateRequestBody productsUpdateRequestBody)
 
 Update Product
 
@@ -1094,7 +1094,7 @@ namespace Example
 
             var apiInstance = new ProductsApi(config);
             var productId = "productId_example";  // string | A Voucherify product ID or source ID.
-            var productsUpdateRequestBody = new ProductsUpdateRequestBody(); // ProductsUpdateRequestBody | Specify the parameters of the product that are to be updated. (optional) 
+            var productsUpdateRequestBody = new ProductsUpdateRequestBody(); // ProductsUpdateRequestBody | Specify the parameters of the product that are to be updated.
 
             try
             {
@@ -1138,7 +1138,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **productId** | **string** | A Voucherify product ID or source ID. |  |
-| **productsUpdateRequestBody** | [**ProductsUpdateRequestBody**](ProductsUpdateRequestBody.md) | Specify the parameters of the product that are to be updated. | [optional]  |
+| **productsUpdateRequestBody** | [**ProductsUpdateRequestBody**](ProductsUpdateRequestBody.md) | Specify the parameters of the product that are to be updated. |  |
 
 ### Return type
 
@@ -1163,7 +1163,7 @@ catch (ApiException e)
 
 <a id="updateproductsinbulk"></a>
 # **UpdateProductsInBulk**
-> ProductsUpdateInBulkResponseBody UpdateProductsInBulk (List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = null)
+> ProductsUpdateInBulkResponseBody UpdateProductsInBulk (List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody)
 
 Update Products in Bulk
 
@@ -1197,7 +1197,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProductsApi(config);
-            var productsUpdateInBulkRequestBody = new List<ProductsUpdateInBulkRequestBody>(); // List<ProductsUpdateInBulkRequestBody> | List the product fields to be updated in each product object. (optional) 
+            var productsUpdateInBulkRequestBody = new List<ProductsUpdateInBulkRequestBody>(); // List<ProductsUpdateInBulkRequestBody> | List the product fields to be updated in each product object.
 
             try
             {
@@ -1240,7 +1240,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **productsUpdateInBulkRequestBody** | [**List&lt;ProductsUpdateInBulkRequestBody&gt;**](ProductsUpdateInBulkRequestBody.md) | List the product fields to be updated in each product object. | [optional]  |
+| **productsUpdateInBulkRequestBody** | [**List&lt;ProductsUpdateInBulkRequestBody&gt;**](ProductsUpdateInBulkRequestBody.md) | List the product fields to be updated in each product object. |  |
 
 ### Return type
 
@@ -1265,7 +1265,7 @@ catch (ApiException e)
 
 <a id="updateproductsmetadatainbulk"></a>
 # **UpdateProductsMetadataInBulk**
-> ProductsMetadataUpdateInBulkResponseBody UpdateProductsMetadataInBulk (ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = null)
+> ProductsMetadataUpdateInBulkResponseBody UpdateProductsMetadataInBulk (ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody)
 
 Update Products' Metadata in Bulk
 
@@ -1299,7 +1299,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProductsApi(config);
-            var productsMetadataUpdateInBulkRequestBody = new ProductsMetadataUpdateInBulkRequestBody(); // ProductsMetadataUpdateInBulkRequestBody | List the source_ids of the products you would like to update with the metadata key/value pairs. (optional) 
+            var productsMetadataUpdateInBulkRequestBody = new ProductsMetadataUpdateInBulkRequestBody(); // ProductsMetadataUpdateInBulkRequestBody | List the source_ids of the products you would like to update with the metadata key/value pairs.
 
             try
             {
@@ -1342,7 +1342,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **productsMetadataUpdateInBulkRequestBody** | [**ProductsMetadataUpdateInBulkRequestBody**](ProductsMetadataUpdateInBulkRequestBody.md) | List the source_ids of the products you would like to update with the metadata key/value pairs. | [optional]  |
+| **productsMetadataUpdateInBulkRequestBody** | [**ProductsMetadataUpdateInBulkRequestBody**](ProductsMetadataUpdateInBulkRequestBody.md) | List the source_ids of the products you would like to update with the metadata key/value pairs. |  |
 
 ### Return type
 
@@ -1367,7 +1367,7 @@ catch (ApiException e)
 
 <a id="updatesku"></a>
 # **UpdateSku**
-> ProductsSkusUpdateResponseBody UpdateSku (string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = null)
+> ProductsSkusUpdateResponseBody UpdateSku (string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody)
 
 Update SKU
 
@@ -1403,7 +1403,7 @@ namespace Example
             var apiInstance = new ProductsApi(config);
             var productId = "productId_example";  // string | A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.
             var skuId = "skuId_example";  // string | A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.
-            var productsSkusUpdateRequestBody = new ProductsSkusUpdateRequestBody(); // ProductsSkusUpdateRequestBody | Specify the parameters to be updated. (optional) 
+            var productsSkusUpdateRequestBody = new ProductsSkusUpdateRequestBody(); // ProductsSkusUpdateRequestBody | Specify the parameters to be updated.
 
             try
             {
@@ -1448,7 +1448,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **productId** | **string** | A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID. |  |
 | **skuId** | **string** | A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID. |  |
-| **productsSkusUpdateRequestBody** | [**ProductsSkusUpdateRequestBody**](ProductsSkusUpdateRequestBody.md) | Specify the parameters to be updated. | [optional]  |
+| **productsSkusUpdateRequestBody** | [**ProductsSkusUpdateRequestBody**](ProductsSkusUpdateRequestBody.md) | Specify the parameters to be updated. |  |
 
 ### Return type
 

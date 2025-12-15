@@ -21,7 +21,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="addvoucherwithspecificcodetocampaign"></a>
 # **AddVoucherWithSpecificCodeToCampaign**
-> CampaignsVouchersCreateResponseBody AddVoucherWithSpecificCodeToCampaign (string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = null)
+> CampaignsVouchersCreateResponseBody AddVoucherWithSpecificCodeToCampaign (string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody)
 
 Add Voucher with Specific Code to Campaign
 
@@ -57,7 +57,7 @@ namespace Example
             var apiInstance = new CampaignsApi(config);
             var campaignId = "campaignId_example";  // string | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
             var code = "code_example";  // string | A custom **code** that identifies the voucher.
-            var campaignsVouchersCreateRequestBody = new CampaignsVouchersCreateRequestBody(); // CampaignsVouchersCreateRequestBody | Specify the voucher parameters that you would like to overwrite. (optional) 
+            var campaignsVouchersCreateRequestBody = new CampaignsVouchersCreateRequestBody(); // CampaignsVouchersCreateRequestBody | Specify the voucher parameters that you would like to overwrite.
 
             try
             {
@@ -102,7 +102,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |  |
 | **code** | **string** | A custom **code** that identifies the voucher. |  |
-| **campaignsVouchersCreateRequestBody** | [**CampaignsVouchersCreateRequestBody**](CampaignsVouchersCreateRequestBody.md) | Specify the voucher parameters that you would like to overwrite. | [optional]  |
+| **campaignsVouchersCreateRequestBody** | [**CampaignsVouchersCreateRequestBody**](CampaignsVouchersCreateRequestBody.md) | Specify the voucher parameters that you would like to overwrite. |  |
 
 ### Return type
 
@@ -127,7 +127,7 @@ catch (ApiException e)
 
 <a id="addvoucherstocampaign"></a>
 # **AddVouchersToCampaign**
-> CampaignsVouchersCreateCombinedResponseBody AddVouchersToCampaign (string campaignId, int? vouchersCount = null, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = null)
+> CampaignsVouchersCreateCombinedResponseBody AddVouchersToCampaign (string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = null)
 
 Add Vouchers to Campaign
 
@@ -162,13 +162,13 @@ namespace Example
 
             var apiInstance = new CampaignsApi(config);
             var campaignId = "campaignId_example";  // string | The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
+            var campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody(); // CampaignsVouchersCreateInBulkRequestBody | Specify the voucher parameters that you would like to overwrite.
             var vouchersCount = 56;  // int? | Number of vouchers that should be added. (optional) 
-            var campaignsVouchersCreateInBulkRequestBody = new CampaignsVouchersCreateInBulkRequestBody(); // CampaignsVouchersCreateInBulkRequestBody | Specify the voucher parameters that you would like to overwrite. (optional) 
 
             try
             {
                 // Add Vouchers to Campaign
-                CampaignsVouchersCreateCombinedResponseBody result = apiInstance.AddVouchersToCampaign(campaignId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
+                CampaignsVouchersCreateCombinedResponseBody result = apiInstance.AddVouchersToCampaign(campaignId, campaignsVouchersCreateInBulkRequestBody, vouchersCount);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -189,7 +189,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Add Vouchers to Campaign
-    ApiResponse<CampaignsVouchersCreateCombinedResponseBody> response = apiInstance.AddVouchersToCampaignWithHttpInfo(campaignId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
+    ApiResponse<CampaignsVouchersCreateCombinedResponseBody> response = apiInstance.AddVouchersToCampaignWithHttpInfo(campaignId, campaignsVouchersCreateInBulkRequestBody, vouchersCount);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -207,8 +207,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |  |
+| **campaignsVouchersCreateInBulkRequestBody** | [**CampaignsVouchersCreateInBulkRequestBody**](CampaignsVouchersCreateInBulkRequestBody.md) | Specify the voucher parameters that you would like to overwrite. |  |
 | **vouchersCount** | **int?** | Number of vouchers that should be added. | [optional]  |
-| **campaignsVouchersCreateInBulkRequestBody** | [**CampaignsVouchersCreateInBulkRequestBody**](CampaignsVouchersCreateInBulkRequestBody.md) | Specify the voucher parameters that you would like to overwrite. | [optional]  |
 
 ### Return type
 
@@ -233,7 +233,7 @@ catch (ApiException e)
 
 <a id="createcampaign"></a>
 # **CreateCampaign**
-> CampaignsCreateResponseBody CreateCampaign (CampaignsCreateRequestBody campaignsCreateRequestBody = null)
+> CampaignsCreateResponseBody CreateCampaign (CampaignsCreateRequestBody campaignsCreateRequestBody)
 
 Create Campaign
 
@@ -267,7 +267,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CampaignsApi(config);
-            var campaignsCreateRequestBody = new CampaignsCreateRequestBody(); // CampaignsCreateRequestBody | Specify the details of the campaign that you would like to create. (optional) 
+            var campaignsCreateRequestBody = new CampaignsCreateRequestBody(); // CampaignsCreateRequestBody | Specify the details of the campaign that you would like to create.
 
             try
             {
@@ -310,7 +310,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **campaignsCreateRequestBody** | [**CampaignsCreateRequestBody**](CampaignsCreateRequestBody.md) | Specify the details of the campaign that you would like to create. | [optional]  |
+| **campaignsCreateRequestBody** | [**CampaignsCreateRequestBody**](CampaignsCreateRequestBody.md) | Specify the details of the campaign that you would like to create. |  |
 
 ### Return type
 
@@ -643,7 +643,7 @@ catch (ApiException e)
 
 <a id="exportcampaigntransactions"></a>
 # **ExportCampaignTransactions**
-> CampaignsTransactionsExportCreateResponseBody ExportCampaignTransactions (string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = null)
+> CampaignsTransactionsExportCreateResponseBody ExportCampaignTransactions (string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody)
 
 Export Campaign Transactions
 
@@ -678,7 +678,7 @@ namespace Example
 
             var apiInstance = new CampaignsApi(config);
             var campaignId = "campaignId_example";  // string | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-            var campaignsTransactionsExportCreateRequestBody = new CampaignsTransactionsExportCreateRequestBody(); // CampaignsTransactionsExportCreateRequestBody | Specify the parameters for the transaction export. (optional) 
+            var campaignsTransactionsExportCreateRequestBody = new CampaignsTransactionsExportCreateRequestBody(); // CampaignsTransactionsExportCreateRequestBody | Specify the parameters for the transaction export.
 
             try
             {
@@ -722,7 +722,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |  |
-| **campaignsTransactionsExportCreateRequestBody** | [**CampaignsTransactionsExportCreateRequestBody**](CampaignsTransactionsExportCreateRequestBody.md) | Specify the parameters for the transaction export. | [optional]  |
+| **campaignsTransactionsExportCreateRequestBody** | [**CampaignsTransactionsExportCreateRequestBody**](CampaignsTransactionsExportCreateRequestBody.md) | Specify the parameters for the transaction export. |  |
 
 ### Return type
 
@@ -955,7 +955,7 @@ catch (ApiException e)
 
 <a id="importvoucherstocampaign"></a>
 # **ImportVouchersToCampaign**
-> CampaignsImportCreateResponseBody ImportVouchersToCampaign (string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = null)
+> CampaignsImportCreateResponseBody ImportVouchersToCampaign (string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem)
 
 Import Vouchers to Campaign
 
@@ -990,7 +990,7 @@ namespace Example
 
             var apiInstance = new CampaignsApi(config);
             var campaignId = "campaignId_example";  // string | The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-            var campaignsImportVoucherItem = new List<CampaignsImportVoucherItem>(); // List<CampaignsImportVoucherItem> | Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional) 
+            var campaignsImportVoucherItem = new List<CampaignsImportVoucherItem>(); // List<CampaignsImportVoucherItem> | Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.
 
             try
             {
@@ -1034,7 +1034,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |  |
-| **campaignsImportVoucherItem** | [**List&lt;CampaignsImportVoucherItem&gt;**](CampaignsImportVoucherItem.md) | Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. | [optional]  |
+| **campaignsImportVoucherItem** | [**List&lt;CampaignsImportVoucherItem&gt;**](CampaignsImportVoucherItem.md) | Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. |  |
 
 ### Return type
 
@@ -1391,7 +1391,7 @@ catch (ApiException e)
 
 <a id="updatecampaign"></a>
 # **UpdateCampaign**
-> CampaignsUpdateResponseBody UpdateCampaign (string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = null)
+> CampaignsUpdateResponseBody UpdateCampaign (string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody)
 
 Update Campaign
 
@@ -1426,7 +1426,7 @@ namespace Example
 
             var apiInstance = new CampaignsApi(config);
             var campaignId = "campaignId_example";  // string | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-            var campaignsUpdateRequestBody = new CampaignsUpdateRequestBody(); // CampaignsUpdateRequestBody | Specify the campaign parameters to be updated. (optional) 
+            var campaignsUpdateRequestBody = new CampaignsUpdateRequestBody(); // CampaignsUpdateRequestBody | Specify the campaign parameters to be updated.
 
             try
             {
@@ -1470,7 +1470,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |  |
-| **campaignsUpdateRequestBody** | [**CampaignsUpdateRequestBody**](CampaignsUpdateRequestBody.md) | Specify the campaign parameters to be updated. | [optional]  |
+| **campaignsUpdateRequestBody** | [**CampaignsUpdateRequestBody**](CampaignsUpdateRequestBody.md) | Specify the campaign parameters to be updated. |  |
 
 ### Return type
 

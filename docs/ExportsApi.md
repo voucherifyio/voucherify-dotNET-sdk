@@ -12,7 +12,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createexport"></a>
 # **CreateExport**
-> ExportsCreateResponseBody CreateExport (ExportsCreateRequestBody exportsCreateRequestBody = null)
+> ExportsCreateResponseBody CreateExport (ExportsCreateRequestBody exportsCreateRequestBody)
 
 Create Export
 
@@ -46,7 +46,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ExportsApi(config);
-            var exportsCreateRequestBody = new ExportsCreateRequestBody(); // ExportsCreateRequestBody | Specify the details of the export that you would like to create. (optional) 
+            var exportsCreateRequestBody = new ExportsCreateRequestBody(); // ExportsCreateRequestBody | Specify the details of the export that you would like to create.
 
             try
             {
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **exportsCreateRequestBody** | [**ExportsCreateRequestBody**](ExportsCreateRequestBody.md) | Specify the details of the export that you would like to create. | [optional]  |
+| **exportsCreateRequestBody** | [**ExportsCreateRequestBody**](ExportsCreateRequestBody.md) | Specify the details of the export that you would like to create. |  |
 
 ### Return type
 

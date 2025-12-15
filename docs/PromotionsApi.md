@@ -21,7 +21,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="addpromotiontiertocampaign"></a>
 # **AddPromotionTierToCampaign**
-> PromotionsTiersCreateResponseBody AddPromotionTierToCampaign (string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = null)
+> PromotionsTiersCreateResponseBody AddPromotionTierToCampaign (string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody)
 
 Add Promotion Tier to Campaign
 
@@ -56,7 +56,7 @@ namespace Example
 
             var apiInstance = new PromotionsApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID assigned by Voucherify.
-            var promotionsTiersCreateRequestBody = new PromotionsTiersCreateRequestBody(); // PromotionsTiersCreateRequestBody | Specify the promotion tier parameters. (optional) 
+            var promotionsTiersCreateRequestBody = new PromotionsTiersCreateRequestBody(); // PromotionsTiersCreateRequestBody | Specify the promotion tier parameters.
 
             try
             {
@@ -100,7 +100,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID assigned by Voucherify. |  |
-| **promotionsTiersCreateRequestBody** | [**PromotionsTiersCreateRequestBody**](PromotionsTiersCreateRequestBody.md) | Specify the promotion tier parameters. | [optional]  |
+| **promotionsTiersCreateRequestBody** | [**PromotionsTiersCreateRequestBody**](PromotionsTiersCreateRequestBody.md) | Specify the promotion tier parameters. |  |
 
 ### Return type
 
@@ -125,7 +125,7 @@ catch (ApiException e)
 
 <a id="createpromotionstack"></a>
 # **CreatePromotionStack**
-> PromotionsStacksCreateResponseBody CreatePromotionStack (string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = null)
+> PromotionsStacksCreateResponseBody CreatePromotionStack (string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody)
 
 Create Promotion Stack
 
@@ -160,7 +160,7 @@ namespace Example
 
             var apiInstance = new PromotionsApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID.
-            var promotionsStacksCreateRequestBody = new PromotionsStacksCreateRequestBody(); // PromotionsStacksCreateRequestBody | Specify the order of promotion tiers for the promotion stack. (optional) 
+            var promotionsStacksCreateRequestBody = new PromotionsStacksCreateRequestBody(); // PromotionsStacksCreateRequestBody | Specify the order of promotion tiers for the promotion stack.
 
             try
             {
@@ -204,7 +204,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID. |  |
-| **promotionsStacksCreateRequestBody** | [**PromotionsStacksCreateRequestBody**](PromotionsStacksCreateRequestBody.md) | Specify the order of promotion tiers for the promotion stack. | [optional]  |
+| **promotionsStacksCreateRequestBody** | [**PromotionsStacksCreateRequestBody**](PromotionsStacksCreateRequestBody.md) | Specify the order of promotion tiers for the promotion stack. |  |
 
 ### Return type
 
@@ -1259,7 +1259,7 @@ catch (ApiException e)
 
 <a id="updatepromotionstack"></a>
 # **UpdatePromotionStack**
-> PromotionsStacksUpdateResponseBody UpdatePromotionStack (string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = null)
+> PromotionsStacksUpdateResponseBody UpdatePromotionStack (string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody)
 
 Update Promotion Stack
 
@@ -1295,7 +1295,7 @@ namespace Example
             var apiInstance = new PromotionsApi(config);
             var campaignId = "campaignId_example";  // string | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. 
             var stackId = "stackId_example";  // string | Promotion stack ID.
-            var promotionsStacksUpdateRequestBody = new PromotionsStacksUpdateRequestBody(); // PromotionsStacksUpdateRequestBody | Specify the promotion stack parameters that you would like to update. (optional) 
+            var promotionsStacksUpdateRequestBody = new PromotionsStacksUpdateRequestBody(); // PromotionsStacksUpdateRequestBody | Specify the promotion stack parameters that you would like to update.
 
             try
             {
@@ -1340,7 +1340,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign.  |  |
 | **stackId** | **string** | Promotion stack ID. |  |
-| **promotionsStacksUpdateRequestBody** | [**PromotionsStacksUpdateRequestBody**](PromotionsStacksUpdateRequestBody.md) | Specify the promotion stack parameters that you would like to update. | [optional]  |
+| **promotionsStacksUpdateRequestBody** | [**PromotionsStacksUpdateRequestBody**](PromotionsStacksUpdateRequestBody.md) | Specify the promotion stack parameters that you would like to update. |  |
 
 ### Return type
 
@@ -1365,7 +1365,7 @@ catch (ApiException e)
 
 <a id="updatepromotiontier"></a>
 # **UpdatePromotionTier**
-> PromotionsTiersUpdateResponseBody UpdatePromotionTier (string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = null)
+> PromotionsTiersUpdateResponseBody UpdatePromotionTier (string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody)
 
 Update Promotion Tier
 
@@ -1400,7 +1400,7 @@ namespace Example
 
             var apiInstance = new PromotionsApi(config);
             var promotionTierId = "promotionTierId_example";  // string | Unique promotion tier ID.
-            var promotionsTiersUpdateRequestBody = new PromotionsTiersUpdateRequestBody(); // PromotionsTiersUpdateRequestBody | Specify the promotion tier parameters that you would like to update. (optional) 
+            var promotionsTiersUpdateRequestBody = new PromotionsTiersUpdateRequestBody(); // PromotionsTiersUpdateRequestBody | Specify the promotion tier parameters that you would like to update.
 
             try
             {
@@ -1444,7 +1444,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **promotionTierId** | **string** | Unique promotion tier ID. |  |
-| **promotionsTiersUpdateRequestBody** | [**PromotionsTiersUpdateRequestBody**](PromotionsTiersUpdateRequestBody.md) | Specify the promotion tier parameters that you would like to update. | [optional]  |
+| **promotionsTiersUpdateRequestBody** | [**PromotionsTiersUpdateRequestBody**](PromotionsTiersUpdateRequestBody.md) | Specify the promotion tier parameters that you would like to update. |  |
 
 ### Return type
 

@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersCreateResponseBody</returns>
-        CustomersCreateResponseBody CreateCustomer(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0);
+        CustomersCreateResponseBody CreateCustomer(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Customer
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersCreateResponseBody</returns>
-        ApiResponse<CustomersCreateResponseBody> CreateCustomerWithHttpInfo(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0);
+        ApiResponse<CustomersCreateResponseBody> CreateCustomerWithHttpInfo(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Customer Permanently
         /// </summary>
@@ -291,10 +291,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersUpdateResponseBody</returns>
-        CustomersUpdateResponseBody UpdateCustomer(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0);
+        CustomersUpdateResponseBody UpdateCustomer(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Customer
@@ -304,10 +304,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersUpdateResponseBody</returns>
-        ApiResponse<CustomersUpdateResponseBody> UpdateCustomerWithHttpInfo(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<CustomersUpdateResponseBody> UpdateCustomerWithHttpInfo(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Customers in Bulk
         /// </summary>
@@ -315,10 +315,10 @@ namespace Voucherify.Api
         /// Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersUpdateInBulkResponseBody</returns>
-        CustomersUpdateInBulkResponseBody UpdateCustomersInBulk(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0);
+        CustomersUpdateInBulkResponseBody UpdateCustomersInBulk(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Customers in Bulk
@@ -327,10 +327,10 @@ namespace Voucherify.Api
         /// Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersUpdateInBulkResponseBody</returns>
-        ApiResponse<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkWithHttpInfo(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0);
+        ApiResponse<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkWithHttpInfo(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Customers&#39; Metadata in Bulk
         /// </summary>
@@ -338,10 +338,10 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersMetadataUpdateInBulkResponseBody</returns>
-        CustomersMetadataUpdateInBulkResponseBody UpdateCustomersMetadataInBulk(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0);
+        CustomersMetadataUpdateInBulkResponseBody UpdateCustomersMetadataInBulk(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Customers&#39; Metadata in Bulk
@@ -350,10 +350,10 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersMetadataUpdateInBulkResponseBody</returns>
-        ApiResponse<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkWithHttpInfo(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0);
+        ApiResponse<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkWithHttpInfo(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -370,11 +370,11 @@ namespace Voucherify.Api
         /// Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CustomersCreateResponseBody> CreateCustomerAsync(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomersCreateResponseBody> CreateCustomerAsync(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Customer
@@ -383,11 +383,11 @@ namespace Voucherify.Api
         /// Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomersCreateResponseBody>> CreateCustomerWithHttpInfoAsync(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomersCreateResponseBody>> CreateCustomerWithHttpInfoAsync(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Customer Permanently
         /// </summary>
@@ -644,11 +644,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<CustomersUpdateResponseBody> UpdateCustomerAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomersUpdateResponseBody> UpdateCustomerAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Customer
@@ -658,11 +658,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomersUpdateResponseBody>> UpdateCustomerWithHttpInfoAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomersUpdateResponseBody>> UpdateCustomerWithHttpInfoAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Customers in Bulk
         /// </summary>
@@ -670,11 +670,11 @@ namespace Voucherify.Api
         /// Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersUpdateInBulkResponseBody</returns>
-        System.Threading.Tasks.Task<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Customers in Bulk
@@ -683,11 +683,11 @@ namespace Voucherify.Api
         /// Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersUpdateInBulkResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomersUpdateInBulkResponseBody>> UpdateCustomersInBulkWithHttpInfoAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomersUpdateInBulkResponseBody>> UpdateCustomersInBulkWithHttpInfoAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Customers&#39; Metadata in Bulk
         /// </summary>
@@ -695,11 +695,11 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersMetadataUpdateInBulkResponseBody</returns>
-        System.Threading.Tasks.Task<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Customers&#39; Metadata in Bulk
@@ -708,11 +708,11 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersMetadataUpdateInBulkResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomersMetadataUpdateInBulkResponseBody>> UpdateCustomersMetadataInBulkWithHttpInfoAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomersMetadataUpdateInBulkResponseBody>> UpdateCustomersMetadataInBulkWithHttpInfoAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -837,10 +837,10 @@ namespace Voucherify.Api
         /// Create Customer Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersCreateResponseBody</returns>
-        public CustomersCreateResponseBody CreateCustomer(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0)
+        public CustomersCreateResponseBody CreateCustomer(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CustomersCreateResponseBody> localVarResponse = CreateCustomerWithHttpInfo(customersCreateRequestBody);
             return localVarResponse.Data;
@@ -850,11 +850,17 @@ namespace Voucherify.Api
         /// Create Customer Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CustomersCreateResponseBody> CreateCustomerWithHttpInfo(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CustomersCreateResponseBody> CreateCustomerWithHttpInfo(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'customersCreateRequestBody' is set
+            if (customersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersCreateRequestBody' when calling CustomersApi->CreateCustomer");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -929,11 +935,11 @@ namespace Voucherify.Api
         /// Create Customer Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CustomersCreateResponseBody> CreateCustomerAsync(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomersCreateResponseBody> CreateCustomerAsync(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CustomersCreateResponseBody> localVarResponse = await CreateCustomerWithHttpInfoAsync(customersCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -943,12 +949,18 @@ namespace Voucherify.Api
         /// Create Customer Creates a customer object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the customer database, Voucherify will return a related customer object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersCreateRequestBody">Create a customer with specified parameters. (optional)</param>
+        /// <param name="customersCreateRequestBody">Create a customer with specified parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersCreateResponseBody>> CreateCustomerWithHttpInfoAsync(CustomersCreateRequestBody customersCreateRequestBody = default(CustomersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersCreateResponseBody>> CreateCustomerWithHttpInfoAsync(CustomersCreateRequestBody customersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'customersCreateRequestBody' is set
+            if (customersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersCreateRequestBody' when calling CustomersApi->CreateCustomer");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -2945,10 +2957,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersUpdateResponseBody</returns>
-        public CustomersUpdateResponseBody UpdateCustomer(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0)
+        public CustomersUpdateResponseBody UpdateCustomer(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CustomersUpdateResponseBody> localVarResponse = UpdateCustomerWithHttpInfo(customerId, customersUpdateRequestBody);
             return localVarResponse.Data;
@@ -2959,15 +2971,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CustomersUpdateResponseBody> UpdateCustomerWithHttpInfo(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CustomersUpdateResponseBody> UpdateCustomerWithHttpInfo(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customerId' when calling CustomersApi->UpdateCustomer");
+            }
+
+            // verify the required parameter 'customersUpdateRequestBody' is set
+            if (customersUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersUpdateRequestBody' when calling CustomersApi->UpdateCustomer");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3046,11 +3064,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CustomersUpdateResponseBody> UpdateCustomerAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomersUpdateResponseBody> UpdateCustomerAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CustomersUpdateResponseBody> localVarResponse = await UpdateCustomerWithHttpInfoAsync(customerId, customersUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3061,16 +3079,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
-        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="customersUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersUpdateResponseBody>> UpdateCustomerWithHttpInfoAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = default(CustomersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersUpdateResponseBody>> UpdateCustomerWithHttpInfoAsync(string customerId, CustomersUpdateRequestBody customersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'customerId' is set
             if (customerId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customerId' when calling CustomersApi->UpdateCustomer");
+            }
+
+            // verify the required parameter 'customersUpdateRequestBody' is set
+            if (customersUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersUpdateRequestBody' when calling CustomersApi->UpdateCustomer");
             }
 
 
@@ -3149,10 +3173,10 @@ namespace Voucherify.Api
         /// Update Customers in Bulk Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersUpdateInBulkResponseBody</returns>
-        public CustomersUpdateInBulkResponseBody UpdateCustomersInBulk(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0)
+        public CustomersUpdateInBulkResponseBody UpdateCustomersInBulk(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CustomersUpdateInBulkResponseBody> localVarResponse = UpdateCustomersInBulkWithHttpInfo(customersUpdateInBulkRequestBody);
             return localVarResponse.Data;
@@ -3162,11 +3186,17 @@ namespace Voucherify.Api
         /// Update Customers in Bulk Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersUpdateInBulkResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkWithHttpInfo(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkWithHttpInfo(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'customersUpdateInBulkRequestBody' is set
+            if (customersUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersUpdateInBulkRequestBody' when calling CustomersApi->UpdateCustomersInBulk");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3241,11 +3271,11 @@ namespace Voucherify.Api
         /// Update Customers in Bulk Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersUpdateInBulkResponseBody</returns>
-        public async System.Threading.Tasks.Task<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomersUpdateInBulkResponseBody> UpdateCustomersInBulkAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CustomersUpdateInBulkResponseBody> localVarResponse = await UpdateCustomersInBulkWithHttpInfoAsync(customersUpdateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3255,12 +3285,18 @@ namespace Voucherify.Api
         /// Update Customers in Bulk Updates customers in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a customer object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object. (optional)</param>
+        /// <param name="customersUpdateInBulkRequestBody">List the customer fields to be updated in each customer object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersUpdateInBulkResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersUpdateInBulkResponseBody>> UpdateCustomersInBulkWithHttpInfoAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = default(List<CustomersUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersUpdateInBulkResponseBody>> UpdateCustomersInBulkWithHttpInfoAsync(List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'customersUpdateInBulkRequestBody' is set
+            if (customersUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersUpdateInBulkRequestBody' when calling CustomersApi->UpdateCustomersInBulk");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -3336,10 +3372,10 @@ namespace Voucherify.Api
         /// Update Customers&#39; Metadata in Bulk Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersMetadataUpdateInBulkResponseBody</returns>
-        public CustomersMetadataUpdateInBulkResponseBody UpdateCustomersMetadataInBulk(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0)
+        public CustomersMetadataUpdateInBulkResponseBody UpdateCustomersMetadataInBulk(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CustomersMetadataUpdateInBulkResponseBody> localVarResponse = UpdateCustomersMetadataInBulkWithHttpInfo(customersMetadataUpdateInBulkRequestBody);
             return localVarResponse.Data;
@@ -3349,11 +3385,17 @@ namespace Voucherify.Api
         /// Update Customers&#39; Metadata in Bulk Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersMetadataUpdateInBulkResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkWithHttpInfo(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkWithHttpInfo(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'customersMetadataUpdateInBulkRequestBody' is set
+            if (customersMetadataUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersMetadataUpdateInBulkRequestBody' when calling CustomersApi->UpdateCustomersMetadataInBulk");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3428,11 +3470,11 @@ namespace Voucherify.Api
         /// Update Customers&#39; Metadata in Bulk Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersMetadataUpdateInBulkResponseBody</returns>
-        public async System.Threading.Tasks.Task<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomersMetadataUpdateInBulkResponseBody> UpdateCustomersMetadataInBulkAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CustomersMetadataUpdateInBulkResponseBody> localVarResponse = await UpdateCustomersMetadataInBulkWithHttpInfoAsync(customersMetadataUpdateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3442,12 +3484,18 @@ namespace Voucherify.Api
         /// Update Customers&#39; Metadata in Bulk Updates metadata parameters for a list of customers. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="customersMetadataUpdateInBulkRequestBody">List the source_ids of the customers you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersMetadataUpdateInBulkResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersMetadataUpdateInBulkResponseBody>> UpdateCustomersMetadataInBulkWithHttpInfoAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = default(CustomersMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersMetadataUpdateInBulkResponseBody>> UpdateCustomersMetadataInBulkWithHttpInfoAsync(CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'customersMetadataUpdateInBulkRequestBody' is set
+            if (customersMetadataUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customersMetadataUpdateInBulkRequestBody' when calling CustomersApi->UpdateCustomersMetadataInBulk");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

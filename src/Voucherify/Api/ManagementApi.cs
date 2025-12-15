@@ -36,10 +36,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsUsersAssignResponseBody</returns>
-        ManagementProjectsUsersAssignResponseBody AssignUser(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0);
+        ManagementProjectsUsersAssignResponseBody AssignUser(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Assign User
@@ -49,10 +49,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsUsersAssignResponseBody</returns>
-        ApiResponse<ManagementProjectsUsersAssignResponseBody> AssignUserWithHttpInfo(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsUsersAssignResponseBody> AssignUserWithHttpInfo(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Brand
         /// </summary>
@@ -61,10 +61,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsBrandingCreateResponseBody</returns>
-        ManagementProjectsBrandingCreateResponseBody CreateBrand(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsBrandingCreateResponseBody CreateBrand(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Brand
@@ -74,10 +74,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsBrandingCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsBrandingCreateResponseBody> CreateBrandWithHttpInfo(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsBrandingCreateResponseBody> CreateBrandWithHttpInfo(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Custom Event Schema
         /// </summary>
@@ -86,10 +86,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsCustomEventSchemasCreateResponseBody</returns>
-        ManagementProjectsCustomEventSchemasCreateResponseBody CreateCustomEventSchema(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsCustomEventSchemasCreateResponseBody CreateCustomEventSchema(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Custom Event Schema
@@ -99,10 +99,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsCustomEventSchemasCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaWithHttpInfo(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaWithHttpInfo(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Metadata Schema
         /// </summary>
@@ -111,10 +111,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsMetadataSchemasCreateResponseBody</returns>
-        ManagementProjectsMetadataSchemasCreateResponseBody CreateMetadataSchema(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsMetadataSchemasCreateResponseBody CreateMetadataSchema(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Metadata Schema
@@ -124,10 +124,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsMetadataSchemasCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaWithHttpInfo(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaWithHttpInfo(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Project
         /// </summary>
@@ -135,10 +135,10 @@ namespace Voucherify.Api
         /// Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsCreateResponseBody</returns>
-        ManagementProjectsCreateResponseBody CreateProject(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsCreateResponseBody CreateProject(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Project
@@ -147,10 +147,10 @@ namespace Voucherify.Api
         /// Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsCreateResponseBody> CreateProjectWithHttpInfo(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsCreateResponseBody> CreateProjectWithHttpInfo(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Stacking Rules
         /// </summary>
@@ -159,10 +159,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsStackingRulesCreateResponseBody</returns>
-        ManagementProjectsStackingRulesCreateResponseBody CreateStackingRules(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsStackingRulesCreateResponseBody CreateStackingRules(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Stacking Rules
@@ -172,10 +172,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsStackingRulesCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesWithHttpInfo(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesWithHttpInfo(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Webhook
         /// </summary>
@@ -184,10 +184,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsWebhooksCreateResponseBody</returns>
-        ManagementProjectsWebhooksCreateResponseBody CreateWebhook(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsWebhooksCreateResponseBody CreateWebhook(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Webhook
@@ -197,10 +197,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsWebhooksCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookWithHttpInfo(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookWithHttpInfo(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Brand
         /// </summary>
@@ -529,10 +529,10 @@ namespace Voucherify.Api
         /// Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void InviteUser(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0);
+        void InviteUser(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Invite a New User
@@ -541,10 +541,10 @@ namespace Voucherify.Api
         /// Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> InviteUserWithHttpInfo(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0);
+        ApiResponse<Object> InviteUserWithHttpInfo(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// List Brands
         /// </summary>
@@ -713,10 +713,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsTemplatesCampaignsCopyCreateResponseBody</returns>
-        ManagementProjectsTemplatesCampaignsCopyCreateResponseBody ManagementCopyCampaignTemplate(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0);
+        ManagementProjectsTemplatesCampaignsCopyCreateResponseBody ManagementCopyCampaignTemplate(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Copy Campaign Template to a Project
@@ -727,10 +727,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsTemplatesCampaignsCopyCreateResponseBody</returns>
-        ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateWithHttpInfo(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateWithHttpInfo(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// List Campaign Templates
         /// </summary>
@@ -798,10 +798,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsBrandingUpdateResponseBody</returns>
-        ManagementProjectsBrandingUpdateResponseBody UpdateBrand(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0);
+        ManagementProjectsBrandingUpdateResponseBody UpdateBrand(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Brand
@@ -812,10 +812,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsBrandingUpdateResponseBody</returns>
-        ApiResponse<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandWithHttpInfo(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandWithHttpInfo(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Custom Event Schema
         /// </summary>
@@ -825,10 +825,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsCustomEventSchemasUpdateResponseBody</returns>
-        ManagementProjectsCustomEventSchemasUpdateResponseBody UpdateCustomEventSchema(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0);
+        ManagementProjectsCustomEventSchemasUpdateResponseBody UpdateCustomEventSchema(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Custom Event Schema
@@ -839,10 +839,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsCustomEventSchemasUpdateResponseBody</returns>
-        ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaWithHttpInfo(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaWithHttpInfo(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Metadata Schema
         /// </summary>
@@ -852,10 +852,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsMetadataSchemasUpdateResponseBody</returns>
-        ManagementProjectsMetadataSchemasUpdateResponseBody UpdateMetadataSchema(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0);
+        ManagementProjectsMetadataSchemasUpdateResponseBody UpdateMetadataSchema(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Metadata Schema
@@ -866,10 +866,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsMetadataSchemasUpdateResponseBody</returns>
-        ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaWithHttpInfo(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaWithHttpInfo(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Project
         /// </summary>
@@ -878,10 +878,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsUpdateResponseBody</returns>
-        ManagementProjectsUpdateResponseBody UpdateProject(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0);
+        ManagementProjectsUpdateResponseBody UpdateProject(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Project
@@ -891,10 +891,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsUpdateResponseBody</returns>
-        ApiResponse<ManagementProjectsUpdateResponseBody> UpdateProjectWithHttpInfo(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsUpdateResponseBody> UpdateProjectWithHttpInfo(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Stacking Rules
         /// </summary>
@@ -904,10 +904,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsStackingRulesUpdateResponseBody</returns>
-        ManagementProjectsStackingRulesUpdateResponseBody UpdateStackingRules(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0);
+        ManagementProjectsStackingRulesUpdateResponseBody UpdateStackingRules(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Stacking Rules
@@ -918,10 +918,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsStackingRulesUpdateResponseBody</returns>
-        ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesWithHttpInfo(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesWithHttpInfo(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update User
         /// </summary>
@@ -931,10 +931,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsUsersUpdateRoleResponseBody</returns>
-        ManagementProjectsUsersUpdateRoleResponseBody UpdateUser(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0);
+        ManagementProjectsUsersUpdateRoleResponseBody UpdateUser(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update User
@@ -945,10 +945,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsUsersUpdateRoleResponseBody</returns>
-        ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserWithHttpInfo(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserWithHttpInfo(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Webhook
         /// </summary>
@@ -958,10 +958,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsWebhooksUpdateResponseBody</returns>
-        ManagementProjectsWebhooksUpdateResponseBody UpdateWebhook(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0);
+        ManagementProjectsWebhooksUpdateResponseBody UpdateWebhook(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Webhook
@@ -972,10 +972,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsWebhooksUpdateResponseBody</returns>
-        ApiResponse<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookWithHttpInfo(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookWithHttpInfo(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -993,11 +993,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsUsersAssignResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsUsersAssignResponseBody> AssignUserAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsUsersAssignResponseBody> AssignUserAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Assign User
@@ -1007,11 +1007,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsUsersAssignResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsUsersAssignResponseBody>> AssignUserWithHttpInfoAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsUsersAssignResponseBody>> AssignUserWithHttpInfoAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Brand
         /// </summary>
@@ -1020,11 +1020,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsBrandingCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsBrandingCreateResponseBody> CreateBrandAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsBrandingCreateResponseBody> CreateBrandAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Brand
@@ -1034,11 +1034,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsBrandingCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsBrandingCreateResponseBody>> CreateBrandWithHttpInfoAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsBrandingCreateResponseBody>> CreateBrandWithHttpInfoAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Custom Event Schema
         /// </summary>
@@ -1047,11 +1047,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsCustomEventSchemasCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Custom Event Schema
@@ -1061,11 +1061,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsCustomEventSchemasCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody>> CreateCustomEventSchemaWithHttpInfoAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody>> CreateCustomEventSchemaWithHttpInfoAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Metadata Schema
         /// </summary>
@@ -1074,11 +1074,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsMetadataSchemasCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Metadata Schema
@@ -1088,11 +1088,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsMetadataSchemasCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody>> CreateMetadataSchemaWithHttpInfoAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody>> CreateMetadataSchemaWithHttpInfoAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Project
         /// </summary>
@@ -1100,11 +1100,11 @@ namespace Voucherify.Api
         /// Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsCreateResponseBody> CreateProjectAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsCreateResponseBody> CreateProjectAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Project
@@ -1113,11 +1113,11 @@ namespace Voucherify.Api
         /// Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsCreateResponseBody>> CreateProjectWithHttpInfoAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsCreateResponseBody>> CreateProjectWithHttpInfoAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Stacking Rules
         /// </summary>
@@ -1126,11 +1126,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsStackingRulesCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Stacking Rules
@@ -1140,11 +1140,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsStackingRulesCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsStackingRulesCreateResponseBody>> CreateStackingRulesWithHttpInfoAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsStackingRulesCreateResponseBody>> CreateStackingRulesWithHttpInfoAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Webhook
         /// </summary>
@@ -1153,11 +1153,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsWebhooksCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Webhook
@@ -1167,11 +1167,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsWebhooksCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsWebhooksCreateResponseBody>> CreateWebhookWithHttpInfoAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsWebhooksCreateResponseBody>> CreateWebhookWithHttpInfoAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Brand
         /// </summary>
@@ -1526,11 +1526,11 @@ namespace Voucherify.Api
         /// Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task InviteUserAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task InviteUserAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Invite a New User
@@ -1539,11 +1539,11 @@ namespace Voucherify.Api
         /// Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> InviteUserWithHttpInfoAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> InviteUserWithHttpInfoAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Brands
         /// </summary>
@@ -1726,11 +1726,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsTemplatesCampaignsCopyCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Copy Campaign Template to a Project
@@ -1741,11 +1741,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsTemplatesCampaignsCopyCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody>> ManagementCopyCampaignTemplateWithHttpInfoAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody>> ManagementCopyCampaignTemplateWithHttpInfoAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Campaign Templates
         /// </summary>
@@ -1817,11 +1817,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsBrandingUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Brand
@@ -1832,11 +1832,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsBrandingUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsBrandingUpdateResponseBody>> UpdateBrandWithHttpInfoAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsBrandingUpdateResponseBody>> UpdateBrandWithHttpInfoAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Custom Event Schema
         /// </summary>
@@ -1846,11 +1846,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsCustomEventSchemasUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Custom Event Schema
@@ -1861,11 +1861,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsCustomEventSchemasUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody>> UpdateCustomEventSchemaWithHttpInfoAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody>> UpdateCustomEventSchemaWithHttpInfoAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Metadata Schema
         /// </summary>
@@ -1875,11 +1875,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsMetadataSchemasUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Metadata Schema
@@ -1890,11 +1890,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsMetadataSchemasUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody>> UpdateMetadataSchemaWithHttpInfoAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody>> UpdateMetadataSchemaWithHttpInfoAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Project
         /// </summary>
@@ -1903,11 +1903,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsUpdateResponseBody> UpdateProjectAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsUpdateResponseBody> UpdateProjectAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Project
@@ -1917,11 +1917,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsUpdateResponseBody>> UpdateProjectWithHttpInfoAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsUpdateResponseBody>> UpdateProjectWithHttpInfoAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Stacking Rules
         /// </summary>
@@ -1931,11 +1931,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsStackingRulesUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Stacking Rules
@@ -1946,11 +1946,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsStackingRulesUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody>> UpdateStackingRulesWithHttpInfoAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody>> UpdateStackingRulesWithHttpInfoAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update User
         /// </summary>
@@ -1960,11 +1960,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsUsersUpdateRoleResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update User
@@ -1975,11 +1975,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsUsersUpdateRoleResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody>> UpdateUserWithHttpInfoAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody>> UpdateUserWithHttpInfoAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Webhook
         /// </summary>
@@ -1989,11 +1989,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsWebhooksUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Webhook
@@ -2004,11 +2004,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsWebhooksUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsWebhooksUpdateResponseBody>> UpdateWebhookWithHttpInfoAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ManagementProjectsWebhooksUpdateResponseBody>> UpdateWebhookWithHttpInfoAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -2134,10 +2134,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsUsersAssignResponseBody</returns>
-        public ManagementProjectsUsersAssignResponseBody AssignUser(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0)
+        public ManagementProjectsUsersAssignResponseBody AssignUser(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsUsersAssignResponseBody> localVarResponse = AssignUserWithHttpInfo(projectId, managementProjectsUsersAssignRequestBody);
             return localVarResponse.Data;
@@ -2148,15 +2148,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsUsersAssignResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsUsersAssignResponseBody> AssignUserWithHttpInfo(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsUsersAssignResponseBody> AssignUserWithHttpInfo(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->AssignUser");
+            }
+
+            // verify the required parameter 'managementProjectsUsersAssignRequestBody' is set
+            if (managementProjectsUsersAssignRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUsersAssignRequestBody' when calling ManagementApi->AssignUser");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2219,11 +2225,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsUsersAssignResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsUsersAssignResponseBody> AssignUserAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsUsersAssignResponseBody> AssignUserAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsUsersAssignResponseBody> localVarResponse = await AssignUserWithHttpInfoAsync(projectId, managementProjectsUsersAssignRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2234,16 +2240,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details. (optional)</param>
+        /// <param name="managementProjectsUsersAssignRequestBody">Defines the user details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsUsersAssignResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsUsersAssignResponseBody>> AssignUserWithHttpInfoAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = default(ManagementProjectsUsersAssignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsUsersAssignResponseBody>> AssignUserWithHttpInfoAsync(string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->AssignUser");
+            }
+
+            // verify the required parameter 'managementProjectsUsersAssignRequestBody' is set
+            if (managementProjectsUsersAssignRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUsersAssignRequestBody' when calling ManagementApi->AssignUser");
             }
 
 
@@ -2307,10 +2319,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsBrandingCreateResponseBody</returns>
-        public ManagementProjectsBrandingCreateResponseBody CreateBrand(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsBrandingCreateResponseBody CreateBrand(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsBrandingCreateResponseBody> localVarResponse = CreateBrandWithHttpInfo(projectId, managementProjectsBrandingCreateRequestBody);
             return localVarResponse.Data;
@@ -2321,15 +2333,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsBrandingCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsBrandingCreateResponseBody> CreateBrandWithHttpInfo(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsBrandingCreateResponseBody> CreateBrandWithHttpInfo(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateBrand");
+            }
+
+            // verify the required parameter 'managementProjectsBrandingCreateRequestBody' is set
+            if (managementProjectsBrandingCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsBrandingCreateRequestBody' when calling ManagementApi->CreateBrand");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2392,11 +2410,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsBrandingCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsBrandingCreateResponseBody> CreateBrandAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsBrandingCreateResponseBody> CreateBrandAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsBrandingCreateResponseBody> localVarResponse = await CreateBrandWithHttpInfoAsync(projectId, managementProjectsBrandingCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2407,16 +2425,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration. (optional)</param>
+        /// <param name="managementProjectsBrandingCreateRequestBody">Defines a brand configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsBrandingCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsBrandingCreateResponseBody>> CreateBrandWithHttpInfoAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = default(ManagementProjectsBrandingCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsBrandingCreateResponseBody>> CreateBrandWithHttpInfoAsync(string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateBrand");
+            }
+
+            // verify the required parameter 'managementProjectsBrandingCreateRequestBody' is set
+            if (managementProjectsBrandingCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsBrandingCreateRequestBody' when calling ManagementApi->CreateBrand");
             }
 
 
@@ -2480,10 +2504,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsCustomEventSchemasCreateResponseBody</returns>
-        public ManagementProjectsCustomEventSchemasCreateResponseBody CreateCustomEventSchema(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsCustomEventSchemasCreateResponseBody CreateCustomEventSchema(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody> localVarResponse = CreateCustomEventSchemaWithHttpInfo(projectId, managementProjectsCustomEventSchemasCreateRequestBody);
             return localVarResponse.Data;
@@ -2494,15 +2518,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsCustomEventSchemasCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaWithHttpInfo(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaWithHttpInfo(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateCustomEventSchema");
+            }
+
+            // verify the required parameter 'managementProjectsCustomEventSchemasCreateRequestBody' is set
+            if (managementProjectsCustomEventSchemasCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsCustomEventSchemasCreateRequestBody' when calling ManagementApi->CreateCustomEventSchema");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2565,11 +2595,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsCustomEventSchemasCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasCreateResponseBody> CreateCustomEventSchemaAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody> localVarResponse = await CreateCustomEventSchemaWithHttpInfoAsync(projectId, managementProjectsCustomEventSchemasCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2580,16 +2610,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasCreateRequestBody">Defines the custom event schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsCustomEventSchemasCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody>> CreateCustomEventSchemaWithHttpInfoAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = default(ManagementProjectsCustomEventSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasCreateResponseBody>> CreateCustomEventSchemaWithHttpInfoAsync(string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateCustomEventSchema");
+            }
+
+            // verify the required parameter 'managementProjectsCustomEventSchemasCreateRequestBody' is set
+            if (managementProjectsCustomEventSchemasCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsCustomEventSchemasCreateRequestBody' when calling ManagementApi->CreateCustomEventSchema");
             }
 
 
@@ -2653,10 +2689,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsMetadataSchemasCreateResponseBody</returns>
-        public ManagementProjectsMetadataSchemasCreateResponseBody CreateMetadataSchema(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsMetadataSchemasCreateResponseBody CreateMetadataSchema(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody> localVarResponse = CreateMetadataSchemaWithHttpInfo(projectId, managementProjectsMetadataSchemasCreateRequestBody);
             return localVarResponse.Data;
@@ -2667,15 +2703,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsMetadataSchemasCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaWithHttpInfo(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaWithHttpInfo(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateMetadataSchema");
+            }
+
+            // verify the required parameter 'managementProjectsMetadataSchemasCreateRequestBody' is set
+            if (managementProjectsMetadataSchemasCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsMetadataSchemasCreateRequestBody' when calling ManagementApi->CreateMetadataSchema");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2738,11 +2780,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsMetadataSchemasCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasCreateResponseBody> CreateMetadataSchemaAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody> localVarResponse = await CreateMetadataSchemaWithHttpInfoAsync(projectId, managementProjectsMetadataSchemasCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2753,16 +2795,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasCreateRequestBody">Defines the metadata schema.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsMetadataSchemasCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody>> CreateMetadataSchemaWithHttpInfoAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = default(ManagementProjectsMetadataSchemasCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasCreateResponseBody>> CreateMetadataSchemaWithHttpInfoAsync(string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateMetadataSchema");
+            }
+
+            // verify the required parameter 'managementProjectsMetadataSchemasCreateRequestBody' is set
+            if (managementProjectsMetadataSchemasCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsMetadataSchemasCreateRequestBody' when calling ManagementApi->CreateMetadataSchema");
             }
 
 
@@ -2825,10 +2873,10 @@ namespace Voucherify.Api
         /// Create Project Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsCreateResponseBody</returns>
-        public ManagementProjectsCreateResponseBody CreateProject(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsCreateResponseBody CreateProject(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsCreateResponseBody> localVarResponse = CreateProjectWithHttpInfo(managementProjectsCreateRequestBody);
             return localVarResponse.Data;
@@ -2838,11 +2886,17 @@ namespace Voucherify.Api
         /// Create Project Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsCreateResponseBody> CreateProjectWithHttpInfo(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsCreateResponseBody> CreateProjectWithHttpInfo(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'managementProjectsCreateRequestBody' is set
+            if (managementProjectsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsCreateRequestBody' when calling ManagementApi->CreateProject");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -2901,11 +2955,11 @@ namespace Voucherify.Api
         /// Create Project Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsCreateResponseBody> CreateProjectAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsCreateResponseBody> CreateProjectAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsCreateResponseBody> localVarResponse = await CreateProjectWithHttpInfoAsync(managementProjectsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2915,12 +2969,18 @@ namespace Voucherify.Api
         /// Create Project Creates a new project. You can add users, specify the cluster, timezone, currency, and other details. All owners are added to the project by default.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsCreateRequestBody">Define project details. (optional)</param>
+        /// <param name="managementProjectsCreateRequestBody">Define project details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsCreateResponseBody>> CreateProjectWithHttpInfoAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = default(ManagementProjectsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsCreateResponseBody>> CreateProjectWithHttpInfoAsync(ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'managementProjectsCreateRequestBody' is set
+            if (managementProjectsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsCreateRequestBody' when calling ManagementApi->CreateProject");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -2981,10 +3041,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsStackingRulesCreateResponseBody</returns>
-        public ManagementProjectsStackingRulesCreateResponseBody CreateStackingRules(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsStackingRulesCreateResponseBody CreateStackingRules(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesCreateResponseBody> localVarResponse = CreateStackingRulesWithHttpInfo(projectId, managementProjectsStackingRulesCreateRequestBody);
             return localVarResponse.Data;
@@ -2995,15 +3055,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsStackingRulesCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesWithHttpInfo(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesWithHttpInfo(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateStackingRules");
+            }
+
+            // verify the required parameter 'managementProjectsStackingRulesCreateRequestBody' is set
+            if (managementProjectsStackingRulesCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsStackingRulesCreateRequestBody' when calling ManagementApi->CreateStackingRules");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3066,11 +3132,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsStackingRulesCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsStackingRulesCreateResponseBody> CreateStackingRulesAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesCreateResponseBody> localVarResponse = await CreateStackingRulesWithHttpInfoAsync(projectId, managementProjectsStackingRulesCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3081,16 +3147,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters. (optional)</param>
+        /// <param name="managementProjectsStackingRulesCreateRequestBody">Defines the stacking rule parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsStackingRulesCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesCreateResponseBody>> CreateStackingRulesWithHttpInfoAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = default(ManagementProjectsStackingRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesCreateResponseBody>> CreateStackingRulesWithHttpInfoAsync(string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateStackingRules");
+            }
+
+            // verify the required parameter 'managementProjectsStackingRulesCreateRequestBody' is set
+            if (managementProjectsStackingRulesCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsStackingRulesCreateRequestBody' when calling ManagementApi->CreateStackingRules");
             }
 
 
@@ -3154,10 +3226,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsWebhooksCreateResponseBody</returns>
-        public ManagementProjectsWebhooksCreateResponseBody CreateWebhook(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsWebhooksCreateResponseBody CreateWebhook(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsWebhooksCreateResponseBody> localVarResponse = CreateWebhookWithHttpInfo(projectId, managementProjectsWebhooksCreateRequestBody);
             return localVarResponse.Data;
@@ -3168,15 +3240,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsWebhooksCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookWithHttpInfo(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookWithHttpInfo(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateWebhook");
+            }
+
+            // verify the required parameter 'managementProjectsWebhooksCreateRequestBody' is set
+            if (managementProjectsWebhooksCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsWebhooksCreateRequestBody' when calling ManagementApi->CreateWebhook");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3239,11 +3317,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsWebhooksCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsWebhooksCreateResponseBody> CreateWebhookAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsWebhooksCreateResponseBody> localVarResponse = await CreateWebhookWithHttpInfoAsync(projectId, managementProjectsWebhooksCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3254,16 +3332,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration. (optional)</param>
+        /// <param name="managementProjectsWebhooksCreateRequestBody">Defines a webhook configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsWebhooksCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsWebhooksCreateResponseBody>> CreateWebhookWithHttpInfoAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = default(ManagementProjectsWebhooksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsWebhooksCreateResponseBody>> CreateWebhookWithHttpInfoAsync(string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->CreateWebhook");
+            }
+
+            // verify the required parameter 'managementProjectsWebhooksCreateRequestBody' is set
+            if (managementProjectsWebhooksCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsWebhooksCreateRequestBody' when calling ManagementApi->CreateWebhook");
             }
 
 
@@ -5645,10 +5729,10 @@ namespace Voucherify.Api
         /// Invite a New User Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void InviteUser(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0)
+        public void InviteUser(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0)
         {
             InviteUserWithHttpInfo(managementProjectsUsersInviteCreateRequestBody);
         }
@@ -5657,11 +5741,17 @@ namespace Voucherify.Api
         /// Invite a New User Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Voucherify.Client.ApiResponse<Object> InviteUserWithHttpInfo(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<Object> InviteUserWithHttpInfo(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'managementProjectsUsersInviteCreateRequestBody' is set
+            if (managementProjectsUsersInviteCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUsersInviteCreateRequestBody' when calling ManagementApi->InviteUser");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -5719,11 +5809,11 @@ namespace Voucherify.Api
         /// Invite a New User Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task InviteUserAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task InviteUserAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await InviteUserWithHttpInfoAsync(managementProjectsUsersInviteCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
         }
@@ -5732,12 +5822,18 @@ namespace Voucherify.Api
         /// Invite a New User Sends an invitation to an email address that has not been used yet as a Voucherify user login. You can specify the projects to which the invited user will be assigned and define their roles.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional)</param>
+        /// <param name="managementProjectsUsersInviteCreateRequestBody">Defines the details of the invitation, the project, and roles to which the user will be assigned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<Object>> InviteUserWithHttpInfoAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = default(ManagementProjectsUsersInviteCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<Object>> InviteUserWithHttpInfoAsync(ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'managementProjectsUsersInviteCreateRequestBody' is set
+            if (managementProjectsUsersInviteCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUsersInviteCreateRequestBody' when calling ManagementApi->InviteUser");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -6935,10 +7031,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsTemplatesCampaignsCopyCreateResponseBody</returns>
-        public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody ManagementCopyCampaignTemplate(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0)
+        public ManagementProjectsTemplatesCampaignsCopyCreateResponseBody ManagementCopyCampaignTemplate(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> localVarResponse = ManagementCopyCampaignTemplateWithHttpInfo(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody);
             return localVarResponse.Data;
@@ -6950,10 +7046,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsTemplatesCampaignsCopyCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateWithHttpInfo(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateWithHttpInfo(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -6965,6 +7061,12 @@ namespace Voucherify.Api
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling ManagementApi->ManagementCopyCampaignTemplate");
+            }
+
+            // verify the required parameter 'managementProjectsTemplatesCampaignsCopyCreateRequestBody' is set
+            if (managementProjectsTemplatesCampaignsCopyCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsTemplatesCampaignsCopyCreateRequestBody' when calling ManagementApi->ManagementCopyCampaignTemplate");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -7029,11 +7131,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsTemplatesCampaignsCopyCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> ManagementCopyCampaignTemplateAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody> localVarResponse = await ManagementCopyCampaignTemplateWithHttpInfoAsync(projectId, campaignTemplateId, managementProjectsTemplatesCampaignsCopyCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7045,11 +7147,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="campaignTemplateId">Provide the unique identifier of the campaign template.</param>
-        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself. (optional)</param>
+        /// <param name="managementProjectsTemplatesCampaignsCopyCreateRequestBody">Determines the details about the template in the destination project as well as the destination project itself.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsTemplatesCampaignsCopyCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody>> ManagementCopyCampaignTemplateWithHttpInfoAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = default(ManagementProjectsTemplatesCampaignsCopyCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsTemplatesCampaignsCopyCreateResponseBody>> ManagementCopyCampaignTemplateWithHttpInfoAsync(string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -7061,6 +7163,12 @@ namespace Voucherify.Api
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling ManagementApi->ManagementCopyCampaignTemplate");
+            }
+
+            // verify the required parameter 'managementProjectsTemplatesCampaignsCopyCreateRequestBody' is set
+            if (managementProjectsTemplatesCampaignsCopyCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsTemplatesCampaignsCopyCreateRequestBody' when calling ManagementApi->ManagementCopyCampaignTemplate");
             }
 
 
@@ -7560,10 +7668,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsBrandingUpdateResponseBody</returns>
-        public ManagementProjectsBrandingUpdateResponseBody UpdateBrand(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0)
+        public ManagementProjectsBrandingUpdateResponseBody UpdateBrand(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsBrandingUpdateResponseBody> localVarResponse = UpdateBrandWithHttpInfo(projectId, brandingId, managementProjectsBrandingUpdateRequestBody);
             return localVarResponse.Data;
@@ -7575,10 +7683,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsBrandingUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandWithHttpInfo(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandWithHttpInfo(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -7590,6 +7698,12 @@ namespace Voucherify.Api
             if (brandingId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'brandingId' when calling ManagementApi->UpdateBrand");
+            }
+
+            // verify the required parameter 'managementProjectsBrandingUpdateRequestBody' is set
+            if (managementProjectsBrandingUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsBrandingUpdateRequestBody' when calling ManagementApi->UpdateBrand");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -7654,11 +7768,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsBrandingUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsBrandingUpdateResponseBody> UpdateBrandAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsBrandingUpdateResponseBody> localVarResponse = await UpdateBrandWithHttpInfoAsync(projectId, brandingId, managementProjectsBrandingUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7670,11 +7784,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="brandingId">Provide the unique identifier of the brand configuration.</param>
-        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsBrandingUpdateRequestBody">Defines the brand configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsBrandingUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsBrandingUpdateResponseBody>> UpdateBrandWithHttpInfoAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = default(ManagementProjectsBrandingUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsBrandingUpdateResponseBody>> UpdateBrandWithHttpInfoAsync(string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -7686,6 +7800,12 @@ namespace Voucherify.Api
             if (brandingId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'brandingId' when calling ManagementApi->UpdateBrand");
+            }
+
+            // verify the required parameter 'managementProjectsBrandingUpdateRequestBody' is set
+            if (managementProjectsBrandingUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsBrandingUpdateRequestBody' when calling ManagementApi->UpdateBrand");
             }
 
 
@@ -7751,10 +7871,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsCustomEventSchemasUpdateResponseBody</returns>
-        public ManagementProjectsCustomEventSchemasUpdateResponseBody UpdateCustomEventSchema(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0)
+        public ManagementProjectsCustomEventSchemasUpdateResponseBody UpdateCustomEventSchema(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody> localVarResponse = UpdateCustomEventSchemaWithHttpInfo(projectId, customEventSchemaId, managementProjectsCustomEventSchemasUpdateRequestBody);
             return localVarResponse.Data;
@@ -7766,10 +7886,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsCustomEventSchemasUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaWithHttpInfo(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaWithHttpInfo(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -7781,6 +7901,12 @@ namespace Voucherify.Api
             if (customEventSchemaId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customEventSchemaId' when calling ManagementApi->UpdateCustomEventSchema");
+            }
+
+            // verify the required parameter 'managementProjectsCustomEventSchemasUpdateRequestBody' is set
+            if (managementProjectsCustomEventSchemasUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsCustomEventSchemasUpdateRequestBody' when calling ManagementApi->UpdateCustomEventSchema");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -7845,11 +7971,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsCustomEventSchemasUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsCustomEventSchemasUpdateResponseBody> UpdateCustomEventSchemaAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody> localVarResponse = await UpdateCustomEventSchemaWithHttpInfoAsync(projectId, customEventSchemaId, managementProjectsCustomEventSchemasUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7861,11 +7987,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="customEventSchemaId">Provide the unique identifier of the custom event schema.</param>
-        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated. (optional)</param>
+        /// <param name="managementProjectsCustomEventSchemasUpdateRequestBody">Defines the custom event schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsCustomEventSchemasUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody>> UpdateCustomEventSchemaWithHttpInfoAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = default(ManagementProjectsCustomEventSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsCustomEventSchemasUpdateResponseBody>> UpdateCustomEventSchemaWithHttpInfoAsync(string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -7877,6 +8003,12 @@ namespace Voucherify.Api
             if (customEventSchemaId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'customEventSchemaId' when calling ManagementApi->UpdateCustomEventSchema");
+            }
+
+            // verify the required parameter 'managementProjectsCustomEventSchemasUpdateRequestBody' is set
+            if (managementProjectsCustomEventSchemasUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsCustomEventSchemasUpdateRequestBody' when calling ManagementApi->UpdateCustomEventSchema");
             }
 
 
@@ -7942,10 +8074,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsMetadataSchemasUpdateResponseBody</returns>
-        public ManagementProjectsMetadataSchemasUpdateResponseBody UpdateMetadataSchema(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0)
+        public ManagementProjectsMetadataSchemasUpdateResponseBody UpdateMetadataSchema(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody> localVarResponse = UpdateMetadataSchemaWithHttpInfo(projectId, metadataSchemaId, managementProjectsMetadataSchemasUpdateRequestBody);
             return localVarResponse.Data;
@@ -7957,10 +8089,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsMetadataSchemasUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaWithHttpInfo(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaWithHttpInfo(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -7972,6 +8104,12 @@ namespace Voucherify.Api
             if (metadataSchemaId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'metadataSchemaId' when calling ManagementApi->UpdateMetadataSchema");
+            }
+
+            // verify the required parameter 'managementProjectsMetadataSchemasUpdateRequestBody' is set
+            if (managementProjectsMetadataSchemasUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsMetadataSchemasUpdateRequestBody' when calling ManagementApi->UpdateMetadataSchema");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -8036,11 +8174,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsMetadataSchemasUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsMetadataSchemasUpdateResponseBody> UpdateMetadataSchemaAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody> localVarResponse = await UpdateMetadataSchemaWithHttpInfoAsync(projectId, metadataSchemaId, managementProjectsMetadataSchemasUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8052,11 +8190,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="metadataSchemaId">Provide the unique identifier of the metadata schema.</param>
-        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated. (optional)</param>
+        /// <param name="managementProjectsMetadataSchemasUpdateRequestBody">Defines the metadata schema to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsMetadataSchemasUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody>> UpdateMetadataSchemaWithHttpInfoAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = default(ManagementProjectsMetadataSchemasUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsMetadataSchemasUpdateResponseBody>> UpdateMetadataSchemaWithHttpInfoAsync(string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8068,6 +8206,12 @@ namespace Voucherify.Api
             if (metadataSchemaId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'metadataSchemaId' when calling ManagementApi->UpdateMetadataSchema");
+            }
+
+            // verify the required parameter 'managementProjectsMetadataSchemasUpdateRequestBody' is set
+            if (managementProjectsMetadataSchemasUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsMetadataSchemasUpdateRequestBody' when calling ManagementApi->UpdateMetadataSchema");
             }
 
 
@@ -8132,10 +8276,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsUpdateResponseBody</returns>
-        public ManagementProjectsUpdateResponseBody UpdateProject(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0)
+        public ManagementProjectsUpdateResponseBody UpdateProject(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsUpdateResponseBody> localVarResponse = UpdateProjectWithHttpInfo(projectId, managementProjectsUpdateRequestBody);
             return localVarResponse.Data;
@@ -8146,15 +8290,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsUpdateResponseBody> UpdateProjectWithHttpInfo(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsUpdateResponseBody> UpdateProjectWithHttpInfo(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->UpdateProject");
+            }
+
+            // verify the required parameter 'managementProjectsUpdateRequestBody' is set
+            if (managementProjectsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUpdateRequestBody' when calling ManagementApi->UpdateProject");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -8217,11 +8367,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsUpdateResponseBody> UpdateProjectAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsUpdateResponseBody> UpdateProjectAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsUpdateResponseBody> localVarResponse = await UpdateProjectWithHttpInfoAsync(projectId, managementProjectsUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8232,16 +8382,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
-        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated. (optional)</param>
+        /// <param name="managementProjectsUpdateRequestBody">Define the project details to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsUpdateResponseBody>> UpdateProjectWithHttpInfoAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = default(ManagementProjectsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsUpdateResponseBody>> UpdateProjectWithHttpInfoAsync(string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'projectId' when calling ManagementApi->UpdateProject");
+            }
+
+            // verify the required parameter 'managementProjectsUpdateRequestBody' is set
+            if (managementProjectsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUpdateRequestBody' when calling ManagementApi->UpdateProject");
             }
 
 
@@ -8306,10 +8462,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsStackingRulesUpdateResponseBody</returns>
-        public ManagementProjectsStackingRulesUpdateResponseBody UpdateStackingRules(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0)
+        public ManagementProjectsStackingRulesUpdateResponseBody UpdateStackingRules(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody> localVarResponse = UpdateStackingRulesWithHttpInfo(projectId, stackingRulesId, managementProjectsStackingRulesUpdateRequestBody);
             return localVarResponse.Data;
@@ -8321,10 +8477,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsStackingRulesUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesWithHttpInfo(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesWithHttpInfo(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8336,6 +8492,12 @@ namespace Voucherify.Api
             if (stackingRulesId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'stackingRulesId' when calling ManagementApi->UpdateStackingRules");
+            }
+
+            // verify the required parameter 'managementProjectsStackingRulesUpdateRequestBody' is set
+            if (managementProjectsStackingRulesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsStackingRulesUpdateRequestBody' when calling ManagementApi->UpdateStackingRules");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -8400,11 +8562,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsStackingRulesUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsStackingRulesUpdateResponseBody> UpdateStackingRulesAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody> localVarResponse = await UpdateStackingRulesWithHttpInfoAsync(projectId, stackingRulesId, managementProjectsStackingRulesUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8416,11 +8578,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="stackingRulesId">Provide the unique identifier of the stacking rules.</param>
-        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated. (optional)</param>
+        /// <param name="managementProjectsStackingRulesUpdateRequestBody">Defines the stacking rules to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsStackingRulesUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody>> UpdateStackingRulesWithHttpInfoAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = default(ManagementProjectsStackingRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsStackingRulesUpdateResponseBody>> UpdateStackingRulesWithHttpInfoAsync(string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8432,6 +8594,12 @@ namespace Voucherify.Api
             if (stackingRulesId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'stackingRulesId' when calling ManagementApi->UpdateStackingRules");
+            }
+
+            // verify the required parameter 'managementProjectsStackingRulesUpdateRequestBody' is set
+            if (managementProjectsStackingRulesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsStackingRulesUpdateRequestBody' when calling ManagementApi->UpdateStackingRules");
             }
 
 
@@ -8497,10 +8665,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsUsersUpdateRoleResponseBody</returns>
-        public ManagementProjectsUsersUpdateRoleResponseBody UpdateUser(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0)
+        public ManagementProjectsUsersUpdateRoleResponseBody UpdateUser(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody> localVarResponse = UpdateUserWithHttpInfo(projectId, userId, managementProjectsUsersUpdateRoleRequestBody);
             return localVarResponse.Data;
@@ -8512,10 +8680,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsUsersUpdateRoleResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserWithHttpInfo(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserWithHttpInfo(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8527,6 +8695,12 @@ namespace Voucherify.Api
             if (userId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'userId' when calling ManagementApi->UpdateUser");
+            }
+
+            // verify the required parameter 'managementProjectsUsersUpdateRoleRequestBody' is set
+            if (managementProjectsUsersUpdateRoleRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUsersUpdateRoleRequestBody' when calling ManagementApi->UpdateUser");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -8591,11 +8765,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsUsersUpdateRoleResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsUsersUpdateRoleResponseBody> UpdateUserAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody> localVarResponse = await UpdateUserWithHttpInfoAsync(projectId, userId, managementProjectsUsersUpdateRoleRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8607,11 +8781,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="userId">Provide the unique identifier of the user. Alternatively, provide the users login.</param>
-        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role. (optional)</param>
+        /// <param name="managementProjectsUsersUpdateRoleRequestBody">Defines the users new role.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsUsersUpdateRoleResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody>> UpdateUserWithHttpInfoAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = default(ManagementProjectsUsersUpdateRoleRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsUsersUpdateRoleResponseBody>> UpdateUserWithHttpInfoAsync(string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8623,6 +8797,12 @@ namespace Voucherify.Api
             if (userId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'userId' when calling ManagementApi->UpdateUser");
+            }
+
+            // verify the required parameter 'managementProjectsUsersUpdateRoleRequestBody' is set
+            if (managementProjectsUsersUpdateRoleRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsUsersUpdateRoleRequestBody' when calling ManagementApi->UpdateUser");
             }
 
 
@@ -8688,10 +8868,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ManagementProjectsWebhooksUpdateResponseBody</returns>
-        public ManagementProjectsWebhooksUpdateResponseBody UpdateWebhook(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0)
+        public ManagementProjectsWebhooksUpdateResponseBody UpdateWebhook(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ManagementProjectsWebhooksUpdateResponseBody> localVarResponse = UpdateWebhookWithHttpInfo(projectId, webhookId, managementProjectsWebhooksUpdateRequestBody);
             return localVarResponse.Data;
@@ -8703,10 +8883,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ManagementProjectsWebhooksUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookWithHttpInfo(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookWithHttpInfo(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8718,6 +8898,12 @@ namespace Voucherify.Api
             if (webhookId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'webhookId' when calling ManagementApi->UpdateWebhook");
+            }
+
+            // verify the required parameter 'managementProjectsWebhooksUpdateRequestBody' is set
+            if (managementProjectsWebhooksUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsWebhooksUpdateRequestBody' when calling ManagementApi->UpdateWebhook");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -8782,11 +8968,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ManagementProjectsWebhooksUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ManagementProjectsWebhooksUpdateResponseBody> UpdateWebhookAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ManagementProjectsWebhooksUpdateResponseBody> localVarResponse = await UpdateWebhookWithHttpInfoAsync(projectId, webhookId, managementProjectsWebhooksUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8798,11 +8984,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
         /// <param name="webhookId">Provide the unique identifier of the webhook configuration.</param>
-        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated. (optional)</param>
+        /// <param name="managementProjectsWebhooksUpdateRequestBody">Defines the webhook configuration to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ManagementProjectsWebhooksUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsWebhooksUpdateResponseBody>> UpdateWebhookWithHttpInfoAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = default(ManagementProjectsWebhooksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ManagementProjectsWebhooksUpdateResponseBody>> UpdateWebhookWithHttpInfoAsync(string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'projectId' is set
             if (projectId == null)
@@ -8814,6 +9000,12 @@ namespace Voucherify.Api
             if (webhookId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'webhookId' when calling ManagementApi->UpdateWebhook");
+            }
+
+            // verify the required parameter 'managementProjectsWebhooksUpdateRequestBody' is set
+            if (managementProjectsWebhooksUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'managementProjectsWebhooksUpdateRequestBody' when calling ManagementApi->UpdateWebhook");
             }
 
 

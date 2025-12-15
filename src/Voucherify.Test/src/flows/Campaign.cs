@@ -66,12 +66,12 @@ namespace Voucherify.Test
 
         public async Task<CampaignsVouchersCreateCombinedResponseBody> addVoucherToCampaign(string campaignId)
         {
-            return await _campaignsApi.AddVouchersToCampaignAsync(campaignId, 1);
+            return await _campaignsApi.AddVouchersToCampaignAsync(campaignId, new CampaignsVouchersCreateInBulkRequestBody(), 1);
         }
 
         public async Task<CampaignsVouchersCreateCombinedResponseBody> createBundleOfVouchers(string campaignId, int vouchersCount = 5)
         {
-            return await _campaignsApi.AddVouchersToCampaignAsync(campaignId, vouchersCount);
+            return await _campaignsApi.AddVouchersToCampaignAsync(campaignId, new CampaignsVouchersCreateInBulkRequestBody(), vouchersCount);
         }
     }
 }

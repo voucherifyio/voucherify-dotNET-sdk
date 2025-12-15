@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Defines the reccuring period(s) when the resource will be active.
+    /// Defines the recurring period(s) when the resource will be active.
     /// </summary>
     [DataContract(Name = "ValidityHoursDailyItem")]
     public partial class ValidityHoursDailyItem : IValidatableObject

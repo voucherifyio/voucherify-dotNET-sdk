@@ -67,7 +67,7 @@ namespace Voucherify.Model
         /// <param name="sourceId">The merchant&#39;s transaction ID if it is different from the Voucherify transaction ID. It is really useful in case of an integration between multiple systems. It can be a transaction ID from a CRM system, database or 3rd-party service. In case of a redemption, this value is null..</param>
         /// <param name="voucherId">Unique voucher ID..</param>
         /// <param name="campaignId">Unqiue campaign ID of the voucher&#39;s parent campaign if it is part of campaign that generates bulk codes..</param>
-        /// <param name="source">The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null..</param>
+        /// <param name="source">The channel through which the transaction took place, whether through the API or the Dashboard. In case of a redemption, this value is null..</param>
         /// <param name="reason">Reason why the transaction occurred. In case of a redemption, this value is null..</param>
         /// <param name="relatedTransactionId">The related transaction ID on the receiving card..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the transaction was created. The value is shown in the ISO 8601 format..</param>
@@ -228,9 +228,9 @@ namespace Voucherify.Model
             return _flagCampaignId;
         }
         /// <summary>
-        /// The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null.
+        /// The channel through which the transaction took place, whether through the API or the Dashboard. In case of a redemption, this value is null.
         /// </summary>
-        /// <value>The channel through which the transaction took place, whether through the API or the the Dashboard. In case of a redemption, this value is null.</value>
+        /// <value>The channel through which the transaction took place, whether through the API or the Dashboard. In case of a redemption, this value is null.</value>
         [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source
         {

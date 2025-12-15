@@ -8,7 +8,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="trackcustomevent"></a>
 # **TrackCustomEvent**
-> EventsCreateResponseBody TrackCustomEvent (EventsCreateRequestBody eventsCreateRequestBody = null)
+> EventsCreateResponseBody TrackCustomEvent (EventsCreateRequestBody eventsCreateRequestBody)
 
 Track Custom Event
 
@@ -42,7 +42,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventsApi(config);
-            var eventsCreateRequestBody = new EventsCreateRequestBody(); // EventsCreateRequestBody | Specify the details of the custom event. (optional) 
+            var eventsCreateRequestBody = new EventsCreateRequestBody(); // EventsCreateRequestBody | Specify the details of the custom event.
 
             try
             {
@@ -85,7 +85,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **eventsCreateRequestBody** | [**EventsCreateRequestBody**](EventsCreateRequestBody.md) | Specify the details of the custom event. | [optional]  |
+| **eventsCreateRequestBody** | [**EventsCreateRequestBody**](EventsCreateRequestBody.md) | Specify the details of the custom event. |  |
 
 ### Return type
 

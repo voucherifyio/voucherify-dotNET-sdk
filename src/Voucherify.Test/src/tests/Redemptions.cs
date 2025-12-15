@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Voucherify.Model;
@@ -8,7 +9,6 @@ using FluentAssertions;
 
 namespace Voucherify.Test.Tests
 {
-    //TODO: Need a bit of work
     public class RedemptionsTests
     {
         private readonly StackableFlow _stackableFlow;
@@ -45,7 +45,7 @@ namespace Voucherify.Test.Tests
         }
 
         [Fact]
-        public async Task RedeemStackedDiscounts()
+        public async Task RedeemStackedDiscounts_ThenListRedemptions_ByVoucherCodes()
         {
             var resultTemp = await _publicationFlow.createAndPublishVoucherForCustomer(
                 TestHelper.GenerateUniqueName("Campaign"),
@@ -53,23 +53,25 @@ namespace Voucherify.Test.Tests
             );
 
             var voucherIds = new List<string> { resultTemp.Vouchers[0].Id, resultTemp.Vouchers[1].Id };
+            voucherIds.Should().AllSatisfy(id => id.Should().NotBeNullOrWhiteSpace());
 
-            var result = await _stackableFlow.RedeemStackedDiscounts(voucherIds);
+            var voucherCodes = new List<string> { resultTemp.Vouchers[0].Code, resultTemp.Vouchers[1].Code };
+            voucherCodes.Should().AllSatisfy(code => code.Should().NotBeNullOrWhiteSpace());
 
-            result.Should().NotBeNull();
-            result.Redemptions.Should().NotBeNull();
-            result.Redemptions.Should().HaveCount(voucherIds.Count);
-        }
+            var redeemResult = await _stackableFlow.RedeemStackedDiscounts(voucherIds);
 
-        [Fact]
-        public async Task ListRedemptions()
-        {
-            var result = await _stackableFlow.ListRedemptions();
+            redeemResult.Should().NotBeNull();
+            redeemResult.Redemptions.Should().NotBeNull();
+            redeemResult.Redemptions.Should().HaveCount(voucherIds.Count);
 
-            result.Should().NotBeNull();
-            result.Redemptions.Should().NotBeNull();
-            result.Redemptions.Should().HaveCountLessThanOrEqualTo(10);
-            result.Redemptions.Should().HaveCountGreaterThanOrEqualTo(1);
+            var listResult = await _stackableFlow.ListRedemptions(voucherCodes);
+
+            listResult.Should().NotBeNull();
+            listResult.Redemptions.Should().NotBeNull();
+            listResult.Redemptions.Should().HaveCountLessThanOrEqualTo(10);
+            listResult.Redemptions.Should().HaveCountGreaterThanOrEqualTo(1);
+
+            listResult.Redemptions.Should().Contain(r => r.Voucher != null && voucherCodes.Contains(r.Voucher.Code));
         }
     }
 }

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **VoucherId** | **string** | Unique identifier of the parent loyalty card. | [optional] 
 **CampaignId** | **string** | Unique identifier of the parent campaign. | [optional] 
 **Bucket** | [**LoyaltyPointsBucketBucket**](LoyaltyPointsBucketBucket.md) |  | [optional] 
-**Status** | **string** | Loyalty point point bucket status. | [optional] 
+**Status** | **string** | Loyalty point bucket status. | [optional] 
 **ExpiresAt** | **DateTime?** | Date when the number of points defined in the bucket object are due to expire. | [optional] 
 **CreatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format. | [optional] 
 **UpdatedAt** | **DateTimeOffset?** | Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format. | [optional] 

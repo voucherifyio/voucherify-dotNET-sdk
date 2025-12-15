@@ -36,10 +36,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsTierSetupCreateResponseBody</returns>
-        TemplatesCampaignsTierSetupCreateResponseBody AddTierFromTemplate(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0);
+        TemplatesCampaignsTierSetupCreateResponseBody AddTierFromTemplate(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Promotion Tier From Template
@@ -49,10 +49,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsTierSetupCreateResponseBody</returns>
-        ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0);
+        ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Campaign From Template
         /// </summary>
@@ -61,10 +61,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsCampaignSetupCreateResponseBody</returns>
-        TemplatesCampaignsCampaignSetupCreateResponseBody CreateCampaignFromTemplate(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0);
+        TemplatesCampaignsCampaignSetupCreateResponseBody CreateCampaignFromTemplate(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Campaign From Template
@@ -74,10 +74,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsCampaignSetupCreateResponseBody</returns>
-        ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0);
+        ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Campaign Template
         /// </summary>
@@ -85,10 +85,10 @@ namespace Voucherify.Api
         /// Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsCreateTemplateResponseBody</returns>
-        TemplatesCampaignsCreateTemplateResponseBody CreateCampaignTemplate(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0);
+        TemplatesCampaignsCreateTemplateResponseBody CreateCampaignTemplate(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Campaign Template
@@ -97,10 +97,10 @@ namespace Voucherify.Api
         /// Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsCreateTemplateResponseBody</returns>
-        ApiResponse<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateWithHttpInfo(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateWithHttpInfo(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Campaign Template
         /// </summary>
@@ -186,10 +186,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsUpdateResponseBody</returns>
-        TemplatesCampaignsUpdateResponseBody UpdateCampaignTemplate(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0);
+        TemplatesCampaignsUpdateResponseBody UpdateCampaignTemplate(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Campaign Template
@@ -199,10 +199,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsUpdateResponseBody</returns>
-        ApiResponse<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -220,11 +220,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsTierSetupCreateResponseBody</returns>
-        System.Threading.Tasks.Task<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Promotion Tier From Template
@@ -234,11 +234,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsTierSetupCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody>> AddTierFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody>> AddTierFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Campaign From Template
         /// </summary>
@@ -247,11 +247,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsCampaignSetupCreateResponseBody</returns>
-        System.Threading.Tasks.Task<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Campaign From Template
@@ -261,11 +261,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsCampaignSetupCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody>> CreateCampaignFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody>> CreateCampaignFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Campaign Template
         /// </summary>
@@ -273,11 +273,11 @@ namespace Voucherify.Api
         /// Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsCreateTemplateResponseBody</returns>
-        System.Threading.Tasks.Task<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Campaign Template
@@ -286,11 +286,11 @@ namespace Voucherify.Api
         /// Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsCreateTemplateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsCreateTemplateResponseBody>> CreateCampaignTemplateWithHttpInfoAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsCreateTemplateResponseBody>> CreateCampaignTemplateWithHttpInfoAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Campaign Template
         /// </summary>
@@ -382,11 +382,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Campaign Template
@@ -396,11 +396,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsUpdateResponseBody>> UpdateCampaignTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<TemplatesCampaignsUpdateResponseBody>> UpdateCampaignTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -526,10 +526,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsTierSetupCreateResponseBody</returns>
-        public TemplatesCampaignsTierSetupCreateResponseBody AddTierFromTemplate(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0)
+        public TemplatesCampaignsTierSetupCreateResponseBody AddTierFromTemplate(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody> localVarResponse = AddTierFromTemplateWithHttpInfo(campaignTemplateId, templatesCampaignsTierSetupCreateRequestBody);
             return localVarResponse.Data;
@@ -540,15 +540,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsTierSetupCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignTemplateId' is set
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling TemplatesApi->AddTierFromTemplate");
+            }
+
+            // verify the required parameter 'templatesCampaignsTierSetupCreateRequestBody' is set
+            if (templatesCampaignsTierSetupCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsTierSetupCreateRequestBody' when calling TemplatesApi->AddTierFromTemplate");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -627,11 +633,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsTierSetupCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplatesCampaignsTierSetupCreateResponseBody> AddTierFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody> localVarResponse = await AddTierFromTemplateWithHttpInfoAsync(campaignTemplateId, templatesCampaignsTierSetupCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -642,16 +648,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsTierSetupCreateRequestBody">Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsTierSetupCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody>> AddTierFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = default(TemplatesCampaignsTierSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsTierSetupCreateResponseBody>> AddTierFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignTemplateId' is set
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling TemplatesApi->AddTierFromTemplate");
+            }
+
+            // verify the required parameter 'templatesCampaignsTierSetupCreateRequestBody' is set
+            if (templatesCampaignsTierSetupCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsTierSetupCreateRequestBody' when calling TemplatesApi->AddTierFromTemplate");
             }
 
 
@@ -731,10 +743,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsCampaignSetupCreateResponseBody</returns>
-        public TemplatesCampaignsCampaignSetupCreateResponseBody CreateCampaignFromTemplate(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0)
+        public TemplatesCampaignsCampaignSetupCreateResponseBody CreateCampaignFromTemplate(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody> localVarResponse = CreateCampaignFromTemplateWithHttpInfo(campaignTemplateId, templatesCampaignsCampaignSetupCreateRequestBody);
             return localVarResponse.Data;
@@ -745,15 +757,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsCampaignSetupCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignTemplateId' is set
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling TemplatesApi->CreateCampaignFromTemplate");
+            }
+
+            // verify the required parameter 'templatesCampaignsCampaignSetupCreateRequestBody' is set
+            if (templatesCampaignsCampaignSetupCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsCampaignSetupCreateRequestBody' when calling TemplatesApi->CreateCampaignFromTemplate");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -832,11 +850,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsCampaignSetupCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplatesCampaignsCampaignSetupCreateResponseBody> CreateCampaignFromTemplateAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody> localVarResponse = await CreateCampaignFromTemplateWithHttpInfoAsync(campaignTemplateId, templatesCampaignsCampaignSetupCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -847,16 +865,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration. (optional)</param>
+        /// <param name="templatesCampaignsCampaignSetupCreateRequestBody">Only name is required. The rest of the fields will overwrite the template configuration.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsCampaignSetupCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody>> CreateCampaignFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = default(TemplatesCampaignsCampaignSetupCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsCampaignSetupCreateResponseBody>> CreateCampaignFromTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignTemplateId' is set
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling TemplatesApi->CreateCampaignFromTemplate");
+            }
+
+            // verify the required parameter 'templatesCampaignsCampaignSetupCreateRequestBody' is set
+            if (templatesCampaignsCampaignSetupCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsCampaignSetupCreateRequestBody' when calling TemplatesApi->CreateCampaignFromTemplate");
             }
 
 
@@ -935,10 +959,10 @@ namespace Voucherify.Api
         /// Create Campaign Template Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsCreateTemplateResponseBody</returns>
-        public TemplatesCampaignsCreateTemplateResponseBody CreateCampaignTemplate(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0)
+        public TemplatesCampaignsCreateTemplateResponseBody CreateCampaignTemplate(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsCreateTemplateResponseBody> localVarResponse = CreateCampaignTemplateWithHttpInfo(templatesCampaignsCreateRequestBody);
             return localVarResponse.Data;
@@ -948,11 +972,17 @@ namespace Voucherify.Api
         /// Create Campaign Template Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsCreateTemplateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateWithHttpInfo(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateWithHttpInfo(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'templatesCampaignsCreateRequestBody' is set
+            if (templatesCampaignsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsCreateRequestBody' when calling TemplatesApi->CreateCampaignTemplate");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1027,11 +1057,11 @@ namespace Voucherify.Api
         /// Create Campaign Template Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsCreateTemplateResponseBody</returns>
-        public async System.Threading.Tasks.Task<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplatesCampaignsCreateTemplateResponseBody> CreateCampaignTemplateAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsCreateTemplateResponseBody> localVarResponse = await CreateCampaignTemplateWithHttpInfoAsync(templatesCampaignsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1041,12 +1071,18 @@ namespace Voucherify.Api
         /// Create Campaign Template Creates a template for a discount or gift campaign, or a promotion tier. A template stores campaign configuration **without** the following details: - Campaign name - Category - Code count The following elements are not supported by campaign templates: - Redeeming API keys - Redeeming users - Customer loyalty tier - Static segments  👍 Promotion Tiers and Campaign Templates You can create a campaign template out of a promotion tier. Promotion tiers are converted to a discount campaign with the DISCOUNT_COUPON type. You can use this template to create: - [Discount campaign](/api-reference/templates/create-campaign-from-template), - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).  📘 Campaign Templates – Documentation Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template (optional)</param>
+        /// <param name="templatesCampaignsCreateRequestBody">Provide details for a campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsCreateTemplateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsCreateTemplateResponseBody>> CreateCampaignTemplateWithHttpInfoAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = default(TemplatesCampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsCreateTemplateResponseBody>> CreateCampaignTemplateWithHttpInfoAsync(TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'templatesCampaignsCreateRequestBody' is set
+            if (templatesCampaignsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsCreateRequestBody' when calling TemplatesApi->CreateCampaignTemplate");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -1782,10 +1818,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>TemplatesCampaignsUpdateResponseBody</returns>
-        public TemplatesCampaignsUpdateResponseBody UpdateCampaignTemplate(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0)
+        public TemplatesCampaignsUpdateResponseBody UpdateCampaignTemplate(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsUpdateResponseBody> localVarResponse = UpdateCampaignTemplateWithHttpInfo(campaignTemplateId, templatesCampaignsUpdateRequestBody);
             return localVarResponse.Data;
@@ -1796,15 +1832,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of TemplatesCampaignsUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateWithHttpInfo(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignTemplateId' is set
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling TemplatesApi->UpdateCampaignTemplate");
+            }
+
+            // verify the required parameter 'templatesCampaignsUpdateRequestBody' is set
+            if (templatesCampaignsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsUpdateRequestBody' when calling TemplatesApi->UpdateCampaignTemplate");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1883,11 +1925,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TemplatesCampaignsUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TemplatesCampaignsUpdateResponseBody> UpdateCampaignTemplateAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<TemplatesCampaignsUpdateResponseBody> localVarResponse = await UpdateCampaignTemplateWithHttpInfoAsync(campaignTemplateId, templatesCampaignsUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1898,16 +1940,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignTemplateId">Pass the campaign template ID that was assigned by Voucherify.</param>
-        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template (optional)</param>
+        /// <param name="templatesCampaignsUpdateRequestBody">Provide the new name or description for the campaign template</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TemplatesCampaignsUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsUpdateResponseBody>> UpdateCampaignTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = default(TemplatesCampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<TemplatesCampaignsUpdateResponseBody>> UpdateCampaignTemplateWithHttpInfoAsync(string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignTemplateId' is set
             if (campaignTemplateId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignTemplateId' when calling TemplatesApi->UpdateCampaignTemplate");
+            }
+
+            // verify the required parameter 'templatesCampaignsUpdateRequestBody' is set
+            if (templatesCampaignsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'templatesCampaignsUpdateRequestBody' when calling TemplatesApi->UpdateCampaignTemplate");
             }
 
 

@@ -163,7 +163,7 @@ catch (ApiException e)
 
 <a id="addmember"></a>
 # **AddMember**
-> LoyaltiesMembersCreateResponseBody AddMember (string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = null)
+> LoyaltiesMembersCreateResponseBody AddMember (string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody)
 
 Add Member
 
@@ -198,7 +198,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID of the loyalty program.
-            var loyaltiesMembersCreateRequestBody = new LoyaltiesMembersCreateRequestBody(); // LoyaltiesMembersCreateRequestBody | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional) 
+            var loyaltiesMembersCreateRequestBody = new LoyaltiesMembersCreateRequestBody(); // LoyaltiesMembersCreateRequestBody | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.
 
             try
             {
@@ -242,7 +242,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID of the loyalty program. |  |
-| **loyaltiesMembersCreateRequestBody** | [**LoyaltiesMembersCreateRequestBody**](LoyaltiesMembersCreateRequestBody.md) | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. | [optional]  |
+| **loyaltiesMembersCreateRequestBody** | [**LoyaltiesMembersCreateRequestBody**](LoyaltiesMembersCreateRequestBody.md) | Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. |  |
 
 ### Return type
 
@@ -267,7 +267,7 @@ catch (ApiException e)
 
 <a id="adjustmemberpendingpoints"></a>
 # **AdjustMemberPendingPoints**
-> LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints (string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = null)
+> LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints (string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody)
 
 Adjust Member Pending Points
 
@@ -303,7 +303,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | Unique loyalty card code assigned to a particular customer.
             var pendingPointsId = "pendingPointsId_example";  // string | Unique pending point identifier, assigned by Voucherify.
-            var loyaltiesMembersPendingPointsBalanceRequestBody = new LoyaltiesMembersPendingPointsBalanceRequestBody(); // LoyaltiesMembersPendingPointsBalanceRequestBody | Define the number of pending points to be added or subtracted. (optional) 
+            var loyaltiesMembersPendingPointsBalanceRequestBody = new LoyaltiesMembersPendingPointsBalanceRequestBody(); // LoyaltiesMembersPendingPointsBalanceRequestBody | Define the number of pending points to be added or subtracted.
 
             try
             {
@@ -348,7 +348,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **memberId** | **string** | Unique loyalty card code assigned to a particular customer. |  |
 | **pendingPointsId** | **string** | Unique pending point identifier, assigned by Voucherify. |  |
-| **loyaltiesMembersPendingPointsBalanceRequestBody** | [**LoyaltiesMembersPendingPointsBalanceRequestBody**](LoyaltiesMembersPendingPointsBalanceRequestBody.md) | Define the number of pending points to be added or subtracted. | [optional]  |
+| **loyaltiesMembersPendingPointsBalanceRequestBody** | [**LoyaltiesMembersPendingPointsBalanceRequestBody**](LoyaltiesMembersPendingPointsBalanceRequestBody.md) | Define the number of pending points to be added or subtracted. |  |
 
 ### Return type
 
@@ -473,7 +473,7 @@ void (empty response body)
 
 <a id="createearningrule"></a>
 # **CreateEarningRule**
-> List&lt;LoyaltiesEarningRulesCreateResponseBody&gt; CreateEarningRule (string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = null)
+> List&lt;LoyaltiesEarningRulesCreateResponseBody&gt; CreateEarningRule (string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem)
 
 Create Earning Rule
 
@@ -508,7 +508,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
-            var loyaltiesEarningRulesCreateRequestBodyItem = new List<LoyaltiesEarningRulesCreateRequestBodyItem>(); // List<LoyaltiesEarningRulesCreateRequestBodyItem> | Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional) 
+            var loyaltiesEarningRulesCreateRequestBodyItem = new List<LoyaltiesEarningRulesCreateRequestBodyItem>(); // List<LoyaltiesEarningRulesCreateRequestBodyItem> | Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object
 
             try
             {
@@ -552,7 +552,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |  |
-| **loyaltiesEarningRulesCreateRequestBodyItem** | [**List&lt;LoyaltiesEarningRulesCreateRequestBodyItem&gt;**](LoyaltiesEarningRulesCreateRequestBodyItem.md) | Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object | [optional]  |
+| **loyaltiesEarningRulesCreateRequestBodyItem** | [**List&lt;LoyaltiesEarningRulesCreateRequestBodyItem&gt;**](LoyaltiesEarningRulesCreateRequestBodyItem.md) | Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object |  |
 
 ### Return type
 
@@ -577,7 +577,7 @@ catch (ApiException e)
 
 <a id="createinbulkloyaltytiers"></a>
 # **CreateInBulkLoyaltyTiers**
-> List&lt;LoyaltyTier&gt; CreateInBulkLoyaltyTiers (string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = null)
+> List&lt;LoyaltyTier&gt; CreateInBulkLoyaltyTiers (string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem)
 
 Create loyalty tiers
 
@@ -612,7 +612,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique loyalty campaign ID or name.
-            var loyaltiesTiersCreateInBulkRequestBodyItem = new List<LoyaltiesTiersCreateInBulkRequestBodyItem>(); // List<LoyaltiesTiersCreateInBulkRequestBodyItem> | Provide tier definitions you want to add to existing loyalty campaign. (optional) 
+            var loyaltiesTiersCreateInBulkRequestBodyItem = new List<LoyaltiesTiersCreateInBulkRequestBodyItem>(); // List<LoyaltiesTiersCreateInBulkRequestBodyItem> | Provide tier definitions you want to add to existing loyalty campaign.
 
             try
             {
@@ -656,7 +656,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique loyalty campaign ID or name. |  |
-| **loyaltiesTiersCreateInBulkRequestBodyItem** | [**List&lt;LoyaltiesTiersCreateInBulkRequestBodyItem&gt;**](LoyaltiesTiersCreateInBulkRequestBodyItem.md) | Provide tier definitions you want to add to existing loyalty campaign. | [optional]  |
+| **loyaltiesTiersCreateInBulkRequestBodyItem** | [**List&lt;LoyaltiesTiersCreateInBulkRequestBodyItem&gt;**](LoyaltiesTiersCreateInBulkRequestBodyItem.md) | Provide tier definitions you want to add to existing loyalty campaign. |  |
 
 ### Return type
 
@@ -681,7 +681,7 @@ catch (ApiException e)
 
 <a id="createloyaltyprogram"></a>
 # **CreateLoyaltyProgram**
-> LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram (LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = null)
+> LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram (LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody)
 
 Create Loyalty Campaign
 
@@ -715,7 +715,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LoyaltiesApi(config);
-            var loyaltiesCreateCampaignRequestBody = new LoyaltiesCreateCampaignRequestBody(); // LoyaltiesCreateCampaignRequestBody | Specify the loyalty campaign details. (optional) 
+            var loyaltiesCreateCampaignRequestBody = new LoyaltiesCreateCampaignRequestBody(); // LoyaltiesCreateCampaignRequestBody | Specify the loyalty campaign details.
 
             try
             {
@@ -758,7 +758,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **loyaltiesCreateCampaignRequestBody** | [**LoyaltiesCreateCampaignRequestBody**](LoyaltiesCreateCampaignRequestBody.md) | Specify the loyalty campaign details. | [optional]  |
+| **loyaltiesCreateCampaignRequestBody** | [**LoyaltiesCreateCampaignRequestBody**](LoyaltiesCreateCampaignRequestBody.md) | Specify the loyalty campaign details. |  |
 
 ### Return type
 
@@ -783,7 +783,7 @@ catch (ApiException e)
 
 <a id="createpointsexpirationexport"></a>
 # **CreatePointsExpirationExport**
-> LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport (string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = null)
+> LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport (string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody)
 
 Export Loyalty Campaign Point Expiration
 
@@ -818,7 +818,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID or name.
-            var loyaltiesPointsExpirationExportCreateRequestBody = new LoyaltiesPointsExpirationExportCreateRequestBody(); // LoyaltiesPointsExpirationExportCreateRequestBody | Specify the data filters, types of data to return and order in which the results should be returned. (optional) 
+            var loyaltiesPointsExpirationExportCreateRequestBody = new LoyaltiesPointsExpirationExportCreateRequestBody(); // LoyaltiesPointsExpirationExportCreateRequestBody | Specify the data filters, types of data to return and order in which the results should be returned.
 
             try
             {
@@ -862,7 +862,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID or name. |  |
-| **loyaltiesPointsExpirationExportCreateRequestBody** | [**LoyaltiesPointsExpirationExportCreateRequestBody**](LoyaltiesPointsExpirationExportCreateRequestBody.md) | Specify the data filters, types of data to return and order in which the results should be returned. | [optional]  |
+| **loyaltiesPointsExpirationExportCreateRequestBody** | [**LoyaltiesPointsExpirationExportCreateRequestBody**](LoyaltiesPointsExpirationExportCreateRequestBody.md) | Specify the data filters, types of data to return and order in which the results should be returned. |  |
 
 ### Return type
 
@@ -887,7 +887,7 @@ catch (ApiException e)
 
 <a id="createrewardassignment1"></a>
 # **CreateRewardAssignment1**
-> LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1 (string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = null)
+> LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1 (string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody)
 
 Create Loyalty Campaign Reward Assignment
 
@@ -922,7 +922,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
-            var loyaltiesRewardsCreateAssignmentItemRequestBody = new List<LoyaltiesRewardsCreateAssignmentItemRequestBody>(); // List<LoyaltiesRewardsCreateAssignmentItemRequestBody> | Define the cost of the rewards in loyalty points. (optional) 
+            var loyaltiesRewardsCreateAssignmentItemRequestBody = new List<LoyaltiesRewardsCreateAssignmentItemRequestBody>(); // List<LoyaltiesRewardsCreateAssignmentItemRequestBody> | Define the cost of the rewards in loyalty points.
 
             try
             {
@@ -966,7 +966,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |  |
-| **loyaltiesRewardsCreateAssignmentItemRequestBody** | [**List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;**](LoyaltiesRewardsCreateAssignmentItemRequestBody.md) | Define the cost of the rewards in loyalty points. | [optional]  |
+| **loyaltiesRewardsCreateAssignmentItemRequestBody** | [**List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;**](LoyaltiesRewardsCreateAssignmentItemRequestBody.md) | Define the cost of the rewards in loyalty points. |  |
 
 ### Return type
 
@@ -1503,7 +1503,7 @@ catch (ApiException e)
 
 <a id="exportloyaltycampaigntransactions"></a>
 # **ExportLoyaltyCampaignTransactions**
-> CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions (string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = null)
+> CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions (string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody)
 
 Export Loyalty Campaign Transactions
 
@@ -1538,7 +1538,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.
-            var loyaltiesTransactionsExportCreateRequestBody = new LoyaltiesTransactionsExportCreateRequestBody(); // LoyaltiesTransactionsExportCreateRequestBody | Specify the parameters for the transaction export. (optional) 
+            var loyaltiesTransactionsExportCreateRequestBody = new LoyaltiesTransactionsExportCreateRequestBody(); // LoyaltiesTransactionsExportCreateRequestBody | Specify the parameters for the transaction export.
 
             try
             {
@@ -1582,7 +1582,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value. |  |
-| **loyaltiesTransactionsExportCreateRequestBody** | [**LoyaltiesTransactionsExportCreateRequestBody**](LoyaltiesTransactionsExportCreateRequestBody.md) | Specify the parameters for the transaction export. | [optional]  |
+| **loyaltiesTransactionsExportCreateRequestBody** | [**LoyaltiesTransactionsExportCreateRequestBody**](LoyaltiesTransactionsExportCreateRequestBody.md) | Specify the parameters for the transaction export. |  |
 
 ### Return type
 
@@ -1607,7 +1607,7 @@ catch (ApiException e)
 
 <a id="exportloyaltycardtransactions"></a>
 # **ExportLoyaltyCardTransactions**
-> LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions (string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = null)
+> LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions (string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody)
 
 Export Loyalty Card Transactions
 
@@ -1642,7 +1642,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | A unique code identifying the loyalty card that you are looking to export transaction data for.
-            var loyaltiesMembersTransactionsExportCreateRequestBody = new LoyaltiesMembersTransactionsExportCreateRequestBody(); // LoyaltiesMembersTransactionsExportCreateRequestBody | Specify the parameters and filters for the transaction export. (optional) 
+            var loyaltiesMembersTransactionsExportCreateRequestBody = new LoyaltiesMembersTransactionsExportCreateRequestBody(); // LoyaltiesMembersTransactionsExportCreateRequestBody | Specify the parameters and filters for the transaction export.
 
             try
             {
@@ -1686,7 +1686,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **memberId** | **string** | A unique code identifying the loyalty card that you are looking to export transaction data for. |  |
-| **loyaltiesMembersTransactionsExportCreateRequestBody** | [**LoyaltiesMembersTransactionsExportCreateRequestBody**](LoyaltiesMembersTransactionsExportCreateRequestBody.md) | Specify the parameters and filters for the transaction export. | [optional]  |
+| **loyaltiesMembersTransactionsExportCreateRequestBody** | [**LoyaltiesMembersTransactionsExportCreateRequestBody**](LoyaltiesMembersTransactionsExportCreateRequestBody.md) | Specify the parameters and filters for the transaction export. |  |
 
 ### Return type
 
@@ -1711,7 +1711,7 @@ catch (ApiException e)
 
 <a id="exportloyaltycardtransactions1"></a>
 # **ExportLoyaltyCardTransactions1**
-> LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1 (string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = null)
+> LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1 (string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody)
 
 Export Loyalty Card Transactions with campaign ID
 
@@ -1747,7 +1747,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.
             var memberId = "memberId_example";  // string | A unique code identifying the loyalty card that you are looking to export transaction data for.
-            var loyaltiesMembersTransactionsExportCreateRequestBody = new LoyaltiesMembersTransactionsExportCreateRequestBody(); // LoyaltiesMembersTransactionsExportCreateRequestBody | Specify the parameters and filters for the transaction export. (optional) 
+            var loyaltiesMembersTransactionsExportCreateRequestBody = new LoyaltiesMembersTransactionsExportCreateRequestBody(); // LoyaltiesMembersTransactionsExportCreateRequestBody | Specify the parameters and filters for the transaction export.
 
             try
             {
@@ -1792,7 +1792,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export. |  |
 | **memberId** | **string** | A unique code identifying the loyalty card that you are looking to export transaction data for. |  |
-| **loyaltiesMembersTransactionsExportCreateRequestBody** | [**LoyaltiesMembersTransactionsExportCreateRequestBody**](LoyaltiesMembersTransactionsExportCreateRequestBody.md) | Specify the parameters and filters for the transaction export. | [optional]  |
+| **loyaltiesMembersTransactionsExportCreateRequestBody** | [**LoyaltiesMembersTransactionsExportCreateRequestBody**](LoyaltiesMembersTransactionsExportCreateRequestBody.md) | Specify the parameters and filters for the transaction export. |  |
 
 ### Return type
 
@@ -4703,7 +4703,7 @@ catch (ApiException e)
 
 <a id="redeemreward"></a>
 # **RedeemReward**
-> LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward (string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = null)
+> LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward (string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody)
 
 Redeem Reward
 
@@ -4738,7 +4738,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | Unique loyalty card assigned to a particular customer.
-            var loyaltiesMembersRedemptionRedeemRequestBody = new LoyaltiesMembersRedemptionRedeemRequestBody(); // LoyaltiesMembersRedemptionRedeemRequestBody | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional) 
+            var loyaltiesMembersRedemptionRedeemRequestBody = new LoyaltiesMembersRedemptionRedeemRequestBody(); // LoyaltiesMembersRedemptionRedeemRequestBody | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.
 
             try
             {
@@ -4782,7 +4782,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **memberId** | **string** | Unique loyalty card assigned to a particular customer. |  |
-| **loyaltiesMembersRedemptionRedeemRequestBody** | [**LoyaltiesMembersRedemptionRedeemRequestBody**](LoyaltiesMembersRedemptionRedeemRequestBody.md) | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. | [optional]  |
+| **loyaltiesMembersRedemptionRedeemRequestBody** | [**LoyaltiesMembersRedemptionRedeemRequestBody**](LoyaltiesMembersRedemptionRedeemRequestBody.md) | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. |  |
 
 ### Return type
 
@@ -4807,7 +4807,7 @@ catch (ApiException e)
 
 <a id="redeemreward1"></a>
 # **RedeemReward1**
-> LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1 (string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = null)
+> LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1 (string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody)
 
 Redeem Reward with campaign ID
 
@@ -4843,7 +4843,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID.
             var memberId = "memberId_example";  // string | A code that identifies the loyalty card.
-            var loyaltiesMembersRedemptionRedeemRequestBody = new LoyaltiesMembersRedemptionRedeemRequestBody(); // LoyaltiesMembersRedemptionRedeemRequestBody | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional) 
+            var loyaltiesMembersRedemptionRedeemRequestBody = new LoyaltiesMembersRedemptionRedeemRequestBody(); // LoyaltiesMembersRedemptionRedeemRequestBody | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.
 
             try
             {
@@ -4888,7 +4888,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID. |  |
 | **memberId** | **string** | A code that identifies the loyalty card. |  |
-| **loyaltiesMembersRedemptionRedeemRequestBody** | [**LoyaltiesMembersRedemptionRedeemRequestBody**](LoyaltiesMembersRedemptionRedeemRequestBody.md) | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. | [optional]  |
+| **loyaltiesMembersRedemptionRedeemRequestBody** | [**LoyaltiesMembersRedemptionRedeemRequestBody**](LoyaltiesMembersRedemptionRedeemRequestBody.md) | Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. |  |
 
 ### Return type
 
@@ -4913,7 +4913,7 @@ catch (ApiException e)
 
 <a id="transferpoints"></a>
 # **TransferPoints**
-> LoyaltiesMembersTransfersCreateResponseBody TransferPoints (string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = null)
+> LoyaltiesMembersTransfersCreateResponseBody TransferPoints (string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints)
 
 Transfer Loyalty Points
 
@@ -4949,7 +4949,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).
             var memberId = "memberId_example";  // string | A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).
-            var loyaltiesTransferPoints = new List<LoyaltiesTransferPoints>(); // List<LoyaltiesTransferPoints> | Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional) 
+            var loyaltiesTransferPoints = new List<LoyaltiesTransferPoints>(); // List<LoyaltiesTransferPoints> | Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.
 
             try
             {
@@ -4994,7 +4994,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination). |  |
 | **memberId** | **string** | A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination). |  |
-| **loyaltiesTransferPoints** | [**List&lt;LoyaltiesTransferPoints&gt;**](LoyaltiesTransferPoints.md) | Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. | [optional]  |
+| **loyaltiesTransferPoints** | [**List&lt;LoyaltiesTransferPoints&gt;**](LoyaltiesTransferPoints.md) | Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. |  |
 
 ### Return type
 
@@ -5019,7 +5019,7 @@ catch (ApiException e)
 
 <a id="updateearningrule"></a>
 # **UpdateEarningRule**
-> LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule (string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = null)
+> LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule (string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody)
 
 Update Earning Rule
 
@@ -5055,7 +5055,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
             var earningRuleId = "earningRuleId_example";  // string | A unique earning rule ID.
-            var loyaltiesEarningRulesUpdateRequestBody = new LoyaltiesEarningRulesUpdateRequestBody(); // LoyaltiesEarningRulesUpdateRequestBody | Specify the parameters that you would like to update for the given earning rule. (optional) 
+            var loyaltiesEarningRulesUpdateRequestBody = new LoyaltiesEarningRulesUpdateRequestBody(); // LoyaltiesEarningRulesUpdateRequestBody | Specify the parameters that you would like to update for the given earning rule.
 
             try
             {
@@ -5100,7 +5100,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |  |
 | **earningRuleId** | **string** | A unique earning rule ID. |  |
-| **loyaltiesEarningRulesUpdateRequestBody** | [**LoyaltiesEarningRulesUpdateRequestBody**](LoyaltiesEarningRulesUpdateRequestBody.md) | Specify the parameters that you would like to update for the given earning rule. | [optional]  |
+| **loyaltiesEarningRulesUpdateRequestBody** | [**LoyaltiesEarningRulesUpdateRequestBody**](LoyaltiesEarningRulesUpdateRequestBody.md) | Specify the parameters that you would like to update for the given earning rule. |  |
 
 ### Return type
 
@@ -5125,7 +5125,7 @@ catch (ApiException e)
 
 <a id="updateloyaltycardbalance"></a>
 # **UpdateLoyaltyCardBalance**
-> LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance (string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = null)
+> LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance (string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody)
 
 Adjust Loyalty Card Balance
 
@@ -5160,7 +5160,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var memberId = "memberId_example";  // string | Unique loyalty card assigned to a particular customer.
-            var loyaltiesMembersBalanceUpdateRequestBody = new LoyaltiesMembersBalanceUpdateRequestBody(); // LoyaltiesMembersBalanceUpdateRequestBody | Specify the point adjustment along with the expiration mechanism. (optional) 
+            var loyaltiesMembersBalanceUpdateRequestBody = new LoyaltiesMembersBalanceUpdateRequestBody(); // LoyaltiesMembersBalanceUpdateRequestBody | Specify the point adjustment along with the expiration mechanism.
 
             try
             {
@@ -5204,7 +5204,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **memberId** | **string** | Unique loyalty card assigned to a particular customer. |  |
-| **loyaltiesMembersBalanceUpdateRequestBody** | [**LoyaltiesMembersBalanceUpdateRequestBody**](LoyaltiesMembersBalanceUpdateRequestBody.md) | Specify the point adjustment along with the expiration mechanism. | [optional]  |
+| **loyaltiesMembersBalanceUpdateRequestBody** | [**LoyaltiesMembersBalanceUpdateRequestBody**](LoyaltiesMembersBalanceUpdateRequestBody.md) | Specify the point adjustment along with the expiration mechanism. |  |
 
 ### Return type
 
@@ -5229,7 +5229,7 @@ catch (ApiException e)
 
 <a id="updateloyaltycardbalance1"></a>
 # **UpdateLoyaltyCardBalance1**
-> LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1 (string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = null)
+> LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1 (string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody)
 
 Adjust Loyalty Card Balance with campaign ID
 
@@ -5265,7 +5265,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | Unique campaign ID.
             var memberId = "memberId_example";  // string | A code that identifies the loyalty card.
-            var loyaltiesMembersBalanceUpdateRequestBody = new LoyaltiesMembersBalanceUpdateRequestBody(); // LoyaltiesMembersBalanceUpdateRequestBody | Specify the point adjustment along with the expiration mechanism. (optional) 
+            var loyaltiesMembersBalanceUpdateRequestBody = new LoyaltiesMembersBalanceUpdateRequestBody(); // LoyaltiesMembersBalanceUpdateRequestBody | Specify the point adjustment along with the expiration mechanism.
 
             try
             {
@@ -5310,7 +5310,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique campaign ID. |  |
 | **memberId** | **string** | A code that identifies the loyalty card. |  |
-| **loyaltiesMembersBalanceUpdateRequestBody** | [**LoyaltiesMembersBalanceUpdateRequestBody**](LoyaltiesMembersBalanceUpdateRequestBody.md) | Specify the point adjustment along with the expiration mechanism. | [optional]  |
+| **loyaltiesMembersBalanceUpdateRequestBody** | [**LoyaltiesMembersBalanceUpdateRequestBody**](LoyaltiesMembersBalanceUpdateRequestBody.md) | Specify the point adjustment along with the expiration mechanism. |  |
 
 ### Return type
 
@@ -5335,7 +5335,7 @@ catch (ApiException e)
 
 <a id="updateloyaltyprogram"></a>
 # **UpdateLoyaltyProgram**
-> LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram (string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = null)
+> LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram (string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody)
 
 Update Loyalty Campaign
 
@@ -5370,7 +5370,7 @@ namespace Example
 
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
-            var loyaltiesUpdateCampaignRequestBody = new LoyaltiesUpdateCampaignRequestBody(); // LoyaltiesUpdateCampaignRequestBody | Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional) 
+            var loyaltiesUpdateCampaignRequestBody = new LoyaltiesUpdateCampaignRequestBody(); // LoyaltiesUpdateCampaignRequestBody | Specify the new values for the parameters that you would like to update for the given loyalty campaign.
 
             try
             {
@@ -5414,7 +5414,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignId** | **string** | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |  |
-| **loyaltiesUpdateCampaignRequestBody** | [**LoyaltiesUpdateCampaignRequestBody**](LoyaltiesUpdateCampaignRequestBody.md) | Specify the new values for the parameters that you would like to update for the given loyalty campaign. | [optional]  |
+| **loyaltiesUpdateCampaignRequestBody** | [**LoyaltiesUpdateCampaignRequestBody**](LoyaltiesUpdateCampaignRequestBody.md) | Specify the new values for the parameters that you would like to update for the given loyalty campaign. |  |
 
 ### Return type
 
@@ -5439,7 +5439,7 @@ catch (ApiException e)
 
 <a id="updaterewardassignment1"></a>
 # **UpdateRewardAssignment1**
-> LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1 (string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = null)
+> LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1 (string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody)
 
 Update Campaign Reward Assignment
 
@@ -5475,7 +5475,7 @@ namespace Example
             var apiInstance = new LoyaltiesApi(config);
             var campaignId = "campaignId_example";  // string | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
             var assignmentId = "assignmentId_example";  // string | A unique reward assignment ID.
-            var loyaltiesRewardsUpdateAssignmentRequestBody = new LoyaltiesRewardsUpdateAssignmentRequestBody(); // LoyaltiesRewardsUpdateAssignmentRequestBody | Update the points cost for the reward assignment. (optional) 
+            var loyaltiesRewardsUpdateAssignmentRequestBody = new LoyaltiesRewardsUpdateAssignmentRequestBody(); // LoyaltiesRewardsUpdateAssignmentRequestBody | Update the points cost for the reward assignment.
 
             try
             {
@@ -5520,7 +5520,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |  |
 | **assignmentId** | **string** | A unique reward assignment ID. |  |
-| **loyaltiesRewardsUpdateAssignmentRequestBody** | [**LoyaltiesRewardsUpdateAssignmentRequestBody**](LoyaltiesRewardsUpdateAssignmentRequestBody.md) | Update the points cost for the reward assignment. | [optional]  |
+| **loyaltiesRewardsUpdateAssignmentRequestBody** | [**LoyaltiesRewardsUpdateAssignmentRequestBody**](LoyaltiesRewardsUpdateAssignmentRequestBody.md) | Update the points cost for the reward assignment. |  |
 
 ### Return type
 

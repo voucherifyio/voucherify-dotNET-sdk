@@ -104,11 +104,10 @@ namespace Voucherify.Model
         /// <param name="discountAmount">Sum of all order-level discounts applied to the order. It is expressed as an integer in the smallest currency unit (e.g. 100 cents for $1.00)..</param>
         /// <param name="items">Array of items applied to the order. It can include up to 500 items..</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to an order. It can be useful for storing additional information about the order in a structured format. It can be used to define business validation rules or discount formulas..</param>
-        /// <param name="createdAt">Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="referrerId">Unique referrer ID..</param>
         /// <param name="customer">customer.</param>
         /// <param name="referrer">referrer.</param>
-        public OrdersImportCreateRequestBodyItem(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), int? amount = default(int?), int? initialAmount = default(int?), int? discountAmount = default(int?), List<OrderItem> items = default(List<OrderItem>), Object metadata = default(Object), DateTimeOffset createdAt = default(DateTimeOffset), string referrerId = default(string), Customer customer = default(Customer), Referrer referrer = default(Referrer))
+        public OrdersImportCreateRequestBodyItem(string id = default(string), string sourceId = default(string), StatusEnum? status = default(StatusEnum?), int? amount = default(int?), int? initialAmount = default(int?), int? discountAmount = default(int?), List<OrderItem> items = default(List<OrderItem>), Object metadata = default(Object), string referrerId = default(string), Customer customer = default(Customer), Referrer referrer = default(Referrer))
         {
             this._Id = id;
             if (this.Id != null)
@@ -149,11 +148,6 @@ namespace Voucherify.Model
             if (this.Metadata != null)
             {
                 this._flagMetadata = true;
-            }
-            this._CreatedAt = createdAt;
-            if (this.CreatedAt != null)
-            {
-                this._flagCreatedAt = true;
             }
             this._ReferrerId = referrerId;
             if (this.ReferrerId != null)
@@ -348,34 +342,6 @@ namespace Voucherify.Model
             return _flagMetadata;
         }
         /// <summary>
-        /// Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.
-        /// </summary>
-        /// <value>Timestamp representing the date and time when the order was created. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-22T10:13:06.487Z</example>
-        */
-        [DataMember(Name = "created_at", EmitDefaultValue = true)]
-        public DateTimeOffset CreatedAt
-        {
-            get{ return _CreatedAt;}
-            set
-            {
-                _CreatedAt = value;
-                _flagCreatedAt = true;
-            }
-        }
-        private DateTimeOffset _CreatedAt;
-        private bool _flagCreatedAt;
-
-        /// <summary>
-        /// Returns false as CreatedAt should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCreatedAt()
-        {
-            return _flagCreatedAt;
-        }
-        /// <summary>
         /// Unique referrer ID.
         /// </summary>
         /// <value>Unique referrer ID.</value>
@@ -467,7 +433,6 @@ namespace Voucherify.Model
             sb.Append("  DiscountAmount: ").Append(DiscountAmount).Append("\n");
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  ReferrerId: ").Append(ReferrerId).Append("\n");
             sb.Append("  Customer: ").Append(Customer).Append("\n");
             sb.Append("  Referrer: ").Append(Referrer).Append("\n");

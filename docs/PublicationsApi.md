@@ -10,7 +10,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createpublication"></a>
 # **CreatePublication**
-> PublicationsCreateResponseBody CreatePublication (bool? joinOnce = null, PublicationsCreateRequestBody publicationsCreateRequestBody = null)
+> PublicationsCreateResponseBody CreatePublication (PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = null)
 
 Create Publication
 
@@ -44,13 +44,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PublicationsApi(config);
+            var publicationsCreateRequestBody = new PublicationsCreateRequestBody(); // PublicationsCreateRequestBody | Specify the publication parameters.
             var joinOnce = true;  // bool? | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional) 
-            var publicationsCreateRequestBody = new PublicationsCreateRequestBody(); // PublicationsCreateRequestBody | Specify the publication parameters. (optional) 
 
             try
             {
                 // Create Publication
-                PublicationsCreateResponseBody result = apiInstance.CreatePublication(joinOnce, publicationsCreateRequestBody);
+                PublicationsCreateResponseBody result = apiInstance.CreatePublication(publicationsCreateRequestBody, joinOnce);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -71,7 +71,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Publication
-    ApiResponse<PublicationsCreateResponseBody> response = apiInstance.CreatePublicationWithHttpInfo(joinOnce, publicationsCreateRequestBody);
+    ApiResponse<PublicationsCreateResponseBody> response = apiInstance.CreatePublicationWithHttpInfo(publicationsCreateRequestBody, joinOnce);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -88,8 +88,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **publicationsCreateRequestBody** | [**PublicationsCreateRequestBody**](PublicationsCreateRequestBody.md) | Specify the publication parameters. |  |
 | **joinOnce** | **bool?** | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. | [optional]  |
-| **publicationsCreateRequestBody** | [**PublicationsCreateRequestBody**](PublicationsCreateRequestBody.md) | Specify the publication parameters. | [optional]  |
 
 ### Return type
 

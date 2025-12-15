@@ -16,7 +16,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createvalidationruleassignment"></a>
 # **CreateValidationRuleAssignment**
-> ValidationRulesAssignmentsCreateResponseBody CreateValidationRuleAssignment (string validationRuleId, bool? force = null, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = null)
+> ValidationRulesAssignmentsCreateResponseBody CreateValidationRuleAssignment (string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = null)
 
 Create Validation Rules Assignments
 
@@ -51,13 +51,13 @@ namespace Example
 
             var apiInstance = new ValidationRulesApi(config);
             var validationRuleId = "validationRuleId_example";  // string | Unique validation rule ID.
+            var validationRulesAssignmentsCreateRequestBody = new ValidationRulesAssignmentsCreateRequestBody(); // ValidationRulesAssignmentsCreateRequestBody | Specify the resource that you would like to assign the validation rule to.
             var force = true;  // bool? | If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional) 
-            var validationRulesAssignmentsCreateRequestBody = new ValidationRulesAssignmentsCreateRequestBody(); // ValidationRulesAssignmentsCreateRequestBody | Specify the resource that you would like to assign the validation rule to. (optional) 
 
             try
             {
                 // Create Validation Rules Assignments
-                ValidationRulesAssignmentsCreateResponseBody result = apiInstance.CreateValidationRuleAssignment(validationRuleId, force, validationRulesAssignmentsCreateRequestBody);
+                ValidationRulesAssignmentsCreateResponseBody result = apiInstance.CreateValidationRuleAssignment(validationRuleId, validationRulesAssignmentsCreateRequestBody, force);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -78,7 +78,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create Validation Rules Assignments
-    ApiResponse<ValidationRulesAssignmentsCreateResponseBody> response = apiInstance.CreateValidationRuleAssignmentWithHttpInfo(validationRuleId, force, validationRulesAssignmentsCreateRequestBody);
+    ApiResponse<ValidationRulesAssignmentsCreateResponseBody> response = apiInstance.CreateValidationRuleAssignmentWithHttpInfo(validationRuleId, validationRulesAssignmentsCreateRequestBody, force);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -96,8 +96,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **validationRuleId** | **string** | Unique validation rule ID. |  |
+| **validationRulesAssignmentsCreateRequestBody** | [**ValidationRulesAssignmentsCreateRequestBody**](ValidationRulesAssignmentsCreateRequestBody.md) | Specify the resource that you would like to assign the validation rule to. |  |
 | **force** | **bool?** | If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. | [optional]  |
-| **validationRulesAssignmentsCreateRequestBody** | [**ValidationRulesAssignmentsCreateRequestBody**](ValidationRulesAssignmentsCreateRequestBody.md) | Specify the resource that you would like to assign the validation rule to. | [optional]  |
 
 ### Return type
 
@@ -122,7 +122,7 @@ catch (ApiException e)
 
 <a id="createvalidationrules"></a>
 # **CreateValidationRules**
-> ValidationRulesCreateResponseBody CreateValidationRules (ValidationRulesCreateRequestBody validationRulesCreateRequestBody = null)
+> ValidationRulesCreateResponseBody CreateValidationRules (ValidationRulesCreateRequestBody validationRulesCreateRequestBody)
 
 Create Validation Rules
 
@@ -156,7 +156,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ValidationRulesApi(config);
-            var validationRulesCreateRequestBody = new ValidationRulesCreateRequestBody(); // ValidationRulesCreateRequestBody | Specify the validation rules parameters. (optional) 
+            var validationRulesCreateRequestBody = new ValidationRulesCreateRequestBody(); // ValidationRulesCreateRequestBody | Specify the validation rules parameters.
 
             try
             {
@@ -199,7 +199,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **validationRulesCreateRequestBody** | [**ValidationRulesCreateRequestBody**](ValidationRulesCreateRequestBody.md) | Specify the validation rules parameters. | [optional]  |
+| **validationRulesCreateRequestBody** | [**ValidationRulesCreateRequestBody**](ValidationRulesCreateRequestBody.md) | Specify the validation rules parameters. |  |
 
 ### Return type
 
@@ -852,7 +852,7 @@ catch (ApiException e)
 
 <a id="updatevalidationrule"></a>
 # **UpdateValidationRule**
-> ValidationRulesUpdateResponseBody UpdateValidationRule (string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = null)
+> ValidationRulesUpdateResponseBody UpdateValidationRule (string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody)
 
 Update Validation Rule
 
@@ -887,7 +887,7 @@ namespace Example
 
             var apiInstance = new ValidationRulesApi(config);
             var validationRuleId = "validationRuleId_example";  // string | A unique validation rule ID.
-            var validationRulesUpdateRequestBody = new ValidationRulesUpdateRequestBody(); // ValidationRulesUpdateRequestBody | Specify the parameters to be updated. (optional) 
+            var validationRulesUpdateRequestBody = new ValidationRulesUpdateRequestBody(); // ValidationRulesUpdateRequestBody | Specify the parameters to be updated.
 
             try
             {
@@ -931,7 +931,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **validationRuleId** | **string** | A unique validation rule ID. |  |
-| **validationRulesUpdateRequestBody** | [**ValidationRulesUpdateRequestBody**](ValidationRulesUpdateRequestBody.md) | Specify the parameters to be updated. | [optional]  |
+| **validationRulesUpdateRequestBody** | [**ValidationRulesUpdateRequestBody**](ValidationRulesUpdateRequestBody.md) | Specify the parameters to be updated. |  |
 
 ### Return type
 
