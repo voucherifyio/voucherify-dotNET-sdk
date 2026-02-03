@@ -35,11 +35,11 @@ namespace Voucherify.Api
         /// This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PublicationsCreateResponseBody</returns>
-        PublicationsCreateResponseBody CreatePublication(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0);
+        PublicationsCreateResponseBody CreatePublication(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Create Publication
@@ -48,11 +48,11 @@ namespace Voucherify.Api
         /// This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PublicationsCreateResponseBody</returns>
-        ApiResponse<PublicationsCreateResponseBody> CreatePublicationWithHttpInfo(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<PublicationsCreateResponseBody> CreatePublicationWithHttpInfo(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Create Publication with GET
         /// </summary>
@@ -145,12 +145,12 @@ namespace Voucherify.Api
         /// This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PublicationsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<PublicationsCreateResponseBody> CreatePublicationAsync(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PublicationsCreateResponseBody> CreatePublicationAsync(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Publication
@@ -159,12 +159,12 @@ namespace Voucherify.Api
         /// This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PublicationsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PublicationsCreateResponseBody>> CreatePublicationWithHttpInfoAsync(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PublicationsCreateResponseBody>> CreatePublicationWithHttpInfoAsync(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Publication with GET
         /// </summary>
@@ -369,13 +369,13 @@ namespace Voucherify.Api
         /// Create Publication This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PublicationsCreateResponseBody</returns>
-        public PublicationsCreateResponseBody CreatePublication(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0)
+        public PublicationsCreateResponseBody CreatePublication(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0)
         {
-            Voucherify.Client.ApiResponse<PublicationsCreateResponseBody> localVarResponse = CreatePublicationWithHttpInfo(joinOnce, publicationsCreateRequestBody);
+            Voucherify.Client.ApiResponse<PublicationsCreateResponseBody> localVarResponse = CreatePublicationWithHttpInfo(publicationsCreateRequestBody, joinOnce);
             return localVarResponse.Data;
         }
 
@@ -383,12 +383,18 @@ namespace Voucherify.Api
         /// Create Publication This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PublicationsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<PublicationsCreateResponseBody> CreatePublicationWithHttpInfo(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<PublicationsCreateResponseBody> CreatePublicationWithHttpInfo(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0)
         {
+            // verify the required parameter 'publicationsCreateRequestBody' is set
+            if (publicationsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'publicationsCreateRequestBody' when calling PublicationsApi->CreatePublication");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -467,14 +473,14 @@ namespace Voucherify.Api
         /// Create Publication This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PublicationsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<PublicationsCreateResponseBody> CreatePublicationAsync(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PublicationsCreateResponseBody> CreatePublicationAsync(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Voucherify.Client.ApiResponse<PublicationsCreateResponseBody> localVarResponse = await CreatePublicationWithHttpInfoAsync(joinOnce, publicationsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Voucherify.Client.ApiResponse<PublicationsCreateResponseBody> localVarResponse = await CreatePublicationWithHttpInfoAsync(publicationsCreateRequestBody, joinOnce, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -482,13 +488,19 @@ namespace Voucherify.Api
         /// Create Publication This method selects vouchers that are suitable for publication, adds a publish entry and returns the publication. A voucher is suitable for publication when its active and hasnt been published yet.    🚧 Clearly define the source of the voucher  You must clearly define which source you want to publish the voucher code from. It can either be a code from a campaign or a specific voucher identified by a code.    🚧 Publish multiple vouchers  In case you want to publish multiple vouchers within a single publication, you need to specify the campaign name and number of vouchers you want to publish.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use an **auto-update** campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="publicationsCreateRequestBody">Specify the publication parameters.</param>
         /// <param name="joinOnce">Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional)</param>
-        /// <param name="publicationsCreateRequestBody">Specify the publication parameters. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PublicationsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PublicationsCreateResponseBody>> CreatePublicationWithHttpInfoAsync(bool? joinOnce = default(bool?), PublicationsCreateRequestBody publicationsCreateRequestBody = default(PublicationsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PublicationsCreateResponseBody>> CreatePublicationWithHttpInfoAsync(PublicationsCreateRequestBody publicationsCreateRequestBody, bool? joinOnce = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'publicationsCreateRequestBody' is set
+            if (publicationsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'publicationsCreateRequestBody' when calling PublicationsApi->CreatePublication");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

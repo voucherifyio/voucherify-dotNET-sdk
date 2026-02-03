@@ -61,10 +61,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersCreateResponseBody</returns>
-        LoyaltiesMembersCreateResponseBody AddMember(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0);
+        LoyaltiesMembersCreateResponseBody AddMember(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Member
@@ -74,10 +74,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersCreateResponseBody</returns>
-        ApiResponse<LoyaltiesMembersCreateResponseBody> AddMemberWithHttpInfo(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersCreateResponseBody> AddMemberWithHttpInfo(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Adjust Member Pending Points
         /// </summary>
@@ -87,10 +87,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
-        LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0);
+        LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Adjust Member Pending Points
@@ -101,10 +101,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
-        ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0);
         /// <summary>
         /// Cancel Member Pending Points
         /// </summary>
@@ -138,10 +138,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
-        List<LoyaltiesEarningRulesCreateResponseBody> CreateEarningRule(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0);
+        List<LoyaltiesEarningRulesCreateResponseBody> CreateEarningRule(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0);
 
         /// <summary>
         /// Create Earning Rule
@@ -151,10 +151,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
-        ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleWithHttpInfo(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0);
+        ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleWithHttpInfo(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0);
         /// <summary>
         /// Create loyalty tiers
         /// </summary>
@@ -163,10 +163,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltyTier&gt;</returns>
-        List<LoyaltyTier> CreateInBulkLoyaltyTiers(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0);
+        List<LoyaltyTier> CreateInBulkLoyaltyTiers(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0);
 
         /// <summary>
         /// Create loyalty tiers
@@ -176,10 +176,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltyTier&gt;</returns>
-        ApiResponse<List<LoyaltyTier>> CreateInBulkLoyaltyTiersWithHttpInfo(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0);
+        ApiResponse<List<LoyaltyTier>> CreateInBulkLoyaltyTiersWithHttpInfo(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0);
         /// <summary>
         /// Create Loyalty Campaign
         /// </summary>
@@ -187,10 +187,10 @@ namespace Voucherify.Api
         /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesCreateCampaignResponseBody</returns>
-        LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0);
+        LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Loyalty Campaign
@@ -199,10 +199,10 @@ namespace Voucherify.Api
         /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesCreateCampaignResponseBody</returns>
-        ApiResponse<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
         /// </summary>
@@ -211,10 +211,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesPointsExpirationExportCreateResponseBody</returns>
-        LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0);
+        LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
@@ -224,10 +224,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
-        ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportWithHttpInfo(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportWithHttpInfo(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
         /// </summary>
@@ -236,10 +236,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsCreateAssignmentResponseBody</returns>
-        LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0);
+        LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
@@ -249,10 +249,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
-        ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1WithHttpInfo(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0);
+        ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1WithHttpInfo(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Earning Rule
         /// </summary>
@@ -386,10 +386,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsTransactionsExportCreateResponseBody</returns>
-        CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0);
+        CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Campaign Transactions
@@ -399,10 +399,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsTransactionsExportCreateResponseBody</returns>
-        ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0);
+        ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Card Transactions
         /// </summary>
@@ -411,10 +411,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0);
+        LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Card Transactions
@@ -424,10 +424,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsWithHttpInfo(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsWithHttpInfo(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
         /// </summary>
@@ -437,10 +437,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0);
+        LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
@@ -451,10 +451,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Get Earning Rule
         /// </summary>
@@ -1216,10 +1216,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0);
+        LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Redeem Reward
@@ -1229,10 +1229,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardWithHttpInfo(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardWithHttpInfo(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Redeem Reward with campaign ID
         /// </summary>
@@ -1242,10 +1242,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0);
+        LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Redeem Reward with campaign ID
@@ -1256,10 +1256,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Transfer Loyalty Points
         /// </summary>
@@ -1269,10 +1269,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransfersCreateResponseBody</returns>
-        LoyaltiesMembersTransfersCreateResponseBody TransferPoints(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0);
+        LoyaltiesMembersTransfersCreateResponseBody TransferPoints(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0);
 
         /// <summary>
         /// Transfer Loyalty Points
@@ -1283,10 +1283,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransfersCreateResponseBody</returns>
-        ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsWithHttpInfo(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsWithHttpInfo(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0);
         /// <summary>
         /// Update Earning Rule
         /// </summary>
@@ -1296,10 +1296,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesUpdateResponseBody</returns>
-        LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0);
+        LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Earning Rule
@@ -1310,10 +1310,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesUpdateResponseBody</returns>
-        ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleWithHttpInfo(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleWithHttpInfo(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Adjust Loyalty Card Balance
         /// </summary>
@@ -1322,10 +1322,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0);
+        LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Adjust Loyalty Card Balance
@@ -1335,10 +1335,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceWithHttpInfo(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceWithHttpInfo(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
         /// </summary>
@@ -1348,10 +1348,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0);
+        LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
@@ -1362,10 +1362,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Loyalty Campaign
         /// </summary>
@@ -1374,10 +1374,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesUpdateCampaignResponseBody</returns>
-        LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0);
+        LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Loyalty Campaign
@@ -1387,10 +1387,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesUpdateCampaignResponseBody</returns>
-        ApiResponse<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramWithHttpInfo(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramWithHttpInfo(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Campaign Reward Assignment
         /// </summary>
@@ -1400,10 +1400,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
-        LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0);
+        LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Campaign Reward Assignment
@@ -1414,10 +1414,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
-        ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0);
+        ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -1462,11 +1462,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersCreateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersCreateResponseBody> AddMemberAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersCreateResponseBody> AddMemberAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Member
@@ -1476,11 +1476,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersCreateResponseBody>> AddMemberWithHttpInfoAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersCreateResponseBody>> AddMemberWithHttpInfoAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Adjust Member Pending Points
         /// </summary>
@@ -1490,11 +1490,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Adjust Member Pending Points
@@ -1505,11 +1505,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsBalanceResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody>> AdjustMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody>> AdjustMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Cancel Member Pending Points
         /// </summary>
@@ -1545,11 +1545,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
-        System.Threading.Tasks.Task<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Earning Rule
@@ -1559,11 +1559,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>>> CreateEarningRuleWithHttpInfoAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>>> CreateEarningRuleWithHttpInfoAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create loyalty tiers
         /// </summary>
@@ -1572,11 +1572,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltyTier&gt;</returns>
-        System.Threading.Tasks.Task<List<LoyaltyTier>> CreateInBulkLoyaltyTiersAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<LoyaltyTier>> CreateInBulkLoyaltyTiersAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create loyalty tiers
@@ -1586,11 +1586,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltyTier&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LoyaltyTier>>> CreateInBulkLoyaltyTiersWithHttpInfoAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LoyaltyTier>>> CreateInBulkLoyaltyTiersWithHttpInfoAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Loyalty Campaign
         /// </summary>
@@ -1598,11 +1598,11 @@ namespace Voucherify.Api
         /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesCreateCampaignResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Loyalty Campaign
@@ -1611,11 +1611,11 @@ namespace Voucherify.Api
         /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesCreateCampaignResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesCreateCampaignResponseBody>> CreateLoyaltyProgramWithHttpInfoAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesCreateCampaignResponseBody>> CreateLoyaltyProgramWithHttpInfoAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
         /// </summary>
@@ -1624,11 +1624,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
@@ -1638,11 +1638,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesPointsExpirationExportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody>> CreatePointsExpirationExportWithHttpInfoAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody>> CreatePointsExpirationExportWithHttpInfoAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
         /// </summary>
@@ -1651,11 +1651,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1Async(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1Async(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
@@ -1665,11 +1665,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsCreateAssignmentResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody>> CreateRewardAssignment1WithHttpInfoAsync(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody>> CreateRewardAssignment1WithHttpInfoAsync(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Earning Rule
         /// </summary>
@@ -1813,11 +1813,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsTransactionsExportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Campaign Transactions
@@ -1827,11 +1827,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsTransactionsExportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Card Transactions
         /// </summary>
@@ -1840,11 +1840,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Card Transactions
@@ -1854,11 +1854,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
         /// </summary>
@@ -1868,11 +1868,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1Async(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1Async(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
@@ -1883,11 +1883,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Earning Rule
         /// </summary>
@@ -2703,11 +2703,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Redeem Reward
@@ -2717,11 +2717,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemRewardWithHttpInfoAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemRewardWithHttpInfoAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Redeem Reward with campaign ID
         /// </summary>
@@ -2731,11 +2731,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1Async(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1Async(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Redeem Reward with campaign ID
@@ -2746,11 +2746,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemReward1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemReward1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Transfer Loyalty Points
         /// </summary>
@@ -2760,11 +2760,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransfersCreateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Transfer Loyalty Points
@@ -2775,11 +2775,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransfersCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransfersCreateResponseBody>> TransferPointsWithHttpInfoAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransfersCreateResponseBody>> TransferPointsWithHttpInfoAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Earning Rule
         /// </summary>
@@ -2789,11 +2789,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Earning Rule
@@ -2804,11 +2804,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesUpdateResponseBody>> UpdateEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesUpdateResponseBody>> UpdateEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Adjust Loyalty Card Balance
         /// </summary>
@@ -2817,11 +2817,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Adjust Loyalty Card Balance
@@ -2831,11 +2831,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalanceWithHttpInfoAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalanceWithHttpInfoAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
         /// </summary>
@@ -2845,11 +2845,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1Async(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1Async(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
@@ -2860,11 +2860,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalance1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalance1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Loyalty Campaign
         /// </summary>
@@ -2873,11 +2873,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesUpdateCampaignResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Loyalty Campaign
@@ -2887,11 +2887,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesUpdateCampaignResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesUpdateCampaignResponseBody>> UpdateLoyaltyProgramWithHttpInfoAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesUpdateCampaignResponseBody>> UpdateLoyaltyProgramWithHttpInfoAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Campaign Reward Assignment
         /// </summary>
@@ -2901,11 +2901,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
-        System.Threading.Tasks.Task<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1Async(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1Async(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Campaign Reward Assignment
@@ -2916,11 +2916,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsUpdateAssignmentResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody>> UpdateRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody>> UpdateRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -3261,10 +3261,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersCreateResponseBody</returns>
-        public LoyaltiesMembersCreateResponseBody AddMember(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersCreateResponseBody AddMember(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> localVarResponse = AddMemberWithHttpInfo(campaignId, loyaltiesMembersCreateRequestBody);
             return localVarResponse.Data;
@@ -3275,15 +3275,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> AddMemberWithHttpInfo(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> AddMemberWithHttpInfo(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->AddMember");
+            }
+
+            // verify the required parameter 'loyaltiesMembersCreateRequestBody' is set
+            if (loyaltiesMembersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersCreateRequestBody' when calling LoyaltiesApi->AddMember");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3362,11 +3368,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersCreateResponseBody> AddMemberAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersCreateResponseBody> AddMemberAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> localVarResponse = await AddMemberWithHttpInfoAsync(campaignId, loyaltiesMembersCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3377,16 +3383,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
-        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint. (optional)</param>
+        /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody>> AddMemberWithHttpInfoAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = default(LoyaltiesMembersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody>> AddMemberWithHttpInfoAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->AddMember");
+            }
+
+            // verify the required parameter 'loyaltiesMembersCreateRequestBody' is set
+            if (loyaltiesMembersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersCreateRequestBody' when calling LoyaltiesApi->AddMember");
             }
 
 
@@ -3467,10 +3479,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
-        public LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> localVarResponse = AdjustMemberPendingPointsWithHttpInfo(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody);
             return localVarResponse.Data;
@@ -3482,10 +3494,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
@@ -3497,6 +3509,12 @@ namespace Voucherify.Api
             if (pendingPointsId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'pendingPointsId' when calling LoyaltiesApi->AdjustMemberPendingPoints");
+            }
+
+            // verify the required parameter 'loyaltiesMembersPendingPointsBalanceRequestBody' is set
+            if (loyaltiesMembersPendingPointsBalanceRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersPendingPointsBalanceRequestBody' when calling LoyaltiesApi->AdjustMemberPendingPoints");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3577,11 +3595,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> localVarResponse = await AdjustMemberPendingPointsWithHttpInfoAsync(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3593,11 +3611,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
-        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted. (optional)</param>
+        /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsBalanceResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody>> AdjustMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody = default(LoyaltiesMembersPendingPointsBalanceRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody>> AdjustMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
@@ -3609,6 +3627,12 @@ namespace Voucherify.Api
             if (pendingPointsId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'pendingPointsId' when calling LoyaltiesApi->AdjustMemberPendingPoints");
+            }
+
+            // verify the required parameter 'loyaltiesMembersPendingPointsBalanceRequestBody' is set
+            if (loyaltiesMembersPendingPointsBalanceRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersPendingPointsBalanceRequestBody' when calling LoyaltiesApi->AdjustMemberPendingPoints");
             }
 
 
@@ -3900,10 +3924,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
-        public List<LoyaltiesEarningRulesCreateResponseBody> CreateEarningRule(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0)
+        public List<LoyaltiesEarningRulesCreateResponseBody> CreateEarningRule(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResponse = CreateEarningRuleWithHttpInfo(campaignId, loyaltiesEarningRulesCreateRequestBodyItem);
             return localVarResponse.Data;
@@ -3914,15 +3938,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
-        public Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleWithHttpInfo(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleWithHttpInfo(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreateEarningRule");
+            }
+
+            // verify the required parameter 'loyaltiesEarningRulesCreateRequestBodyItem' is set
+            if (loyaltiesEarningRulesCreateRequestBodyItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesEarningRulesCreateRequestBodyItem' when calling LoyaltiesApi->CreateEarningRule");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -4001,11 +4031,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResponse = await CreateEarningRuleWithHttpInfoAsync(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4016,16 +4046,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object (optional)</param>
+        /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>>> CreateEarningRuleWithHttpInfoAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem = default(List<LoyaltiesEarningRulesCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>>> CreateEarningRuleWithHttpInfoAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreateEarningRule");
+            }
+
+            // verify the required parameter 'loyaltiesEarningRulesCreateRequestBodyItem' is set
+            if (loyaltiesEarningRulesCreateRequestBodyItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesEarningRulesCreateRequestBodyItem' when calling LoyaltiesApi->CreateEarningRule");
             }
 
 
@@ -4105,10 +4141,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltyTier&gt;</returns>
-        public List<LoyaltyTier> CreateInBulkLoyaltyTiers(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0)
+        public List<LoyaltyTier> CreateInBulkLoyaltyTiers(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<List<LoyaltyTier>> localVarResponse = CreateInBulkLoyaltyTiersWithHttpInfo(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem);
             return localVarResponse.Data;
@@ -4119,15 +4155,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltyTier&gt;</returns>
-        public Voucherify.Client.ApiResponse<List<LoyaltyTier>> CreateInBulkLoyaltyTiersWithHttpInfo(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<List<LoyaltyTier>> CreateInBulkLoyaltyTiersWithHttpInfo(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreateInBulkLoyaltyTiers");
+            }
+
+            // verify the required parameter 'loyaltiesTiersCreateInBulkRequestBodyItem' is set
+            if (loyaltiesTiersCreateInBulkRequestBodyItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesTiersCreateInBulkRequestBodyItem' when calling LoyaltiesApi->CreateInBulkLoyaltyTiers");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -4206,11 +4248,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltyTier&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LoyaltyTier>> CreateInBulkLoyaltyTiersAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<LoyaltyTier>> CreateInBulkLoyaltyTiersAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<List<LoyaltyTier>> localVarResponse = await CreateInBulkLoyaltyTiersWithHttpInfoAsync(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4221,16 +4263,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
-        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltyTier&gt;)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<List<LoyaltyTier>>> CreateInBulkLoyaltyTiersWithHttpInfoAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem = default(List<LoyaltiesTiersCreateInBulkRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<List<LoyaltyTier>>> CreateInBulkLoyaltyTiersWithHttpInfoAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreateInBulkLoyaltyTiers");
+            }
+
+            // verify the required parameter 'loyaltiesTiersCreateInBulkRequestBodyItem' is set
+            if (loyaltiesTiersCreateInBulkRequestBodyItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesTiersCreateInBulkRequestBodyItem' when calling LoyaltiesApi->CreateInBulkLoyaltyTiers");
             }
 
 
@@ -4309,10 +4357,10 @@ namespace Voucherify.Api
         /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesCreateCampaignResponseBody</returns>
-        public LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0)
+        public LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> localVarResponse = CreateLoyaltyProgramWithHttpInfo(loyaltiesCreateCampaignRequestBody);
             return localVarResponse.Data;
@@ -4322,11 +4370,17 @@ namespace Voucherify.Api
         /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesCreateCampaignResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'loyaltiesCreateCampaignRequestBody' is set
+            if (loyaltiesCreateCampaignRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesCreateCampaignRequestBody' when calling LoyaltiesApi->CreateLoyaltyProgram");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -4401,11 +4455,11 @@ namespace Voucherify.Api
         /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesCreateCampaignResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> localVarResponse = await CreateLoyaltyProgramWithHttpInfoAsync(loyaltiesCreateCampaignRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4415,12 +4469,18 @@ namespace Voucherify.Api
         /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details. (optional)</param>
+        /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesCreateCampaignResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody>> CreateLoyaltyProgramWithHttpInfoAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody = default(LoyaltiesCreateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody>> CreateLoyaltyProgramWithHttpInfoAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'loyaltiesCreateCampaignRequestBody' is set
+            if (loyaltiesCreateCampaignRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesCreateCampaignRequestBody' when calling LoyaltiesApi->CreateLoyaltyProgram");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -4497,10 +4557,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesPointsExpirationExportCreateResponseBody</returns>
-        public LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0)
+        public LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> localVarResponse = CreatePointsExpirationExportWithHttpInfo(campaignId, loyaltiesPointsExpirationExportCreateRequestBody);
             return localVarResponse.Data;
@@ -4511,15 +4571,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportWithHttpInfo(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportWithHttpInfo(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreatePointsExpirationExport");
+            }
+
+            // verify the required parameter 'loyaltiesPointsExpirationExportCreateRequestBody' is set
+            if (loyaltiesPointsExpirationExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesPointsExpirationExportCreateRequestBody' when calling LoyaltiesApi->CreatePointsExpirationExport");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -4598,11 +4664,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> localVarResponse = await CreatePointsExpirationExportWithHttpInfoAsync(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4613,16 +4679,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
-        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned. (optional)</param>
+        /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesPointsExpirationExportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody>> CreatePointsExpirationExportWithHttpInfoAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody = default(LoyaltiesPointsExpirationExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody>> CreatePointsExpirationExportWithHttpInfoAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreatePointsExpirationExport");
+            }
+
+            // verify the required parameter 'loyaltiesPointsExpirationExportCreateRequestBody' is set
+            if (loyaltiesPointsExpirationExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesPointsExpirationExportCreateRequestBody' when calling LoyaltiesApi->CreatePointsExpirationExport");
             }
 
 
@@ -4702,10 +4774,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsCreateAssignmentResponseBody</returns>
-        public LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0)
+        public LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> localVarResponse = CreateRewardAssignment1WithHttpInfo(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
             return localVarResponse.Data;
@@ -4716,15 +4788,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1WithHttpInfo(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1WithHttpInfo(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreateRewardAssignment1");
+            }
+
+            // verify the required parameter 'loyaltiesRewardsCreateAssignmentItemRequestBody' is set
+            if (loyaltiesRewardsCreateAssignmentItemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesRewardsCreateAssignmentItemRequestBody' when calling LoyaltiesApi->CreateRewardAssignment1");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -4803,11 +4881,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1Async(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1Async(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> localVarResponse = await CreateRewardAssignment1WithHttpInfoAsync(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4818,16 +4896,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points. (optional)</param>
+        /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsCreateAssignmentResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody>> CreateRewardAssignment1WithHttpInfoAsync(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = default(List<LoyaltiesRewardsCreateAssignmentItemRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody>> CreateRewardAssignment1WithHttpInfoAsync(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->CreateRewardAssignment1");
+            }
+
+            // verify the required parameter 'loyaltiesRewardsCreateAssignmentItemRequestBody' is set
+            if (loyaltiesRewardsCreateAssignmentItemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesRewardsCreateAssignmentItemRequestBody' when calling LoyaltiesApi->CreateRewardAssignment1");
             }
 
 
@@ -5968,10 +6052,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsTransactionsExportCreateResponseBody</returns>
-        public CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResponse = ExportLoyaltyCampaignTransactionsWithHttpInfo(campaignId, loyaltiesTransactionsExportCreateRequestBody);
             return localVarResponse.Data;
@@ -5982,15 +6066,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsTransactionsExportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->ExportLoyaltyCampaignTransactions");
+            }
+
+            // verify the required parameter 'loyaltiesTransactionsExportCreateRequestBody' is set
+            if (loyaltiesTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesTransactionsExportCreateRequestBody' when calling LoyaltiesApi->ExportLoyaltyCampaignTransactions");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -6069,11 +6159,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsTransactionsExportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResponse = await ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(campaignId, loyaltiesTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6084,16 +6174,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsTransactionsExportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody = default(LoyaltiesTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->ExportLoyaltyCampaignTransactions");
+            }
+
+            // verify the required parameter 'loyaltiesTransactionsExportCreateRequestBody' is set
+            if (loyaltiesTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesTransactionsExportCreateRequestBody' when calling LoyaltiesApi->ExportLoyaltyCampaignTransactions");
             }
 
 
@@ -6173,10 +6269,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        public LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = ExportLoyaltyCardTransactionsWithHttpInfo(memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
             return localVarResponse.Data;
@@ -6187,15 +6283,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsWithHttpInfo(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsWithHttpInfo(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->ExportLoyaltyCardTransactions");
+            }
+
+            // verify the required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' is set
+            if (loyaltiesMembersTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' when calling LoyaltiesApi->ExportLoyaltyCardTransactions");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -6274,11 +6376,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = await ExportLoyaltyCardTransactionsWithHttpInfoAsync(memberId, loyaltiesMembersTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6289,16 +6391,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->ExportLoyaltyCardTransactions");
+            }
+
+            // verify the required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' is set
+            if (loyaltiesMembersTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' when calling LoyaltiesApi->ExportLoyaltyCardTransactions");
             }
 
 
@@ -6379,10 +6487,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        public LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = ExportLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
             return localVarResponse.Data;
@@ -6394,10 +6502,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -6409,6 +6517,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->ExportLoyaltyCardTransactions1");
+            }
+
+            // verify the required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' is set
+            if (loyaltiesMembersTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' when calling LoyaltiesApi->ExportLoyaltyCardTransactions1");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -6489,11 +6603,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1Async(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1Async(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = await ExportLoyaltyCardTransactions1WithHttpInfoAsync(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6505,11 +6619,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
-        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export. (optional)</param>
+        /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody = default(LoyaltiesMembersTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -6521,6 +6635,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->ExportLoyaltyCardTransactions1");
+            }
+
+            // verify the required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' is set
+            if (loyaltiesMembersTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersTransactionsExportCreateRequestBody' when calling LoyaltiesApi->ExportLoyaltyCardTransactions1");
             }
 
 
@@ -12856,10 +12976,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        public LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = RedeemRewardWithHttpInfo(memberId, loyaltiesMembersRedemptionRedeemRequestBody);
             return localVarResponse.Data;
@@ -12870,15 +12990,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardWithHttpInfo(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardWithHttpInfo(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->RedeemReward");
+            }
+
+            // verify the required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' is set
+            if (loyaltiesMembersRedemptionRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' when calling LoyaltiesApi->RedeemReward");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -12957,11 +13083,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = await RedeemRewardWithHttpInfoAsync(memberId, loyaltiesMembersRedemptionRedeemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -12972,16 +13098,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemRewardWithHttpInfoAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemRewardWithHttpInfoAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->RedeemReward");
+            }
+
+            // verify the required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' is set
+            if (loyaltiesMembersRedemptionRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' when calling LoyaltiesApi->RedeemReward");
             }
 
 
@@ -13062,10 +13194,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        public LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = RedeemReward1WithHttpInfo(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody);
             return localVarResponse.Data;
@@ -13077,10 +13209,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13092,6 +13224,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->RedeemReward1");
+            }
+
+            // verify the required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' is set
+            if (loyaltiesMembersRedemptionRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' when calling LoyaltiesApi->RedeemReward1");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -13172,11 +13310,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1Async(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1Async(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = await RedeemReward1WithHttpInfoAsync(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -13188,11 +13326,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order. (optional)</param>
+        /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemReward1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody = default(LoyaltiesMembersRedemptionRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemReward1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13204,6 +13342,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->RedeemReward1");
+            }
+
+            // verify the required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' is set
+            if (loyaltiesMembersRedemptionRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersRedemptionRedeemRequestBody' when calling LoyaltiesApi->RedeemReward1");
             }
 
 
@@ -13285,10 +13429,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransfersCreateResponseBody</returns>
-        public LoyaltiesMembersTransfersCreateResponseBody TransferPoints(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0)
+        public LoyaltiesMembersTransfersCreateResponseBody TransferPoints(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> localVarResponse = TransferPointsWithHttpInfo(campaignId, memberId, loyaltiesTransferPoints);
             return localVarResponse.Data;
@@ -13300,10 +13444,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransfersCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsWithHttpInfo(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsWithHttpInfo(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13315,6 +13459,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->TransferPoints");
+            }
+
+            // verify the required parameter 'loyaltiesTransferPoints' is set
+            if (loyaltiesTransferPoints == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesTransferPoints' when calling LoyaltiesApi->TransferPoints");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -13395,11 +13545,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransfersCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> localVarResponse = await TransferPointsWithHttpInfoAsync(campaignId, memberId, loyaltiesTransferPoints, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -13411,11 +13561,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
         /// <param name="memberId">A unique code identifying the loyalty card to which the user wants to transfer loyalty points (destination).</param>
-        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. (optional)</param>
+        /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransfersCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody>> TransferPointsWithHttpInfoAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints = default(List<LoyaltiesTransferPoints>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody>> TransferPointsWithHttpInfoAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13427,6 +13577,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->TransferPoints");
+            }
+
+            // verify the required parameter 'loyaltiesTransferPoints' is set
+            if (loyaltiesTransferPoints == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesTransferPoints' when calling LoyaltiesApi->TransferPoints");
             }
 
 
@@ -13508,10 +13664,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesUpdateResponseBody</returns>
-        public LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0)
+        public LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> localVarResponse = UpdateEarningRuleWithHttpInfo(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody);
             return localVarResponse.Data;
@@ -13523,10 +13679,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleWithHttpInfo(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleWithHttpInfo(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13538,6 +13694,12 @@ namespace Voucherify.Api
             if (earningRuleId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'earningRuleId' when calling LoyaltiesApi->UpdateEarningRule");
+            }
+
+            // verify the required parameter 'loyaltiesEarningRulesUpdateRequestBody' is set
+            if (loyaltiesEarningRulesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesEarningRulesUpdateRequestBody' when calling LoyaltiesApi->UpdateEarningRule");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -13618,11 +13780,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> localVarResponse = await UpdateEarningRuleWithHttpInfoAsync(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -13634,11 +13796,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
-        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule. (optional)</param>
+        /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody>> UpdateEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody = default(LoyaltiesEarningRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody>> UpdateEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13650,6 +13812,12 @@ namespace Voucherify.Api
             if (earningRuleId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'earningRuleId' when calling LoyaltiesApi->UpdateEarningRule");
+            }
+
+            // verify the required parameter 'loyaltiesEarningRulesUpdateRequestBody' is set
+            if (loyaltiesEarningRulesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesEarningRulesUpdateRequestBody' when calling LoyaltiesApi->UpdateEarningRule");
             }
 
 
@@ -13730,10 +13898,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        public LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = UpdateLoyaltyCardBalanceWithHttpInfo(memberId, loyaltiesMembersBalanceUpdateRequestBody);
             return localVarResponse.Data;
@@ -13744,15 +13912,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceWithHttpInfo(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceWithHttpInfo(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->UpdateLoyaltyCardBalance");
+            }
+
+            // verify the required parameter 'loyaltiesMembersBalanceUpdateRequestBody' is set
+            if (loyaltiesMembersBalanceUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersBalanceUpdateRequestBody' when calling LoyaltiesApi->UpdateLoyaltyCardBalance");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -13831,11 +14005,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = await UpdateLoyaltyCardBalanceWithHttpInfoAsync(memberId, loyaltiesMembersBalanceUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -13846,16 +14020,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalanceWithHttpInfoAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalanceWithHttpInfoAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->UpdateLoyaltyCardBalance");
+            }
+
+            // verify the required parameter 'loyaltiesMembersBalanceUpdateRequestBody' is set
+            if (loyaltiesMembersBalanceUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersBalanceUpdateRequestBody' when calling LoyaltiesApi->UpdateLoyaltyCardBalance");
             }
 
 
@@ -13936,10 +14116,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        public LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0)
+        public LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = UpdateLoyaltyCardBalance1WithHttpInfo(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody);
             return localVarResponse.Data;
@@ -13951,10 +14131,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -13966,6 +14146,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->UpdateLoyaltyCardBalance1");
+            }
+
+            // verify the required parameter 'loyaltiesMembersBalanceUpdateRequestBody' is set
+            if (loyaltiesMembersBalanceUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersBalanceUpdateRequestBody' when calling LoyaltiesApi->UpdateLoyaltyCardBalance1");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -14046,11 +14232,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1Async(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1Async(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = await UpdateLoyaltyCardBalance1WithHttpInfoAsync(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -14062,11 +14248,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">A code that identifies the loyalty card.</param>
-        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism. (optional)</param>
+        /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalance1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody = default(LoyaltiesMembersBalanceUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalance1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -14078,6 +14264,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling LoyaltiesApi->UpdateLoyaltyCardBalance1");
+            }
+
+            // verify the required parameter 'loyaltiesMembersBalanceUpdateRequestBody' is set
+            if (loyaltiesMembersBalanceUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesMembersBalanceUpdateRequestBody' when calling LoyaltiesApi->UpdateLoyaltyCardBalance1");
             }
 
 
@@ -14158,10 +14350,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesUpdateCampaignResponseBody</returns>
-        public LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0)
+        public LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> localVarResponse = UpdateLoyaltyProgramWithHttpInfo(campaignId, loyaltiesUpdateCampaignRequestBody);
             return localVarResponse.Data;
@@ -14172,15 +14364,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesUpdateCampaignResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramWithHttpInfo(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramWithHttpInfo(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->UpdateLoyaltyProgram");
+            }
+
+            // verify the required parameter 'loyaltiesUpdateCampaignRequestBody' is set
+            if (loyaltiesUpdateCampaignRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesUpdateCampaignRequestBody' when calling LoyaltiesApi->UpdateLoyaltyProgram");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -14259,11 +14457,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesUpdateCampaignResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> localVarResponse = await UpdateLoyaltyProgramWithHttpInfoAsync(campaignId, loyaltiesUpdateCampaignRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -14274,16 +14472,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
-        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign. (optional)</param>
+        /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesUpdateCampaignResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody>> UpdateLoyaltyProgramWithHttpInfoAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody = default(LoyaltiesUpdateCampaignRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody>> UpdateLoyaltyProgramWithHttpInfoAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling LoyaltiesApi->UpdateLoyaltyProgram");
+            }
+
+            // verify the required parameter 'loyaltiesUpdateCampaignRequestBody' is set
+            if (loyaltiesUpdateCampaignRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesUpdateCampaignRequestBody' when calling LoyaltiesApi->UpdateLoyaltyProgram");
             }
 
 
@@ -14364,10 +14568,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
-        public LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0)
+        public LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> localVarResponse = UpdateRewardAssignment1WithHttpInfo(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody);
             return localVarResponse.Data;
@@ -14379,10 +14583,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
-        public Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -14394,6 +14598,12 @@ namespace Voucherify.Api
             if (assignmentId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'assignmentId' when calling LoyaltiesApi->UpdateRewardAssignment1");
+            }
+
+            // verify the required parameter 'loyaltiesRewardsUpdateAssignmentRequestBody' is set
+            if (loyaltiesRewardsUpdateAssignmentRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesRewardsUpdateAssignmentRequestBody' when calling LoyaltiesApi->UpdateRewardAssignment1");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -14474,11 +14684,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
-        public async System.Threading.Tasks.Task<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1Async(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1Async(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> localVarResponse = await UpdateRewardAssignment1WithHttpInfoAsync(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -14490,11 +14700,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment. (optional)</param>
+        /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsUpdateAssignmentResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody>> UpdateRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody = default(LoyaltiesRewardsUpdateAssignmentRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody>> UpdateRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -14506,6 +14716,12 @@ namespace Voucherify.Api
             if (assignmentId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'assignmentId' when calling LoyaltiesApi->UpdateRewardAssignment1");
+            }
+
+            // verify the required parameter 'loyaltiesRewardsUpdateAssignmentRequestBody' is set
+            if (loyaltiesRewardsUpdateAssignmentRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'loyaltiesRewardsUpdateAssignmentRequestBody' when calling LoyaltiesApi->UpdateRewardAssignment1");
             }
 
 

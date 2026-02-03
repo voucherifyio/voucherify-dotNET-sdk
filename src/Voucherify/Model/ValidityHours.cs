@@ -36,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidityHours" /> class.
         /// </summary>
-        /// <param name="daily">Defines the reccuring period(s) when the resource is active. The periods should not overlap..</param>
+        /// <param name="daily">Defines the recurring period(s) when the resource is active. The periods should not overlap..</param>
         public ValidityHours(List<ValidityHoursDailyItem> daily = default(List<ValidityHoursDailyItem>))
         {
             this._Daily = daily;
@@ -47,9 +47,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Defines the reccuring period(s) when the resource is active. The periods should not overlap.
+        /// Defines the recurring period(s) when the resource is active. The periods should not overlap.
         /// </summary>
-        /// <value>Defines the reccuring period(s) when the resource is active. The periods should not overlap.</value>
+        /// <value>Defines the recurring period(s) when the resource is active. The periods should not overlap.</value>
         [DataMember(Name = "daily", EmitDefaultValue = true)]
         public List<ValidityHoursDailyItem> Daily
         {

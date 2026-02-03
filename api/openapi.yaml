@@ -277,9 +277,19 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              ALL scenario with options:
+                value:
+                  scenario: ALL
+                  options:
+                    limit: 10
+                    expand:
+                    - redeemable
+                    sorting_rule: DEFAULT
             schema:
               $ref: '#/components/schemas/QualificationsCheckEligibilityRequestBody'
         description: Define order and customer context.
+        required: true
       responses:
         "200":
           content:
@@ -555,6 +565,7 @@ paths:
                       quantity: 1
             schema:
               $ref: '#/components/schemas/ValidationsValidateRequestBody'
+        required: true
       responses:
         "200":
           content:
@@ -1503,9 +1514,7 @@ paths:
         \    \n 📘 Also available on client-side\n This method is also accessible\
         \ through public keys which you can use in client-side​ apps: mobile and web\
         \ browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side)\
-        \ to learn more.\n - Use X-Client-Application-Id as the application ID header.\n\
-        \ - Use X-Client-Token as the appliction secret key header.\n - Use client-side\
-        \ base URL.\n - Use an origin header for your custom domain."
+        \ to learn more."
       operationId: redeem-stacked-discounts
       parameters: []
       requestBody:
@@ -1558,6 +1567,7 @@ paths:
                       key: value
             schema:
               $ref: '#/components/schemas/RedemptionsRedeemRequestBody'
+        required: true
       responses:
         "200":
           content:
@@ -1681,6 +1691,16 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterIds'
         style: form
+      - description: "Object for setting voucher filters. Read [Advanced filters for\
+          \ fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources)\
+          \ for filter examples."
+        explode: true
+        in: query
+        name: filters
+        required: false
+        schema:
+          type: object
+        style: deepObject
       responses:
         "200":
           content:
@@ -1954,6 +1974,7 @@ paths:
             schema:
               $ref: '#/components/schemas/VouchersCreateRequestBody'
         description: Specify the details of the voucher that you would like to create.
+        required: true
       responses:
         "200":
           content:
@@ -2851,6 +2872,7 @@ paths:
             schema:
               $ref: '#/components/schemas/VouchersCreateWithSpecificCodeRequestBody'
         description: Specify the details of the voucher that you would like to create.
+        required: true
       responses:
         "200":
           content:
@@ -4080,6 +4102,7 @@ paths:
             schema:
               $ref: '#/components/schemas/VouchersTransactionsExportCreateRequestBody'
         description: Specify the parameters for the camapign transaction export.
+        required: true
       responses:
         "200":
           content:
@@ -4146,8 +4169,10 @@ paths:
   /v1/vouchers/import:
     post:
       description: "Import generic (standalone) vouchers and gift cards into the repository.\n\
-        \ 📘 Important notes\n - **Start and expiration dates** need to be provided\
-        \ in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.\n\
+        You can upload up to 100,000 codes to a campaign, as a campaign can have up\
+        \ to 100,000 codes by default. \n Also, the request can include up to **10\
+        \ MB** of data.\n 📘 Important notes\n - **Start and expiration dates** need\
+        \ to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.\n\
         \ - Custom code attributes (not supported by-default) need to be added as\
         \ code **metadata**.\n - You **cannot import the same codes** to a single\
         \ Voucherify Project.\nAny parameters not provided in the payload will be\
@@ -4376,8 +4401,10 @@ paths:
       description: "Import generic (standalone) vouchers into the repository using\
         \ a CSV file.\nThe CSV file has to include headers in the first line. All\
         \ properties listed in the file headers that cannot be mapped to standard\
-        \ voucher fields will be added to the metadata object.  \nYou can find an\
-        \ example CSV file [here](https://support.voucherify.io/article/45-import-codes-and-share-them-digitally#coupons).\n\
+        \ voucher fields will be added to the metadata object.\nYou can upload up\
+        \ to 100,000 codes to a campaign, as a campaign can have up to 100,000 codes\
+        \ by default. \n Also, the request can include a max. **10 MB** CSV file.\n\
+        You can find an example CSV file [here](https://support.voucherify.io/article/45-import-codes-and-share-them-digitally#coupons).\n\
         ___\n 📘 Standard voucher fields mapping\n - Go to the [import vouchers](/api-reference/vouchers/import-vouchers)\
         \ endpoint to see all standard CSV fields description (body params section).\n\
         \ - Supported CSV file headers: Code,Voucher Type,Value,Discount Type,Category,Start\
@@ -4420,6 +4447,7 @@ paths:
             schema:
               $ref: '#/components/schemas/VouchersImportCSVRequestBody'
         description: The file path is stored in the form file header.
+        required: true
       responses:
         "202":
           content:
@@ -5137,6 +5165,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsCreateRequestBody'
         description: Specify the details of the campaign that you would like to create.
+        required: true
       responses:
         "200":
           content:
@@ -5703,6 +5732,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsUpdateRequestBody'
         description: Specify the campaign parameters to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -5827,6 +5857,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsVouchersCreateInBulkRequestBody'
         description: Specify the voucher parameters that you would like to overwrite.
+        required: true
       responses:
         "200":
           content:
@@ -5889,6 +5920,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsVouchersCreateRequestBody'
         description: Specify the voucher parameters that you would like to overwrite.
+        required: true
       responses:
         "200":
           content:
@@ -6077,6 +6109,7 @@ paths:
         description: "Discount type, expiration date and the remaining attributes\
           \ will be taken from the [Campaign](/api-reference/campaigns/get-campaign)\
           \ settings."
+        required: true
       responses:
         "202":
           content:
@@ -6128,6 +6161,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsVouchersImportCSVRequestBody'
         description: The file path is stored in the form file header.
+        required: true
       responses:
         "200":
           content:
@@ -6406,6 +6440,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CampaignsTransactionsExportCreateRequestBody'
         description: Specify the parameters for the transaction export.
+        required: true
       responses:
         "200":
           content:
@@ -6902,6 +6937,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PromotionsTiersCreateRequestBody'
         description: Specify the promotion tier parameters.
+        required: true
       responses:
         "200":
           content:
@@ -7069,6 +7105,7 @@ paths:
               $ref: '#/components/schemas/PromotionsTiersUpdateRequestBody'
         description: Specify the promotion tier parameters that you would like to
           update.
+        required: true
       responses:
         "200":
           content:
@@ -7559,6 +7596,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PromotionsStacksCreateRequestBody'
         description: Specify the order of promotion tiers for the promotion stack.
+        required: true
       responses:
         "200":
           content:
@@ -7716,6 +7754,7 @@ paths:
               $ref: '#/components/schemas/PromotionsStacksUpdateRequestBody'
         description: Specify the promotion stack parameters that you would like to
           update.
+        required: true
       responses:
         "200":
           content:
@@ -7941,6 +7980,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RewardsCreateRequestBody'
         description: Define parameters of the new reward.
+        required: true
       responses:
         "200":
           content:
@@ -8097,6 +8137,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RewardsUpdateRequestBody'
         description: Define the parameters to be updated for the reward.
+        required: true
       responses:
         "200":
           content:
@@ -8234,6 +8275,7 @@ paths:
               $ref: '#/components/schemas/RewardsAssignmentsCreateRequestBody'
         description: Provide the campaign ID of the campaign to which the reward is
           to be assigned and define the cost of the reward in terms of loyalty points.
+        required: true
       responses:
         "200":
           content:
@@ -8364,6 +8406,7 @@ paths:
             schema:
               $ref: '#/components/schemas/RewardsAssignmentsUpdateRequestBody'
         description: Define the number of points required to exchange for the reward.
+        required: true
       responses:
         "200":
           content:
@@ -8695,6 +8738,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PublicationsCreateRequestBody'
         description: Specify the publication parameters.
+        required: true
       responses:
         "200":
           content:
@@ -10467,6 +10511,7 @@ paths:
         description: Add information about the original customer and order. Customer
           data and Redemption metadata can be updated in Voucherify when passing the
           customer data in the request body.
+        required: true
       responses:
         "200":
           content:
@@ -11033,6 +11078,7 @@ paths:
         description: Add information about the original customer and order. Customer
           data and Redemption metadata can be updated in Voucherify when passing the
           customer data in the request body.
+        required: true
       responses:
         "200":
           content:
@@ -11309,6 +11355,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesCreateCampaignRequestBody'
         description: Specify the loyalty campaign details.
+        required: true
       responses:
         "200":
           content:
@@ -11617,6 +11664,7 @@ paths:
               $ref: '#/components/schemas/LoyaltiesUpdateCampaignRequestBody'
         description: Specify the new values for the parameters that you would like
           to update for the given loyalty campaign.
+        required: true
       responses:
         "200":
           content:
@@ -11973,6 +12021,7 @@ paths:
           \ (assignments of particular codes to customers) and publication metadata,\
           \ use the [List Publications](/api-reference/publications/list-publications)\
           \ endpoint."
+        required: true
       responses:
         "200":
           content:
@@ -12790,6 +12839,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesMembersPendingPointsBalanceRequestBody'
         description: Define the number of pending points to be added or subtracted.
+        required: true
       responses:
         "200":
           content:
@@ -13023,6 +13073,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesMembersBalanceUpdateRequestBody'
         description: Specify the point adjustment along with the expiration mechanism.
+        required: true
       responses:
         "200":
           content:
@@ -13096,6 +13147,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesMembersBalanceUpdateRequestBody'
         description: Specify the point adjustment along with the expiration mechanism.
+        required: true
       responses:
         "200":
           content:
@@ -13164,6 +13216,7 @@ paths:
               $ref: '#/components/schemas/LoyaltiesMembersTransfersCreateRequestBody'
         description: Provide the loyalty cards you want the points to be transferred
           from and the number of points to transfer from each card.
+        required: true
       responses:
         "200":
           content:
@@ -13406,6 +13459,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesTransactionsExportCreateRequestBody'
         description: Specify the parameters for the transaction export.
+        required: true
       responses:
         "200":
           content:
@@ -14110,6 +14164,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesMembersTransactionsExportCreateRequestBody'
         description: Specify the parameters and filters for the transaction export.
+        required: true
       responses:
         "200":
           content:
@@ -14221,6 +14276,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesMembersTransactionsExportCreateRequestBody'
         description: Specify the parameters and filters for the transaction export.
+        required: true
       responses:
         "200":
           content:
@@ -14445,6 +14501,7 @@ paths:
               $ref: '#/components/schemas/LoyaltiesPointsExpirationExportCreateRequestBody'
         description: "Specify the data filters, types of data to return and order\
           \ in which the results should be returned."
+        required: true
       responses:
         "200":
           content:
@@ -15394,6 +15451,7 @@ paths:
           \ requires a custom_event object\n- a customer.loyalty.tier.joined, customer.loyalty.tier.left,\
           \ customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged\
           \ requires a loyalty_tier object"
+        required: true
       responses:
         "200":
           content:
@@ -16220,6 +16278,7 @@ paths:
               $ref: '#/components/schemas/LoyaltiesEarningRulesUpdateRequestBody'
         description: Specify the parameters that you would like to update for the
           given earning rule.
+        required: true
       responses:
         "200":
           content:
@@ -16956,6 +17015,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentRequestBody'
         description: Define the cost of the rewards in loyalty points.
+        required: true
       responses:
         "200":
           content:
@@ -17170,6 +17230,7 @@ paths:
             schema:
               $ref: '#/components/schemas/LoyaltiesRewardsUpdateAssignmentRequestBody'
         description: Update the points cost for the reward assignment.
+        required: true
       responses:
         "200":
           content:
@@ -17248,6 +17309,7 @@ paths:
           \ remainder of the order. If the limit of available points on the card is\
           \ reached, then only the available points on the card will be applied to\
           \ the order."
+        required: true
       responses:
         "200":
           content:
@@ -18453,6 +18515,7 @@ paths:
           \ remainder of the order. If the limit of available points on the card is\
           \ reached, then only the available points on the card will be applied to\
           \ the order."
+        required: true
       responses:
         "200":
           content:
@@ -18788,6 +18851,7 @@ paths:
               $ref: '#/components/schemas/LoyaltiesTiersCreateInBulkRequestBody'
         description: Provide tier definitions you want to add to existing loyalty
           campaign.
+        required: true
       responses:
         "200":
           content:
@@ -19871,6 +19935,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CustomersCreateRequestBody'
         description: Create a customer with specified parameters.
+        required: true
       responses:
         "200":
           content:
@@ -20072,6 +20137,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CustomersUpdateRequestBody'
         description: Specify the parameters to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -20232,6 +20298,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CustomersImportCSVRequestBody'
         description: The file path is stored in the form file header.
+        required: true
       responses:
         "202":
           content:
@@ -20330,6 +20397,7 @@ paths:
               title: Update Customers in bulk Request Body
               type: array
         description: List the customer fields to be updated in each customer object.
+        required: true
       responses:
         "202":
           content:
@@ -20380,6 +20448,7 @@ paths:
               $ref: '#/components/schemas/CustomersMetadataUpdateInBulkRequestBody'
         description: List the source_ids of the customers you would like to update
           with the metadata key/value pairs.
+        required: true
       responses:
         "202":
           content:
@@ -21421,6 +21490,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OrdersCreateRequestBody'
         description: Specify the order parameters.
+        required: true
       responses:
         "200":
           content:
@@ -21558,6 +21628,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OrdersUpdateRequestBody'
         description: Specify the parameters of the order that are to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -21647,41 +21718,42 @@ paths:
     post:
       description: "\n 🚧 Historical orders\n This endpoint should only be used to\
         \ import historical orders into Voucherify. For on-going synchronization,\
-        \ the [update order](/api-reference/orders/update-order) endpoints should\
-        \ be used. This is critical because this endpoint does not store events or\
-        \ launch distributions.\n# Limitations\n## Import volume\nThere can be only\
+        \ the [update order](/api-reference/orders/update-order) endpoint should be\
+        \ used. This is critical because this endpoint does not store events or launch\
+        \ distributions.\nThe orders will also have a created_at date thats assigned\
+        \ when theyve been imported to Voucherify. To keep track of the actual order\
+        \ creation date, add an order metadata in ISO 8601 date or date time format\
+        \ to each imported order.\n# Limitations\n## Import volume\nThere can be only\
         \ a single on-going order import per tenant per project at a given time. The\
         \ user can schedule more imports but those extra imports will be scheduled\
         \ to run in sequence one by one.  \n## Maximum count of orders in single import\n\
-        There is a 2000 limit but we might decide to change it to a lower / higher\
-        \ value at any given time depending if we find this value is too high or too\
-        \ low with time.\n# Notifications\nThere are no notifications on the Dashboard\
-        \ because this import is launched via the API.\n# Triggered actions\n  \n\
-        If you import orders with customers, then a logic will be scheduled responsible\
-        \ for placing these customers into segments and refreshing the segments summary.\
-        \ Consequently, this update will trigger \n- **customers entering into segments**\
-        \ \n- **distributions** based on any rules tied to customer entering segment(s)\n\
-        - **earning rules** based on the customer entering segment(s)\n# What is not\
-        \ triggered\n1. No webhooks are triggered during the import of orders - for\
-        \ both orders and upserted products / SKUs.  \n2. Distributions based on Order\
-        \ Update, Order Paid, Order Created and Order Cancelled. In other words if\
-        \ you have a distribution based on Order Paid and you import an order with\
-        \ a PAID status, the distribution is not going to be triggered.    \n3. No\
-        \ events are created during the import of orders - for both orders and upserted\
-        \ products / SKUs. In other words you wont see any events in the Activity\
-        \ tab in the Dashboard such as Order created or Order paid. If you are additionally\
-        \ upserting products / SKUs, then you wont see the Product created events\
-        \ listed, etc.   \n4. Earning rules based on Order Paid wont be triggered.\n\
-        This API request starts a process that affects Voucherify data in bulk. \n\
-        In case of small jobs (like bulk update) the request is put into a queue and\
-        \ processed once every other bulk request placed in the queue prior to this\
-        \ request is finished. However, when the job takes a longer time (like vouchers\
-        \ generation) then it is processed in small portions in a round-robin fashion.\
-        \ When there is a list of vouchers generation scheduled, then they will all\
-        \ have the IN_PROGRESS status shortly. This way, small jobs added just after\
-        \ scheduling big jobs of the same type will be processed in a short time window.\
-        \ \nThe result will return the async ID. You can verify the status of your\
-        \ request with [GET Async Action](/api-reference/async-actions/get-async-action)\
+        There is a 2000 limit of orders per one request.\n# Notifications\nThere are\
+        \ no notifications on the Dashboard because this import is launched via the\
+        \ API.\n# Triggered actions\n  \nIf you import orders with customers, then\
+        \ a logic will be scheduled responsible for placing these customers into segments\
+        \ and refreshing the segments summary. Consequently, this update will trigger\
+        \ \n- Customers entering into segments\n- Distributions based on any rules\
+        \ tied to customer entering segment(s)\n- Earning rules based on the customer\
+        \ entering segment(s)\n# What is not triggered\n1. No webhooks are triggered\
+        \ during the import of orders - for both orders and upserted products / SKUs.\
+        \  \n2. Distributions based on Order Update, Order Paid, Order Created and\
+        \ Order Cancelled. In other words if you have a distribution based on Order\
+        \ Paid and you import an order with a PAID status, the distribution is not\
+        \ going to be triggered.    \n3. No events are created during the import of\
+        \ orders - for both orders and upserted products / SKUs. In other words you\
+        \ wont see any events in the Activity tab in the Dashboard such as Order created\
+        \ or Order paid. If you are additionally upserting products / SKUs, then you\
+        \ wont see the Product created events listed, etc.   \n4. Earning rules based\
+        \ on Order Paid wont be triggered.\nThis API request starts a process that\
+        \ affects Voucherify data in bulk. \nIn case of small jobs (like bulk update)\
+        \ the request is put into a queue and processed once every other bulk request\
+        \ placed in the queue prior to this request is finished. However, when the\
+        \ job takes a longer time (like vouchers generation) then it is processed\
+        \ in small portions in a round-robin fashion. When there is a list of vouchers\
+        \ generation scheduled, then they will all have the IN_PROGRESS status shortly.\
+        \ This way, small jobs added just after scheduling big jobs of the same type\
+        \ will be processed in a short time window. \nThe result will return the async\
+        \ ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action)\
         \ endpoint."
       operationId: import-orders
       parameters: []
@@ -21852,6 +21924,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OrdersImportCreateRequestBody'
         description: The request body is sent in the form of an array of order objects.
+        required: true
       responses:
         "200":
           content:
@@ -21935,6 +22008,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OrdersExportCreateRequestBody'
         description: Specify which order parameters you would like to export.
+        required: true
       responses:
         "200":
           content:
@@ -22174,6 +22248,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProductsCreateRequestBody'
         description: Specify the product parameters.
+        required: true
       responses:
         "200":
           content:
@@ -22349,6 +22424,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProductsUpdateRequestBody'
         description: Specify the parameters of the product that are to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -22429,6 +22505,7 @@ paths:
                 $ref: '#/components/schemas/ProductsUpdateInBulkRequestBody'
               type: array
         description: List the product fields to be updated in each product object.
+        required: true
       responses:
         "202":
           content:
@@ -22483,6 +22560,7 @@ paths:
               $ref: '#/components/schemas/ProductsMetadataUpdateInBulkRequestBody'
         description: List the source_ids of the products you would like to update
           with the metadata key/value pairs.
+        required: true
       responses:
         "202":
           content:
@@ -22732,6 +22810,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProductsSkusCreateRequestBody'
         description: Specify the SKU parameters to be created.
+        required: true
       responses:
         "200":
           content:
@@ -22850,6 +22929,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProductsSkusUpdateRequestBody'
         description: Specify the parameters to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -22930,6 +23010,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ProductsImportCSVRequestBody'
         description: The file path is stored in the form file header.
+        required: true
       responses:
         "200":
           content:
@@ -22990,6 +23071,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SkusImportCSVRequestBody'
         description: The file path is stored in the form file header.
+        required: true
       responses:
         "200":
           content:
@@ -23174,8 +23256,31 @@ paths:
       requestBody:
         content:
           application/json:
+            examples:
+              Create static collection:
+                value:
+                  type: STATIC
+                  name: Static collection example
+                  products:
+                  - id: prod_0a41dd45dc85fcab40
+                    object: product
+              Create dynamic collection:
+                value:
+                  type: AUTO_UPDATE
+                  name: Voucherify example collection
+                  filter:
+                    junction: and
+                    metadata.brand:
+                      conditions:
+                        $is:
+                        - Voucherify
+                    price:
+                      conditions:
+                        $more_than:
+                        - 5000
             schema:
               $ref: '#/components/schemas/ProductCollectionsCreateRequestBody'
+        required: true
       responses:
         "200":
           content:
@@ -23709,6 +23814,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ValidationRulesCreateRequestBody'
         description: Specify the validation rules parameters.
+        required: true
       responses:
         "200":
           content:
@@ -23923,6 +24029,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ValidationRulesUpdateRequestBody'
         description: Specify the parameters to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -24254,6 +24361,7 @@ paths:
               $ref: '#/components/schemas/ValidationRulesAssignmentsCreateRequestBody'
         description: Specify the resource that you would like to assign the validation
           rule to.
+        required: true
       responses:
         "200":
           content:
@@ -24432,6 +24540,7 @@ paths:
             schema:
               $ref: '#/components/schemas/SegmentsCreateRequestBody'
         description: Specify the boundary conditions for the customer segment.
+        required: true
       responses:
         "200":
           content:
@@ -24519,6 +24628,7 @@ paths:
             schema:
               $ref: '#/components/schemas/EventsCreateRequestBody'
         description: Specify the details of the custom event.
+        required: true
       responses:
         "200":
           content:
@@ -25199,6 +25309,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ExportsCreateRequestBody'
         description: Specify the details of the export that you would like to create.
+        required: true
       responses:
         "200":
           content:
@@ -25419,6 +25530,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CategoriesCreateRequestBody'
         description: Specify the details of the category that you would like to create.
+        required: true
       responses:
         "200":
           content:
@@ -25527,6 +25639,7 @@ paths:
             schema:
               $ref: '#/components/schemas/CategoriesUpdateRequestBody'
         description: Specify the details of the category that you would like to update.
+        required: true
       responses:
         "200":
           content:
@@ -26706,6 +26819,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ReferralsMembersHoldersCreateInBulkRequestBody'
         description: Specify the customer data to be upserted as redeemable holders.
+        required: true
       responses:
         "200":
           content:
@@ -26934,6 +27048,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ReferralsMembersHoldersCreateInBulkRequestBody'
         description: Specify the customer data to be upserted as redeemable holders.
+        required: true
       responses:
         "200":
           content:
@@ -27259,6 +27374,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplatesCampaignsCreateRequestBody'
         description: Provide details for a campaign template
+        required: true
       responses:
         "200":
           content:
@@ -27374,6 +27490,7 @@ paths:
             schema:
               $ref: '#/components/schemas/TemplatesCampaignsUpdateRequestBody'
         description: Provide the new name or description for the campaign template
+        required: true
       responses:
         "200":
           content:
@@ -27440,6 +27557,7 @@ paths:
               $ref: '#/components/schemas/TemplatesCampaignsCampaignSetupCreateRequestBody'
         description: Only name is required. The rest of the fields will overwrite
           the template configuration.
+        required: true
       responses:
         "200":
           content:
@@ -27571,6 +27689,7 @@ paths:
               $ref: '#/components/schemas/TemplatesCampaignsTierSetupCreateRequestBody'
         description: Only name and campaign_id are required. The rest of the fields
           will overwrite the template configuration.
+        required: true
       responses:
         "200":
           content:
@@ -27877,6 +27996,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsCreateRequestBody'
         description: Define project details.
+        required: true
       responses:
         "200":
           content:
@@ -28096,6 +28216,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsUpdateRequestBody'
         description: Define the project details to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -28250,6 +28371,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsUsersAssignRequestBody'
         description: Defines the user details.
+        required: true
       responses:
         "200":
           content:
@@ -28385,6 +28507,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsUsersUpdateRoleRequestBody'
         description: Defines the users new role.
+        required: true
       responses:
         "200":
           content:
@@ -28426,6 +28549,7 @@ paths:
               $ref: '#/components/schemas/ManagementProjectsUsersInviteCreateRequestBody'
         description: "Defines the details of the invitation, the project, and roles\
           \ to which the user will be assigned."
+        required: true
       responses:
         "204":
           description: Returns no content if the invitation has been sent successfully.
@@ -28565,6 +28689,7 @@ paths:
               $ref: '#/components/schemas/ManagementProjectsTemplatesCampaignsCopyCreateRequestBody'
         description: Determines the details about the template in the destination
           project as well as the destination project itself.
+        required: true
       responses:
         "200":
           content:
@@ -28679,6 +28804,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsStackingRulesCreateRequestBody'
         description: Defines the stacking rule parameters.
+        required: true
       responses:
         "200":
           content:
@@ -28859,6 +28985,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsStackingRulesUpdateRequestBody'
         description: Defines the stacking rules to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -29177,6 +29304,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsMetadataSchemasCreateRequestBody'
         description: Defines the metadata schema.
+        required: true
       responses:
         "200":
           content:
@@ -29390,6 +29518,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsMetadataSchemasUpdateRequestBody'
         description: Defines the metadata schema to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -29503,6 +29632,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsCustomEventSchemasCreateRequestBody'
         description: Defines the custom event schema.
+        required: true
       responses:
         "200":
           content:
@@ -29648,6 +29778,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsCustomEventSchemasUpdateRequestBody'
         description: Defines the custom event schema to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -29790,6 +29921,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsWebhooksCreateRequestBody'
         description: Defines a webhook configuration.
+        required: true
       responses:
         "200":
           content:
@@ -29923,6 +30055,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsWebhooksUpdateRequestBody'
         description: Defines the webhook configuration to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -30058,6 +30191,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsBrandingCreateRequestBody'
         description: Defines a brand configuration.
+        required: true
       responses:
         "200":
           content:
@@ -30223,6 +30357,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ManagementProjectsBrandingUpdateRequestBody'
         description: Defines the brand configuration to be updated.
+        required: true
       responses:
         "200":
           content:
@@ -30287,6 +30422,7 @@ paths:
               $ref: '#/components/schemas/OAuthTokenGenerateRequestBody'
         description: "Send the request as x-www-form-urlencoded. Separate scope values\
           \ with spaces, not commas."
+        required: true
       responses:
         "200":
           content:
@@ -30325,6 +30461,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OAuthTokenIntrospectRequestBody'
         description: Send the request as x-www-form-urlencoded.
+        required: true
       responses:
         "200":
           content:
@@ -30369,6 +30506,7 @@ paths:
             schema:
               $ref: '#/components/schemas/OAuthTokenRevokeRequestBody'
         description: Send the request as x-www-form-urlencoded.
+        required: true
       responses:
         "204":
           description: Returns no content if the OAuth 2.0 token is revoked successfully.
@@ -30411,6 +30549,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientQualificationsCheckEligibilityRequestBody'
         description: Define order and customer context.
+        required: true
       responses:
         "200":
           content:
@@ -30690,6 +30829,7 @@ paths:
                       key: value
             schema:
               $ref: '#/components/schemas/ClientRedemptionsRedeemRequestBody'
+        required: true
       responses:
         "200":
           content:
@@ -30797,6 +30937,7 @@ paths:
                       quantity: 1
             schema:
               $ref: '#/components/schemas/ClientValidationsValidateRequestBody'
+        required: true
       responses:
         "200":
           content:
@@ -30862,6 +31003,7 @@ paths:
             schema:
               $ref: '#/components/schemas/ClientEventsCreateRequestBody'
         description: Specify the details of the custom event.
+        required: true
       responses:
         "200":
           content:
@@ -31336,7 +31478,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -31790,7 +31932,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -31851,7 +31993,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -32523,7 +32665,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -32584,7 +32726,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -33126,7 +33268,7 @@ components:
     CampaignsListResponseBody:
       description: Schema model for **GET** `v1/campaigns`.
       example:
-        total: 7
+        total: 1
         campaigns:
         - metadata: "{}"
           voucher:
@@ -33247,7 +33389,7 @@ components:
                 unit: MONTH
                 type: MONTH
                 strategy: START
-                value: 2
+                value: 4
               type: END_OF_PERIOD
             start_date:
               type: IMMEDIATE
@@ -33308,7 +33450,7 @@ components:
               name: name
               id: ms_Ll9enAm2BCN0M1s4VxWobLFM
             referee_reward:
-              amount: amount
+              amount: 2
               related_object_parent:
                 name: name
                 id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -33437,7 +33579,7 @@ components:
                 unit: MONTH
                 type: MONTH
                 strategy: START
-                value: 2
+                value: 4
               type: END_OF_PERIOD
             start_date:
               type: IMMEDIATE
@@ -33498,7 +33640,7 @@ components:
               name: name
               id: ms_Ll9enAm2BCN0M1s4VxWobLFM
             referee_reward:
-              amount: amount
+              amount: 2
               related_object_parent:
                 name: name
                 id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -33693,7 +33835,7 @@ components:
                 unit: MONTH
                 type: MONTH
                 strategy: START
-                value: 2
+                value: 4
               type: END_OF_PERIOD
             start_date:
               type: IMMEDIATE
@@ -33754,7 +33896,7 @@ components:
               name: name
               id: ms_Ll9enAm2BCN0M1s4VxWobLFM
             referee_reward:
-              amount: amount
+              amount: 2
               related_object_parent:
                 name: name
                 id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -34800,7 +34942,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -34838,7 +34980,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -35117,7 +35259,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -35178,7 +35320,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -42435,7 +42577,7 @@ components:
       title: ClientRedemptionsRedeemResponseBody
       type: object
     ClientValidationsValidateRequestBody:
-      description: Response body schema for **POST** `v1/validations`.
+      description: Request body schema for **POST** `v1/validations`.
       example:
         redeemables:
         - gift:
@@ -45823,7 +45965,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -47772,7 +47914,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -48110,7 +48252,7 @@ components:
                 unit: MONTH
                 type: MONTH
                 strategy: START
-                value: 2
+                value: 4
               type: END_OF_PERIOD
             start_date:
               type: IMMEDIATE
@@ -48256,7 +48398,7 @@ components:
                 unit: MONTH
                 type: MONTH
                 strategy: START
-                value: 2
+                value: 4
               type: END_OF_PERIOD
             start_date:
               type: IMMEDIATE
@@ -50731,7 +50873,7 @@ components:
                     name: name
                     id: ms_Ll9enAm2BCN0M1s4VxWobLFM
                   referee_reward:
-                    amount: amount
+                    amount: 2
                     related_object_parent:
                       name: name
                       id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -53282,7 +53424,7 @@ components:
                     name: name
                     id: ms_Ll9enAm2BCN0M1s4VxWobLFM
                   referee_reward:
-                    amount: amount
+                    amount: 2
                     related_object_parent:
                       name: name
                       id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -58640,7 +58782,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -58886,7 +59028,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -65742,17 +65884,17 @@ components:
         type: STATIC
         products:
         - product_id: product_id
-          id: prod_0a41bcf807c5fcaaf6
+          id: id
           object: sku
         - product_id: product_id
-          id: prod_0a41bcf807c5fcaaf6
+          id: id
           object: sku
       properties:
         type:
-          description: Show that the product collection is static (manually selected
-            products).
           enum:
           - STATIC
+          - AUTO_UPDATE
+          nullable: true
           type: string
         name:
           description: Unique user-defined product collection name.
@@ -81763,7 +81905,6 @@ components:
       description: Response body schema for **POST** `v1/segments`.
       example:
         filter: "{}"
-        initial_sync_status: IN_PROGRESS
         name: name
         created_at: 2022-05-12T13:01:56.896Z
         id: seg_1wc52c5z6r1kQ81brO8j9Hk2
@@ -81804,12 +81945,6 @@ components:
           nullable: true
           title: SegmentsCreateResponseBodyFilter
           type: object
-        initial_sync_status:
-          enum:
-          - IN_PROGRESS
-          - DONE
-          nullable: true
-          type: string
         object:
           description: The type of the object represented by JSON. This object stores
             information about the customer segment.
@@ -81823,7 +81958,6 @@ components:
       description: "Response body schema for **GET** `v1/v1/segments/{segmentId}`."
       example:
         filter: "{}"
-        initial_sync_status: IN_PROGRESS
         name: name
         created_at: 2022-05-12T13:01:56.896Z
         id: seg_1wc52c5z6r1kQ81brO8j9Hk2
@@ -81864,12 +81998,6 @@ components:
           nullable: true
           title: SegmentsGetResponseBodyFilter
           type: object
-        initial_sync_status:
-          enum:
-          - IN_PROGRESS
-          - DONE
-          nullable: true
-          type: string
         object:
           description: The type of the object represented by JSON. This object stores
             information about the customer segment.
@@ -82323,7 +82451,7 @@ components:
                 unit: MONTH
                 type: MONTH
                 strategy: START
-                value: 2
+                value: 4
               type: END_OF_PERIOD
             start_date:
               type: IMMEDIATE
@@ -82384,7 +82512,7 @@ components:
               name: name
               id: ms_Ll9enAm2BCN0M1s4VxWobLFM
             referee_reward:
-              amount: amount
+              amount: 2
               related_object_parent:
                 name: name
                 id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -85115,7 +85243,7 @@ components:
       title: ValidationRulesUpdateResponseBody
       type: object
     ValidationsValidateRequestBody:
-      description: Response body schema for **POST** `v1/validations`.
+      description: Request body schema for **POST** `v1/validations`.
       example:
         redeemables:
         - gift:
@@ -91805,7 +91933,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -91866,7 +91994,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -92497,7 +92625,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -92558,7 +92686,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -95483,7 +95611,7 @@ components:
               unit: MONTH
               type: MONTH
               strategy: START
-              value: 2
+              value: 4
             type: END_OF_PERIOD
           start_date:
             type: IMMEDIATE
@@ -96142,8 +96270,8 @@ components:
           type: string
         source:
           description: "The channel through which the transaction took place, whether\
-            \ through the API or the the Dashboard. In case of a redemption, this\
-            \ value is null."
+            \ through the API or the Dashboard. In case of a redemption, this value\
+            \ is null."
           nullable: true
           type: string
         reason:
@@ -96501,7 +96629,7 @@ components:
         bucket:
           $ref: '#/components/schemas/LoyaltyPointsBucketBucket'
         status:
-          description: Loyalty point point bucket status.
+          description: Loyalty point bucket status.
           nullable: true
           type: string
         expires_at:
@@ -96718,7 +96846,7 @@ components:
             unit: MONTH
             type: MONTH
             strategy: START
-            value: 2
+            value: 4
           type: END_OF_PERIOD
         start_date:
           type: IMMEDIATE
@@ -99832,7 +99960,7 @@ components:
                   name: name
                   id: ms_Ll9enAm2BCN0M1s4VxWobLFM
                 referee_reward:
-                  amount: amount
+                  amount: 2
                   related_object_parent:
                     name: name
                     id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -107439,7 +107567,7 @@ components:
           name: name
           id: ms_Ll9enAm2BCN0M1s4VxWobLFM
         referee_reward:
-          amount: amount
+          amount: 2
           related_object_parent:
             name: name
             id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -109001,7 +109129,7 @@ components:
           expiration_time: 14:00
       properties:
         daily:
-          description: Defines the reccuring period(s) when the resource is active.
+          description: Defines the recurring period(s) when the resource is active.
             The periods should not overlap.
           items:
             $ref: '#/components/schemas/ValidityHoursDailyItem'
@@ -109670,8 +109798,8 @@ components:
           type: string
         source:
           description: "The channel through which the transaction took place, whether\
-            \ through the API or the the Dashboard. In case of a redemption, this\
-            \ value is null."
+            \ through the API or the Dashboard. In case of a redemption, this value\
+            \ is null."
           nullable: true
           type: string
         reason:
@@ -113071,7 +113199,7 @@ components:
               name: name
               id: ms_Ll9enAm2BCN0M1s4VxWobLFM
             referee_reward:
-              amount: amount
+              amount: 2
               related_object_parent:
                 name: name
                 id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -116377,7 +116505,7 @@ components:
             name: name
             id: ms_Ll9enAm2BCN0M1s4VxWobLFM
           referee_reward:
-            amount: amount
+            amount: 2
             related_object_parent:
               name: name
               id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -130704,12 +130832,6 @@ components:
       - $ref: '#/components/schemas/Order'
       - description: Order information.
         properties:
-          created_at:
-            description: Timestamp representing the date and time when the order was
-              created. The value is shown in the ISO 8601 format.
-            example: 2021-12-22T10:13:06.487Z
-            format: date-time
-            type: string
           referrer_id:
             description: Unique referrer ID.
             example: cust_nM4jqPiaXUvQdVSA6vTRUnix
@@ -130742,7 +130864,6 @@ components:
         metadata: "{}"
         referrer_id: cust_nM4jqPiaXUvQdVSA6vTRUnix
         discount_amount: 1
-        created_at: 2021-12-22T10:13:06.487Z
         initial_amount: 6
         id: id
         source_id: source_id
@@ -132095,12 +132216,11 @@ components:
     ProductCollectionsCreateRequestBodyProductsItem:
       example:
         product_id: product_id
-        id: prod_0a41bcf807c5fcaaf6
+        id: id
         object: sku
       properties:
         id:
           description: The product ID.
-          example: prod_0a41bcf807c5fcaaf6
           type: string
         product_id:
           description: Product ID for SKUs.
@@ -139251,7 +139371,7 @@ components:
           type: string
         balance:
           description: The incremental points to be added to the current balance on
-            the loyalty card. and The incremental amout to be added to the current
+            the loyalty card. and The incremental amount to be added to the current
             balance on the gift card. The value is multiplied by 100 to represent
             2 decimal places. For example `10000 cents` for `$100.00`.
           nullable: true
@@ -144914,7 +145034,7 @@ components:
         unit: MONTH
         type: MONTH
         strategy: START
-        value: 2
+        value: 4
       properties:
         type:
           description: This mechanism describes a custom rounding for the expiration
@@ -144958,7 +145078,7 @@ components:
           unit: MONTH
           type: MONTH
           strategy: START
-          value: 2
+          value: 4
         type: END_OF_PERIOD
       nullable: true
       properties:
@@ -147602,7 +147722,7 @@ components:
                 name: name
                 id: ms_Ll9enAm2BCN0M1s4VxWobLFM
               referee_reward:
-                amount: amount
+                amount: 2
                 related_object_parent:
                   name: name
                   id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -151922,7 +152042,7 @@ components:
     ReferralProgramRefereeReward:
       description: Defines the referee reward.
       example:
-        amount: amount
+        amount: 2
         related_object_parent:
           name: name
           id: camp_kdxp3vf1clQ9CFs1jpqv3tZe
@@ -151945,7 +152065,7 @@ components:
             \ value is multiplied by 100 to precisely represent 2 decimal places.\
             \ For example, $100 amount is written as 10000."
           nullable: true
-          type: string
+          type: integer
       title: ReferralProgramRefereeReward
       type: object
     ReferrerAddress:
@@ -152343,7 +152463,7 @@ components:
       title: ValidationsRedeemableSkippedResult
       type: object
     ValidityHoursDailyItem:
-      description: Defines the reccuring period(s) when the resource will be active.
+      description: Defines the recurring period(s) when the resource will be active.
       example:
         days_of_week:
         - 5
@@ -159520,8 +159640,8 @@ components:
           type: string
         source:
           description: "The channel through which the transaction took place, whether\
-            \ through the API or the the Dashboard. In case of a redemption, this\
-            \ value is null."
+            \ through the API or the Dashboard. In case of a redemption, this value\
+            \ is null."
           nullable: true
           type: string
         reason:

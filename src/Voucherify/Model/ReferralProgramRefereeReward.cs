@@ -87,7 +87,7 @@ namespace Voucherify.Model
         /// <param name="relatedObjectParent">relatedObjectParent.</param>
         /// <param name="type">Type of reward..</param>
         /// <param name="amount">Define the number of &#x60;points&#x60; to add to a loyalty card or &#x60;credits&#x60; to the balance on a gift card. In case of the gift card, the value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000..</param>
-        public ReferralProgramRefereeReward(ReferralProgramRefereeRewardRelatedObjectParent relatedObjectParent = default(ReferralProgramRefereeRewardRelatedObjectParent), TypeEnum? type = default(TypeEnum?), string amount = default(string))
+        public ReferralProgramRefereeReward(ReferralProgramRefereeRewardRelatedObjectParent relatedObjectParent = default(ReferralProgramRefereeRewardRelatedObjectParent), TypeEnum? type = default(TypeEnum?), int? amount = default(int?))
         {
             this._RelatedObjectParent = relatedObjectParent;
             if (this.RelatedObjectParent != null)
@@ -135,7 +135,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Define the number of &#x60;points&#x60; to add to a loyalty card or &#x60;credits&#x60; to the balance on a gift card. In case of the gift card, the value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.</value>
         [DataMember(Name = "amount", EmitDefaultValue = true)]
-        public string Amount
+        public int? Amount
         {
             get{ return _Amount;}
             set
@@ -144,7 +144,7 @@ namespace Voucherify.Model
                 _flagAmount = true;
             }
         }
-        private string _Amount;
+        private int? _Amount;
         private bool _flagAmount;
 
         /// <summary>

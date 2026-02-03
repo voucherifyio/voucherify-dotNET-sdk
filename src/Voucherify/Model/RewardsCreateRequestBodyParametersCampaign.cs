@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="RewardsCreateRequestBodyParametersCampaign" /> class.
         /// </summary>
         /// <param name="id">id.</param>
-        /// <param name="balance">The incremental points to be added to the current balance on the loyalty card. and The incremental amout to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;..</param>
+        /// <param name="balance">The incremental points to be added to the current balance on the loyalty card. and The incremental amount to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;..</param>
         public RewardsCreateRequestBodyParametersCampaign(string id = default(string), int? balance = default(int?))
         {
             this._Id = id;
@@ -77,9 +77,9 @@ namespace Voucherify.Model
             return _flagId;
         }
         /// <summary>
-        /// The incremental points to be added to the current balance on the loyalty card. and The incremental amout to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
+        /// The incremental points to be added to the current balance on the loyalty card. and The incremental amount to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.
         /// </summary>
-        /// <value>The incremental points to be added to the current balance on the loyalty card. and The incremental amout to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.</value>
+        /// <value>The incremental points to be added to the current balance on the loyalty card. and The incremental amount to be added to the current balance on the gift card. The value is multiplied by 100 to represent 2 decimal places. For example &#x60;10000 cents&#x60; for &#x60;$100.00&#x60;.</value>
         [DataMember(Name = "balance", EmitDefaultValue = true)]
         public int? Balance
         {

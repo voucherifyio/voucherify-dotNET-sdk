@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// This method creates a new product collection.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductCollectionsCreateResponseBody</returns>
-        ProductCollectionsCreateResponseBody CreateProductCollection(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0);
+        ProductCollectionsCreateResponseBody CreateProductCollection(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Product Collection
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// This method creates a new product collection.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductCollectionsCreateResponseBody</returns>
-        ApiResponse<ProductCollectionsCreateResponseBody> CreateProductCollectionWithHttpInfo(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ProductCollectionsCreateResponseBody> CreateProductCollectionWithHttpInfo(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Product Collection
         /// </summary>
@@ -171,11 +171,11 @@ namespace Voucherify.Api
         /// This method creates a new product collection.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductCollectionsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ProductCollectionsCreateResponseBody> CreateProductCollectionAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductCollectionsCreateResponseBody> CreateProductCollectionAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Product Collection
@@ -184,11 +184,11 @@ namespace Voucherify.Api
         /// This method creates a new product collection.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductCollectionsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductCollectionsCreateResponseBody>> CreateProductCollectionWithHttpInfoAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductCollectionsCreateResponseBody>> CreateProductCollectionWithHttpInfoAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Product Collection
         /// </summary>
@@ -425,10 +425,10 @@ namespace Voucherify.Api
         /// Create Product Collection This method creates a new product collection.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductCollectionsCreateResponseBody</returns>
-        public ProductCollectionsCreateResponseBody CreateProductCollection(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0)
+        public ProductCollectionsCreateResponseBody CreateProductCollection(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductCollectionsCreateResponseBody> localVarResponse = CreateProductCollectionWithHttpInfo(productCollectionsCreateRequestBody);
             return localVarResponse.Data;
@@ -438,11 +438,17 @@ namespace Voucherify.Api
         /// Create Product Collection This method creates a new product collection.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductCollectionsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductCollectionsCreateResponseBody> CreateProductCollectionWithHttpInfo(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductCollectionsCreateResponseBody> CreateProductCollectionWithHttpInfo(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'productCollectionsCreateRequestBody' is set
+            if (productCollectionsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productCollectionsCreateRequestBody' when calling ProductCollectionsApi->CreateProductCollection");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -517,11 +523,11 @@ namespace Voucherify.Api
         /// Create Product Collection This method creates a new product collection.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductCollectionsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductCollectionsCreateResponseBody> CreateProductCollectionAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductCollectionsCreateResponseBody> CreateProductCollectionAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductCollectionsCreateResponseBody> localVarResponse = await CreateProductCollectionWithHttpInfoAsync(productCollectionsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -531,12 +537,18 @@ namespace Voucherify.Api
         /// Create Product Collection This method creates a new product collection.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productCollectionsCreateRequestBody"> (optional)</param>
+        /// <param name="productCollectionsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductCollectionsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductCollectionsCreateResponseBody>> CreateProductCollectionWithHttpInfoAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = default(ProductCollectionsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductCollectionsCreateResponseBody>> CreateProductCollectionWithHttpInfoAsync(ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'productCollectionsCreateRequestBody' is set
+            if (productCollectionsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productCollectionsCreateRequestBody' when calling ProductCollectionsApi->CreateProductCollection");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

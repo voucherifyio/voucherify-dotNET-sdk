@@ -12,7 +12,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createproductcollection"></a>
 # **CreateProductCollection**
-> ProductCollectionsCreateResponseBody CreateProductCollection (ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody = null)
+> ProductCollectionsCreateResponseBody CreateProductCollection (ProductCollectionsCreateRequestBody productCollectionsCreateRequestBody)
 
 Create Product Collection
 
@@ -46,7 +46,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProductCollectionsApi(config);
-            var productCollectionsCreateRequestBody = new ProductCollectionsCreateRequestBody(); // ProductCollectionsCreateRequestBody |  (optional) 
+            var productCollectionsCreateRequestBody = new ProductCollectionsCreateRequestBody(); // ProductCollectionsCreateRequestBody | 
 
             try
             {
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **productCollectionsCreateRequestBody** | [**ProductCollectionsCreateRequestBody**](ProductCollectionsCreateRequestBody.md) |  | [optional]  |
+| **productCollectionsCreateRequestBody** | [**ProductCollectionsCreateRequestBody**](ProductCollectionsCreateRequestBody.md) |  |  |
 
 ### Return type
 

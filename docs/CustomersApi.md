@@ -19,7 +19,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createcustomer"></a>
 # **CreateCustomer**
-> CustomersCreateResponseBody CreateCustomer (CustomersCreateRequestBody customersCreateRequestBody = null)
+> CustomersCreateResponseBody CreateCustomer (CustomersCreateRequestBody customersCreateRequestBody)
 
 Create Customer
 
@@ -53,7 +53,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomersApi(config);
-            var customersCreateRequestBody = new CustomersCreateRequestBody(); // CustomersCreateRequestBody | Create a customer with specified parameters. (optional) 
+            var customersCreateRequestBody = new CustomersCreateRequestBody(); // CustomersCreateRequestBody | Create a customer with specified parameters.
 
             try
             {
@@ -96,7 +96,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **customersCreateRequestBody** | [**CustomersCreateRequestBody**](CustomersCreateRequestBody.md) | Create a customer with specified parameters. | [optional]  |
+| **customersCreateRequestBody** | [**CustomersCreateRequestBody**](CustomersCreateRequestBody.md) | Create a customer with specified parameters. |  |
 
 ### Return type
 
@@ -981,7 +981,7 @@ catch (ApiException e)
 
 <a id="updatecustomer"></a>
 # **UpdateCustomer**
-> CustomersUpdateResponseBody UpdateCustomer (string customerId, CustomersUpdateRequestBody customersUpdateRequestBody = null)
+> CustomersUpdateResponseBody UpdateCustomer (string customerId, CustomersUpdateRequestBody customersUpdateRequestBody)
 
 Update Customer
 
@@ -1016,7 +1016,7 @@ namespace Example
 
             var apiInstance = new CustomersApi(config);
             var customerId = "customerId_example";  // string | A Voucherify customers id or source_id.
-            var customersUpdateRequestBody = new CustomersUpdateRequestBody(); // CustomersUpdateRequestBody | Specify the parameters to be updated. (optional) 
+            var customersUpdateRequestBody = new CustomersUpdateRequestBody(); // CustomersUpdateRequestBody | Specify the parameters to be updated.
 
             try
             {
@@ -1060,7 +1060,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **customerId** | **string** | A Voucherify customers id or source_id. |  |
-| **customersUpdateRequestBody** | [**CustomersUpdateRequestBody**](CustomersUpdateRequestBody.md) | Specify the parameters to be updated. | [optional]  |
+| **customersUpdateRequestBody** | [**CustomersUpdateRequestBody**](CustomersUpdateRequestBody.md) | Specify the parameters to be updated. |  |
 
 ### Return type
 
@@ -1085,7 +1085,7 @@ catch (ApiException e)
 
 <a id="updatecustomersinbulk"></a>
 # **UpdateCustomersInBulk**
-> CustomersUpdateInBulkResponseBody UpdateCustomersInBulk (List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody = null)
+> CustomersUpdateInBulkResponseBody UpdateCustomersInBulk (List<CustomersUpdateInBulkRequestBody> customersUpdateInBulkRequestBody)
 
 Update Customers in Bulk
 
@@ -1119,7 +1119,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomersApi(config);
-            var customersUpdateInBulkRequestBody = new List<CustomersUpdateInBulkRequestBody>(); // List<CustomersUpdateInBulkRequestBody> | List the customer fields to be updated in each customer object. (optional) 
+            var customersUpdateInBulkRequestBody = new List<CustomersUpdateInBulkRequestBody>(); // List<CustomersUpdateInBulkRequestBody> | List the customer fields to be updated in each customer object.
 
             try
             {
@@ -1162,7 +1162,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **customersUpdateInBulkRequestBody** | [**List&lt;CustomersUpdateInBulkRequestBody&gt;**](CustomersUpdateInBulkRequestBody.md) | List the customer fields to be updated in each customer object. | [optional]  |
+| **customersUpdateInBulkRequestBody** | [**List&lt;CustomersUpdateInBulkRequestBody&gt;**](CustomersUpdateInBulkRequestBody.md) | List the customer fields to be updated in each customer object. |  |
 
 ### Return type
 
@@ -1187,7 +1187,7 @@ catch (ApiException e)
 
 <a id="updatecustomersmetadatainbulk"></a>
 # **UpdateCustomersMetadataInBulk**
-> CustomersMetadataUpdateInBulkResponseBody UpdateCustomersMetadataInBulk (CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody = null)
+> CustomersMetadataUpdateInBulkResponseBody UpdateCustomersMetadataInBulk (CustomersMetadataUpdateInBulkRequestBody customersMetadataUpdateInBulkRequestBody)
 
 Update Customers' Metadata in Bulk
 
@@ -1221,7 +1221,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomersApi(config);
-            var customersMetadataUpdateInBulkRequestBody = new CustomersMetadataUpdateInBulkRequestBody(); // CustomersMetadataUpdateInBulkRequestBody | List the source_ids of the customers you would like to update with the metadata key/value pairs. (optional) 
+            var customersMetadataUpdateInBulkRequestBody = new CustomersMetadataUpdateInBulkRequestBody(); // CustomersMetadataUpdateInBulkRequestBody | List the source_ids of the customers you would like to update with the metadata key/value pairs.
 
             try
             {
@@ -1264,7 +1264,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **customersMetadataUpdateInBulkRequestBody** | [**CustomersMetadataUpdateInBulkRequestBody**](CustomersMetadataUpdateInBulkRequestBody.md) | List the source_ids of the customers you would like to update with the metadata key/value pairs. | [optional]  |
+| **customersMetadataUpdateInBulkRequestBody** | [**CustomersMetadataUpdateInBulkRequestBody**](CustomersMetadataUpdateInBulkRequestBody.md) | List the source_ids of the customers you would like to update with the metadata key/value pairs. |  |
 
 ### Return type
 

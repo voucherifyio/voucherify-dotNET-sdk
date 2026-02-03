@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Response body schema for **POST** &#x60;v1/validations&#x60;.
+    /// Request body schema for **POST** &#x60;v1/validations&#x60;.
     /// </summary>
     [DataContract(Name = "ClientValidationsValidateRequestBody")]
     public partial class ClientValidationsValidateRequestBody : IValidatableObject

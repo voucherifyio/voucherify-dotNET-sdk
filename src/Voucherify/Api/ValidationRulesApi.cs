@@ -36,11 +36,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationRulesAssignmentsCreateResponseBody</returns>
-        ValidationRulesAssignmentsCreateResponseBody CreateValidationRuleAssignment(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0);
+        ValidationRulesAssignmentsCreateResponseBody CreateValidationRuleAssignment(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Create Validation Rules Assignments
@@ -50,11 +50,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationRulesAssignmentsCreateResponseBody</returns>
-        ApiResponse<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentWithHttpInfo(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentWithHttpInfo(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Create Validation Rules
         /// </summary>
@@ -62,10 +62,10 @@ namespace Voucherify.Api
         /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationRulesCreateResponseBody</returns>
-        ValidationRulesCreateResponseBody CreateValidationRules(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0);
+        ValidationRulesCreateResponseBody CreateValidationRules(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Validation Rules
@@ -74,10 +74,10 @@ namespace Voucherify.Api
         /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationRulesCreateResponseBody</returns>
-        ApiResponse<ValidationRulesCreateResponseBody> CreateValidationRulesWithHttpInfo(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ValidationRulesCreateResponseBody> CreateValidationRulesWithHttpInfo(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Validation Rule Assignment
         /// </summary>
@@ -248,10 +248,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationRulesUpdateResponseBody</returns>
-        ValidationRulesUpdateResponseBody UpdateValidationRule(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0);
+        ValidationRulesUpdateResponseBody UpdateValidationRule(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Validation Rule
@@ -261,10 +261,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationRulesUpdateResponseBody</returns>
-        ApiResponse<ValidationRulesUpdateResponseBody> UpdateValidationRuleWithHttpInfo(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ValidationRulesUpdateResponseBody> UpdateValidationRuleWithHttpInfo(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -282,12 +282,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationRulesAssignmentsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentAsync(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentAsync(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Validation Rules Assignments
@@ -297,12 +297,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationRulesAssignmentsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ValidationRulesAssignmentsCreateResponseBody>> CreateValidationRuleAssignmentWithHttpInfoAsync(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ValidationRulesAssignmentsCreateResponseBody>> CreateValidationRuleAssignmentWithHttpInfoAsync(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Validation Rules
         /// </summary>
@@ -310,11 +310,11 @@ namespace Voucherify.Api
         /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationRulesCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ValidationRulesCreateResponseBody> CreateValidationRulesAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ValidationRulesCreateResponseBody> CreateValidationRulesAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Validation Rules
@@ -323,11 +323,11 @@ namespace Voucherify.Api
         /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationRulesCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ValidationRulesCreateResponseBody>> CreateValidationRulesWithHttpInfoAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ValidationRulesCreateResponseBody>> CreateValidationRulesWithHttpInfoAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Validation Rule Assignment
         /// </summary>
@@ -510,11 +510,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationRulesUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ValidationRulesUpdateResponseBody> UpdateValidationRuleAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ValidationRulesUpdateResponseBody> UpdateValidationRuleAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Validation Rule
@@ -524,11 +524,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationRulesUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ValidationRulesUpdateResponseBody>> UpdateValidationRuleWithHttpInfoAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ValidationRulesUpdateResponseBody>> UpdateValidationRuleWithHttpInfoAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -654,13 +654,13 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationRulesAssignmentsCreateResponseBody</returns>
-        public ValidationRulesAssignmentsCreateResponseBody CreateValidationRuleAssignment(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0)
+        public ValidationRulesAssignmentsCreateResponseBody CreateValidationRuleAssignment(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0)
         {
-            Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody> localVarResponse = CreateValidationRuleAssignmentWithHttpInfo(validationRuleId, force, validationRulesAssignmentsCreateRequestBody);
+            Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody> localVarResponse = CreateValidationRuleAssignmentWithHttpInfo(validationRuleId, validationRulesAssignmentsCreateRequestBody, force);
             return localVarResponse.Data;
         }
 
@@ -669,16 +669,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationRulesAssignmentsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentWithHttpInfo(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentWithHttpInfo(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'validationRuleId' is set
             if (validationRuleId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRuleId' when calling ValidationRulesApi->CreateValidationRuleAssignment");
+            }
+
+            // verify the required parameter 'validationRulesAssignmentsCreateRequestBody' is set
+            if (validationRulesAssignmentsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRulesAssignmentsCreateRequestBody' when calling ValidationRulesApi->CreateValidationRuleAssignment");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -761,14 +767,14 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationRulesAssignmentsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentAsync(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValidationRulesAssignmentsCreateResponseBody> CreateValidationRuleAssignmentAsync(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody> localVarResponse = await CreateValidationRuleAssignmentWithHttpInfoAsync(validationRuleId, force, validationRulesAssignmentsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody> localVarResponse = await CreateValidationRuleAssignmentWithHttpInfoAsync(validationRuleId, validationRulesAssignmentsCreateRequestBody, force, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -777,17 +783,23 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">Unique validation rule ID.</param>
+        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to.</param>
         /// <param name="force">If this flag is set to true, the previous assignment with the same data will be deleted and a new one will be added. (optional)</param>
-        /// <param name="validationRulesAssignmentsCreateRequestBody">Specify the resource that you would like to assign the validation rule to. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationRulesAssignmentsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody>> CreateValidationRuleAssignmentWithHttpInfoAsync(string validationRuleId, bool? force = default(bool?), ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody = default(ValidationRulesAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationRulesAssignmentsCreateResponseBody>> CreateValidationRuleAssignmentWithHttpInfoAsync(string validationRuleId, ValidationRulesAssignmentsCreateRequestBody validationRulesAssignmentsCreateRequestBody, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'validationRuleId' is set
             if (validationRuleId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRuleId' when calling ValidationRulesApi->CreateValidationRuleAssignment");
+            }
+
+            // verify the required parameter 'validationRulesAssignmentsCreateRequestBody' is set
+            if (validationRulesAssignmentsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRulesAssignmentsCreateRequestBody' when calling ValidationRulesApi->CreateValidationRuleAssignment");
             }
 
 
@@ -870,10 +882,10 @@ namespace Voucherify.Api
         /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationRulesCreateResponseBody</returns>
-        public ValidationRulesCreateResponseBody CreateValidationRules(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0)
+        public ValidationRulesCreateResponseBody CreateValidationRules(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ValidationRulesCreateResponseBody> localVarResponse = CreateValidationRulesWithHttpInfo(validationRulesCreateRequestBody);
             return localVarResponse.Data;
@@ -883,11 +895,17 @@ namespace Voucherify.Api
         /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationRulesCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ValidationRulesCreateResponseBody> CreateValidationRulesWithHttpInfo(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ValidationRulesCreateResponseBody> CreateValidationRulesWithHttpInfo(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'validationRulesCreateRequestBody' is set
+            if (validationRulesCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRulesCreateRequestBody' when calling ValidationRulesApi->CreateValidationRules");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -962,11 +980,11 @@ namespace Voucherify.Api
         /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationRulesCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ValidationRulesCreateResponseBody> CreateValidationRulesAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValidationRulesCreateResponseBody> CreateValidationRulesAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ValidationRulesCreateResponseBody> localVarResponse = await CreateValidationRulesWithHttpInfoAsync(validationRulesCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -976,12 +994,18 @@ namespace Voucherify.Api
         /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters. (optional)</param>
+        /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationRulesCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationRulesCreateResponseBody>> CreateValidationRulesWithHttpInfoAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody = default(ValidationRulesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationRulesCreateResponseBody>> CreateValidationRulesWithHttpInfoAsync(ValidationRulesCreateRequestBody validationRulesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'validationRulesCreateRequestBody' is set
+            if (validationRulesCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRulesCreateRequestBody' when calling ValidationRulesApi->CreateValidationRules");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -2370,10 +2394,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ValidationRulesUpdateResponseBody</returns>
-        public ValidationRulesUpdateResponseBody UpdateValidationRule(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0)
+        public ValidationRulesUpdateResponseBody UpdateValidationRule(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ValidationRulesUpdateResponseBody> localVarResponse = UpdateValidationRuleWithHttpInfo(validationRuleId, validationRulesUpdateRequestBody);
             return localVarResponse.Data;
@@ -2384,15 +2408,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ValidationRulesUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ValidationRulesUpdateResponseBody> UpdateValidationRuleWithHttpInfo(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ValidationRulesUpdateResponseBody> UpdateValidationRuleWithHttpInfo(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'validationRuleId' is set
             if (validationRuleId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRuleId' when calling ValidationRulesApi->UpdateValidationRule");
+            }
+
+            // verify the required parameter 'validationRulesUpdateRequestBody' is set
+            if (validationRulesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRulesUpdateRequestBody' when calling ValidationRulesApi->UpdateValidationRule");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2471,11 +2501,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ValidationRulesUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ValidationRulesUpdateResponseBody> UpdateValidationRuleAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ValidationRulesUpdateResponseBody> UpdateValidationRuleAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ValidationRulesUpdateResponseBody> localVarResponse = await UpdateValidationRuleWithHttpInfoAsync(validationRuleId, validationRulesUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2486,16 +2516,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
-        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="validationRulesUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ValidationRulesUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationRulesUpdateResponseBody>> UpdateValidationRuleWithHttpInfoAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody = default(ValidationRulesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ValidationRulesUpdateResponseBody>> UpdateValidationRuleWithHttpInfoAsync(string validationRuleId, ValidationRulesUpdateRequestBody validationRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'validationRuleId' is set
             if (validationRuleId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRuleId' when calling ValidationRulesApi->UpdateValidationRule");
+            }
+
+            // verify the required parameter 'validationRulesUpdateRequestBody' is set
+            if (validationRulesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'validationRulesUpdateRequestBody' when calling ValidationRulesApi->UpdateValidationRule");
             }
 
 

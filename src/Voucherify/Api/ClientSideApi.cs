@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientQualificationsCheckEligibilityResponseBody</returns>
-        ClientQualificationsCheckEligibilityResponseBody CheckEligibilityClientSide(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0);
+        ClientQualificationsCheckEligibilityResponseBody CheckEligibilityClientSide(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Check Eligibility (client-side)
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientQualificationsCheckEligibilityResponseBody</returns>
-        ApiResponse<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideWithHttpInfo(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0);
+        ApiResponse<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideWithHttpInfo(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0);
         /// <summary>
         /// List Promotion Tiers (client-side)
         /// </summary>
@@ -90,10 +90,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientRedemptionsRedeemResponseBody</returns>
-        ClientRedemptionsRedeemResponseBody RedeemStackedDiscountsClientSide(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0);
+        ClientRedemptionsRedeemResponseBody RedeemStackedDiscountsClientSide(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Redeem Stackable Discounts (client-side)
@@ -103,10 +103,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientRedemptionsRedeemResponseBody</returns>
-        ApiResponse<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideWithHttpInfo(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0);
+        ApiResponse<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideWithHttpInfo(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Track Custom Event (client-side)
         /// </summary>
@@ -115,10 +115,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientEventsCreateResponseBody</returns>
-        ClientEventsCreateResponseBody TrackCustomEventClientSide(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0);
+        ClientEventsCreateResponseBody TrackCustomEventClientSide(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Track Custom Event (client-side)
@@ -128,10 +128,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientEventsCreateResponseBody</returns>
-        ApiResponse<ClientEventsCreateResponseBody> TrackCustomEventClientSideWithHttpInfo(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ClientEventsCreateResponseBody> TrackCustomEventClientSideWithHttpInfo(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Validate Stackable Discounts (client-side)
         /// </summary>
@@ -140,10 +140,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientValidationsValidateResponseBody</returns>
-        ClientValidationsValidateResponseBody ValidateStackedDiscountsClientSide(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0);
+        ClientValidationsValidateResponseBody ValidateStackedDiscountsClientSide(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Validate Stackable Discounts (client-side)
@@ -153,10 +153,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientValidationsValidateResponseBody</returns>
-        ApiResponse<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideWithHttpInfo(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0);
+        ApiResponse<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideWithHttpInfo(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -173,11 +173,11 @@ namespace Voucherify.Api
         /// Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientQualificationsCheckEligibilityResponseBody</returns>
-        System.Threading.Tasks.Task<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Check Eligibility (client-side)
@@ -186,11 +186,11 @@ namespace Voucherify.Api
         /// Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientQualificationsCheckEligibilityResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ClientQualificationsCheckEligibilityResponseBody>> CheckEligibilityClientSideWithHttpInfoAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ClientQualificationsCheckEligibilityResponseBody>> CheckEligibilityClientSideWithHttpInfoAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Promotion Tiers (client-side)
         /// </summary>
@@ -232,11 +232,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientRedemptionsRedeemResponseBody</returns>
-        System.Threading.Tasks.Task<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Redeem Stackable Discounts (client-side)
@@ -246,11 +246,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientRedemptionsRedeemResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ClientRedemptionsRedeemResponseBody>> RedeemStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ClientRedemptionsRedeemResponseBody>> RedeemStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Track Custom Event (client-side)
         /// </summary>
@@ -259,11 +259,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientEventsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ClientEventsCreateResponseBody> TrackCustomEventClientSideAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ClientEventsCreateResponseBody> TrackCustomEventClientSideAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Track Custom Event (client-side)
@@ -273,11 +273,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientEventsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ClientEventsCreateResponseBody>> TrackCustomEventClientSideWithHttpInfoAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ClientEventsCreateResponseBody>> TrackCustomEventClientSideWithHttpInfoAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Validate Stackable Discounts (client-side)
         /// </summary>
@@ -286,11 +286,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientValidationsValidateResponseBody</returns>
-        System.Threading.Tasks.Task<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Validate Stackable Discounts (client-side)
@@ -300,11 +300,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientValidationsValidateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ClientValidationsValidateResponseBody>> ValidateStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ClientValidationsValidateResponseBody>> ValidateStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -429,10 +429,10 @@ namespace Voucherify.Api
         /// Check Eligibility (client-side) Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientQualificationsCheckEligibilityResponseBody</returns>
-        public ClientQualificationsCheckEligibilityResponseBody CheckEligibilityClientSide(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0)
+        public ClientQualificationsCheckEligibilityResponseBody CheckEligibilityClientSide(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ClientQualificationsCheckEligibilityResponseBody> localVarResponse = CheckEligibilityClientSideWithHttpInfo(clientQualificationsCheckEligibilityRequestBody);
             return localVarResponse.Data;
@@ -442,11 +442,17 @@ namespace Voucherify.Api
         /// Check Eligibility (client-side) Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientQualificationsCheckEligibilityResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideWithHttpInfo(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideWithHttpInfo(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'clientQualificationsCheckEligibilityRequestBody' is set
+            if (clientQualificationsCheckEligibilityRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientQualificationsCheckEligibilityRequestBody' when calling ClientSideApi->CheckEligibilityClientSide");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -521,11 +527,11 @@ namespace Voucherify.Api
         /// Check Eligibility (client-side) Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientQualificationsCheckEligibilityResponseBody</returns>
-        public async System.Threading.Tasks.Task<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClientQualificationsCheckEligibilityResponseBody> CheckEligibilityClientSideAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ClientQualificationsCheckEligibilityResponseBody> localVarResponse = await CheckEligibilityClientSideWithHttpInfoAsync(clientQualificationsCheckEligibilityRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -535,12 +541,18 @@ namespace Voucherify.Api
         /// Check Eligibility (client-side) Generate a list of redeemables that are applicable in the context of the customer and order. The new qualifications method is an improved version of [Campaign Qualifications](/api-reference/campaigns/examine-campaign-qualification), [Voucher Qualifications](/api-reference/vouchers/examine-voucher-qualification) API requests. The new qualification method introduces the following improvements: - Qualification results are returned faster - No limit on the number of returned redeemables - Introduces new qualification scenarios, not available in the previous version  👍 Scenario Guide  Read our dedicated guide to learn about some use cases this endpoint can cover [here](/guides/checking-eligibility). # Paging  The Voucherify Qualifications API request will return to you all of the redeemables available for the customer in batches of up to 50 redeemables per page. To get the next batch of redeemables, you need to use the starting_after cursor. To process of paging the redeemables works in the following manner: - You send the first API request for Qualifications without the starting_after parameter. - The response will contain a parameter named has_more. If the parameters value is set to true, then more redeemables are available. - Get the value of the created_at parameter of the last returned redeemable. The value of this parameter will be used as a cursor to retrieve the next page of redeemables. - Send another API request for Qualification with the starting_after parameter set to the value taken from the created_at parameter from the last returned redeemable. - Voucherify will return the next page of redeemables. - If the has_more parameter is set to true, apply steps 3-5 to get the next page of redeemables.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context. (optional)</param>
+        /// <param name="clientQualificationsCheckEligibilityRequestBody">Define order and customer context.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientQualificationsCheckEligibilityResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientQualificationsCheckEligibilityResponseBody>> CheckEligibilityClientSideWithHttpInfoAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = default(ClientQualificationsCheckEligibilityRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientQualificationsCheckEligibilityResponseBody>> CheckEligibilityClientSideWithHttpInfoAsync(ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'clientQualificationsCheckEligibilityRequestBody' is set
+            if (clientQualificationsCheckEligibilityRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientQualificationsCheckEligibilityRequestBody' when calling ClientSideApi->CheckEligibilityClientSide");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -862,10 +874,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientRedemptionsRedeemResponseBody</returns>
-        public ClientRedemptionsRedeemResponseBody RedeemStackedDiscountsClientSide(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0)
+        public ClientRedemptionsRedeemResponseBody RedeemStackedDiscountsClientSide(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ClientRedemptionsRedeemResponseBody> localVarResponse = RedeemStackedDiscountsClientSideWithHttpInfo(origin, clientRedemptionsRedeemRequestBody);
             return localVarResponse.Data;
@@ -876,15 +888,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientRedemptionsRedeemResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideWithHttpInfo(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideWithHttpInfo(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'origin' is set
             if (origin == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'origin' when calling ClientSideApi->RedeemStackedDiscountsClientSide");
+            }
+
+            // verify the required parameter 'clientRedemptionsRedeemRequestBody' is set
+            if (clientRedemptionsRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientRedemptionsRedeemRequestBody' when calling ClientSideApi->RedeemStackedDiscountsClientSide");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -963,11 +981,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientRedemptionsRedeemResponseBody</returns>
-        public async System.Threading.Tasks.Task<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClientRedemptionsRedeemResponseBody> RedeemStackedDiscountsClientSideAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ClientRedemptionsRedeemResponseBody> localVarResponse = await RedeemStackedDiscountsClientSideWithHttpInfoAsync(origin, clientRedemptionsRedeemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -978,16 +996,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientRedemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="clientRedemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientRedemptionsRedeemResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientRedemptionsRedeemResponseBody>> RedeemStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = default(ClientRedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientRedemptionsRedeemResponseBody>> RedeemStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'origin' is set
             if (origin == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'origin' when calling ClientSideApi->RedeemStackedDiscountsClientSide");
+            }
+
+            // verify the required parameter 'clientRedemptionsRedeemRequestBody' is set
+            if (clientRedemptionsRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientRedemptionsRedeemRequestBody' when calling ClientSideApi->RedeemStackedDiscountsClientSide");
             }
 
 
@@ -1067,10 +1091,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientEventsCreateResponseBody</returns>
-        public ClientEventsCreateResponseBody TrackCustomEventClientSide(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0)
+        public ClientEventsCreateResponseBody TrackCustomEventClientSide(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ClientEventsCreateResponseBody> localVarResponse = TrackCustomEventClientSideWithHttpInfo(origin, clientEventsCreateRequestBody);
             return localVarResponse.Data;
@@ -1081,15 +1105,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientEventsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ClientEventsCreateResponseBody> TrackCustomEventClientSideWithHttpInfo(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ClientEventsCreateResponseBody> TrackCustomEventClientSideWithHttpInfo(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'origin' is set
             if (origin == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'origin' when calling ClientSideApi->TrackCustomEventClientSide");
+            }
+
+            // verify the required parameter 'clientEventsCreateRequestBody' is set
+            if (clientEventsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientEventsCreateRequestBody' when calling ClientSideApi->TrackCustomEventClientSide");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1168,11 +1198,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientEventsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ClientEventsCreateResponseBody> TrackCustomEventClientSideAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClientEventsCreateResponseBody> TrackCustomEventClientSideAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ClientEventsCreateResponseBody> localVarResponse = await TrackCustomEventClientSideWithHttpInfoAsync(origin, clientEventsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1183,16 +1213,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="clientEventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientEventsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientEventsCreateResponseBody>> TrackCustomEventClientSideWithHttpInfoAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = default(ClientEventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientEventsCreateResponseBody>> TrackCustomEventClientSideWithHttpInfoAsync(string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'origin' is set
             if (origin == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'origin' when calling ClientSideApi->TrackCustomEventClientSide");
+            }
+
+            // verify the required parameter 'clientEventsCreateRequestBody' is set
+            if (clientEventsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientEventsCreateRequestBody' when calling ClientSideApi->TrackCustomEventClientSide");
             }
 
 
@@ -1272,10 +1308,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ClientValidationsValidateResponseBody</returns>
-        public ClientValidationsValidateResponseBody ValidateStackedDiscountsClientSide(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0)
+        public ClientValidationsValidateResponseBody ValidateStackedDiscountsClientSide(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ClientValidationsValidateResponseBody> localVarResponse = ValidateStackedDiscountsClientSideWithHttpInfo(origin, clientValidationsValidateRequestBody);
             return localVarResponse.Data;
@@ -1286,15 +1322,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ClientValidationsValidateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideWithHttpInfo(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideWithHttpInfo(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'origin' is set
             if (origin == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'origin' when calling ClientSideApi->ValidateStackedDiscountsClientSide");
+            }
+
+            // verify the required parameter 'clientValidationsValidateRequestBody' is set
+            if (clientValidationsValidateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientValidationsValidateRequestBody' when calling ClientSideApi->ValidateStackedDiscountsClientSide");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1373,11 +1415,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ClientValidationsValidateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ClientValidationsValidateResponseBody> ValidateStackedDiscountsClientSideAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ClientValidationsValidateResponseBody> localVarResponse = await ValidateStackedDiscountsClientSideWithHttpInfoAsync(origin, clientValidationsValidateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1388,16 +1430,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="origin">Indicates the origin (scheme, hostname, and port).</param>
-        /// <param name="clientValidationsValidateRequestBody"> (optional)</param>
+        /// <param name="clientValidationsValidateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ClientValidationsValidateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientValidationsValidateResponseBody>> ValidateStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = default(ClientValidationsValidateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ClientValidationsValidateResponseBody>> ValidateStackedDiscountsClientSideWithHttpInfoAsync(string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'origin' is set
             if (origin == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'origin' when calling ClientSideApi->ValidateStackedDiscountsClientSide");
+            }
+
+            // verify the required parameter 'clientValidationsValidateRequestBody' is set
+            if (clientValidationsValidateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'clientValidationsValidateRequestBody' when calling ClientSideApi->ValidateStackedDiscountsClientSide");
             }
 
 

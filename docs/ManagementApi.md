@@ -45,7 +45,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="assignuser"></a>
 # **AssignUser**
-> ManagementProjectsUsersAssignResponseBody AssignUser (string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody = null)
+> ManagementProjectsUsersAssignResponseBody AssignUser (string projectId, ManagementProjectsUsersAssignRequestBody managementProjectsUsersAssignRequestBody)
 
 Assign User
 
@@ -78,7 +78,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsUsersAssignRequestBody = new ManagementProjectsUsersAssignRequestBody(); // ManagementProjectsUsersAssignRequestBody | Defines the user details. (optional) 
+            var managementProjectsUsersAssignRequestBody = new ManagementProjectsUsersAssignRequestBody(); // ManagementProjectsUsersAssignRequestBody | Defines the user details.
 
             try
             {
@@ -122,7 +122,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsUsersAssignRequestBody** | [**ManagementProjectsUsersAssignRequestBody**](ManagementProjectsUsersAssignRequestBody.md) | Defines the user details. | [optional]  |
+| **managementProjectsUsersAssignRequestBody** | [**ManagementProjectsUsersAssignRequestBody**](ManagementProjectsUsersAssignRequestBody.md) | Defines the user details. |  |
 
 ### Return type
 
@@ -147,7 +147,7 @@ catch (ApiException e)
 
 <a id="createbrand"></a>
 # **CreateBrand**
-> ManagementProjectsBrandingCreateResponseBody CreateBrand (string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody = null)
+> ManagementProjectsBrandingCreateResponseBody CreateBrand (string projectId, ManagementProjectsBrandingCreateRequestBody managementProjectsBrandingCreateRequestBody)
 
 Create Brand
 
@@ -180,7 +180,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsBrandingCreateRequestBody = new ManagementProjectsBrandingCreateRequestBody(); // ManagementProjectsBrandingCreateRequestBody | Defines a brand configuration. (optional) 
+            var managementProjectsBrandingCreateRequestBody = new ManagementProjectsBrandingCreateRequestBody(); // ManagementProjectsBrandingCreateRequestBody | Defines a brand configuration.
 
             try
             {
@@ -224,7 +224,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsBrandingCreateRequestBody** | [**ManagementProjectsBrandingCreateRequestBody**](ManagementProjectsBrandingCreateRequestBody.md) | Defines a brand configuration. | [optional]  |
+| **managementProjectsBrandingCreateRequestBody** | [**ManagementProjectsBrandingCreateRequestBody**](ManagementProjectsBrandingCreateRequestBody.md) | Defines a brand configuration. |  |
 
 ### Return type
 
@@ -249,7 +249,7 @@ catch (ApiException e)
 
 <a id="createcustomeventschema"></a>
 # **CreateCustomEventSchema**
-> ManagementProjectsCustomEventSchemasCreateResponseBody CreateCustomEventSchema (string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody = null)
+> ManagementProjectsCustomEventSchemasCreateResponseBody CreateCustomEventSchema (string projectId, ManagementProjectsCustomEventSchemasCreateRequestBody managementProjectsCustomEventSchemasCreateRequestBody)
 
 Create Custom Event Schema
 
@@ -282,7 +282,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsCustomEventSchemasCreateRequestBody = new ManagementProjectsCustomEventSchemasCreateRequestBody(); // ManagementProjectsCustomEventSchemasCreateRequestBody | Defines the custom event schema. (optional) 
+            var managementProjectsCustomEventSchemasCreateRequestBody = new ManagementProjectsCustomEventSchemasCreateRequestBody(); // ManagementProjectsCustomEventSchemasCreateRequestBody | Defines the custom event schema.
 
             try
             {
@@ -326,7 +326,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsCustomEventSchemasCreateRequestBody** | [**ManagementProjectsCustomEventSchemasCreateRequestBody**](ManagementProjectsCustomEventSchemasCreateRequestBody.md) | Defines the custom event schema. | [optional]  |
+| **managementProjectsCustomEventSchemasCreateRequestBody** | [**ManagementProjectsCustomEventSchemasCreateRequestBody**](ManagementProjectsCustomEventSchemasCreateRequestBody.md) | Defines the custom event schema. |  |
 
 ### Return type
 
@@ -351,7 +351,7 @@ catch (ApiException e)
 
 <a id="createmetadataschema"></a>
 # **CreateMetadataSchema**
-> ManagementProjectsMetadataSchemasCreateResponseBody CreateMetadataSchema (string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody = null)
+> ManagementProjectsMetadataSchemasCreateResponseBody CreateMetadataSchema (string projectId, ManagementProjectsMetadataSchemasCreateRequestBody managementProjectsMetadataSchemasCreateRequestBody)
 
 Create Metadata Schema
 
@@ -384,7 +384,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsMetadataSchemasCreateRequestBody = new ManagementProjectsMetadataSchemasCreateRequestBody(); // ManagementProjectsMetadataSchemasCreateRequestBody | Defines the metadata schema. (optional) 
+            var managementProjectsMetadataSchemasCreateRequestBody = new ManagementProjectsMetadataSchemasCreateRequestBody(); // ManagementProjectsMetadataSchemasCreateRequestBody | Defines the metadata schema.
 
             try
             {
@@ -428,7 +428,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsMetadataSchemasCreateRequestBody** | [**ManagementProjectsMetadataSchemasCreateRequestBody**](ManagementProjectsMetadataSchemasCreateRequestBody.md) | Defines the metadata schema. | [optional]  |
+| **managementProjectsMetadataSchemasCreateRequestBody** | [**ManagementProjectsMetadataSchemasCreateRequestBody**](ManagementProjectsMetadataSchemasCreateRequestBody.md) | Defines the metadata schema. |  |
 
 ### Return type
 
@@ -453,7 +453,7 @@ catch (ApiException e)
 
 <a id="createproject"></a>
 # **CreateProject**
-> ManagementProjectsCreateResponseBody CreateProject (ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody = null)
+> ManagementProjectsCreateResponseBody CreateProject (ManagementProjectsCreateRequestBody managementProjectsCreateRequestBody)
 
 Create Project
 
@@ -485,7 +485,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-Management-Id", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var managementProjectsCreateRequestBody = new ManagementProjectsCreateRequestBody(); // ManagementProjectsCreateRequestBody | Define project details. (optional) 
+            var managementProjectsCreateRequestBody = new ManagementProjectsCreateRequestBody(); // ManagementProjectsCreateRequestBody | Define project details.
 
             try
             {
@@ -528,7 +528,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **managementProjectsCreateRequestBody** | [**ManagementProjectsCreateRequestBody**](ManagementProjectsCreateRequestBody.md) | Define project details. | [optional]  |
+| **managementProjectsCreateRequestBody** | [**ManagementProjectsCreateRequestBody**](ManagementProjectsCreateRequestBody.md) | Define project details. |  |
 
 ### Return type
 
@@ -553,7 +553,7 @@ catch (ApiException e)
 
 <a id="createstackingrules"></a>
 # **CreateStackingRules**
-> ManagementProjectsStackingRulesCreateResponseBody CreateStackingRules (string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody = null)
+> ManagementProjectsStackingRulesCreateResponseBody CreateStackingRules (string projectId, ManagementProjectsStackingRulesCreateRequestBody managementProjectsStackingRulesCreateRequestBody)
 
 Create Stacking Rules
 
@@ -586,7 +586,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsStackingRulesCreateRequestBody = new ManagementProjectsStackingRulesCreateRequestBody(); // ManagementProjectsStackingRulesCreateRequestBody | Defines the stacking rule parameters. (optional) 
+            var managementProjectsStackingRulesCreateRequestBody = new ManagementProjectsStackingRulesCreateRequestBody(); // ManagementProjectsStackingRulesCreateRequestBody | Defines the stacking rule parameters.
 
             try
             {
@@ -630,7 +630,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsStackingRulesCreateRequestBody** | [**ManagementProjectsStackingRulesCreateRequestBody**](ManagementProjectsStackingRulesCreateRequestBody.md) | Defines the stacking rule parameters. | [optional]  |
+| **managementProjectsStackingRulesCreateRequestBody** | [**ManagementProjectsStackingRulesCreateRequestBody**](ManagementProjectsStackingRulesCreateRequestBody.md) | Defines the stacking rule parameters. |  |
 
 ### Return type
 
@@ -655,7 +655,7 @@ catch (ApiException e)
 
 <a id="createwebhook"></a>
 # **CreateWebhook**
-> ManagementProjectsWebhooksCreateResponseBody CreateWebhook (string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody = null)
+> ManagementProjectsWebhooksCreateResponseBody CreateWebhook (string projectId, ManagementProjectsWebhooksCreateRequestBody managementProjectsWebhooksCreateRequestBody)
 
 Create Webhook
 
@@ -688,7 +688,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsWebhooksCreateRequestBody = new ManagementProjectsWebhooksCreateRequestBody(); // ManagementProjectsWebhooksCreateRequestBody | Defines a webhook configuration. (optional) 
+            var managementProjectsWebhooksCreateRequestBody = new ManagementProjectsWebhooksCreateRequestBody(); // ManagementProjectsWebhooksCreateRequestBody | Defines a webhook configuration.
 
             try
             {
@@ -732,7 +732,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsWebhooksCreateRequestBody** | [**ManagementProjectsWebhooksCreateRequestBody**](ManagementProjectsWebhooksCreateRequestBody.md) | Defines a webhook configuration. | [optional]  |
+| **managementProjectsWebhooksCreateRequestBody** | [**ManagementProjectsWebhooksCreateRequestBody**](ManagementProjectsWebhooksCreateRequestBody.md) | Defines a webhook configuration. |  |
 
 ### Return type
 
@@ -2055,7 +2055,7 @@ catch (ApiException e)
 
 <a id="inviteuser"></a>
 # **InviteUser**
-> void InviteUser (ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody = null)
+> void InviteUser (ManagementProjectsUsersInviteCreateRequestBody managementProjectsUsersInviteCreateRequestBody)
 
 Invite a New User
 
@@ -2087,7 +2087,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-Management-Id", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var managementProjectsUsersInviteCreateRequestBody = new ManagementProjectsUsersInviteCreateRequestBody(); // ManagementProjectsUsersInviteCreateRequestBody | Defines the details of the invitation, the project, and roles to which the user will be assigned. (optional) 
+            var managementProjectsUsersInviteCreateRequestBody = new ManagementProjectsUsersInviteCreateRequestBody(); // ManagementProjectsUsersInviteCreateRequestBody | Defines the details of the invitation, the project, and roles to which the user will be assigned.
 
             try
             {
@@ -2126,7 +2126,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **managementProjectsUsersInviteCreateRequestBody** | [**ManagementProjectsUsersInviteCreateRequestBody**](ManagementProjectsUsersInviteCreateRequestBody.md) | Defines the details of the invitation, the project, and roles to which the user will be assigned. | [optional]  |
+| **managementProjectsUsersInviteCreateRequestBody** | [**ManagementProjectsUsersInviteCreateRequestBody**](ManagementProjectsUsersInviteCreateRequestBody.md) | Defines the details of the invitation, the project, and roles to which the user will be assigned. |  |
 
 ### Return type
 
@@ -2846,7 +2846,7 @@ catch (ApiException e)
 
 <a id="managementcopycampaigntemplate"></a>
 # **ManagementCopyCampaignTemplate**
-> ManagementProjectsTemplatesCampaignsCopyCreateResponseBody ManagementCopyCampaignTemplate (string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody = null)
+> ManagementProjectsTemplatesCampaignsCopyCreateResponseBody ManagementCopyCampaignTemplate (string projectId, string campaignTemplateId, ManagementProjectsTemplatesCampaignsCopyCreateRequestBody managementProjectsTemplatesCampaignsCopyCreateRequestBody)
 
 Copy Campaign Template to a Project
 
@@ -2880,7 +2880,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var campaignTemplateId = "campaignTemplateId_example";  // string | Provide the unique identifier of the campaign template.
-            var managementProjectsTemplatesCampaignsCopyCreateRequestBody = new ManagementProjectsTemplatesCampaignsCopyCreateRequestBody(); // ManagementProjectsTemplatesCampaignsCopyCreateRequestBody | Determines the details about the template in the destination project as well as the destination project itself. (optional) 
+            var managementProjectsTemplatesCampaignsCopyCreateRequestBody = new ManagementProjectsTemplatesCampaignsCopyCreateRequestBody(); // ManagementProjectsTemplatesCampaignsCopyCreateRequestBody | Determines the details about the template in the destination project as well as the destination project itself.
 
             try
             {
@@ -2925,7 +2925,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **campaignTemplateId** | **string** | Provide the unique identifier of the campaign template. |  |
-| **managementProjectsTemplatesCampaignsCopyCreateRequestBody** | [**ManagementProjectsTemplatesCampaignsCopyCreateRequestBody**](ManagementProjectsTemplatesCampaignsCopyCreateRequestBody.md) | Determines the details about the template in the destination project as well as the destination project itself. | [optional]  |
+| **managementProjectsTemplatesCampaignsCopyCreateRequestBody** | [**ManagementProjectsTemplatesCampaignsCopyCreateRequestBody**](ManagementProjectsTemplatesCampaignsCopyCreateRequestBody.md) | Determines the details about the template in the destination project as well as the destination project itself. |  |
 
 ### Return type
 
@@ -3158,7 +3158,7 @@ void (empty response body)
 
 <a id="updatebrand"></a>
 # **UpdateBrand**
-> ManagementProjectsBrandingUpdateResponseBody UpdateBrand (string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody = null)
+> ManagementProjectsBrandingUpdateResponseBody UpdateBrand (string projectId, string brandingId, ManagementProjectsBrandingUpdateRequestBody managementProjectsBrandingUpdateRequestBody)
 
 Update Brand
 
@@ -3192,7 +3192,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var brandingId = "brandingId_example";  // string | Provide the unique identifier of the brand configuration.
-            var managementProjectsBrandingUpdateRequestBody = new ManagementProjectsBrandingUpdateRequestBody(); // ManagementProjectsBrandingUpdateRequestBody | Defines the brand configuration to be updated. (optional) 
+            var managementProjectsBrandingUpdateRequestBody = new ManagementProjectsBrandingUpdateRequestBody(); // ManagementProjectsBrandingUpdateRequestBody | Defines the brand configuration to be updated.
 
             try
             {
@@ -3237,7 +3237,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **brandingId** | **string** | Provide the unique identifier of the brand configuration. |  |
-| **managementProjectsBrandingUpdateRequestBody** | [**ManagementProjectsBrandingUpdateRequestBody**](ManagementProjectsBrandingUpdateRequestBody.md) | Defines the brand configuration to be updated. | [optional]  |
+| **managementProjectsBrandingUpdateRequestBody** | [**ManagementProjectsBrandingUpdateRequestBody**](ManagementProjectsBrandingUpdateRequestBody.md) | Defines the brand configuration to be updated. |  |
 
 ### Return type
 
@@ -3262,7 +3262,7 @@ catch (ApiException e)
 
 <a id="updatecustomeventschema"></a>
 # **UpdateCustomEventSchema**
-> ManagementProjectsCustomEventSchemasUpdateResponseBody UpdateCustomEventSchema (string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody = null)
+> ManagementProjectsCustomEventSchemasUpdateResponseBody UpdateCustomEventSchema (string projectId, string customEventSchemaId, ManagementProjectsCustomEventSchemasUpdateRequestBody managementProjectsCustomEventSchemasUpdateRequestBody)
 
 Update Custom Event Schema
 
@@ -3296,7 +3296,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var customEventSchemaId = "customEventSchemaId_example";  // string | Provide the unique identifier of the custom event schema.
-            var managementProjectsCustomEventSchemasUpdateRequestBody = new ManagementProjectsCustomEventSchemasUpdateRequestBody(); // ManagementProjectsCustomEventSchemasUpdateRequestBody | Defines the custom event schema to be updated. (optional) 
+            var managementProjectsCustomEventSchemasUpdateRequestBody = new ManagementProjectsCustomEventSchemasUpdateRequestBody(); // ManagementProjectsCustomEventSchemasUpdateRequestBody | Defines the custom event schema to be updated.
 
             try
             {
@@ -3341,7 +3341,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **customEventSchemaId** | **string** | Provide the unique identifier of the custom event schema. |  |
-| **managementProjectsCustomEventSchemasUpdateRequestBody** | [**ManagementProjectsCustomEventSchemasUpdateRequestBody**](ManagementProjectsCustomEventSchemasUpdateRequestBody.md) | Defines the custom event schema to be updated. | [optional]  |
+| **managementProjectsCustomEventSchemasUpdateRequestBody** | [**ManagementProjectsCustomEventSchemasUpdateRequestBody**](ManagementProjectsCustomEventSchemasUpdateRequestBody.md) | Defines the custom event schema to be updated. |  |
 
 ### Return type
 
@@ -3366,7 +3366,7 @@ catch (ApiException e)
 
 <a id="updatemetadataschema"></a>
 # **UpdateMetadataSchema**
-> ManagementProjectsMetadataSchemasUpdateResponseBody UpdateMetadataSchema (string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody = null)
+> ManagementProjectsMetadataSchemasUpdateResponseBody UpdateMetadataSchema (string projectId, string metadataSchemaId, ManagementProjectsMetadataSchemasUpdateRequestBody managementProjectsMetadataSchemasUpdateRequestBody)
 
 Update Metadata Schema
 
@@ -3400,7 +3400,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var metadataSchemaId = "metadataSchemaId_example";  // string | Provide the unique identifier of the metadata schema.
-            var managementProjectsMetadataSchemasUpdateRequestBody = new ManagementProjectsMetadataSchemasUpdateRequestBody(); // ManagementProjectsMetadataSchemasUpdateRequestBody | Defines the metadata schema to be updated. (optional) 
+            var managementProjectsMetadataSchemasUpdateRequestBody = new ManagementProjectsMetadataSchemasUpdateRequestBody(); // ManagementProjectsMetadataSchemasUpdateRequestBody | Defines the metadata schema to be updated.
 
             try
             {
@@ -3445,7 +3445,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **metadataSchemaId** | **string** | Provide the unique identifier of the metadata schema. |  |
-| **managementProjectsMetadataSchemasUpdateRequestBody** | [**ManagementProjectsMetadataSchemasUpdateRequestBody**](ManagementProjectsMetadataSchemasUpdateRequestBody.md) | Defines the metadata schema to be updated. | [optional]  |
+| **managementProjectsMetadataSchemasUpdateRequestBody** | [**ManagementProjectsMetadataSchemasUpdateRequestBody**](ManagementProjectsMetadataSchemasUpdateRequestBody.md) | Defines the metadata schema to be updated. |  |
 
 ### Return type
 
@@ -3470,7 +3470,7 @@ catch (ApiException e)
 
 <a id="updateproject"></a>
 # **UpdateProject**
-> ManagementProjectsUpdateResponseBody UpdateProject (string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody = null)
+> ManagementProjectsUpdateResponseBody UpdateProject (string projectId, ManagementProjectsUpdateRequestBody managementProjectsUpdateRequestBody)
 
 Update Project
 
@@ -3503,7 +3503,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
-            var managementProjectsUpdateRequestBody = new ManagementProjectsUpdateRequestBody(); // ManagementProjectsUpdateRequestBody | Define the project details to be updated. (optional) 
+            var managementProjectsUpdateRequestBody = new ManagementProjectsUpdateRequestBody(); // ManagementProjectsUpdateRequestBody | Define the project details to be updated.
 
             try
             {
@@ -3547,7 +3547,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
-| **managementProjectsUpdateRequestBody** | [**ManagementProjectsUpdateRequestBody**](ManagementProjectsUpdateRequestBody.md) | Define the project details to be updated. | [optional]  |
+| **managementProjectsUpdateRequestBody** | [**ManagementProjectsUpdateRequestBody**](ManagementProjectsUpdateRequestBody.md) | Define the project details to be updated. |  |
 
 ### Return type
 
@@ -3572,7 +3572,7 @@ catch (ApiException e)
 
 <a id="updatestackingrules"></a>
 # **UpdateStackingRules**
-> ManagementProjectsStackingRulesUpdateResponseBody UpdateStackingRules (string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody = null)
+> ManagementProjectsStackingRulesUpdateResponseBody UpdateStackingRules (string projectId, string stackingRulesId, ManagementProjectsStackingRulesUpdateRequestBody managementProjectsStackingRulesUpdateRequestBody)
 
 Update Stacking Rules
 
@@ -3606,7 +3606,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var stackingRulesId = "stackingRulesId_example";  // string | Provide the unique identifier of the stacking rules.
-            var managementProjectsStackingRulesUpdateRequestBody = new ManagementProjectsStackingRulesUpdateRequestBody(); // ManagementProjectsStackingRulesUpdateRequestBody | Defines the stacking rules to be updated. (optional) 
+            var managementProjectsStackingRulesUpdateRequestBody = new ManagementProjectsStackingRulesUpdateRequestBody(); // ManagementProjectsStackingRulesUpdateRequestBody | Defines the stacking rules to be updated.
 
             try
             {
@@ -3651,7 +3651,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **stackingRulesId** | **string** | Provide the unique identifier of the stacking rules. |  |
-| **managementProjectsStackingRulesUpdateRequestBody** | [**ManagementProjectsStackingRulesUpdateRequestBody**](ManagementProjectsStackingRulesUpdateRequestBody.md) | Defines the stacking rules to be updated. | [optional]  |
+| **managementProjectsStackingRulesUpdateRequestBody** | [**ManagementProjectsStackingRulesUpdateRequestBody**](ManagementProjectsStackingRulesUpdateRequestBody.md) | Defines the stacking rules to be updated. |  |
 
 ### Return type
 
@@ -3676,7 +3676,7 @@ catch (ApiException e)
 
 <a id="updateuser"></a>
 # **UpdateUser**
-> ManagementProjectsUsersUpdateRoleResponseBody UpdateUser (string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody = null)
+> ManagementProjectsUsersUpdateRoleResponseBody UpdateUser (string projectId, string userId, ManagementProjectsUsersUpdateRoleRequestBody managementProjectsUsersUpdateRoleRequestBody)
 
 Update User
 
@@ -3710,7 +3710,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var userId = "userId_example";  // string | Provide the unique identifier of the user. Alternatively, provide the users login.
-            var managementProjectsUsersUpdateRoleRequestBody = new ManagementProjectsUsersUpdateRoleRequestBody(); // ManagementProjectsUsersUpdateRoleRequestBody | Defines the users new role. (optional) 
+            var managementProjectsUsersUpdateRoleRequestBody = new ManagementProjectsUsersUpdateRoleRequestBody(); // ManagementProjectsUsersUpdateRoleRequestBody | Defines the users new role.
 
             try
             {
@@ -3755,7 +3755,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **userId** | **string** | Provide the unique identifier of the user. Alternatively, provide the users login. |  |
-| **managementProjectsUsersUpdateRoleRequestBody** | [**ManagementProjectsUsersUpdateRoleRequestBody**](ManagementProjectsUsersUpdateRoleRequestBody.md) | Defines the users new role. | [optional]  |
+| **managementProjectsUsersUpdateRoleRequestBody** | [**ManagementProjectsUsersUpdateRoleRequestBody**](ManagementProjectsUsersUpdateRoleRequestBody.md) | Defines the users new role. |  |
 
 ### Return type
 
@@ -3780,7 +3780,7 @@ catch (ApiException e)
 
 <a id="updatewebhook"></a>
 # **UpdateWebhook**
-> ManagementProjectsWebhooksUpdateResponseBody UpdateWebhook (string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody = null)
+> ManagementProjectsWebhooksUpdateResponseBody UpdateWebhook (string projectId, string webhookId, ManagementProjectsWebhooksUpdateRequestBody managementProjectsWebhooksUpdateRequestBody)
 
 Update Webhook
 
@@ -3814,7 +3814,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var projectId = "projectId_example";  // string | Provide the unique identifier of the project.
             var webhookId = "webhookId_example";  // string | Provide the unique identifier of the webhook configuration.
-            var managementProjectsWebhooksUpdateRequestBody = new ManagementProjectsWebhooksUpdateRequestBody(); // ManagementProjectsWebhooksUpdateRequestBody | Defines the webhook configuration to be updated. (optional) 
+            var managementProjectsWebhooksUpdateRequestBody = new ManagementProjectsWebhooksUpdateRequestBody(); // ManagementProjectsWebhooksUpdateRequestBody | Defines the webhook configuration to be updated.
 
             try
             {
@@ -3859,7 +3859,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **projectId** | **string** | Provide the unique identifier of the project. |  |
 | **webhookId** | **string** | Provide the unique identifier of the webhook configuration. |  |
-| **managementProjectsWebhooksUpdateRequestBody** | [**ManagementProjectsWebhooksUpdateRequestBody**](ManagementProjectsWebhooksUpdateRequestBody.md) | Defines the webhook configuration to be updated. | [optional]  |
+| **managementProjectsWebhooksUpdateRequestBody** | [**ManagementProjectsWebhooksUpdateRequestBody**](ManagementProjectsWebhooksUpdateRequestBody.md) | Defines the webhook configuration to be updated. |  |
 
 ### Return type
 

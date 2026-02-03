@@ -12,7 +12,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="checkeligibilityclientside"></a>
 # **CheckEligibilityClientSide**
-> ClientQualificationsCheckEligibilityResponseBody CheckEligibilityClientSide (ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody = null)
+> ClientQualificationsCheckEligibilityResponseBody CheckEligibilityClientSide (ClientQualificationsCheckEligibilityRequestBody clientQualificationsCheckEligibilityRequestBody)
 
 Check Eligibility (client-side)
 
@@ -46,7 +46,7 @@ namespace Example
             // config.AddApiKeyPrefix("X-Client-Token", "Bearer");
 
             var apiInstance = new ClientSideApi(config);
-            var clientQualificationsCheckEligibilityRequestBody = new ClientQualificationsCheckEligibilityRequestBody(); // ClientQualificationsCheckEligibilityRequestBody | Define order and customer context. (optional) 
+            var clientQualificationsCheckEligibilityRequestBody = new ClientQualificationsCheckEligibilityRequestBody(); // ClientQualificationsCheckEligibilityRequestBody | Define order and customer context.
 
             try
             {
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientQualificationsCheckEligibilityRequestBody** | [**ClientQualificationsCheckEligibilityRequestBody**](ClientQualificationsCheckEligibilityRequestBody.md) | Define order and customer context. | [optional]  |
+| **clientQualificationsCheckEligibilityRequestBody** | [**ClientQualificationsCheckEligibilityRequestBody**](ClientQualificationsCheckEligibilityRequestBody.md) | Define order and customer context. |  |
 
 ### Return type
 
@@ -224,7 +224,7 @@ catch (ApiException e)
 
 <a id="redeemstackeddiscountsclientside"></a>
 # **RedeemStackedDiscountsClientSide**
-> ClientRedemptionsRedeemResponseBody RedeemStackedDiscountsClientSide (string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody = null)
+> ClientRedemptionsRedeemResponseBody RedeemStackedDiscountsClientSide (string origin, ClientRedemptionsRedeemRequestBody clientRedemptionsRedeemRequestBody)
 
 Redeem Stackable Discounts (client-side)
 
@@ -259,7 +259,7 @@ namespace Example
 
             var apiInstance = new ClientSideApi(config);
             var origin = "origin_example";  // string | Indicates the origin (scheme, hostname, and port).
-            var clientRedemptionsRedeemRequestBody = new ClientRedemptionsRedeemRequestBody(); // ClientRedemptionsRedeemRequestBody |  (optional) 
+            var clientRedemptionsRedeemRequestBody = new ClientRedemptionsRedeemRequestBody(); // ClientRedemptionsRedeemRequestBody | 
 
             try
             {
@@ -303,7 +303,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **origin** | **string** | Indicates the origin (scheme, hostname, and port). |  |
-| **clientRedemptionsRedeemRequestBody** | [**ClientRedemptionsRedeemRequestBody**](ClientRedemptionsRedeemRequestBody.md) |  | [optional]  |
+| **clientRedemptionsRedeemRequestBody** | [**ClientRedemptionsRedeemRequestBody**](ClientRedemptionsRedeemRequestBody.md) |  |  |
 
 ### Return type
 
@@ -328,7 +328,7 @@ catch (ApiException e)
 
 <a id="trackcustomeventclientside"></a>
 # **TrackCustomEventClientSide**
-> ClientEventsCreateResponseBody TrackCustomEventClientSide (string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody = null)
+> ClientEventsCreateResponseBody TrackCustomEventClientSide (string origin, ClientEventsCreateRequestBody clientEventsCreateRequestBody)
 
 Track Custom Event (client-side)
 
@@ -363,7 +363,7 @@ namespace Example
 
             var apiInstance = new ClientSideApi(config);
             var origin = "origin_example";  // string | Indicates the origin (scheme, hostname, and port).
-            var clientEventsCreateRequestBody = new ClientEventsCreateRequestBody(); // ClientEventsCreateRequestBody | Specify the details of the custom event. (optional) 
+            var clientEventsCreateRequestBody = new ClientEventsCreateRequestBody(); // ClientEventsCreateRequestBody | Specify the details of the custom event.
 
             try
             {
@@ -407,7 +407,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **origin** | **string** | Indicates the origin (scheme, hostname, and port). |  |
-| **clientEventsCreateRequestBody** | [**ClientEventsCreateRequestBody**](ClientEventsCreateRequestBody.md) | Specify the details of the custom event. | [optional]  |
+| **clientEventsCreateRequestBody** | [**ClientEventsCreateRequestBody**](ClientEventsCreateRequestBody.md) | Specify the details of the custom event. |  |
 
 ### Return type
 
@@ -432,7 +432,7 @@ catch (ApiException e)
 
 <a id="validatestackeddiscountsclientside"></a>
 # **ValidateStackedDiscountsClientSide**
-> ClientValidationsValidateResponseBody ValidateStackedDiscountsClientSide (string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody = null)
+> ClientValidationsValidateResponseBody ValidateStackedDiscountsClientSide (string origin, ClientValidationsValidateRequestBody clientValidationsValidateRequestBody)
 
 Validate Stackable Discounts (client-side)
 
@@ -467,7 +467,7 @@ namespace Example
 
             var apiInstance = new ClientSideApi(config);
             var origin = "origin_example";  // string | Indicates the origin (scheme, hostname, and port).
-            var clientValidationsValidateRequestBody = new ClientValidationsValidateRequestBody(); // ClientValidationsValidateRequestBody |  (optional) 
+            var clientValidationsValidateRequestBody = new ClientValidationsValidateRequestBody(); // ClientValidationsValidateRequestBody | 
 
             try
             {
@@ -511,7 +511,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **origin** | **string** | Indicates the origin (scheme, hostname, and port). |  |
-| **clientValidationsValidateRequestBody** | [**ClientValidationsValidateRequestBody**](ClientValidationsValidateRequestBody.md) |  | [optional]  |
+| **clientValidationsValidateRequestBody** | [**ClientValidationsValidateRequestBody**](ClientValidationsValidateRequestBody.md) |  |  |
 
 ### Return type
 

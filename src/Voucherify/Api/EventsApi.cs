@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EventsCreateResponseBody</returns>
-        EventsCreateResponseBody TrackCustomEvent(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0);
+        EventsCreateResponseBody TrackCustomEvent(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Track Custom Event
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EventsCreateResponseBody</returns>
-        ApiResponse<EventsCreateResponseBody> TrackCustomEventWithHttpInfo(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<EventsCreateResponseBody> TrackCustomEventWithHttpInfo(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -67,11 +67,11 @@ namespace Voucherify.Api
         /// To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<EventsCreateResponseBody> TrackCustomEventAsync(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EventsCreateResponseBody> TrackCustomEventAsync(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Track Custom Event
@@ -80,11 +80,11 @@ namespace Voucherify.Api
         /// To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventsCreateResponseBody>> TrackCustomEventWithHttpInfoAsync(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<EventsCreateResponseBody>> TrackCustomEventWithHttpInfoAsync(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -209,10 +209,10 @@ namespace Voucherify.Api
         /// Track Custom Event To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>EventsCreateResponseBody</returns>
-        public EventsCreateResponseBody TrackCustomEvent(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0)
+        public EventsCreateResponseBody TrackCustomEvent(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<EventsCreateResponseBody> localVarResponse = TrackCustomEventWithHttpInfo(eventsCreateRequestBody);
             return localVarResponse.Data;
@@ -222,11 +222,17 @@ namespace Voucherify.Api
         /// Track Custom Event To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of EventsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<EventsCreateResponseBody> TrackCustomEventWithHttpInfo(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<EventsCreateResponseBody> TrackCustomEventWithHttpInfo(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'eventsCreateRequestBody' is set
+            if (eventsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'eventsCreateRequestBody' when calling EventsApi->TrackCustomEvent");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -301,11 +307,11 @@ namespace Voucherify.Api
         /// Track Custom Event To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EventsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<EventsCreateResponseBody> TrackCustomEventAsync(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EventsCreateResponseBody> TrackCustomEventAsync(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<EventsCreateResponseBody> localVarResponse = await TrackCustomEventWithHttpInfoAsync(eventsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -315,12 +321,18 @@ namespace Voucherify.Api
         /// Track Custom Event To track a custom event, you create an event object.   The event object must be linked to the customer who performs the action. If a customer doesnt exist in Voucherify, the customer will be created.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="eventsCreateRequestBody">Specify the details of the custom event. (optional)</param>
+        /// <param name="eventsCreateRequestBody">Specify the details of the custom event.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EventsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<EventsCreateResponseBody>> TrackCustomEventWithHttpInfoAsync(EventsCreateRequestBody eventsCreateRequestBody = default(EventsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<EventsCreateResponseBody>> TrackCustomEventWithHttpInfoAsync(EventsCreateRequestBody eventsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'eventsCreateRequestBody' is set
+            if (eventsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'eventsCreateRequestBody' when calling EventsApi->TrackCustomEvent");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

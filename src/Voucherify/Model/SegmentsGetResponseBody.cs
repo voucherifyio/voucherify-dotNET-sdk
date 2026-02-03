@@ -88,52 +88,6 @@ namespace Voucherify.Model
             return _flagType;
         }
         /// <summary>
-        /// Defines InitialSyncStatus
-        /// </summary>
-        [JsonConverter(typeof(SafeEnumConverter<InitialSyncStatusEnum>))]
-        public enum InitialSyncStatusEnum
-        {
-            /// <summary>
-            /// Enum INPROGRESS for value: IN_PROGRESS
-            /// </summary>
-            [EnumMember(Value = "IN_PROGRESS")]
-            INPROGRESS = 1,
-
-            /// <summary>
-            /// Enum DONE for value: DONE
-            /// </summary>
-            [EnumMember(Value = "DONE")]
-            DONE = 2
-        }
-
-
-        /// <summary>
-        /// Gets or Sets InitialSyncStatus
-        /// </summary>
-
-        [JsonConverter(typeof(SafeEnumConverter<InitialSyncStatusEnum>))]
-        [DataMember(Name = "initial_sync_status", EmitDefaultValue = true)]
-        public InitialSyncStatusEnum? InitialSyncStatus
-        {
-            get{ return _InitialSyncStatus;}
-            set
-            {
-                _InitialSyncStatus = value;
-                _flagInitialSyncStatus = true;
-            }
-        }
-        private InitialSyncStatusEnum? _InitialSyncStatus;
-        private bool _flagInitialSyncStatus;
-
-        /// <summary>
-        /// Returns false as InitialSyncStatus should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeInitialSyncStatus()
-        {
-            return _flagInitialSyncStatus;
-        }
-        /// <summary>
         /// The type of the object represented by JSON. This object stores information about the customer segment.
         /// </summary>
         /// <value>The type of the object represented by JSON. This object stores information about the customer segment.</value>
@@ -183,9 +137,8 @@ namespace Voucherify.Model
         /// <param name="createdAt">Timestamp representing the date and time when the segment was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="type">Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers..</param>
         /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type..</param>
-        /// <param name="initialSyncStatus">initialSyncStatus.</param>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about the customer segment..</param>
-        public SegmentsGetResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), InitialSyncStatusEnum? initialSyncStatus = default(InitialSyncStatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
+        public SegmentsGetResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -211,11 +164,6 @@ namespace Voucherify.Model
             if (this.Filter != null)
             {
                 this._flagFilter = true;
-            }
-            this._InitialSyncStatus = initialSyncStatus;
-            if (this.InitialSyncStatus != null)
-            {
-                this._flagInitialSyncStatus = true;
             }
             this._Object = varObject;
             if (this.Object != null)
@@ -343,7 +291,6 @@ namespace Voucherify.Model
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
-            sb.Append("  InitialSyncStatus: ").Append(InitialSyncStatus).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

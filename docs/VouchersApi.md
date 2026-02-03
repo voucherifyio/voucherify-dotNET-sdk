@@ -23,7 +23,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createvoucher"></a>
 # **CreateVoucher**
-> VouchersCreateResponseBody CreateVoucher (string code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody = null)
+> VouchersCreateResponseBody CreateVoucher (string code, VouchersCreateWithSpecificCodeRequestBody vouchersCreateWithSpecificCodeRequestBody)
 
 Create Voucher
 
@@ -58,7 +58,7 @@ namespace Example
 
             var apiInstance = new VouchersApi(config);
             var code = "code_example";  // string | A unique **code** that identifies the voucher.
-            var vouchersCreateWithSpecificCodeRequestBody = new VouchersCreateWithSpecificCodeRequestBody(); // VouchersCreateWithSpecificCodeRequestBody | Specify the details of the voucher that you would like to create. (optional) 
+            var vouchersCreateWithSpecificCodeRequestBody = new VouchersCreateWithSpecificCodeRequestBody(); // VouchersCreateWithSpecificCodeRequestBody | Specify the details of the voucher that you would like to create.
 
             try
             {
@@ -102,7 +102,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **code** | **string** | A unique **code** that identifies the voucher. |  |
-| **vouchersCreateWithSpecificCodeRequestBody** | [**VouchersCreateWithSpecificCodeRequestBody**](VouchersCreateWithSpecificCodeRequestBody.md) | Specify the details of the voucher that you would like to create. | [optional]  |
+| **vouchersCreateWithSpecificCodeRequestBody** | [**VouchersCreateWithSpecificCodeRequestBody**](VouchersCreateWithSpecificCodeRequestBody.md) | Specify the details of the voucher that you would like to create. |  |
 
 ### Return type
 
@@ -431,7 +431,7 @@ catch (ApiException e)
 
 <a id="exportvouchertransactions"></a>
 # **ExportVoucherTransactions**
-> VouchersTransactionsExportCreateResponseBody ExportVoucherTransactions (string code, VouchersTransactionsExportCreateRequestBody vouchersTransactionsExportCreateRequestBody = null)
+> VouchersTransactionsExportCreateResponseBody ExportVoucherTransactions (string code, VouchersTransactionsExportCreateRequestBody vouchersTransactionsExportCreateRequestBody)
 
 Export Voucher Transactions
 
@@ -466,7 +466,7 @@ namespace Example
 
             var apiInstance = new VouchersApi(config);
             var code = GIFT-CARD-1;  // string | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u.
-            var vouchersTransactionsExportCreateRequestBody = new VouchersTransactionsExportCreateRequestBody(); // VouchersTransactionsExportCreateRequestBody | Specify the parameters for the camapign transaction export. (optional) 
+            var vouchersTransactionsExportCreateRequestBody = new VouchersTransactionsExportCreateRequestBody(); // VouchersTransactionsExportCreateRequestBody | Specify the parameters for the camapign transaction export.
 
             try
             {
@@ -510,7 +510,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **code** | **string** | A **code** that identifies the voucher or a unique voucher ID assigned by Voucherify, i.e. v_TzD19aeNiqGc9LWciMWknyEZT8IW7u4u. |  |
-| **vouchersTransactionsExportCreateRequestBody** | [**VouchersTransactionsExportCreateRequestBody**](VouchersTransactionsExportCreateRequestBody.md) | Specify the parameters for the camapign transaction export. | [optional]  |
+| **vouchersTransactionsExportCreateRequestBody** | [**VouchersTransactionsExportCreateRequestBody**](VouchersTransactionsExportCreateRequestBody.md) | Specify the parameters for the camapign transaction export. |  |
 
 ### Return type
 
@@ -535,7 +535,7 @@ catch (ApiException e)
 
 <a id="generaterandomcode"></a>
 # **GenerateRandomCode**
-> VouchersCreateResponseBody GenerateRandomCode (VouchersCreateRequestBody vouchersCreateRequestBody = null)
+> VouchersCreateResponseBody GenerateRandomCode (VouchersCreateRequestBody vouchersCreateRequestBody)
 
 Generate Random Code
 
@@ -569,7 +569,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new VouchersApi(config);
-            var vouchersCreateRequestBody = new VouchersCreateRequestBody(); // VouchersCreateRequestBody | Specify the details of the voucher that you would like to create. (optional) 
+            var vouchersCreateRequestBody = new VouchersCreateRequestBody(); // VouchersCreateRequestBody | Specify the details of the voucher that you would like to create.
 
             try
             {
@@ -612,7 +612,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **vouchersCreateRequestBody** | [**VouchersCreateRequestBody**](VouchersCreateRequestBody.md) | Specify the details of the voucher that you would like to create. | [optional]  |
+| **vouchersCreateRequestBody** | [**VouchersCreateRequestBody**](VouchersCreateRequestBody.md) | Specify the details of the voucher that you would like to create. |  |
 
 ### Return type
 
@@ -743,7 +743,7 @@ catch (ApiException e)
 
 Import Vouchers
 
-Import generic (standalone) vouchers and gift cards into the repository.  📘 Important notes  - **Start and expiration dates** need to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify Project. Any parameters not provided in the payload will be left blank or null. For both **standalone discount vouchers and gift cards**, you can import the following fields:   - code - category - active - type - start_date - expiration_date - redemption.quantity - additional_info - metadata For **gift cards**, you can also import the following field: - gift.amount For **discount vouchers**, you can import the discount object. The object will slightly vary depending on the type of discount. Each discount type **requires** the type to be defined in the import.   Fields other than the ones listed above wont be imported. Even if provided, they will be silently skipped. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action). 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, vouchers imported through the dashboard in the Vouchers section or through the API do not have a campaign attached, so the values for campaign and campaign_id are null.
+Import generic (standalone) vouchers and gift cards into the repository. You can upload up to 100,000 codes to a campaign, as a campaign can have up to 100,000 codes by default.   Also, the request can include up to **10 MB** of data.  📘 Important notes  - **Start and expiration dates** need to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify Project. Any parameters not provided in the payload will be left blank or null. For both **standalone discount vouchers and gift cards**, you can import the following fields:   - code - category - active - type - start_date - expiration_date - redemption.quantity - additional_info - metadata For **gift cards**, you can also import the following field: - gift.amount For **discount vouchers**, you can import the discount object. The object will slightly vary depending on the type of discount. Each discount type **requires** the type to be defined in the import.   Fields other than the ones listed above wont be imported. Even if provided, they will be silently skipped. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action). 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, vouchers imported through the dashboard in the Vouchers section or through the API do not have a campaign attached, so the values for campaign and campaign_id are null.
 
 ### Example
 ```csharp
@@ -845,7 +845,7 @@ catch (ApiException e)
 
 Import Vouchers using CSV
 
-Import generic (standalone) vouchers into the repository using a CSV file. The CSV file has to include headers in the first line. All properties listed in the file headers that cannot be mapped to standard voucher fields will be added to the metadata object.   You can find an example CSV file [here](https://support.voucherify.io/article/45-import-codes-and-share-them-digitally#coupons). ___  📘 Standard voucher fields mapping  - Go to the [import vouchers](/api-reference/vouchers/import-vouchers) endpoint to see all standard CSV fields description (body params section).  - Supported CSV file headers: Code,Voucher Type,Value,Discount Type,Category,Start Date,Expiration Date,Redemption Limit,Redeemed Quantity, Redeemed Amount,Active,Additional Info,Custom Metadata Property Name - **Start and expiration dates** need to be provided in compliance with the ISO 8601 standard. For example, 2020-03-11T09:00:00.000Z.       - YYYY-MM-DD     - YYYY-MM-DDTHH     - YYYY-MM-DDTHH:mm     - YYYY-MM-DDTHH:mm:ss     - YYYY-MM-DDTHH:mm:ssZ     - YYYY-MM-DDTHH:mm:ssZ     - YYYY-MM-DDTHH:mm:ss.SSSZ  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify project.  - You can, however, upload the same codes to update them.  📘 Categories  In the structure representing your data, you can define a category that the voucher belongs to. You can later use the category of a voucher to group and search by specific criteria in the Dashboard and using the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action). You can pass the webhooks_enable true parameter to trigger a webhook sendout for created or updated vouchers. Configure the [respective webhooks](/api-reference/introduction-to-webhooks) in Project settings. For updated webhooks, a webhook is sent even if the voucher hasnt been changed in the CSV file. 🚧 Generic (standalone) vouchers and campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, vouchers imported through the dashboard in the Vouchers section or through the API do not have a campaign attached, so the values for campaign and campaign_id are null.
+Import generic (standalone) vouchers into the repository using a CSV file. The CSV file has to include headers in the first line. All properties listed in the file headers that cannot be mapped to standard voucher fields will be added to the metadata object. You can upload up to 100,000 codes to a campaign, as a campaign can have up to 100,000 codes by default.   Also, the request can include a max. **10 MB** CSV file. You can find an example CSV file [here](https://support.voucherify.io/article/45-import-codes-and-share-them-digitally#coupons). ___  📘 Standard voucher fields mapping  - Go to the [import vouchers](/api-reference/vouchers/import-vouchers) endpoint to see all standard CSV fields description (body params section).  - Supported CSV file headers: Code,Voucher Type,Value,Discount Type,Category,Start Date,Expiration Date,Redemption Limit,Redeemed Quantity, Redeemed Amount,Active,Additional Info,Custom Metadata Property Name - **Start and expiration dates** need to be provided in compliance with the ISO 8601 standard. For example, 2020-03-11T09:00:00.000Z.       - YYYY-MM-DD     - YYYY-MM-DDTHH     - YYYY-MM-DDTHH:mm     - YYYY-MM-DDTHH:mm:ss     - YYYY-MM-DDTHH:mm:ssZ     - YYYY-MM-DDTHH:mm:ssZ     - YYYY-MM-DDTHH:mm:ss.SSSZ  - Custom code attributes (not supported by-default) need to be added as code **metadata**.  - You **cannot import the same codes** to a single Voucherify project.  - You can, however, upload the same codes to update them.  📘 Categories  In the structure representing your data, you can define a category that the voucher belongs to. You can later use the category of a voucher to group and search by specific criteria in the Dashboard and using the [List Vouchers](/api-reference/vouchers/list-vouchers) endpoint. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request via this [API request](/api-reference/async-actions/get-async-action). You can pass the webhooks_enable true parameter to trigger a webhook sendout for created or updated vouchers. Configure the [respective webhooks](/api-reference/introduction-to-webhooks) in Project settings. For updated webhooks, a webhook is sent even if the voucher hasnt been changed in the CSV file. 🚧 Generic (standalone) vouchers and campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, vouchers imported through the dashboard in the Vouchers section or through the API do not have a campaign attached, so the values for campaign and campaign_id are null.
 
 ### Example
 ```csharp
@@ -1053,7 +1053,7 @@ catch (ApiException e)
 
 <a id="listvouchers"></a>
 # **ListVouchers**
-> VouchersListResponseBody ListVouchers (int? limit = null, int? page = null, string category = null, string campaignId = null, string customer = null, string campaign = null, ParameterCreatedBeforeAfter createdAt = null, ParameterUpdatedBeforeAfter updatedAt = null, ParameterOrderVouchers? order = null, string code = null, List<string> ids = null)
+> VouchersListResponseBody ListVouchers (int? limit = null, int? page = null, string category = null, string campaignId = null, string customer = null, string campaign = null, ParameterCreatedBeforeAfter createdAt = null, ParameterUpdatedBeforeAfter updatedAt = null, ParameterOrderVouchers? order = null, string code = null, List<string> ids = null, Object filters = null)
 
 List Vouchers
 
@@ -1098,11 +1098,12 @@ namespace Example
             var order = (ParameterOrderVouchers) "created_at";  // ParameterOrderVouchers? | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional) 
             var code = "code_example";  // string |  (optional) 
             var ids = new List<string>(); // List<string> |  (optional) 
+            var filters = new Object(); // Object | Object for setting voucher filters. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for filter examples. (optional) 
 
             try
             {
                 // List Vouchers
-                VouchersListResponseBody result = apiInstance.ListVouchers(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids);
+                VouchersListResponseBody result = apiInstance.ListVouchers(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, filters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1123,7 +1124,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Vouchers
-    ApiResponse<VouchersListResponseBody> response = apiInstance.ListVouchersWithHttpInfo(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids);
+    ApiResponse<VouchersListResponseBody> response = apiInstance.ListVouchersWithHttpInfo(limit, page, category, campaignId, customer, campaign, createdAt, updatedAt, order, code, ids, filters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1151,6 +1152,7 @@ catch (ApiException e)
 | **order** | **ParameterOrderVouchers?** | Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional]  |
 | **code** | **string** |  | [optional]  |
 | **ids** | [**List&lt;string&gt;**](string.md) |  | [optional]  |
+| **filters** | [**Object**](Object.md) | Object for setting voucher filters. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for filter examples. | [optional]  |
 
 ### Return type
 

@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Create a new reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsCreateResponseBody</returns>
-        RewardsCreateResponseBody CreateReward(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0);
+        RewardsCreateResponseBody CreateReward(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Reward
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Create a new reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsCreateResponseBody</returns>
-        ApiResponse<RewardsCreateResponseBody> CreateRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<RewardsCreateResponseBody> CreateRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Reward Assignment
         /// </summary>
@@ -59,10 +59,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsAssignmentsCreateResponseBody</returns>
-        RewardsAssignmentsCreateResponseBody CreateRewardAssignment(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0);
+        RewardsAssignmentsCreateResponseBody CreateRewardAssignment(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Reward Assignment
@@ -72,10 +72,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsAssignmentsCreateResponseBody</returns>
-        ApiResponse<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentWithHttpInfo(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentWithHttpInfo(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Reward
         /// </summary>
@@ -234,10 +234,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsUpdateResponseBody</returns>
-        RewardsUpdateResponseBody UpdateReward(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0);
+        RewardsUpdateResponseBody UpdateReward(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Reward
@@ -247,10 +247,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsUpdateResponseBody</returns>
-        ApiResponse<RewardsUpdateResponseBody> UpdateRewardWithHttpInfo(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<RewardsUpdateResponseBody> UpdateRewardWithHttpInfo(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Reward Assignment
         /// </summary>
@@ -260,10 +260,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsAssignmentsUpdateResponseBody</returns>
-        RewardsAssignmentsUpdateResponseBody UpdateRewardAssignment(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0);
+        RewardsAssignmentsUpdateResponseBody UpdateRewardAssignment(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Reward Assignment
@@ -274,10 +274,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsAssignmentsUpdateResponseBody</returns>
-        ApiResponse<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentWithHttpInfo(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentWithHttpInfo(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -294,11 +294,11 @@ namespace Voucherify.Api
         /// Create a new reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<RewardsCreateResponseBody> CreateRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RewardsCreateResponseBody> CreateRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Reward
@@ -307,11 +307,11 @@ namespace Voucherify.Api
         /// Create a new reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RewardsCreateResponseBody>> CreateRewardWithHttpInfoAsync(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RewardsCreateResponseBody>> CreateRewardWithHttpInfoAsync(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Reward Assignment
         /// </summary>
@@ -320,11 +320,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsAssignmentsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Reward Assignment
@@ -334,11 +334,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsAssignmentsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RewardsAssignmentsCreateResponseBody>> CreateRewardAssignmentWithHttpInfoAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RewardsAssignmentsCreateResponseBody>> CreateRewardAssignmentWithHttpInfoAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Reward
         /// </summary>
@@ -509,11 +509,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<RewardsUpdateResponseBody> UpdateRewardAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RewardsUpdateResponseBody> UpdateRewardAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Reward
@@ -523,11 +523,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RewardsUpdateResponseBody>> UpdateRewardWithHttpInfoAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RewardsUpdateResponseBody>> UpdateRewardWithHttpInfoAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Reward Assignment
         /// </summary>
@@ -537,11 +537,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsAssignmentsUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Reward Assignment
@@ -552,11 +552,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsAssignmentsUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RewardsAssignmentsUpdateResponseBody>> UpdateRewardAssignmentWithHttpInfoAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RewardsAssignmentsUpdateResponseBody>> UpdateRewardAssignmentWithHttpInfoAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -681,10 +681,10 @@ namespace Voucherify.Api
         /// Create Reward Create a new reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsCreateResponseBody</returns>
-        public RewardsCreateResponseBody CreateReward(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0)
+        public RewardsCreateResponseBody CreateReward(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<RewardsCreateResponseBody> localVarResponse = CreateRewardWithHttpInfo(rewardsCreateRequestBody);
             return localVarResponse.Data;
@@ -694,11 +694,17 @@ namespace Voucherify.Api
         /// Create Reward Create a new reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RewardsCreateResponseBody> CreateRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RewardsCreateResponseBody> CreateRewardWithHttpInfo(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'rewardsCreateRequestBody' is set
+            if (rewardsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsCreateRequestBody' when calling RewardsApi->CreateReward");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -773,11 +779,11 @@ namespace Voucherify.Api
         /// Create Reward Create a new reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<RewardsCreateResponseBody> CreateRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RewardsCreateResponseBody> CreateRewardAsync(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<RewardsCreateResponseBody> localVarResponse = await CreateRewardWithHttpInfoAsync(rewardsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -787,12 +793,18 @@ namespace Voucherify.Api
         /// Create Reward Create a new reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward. (optional)</param>
+        /// <param name="rewardsCreateRequestBody">Define parameters of the new reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsCreateResponseBody>> CreateRewardWithHttpInfoAsync(RewardsCreateRequestBody rewardsCreateRequestBody = default(RewardsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsCreateResponseBody>> CreateRewardWithHttpInfoAsync(RewardsCreateRequestBody rewardsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'rewardsCreateRequestBody' is set
+            if (rewardsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsCreateRequestBody' when calling RewardsApi->CreateReward");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -869,10 +881,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsAssignmentsCreateResponseBody</returns>
-        public RewardsAssignmentsCreateResponseBody CreateRewardAssignment(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0)
+        public RewardsAssignmentsCreateResponseBody CreateRewardAssignment(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<RewardsAssignmentsCreateResponseBody> localVarResponse = CreateRewardAssignmentWithHttpInfo(rewardId, rewardsAssignmentsCreateRequestBody);
             return localVarResponse.Data;
@@ -883,15 +895,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsAssignmentsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentWithHttpInfo(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentWithHttpInfo(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'rewardId' is set
             if (rewardId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardId' when calling RewardsApi->CreateRewardAssignment");
+            }
+
+            // verify the required parameter 'rewardsAssignmentsCreateRequestBody' is set
+            if (rewardsAssignmentsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsAssignmentsCreateRequestBody' when calling RewardsApi->CreateRewardAssignment");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -970,11 +988,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsAssignmentsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RewardsAssignmentsCreateResponseBody> CreateRewardAssignmentAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<RewardsAssignmentsCreateResponseBody> localVarResponse = await CreateRewardAssignmentWithHttpInfoAsync(rewardId, rewardsAssignmentsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -985,16 +1003,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points. (optional)</param>
+        /// <param name="rewardsAssignmentsCreateRequestBody">Provide the campaign ID of the campaign to which the reward is to be assigned and define the cost of the reward in terms of loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsAssignmentsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsAssignmentsCreateResponseBody>> CreateRewardAssignmentWithHttpInfoAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody = default(RewardsAssignmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsAssignmentsCreateResponseBody>> CreateRewardAssignmentWithHttpInfoAsync(string rewardId, RewardsAssignmentsCreateRequestBody rewardsAssignmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'rewardId' is set
             if (rewardId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardId' when calling RewardsApi->CreateRewardAssignment");
+            }
+
+            // verify the required parameter 'rewardsAssignmentsCreateRequestBody' is set
+            if (rewardsAssignmentsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsAssignmentsCreateRequestBody' when calling RewardsApi->CreateRewardAssignment");
             }
 
 
@@ -2326,10 +2350,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsUpdateResponseBody</returns>
-        public RewardsUpdateResponseBody UpdateReward(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0)
+        public RewardsUpdateResponseBody UpdateReward(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<RewardsUpdateResponseBody> localVarResponse = UpdateRewardWithHttpInfo(rewardId, rewardsUpdateRequestBody);
             return localVarResponse.Data;
@@ -2340,15 +2364,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RewardsUpdateResponseBody> UpdateRewardWithHttpInfo(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RewardsUpdateResponseBody> UpdateRewardWithHttpInfo(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'rewardId' is set
             if (rewardId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardId' when calling RewardsApi->UpdateReward");
+            }
+
+            // verify the required parameter 'rewardsUpdateRequestBody' is set
+            if (rewardsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsUpdateRequestBody' when calling RewardsApi->UpdateReward");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2427,11 +2457,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<RewardsUpdateResponseBody> UpdateRewardAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RewardsUpdateResponseBody> UpdateRewardAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<RewardsUpdateResponseBody> localVarResponse = await UpdateRewardWithHttpInfoAsync(rewardId, rewardsUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2442,16 +2472,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
-        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward. (optional)</param>
+        /// <param name="rewardsUpdateRequestBody">Define the parameters to be updated for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsUpdateResponseBody>> UpdateRewardWithHttpInfoAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody = default(RewardsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsUpdateResponseBody>> UpdateRewardWithHttpInfoAsync(string rewardId, RewardsUpdateRequestBody rewardsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'rewardId' is set
             if (rewardId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardId' when calling RewardsApi->UpdateReward");
+            }
+
+            // verify the required parameter 'rewardsUpdateRequestBody' is set
+            if (rewardsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsUpdateRequestBody' when calling RewardsApi->UpdateReward");
             }
 
 
@@ -2532,10 +2568,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RewardsAssignmentsUpdateResponseBody</returns>
-        public RewardsAssignmentsUpdateResponseBody UpdateRewardAssignment(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0)
+        public RewardsAssignmentsUpdateResponseBody UpdateRewardAssignment(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<RewardsAssignmentsUpdateResponseBody> localVarResponse = UpdateRewardAssignmentWithHttpInfo(rewardId, assignmentId, rewardsAssignmentsUpdateRequestBody);
             return localVarResponse.Data;
@@ -2547,10 +2583,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RewardsAssignmentsUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentWithHttpInfo(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentWithHttpInfo(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'rewardId' is set
             if (rewardId == null)
@@ -2562,6 +2598,12 @@ namespace Voucherify.Api
             if (assignmentId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'assignmentId' when calling RewardsApi->UpdateRewardAssignment");
+            }
+
+            // verify the required parameter 'rewardsAssignmentsUpdateRequestBody' is set
+            if (rewardsAssignmentsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsAssignmentsUpdateRequestBody' when calling RewardsApi->UpdateRewardAssignment");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2642,11 +2684,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RewardsAssignmentsUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RewardsAssignmentsUpdateResponseBody> UpdateRewardAssignmentAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<RewardsAssignmentsUpdateResponseBody> localVarResponse = await UpdateRewardAssignmentWithHttpInfoAsync(rewardId, assignmentId, rewardsAssignmentsUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2658,11 +2700,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">A unique reward ID.</param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
-        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward. (optional)</param>
+        /// <param name="rewardsAssignmentsUpdateRequestBody">Define the number of points required to exchange for the reward.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RewardsAssignmentsUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsAssignmentsUpdateResponseBody>> UpdateRewardAssignmentWithHttpInfoAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody = default(RewardsAssignmentsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RewardsAssignmentsUpdateResponseBody>> UpdateRewardAssignmentWithHttpInfoAsync(string rewardId, string assignmentId, RewardsAssignmentsUpdateRequestBody rewardsAssignmentsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'rewardId' is set
             if (rewardId == null)
@@ -2674,6 +2716,12 @@ namespace Voucherify.Api
             if (assignmentId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'assignmentId' when calling RewardsApi->UpdateRewardAssignment");
+            }
+
+            // verify the required parameter 'rewardsAssignmentsUpdateRequestBody' is set
+            if (rewardsAssignmentsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'rewardsAssignmentsUpdateRequestBody' when calling RewardsApi->UpdateRewardAssignment");
             }
 
 

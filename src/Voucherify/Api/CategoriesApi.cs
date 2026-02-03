@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Create category with a specific name and hierarchy.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CategoriesCreateResponseBody</returns>
-        CategoriesCreateResponseBody CreateCategory(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0);
+        CategoriesCreateResponseBody CreateCategory(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Category
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Create category with a specific name and hierarchy.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CategoriesCreateResponseBody</returns>
-        ApiResponse<CategoriesCreateResponseBody> CreateCategoryWithHttpInfo(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0);
+        ApiResponse<CategoriesCreateResponseBody> CreateCategoryWithHttpInfo(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Category
         /// </summary>
@@ -126,10 +126,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CategoriesUpdateResponseBody</returns>
-        CategoriesUpdateResponseBody UpdateCategory(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0);
+        CategoriesUpdateResponseBody UpdateCategory(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Category
@@ -139,10 +139,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CategoriesUpdateResponseBody</returns>
-        ApiResponse<CategoriesUpdateResponseBody> UpdateCategoryWithHttpInfo(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<CategoriesUpdateResponseBody> UpdateCategoryWithHttpInfo(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -159,11 +159,11 @@ namespace Voucherify.Api
         /// Create category with a specific name and hierarchy.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CategoriesCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CategoriesCreateResponseBody> CreateCategoryAsync(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CategoriesCreateResponseBody> CreateCategoryAsync(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Category
@@ -172,11 +172,11 @@ namespace Voucherify.Api
         /// Create category with a specific name and hierarchy.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CategoriesCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CategoriesCreateResponseBody>> CreateCategoryWithHttpInfoAsync(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CategoriesCreateResponseBody>> CreateCategoryWithHttpInfoAsync(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Category
         /// </summary>
@@ -258,11 +258,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CategoriesUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<CategoriesUpdateResponseBody> UpdateCategoryAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CategoriesUpdateResponseBody> UpdateCategoryAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Category
@@ -272,11 +272,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CategoriesUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CategoriesUpdateResponseBody>> UpdateCategoryWithHttpInfoAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CategoriesUpdateResponseBody>> UpdateCategoryWithHttpInfoAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -401,10 +401,10 @@ namespace Voucherify.Api
         /// Create Category Create category with a specific name and hierarchy.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CategoriesCreateResponseBody</returns>
-        public CategoriesCreateResponseBody CreateCategory(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0)
+        public CategoriesCreateResponseBody CreateCategory(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CategoriesCreateResponseBody> localVarResponse = CreateCategoryWithHttpInfo(categoriesCreateRequestBody);
             return localVarResponse.Data;
@@ -414,11 +414,17 @@ namespace Voucherify.Api
         /// Create Category Create category with a specific name and hierarchy.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CategoriesCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CategoriesCreateResponseBody> CreateCategoryWithHttpInfo(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CategoriesCreateResponseBody> CreateCategoryWithHttpInfo(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'categoriesCreateRequestBody' is set
+            if (categoriesCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'categoriesCreateRequestBody' when calling CategoriesApi->CreateCategory");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -493,11 +499,11 @@ namespace Voucherify.Api
         /// Create Category Create category with a specific name and hierarchy.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CategoriesCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CategoriesCreateResponseBody> CreateCategoryAsync(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CategoriesCreateResponseBody> CreateCategoryAsync(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CategoriesCreateResponseBody> localVarResponse = await CreateCategoryWithHttpInfoAsync(categoriesCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -507,12 +513,18 @@ namespace Voucherify.Api
         /// Create Category Create category with a specific name and hierarchy.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create. (optional)</param>
+        /// <param name="categoriesCreateRequestBody">Specify the details of the category that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CategoriesCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CategoriesCreateResponseBody>> CreateCategoryWithHttpInfoAsync(CategoriesCreateRequestBody categoriesCreateRequestBody = default(CategoriesCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CategoriesCreateResponseBody>> CreateCategoryWithHttpInfoAsync(CategoriesCreateRequestBody categoriesCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'categoriesCreateRequestBody' is set
+            if (categoriesCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'categoriesCreateRequestBody' when calling CategoriesApi->CreateCategory");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -1158,10 +1170,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CategoriesUpdateResponseBody</returns>
-        public CategoriesUpdateResponseBody UpdateCategory(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0)
+        public CategoriesUpdateResponseBody UpdateCategory(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CategoriesUpdateResponseBody> localVarResponse = UpdateCategoryWithHttpInfo(categoryId, categoriesUpdateRequestBody);
             return localVarResponse.Data;
@@ -1172,15 +1184,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CategoriesUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CategoriesUpdateResponseBody> UpdateCategoryWithHttpInfo(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CategoriesUpdateResponseBody> UpdateCategoryWithHttpInfo(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'categoryId' is set
             if (categoryId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'categoryId' when calling CategoriesApi->UpdateCategory");
+            }
+
+            // verify the required parameter 'categoriesUpdateRequestBody' is set
+            if (categoriesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'categoriesUpdateRequestBody' when calling CategoriesApi->UpdateCategory");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1259,11 +1277,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CategoriesUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CategoriesUpdateResponseBody> UpdateCategoryAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CategoriesUpdateResponseBody> UpdateCategoryAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CategoriesUpdateResponseBody> localVarResponse = await UpdateCategoryWithHttpInfoAsync(categoryId, categoriesUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1274,16 +1292,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Unique category ID assigned by Voucherify.</param>
-        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update. (optional)</param>
+        /// <param name="categoriesUpdateRequestBody">Specify the details of the category that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CategoriesUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CategoriesUpdateResponseBody>> UpdateCategoryWithHttpInfoAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody = default(CategoriesUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CategoriesUpdateResponseBody>> UpdateCategoryWithHttpInfoAsync(string categoryId, CategoriesUpdateRequestBody categoriesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'categoryId' is set
             if (categoryId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'categoryId' when calling CategoriesApi->UpdateCategory");
+            }
+
+            // verify the required parameter 'categoriesUpdateRequestBody' is set
+            if (categoriesUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'categoriesUpdateRequestBody' when calling CategoriesApi->UpdateCategory");
             }
 
 

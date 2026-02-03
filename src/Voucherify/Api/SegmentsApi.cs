@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SegmentsCreateResponseBody</returns>
-        SegmentsCreateResponseBody CreateSegment(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0);
+        SegmentsCreateResponseBody CreateSegment(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Segment
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SegmentsCreateResponseBody</returns>
-        ApiResponse<SegmentsCreateResponseBody> CreateSegmentWithHttpInfo(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<SegmentsCreateResponseBody> CreateSegmentWithHttpInfo(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Segment
         /// </summary>
@@ -113,11 +113,11 @@ namespace Voucherify.Api
         /// Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SegmentsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<SegmentsCreateResponseBody> CreateSegmentAsync(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SegmentsCreateResponseBody> CreateSegmentAsync(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Segment
@@ -126,11 +126,11 @@ namespace Voucherify.Api
         /// Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SegmentsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SegmentsCreateResponseBody>> CreateSegmentWithHttpInfoAsync(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SegmentsCreateResponseBody>> CreateSegmentWithHttpInfoAsync(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Segment
         /// </summary>
@@ -305,10 +305,10 @@ namespace Voucherify.Api
         /// Create Segment Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SegmentsCreateResponseBody</returns>
-        public SegmentsCreateResponseBody CreateSegment(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0)
+        public SegmentsCreateResponseBody CreateSegment(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<SegmentsCreateResponseBody> localVarResponse = CreateSegmentWithHttpInfo(segmentsCreateRequestBody);
             return localVarResponse.Data;
@@ -318,11 +318,17 @@ namespace Voucherify.Api
         /// Create Segment Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SegmentsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<SegmentsCreateResponseBody> CreateSegmentWithHttpInfo(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<SegmentsCreateResponseBody> CreateSegmentWithHttpInfo(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'segmentsCreateRequestBody' is set
+            if (segmentsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'segmentsCreateRequestBody' when calling SegmentsApi->CreateSegment");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -397,11 +403,11 @@ namespace Voucherify.Api
         /// Create Segment Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SegmentsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<SegmentsCreateResponseBody> CreateSegmentAsync(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SegmentsCreateResponseBody> CreateSegmentAsync(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<SegmentsCreateResponseBody> localVarResponse = await CreateSegmentWithHttpInfoAsync(segmentsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -411,12 +417,18 @@ namespace Voucherify.Api
         /// Create Segment Create a customer segment.  🚧 Limit on static segments  There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update or passive segment instead and use some customer metadata to build this segment.  🚧 Limit on Active and Passive segments  You can create a maximum of 100 passive and active segments.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment. (optional)</param>
+        /// <param name="segmentsCreateRequestBody">Specify the boundary conditions for the customer segment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SegmentsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<SegmentsCreateResponseBody>> CreateSegmentWithHttpInfoAsync(SegmentsCreateRequestBody segmentsCreateRequestBody = default(SegmentsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<SegmentsCreateResponseBody>> CreateSegmentWithHttpInfoAsync(SegmentsCreateRequestBody segmentsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'segmentsCreateRequestBody' is set
+            if (segmentsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'segmentsCreateRequestBody' when calling SegmentsApi->CreateSegment");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

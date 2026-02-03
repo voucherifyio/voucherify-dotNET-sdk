@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersCreateResponseBody</returns>
-        OrdersCreateResponseBody CreateOrder(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0);
+        OrdersCreateResponseBody CreateOrder(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Order
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersCreateResponseBody</returns>
-        ApiResponse<OrdersCreateResponseBody> CreateOrderWithHttpInfo(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0);
+        ApiResponse<OrdersCreateResponseBody> CreateOrderWithHttpInfo(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Orders Export
         /// </summary>
@@ -58,10 +58,10 @@ namespace Voucherify.Api
         /// Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersExportCreateResponseBody</returns>
-        OrdersExportCreateResponseBody CreateOrderExport(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0);
+        OrdersExportCreateResponseBody CreateOrderExport(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Orders Export
@@ -70,10 +70,10 @@ namespace Voucherify.Api
         /// Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersExportCreateResponseBody</returns>
-        ApiResponse<OrdersExportCreateResponseBody> CreateOrderExportWithHttpInfo(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0);
+        ApiResponse<OrdersExportCreateResponseBody> CreateOrderExportWithHttpInfo(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Get Order
         /// </summary>
@@ -101,25 +101,25 @@ namespace Voucherify.Api
         /// Import Orders
         /// </summary>
         /// <remarks>
-        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersImportCreateResponseBody</returns>
-        OrdersImportCreateResponseBody ImportOrders(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0);
+        OrdersImportCreateResponseBody ImportOrders(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0);
 
         /// <summary>
         /// Import Orders
         /// </summary>
         /// <remarks>
-        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersImportCreateResponseBody</returns>
-        ApiResponse<OrdersImportCreateResponseBody> ImportOrdersWithHttpInfo(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0);
+        ApiResponse<OrdersImportCreateResponseBody> ImportOrdersWithHttpInfo(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0);
         /// <summary>
         /// List Orders
         /// </summary>
@@ -155,10 +155,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersUpdateResponseBody</returns>
-        OrdersUpdateResponseBody UpdateOrder(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0);
+        OrdersUpdateResponseBody UpdateOrder(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Order
@@ -168,10 +168,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersUpdateResponseBody</returns>
-        ApiResponse<OrdersUpdateResponseBody> UpdateOrderWithHttpInfo(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<OrdersUpdateResponseBody> UpdateOrderWithHttpInfo(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -188,11 +188,11 @@ namespace Voucherify.Api
         /// Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersCreateResponseBody</returns>
-        System.Threading.Tasks.Task<OrdersCreateResponseBody> CreateOrderAsync(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrdersCreateResponseBody> CreateOrderAsync(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Order
@@ -201,11 +201,11 @@ namespace Voucherify.Api
         /// Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersCreateResponseBody>> CreateOrderWithHttpInfoAsync(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrdersCreateResponseBody>> CreateOrderWithHttpInfoAsync(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Orders Export
         /// </summary>
@@ -213,11 +213,11 @@ namespace Voucherify.Api
         /// Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersExportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<OrdersExportCreateResponseBody> CreateOrderExportAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrdersExportCreateResponseBody> CreateOrderExportAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Orders Export
@@ -226,11 +226,11 @@ namespace Voucherify.Api
         /// Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersExportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersExportCreateResponseBody>> CreateOrderExportWithHttpInfoAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrdersExportCreateResponseBody>> CreateOrderExportWithHttpInfoAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Order
         /// </summary>
@@ -260,27 +260,27 @@ namespace Voucherify.Api
         /// Import Orders
         /// </summary>
         /// <remarks>
-        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersImportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<OrdersImportCreateResponseBody> ImportOrdersAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrdersImportCreateResponseBody> ImportOrdersAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Import Orders
         /// </summary>
         /// <remarks>
-        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        ///   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersImportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersImportCreateResponseBody>> ImportOrdersWithHttpInfoAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrdersImportCreateResponseBody>> ImportOrdersWithHttpInfoAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Orders
         /// </summary>
@@ -318,11 +318,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<OrdersUpdateResponseBody> UpdateOrderAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<OrdersUpdateResponseBody> UpdateOrderAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Order
@@ -332,11 +332,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrdersUpdateResponseBody>> UpdateOrderWithHttpInfoAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<OrdersUpdateResponseBody>> UpdateOrderWithHttpInfoAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -461,10 +461,10 @@ namespace Voucherify.Api
         /// Create Order Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersCreateResponseBody</returns>
-        public OrdersCreateResponseBody CreateOrder(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0)
+        public OrdersCreateResponseBody CreateOrder(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<OrdersCreateResponseBody> localVarResponse = CreateOrderWithHttpInfo(ordersCreateRequestBody);
             return localVarResponse.Data;
@@ -474,11 +474,17 @@ namespace Voucherify.Api
         /// Create Order Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<OrdersCreateResponseBody> CreateOrderWithHttpInfo(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<OrdersCreateResponseBody> CreateOrderWithHttpInfo(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'ordersCreateRequestBody' is set
+            if (ordersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersCreateRequestBody' when calling OrdersApi->CreateOrder");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -553,11 +559,11 @@ namespace Voucherify.Api
         /// Create Order Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<OrdersCreateResponseBody> CreateOrderAsync(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrdersCreateResponseBody> CreateOrderAsync(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<OrdersCreateResponseBody> localVarResponse = await CreateOrderWithHttpInfoAsync(ordersCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -567,12 +573,18 @@ namespace Voucherify.Api
         /// Create Order Creates an order object and triggers an order creation event.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the order database, Voucherify will return a related order object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersCreateRequestBody">Specify the order parameters. (optional)</param>
+        /// <param name="ordersCreateRequestBody">Specify the order parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersCreateResponseBody>> CreateOrderWithHttpInfoAsync(OrdersCreateRequestBody ordersCreateRequestBody = default(OrdersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersCreateResponseBody>> CreateOrderWithHttpInfoAsync(OrdersCreateRequestBody ordersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ordersCreateRequestBody' is set
+            if (ordersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersCreateRequestBody' when calling OrdersApi->CreateOrder");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -648,10 +660,10 @@ namespace Voucherify.Api
         /// Create Orders Export Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersExportCreateResponseBody</returns>
-        public OrdersExportCreateResponseBody CreateOrderExport(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0)
+        public OrdersExportCreateResponseBody CreateOrderExport(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<OrdersExportCreateResponseBody> localVarResponse = CreateOrderExportWithHttpInfo(ordersExportCreateRequestBody);
             return localVarResponse.Data;
@@ -661,11 +673,17 @@ namespace Voucherify.Api
         /// Create Orders Export Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersExportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<OrdersExportCreateResponseBody> CreateOrderExportWithHttpInfo(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<OrdersExportCreateResponseBody> CreateOrderExportWithHttpInfo(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'ordersExportCreateRequestBody' is set
+            if (ordersExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersExportCreateRequestBody' when calling OrdersApi->CreateOrderExport");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -740,11 +758,11 @@ namespace Voucherify.Api
         /// Create Orders Export Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersExportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<OrdersExportCreateResponseBody> CreateOrderExportAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrdersExportCreateResponseBody> CreateOrderExportAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<OrdersExportCreateResponseBody> localVarResponse = await CreateOrderExportWithHttpInfoAsync(ordersExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -754,12 +772,18 @@ namespace Voucherify.Api
         /// Create Orders Export Creates a downloadable CSV file containing a list of orders. The parameters listed in the payload resembles headers in the CSV file. To include a parameter to the file, add it to the parameters.fields object in the request body. The available filters are all [order object](/api-reference/orders/order-calculated-object) attributes. Additionally, any metadata defined in the metadata schema can be exported. Passing an empty JSON will generate a file containing three default fields: id, source_id, and status. The fields array is an array of strings containing the data in the export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields:    
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export. (optional)</param>
+        /// <param name="ordersExportCreateRequestBody">Specify which order parameters you would like to export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersExportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersExportCreateResponseBody>> CreateOrderExportWithHttpInfoAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody = default(OrdersExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersExportCreateResponseBody>> CreateOrderExportWithHttpInfoAsync(OrdersExportCreateRequestBody ordersExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ordersExportCreateRequestBody' is set
+            if (ordersExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersExportCreateRequestBody' when calling OrdersApi->CreateOrderExport");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -1029,27 +1053,33 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersImportCreateResponseBody</returns>
-        public OrdersImportCreateResponseBody ImportOrders(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0)
+        public OrdersImportCreateResponseBody ImportOrders(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<OrdersImportCreateResponseBody> localVarResponse = ImportOrdersWithHttpInfo(ordersImportCreateRequestBodyItem);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersImportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<OrdersImportCreateResponseBody> ImportOrdersWithHttpInfo(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<OrdersImportCreateResponseBody> ImportOrdersWithHttpInfo(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0)
         {
+            // verify the required parameter 'ordersImportCreateRequestBodyItem' is set
+            if (ordersImportCreateRequestBodyItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersImportCreateRequestBodyItem' when calling OrdersApi->ImportOrders");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1121,29 +1151,35 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersImportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<OrdersImportCreateResponseBody> ImportOrdersAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrdersImportCreateResponseBody> ImportOrdersAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<OrdersImportCreateResponseBody> localVarResponse = await ImportOrdersWithHttpInfoAsync(ordersImportCreateRequestBodyItem, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+        /// Import Orders   🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects. (optional)</param>
+        /// <param name="ordersImportCreateRequestBodyItem">The request body is sent in the form of an array of order objects.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersImportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersImportCreateResponseBody>> ImportOrdersWithHttpInfoAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = default(List<OrdersImportCreateRequestBodyItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersImportCreateResponseBody>> ImportOrdersWithHttpInfoAsync(List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'ordersImportCreateRequestBodyItem' is set
+            if (ordersImportCreateRequestBodyItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersImportCreateRequestBodyItem' when calling OrdersApi->ImportOrders");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -1435,10 +1471,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>OrdersUpdateResponseBody</returns>
-        public OrdersUpdateResponseBody UpdateOrder(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0)
+        public OrdersUpdateResponseBody UpdateOrder(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<OrdersUpdateResponseBody> localVarResponse = UpdateOrderWithHttpInfo(orderId, ordersUpdateRequestBody);
             return localVarResponse.Data;
@@ -1449,15 +1485,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of OrdersUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<OrdersUpdateResponseBody> UpdateOrderWithHttpInfo(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<OrdersUpdateResponseBody> UpdateOrderWithHttpInfo(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'orderId' when calling OrdersApi->UpdateOrder");
+            }
+
+            // verify the required parameter 'ordersUpdateRequestBody' is set
+            if (ordersUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersUpdateRequestBody' when calling OrdersApi->UpdateOrder");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1536,11 +1578,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of OrdersUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<OrdersUpdateResponseBody> UpdateOrderAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<OrdersUpdateResponseBody> UpdateOrderAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<OrdersUpdateResponseBody> localVarResponse = await UpdateOrderWithHttpInfoAsync(orderId, ordersUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1551,16 +1593,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orderId">Unique Voucherify order ID or order source ID.</param>
-        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated. (optional)</param>
+        /// <param name="ordersUpdateRequestBody">Specify the parameters of the order that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OrdersUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersUpdateResponseBody>> UpdateOrderWithHttpInfoAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = default(OrdersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<OrdersUpdateResponseBody>> UpdateOrderWithHttpInfoAsync(string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'orderId' is set
             if (orderId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'orderId' when calling OrdersApi->UpdateOrder");
+            }
+
+            // verify the required parameter 'ordersUpdateRequestBody' is set
+            if (ordersUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'ordersUpdateRequestBody' when calling OrdersApi->UpdateOrder");
             }
 
 

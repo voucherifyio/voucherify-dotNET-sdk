@@ -36,10 +36,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsTiersCreateResponseBody</returns>
-        PromotionsTiersCreateResponseBody AddPromotionTierToCampaign(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0);
+        PromotionsTiersCreateResponseBody AddPromotionTierToCampaign(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Promotion Tier to Campaign
@@ -49,10 +49,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsTiersCreateResponseBody</returns>
-        ApiResponse<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignWithHttpInfo(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0);
+        ApiResponse<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignWithHttpInfo(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Promotion Stack
         /// </summary>
@@ -61,10 +61,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsStacksCreateResponseBody</returns>
-        PromotionsStacksCreateResponseBody CreatePromotionStack(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0);
+        PromotionsStacksCreateResponseBody CreatePromotionStack(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Promotion Stack
@@ -74,10 +74,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsStacksCreateResponseBody</returns>
-        ApiResponse<PromotionsStacksCreateResponseBody> CreatePromotionStackWithHttpInfo(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0);
+        ApiResponse<PromotionsStacksCreateResponseBody> CreatePromotionStackWithHttpInfo(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Promotion Stack
         /// </summary>
@@ -335,10 +335,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsStacksUpdateResponseBody</returns>
-        PromotionsStacksUpdateResponseBody UpdatePromotionStack(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0);
+        PromotionsStacksUpdateResponseBody UpdatePromotionStack(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Promotion Stack
@@ -349,10 +349,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsStacksUpdateResponseBody</returns>
-        ApiResponse<PromotionsStacksUpdateResponseBody> UpdatePromotionStackWithHttpInfo(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<PromotionsStacksUpdateResponseBody> UpdatePromotionStackWithHttpInfo(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Promotion Tier
         /// </summary>
@@ -361,10 +361,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsTiersUpdateResponseBody</returns>
-        PromotionsTiersUpdateResponseBody UpdatePromotionTier(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0);
+        PromotionsTiersUpdateResponseBody UpdatePromotionTier(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Promotion Tier
@@ -374,10 +374,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsTiersUpdateResponseBody</returns>
-        ApiResponse<PromotionsTiersUpdateResponseBody> UpdatePromotionTierWithHttpInfo(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<PromotionsTiersUpdateResponseBody> UpdatePromotionTierWithHttpInfo(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -395,11 +395,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsTiersCreateResponseBody</returns>
-        System.Threading.Tasks.Task<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Promotion Tier to Campaign
@@ -409,11 +409,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsTiersCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PromotionsTiersCreateResponseBody>> AddPromotionTierToCampaignWithHttpInfoAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PromotionsTiersCreateResponseBody>> AddPromotionTierToCampaignWithHttpInfoAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Promotion Stack
         /// </summary>
@@ -422,11 +422,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsStacksCreateResponseBody</returns>
-        System.Threading.Tasks.Task<PromotionsStacksCreateResponseBody> CreatePromotionStackAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PromotionsStacksCreateResponseBody> CreatePromotionStackAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Promotion Stack
@@ -436,11 +436,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsStacksCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PromotionsStacksCreateResponseBody>> CreatePromotionStackWithHttpInfoAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PromotionsStacksCreateResponseBody>> CreatePromotionStackWithHttpInfoAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Promotion Stack
         /// </summary>
@@ -718,11 +718,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsStacksUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<PromotionsStacksUpdateResponseBody> UpdatePromotionStackAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PromotionsStacksUpdateResponseBody> UpdatePromotionStackAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Promotion Stack
@@ -733,11 +733,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsStacksUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PromotionsStacksUpdateResponseBody>> UpdatePromotionStackWithHttpInfoAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PromotionsStacksUpdateResponseBody>> UpdatePromotionStackWithHttpInfoAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Promotion Tier
         /// </summary>
@@ -746,11 +746,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsTiersUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<PromotionsTiersUpdateResponseBody> UpdatePromotionTierAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PromotionsTiersUpdateResponseBody> UpdatePromotionTierAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Promotion Tier
@@ -760,11 +760,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsTiersUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PromotionsTiersUpdateResponseBody>> UpdatePromotionTierWithHttpInfoAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PromotionsTiersUpdateResponseBody>> UpdatePromotionTierWithHttpInfoAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -890,10 +890,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsTiersCreateResponseBody</returns>
-        public PromotionsTiersCreateResponseBody AddPromotionTierToCampaign(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0)
+        public PromotionsTiersCreateResponseBody AddPromotionTierToCampaign(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<PromotionsTiersCreateResponseBody> localVarResponse = AddPromotionTierToCampaignWithHttpInfo(campaignId, promotionsTiersCreateRequestBody);
             return localVarResponse.Data;
@@ -904,15 +904,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsTiersCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignWithHttpInfo(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignWithHttpInfo(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling PromotionsApi->AddPromotionTierToCampaign");
+            }
+
+            // verify the required parameter 'promotionsTiersCreateRequestBody' is set
+            if (promotionsTiersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsTiersCreateRequestBody' when calling PromotionsApi->AddPromotionTierToCampaign");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -991,11 +997,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsTiersCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PromotionsTiersCreateResponseBody> AddPromotionTierToCampaignAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<PromotionsTiersCreateResponseBody> localVarResponse = await AddPromotionTierToCampaignWithHttpInfoAsync(campaignId, promotionsTiersCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1006,16 +1012,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID assigned by Voucherify.</param>
-        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters. (optional)</param>
+        /// <param name="promotionsTiersCreateRequestBody">Specify the promotion tier parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsTiersCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsTiersCreateResponseBody>> AddPromotionTierToCampaignWithHttpInfoAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody = default(PromotionsTiersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsTiersCreateResponseBody>> AddPromotionTierToCampaignWithHttpInfoAsync(string campaignId, PromotionsTiersCreateRequestBody promotionsTiersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling PromotionsApi->AddPromotionTierToCampaign");
+            }
+
+            // verify the required parameter 'promotionsTiersCreateRequestBody' is set
+            if (promotionsTiersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsTiersCreateRequestBody' when calling PromotionsApi->AddPromotionTierToCampaign");
             }
 
 
@@ -1095,10 +1107,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsStacksCreateResponseBody</returns>
-        public PromotionsStacksCreateResponseBody CreatePromotionStack(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0)
+        public PromotionsStacksCreateResponseBody CreatePromotionStack(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<PromotionsStacksCreateResponseBody> localVarResponse = CreatePromotionStackWithHttpInfo(campaignId, promotionsStacksCreateRequestBody);
             return localVarResponse.Data;
@@ -1109,15 +1121,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsStacksCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<PromotionsStacksCreateResponseBody> CreatePromotionStackWithHttpInfo(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<PromotionsStacksCreateResponseBody> CreatePromotionStackWithHttpInfo(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling PromotionsApi->CreatePromotionStack");
+            }
+
+            // verify the required parameter 'promotionsStacksCreateRequestBody' is set
+            if (promotionsStacksCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsStacksCreateRequestBody' when calling PromotionsApi->CreatePromotionStack");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1196,11 +1214,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsStacksCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<PromotionsStacksCreateResponseBody> CreatePromotionStackAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PromotionsStacksCreateResponseBody> CreatePromotionStackAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<PromotionsStacksCreateResponseBody> localVarResponse = await CreatePromotionStackWithHttpInfoAsync(campaignId, promotionsStacksCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1211,16 +1229,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
-        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack. (optional)</param>
+        /// <param name="promotionsStacksCreateRequestBody">Specify the order of promotion tiers for the promotion stack.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsStacksCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsStacksCreateResponseBody>> CreatePromotionStackWithHttpInfoAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody = default(PromotionsStacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsStacksCreateResponseBody>> CreatePromotionStackWithHttpInfoAsync(string campaignId, PromotionsStacksCreateRequestBody promotionsStacksCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling PromotionsApi->CreatePromotionStack");
+            }
+
+            // verify the required parameter 'promotionsStacksCreateRequestBody' is set
+            if (promotionsStacksCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsStacksCreateRequestBody' when calling PromotionsApi->CreatePromotionStack");
             }
 
 
@@ -3399,10 +3423,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsStacksUpdateResponseBody</returns>
-        public PromotionsStacksUpdateResponseBody UpdatePromotionStack(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0)
+        public PromotionsStacksUpdateResponseBody UpdatePromotionStack(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<PromotionsStacksUpdateResponseBody> localVarResponse = UpdatePromotionStackWithHttpInfo(campaignId, stackId, promotionsStacksUpdateRequestBody);
             return localVarResponse.Data;
@@ -3414,10 +3438,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsStacksUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<PromotionsStacksUpdateResponseBody> UpdatePromotionStackWithHttpInfo(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<PromotionsStacksUpdateResponseBody> UpdatePromotionStackWithHttpInfo(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -3429,6 +3453,12 @@ namespace Voucherify.Api
             if (stackId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'stackId' when calling PromotionsApi->UpdatePromotionStack");
+            }
+
+            // verify the required parameter 'promotionsStacksUpdateRequestBody' is set
+            if (promotionsStacksUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsStacksUpdateRequestBody' when calling PromotionsApi->UpdatePromotionStack");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3509,11 +3539,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsStacksUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<PromotionsStacksUpdateResponseBody> UpdatePromotionStackAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PromotionsStacksUpdateResponseBody> UpdatePromotionStackAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<PromotionsStacksUpdateResponseBody> localVarResponse = await UpdatePromotionStackWithHttpInfoAsync(campaignId, stackId, promotionsStacksUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3525,11 +3555,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">ID of the promotion campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty Campaign. </param>
         /// <param name="stackId">Promotion stack ID.</param>
-        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsStacksUpdateRequestBody">Specify the promotion stack parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsStacksUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsStacksUpdateResponseBody>> UpdatePromotionStackWithHttpInfoAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody = default(PromotionsStacksUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsStacksUpdateResponseBody>> UpdatePromotionStackWithHttpInfoAsync(string campaignId, string stackId, PromotionsStacksUpdateRequestBody promotionsStacksUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -3541,6 +3571,12 @@ namespace Voucherify.Api
             if (stackId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'stackId' when calling PromotionsApi->UpdatePromotionStack");
+            }
+
+            // verify the required parameter 'promotionsStacksUpdateRequestBody' is set
+            if (promotionsStacksUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsStacksUpdateRequestBody' when calling PromotionsApi->UpdatePromotionStack");
             }
 
 
@@ -3621,10 +3657,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PromotionsTiersUpdateResponseBody</returns>
-        public PromotionsTiersUpdateResponseBody UpdatePromotionTier(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0)
+        public PromotionsTiersUpdateResponseBody UpdatePromotionTier(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<PromotionsTiersUpdateResponseBody> localVarResponse = UpdatePromotionTierWithHttpInfo(promotionTierId, promotionsTiersUpdateRequestBody);
             return localVarResponse.Data;
@@ -3635,15 +3671,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PromotionsTiersUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<PromotionsTiersUpdateResponseBody> UpdatePromotionTierWithHttpInfo(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<PromotionsTiersUpdateResponseBody> UpdatePromotionTierWithHttpInfo(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'promotionTierId' is set
             if (promotionTierId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionTierId' when calling PromotionsApi->UpdatePromotionTier");
+            }
+
+            // verify the required parameter 'promotionsTiersUpdateRequestBody' is set
+            if (promotionsTiersUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsTiersUpdateRequestBody' when calling PromotionsApi->UpdatePromotionTier");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3722,11 +3764,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PromotionsTiersUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<PromotionsTiersUpdateResponseBody> UpdatePromotionTierAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PromotionsTiersUpdateResponseBody> UpdatePromotionTierAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<PromotionsTiersUpdateResponseBody> localVarResponse = await UpdatePromotionTierWithHttpInfoAsync(promotionTierId, promotionsTiersUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3737,16 +3779,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="promotionTierId">Unique promotion tier ID.</param>
-        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update. (optional)</param>
+        /// <param name="promotionsTiersUpdateRequestBody">Specify the promotion tier parameters that you would like to update.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PromotionsTiersUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsTiersUpdateResponseBody>> UpdatePromotionTierWithHttpInfoAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody = default(PromotionsTiersUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<PromotionsTiersUpdateResponseBody>> UpdatePromotionTierWithHttpInfoAsync(string promotionTierId, PromotionsTiersUpdateRequestBody promotionsTiersUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'promotionTierId' is set
             if (promotionTierId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionTierId' when calling PromotionsApi->UpdatePromotionTier");
+            }
+
+            // verify the required parameter 'promotionsTiersUpdateRequestBody' is set
+            if (promotionsTiersUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'promotionsTiersUpdateRequestBody' when calling PromotionsApi->UpdatePromotionTier");
             }
 
 

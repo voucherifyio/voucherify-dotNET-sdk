@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="createorder"></a>
 # **CreateOrder**
-> OrdersCreateResponseBody CreateOrder (OrdersCreateRequestBody ordersCreateRequestBody = null)
+> OrdersCreateResponseBody CreateOrder (OrdersCreateRequestBody ordersCreateRequestBody)
 
 Create Order
 
@@ -47,7 +47,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrdersApi(config);
-            var ordersCreateRequestBody = new OrdersCreateRequestBody(); // OrdersCreateRequestBody | Specify the order parameters. (optional) 
+            var ordersCreateRequestBody = new OrdersCreateRequestBody(); // OrdersCreateRequestBody | Specify the order parameters.
 
             try
             {
@@ -90,7 +90,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ordersCreateRequestBody** | [**OrdersCreateRequestBody**](OrdersCreateRequestBody.md) | Specify the order parameters. | [optional]  |
+| **ordersCreateRequestBody** | [**OrdersCreateRequestBody**](OrdersCreateRequestBody.md) | Specify the order parameters. |  |
 
 ### Return type
 
@@ -115,7 +115,7 @@ catch (ApiException e)
 
 <a id="createorderexport"></a>
 # **CreateOrderExport**
-> OrdersExportCreateResponseBody CreateOrderExport (OrdersExportCreateRequestBody ordersExportCreateRequestBody = null)
+> OrdersExportCreateResponseBody CreateOrderExport (OrdersExportCreateRequestBody ordersExportCreateRequestBody)
 
 Create Orders Export
 
@@ -149,7 +149,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrdersApi(config);
-            var ordersExportCreateRequestBody = new OrdersExportCreateRequestBody(); // OrdersExportCreateRequestBody | Specify which order parameters you would like to export. (optional) 
+            var ordersExportCreateRequestBody = new OrdersExportCreateRequestBody(); // OrdersExportCreateRequestBody | Specify which order parameters you would like to export.
 
             try
             {
@@ -192,7 +192,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ordersExportCreateRequestBody** | [**OrdersExportCreateRequestBody**](OrdersExportCreateRequestBody.md) | Specify which order parameters you would like to export. | [optional]  |
+| **ordersExportCreateRequestBody** | [**OrdersExportCreateRequestBody**](OrdersExportCreateRequestBody.md) | Specify which order parameters you would like to export. |  |
 
 ### Return type
 
@@ -319,11 +319,11 @@ catch (ApiException e)
 
 <a id="importorders"></a>
 # **ImportOrders**
-> OrdersImportCreateResponseBody ImportOrders (List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem = null)
+> OrdersImportCreateResponseBody ImportOrders (List<OrdersImportCreateRequestBodyItem> ordersImportCreateRequestBodyItem)
 
 Import Orders
 
-  🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoints should be used. This is critical because this endpoint does not store events or launch distributions. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit but we might decide to change it to a lower / higher value at any given time depending if we find this value is too high or too low with time. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - **customers entering into segments**  - **distributions** based on any rules tied to customer entering segment(s) - **earning rules** based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
+  🚧 Historical orders  This endpoint should only be used to import historical orders into Voucherify. For on-going synchronization, the [update order](/api-reference/orders/update-order) endpoint should be used. This is critical because this endpoint does not store events or launch distributions. The orders will also have a created_at date thats assigned when theyve been imported to Voucherify. To keep track of the actual order creation date, add an order metadata in ISO 8601 date or date time format to each imported order. # Limitations ## Import volume There can be only a single on-going order import per tenant per project at a given time. The user can schedule more imports but those extra imports will be scheduled to run in sequence one by one.   ## Maximum count of orders in single import There is a 2000 limit of orders per one request. # Notifications There are no notifications on the Dashboard because this import is launched via the API. # Triggered actions    If you import orders with customers, then a logic will be scheduled responsible for placing these customers into segments and refreshing the segments summary. Consequently, this update will trigger  - Customers entering into segments - Distributions based on any rules tied to customer entering segment(s) - Earning rules based on the customer entering segment(s) # What is not triggered 1. No webhooks are triggered during the import of orders - for both orders and upserted products / SKUs.   2. Distributions based on Order Update, Order Paid, Order Created and Order Cancelled. In other words if you have a distribution based on Order Paid and you import an order with a PAID status, the distribution is not going to be triggered.     3. No events are created during the import of orders - for both orders and upserted products / SKUs. In other words you wont see any events in the Activity tab in the Dashboard such as Order created or Order paid. If you are additionally upserting products / SKUs, then you wont see the Product created events listed, etc.    4. Earning rules based on Order Paid wont be triggered. This API request starts a process that affects Voucherify data in bulk.  In case of small jobs (like bulk update) the request is put into a queue and processed once every other bulk request placed in the queue prior to this request is finished. However, when the job takes a longer time (like vouchers generation) then it is processed in small portions in a round-robin fashion. When there is a list of vouchers generation scheduled, then they will all have the IN_PROGRESS status shortly. This way, small jobs added just after scheduling big jobs of the same type will be processed in a short time window.  The result will return the async ID. You can verify the status of your request with [GET Async Action](/api-reference/async-actions/get-async-action) endpoint.
 
 ### Example
 ```csharp
@@ -353,7 +353,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrdersApi(config);
-            var ordersImportCreateRequestBodyItem = new List<OrdersImportCreateRequestBodyItem>(); // List<OrdersImportCreateRequestBodyItem> | The request body is sent in the form of an array of order objects. (optional) 
+            var ordersImportCreateRequestBodyItem = new List<OrdersImportCreateRequestBodyItem>(); // List<OrdersImportCreateRequestBodyItem> | The request body is sent in the form of an array of order objects.
 
             try
             {
@@ -396,7 +396,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **ordersImportCreateRequestBodyItem** | [**List&lt;OrdersImportCreateRequestBodyItem&gt;**](OrdersImportCreateRequestBodyItem.md) | The request body is sent in the form of an array of order objects. | [optional]  |
+| **ordersImportCreateRequestBodyItem** | [**List&lt;OrdersImportCreateRequestBodyItem&gt;**](OrdersImportCreateRequestBodyItem.md) | The request body is sent in the form of an array of order objects. |  |
 
 ### Return type
 
@@ -527,7 +527,7 @@ catch (ApiException e)
 
 <a id="updateorder"></a>
 # **UpdateOrder**
-> OrdersUpdateResponseBody UpdateOrder (string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody = null)
+> OrdersUpdateResponseBody UpdateOrder (string orderId, OrdersUpdateRequestBody ordersUpdateRequestBody)
 
 Update Order
 
@@ -562,7 +562,7 @@ namespace Example
 
             var apiInstance = new OrdersApi(config);
             var orderId = "orderId_example";  // string | Unique Voucherify order ID or order source ID.
-            var ordersUpdateRequestBody = new OrdersUpdateRequestBody(); // OrdersUpdateRequestBody | Specify the parameters of the order that are to be updated. (optional) 
+            var ordersUpdateRequestBody = new OrdersUpdateRequestBody(); // OrdersUpdateRequestBody | Specify the parameters of the order that are to be updated.
 
             try
             {
@@ -606,7 +606,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **orderId** | **string** | Unique Voucherify order ID or order source ID. |  |
-| **ordersUpdateRequestBody** | [**OrdersUpdateRequestBody**](OrdersUpdateRequestBody.md) | Specify the parameters of the order that are to be updated. | [optional]  |
+| **ordersUpdateRequestBody** | [**OrdersUpdateRequestBody**](OrdersUpdateRequestBody.md) | Specify the parameters of the order that are to be updated. |  |
 
 ### Return type
 

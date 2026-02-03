@@ -115,25 +115,25 @@ namespace Voucherify.Api
         /// Redeem Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RedemptionsRedeemResponseBody</returns>
-        RedemptionsRedeemResponseBody RedeemStackedDiscounts(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0);
+        RedemptionsRedeemResponseBody RedeemStackedDiscounts(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Redeem Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RedemptionsRedeemResponseBody</returns>
-        ApiResponse<RedemptionsRedeemResponseBody> RedeemStackedDiscountsWithHttpInfo(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0);
+        ApiResponse<RedemptionsRedeemResponseBody> RedeemStackedDiscountsWithHttpInfo(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Rollback Redemption
         /// </summary>
@@ -142,12 +142,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RedemptionsRollbackCreateResponseBody</returns>
-        RedemptionsRollbackCreateResponseBody RollbackRedemption(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0);
+        RedemptionsRollbackCreateResponseBody RollbackRedemption(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Rollback Redemption
@@ -157,12 +157,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RedemptionsRollbackCreateResponseBody</returns>
-        ApiResponse<RedemptionsRollbackCreateResponseBody> RollbackRedemptionWithHttpInfo(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0);
+        ApiResponse<RedemptionsRollbackCreateResponseBody> RollbackRedemptionWithHttpInfo(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0);
         /// <summary>
         /// Rollback Stackable Redemptions
         /// </summary>
@@ -171,12 +171,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RedemptionsRollbacksCreateResponseBody</returns>
-        RedemptionsRollbacksCreateResponseBody RollbackStackedRedemptions(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0);
+        RedemptionsRollbacksCreateResponseBody RollbackStackedRedemptions(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// Rollback Stackable Redemptions
@@ -186,12 +186,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RedemptionsRollbacksCreateResponseBody</returns>
-        ApiResponse<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsWithHttpInfo(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0);
+        ApiResponse<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsWithHttpInfo(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -294,27 +294,27 @@ namespace Voucherify.Api
         /// Redeem Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionsRedeemResponseBody</returns>
-        System.Threading.Tasks.Task<RedemptionsRedeemResponseBody> RedeemStackedDiscountsAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RedemptionsRedeemResponseBody> RedeemStackedDiscountsAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Redeem Stackable Discounts
         /// </summary>
         /// <remarks>
-        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionsRedeemResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RedemptionsRedeemResponseBody>> RedeemStackedDiscountsWithHttpInfoAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RedemptionsRedeemResponseBody>> RedeemStackedDiscountsWithHttpInfoAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Rollback Redemption
         /// </summary>
@@ -323,13 +323,13 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionsRollbackCreateResponseBody</returns>
-        System.Threading.Tasks.Task<RedemptionsRollbackCreateResponseBody> RollbackRedemptionAsync(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RedemptionsRollbackCreateResponseBody> RollbackRedemptionAsync(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Rollback Redemption
@@ -339,13 +339,13 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionsRollbackCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RedemptionsRollbackCreateResponseBody>> RollbackRedemptionWithHttpInfoAsync(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RedemptionsRollbackCreateResponseBody>> RollbackRedemptionWithHttpInfoAsync(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Rollback Stackable Redemptions
         /// </summary>
@@ -354,13 +354,13 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionsRollbacksCreateResponseBody</returns>
-        System.Threading.Tasks.Task<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsAsync(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsAsync(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Rollback Stackable Redemptions
@@ -370,13 +370,13 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionsRollbacksCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RedemptionsRollbacksCreateResponseBody>> RollbackStackedRedemptionsWithHttpInfoAsync(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RedemptionsRollbacksCreateResponseBody>> RollbackStackedRedemptionsWithHttpInfoAsync(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1267,27 +1267,33 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RedemptionsRedeemResponseBody</returns>
-        public RedemptionsRedeemResponseBody RedeemStackedDiscounts(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0)
+        public RedemptionsRedeemResponseBody RedeemStackedDiscounts(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<RedemptionsRedeemResponseBody> localVarResponse = RedeemStackedDiscountsWithHttpInfo(redemptionsRedeemRequestBody);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RedemptionsRedeemResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RedemptionsRedeemResponseBody> RedeemStackedDiscountsWithHttpInfo(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RedemptionsRedeemResponseBody> RedeemStackedDiscountsWithHttpInfo(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'redemptionsRedeemRequestBody' is set
+            if (redemptionsRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionsRedeemRequestBody' when calling RedemptionsApi->RedeemStackedDiscounts");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1359,29 +1365,35 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionsRedeemResponseBody</returns>
-        public async System.Threading.Tasks.Task<RedemptionsRedeemResponseBody> RedeemStackedDiscountsAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RedemptionsRedeemResponseBody> RedeemStackedDiscountsAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<RedemptionsRedeemResponseBody> localVarResponse = await RedeemStackedDiscountsWithHttpInfoAsync(redemptionsRedeemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+        /// Redeem Stackable Discounts # How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redemptionsRedeemRequestBody"> (optional)</param>
+        /// <param name="redemptionsRedeemRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionsRedeemResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RedemptionsRedeemResponseBody>> RedeemStackedDiscountsWithHttpInfoAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = default(RedemptionsRedeemRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RedemptionsRedeemResponseBody>> RedeemStackedDiscountsWithHttpInfoAsync(RedemptionsRedeemRequestBody redemptionsRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'redemptionsRedeemRequestBody' is set
+            if (redemptionsRedeemRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionsRedeemRequestBody' when calling RedemptionsApi->RedeemStackedDiscounts");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -1458,14 +1470,14 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RedemptionsRollbackCreateResponseBody</returns>
-        public RedemptionsRollbackCreateResponseBody RollbackRedemption(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0)
+        public RedemptionsRollbackCreateResponseBody RollbackRedemption(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0)
         {
-            Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody> localVarResponse = RollbackRedemptionWithHttpInfo(redemptionId, reason, trackingId, redemptionsRollbackCreateRequestBody);
+            Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody> localVarResponse = RollbackRedemptionWithHttpInfo(redemptionId, redemptionsRollbackCreateRequestBody, reason, trackingId);
             return localVarResponse.Data;
         }
 
@@ -1474,17 +1486,23 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RedemptionsRollbackCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody> RollbackRedemptionWithHttpInfo(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody> RollbackRedemptionWithHttpInfo(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'redemptionId' is set
             if (redemptionId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionId' when calling RedemptionsApi->RollbackRedemption");
+            }
+
+            // verify the required parameter 'redemptionsRollbackCreateRequestBody' is set
+            if (redemptionsRollbackCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionsRollbackCreateRequestBody' when calling RedemptionsApi->RollbackRedemption");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1571,15 +1589,15 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionsRollbackCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<RedemptionsRollbackCreateResponseBody> RollbackRedemptionAsync(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RedemptionsRollbackCreateResponseBody> RollbackRedemptionAsync(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody> localVarResponse = await RollbackRedemptionWithHttpInfoAsync(redemptionId, reason, trackingId, redemptionsRollbackCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody> localVarResponse = await RollbackRedemptionWithHttpInfoAsync(redemptionId, redemptionsRollbackCreateRequestBody, reason, trackingId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1588,18 +1606,24 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redemptionId">The original redemption ID to be rolled back (undone).</param>
+        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbackCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionsRollbackCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody>> RollbackRedemptionWithHttpInfoAsync(string redemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = default(RedemptionsRollbackCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RedemptionsRollbackCreateResponseBody>> RollbackRedemptionWithHttpInfoAsync(string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'redemptionId' is set
             if (redemptionId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionId' when calling RedemptionsApi->RollbackRedemption");
+            }
+
+            // verify the required parameter 'redemptionsRollbackCreateRequestBody' is set
+            if (redemptionsRollbackCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionsRollbackCreateRequestBody' when calling RedemptionsApi->RollbackRedemption");
             }
 
 
@@ -1687,14 +1711,14 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RedemptionsRollbacksCreateResponseBody</returns>
-        public RedemptionsRollbacksCreateResponseBody RollbackStackedRedemptions(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0)
+        public RedemptionsRollbacksCreateResponseBody RollbackStackedRedemptions(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0)
         {
-            Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody> localVarResponse = RollbackStackedRedemptionsWithHttpInfo(parentRedemptionId, reason, trackingId, redemptionsRollbacksCreateRequestBody);
+            Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody> localVarResponse = RollbackStackedRedemptionsWithHttpInfo(parentRedemptionId, redemptionsRollbacksCreateRequestBody, reason, trackingId);
             return localVarResponse.Data;
         }
 
@@ -1703,17 +1727,23 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RedemptionsRollbacksCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsWithHttpInfo(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsWithHttpInfo(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'parentRedemptionId' is set
             if (parentRedemptionId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'parentRedemptionId' when calling RedemptionsApi->RollbackStackedRedemptions");
+            }
+
+            // verify the required parameter 'redemptionsRollbacksCreateRequestBody' is set
+            if (redemptionsRollbacksCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionsRollbacksCreateRequestBody' when calling RedemptionsApi->RollbackStackedRedemptions");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1800,15 +1830,15 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RedemptionsRollbacksCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsAsync(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RedemptionsRollbacksCreateResponseBody> RollbackStackedRedemptionsAsync(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody> localVarResponse = await RollbackStackedRedemptionsWithHttpInfoAsync(parentRedemptionId, reason, trackingId, redemptionsRollbacksCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody> localVarResponse = await RollbackStackedRedemptionsWithHttpInfoAsync(parentRedemptionId, redemptionsRollbacksCreateRequestBody, reason, trackingId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1817,18 +1847,24 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentRedemptionId">Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.</param>
+        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.</param>
         /// <param name="reason">Reason for the rollback. (optional)</param>
         /// <param name="trackingId">Customers source_id. (optional)</param>
-        /// <param name="redemptionsRollbacksCreateRequestBody">Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RedemptionsRollbacksCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody>> RollbackStackedRedemptionsWithHttpInfoAsync(string parentRedemptionId, string reason = default(string), string trackingId = default(string), RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = default(RedemptionsRollbacksCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<RedemptionsRollbacksCreateResponseBody>> RollbackStackedRedemptionsWithHttpInfoAsync(string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = default(string), string trackingId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'parentRedemptionId' is set
             if (parentRedemptionId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'parentRedemptionId' when calling RedemptionsApi->RollbackStackedRedemptions");
+            }
+
+            // verify the required parameter 'redemptionsRollbacksCreateRequestBody' is set
+            if (redemptionsRollbacksCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'redemptionsRollbacksCreateRequestBody' when calling RedemptionsApi->RollbackStackedRedemptions");
             }
 
 

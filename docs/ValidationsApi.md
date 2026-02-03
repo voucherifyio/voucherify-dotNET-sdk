@@ -8,7 +8,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="validatestackeddiscounts"></a>
 # **ValidateStackedDiscounts**
-> ValidationsValidateResponseBody ValidateStackedDiscounts (ValidationsValidateRequestBody validationsValidateRequestBody = null)
+> ValidationsValidateResponseBody ValidateStackedDiscounts (ValidationsValidateRequestBody validationsValidateRequestBody)
 
 Validate Stackable Discounts
 
@@ -42,7 +42,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ValidationsApi(config);
-            var validationsValidateRequestBody = new ValidationsValidateRequestBody(); // ValidationsValidateRequestBody |  (optional) 
+            var validationsValidateRequestBody = new ValidationsValidateRequestBody(); // ValidationsValidateRequestBody | 
 
             try
             {
@@ -85,7 +85,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **validationsValidateRequestBody** | [**ValidationsValidateRequestBody**](ValidationsValidateRequestBody.md) |  | [optional]  |
+| **validationsValidateRequestBody** | [**ValidationsValidateRequestBody**](ValidationsValidateRequestBody.md) |  |  |
 
 ### Return type
 

@@ -8,7 +8,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="checkeligibility"></a>
 # **CheckEligibility**
-> QualificationsCheckEligibilityResponseBody CheckEligibility (QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody = null)
+> QualificationsCheckEligibilityResponseBody CheckEligibility (QualificationsCheckEligibilityRequestBody qualificationsCheckEligibilityRequestBody)
 
 Check Eligibility
 
@@ -42,7 +42,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new QualificationsApi(config);
-            var qualificationsCheckEligibilityRequestBody = new QualificationsCheckEligibilityRequestBody(); // QualificationsCheckEligibilityRequestBody | Define order and customer context. (optional) 
+            var qualificationsCheckEligibilityRequestBody = new QualificationsCheckEligibilityRequestBody(); // QualificationsCheckEligibilityRequestBody | Define order and customer context.
 
             try
             {
@@ -85,7 +85,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **qualificationsCheckEligibilityRequestBody** | [**QualificationsCheckEligibilityRequestBody**](QualificationsCheckEligibilityRequestBody.md) | Define order and customer context. | [optional]  |
+| **qualificationsCheckEligibilityRequestBody** | [**QualificationsCheckEligibilityRequestBody**](QualificationsCheckEligibilityRequestBody.md) | Define order and customer context. |  |
 
 ### Return type
 

@@ -14,7 +14,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="addtierfromtemplate"></a>
 # **AddTierFromTemplate**
-> TemplatesCampaignsTierSetupCreateResponseBody AddTierFromTemplate (string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody = null)
+> TemplatesCampaignsTierSetupCreateResponseBody AddTierFromTemplate (string campaignTemplateId, TemplatesCampaignsTierSetupCreateRequestBody templatesCampaignsTierSetupCreateRequestBody)
 
 Add Promotion Tier From Template
 
@@ -49,7 +49,7 @@ namespace Example
 
             var apiInstance = new TemplatesApi(config);
             var campaignTemplateId = "campaignTemplateId_example";  // string | Pass the campaign template ID that was assigned by Voucherify.
-            var templatesCampaignsTierSetupCreateRequestBody = new TemplatesCampaignsTierSetupCreateRequestBody(); // TemplatesCampaignsTierSetupCreateRequestBody | Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. (optional) 
+            var templatesCampaignsTierSetupCreateRequestBody = new TemplatesCampaignsTierSetupCreateRequestBody(); // TemplatesCampaignsTierSetupCreateRequestBody | Only name and campaign_id are required. The rest of the fields will overwrite the template configuration.
 
             try
             {
@@ -93,7 +93,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignTemplateId** | **string** | Pass the campaign template ID that was assigned by Voucherify. |  |
-| **templatesCampaignsTierSetupCreateRequestBody** | [**TemplatesCampaignsTierSetupCreateRequestBody**](TemplatesCampaignsTierSetupCreateRequestBody.md) | Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. | [optional]  |
+| **templatesCampaignsTierSetupCreateRequestBody** | [**TemplatesCampaignsTierSetupCreateRequestBody**](TemplatesCampaignsTierSetupCreateRequestBody.md) | Only name and campaign_id are required. The rest of the fields will overwrite the template configuration. |  |
 
 ### Return type
 
@@ -118,7 +118,7 @@ catch (ApiException e)
 
 <a id="createcampaignfromtemplate"></a>
 # **CreateCampaignFromTemplate**
-> TemplatesCampaignsCampaignSetupCreateResponseBody CreateCampaignFromTemplate (string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody = null)
+> TemplatesCampaignsCampaignSetupCreateResponseBody CreateCampaignFromTemplate (string campaignTemplateId, TemplatesCampaignsCampaignSetupCreateRequestBody templatesCampaignsCampaignSetupCreateRequestBody)
 
 Create Campaign From Template
 
@@ -153,7 +153,7 @@ namespace Example
 
             var apiInstance = new TemplatesApi(config);
             var campaignTemplateId = "campaignTemplateId_example";  // string | Pass the campaign template ID that was assigned by Voucherify.
-            var templatesCampaignsCampaignSetupCreateRequestBody = new TemplatesCampaignsCampaignSetupCreateRequestBody(); // TemplatesCampaignsCampaignSetupCreateRequestBody | Only name is required. The rest of the fields will overwrite the template configuration. (optional) 
+            var templatesCampaignsCampaignSetupCreateRequestBody = new TemplatesCampaignsCampaignSetupCreateRequestBody(); // TemplatesCampaignsCampaignSetupCreateRequestBody | Only name is required. The rest of the fields will overwrite the template configuration.
 
             try
             {
@@ -197,7 +197,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignTemplateId** | **string** | Pass the campaign template ID that was assigned by Voucherify. |  |
-| **templatesCampaignsCampaignSetupCreateRequestBody** | [**TemplatesCampaignsCampaignSetupCreateRequestBody**](TemplatesCampaignsCampaignSetupCreateRequestBody.md) | Only name is required. The rest of the fields will overwrite the template configuration. | [optional]  |
+| **templatesCampaignsCampaignSetupCreateRequestBody** | [**TemplatesCampaignsCampaignSetupCreateRequestBody**](TemplatesCampaignsCampaignSetupCreateRequestBody.md) | Only name is required. The rest of the fields will overwrite the template configuration. |  |
 
 ### Return type
 
@@ -222,7 +222,7 @@ catch (ApiException e)
 
 <a id="createcampaigntemplate"></a>
 # **CreateCampaignTemplate**
-> TemplatesCampaignsCreateTemplateResponseBody CreateCampaignTemplate (TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody = null)
+> TemplatesCampaignsCreateTemplateResponseBody CreateCampaignTemplate (TemplatesCampaignsCreateRequestBody templatesCampaignsCreateRequestBody)
 
 Create Campaign Template
 
@@ -256,7 +256,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplatesApi(config);
-            var templatesCampaignsCreateRequestBody = new TemplatesCampaignsCreateRequestBody(); // TemplatesCampaignsCreateRequestBody | Provide details for a campaign template (optional) 
+            var templatesCampaignsCreateRequestBody = new TemplatesCampaignsCreateRequestBody(); // TemplatesCampaignsCreateRequestBody | Provide details for a campaign template
 
             try
             {
@@ -299,7 +299,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **templatesCampaignsCreateRequestBody** | [**TemplatesCampaignsCreateRequestBody**](TemplatesCampaignsCreateRequestBody.md) | Provide details for a campaign template | [optional]  |
+| **templatesCampaignsCreateRequestBody** | [**TemplatesCampaignsCreateRequestBody**](TemplatesCampaignsCreateRequestBody.md) | Provide details for a campaign template |  |
 
 ### Return type
 
@@ -634,7 +634,7 @@ catch (ApiException e)
 
 <a id="updatecampaigntemplate"></a>
 # **UpdateCampaignTemplate**
-> TemplatesCampaignsUpdateResponseBody UpdateCampaignTemplate (string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody = null)
+> TemplatesCampaignsUpdateResponseBody UpdateCampaignTemplate (string campaignTemplateId, TemplatesCampaignsUpdateRequestBody templatesCampaignsUpdateRequestBody)
 
 Update Campaign Template
 
@@ -669,7 +669,7 @@ namespace Example
 
             var apiInstance = new TemplatesApi(config);
             var campaignTemplateId = "campaignTemplateId_example";  // string | Pass the campaign template ID that was assigned by Voucherify.
-            var templatesCampaignsUpdateRequestBody = new TemplatesCampaignsUpdateRequestBody(); // TemplatesCampaignsUpdateRequestBody | Provide the new name or description for the campaign template (optional) 
+            var templatesCampaignsUpdateRequestBody = new TemplatesCampaignsUpdateRequestBody(); // TemplatesCampaignsUpdateRequestBody | Provide the new name or description for the campaign template
 
             try
             {
@@ -713,7 +713,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **campaignTemplateId** | **string** | Pass the campaign template ID that was assigned by Voucherify. |  |
-| **templatesCampaignsUpdateRequestBody** | [**TemplatesCampaignsUpdateRequestBody**](TemplatesCampaignsUpdateRequestBody.md) | Provide the new name or description for the campaign template | [optional]  |
+| **templatesCampaignsUpdateRequestBody** | [**TemplatesCampaignsUpdateRequestBody**](TemplatesCampaignsUpdateRequestBody.md) | Provide the new name or description for the campaign template |  |
 
 ### Return type
 

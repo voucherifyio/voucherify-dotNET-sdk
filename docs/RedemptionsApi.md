@@ -333,11 +333,11 @@ catch (ApiException e)
 
 <a id="redeemstackeddiscounts"></a>
 # **RedeemStackedDiscounts**
-> RedemptionsRedeemResponseBody RedeemStackedDiscounts (RedemptionsRedeemRequestBody redemptionsRedeemRequestBody = null)
+> RedemptionsRedeemResponseBody RedeemStackedDiscounts (RedemptionsRedeemRequestBody redemptionsRedeemRequestBody)
 
 Redeem Stackable Discounts
 
-# How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.  - Use X-Client-Application-Id as the application ID header.  - Use X-Client-Token as the appliction secret key header.  - Use client-side base URL.  - Use an origin header for your custom domain.
+# How API returns calculated discounts and order amounts in the response In the table below, you can see the logic the API follows to calculate discounts and amounts:   API keys with a Merchant role cant use this endpoint.  📘 Rollbacks  You cant roll back a child redemption. When you call rollback on a stacked redemption, all child redemptions will be rolled back. You need to refer to a parent redemption ID in your [rollback request](/api-reference/redemptions/rollback-stackable-redemptions).      📘 Also available on client-side  This method is also accessible through public keys which you can use in client-side​ apps: mobile and web browser apps. Go to the dedicated [endpoint](/api-reference/client-side/redeem-stackable-discounts-client-side) to learn more.
 
 ### Example
 ```csharp
@@ -367,7 +367,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new RedemptionsApi(config);
-            var redemptionsRedeemRequestBody = new RedemptionsRedeemRequestBody(); // RedemptionsRedeemRequestBody |  (optional) 
+            var redemptionsRedeemRequestBody = new RedemptionsRedeemRequestBody(); // RedemptionsRedeemRequestBody | 
 
             try
             {
@@ -410,7 +410,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **redemptionsRedeemRequestBody** | [**RedemptionsRedeemRequestBody**](RedemptionsRedeemRequestBody.md) |  | [optional]  |
+| **redemptionsRedeemRequestBody** | [**RedemptionsRedeemRequestBody**](RedemptionsRedeemRequestBody.md) |  |  |
 
 ### Return type
 
@@ -435,7 +435,7 @@ catch (ApiException e)
 
 <a id="rollbackredemption"></a>
 # **RollbackRedemption**
-> RedemptionsRollbackCreateResponseBody RollbackRedemption (string redemptionId, string reason = null, string trackingId = null, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody = null)
+> RedemptionsRollbackCreateResponseBody RollbackRedemption (string redemptionId, RedemptionsRollbackCreateRequestBody redemptionsRollbackCreateRequestBody, string reason = null, string trackingId = null)
 
 Rollback Redemption
 
@@ -470,14 +470,14 @@ namespace Example
 
             var apiInstance = new RedemptionsApi(config);
             var redemptionId = "redemptionId_example";  // string | The original redemption ID to be rolled back (undone).
+            var redemptionsRollbackCreateRequestBody = new RedemptionsRollbackCreateRequestBody(); // RedemptionsRollbackCreateRequestBody | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.
             var reason = "reason_example";  // string | Reason for the rollback. (optional) 
             var trackingId = "trackingId_example";  // string | Customers source_id. (optional) 
-            var redemptionsRollbackCreateRequestBody = new RedemptionsRollbackCreateRequestBody(); // RedemptionsRollbackCreateRequestBody | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional) 
 
             try
             {
                 // Rollback Redemption
-                RedemptionsRollbackCreateResponseBody result = apiInstance.RollbackRedemption(redemptionId, reason, trackingId, redemptionsRollbackCreateRequestBody);
+                RedemptionsRollbackCreateResponseBody result = apiInstance.RollbackRedemption(redemptionId, redemptionsRollbackCreateRequestBody, reason, trackingId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -498,7 +498,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Rollback Redemption
-    ApiResponse<RedemptionsRollbackCreateResponseBody> response = apiInstance.RollbackRedemptionWithHttpInfo(redemptionId, reason, trackingId, redemptionsRollbackCreateRequestBody);
+    ApiResponse<RedemptionsRollbackCreateResponseBody> response = apiInstance.RollbackRedemptionWithHttpInfo(redemptionId, redemptionsRollbackCreateRequestBody, reason, trackingId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -516,9 +516,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **redemptionId** | **string** | The original redemption ID to be rolled back (undone). |  |
+| **redemptionsRollbackCreateRequestBody** | [**RedemptionsRollbackCreateRequestBody**](RedemptionsRollbackCreateRequestBody.md) | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. |  |
 | **reason** | **string** | Reason for the rollback. | [optional]  |
 | **trackingId** | **string** | Customers source_id. | [optional]  |
-| **redemptionsRollbackCreateRequestBody** | [**RedemptionsRollbackCreateRequestBody**](RedemptionsRollbackCreateRequestBody.md) | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. | [optional]  |
 
 ### Return type
 
@@ -543,7 +543,7 @@ catch (ApiException e)
 
 <a id="rollbackstackedredemptions"></a>
 # **RollbackStackedRedemptions**
-> RedemptionsRollbacksCreateResponseBody RollbackStackedRedemptions (string parentRedemptionId, string reason = null, string trackingId = null, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody = null)
+> RedemptionsRollbacksCreateResponseBody RollbackStackedRedemptions (string parentRedemptionId, RedemptionsRollbacksCreateRequestBody redemptionsRollbacksCreateRequestBody, string reason = null, string trackingId = null)
 
 Rollback Stackable Redemptions
 
@@ -578,14 +578,14 @@ namespace Example
 
             var apiInstance = new RedemptionsApi(config);
             var parentRedemptionId = "parentRedemptionId_example";  // string | Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm.
+            var redemptionsRollbacksCreateRequestBody = new RedemptionsRollbacksCreateRequestBody(); // RedemptionsRollbacksCreateRequestBody | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body.
             var reason = "reason_example";  // string | Reason for the rollback. (optional) 
             var trackingId = "trackingId_example";  // string | Customers source_id. (optional) 
-            var redemptionsRollbacksCreateRequestBody = new RedemptionsRollbacksCreateRequestBody(); // RedemptionsRollbacksCreateRequestBody | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. (optional) 
 
             try
             {
                 // Rollback Stackable Redemptions
-                RedemptionsRollbacksCreateResponseBody result = apiInstance.RollbackStackedRedemptions(parentRedemptionId, reason, trackingId, redemptionsRollbacksCreateRequestBody);
+                RedemptionsRollbacksCreateResponseBody result = apiInstance.RollbackStackedRedemptions(parentRedemptionId, redemptionsRollbacksCreateRequestBody, reason, trackingId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -606,7 +606,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Rollback Stackable Redemptions
-    ApiResponse<RedemptionsRollbacksCreateResponseBody> response = apiInstance.RollbackStackedRedemptionsWithHttpInfo(parentRedemptionId, reason, trackingId, redemptionsRollbacksCreateRequestBody);
+    ApiResponse<RedemptionsRollbacksCreateResponseBody> response = apiInstance.RollbackStackedRedemptionsWithHttpInfo(parentRedemptionId, redemptionsRollbacksCreateRequestBody, reason, trackingId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -624,9 +624,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **parentRedemptionId** | **string** | Unique identifier of a parent redemption, e.g. r_JQfm73zWSJFQxs3bGxweYjgm. |  |
+| **redemptionsRollbacksCreateRequestBody** | [**RedemptionsRollbacksCreateRequestBody**](RedemptionsRollbacksCreateRequestBody.md) | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. |  |
 | **reason** | **string** | Reason for the rollback. | [optional]  |
 | **trackingId** | **string** | Customers source_id. | [optional]  |
-| **redemptionsRollbacksCreateRequestBody** | [**RedemptionsRollbacksCreateRequestBody**](RedemptionsRollbacksCreateRequestBody.md) | Add information about the original customer and order. Customer data and Redemption metadata can be updated in Voucherify when passing the customer data in the request body. | [optional]  |
 
 ### Return type
 

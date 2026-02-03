@@ -82,7 +82,7 @@ namespace Voucherify.Model
         /// <param name="voucherId">Unique identifier of the parent loyalty card..</param>
         /// <param name="campaignId">Unique identifier of the parent campaign..</param>
         /// <param name="bucket">bucket.</param>
-        /// <param name="status">Loyalty point point bucket status..</param>
+        /// <param name="status">Loyalty point bucket status..</param>
         /// <param name="expiresAt">Date when the number of points defined in the bucket object are due to expire..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the loyalty point bucket object was created in ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the loyalty point bucket object was updated in ISO 8601 format..</param>
@@ -236,9 +236,9 @@ namespace Voucherify.Model
             return _flagBucket;
         }
         /// <summary>
-        /// Loyalty point point bucket status.
+        /// Loyalty point bucket status.
         /// </summary>
-        /// <value>Loyalty point point bucket status.</value>
+        /// <value>Loyalty point bucket status.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status
         {

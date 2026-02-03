@@ -1,0 +1,39 @@
+name: .NET Tests
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+
+      - name: Restore
+        run: dotnet restore src/Voucherify.Test/Voucherify.Test.csproj
+
+      - name: Create test .env (from GitHub Secrets)
+        run: |
+          cat > src/Voucherify.Test/.env << 'EOF'
+          VOUCHERIFY_HOST=${{ vars.VOUCHERIFY_HOST }}
+          X_APP_ID=${{ secrets.X_APP_ID }}
+          X_APP_TOKEN=${{ secrets.X_APP_TOKEN }}
+          X_MANAGEMENT_ID=${{ secrets.X_MANAGEMENT_ID }}
+          X_MANAGEMENT_TOKEN=${{ secrets.X_MANAGEMENT_TOKEN }}
+          PROJECT_ID=${{ vars.PROJECT_ID }}
+          EOF
+
+      - name: Run tests (detailed)
+        run: |
+          dotnet test src/Voucherify.Test/Voucherify.Test.csproj

@@ -37,10 +37,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsVouchersCreateResponseBody</returns>
-        CampaignsVouchersCreateResponseBody AddVoucherWithSpecificCodeToCampaign(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0);
+        CampaignsVouchersCreateResponseBody AddVoucherWithSpecificCodeToCampaign(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Voucher with Specific Code to Campaign
@@ -51,10 +51,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsVouchersCreateResponseBody</returns>
-        ApiResponse<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignWithHttpInfo(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0);
+        ApiResponse<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignWithHttpInfo(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Add Vouchers to Campaign
         /// </summary>
@@ -63,11 +63,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsVouchersCreateCombinedResponseBody</returns>
-        CampaignsVouchersCreateCombinedResponseBody AddVouchersToCampaign(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0);
+        CampaignsVouchersCreateCombinedResponseBody AddVouchersToCampaign(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// Add Vouchers to Campaign
@@ -77,11 +77,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsVouchersCreateCombinedResponseBody</returns>
-        ApiResponse<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignWithHttpInfo(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0);
+        ApiResponse<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignWithHttpInfo(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0);
         /// <summary>
         /// Create Campaign
         /// </summary>
@@ -89,10 +89,10 @@ namespace Voucherify.Api
         /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsCreateResponseBody</returns>
-        CampaignsCreateResponseBody CreateCampaign(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0);
+        CampaignsCreateResponseBody CreateCampaign(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Campaign
@@ -101,10 +101,10 @@ namespace Voucherify.Api
         /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsCreateResponseBody</returns>
-        ApiResponse<CampaignsCreateResponseBody> CreateCampaignWithHttpInfo(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<CampaignsCreateResponseBody> CreateCampaignWithHttpInfo(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Campaign
         /// </summary>
@@ -184,10 +184,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsTransactionsExportCreateResponseBody</returns>
-        CampaignsTransactionsExportCreateResponseBody ExportCampaignTransactions(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0);
+        CampaignsTransactionsExportCreateResponseBody ExportCampaignTransactions(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Campaign Transactions
@@ -197,10 +197,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsTransactionsExportCreateResponseBody</returns>
-        ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsWithHttpInfo(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0);
+        ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsWithHttpInfo(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Get Campaign
         /// </summary>
@@ -259,10 +259,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsImportCreateResponseBody</returns>
-        CampaignsImportCreateResponseBody ImportVouchersToCampaign(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0);
+        CampaignsImportCreateResponseBody ImportVouchersToCampaign(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0);
 
         /// <summary>
         /// Import Vouchers to Campaign
@@ -272,10 +272,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsImportCreateResponseBody</returns>
-        ApiResponse<CampaignsImportCreateResponseBody> ImportVouchersToCampaignWithHttpInfo(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0);
+        ApiResponse<CampaignsImportCreateResponseBody> ImportVouchersToCampaignWithHttpInfo(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0);
         /// <summary>
         /// Import Vouchers to Campaign by CSV
         /// </summary>
@@ -379,10 +379,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsUpdateResponseBody</returns>
-        CampaignsUpdateResponseBody UpdateCampaign(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0);
+        CampaignsUpdateResponseBody UpdateCampaign(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Campaign
@@ -392,10 +392,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsUpdateResponseBody</returns>
-        ApiResponse<CampaignsUpdateResponseBody> UpdateCampaignWithHttpInfo(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<CampaignsUpdateResponseBody> UpdateCampaignWithHttpInfo(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -414,11 +414,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsVouchersCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Voucher with Specific Code to Campaign
@@ -429,11 +429,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsVouchersCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsVouchersCreateResponseBody>> AddVoucherWithSpecificCodeToCampaignWithHttpInfoAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsVouchersCreateResponseBody>> AddVoucherWithSpecificCodeToCampaignWithHttpInfoAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Add Vouchers to Campaign
         /// </summary>
@@ -442,12 +442,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsVouchersCreateCombinedResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignAsync(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignAsync(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Vouchers to Campaign
@@ -457,12 +457,12 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsVouchersCreateCombinedResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsVouchersCreateCombinedResponseBody>> AddVouchersToCampaignWithHttpInfoAsync(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsVouchersCreateCombinedResponseBody>> AddVouchersToCampaignWithHttpInfoAsync(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Campaign
         /// </summary>
@@ -470,11 +470,11 @@ namespace Voucherify.Api
         /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsCreateResponseBody> CreateCampaignAsync(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsCreateResponseBody> CreateCampaignAsync(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Campaign
@@ -483,11 +483,11 @@ namespace Voucherify.Api
         /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsCreateResponseBody>> CreateCampaignWithHttpInfoAsync(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsCreateResponseBody>> CreateCampaignWithHttpInfoAsync(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Campaign
         /// </summary>
@@ -573,11 +573,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsTransactionsExportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Campaign Transactions
@@ -587,11 +587,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsTransactionsExportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportCampaignTransactionsWithHttpInfoAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportCampaignTransactionsWithHttpInfoAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Campaign
         /// </summary>
@@ -654,11 +654,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsImportCreateResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsImportCreateResponseBody> ImportVouchersToCampaignAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsImportCreateResponseBody> ImportVouchersToCampaignAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Import Vouchers to Campaign
@@ -668,11 +668,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsImportCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsImportCreateResponseBody>> ImportVouchersToCampaignWithHttpInfoAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsImportCreateResponseBody>> ImportVouchersToCampaignWithHttpInfoAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Import Vouchers to Campaign by CSV
         /// </summary>
@@ -782,11 +782,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<CampaignsUpdateResponseBody> UpdateCampaignAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CampaignsUpdateResponseBody> UpdateCampaignAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Campaign
@@ -796,11 +796,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CampaignsUpdateResponseBody>> UpdateCampaignWithHttpInfoAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CampaignsUpdateResponseBody>> UpdateCampaignWithHttpInfoAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -927,10 +927,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsVouchersCreateResponseBody</returns>
-        public CampaignsVouchersCreateResponseBody AddVoucherWithSpecificCodeToCampaign(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0)
+        public CampaignsVouchersCreateResponseBody AddVoucherWithSpecificCodeToCampaign(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsVouchersCreateResponseBody> localVarResponse = AddVoucherWithSpecificCodeToCampaignWithHttpInfo(campaignId, code, campaignsVouchersCreateRequestBody);
             return localVarResponse.Data;
@@ -942,10 +942,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsVouchersCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignWithHttpInfo(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignWithHttpInfo(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -957,6 +957,12 @@ namespace Voucherify.Api
             if (code == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'code' when calling CampaignsApi->AddVoucherWithSpecificCodeToCampaign");
+            }
+
+            // verify the required parameter 'campaignsVouchersCreateRequestBody' is set
+            if (campaignsVouchersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsVouchersCreateRequestBody' when calling CampaignsApi->AddVoucherWithSpecificCodeToCampaign");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1037,11 +1043,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsVouchersCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsVouchersCreateResponseBody> AddVoucherWithSpecificCodeToCampaignAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsVouchersCreateResponseBody> localVarResponse = await AddVoucherWithSpecificCodeToCampaignWithHttpInfoAsync(campaignId, code, campaignsVouchersCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1053,11 +1059,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="code">A custom **code** that identifies the voucher.</param>
-        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
+        /// <param name="campaignsVouchersCreateRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsVouchersCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsVouchersCreateResponseBody>> AddVoucherWithSpecificCodeToCampaignWithHttpInfoAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody = default(CampaignsVouchersCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsVouchersCreateResponseBody>> AddVoucherWithSpecificCodeToCampaignWithHttpInfoAsync(string campaignId, string code, CampaignsVouchersCreateRequestBody campaignsVouchersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -1069,6 +1075,12 @@ namespace Voucherify.Api
             if (code == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'code' when calling CampaignsApi->AddVoucherWithSpecificCodeToCampaign");
+            }
+
+            // verify the required parameter 'campaignsVouchersCreateRequestBody' is set
+            if (campaignsVouchersCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsVouchersCreateRequestBody' when calling CampaignsApi->AddVoucherWithSpecificCodeToCampaign");
             }
 
 
@@ -1149,13 +1161,13 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsVouchersCreateCombinedResponseBody</returns>
-        public CampaignsVouchersCreateCombinedResponseBody AddVouchersToCampaign(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0)
+        public CampaignsVouchersCreateCombinedResponseBody AddVouchersToCampaign(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0)
         {
-            Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody> localVarResponse = AddVouchersToCampaignWithHttpInfo(campaignId, vouchersCount, campaignsVouchersCreateInBulkRequestBody);
+            Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody> localVarResponse = AddVouchersToCampaignWithHttpInfo(campaignId, campaignsVouchersCreateInBulkRequestBody, vouchersCount);
             return localVarResponse.Data;
         }
 
@@ -1164,16 +1176,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsVouchersCreateCombinedResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignWithHttpInfo(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignWithHttpInfo(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->AddVouchersToCampaign");
+            }
+
+            // verify the required parameter 'campaignsVouchersCreateInBulkRequestBody' is set
+            if (campaignsVouchersCreateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsVouchersCreateInBulkRequestBody' when calling CampaignsApi->AddVouchersToCampaign");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1256,14 +1274,14 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsVouchersCreateCombinedResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignAsync(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsVouchersCreateCombinedResponseBody> AddVouchersToCampaignAsync(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody> localVarResponse = await AddVouchersToCampaignWithHttpInfoAsync(campaignId, vouchersCount, campaignsVouchersCreateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody> localVarResponse = await AddVouchersToCampaignWithHttpInfoAsync(campaignId, campaignsVouchersCreateInBulkRequestBody, vouchersCount, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1272,17 +1290,23 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign to which voucher(s) will be added. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
+        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite.</param>
         /// <param name="vouchersCount">Number of vouchers that should be added. (optional)</param>
-        /// <param name="campaignsVouchersCreateInBulkRequestBody">Specify the voucher parameters that you would like to overwrite. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsVouchersCreateCombinedResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody>> AddVouchersToCampaignWithHttpInfoAsync(string campaignId, int? vouchersCount = default(int?), CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody = default(CampaignsVouchersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsVouchersCreateCombinedResponseBody>> AddVouchersToCampaignWithHttpInfoAsync(string campaignId, CampaignsVouchersCreateInBulkRequestBody campaignsVouchersCreateInBulkRequestBody, int? vouchersCount = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->AddVouchersToCampaign");
+            }
+
+            // verify the required parameter 'campaignsVouchersCreateInBulkRequestBody' is set
+            if (campaignsVouchersCreateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsVouchersCreateInBulkRequestBody' when calling CampaignsApi->AddVouchersToCampaign");
             }
 
 
@@ -1365,10 +1389,10 @@ namespace Voucherify.Api
         /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsCreateResponseBody</returns>
-        public CampaignsCreateResponseBody CreateCampaign(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0)
+        public CampaignsCreateResponseBody CreateCampaign(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsCreateResponseBody> localVarResponse = CreateCampaignWithHttpInfo(campaignsCreateRequestBody);
             return localVarResponse.Data;
@@ -1378,11 +1402,17 @@ namespace Voucherify.Api
         /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsCreateResponseBody> CreateCampaignWithHttpInfo(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsCreateResponseBody> CreateCampaignWithHttpInfo(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'campaignsCreateRequestBody' is set
+            if (campaignsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsCreateRequestBody' when calling CampaignsApi->CreateCampaign");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1457,11 +1487,11 @@ namespace Voucherify.Api
         /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsCreateResponseBody> CreateCampaignAsync(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsCreateResponseBody> CreateCampaignAsync(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsCreateResponseBody> localVarResponse = await CreateCampaignWithHttpInfoAsync(campaignsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1471,12 +1501,18 @@ namespace Voucherify.Api
         /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. 🚧 Standalone Vouchers and Campaigns In version [v20241004](https://support.voucherify.io/article/23-whats-new-in-voucherify#v20241004), generic (standalone) vouchers created through the Voucherify dashboard create a campaign for that voucher. However, you cannot create a standalone discount or gift voucher campaign with the type: STANDALONE through the API. Voucherify developers work on adding that feature. Follow the [Voucherify Release Notes](https://support.voucherify.io/article/23-whats-new-in-voucherify) for more details about released features.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create. (optional)</param>
+        /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsCreateResponseBody>> CreateCampaignWithHttpInfoAsync(CampaignsCreateRequestBody campaignsCreateRequestBody = default(CampaignsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsCreateResponseBody>> CreateCampaignWithHttpInfoAsync(CampaignsCreateRequestBody campaignsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'campaignsCreateRequestBody' is set
+            if (campaignsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsCreateRequestBody' when calling CampaignsApi->CreateCampaign");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -2156,10 +2192,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsTransactionsExportCreateResponseBody</returns>
-        public CampaignsTransactionsExportCreateResponseBody ExportCampaignTransactions(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public CampaignsTransactionsExportCreateResponseBody ExportCampaignTransactions(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResponse = ExportCampaignTransactionsWithHttpInfo(campaignId, campaignsTransactionsExportCreateRequestBody);
             return localVarResponse.Data;
@@ -2170,15 +2206,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsTransactionsExportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsWithHttpInfo(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsWithHttpInfo(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->ExportCampaignTransactions");
+            }
+
+            // verify the required parameter 'campaignsTransactionsExportCreateRequestBody' is set
+            if (campaignsTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsTransactionsExportCreateRequestBody' when calling CampaignsApi->ExportCampaignTransactions");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2257,11 +2299,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsTransactionsExportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportCampaignTransactionsAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResponse = await ExportCampaignTransactionsWithHttpInfoAsync(campaignId, campaignsTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2272,16 +2314,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export. (optional)</param>
+        /// <param name="campaignsTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsTransactionsExportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportCampaignTransactionsWithHttpInfoAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody = default(CampaignsTransactionsExportCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportCampaignTransactionsWithHttpInfoAsync(string campaignId, CampaignsTransactionsExportCreateRequestBody campaignsTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->ExportCampaignTransactions");
+            }
+
+            // verify the required parameter 'campaignsTransactionsExportCreateRequestBody' is set
+            if (campaignsTransactionsExportCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsTransactionsExportCreateRequestBody' when calling CampaignsApi->ExportCampaignTransactions");
             }
 
 
@@ -2779,10 +2827,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsImportCreateResponseBody</returns>
-        public CampaignsImportCreateResponseBody ImportVouchersToCampaign(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0)
+        public CampaignsImportCreateResponseBody ImportVouchersToCampaign(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsImportCreateResponseBody> localVarResponse = ImportVouchersToCampaignWithHttpInfo(campaignId, campaignsImportVoucherItem);
             return localVarResponse.Data;
@@ -2793,15 +2841,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsImportCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsImportCreateResponseBody> ImportVouchersToCampaignWithHttpInfo(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsImportCreateResponseBody> ImportVouchersToCampaignWithHttpInfo(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->ImportVouchersToCampaign");
+            }
+
+            // verify the required parameter 'campaignsImportVoucherItem' is set
+            if (campaignsImportVoucherItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsImportVoucherItem' when calling CampaignsApi->ImportVouchersToCampaign");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2880,11 +2934,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsImportCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsImportCreateResponseBody> ImportVouchersToCampaignAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsImportCreateResponseBody> ImportVouchersToCampaignAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsImportCreateResponseBody> localVarResponse = await ImportVouchersToCampaignWithHttpInfoAsync(campaignId, campaignsImportVoucherItem, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2895,16 +2949,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The ID of an existing campaign to which youre importing the codes. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings. (optional)</param>
+        /// <param name="campaignsImportVoucherItem">Discount type, expiration date and the remaining attributes will be taken from the [Campaign](/api-reference/campaigns/get-campaign) settings.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsImportCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsImportCreateResponseBody>> ImportVouchersToCampaignWithHttpInfoAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem = default(List<CampaignsImportVoucherItem>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsImportCreateResponseBody>> ImportVouchersToCampaignWithHttpInfoAsync(string campaignId, List<CampaignsImportVoucherItem> campaignsImportVoucherItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->ImportVouchersToCampaign");
+            }
+
+            // verify the required parameter 'campaignsImportVoucherItem' is set
+            if (campaignsImportVoucherItem == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsImportVoucherItem' when calling CampaignsApi->ImportVouchersToCampaign");
             }
 
 
@@ -3889,10 +3949,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsUpdateResponseBody</returns>
-        public CampaignsUpdateResponseBody UpdateCampaign(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0)
+        public CampaignsUpdateResponseBody UpdateCampaign(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsUpdateResponseBody> localVarResponse = UpdateCampaignWithHttpInfo(campaignId, campaignsUpdateRequestBody);
             return localVarResponse.Data;
@@ -3903,15 +3963,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CampaignsUpdateResponseBody> UpdateCampaignWithHttpInfo(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CampaignsUpdateResponseBody> UpdateCampaignWithHttpInfo(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->UpdateCampaign");
+            }
+
+            // verify the required parameter 'campaignsUpdateRequestBody' is set
+            if (campaignsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsUpdateRequestBody' when calling CampaignsApi->UpdateCampaign");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3990,11 +4056,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<CampaignsUpdateResponseBody> UpdateCampaignAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CampaignsUpdateResponseBody> UpdateCampaignAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsUpdateResponseBody> localVarResponse = await UpdateCampaignWithHttpInfoAsync(campaignId, campaignsUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4005,16 +4071,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
-        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated. (optional)</param>
+        /// <param name="campaignsUpdateRequestBody">Specify the campaign parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsUpdateResponseBody>> UpdateCampaignWithHttpInfoAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody = default(CampaignsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsUpdateResponseBody>> UpdateCampaignWithHttpInfoAsync(string campaignId, CampaignsUpdateRequestBody campaignsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignId' when calling CampaignsApi->UpdateCampaign");
+            }
+
+            // verify the required parameter 'campaignsUpdateRequestBody' is set
+            if (campaignsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'campaignsUpdateRequestBody' when calling CampaignsApi->UpdateCampaign");
             }
 
 

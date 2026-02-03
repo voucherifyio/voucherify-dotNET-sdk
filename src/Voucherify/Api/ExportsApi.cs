@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportsCreateResponseBody</returns>
-        ExportsCreateResponseBody CreateExport(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0);
+        ExportsCreateResponseBody CreateExport(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Export
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportsCreateResponseBody</returns>
-        ApiResponse<ExportsCreateResponseBody> CreateExportWithHttpInfo(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ExportsCreateResponseBody> CreateExportWithHttpInfo(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Export
         /// </summary>
@@ -165,11 +165,11 @@ namespace Voucherify.Api
         /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ExportsCreateResponseBody> CreateExportAsync(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ExportsCreateResponseBody> CreateExportAsync(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Export
@@ -178,11 +178,11 @@ namespace Voucherify.Api
         /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExportsCreateResponseBody>> CreateExportWithHttpInfoAsync(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ExportsCreateResponseBody>> CreateExportWithHttpInfoAsync(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Export
         /// </summary>
@@ -413,10 +413,10 @@ namespace Voucherify.Api
         /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ExportsCreateResponseBody</returns>
-        public ExportsCreateResponseBody CreateExport(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0)
+        public ExportsCreateResponseBody CreateExport(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ExportsCreateResponseBody> localVarResponse = CreateExportWithHttpInfo(exportsCreateRequestBody);
             return localVarResponse.Data;
@@ -426,11 +426,17 @@ namespace Voucherify.Api
         /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ExportsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ExportsCreateResponseBody> CreateExportWithHttpInfo(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ExportsCreateResponseBody> CreateExportWithHttpInfo(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'exportsCreateRequestBody' is set
+            if (exportsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'exportsCreateRequestBody' when calling ExportsApi->CreateExport");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -505,11 +511,11 @@ namespace Voucherify.Api
         /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ExportsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ExportsCreateResponseBody> CreateExportAsync(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ExportsCreateResponseBody> CreateExportAsync(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ExportsCreateResponseBody> localVarResponse = await CreateExportWithHttpInfoAsync(exportsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -519,12 +525,18 @@ namespace Voucherify.Api
         /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create. (optional)</param>
+        /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExportsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ExportsCreateResponseBody>> CreateExportWithHttpInfoAsync(ExportsCreateRequestBody exportsCreateRequestBody = default(ExportsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ExportsCreateResponseBody>> CreateExportWithHttpInfoAsync(ExportsCreateRequestBody exportsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'exportsCreateRequestBody' is set
+            if (exportsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'exportsCreateRequestBody' when calling ExportsApi->CreateExport");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 

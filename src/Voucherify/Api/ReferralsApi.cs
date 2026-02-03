@@ -36,10 +36,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0);
+        ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Referral Code Holders
@@ -49,10 +49,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersWithHttpInfo(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0);
+        ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersWithHttpInfo(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0);
         /// <summary>
         /// Add Referral Code Holders with Campaign ID
         /// </summary>
@@ -62,10 +62,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0);
+        ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Referral Code Holders with Campaign ID
@@ -76,10 +76,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1WithHttpInfo(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0);
+        ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1WithHttpInfo(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0);
         /// <summary>
         /// List Referral Code Holders with campaign ID
         /// </summary>
@@ -213,11 +213,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Referral Code Holders
@@ -227,11 +227,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReferralsMembersHoldersCreateInBulkResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHoldersWithHttpInfoAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHoldersWithHttpInfoAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Add Referral Code Holders with Campaign ID
         /// </summary>
@@ -241,11 +241,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1Async(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1Async(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Referral Code Holders with Campaign ID
@@ -256,11 +256,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReferralsMembersHoldersCreateInBulkResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHolders1WithHttpInfoAsync(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHolders1WithHttpInfoAsync(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Referral Code Holders with campaign ID
         /// </summary>
@@ -510,10 +510,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        public ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0)
+        public ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> localVarResponse = ReferralsAddHoldersWithHttpInfo(memberId, referralsMembersHoldersCreateInBulkRequestBody);
             return localVarResponse.Data;
@@ -524,15 +524,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersWithHttpInfo(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersWithHttpInfo(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling ReferralsApi->ReferralsAddHolders");
+            }
+
+            // verify the required parameter 'referralsMembersHoldersCreateInBulkRequestBody' is set
+            if (referralsMembersHoldersCreateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'referralsMembersHoldersCreateInBulkRequestBody' when calling ReferralsApi->ReferralsAddHolders");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -611,11 +617,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        public async System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHoldersAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> localVarResponse = await ReferralsAddHoldersWithHttpInfoAsync(memberId, referralsMembersHoldersCreateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -626,16 +632,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReferralsMembersHoldersCreateInBulkResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHoldersWithHttpInfoAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHoldersWithHttpInfoAsync(string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling ReferralsApi->ReferralsAddHolders");
+            }
+
+            // verify the required parameter 'referralsMembersHoldersCreateInBulkRequestBody' is set
+            if (referralsMembersHoldersCreateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'referralsMembersHoldersCreateInBulkRequestBody' when calling ReferralsApi->ReferralsAddHolders");
             }
 
 
@@ -716,10 +728,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        public ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0)
+        public ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> localVarResponse = ReferralsAddHolders1WithHttpInfo(campaignId, memberId, referralsMembersHoldersCreateInBulkRequestBody);
             return localVarResponse.Data;
@@ -731,10 +743,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1WithHttpInfo(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1WithHttpInfo(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -746,6 +758,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling ReferralsApi->ReferralsAddHolders1");
+            }
+
+            // verify the required parameter 'referralsMembersHoldersCreateInBulkRequestBody' is set
+            if (referralsMembersHoldersCreateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'referralsMembersHoldersCreateInBulkRequestBody' when calling ReferralsApi->ReferralsAddHolders1");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -826,11 +844,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ReferralsMembersHoldersCreateInBulkResponseBody</returns>
-        public async System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1Async(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ReferralsMembersHoldersCreateInBulkResponseBody> ReferralsAddHolders1Async(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody> localVarResponse = await ReferralsAddHolders1WithHttpInfoAsync(campaignId, memberId, referralsMembersHoldersCreateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -842,11 +860,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique identifier of a referral program campaign.</param>
         /// <param name="memberId">Unique referral code or its identifier.</param>
-        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders. (optional)</param>
+        /// <param name="referralsMembersHoldersCreateInBulkRequestBody">Specify the customer data to be upserted as redeemable holders.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ReferralsMembersHoldersCreateInBulkResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHolders1WithHttpInfoAsync(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = default(ReferralsMembersHoldersCreateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ReferralsMembersHoldersCreateInBulkResponseBody>> ReferralsAddHolders1WithHttpInfoAsync(string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
             if (campaignId == null)
@@ -858,6 +876,12 @@ namespace Voucherify.Api
             if (memberId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'memberId' when calling ReferralsApi->ReferralsAddHolders1");
+            }
+
+            // verify the required parameter 'referralsMembersHoldersCreateInBulkRequestBody' is set
+            if (referralsMembersHoldersCreateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'referralsMembersHoldersCreateInBulkRequestBody' when calling ReferralsApi->ReferralsAddHolders1");
             }
 
 

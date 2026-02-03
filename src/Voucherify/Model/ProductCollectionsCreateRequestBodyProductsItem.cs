@@ -108,9 +108,6 @@ namespace Voucherify.Model
         /// The product ID.
         /// </summary>
         /// <value>The product ID.</value>
-        /*
-        <example>prod_0a41bcf807c5fcaaf6</example>
-        */
         [DataMember(Name = "id", IsRequired = false, EmitDefaultValue = true)]
         public string Id
         {

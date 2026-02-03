@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 <a id="referralsaddholders"></a>
 # **ReferralsAddHolders**
-> ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders (string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = null)
+> ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders (string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody)
 
 Add Referral Code Holders
 
@@ -48,7 +48,7 @@ namespace Example
 
             var apiInstance = new ReferralsApi(config);
             var memberId = "memberId_example";  // string | Unique referral code or its identifier.
-            var referralsMembersHoldersCreateInBulkRequestBody = new ReferralsMembersHoldersCreateInBulkRequestBody(); // ReferralsMembersHoldersCreateInBulkRequestBody | Specify the customer data to be upserted as redeemable holders. (optional) 
+            var referralsMembersHoldersCreateInBulkRequestBody = new ReferralsMembersHoldersCreateInBulkRequestBody(); // ReferralsMembersHoldersCreateInBulkRequestBody | Specify the customer data to be upserted as redeemable holders.
 
             try
             {
@@ -92,7 +92,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **memberId** | **string** | Unique referral code or its identifier. |  |
-| **referralsMembersHoldersCreateInBulkRequestBody** | [**ReferralsMembersHoldersCreateInBulkRequestBody**](ReferralsMembersHoldersCreateInBulkRequestBody.md) | Specify the customer data to be upserted as redeemable holders. | [optional]  |
+| **referralsMembersHoldersCreateInBulkRequestBody** | [**ReferralsMembersHoldersCreateInBulkRequestBody**](ReferralsMembersHoldersCreateInBulkRequestBody.md) | Specify the customer data to be upserted as redeemable holders. |  |
 
 ### Return type
 
@@ -117,7 +117,7 @@ catch (ApiException e)
 
 <a id="referralsaddholders1"></a>
 # **ReferralsAddHolders1**
-> ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1 (string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody = null)
+> ReferralsMembersHoldersCreateInBulkResponseBody ReferralsAddHolders1 (string campaignId, string memberId, ReferralsMembersHoldersCreateInBulkRequestBody referralsMembersHoldersCreateInBulkRequestBody)
 
 Add Referral Code Holders with Campaign ID
 
@@ -153,7 +153,7 @@ namespace Example
             var apiInstance = new ReferralsApi(config);
             var campaignId = "campaignId_example";  // string | Unique identifier of a referral program campaign.
             var memberId = "memberId_example";  // string | Unique referral code or its identifier.
-            var referralsMembersHoldersCreateInBulkRequestBody = new ReferralsMembersHoldersCreateInBulkRequestBody(); // ReferralsMembersHoldersCreateInBulkRequestBody | Specify the customer data to be upserted as redeemable holders. (optional) 
+            var referralsMembersHoldersCreateInBulkRequestBody = new ReferralsMembersHoldersCreateInBulkRequestBody(); // ReferralsMembersHoldersCreateInBulkRequestBody | Specify the customer data to be upserted as redeemable holders.
 
             try
             {
@@ -198,7 +198,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **campaignId** | **string** | Unique identifier of a referral program campaign. |  |
 | **memberId** | **string** | Unique referral code or its identifier. |  |
-| **referralsMembersHoldersCreateInBulkRequestBody** | [**ReferralsMembersHoldersCreateInBulkRequestBody**](ReferralsMembersHoldersCreateInBulkRequestBody.md) | Specify the customer data to be upserted as redeemable holders. | [optional]  |
+| **referralsMembersHoldersCreateInBulkRequestBody** | [**ReferralsMembersHoldersCreateInBulkRequestBody**](ReferralsMembersHoldersCreateInBulkRequestBody.md) | Specify the customer data to be upserted as redeemable holders. |  |
 
 ### Return type
 

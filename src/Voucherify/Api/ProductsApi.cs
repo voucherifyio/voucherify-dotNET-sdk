@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsCreateResponseBody</returns>
-        ProductsCreateResponseBody CreateProduct(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0);
+        ProductsCreateResponseBody CreateProduct(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Product
@@ -47,10 +47,10 @@ namespace Voucherify.Api
         /// Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsCreateResponseBody</returns>
-        ApiResponse<ProductsCreateResponseBody> CreateProductWithHttpInfo(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ProductsCreateResponseBody> CreateProductWithHttpInfo(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create SKU
         /// </summary>
@@ -59,10 +59,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsSkusCreateResponseBody</returns>
-        ProductsSkusCreateResponseBody CreateSku(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0);
+        ProductsSkusCreateResponseBody CreateSku(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create SKU
@@ -72,10 +72,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsSkusCreateResponseBody</returns>
-        ApiResponse<ProductsSkusCreateResponseBody> CreateSkuWithHttpInfo(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0);
+        ApiResponse<ProductsSkusCreateResponseBody> CreateSkuWithHttpInfo(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Product
         /// </summary>
@@ -292,10 +292,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsUpdateResponseBody</returns>
-        ProductsUpdateResponseBody UpdateProduct(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0);
+        ProductsUpdateResponseBody UpdateProduct(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Product
@@ -305,10 +305,10 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsUpdateResponseBody</returns>
-        ApiResponse<ProductsUpdateResponseBody> UpdateProductWithHttpInfo(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ProductsUpdateResponseBody> UpdateProductWithHttpInfo(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Products in Bulk
         /// </summary>
@@ -316,10 +316,10 @@ namespace Voucherify.Api
         /// Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsUpdateInBulkResponseBody</returns>
-        ProductsUpdateInBulkResponseBody UpdateProductsInBulk(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0);
+        ProductsUpdateInBulkResponseBody UpdateProductsInBulk(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Products in Bulk
@@ -328,10 +328,10 @@ namespace Voucherify.Api
         /// Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsUpdateInBulkResponseBody</returns>
-        ApiResponse<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkWithHttpInfo(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0);
+        ApiResponse<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkWithHttpInfo(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Products&#39; Metadata in Bulk
         /// </summary>
@@ -339,10 +339,10 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsMetadataUpdateInBulkResponseBody</returns>
-        ProductsMetadataUpdateInBulkResponseBody UpdateProductsMetadataInBulk(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0);
+        ProductsMetadataUpdateInBulkResponseBody UpdateProductsMetadataInBulk(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Products&#39; Metadata in Bulk
@@ -351,10 +351,10 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsMetadataUpdateInBulkResponseBody</returns>
-        ApiResponse<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkWithHttpInfo(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0);
+        ApiResponse<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkWithHttpInfo(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update SKU
         /// </summary>
@@ -364,10 +364,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsSkusUpdateResponseBody</returns>
-        ProductsSkusUpdateResponseBody UpdateSku(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0);
+        ProductsSkusUpdateResponseBody UpdateSku(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update SKU
@@ -378,10 +378,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsSkusUpdateResponseBody</returns>
-        ApiResponse<ProductsSkusUpdateResponseBody> UpdateSkuWithHttpInfo(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0);
+        ApiResponse<ProductsSkusUpdateResponseBody> UpdateSkuWithHttpInfo(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -398,11 +398,11 @@ namespace Voucherify.Api
         /// Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ProductsCreateResponseBody> CreateProductAsync(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductsCreateResponseBody> CreateProductAsync(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Product
@@ -411,11 +411,11 @@ namespace Voucherify.Api
         /// Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductsCreateResponseBody>> CreateProductWithHttpInfoAsync(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductsCreateResponseBody>> CreateProductWithHttpInfoAsync(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create SKU
         /// </summary>
@@ -424,11 +424,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsSkusCreateResponseBody</returns>
-        System.Threading.Tasks.Task<ProductsSkusCreateResponseBody> CreateSkuAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductsSkusCreateResponseBody> CreateSkuAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create SKU
@@ -438,11 +438,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsSkusCreateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductsSkusCreateResponseBody>> CreateSkuWithHttpInfoAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductsSkusCreateResponseBody>> CreateSkuWithHttpInfoAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Product
         /// </summary>
@@ -675,11 +675,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ProductsUpdateResponseBody> UpdateProductAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductsUpdateResponseBody> UpdateProductAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Product
@@ -689,11 +689,11 @@ namespace Voucherify.Api
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductsUpdateResponseBody>> UpdateProductWithHttpInfoAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductsUpdateResponseBody>> UpdateProductWithHttpInfoAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Products in Bulk
         /// </summary>
@@ -701,11 +701,11 @@ namespace Voucherify.Api
         /// Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsUpdateInBulkResponseBody</returns>
-        System.Threading.Tasks.Task<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Products in Bulk
@@ -714,11 +714,11 @@ namespace Voucherify.Api
         /// Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsUpdateInBulkResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductsUpdateInBulkResponseBody>> UpdateProductsInBulkWithHttpInfoAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductsUpdateInBulkResponseBody>> UpdateProductsInBulkWithHttpInfoAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Products&#39; Metadata in Bulk
         /// </summary>
@@ -726,11 +726,11 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsMetadataUpdateInBulkResponseBody</returns>
-        System.Threading.Tasks.Task<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Products&#39; Metadata in Bulk
@@ -739,11 +739,11 @@ namespace Voucherify.Api
         /// Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsMetadataUpdateInBulkResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductsMetadataUpdateInBulkResponseBody>> UpdateProductsMetadataInBulkWithHttpInfoAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductsMetadataUpdateInBulkResponseBody>> UpdateProductsMetadataInBulkWithHttpInfoAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update SKU
         /// </summary>
@@ -753,11 +753,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsSkusUpdateResponseBody</returns>
-        System.Threading.Tasks.Task<ProductsSkusUpdateResponseBody> UpdateSkuAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ProductsSkusUpdateResponseBody> UpdateSkuAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update SKU
@@ -768,11 +768,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsSkusUpdateResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductsSkusUpdateResponseBody>> UpdateSkuWithHttpInfoAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ProductsSkusUpdateResponseBody>> UpdateSkuWithHttpInfoAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -897,10 +897,10 @@ namespace Voucherify.Api
         /// Create Product Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsCreateResponseBody</returns>
-        public ProductsCreateResponseBody CreateProduct(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0)
+        public ProductsCreateResponseBody CreateProduct(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductsCreateResponseBody> localVarResponse = CreateProductWithHttpInfo(productsCreateRequestBody);
             return localVarResponse.Data;
@@ -910,11 +910,17 @@ namespace Voucherify.Api
         /// Create Product Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductsCreateResponseBody> CreateProductWithHttpInfo(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductsCreateResponseBody> CreateProductWithHttpInfo(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'productsCreateRequestBody' is set
+            if (productsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsCreateRequestBody' when calling ProductsApi->CreateProduct");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -989,11 +995,11 @@ namespace Voucherify.Api
         /// Create Product Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductsCreateResponseBody> CreateProductAsync(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductsCreateResponseBody> CreateProductAsync(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductsCreateResponseBody> localVarResponse = await CreateProductWithHttpInfoAsync(productsCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1003,12 +1009,18 @@ namespace Voucherify.Api
         /// Create Product Creates a product object.  📘 Upsert Mode  If you pass an id or a source_id that already exists in the product database, Voucherify will return a related product object with updated fields.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsCreateRequestBody">Specify the product parameters. (optional)</param>
+        /// <param name="productsCreateRequestBody">Specify the product parameters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsCreateResponseBody>> CreateProductWithHttpInfoAsync(ProductsCreateRequestBody productsCreateRequestBody = default(ProductsCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsCreateResponseBody>> CreateProductWithHttpInfoAsync(ProductsCreateRequestBody productsCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'productsCreateRequestBody' is set
+            if (productsCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsCreateRequestBody' when calling ProductsApi->CreateProduct");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -1085,10 +1097,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsSkusCreateResponseBody</returns>
-        public ProductsSkusCreateResponseBody CreateSku(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0)
+        public ProductsSkusCreateResponseBody CreateSku(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductsSkusCreateResponseBody> localVarResponse = CreateSkuWithHttpInfo(productId, productsSkusCreateRequestBody);
             return localVarResponse.Data;
@@ -1099,15 +1111,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsSkusCreateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductsSkusCreateResponseBody> CreateSkuWithHttpInfo(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductsSkusCreateResponseBody> CreateSkuWithHttpInfo(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'productId' is set
             if (productId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productId' when calling ProductsApi->CreateSku");
+            }
+
+            // verify the required parameter 'productsSkusCreateRequestBody' is set
+            if (productsSkusCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsSkusCreateRequestBody' when calling ProductsApi->CreateSku");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -1186,11 +1204,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsSkusCreateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductsSkusCreateResponseBody> CreateSkuAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductsSkusCreateResponseBody> CreateSkuAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductsSkusCreateResponseBody> localVarResponse = await CreateSkuWithHttpInfoAsync(productId, productsSkusCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1201,16 +1219,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
-        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created. (optional)</param>
+        /// <param name="productsSkusCreateRequestBody">Specify the SKU parameters to be created.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsSkusCreateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsSkusCreateResponseBody>> CreateSkuWithHttpInfoAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody = default(ProductsSkusCreateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsSkusCreateResponseBody>> CreateSkuWithHttpInfoAsync(string productId, ProductsSkusCreateRequestBody productsSkusCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'productId' is set
             if (productId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productId' when calling ProductsApi->CreateSku");
+            }
+
+            // verify the required parameter 'productsSkusCreateRequestBody' is set
+            if (productsSkusCreateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsSkusCreateRequestBody' when calling ProductsApi->CreateSku");
             }
 
 
@@ -2994,10 +3018,10 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsUpdateResponseBody</returns>
-        public ProductsUpdateResponseBody UpdateProduct(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0)
+        public ProductsUpdateResponseBody UpdateProduct(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductsUpdateResponseBody> localVarResponse = UpdateProductWithHttpInfo(productId, productsUpdateRequestBody);
             return localVarResponse.Data;
@@ -3008,15 +3032,21 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductsUpdateResponseBody> UpdateProductWithHttpInfo(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductsUpdateResponseBody> UpdateProductWithHttpInfo(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'productId' is set
             if (productId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productId' when calling ProductsApi->UpdateProduct");
+            }
+
+            // verify the required parameter 'productsUpdateRequestBody' is set
+            if (productsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsUpdateRequestBody' when calling ProductsApi->UpdateProduct");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3095,11 +3125,11 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductsUpdateResponseBody> UpdateProductAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductsUpdateResponseBody> UpdateProductAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductsUpdateResponseBody> localVarResponse = await UpdateProductWithHttpInfoAsync(productId, productsUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3110,16 +3140,22 @@ namespace Voucherify.Api
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A Voucherify product ID or source ID.</param>
-        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated. (optional)</param>
+        /// <param name="productsUpdateRequestBody">Specify the parameters of the product that are to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsUpdateResponseBody>> UpdateProductWithHttpInfoAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody = default(ProductsUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsUpdateResponseBody>> UpdateProductWithHttpInfoAsync(string productId, ProductsUpdateRequestBody productsUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'productId' is set
             if (productId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productId' when calling ProductsApi->UpdateProduct");
+            }
+
+            // verify the required parameter 'productsUpdateRequestBody' is set
+            if (productsUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsUpdateRequestBody' when calling ProductsApi->UpdateProduct");
             }
 
 
@@ -3198,10 +3234,10 @@ namespace Voucherify.Api
         /// Update Products in Bulk Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsUpdateInBulkResponseBody</returns>
-        public ProductsUpdateInBulkResponseBody UpdateProductsInBulk(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0)
+        public ProductsUpdateInBulkResponseBody UpdateProductsInBulk(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductsUpdateInBulkResponseBody> localVarResponse = UpdateProductsInBulkWithHttpInfo(productsUpdateInBulkRequestBody);
             return localVarResponse.Data;
@@ -3211,11 +3247,17 @@ namespace Voucherify.Api
         /// Update Products in Bulk Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsUpdateInBulkResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkWithHttpInfo(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkWithHttpInfo(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'productsUpdateInBulkRequestBody' is set
+            if (productsUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsUpdateInBulkRequestBody' when calling ProductsApi->UpdateProductsInBulk");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3290,11 +3332,11 @@ namespace Voucherify.Api
         /// Update Products in Bulk Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsUpdateInBulkResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductsUpdateInBulkResponseBody> UpdateProductsInBulkAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductsUpdateInBulkResponseBody> localVarResponse = await UpdateProductsInBulkWithHttpInfoAsync(productsUpdateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3304,12 +3346,18 @@ namespace Voucherify.Api
         /// Update Products in Bulk Update products in one asynchronous operation. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object. (optional)</param>
+        /// <param name="productsUpdateInBulkRequestBody">List the product fields to be updated in each product object.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsUpdateInBulkResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsUpdateInBulkResponseBody>> UpdateProductsInBulkWithHttpInfoAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody = default(List<ProductsUpdateInBulkRequestBody>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsUpdateInBulkResponseBody>> UpdateProductsInBulkWithHttpInfoAsync(List<ProductsUpdateInBulkRequestBody> productsUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'productsUpdateInBulkRequestBody' is set
+            if (productsUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsUpdateInBulkRequestBody' when calling ProductsApi->UpdateProductsInBulk");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -3385,10 +3433,10 @@ namespace Voucherify.Api
         /// Update Products&#39; Metadata in Bulk Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsMetadataUpdateInBulkResponseBody</returns>
-        public ProductsMetadataUpdateInBulkResponseBody UpdateProductsMetadataInBulk(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0)
+        public ProductsMetadataUpdateInBulkResponseBody UpdateProductsMetadataInBulk(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductsMetadataUpdateInBulkResponseBody> localVarResponse = UpdateProductsMetadataInBulkWithHttpInfo(productsMetadataUpdateInBulkRequestBody);
             return localVarResponse.Data;
@@ -3398,11 +3446,17 @@ namespace Voucherify.Api
         /// Update Products&#39; Metadata in Bulk Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsMetadataUpdateInBulkResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkWithHttpInfo(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkWithHttpInfo(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0)
         {
+            // verify the required parameter 'productsMetadataUpdateInBulkRequestBody' is set
+            if (productsMetadataUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsMetadataUpdateInBulkRequestBody' when calling ProductsApi->UpdateProductsMetadataInBulk");
+            }
+
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -3477,11 +3531,11 @@ namespace Voucherify.Api
         /// Update Products&#39; Metadata in Bulk Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsMetadataUpdateInBulkResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductsMetadataUpdateInBulkResponseBody> UpdateProductsMetadataInBulkAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductsMetadataUpdateInBulkResponseBody> localVarResponse = await UpdateProductsMetadataInBulkWithHttpInfoAsync(productsMetadataUpdateInBulkRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3491,12 +3545,18 @@ namespace Voucherify.Api
         /// Update Products&#39; Metadata in Bulk Updates metadata parameters for a list of products. Every resource in the list will receive the metadata defined in the request. The request can include up to **10 MB** of data. The response returns a unique asynchronous action ID. Use this ID in the query paramater of the [GET Async Action](/api-reference/async-actions/get-async-action) endpoint to check, e.g.: - The status of your request (in queue, in progress, done, or failed) - Resources that failed to be updated - The report file with details about the update If a product object is not found, it is **upserted**. This is shown in the report file in the **GET** Async Action endpoint. The upserted resources have value false in the found column and true in the updated column. This API request starts a process that affects Voucherify data in bulk. In the case of small jobs (like bulk update), the request is put into a queue and processed when every other bulk request placed in the queue prior to this request is finished.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs. (optional)</param>
+        /// <param name="productsMetadataUpdateInBulkRequestBody">List the source_ids of the products you would like to update with the metadata key/value pairs.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsMetadataUpdateInBulkResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsMetadataUpdateInBulkResponseBody>> UpdateProductsMetadataInBulkWithHttpInfoAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody = default(ProductsMetadataUpdateInBulkRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsMetadataUpdateInBulkResponseBody>> UpdateProductsMetadataInBulkWithHttpInfoAsync(ProductsMetadataUpdateInBulkRequestBody productsMetadataUpdateInBulkRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'productsMetadataUpdateInBulkRequestBody' is set
+            if (productsMetadataUpdateInBulkRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsMetadataUpdateInBulkRequestBody' when calling ProductsApi->UpdateProductsMetadataInBulk");
+            }
+
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -3574,10 +3634,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ProductsSkusUpdateResponseBody</returns>
-        public ProductsSkusUpdateResponseBody UpdateSku(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0)
+        public ProductsSkusUpdateResponseBody UpdateSku(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<ProductsSkusUpdateResponseBody> localVarResponse = UpdateSkuWithHttpInfo(productId, skuId, productsSkusUpdateRequestBody);
             return localVarResponse.Data;
@@ -3589,10 +3649,10 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of ProductsSkusUpdateResponseBody</returns>
-        public Voucherify.Client.ApiResponse<ProductsSkusUpdateResponseBody> UpdateSkuWithHttpInfo(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<ProductsSkusUpdateResponseBody> UpdateSkuWithHttpInfo(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'productId' is set
             if (productId == null)
@@ -3604,6 +3664,12 @@ namespace Voucherify.Api
             if (skuId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'skuId' when calling ProductsApi->UpdateSku");
+            }
+
+            // verify the required parameter 'productsSkusUpdateRequestBody' is set
+            if (productsSkusUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsSkusUpdateRequestBody' when calling ProductsApi->UpdateSku");
             }
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -3684,11 +3750,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ProductsSkusUpdateResponseBody</returns>
-        public async System.Threading.Tasks.Task<ProductsSkusUpdateResponseBody> UpdateSkuAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ProductsSkusUpdateResponseBody> UpdateSkuAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<ProductsSkusUpdateResponseBody> localVarResponse = await UpdateSkuWithHttpInfoAsync(productId, skuId, productsSkusUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3700,11 +3766,11 @@ namespace Voucherify.Api
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productId">A unique Voucherify [product](/api-reference/products/get-product) ID or product source ID.</param>
         /// <param name="skuId">A Voucherify [SKU ID](/api-reference/products/get-sku) or SKU source ID.</param>
-        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated. (optional)</param>
+        /// <param name="productsSkusUpdateRequestBody">Specify the parameters to be updated.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ProductsSkusUpdateResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsSkusUpdateResponseBody>> UpdateSkuWithHttpInfoAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody = default(ProductsSkusUpdateRequestBody), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<ProductsSkusUpdateResponseBody>> UpdateSkuWithHttpInfoAsync(string productId, string skuId, ProductsSkusUpdateRequestBody productsSkusUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'productId' is set
             if (productId == null)
@@ -3716,6 +3782,12 @@ namespace Voucherify.Api
             if (skuId == null)
             {
                 throw new Voucherify.Client.ApiException(400, "Missing required parameter 'skuId' when calling ProductsApi->UpdateSku");
+            }
+
+            // verify the required parameter 'productsSkusUpdateRequestBody' is set
+            if (productsSkusUpdateRequestBody == null)
+            {
+                throw new Voucherify.Client.ApiException(400, "Missing required parameter 'productsSkusUpdateRequestBody' when calling ProductsApi->UpdateSku");
             }
 
 
