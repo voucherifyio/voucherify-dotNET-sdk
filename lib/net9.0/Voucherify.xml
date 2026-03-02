@@ -26260,6 +26260,24 @@
             <returns>RestSharp's HttpMethod instance.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
+        <member name="M:Voucherify.Client.ApiClient.StartTiming(System.Boolean)">
+            <summary>
+            Starts a stopwatch when debug timing is enabled.
+            </summary>
+            <param name="debugModeEnabled">Whether debug timing is enabled for the current request.</param>
+            <returns>A started <see cref="T:System.Diagnostics.Stopwatch"/> when enabled; otherwise <c>null</c>.</returns>
+        </member>
+        <member name="M:Voucherify.Client.ApiClient.StopTiming(System.Boolean,System.Diagnostics.Stopwatch,System.String,System.String,System.String,RestSharp.RestResponse)">
+            <summary>
+            Stops timing and writes a debug log entry for a request stage.
+            </summary>
+            <param name="debugModeEnabled">Whether debug timing is enabled for the current request.</param>
+            <param name="stopwatch">The stopwatch instance started for the stage.</param>
+            <param name="stage">The request stage label (for example: construction or execution).</param>
+            <param name="method">HTTP method name.</param>
+            <param name="resource">Request resource path.</param>
+            <param name="response">Optional response used to enrich debug metadata.</param>
+        </member>
         <member name="M:Voucherify.Client.ApiClient.NewRequest(Voucherify.Client.HttpMethod,System.String,Voucherify.Client.RequestOptions,Voucherify.Client.IReadableConfiguration)">
             <summary>
             Provides all logic for constructing a new RestSharp <see cref="T:RestSharp.RestRequest"/>.
@@ -26844,6 +26862,11 @@
             Determine whether or not the "default credentials" (e.g. the user account under which the current process is running) will be sent along to the server. The default is false.
             </summary>
         </member>
+        <member name="P:Voucherify.Client.Configuration.DebugModeEnabled">
+            <summary>
+            Determines whether request timing diagnostics are enabled.
+            </summary>
+        </member>
         <member name="P:Voucherify.Client.Configuration.DefaultHeader">
             <summary>
             Gets or sets the default header.
@@ -27052,6 +27075,12 @@
             </summary>
             <param name="key">Api Key name.</param>
             <param name="value">Api Key value.</param>
+        </member>
+        <member name="M:Voucherify.Client.Configuration.IsDebugModeEnabledInEnvironment">
+            <summary>
+            Checks whether debug mode is enabled via the DEBUG environment variable.
+            </summary>
+            <returns><c>true</c> when DEBUG equals "true" (case-insensitive); otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Voucherify.Client.Configuration.MergeConfigurations(Voucherify.Client.IReadableConfiguration,Voucherify.Client.IReadableConfiguration)">
             <summary>
@@ -27339,6 +27368,11 @@
         <member name="P:Voucherify.Client.IReadableConfiguration.UseDefaultCredentials">
             <summary>
             Determine whether or not the "default credentials" (e.g. the user account under which the current process is running) will be sent along to the server. The default is false.
+            </summary>
+        </member>
+        <member name="P:Voucherify.Client.IReadableConfiguration.DebugModeEnabled">
+            <summary>
+            Determines whether request timing diagnostics are enabled.
             </summary>
         </member>
         <member name="P:Voucherify.Client.IReadableConfiguration.OperationServers">

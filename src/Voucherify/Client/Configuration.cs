@@ -35,7 +35,7 @@ namespace Voucherify.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "9.0.0";
+        public const string Version = "9.0.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace Voucherify.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("DOTNET-SDK-9.0.0");
+            UserAgent = WebUtility.UrlEncode("DOTNET-SDK-9.0.1");
             BasePath = "https://api.voucherify.io";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -151,6 +151,7 @@ namespace Voucherify.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
             };
+            DebugModeEnabled = IsDebugModeEnabledInEnvironment();
 
             // Setting Timeout has side effects (forces ApiClient creation).
             Timeout = TimeSpan.FromSeconds(100);
@@ -214,6 +215,11 @@ namespace Voucherify.Client
             get { return _useDefaultCredentials; }
             set { _useDefaultCredentials = value; }
         }
+
+        /// <summary>
+        /// Determines whether request timing diagnostics are enabled.
+        /// </summary>
+        public virtual bool DebugModeEnabled { get; set; }
 
         /// <summary>
         /// Gets or sets the default header.
@@ -587,7 +593,7 @@ namespace Voucherify.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v2018-08-01\n";
-            report += "    SDK Package Version: 9.0.0\n";
+            report += "    SDK Package Version: 9.0.1\n";
 
             return report;
         }
@@ -611,6 +617,16 @@ namespace Voucherify.Client
         public void AddApiKeyPrefix(string key, string value)
         {
             ApiKeyPrefix[key] = value;
+        }
+
+        /// <summary>
+        /// Checks whether debug mode is enabled via the DEBUG environment variable.
+        /// </summary>
+        /// <returns><c>true</c> when DEBUG equals "true" (case-insensitive); otherwise, <c>false</c>.</returns>
+        private static bool IsDebugModeEnabledInEnvironment()
+        {
+            string debugValue = Environment.GetEnvironmentVariable("DEBUG");
+            return string.Equals(debugValue, "true", StringComparison.OrdinalIgnoreCase);
         }
 
         #endregion Methods
@@ -655,6 +671,7 @@ namespace Voucherify.Client
                 DateTimeFormat = second.DateTimeFormat ?? first.DateTimeFormat,
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
                 UseDefaultCredentials = second.UseDefaultCredentials,
+                DebugModeEnabled = second.DebugModeEnabled || first.DebugModeEnabled,
                 RemoteCertificateValidationCallback = second.RemoteCertificateValidationCallback ?? first.RemoteCertificateValidationCallback,
             };
             return config;

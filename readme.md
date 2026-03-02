@@ -90,6 +90,15 @@ webProxy.Credentials = System.Net.CredentialCache.DefaultCredentials;
 c.Proxy = webProxy;
 ```
 
+### 🧪 Request build timing (DEBUG)
+
+You can enable debug mode:
+
+- set `DEBUG=true` in environment variables (`.env`), or
+- set it directly in code with `config.DebugModeEnabled = true`.
+
+When enabled, the SDK prints request duration in milliseconds to console.
+
 ## 🚀 Run code
 
 Once installed, run:
@@ -163,7 +172,7 @@ This SDK is auto-generated (except for tests), so changes made here will be over
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.0.0).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.0.1).
 
 ## 🔐 Authorization
 
@@ -255,7 +264,8 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
-
+- **2026-02-27** - `9.0.1`
+    - Added debug mode to measure request timings
 - **2025-12-14** - `9.0.0`
     - All POST requests now require a payload. As a result, the order of parameters in API method calls may have changed. If you encounter a build error, please check the documentation for the method you are calling.
     - `OrdersImportCreateRequestBodyItem` no longer has `CreatedAt` property.
