@@ -300,7 +300,7 @@ namespace Voucherify.Client
                 responseMeta = $" status={(int)response.StatusCode} response body size={payloadSize}B";
             }
 
-            Console.WriteLine($"[Voucherify SDK][DEBUG] {stage} {method} {resource}{responseMeta} took {elapsedMilliseconds:F2}ms");
+            Console.WriteLine($"[Voucherify SDK][DEBUG][{DateTimeOffset.UtcNow:yyyy-MM-dd HH:mm:ss.fff} UTC] {stage} {method} {resource}{responseMeta} took {elapsedMilliseconds:F2}ms");
         }
 
         /// <summary>
