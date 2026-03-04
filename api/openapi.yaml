@@ -1505,8 +1505,7 @@ paths:
       tags:
       - Redemptions
     post:
-      description: "# How API returns calculated discounts and order amounts in the\
-        \ response\nIn the table below, you can see the logic the API follows to calculate\
+      description: "In the table below, you can see the logic the API follows to calculate\
         \ discounts and amounts:\n\n\nAPI keys with a Merchant role cant use this\
         \ endpoint.\n 📘 Rollbacks\n You cant roll back a child redemption. When you\
         \ call rollback on a stacked redemption, all child redemptions will be rolled\
@@ -1691,9 +1690,9 @@ paths:
         schema:
           $ref: '#/components/schemas/ParameterIds'
         style: form
-      - description: "Object for setting voucher filters. Read [Advanced filters for\
-          \ fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources)\
-          \ for filter examples."
+      - description: |-
+          Object for setting voucher filters. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for filter examples.
+          Note that **Try-it!** adds the opening [ and closing ] square brackets on its own, so paste your filter without them, for example expiration_date][conditions][$before.
         explode: true
         in: query
         name: filters
@@ -4172,7 +4171,7 @@ paths:
         You can upload up to 100,000 codes to a campaign, as a campaign can have up\
         \ to 100,000 codes by default. \n Also, the request can include up to **10\
         \ MB** of data.\n 📘 Important notes\n - **Start and expiration dates** need\
-        \ to be provided in compliance with the ISO 8601 norms. For example, 2020-03-11T09:00:00.000Z.\n\
+        \ to be provided in compliance with the ISO 8601 standard. For example, 2020-03-11T09:00:00.000Z.\n\
         \ - Custom code attributes (not supported by-default) need to be added as\
         \ code **metadata**.\n - You **cannot import the same codes** to a single\
         \ Voucherify Project.\nAny parameters not provided in the payload will be\
@@ -22977,7 +22976,7 @@ paths:
         \ this method. Data will be updated for each product included in the CSV file\
         \ whose **source_id** matches a source ID in Voucherify. No other data can\
         \ be updated other than the product name.\n - Note that dates and date-time\
-        \ attributes need to be provided in compliance with the **ISO 8601 norms**.\
+        \ attributes need to be provided in compliance with the **ISO 8601 standard**.\
         \ For example, 2022-03-11T09:00:00.000Z or 2022-03-11\n    - YYYY-MM-DD\n\
         \    - YYYY-MM-DDTHH\n    - YYYY-MM-DDTHH:mm\n    - YYYY-MM-DDTHH:mm:ss\n\
         \    - YYYY-MM-DDTHH:mm:ssZ\n    - YYYY-MM-DDTHH:mm:ssZ\n    - YYYY-MM-DDTHH:mm:ss.SSSZ\n\
@@ -22985,7 +22984,7 @@ paths:
         \ attributes** and added as **products metadata**. There is no limit on the\
         \ number of custom attributes that you can import as metadata. \n - To provide\
         \ the proper data type, you need to add all custom attributes to the metadata\
-        \ schema **before importing the file**. Read more [here](https://support.voucherify.io/article/99-schema-validation-metadata#add-metadata).\n\
+        \ schema **before importing the file**. Read more [here](/prepare/metadata#add-metadata).\n\
         \ - **Product attributes** (not custom attributes) need to be separated by\
         \ a comma and enclosed in double quotes, i.e attribute1,attribute2.\n - Headers\
         \ with metadata names **cant contain white-space characters**.\n - If you\
@@ -23745,7 +23744,7 @@ paths:
       description: |-
         Create a validation rule.
          🚧 Managing validation rules
-         It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+         It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
       operationId: create-validation-rules
       parameters: []
       requestBody:
@@ -23952,7 +23951,7 @@ paths:
       description: |-
         Update validation rule parameters.
          🚧 Managing validation rules
-         It is recommended to [create or update validation rules](https://support.voucherify.io/article/148-how-to-build-a-rule) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+         It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
       operationId: update-validation-rule
       parameters:
       - description: A unique validation rule ID.
@@ -24350,13 +24349,16 @@ paths:
             examples:
               Voucher:
                 value:
-                  voucher: v_ssR6vhswwh5odSloN2Vc3O60w7aea018
+                  related_object_type: voucher
+                  related_object_id: "{{voucherId}}"
               Campaign:
                 value:
-                  campaign: camp_Rv9EuIrkT08YEORb2pUMGSUo
+                  related_object_type: campaign
+                  related_object_id: "{{campaignId}}"
               Distribution:
                 value:
-                  distribution: distr_2nUIekYnS9L1Vm1I55vmC7kSvd
+                  related_object_type: distribution
+                  related_object_id: "{{distributionId}}"
             schema:
               $ref: '#/components/schemas/ValidationRulesAssignmentsCreateRequestBody'
         description: Specify the resource that you would like to assign the validation
@@ -26082,7 +26084,7 @@ paths:
         - reward
         - voucher
         ## Custom
-        If you have defined a [custom metadata schema](https://support.voucherify.io/article/99-schema-validation-metadata#add-metadata), provide its name in the resource field to retrieve its details.
+        If you have defined a [custom metadata schema](/prepare/metadata#add-metadata), provide its name in the resource field to retrieve its details.
         📘 Management API
         If you have Management API enabled, you can also use the [Get Metadata Schemas](/api-reference/management/get-metadata-schema) endpoint to retrieve a metadata schema using its ID.
       operationId: get-metadata-schema
@@ -27262,7 +27264,7 @@ paths:
       description: |-
         Lists all campaign templates available in the project.
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: list-campaign-templates
       parameters:
       - description: "Limits the number of objects to be returned. The limit can range\
@@ -27365,7 +27367,7 @@ paths:
         - [Discount campaign](/api-reference/templates/create-campaign-from-template),
         - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template).
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: create-campaign-template
       parameters: []
       requestBody:
@@ -27405,7 +27407,7 @@ paths:
       description: |-
         Deletes the campaign template permanently.
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: delete-campaign-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27432,7 +27434,7 @@ paths:
       description: |-
         Retrieves a campaign template available in the project.
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: get-campaign-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27473,7 +27475,7 @@ paths:
       description: |-
         Updates the name or description of the campaign template.
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: update-campaign-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27532,7 +27534,7 @@ paths:
         - [Discount campaign](/api-reference/templates/create-campaign-from-template)
         - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template)
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: create-campaign-from-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -27671,7 +27673,7 @@ paths:
         - [Discount campaign](/api-reference/templates/create-campaign-from-template)
         - [Promotion tier](/api-reference/templates/add-promotion-tier-from-template)
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: add-tier-from-template
       parameters:
       - description: Pass the campaign template ID that was assigned by Voucherify.
@@ -28566,7 +28568,7 @@ paths:
          👍 List Campaign Templates
          This endpoint works in the same way as the [List Campaign Templates endpoint](/api-reference/templates/list-campaign-templates).
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: management-list-campaign-templates
       parameters:
       - description: Provide the unique identifier of the project.
@@ -28663,7 +28665,7 @@ paths:
         Copies a campaign template to another project.
         The resources, like validation rules or products, will not be copied to the destination project yet. When the template is used to create a new campaign or add a new promotion tier, the resources will be created in the destination project.
          📘 Campaign Templates – Documentation
-        Read the [Campaign Templates documentation](https://support.voucherify.io/article/620-campaign-templates) to learn more about this feature.
+        Read the [Campaign Templates documentation](/build/campaign-templates) to learn more about this feature.
       operationId: management-copy-campaign-template
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29037,7 +29039,7 @@ paths:
       description: |-
         Lists all metadata schemas available in the project.
          📘 Metadata Documentation
-         Read [the Getting Started with Metadata](https://support.voucherify.io/article/99-schema-validation-metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
       operationId: list-metadata-schemas-1
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29285,7 +29287,7 @@ paths:
         \ use this endpoint to define a metadata schema for related_object: campaign\
         \ for the first time. If you want define a new metadata property for campaign,\
         \ use the [PUT Update metadata schema](/api-reference/management/update-metadata-schema)\
-        \ endpoint.\n 📘 Metadata Documentation\n Read [the Getting Started with Metadata](https://support.voucherify.io/article/99-schema-validation-metadata)\
+        \ endpoint.\n 📘 Metadata Documentation\n Read [the Getting Started with Metadata](/prepare/metadata)\
         \ and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata\
         \ work in Voucherify."
       operationId: create-metadata-schema
@@ -29368,7 +29370,7 @@ paths:
         - You cannot purge metadata for the Redemption and Publication schemas.
         4. Use the Delete Metadata Schema request to delete the metadata schema from Voucherify.
          📘 Metadata Documentation
-         Read [the Getting Started with Metadata](https://support.voucherify.io/article/99-schema-validation-metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
       operationId: delete-metadata-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29401,7 +29403,7 @@ paths:
       description: |-
         Retrieves a metadata schema.
          📘 Metadata Documentation
-         Read [the Getting Started with Metadata](https://support.voucherify.io/article/99-schema-validation-metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
       operationId: get-metadata-schema-1
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29493,7 +29495,7 @@ paths:
         - You cannot change the type of an existing schema, e.g. from string to number.
         - You can remove a definition with this endpoint by providing deleted: true in the request. It will be moved to the Removed definitions section in the user interface. However, you cannot permanently remove a definition with this endpoint.
          📘 Metadata Documentation
-         Read [the Getting Started with Metadata](https://support.voucherify.io/article/99-schema-validation-metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
+         Read [the Getting Started with Metadata](/prepare/metadata) and [Metadata Mapping](/guides/metadata-mapping) articles to learn how metadata work in Voucherify.
       operationId: update-metadata-schema
       parameters:
       - description: Provide the unique identifier of the project.
@@ -29557,7 +29559,7 @@ paths:
       description: |-
         Lists all custom event schemas available in the project.
          📘 Custom Event Documentation
-         Read [Custom Events](https://support.voucherify.io/article/111-custom-events) article to learn how custom events work in Voucherify.
+         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
       operationId: list-custom-event-schemas
       parameters:
@@ -29614,7 +29616,7 @@ paths:
         Creates a custom event schema.
         The properties object is required, but it can be empty, however. This object is for optional custom properties (metadata).
          📘 Custom Event Documentation
-         Read [Custom Events](https://support.voucherify.io/article/111-custom-events) article to learn how custom events work in Voucherify.
+         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
       operationId: create-custom-event-schema
       parameters:
@@ -29663,7 +29665,7 @@ paths:
       description: |-
         Deletes permanently the custom event schema with its custom properties (metadata).
          📘 Custom Event Documentation
-         Read [Custom Events](https://support.voucherify.io/article/111-custom-events) article to learn how custom events work in Voucherify.
+         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
       operationId: delete-custom-event-schema
       parameters:
@@ -29697,7 +29699,7 @@ paths:
       description: |-
         Retrieves a custom event schema.
          📘 Custom Event Documentation
-         Read [Custom Events](https://support.voucherify.io/article/111-custom-events) article to learn how custom events work in Voucherify.
+         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
       operationId: get-custom-event-schema
       parameters:
@@ -29752,7 +29754,7 @@ paths:
         - You can change the type of an existing property, e.g. from string to number.
         - You can remove a custom property with this endpoint by providing deleted: true in the request. However, you cannot permanently remove an event definition or its property with this endpoint.
          📘 Custom Event Documentation
-         Read [Custom Events](https://support.voucherify.io/article/111-custom-events) article to learn how custom events work in Voucherify.
+         Read [Custom Events](/prepare/custom-events) article to learn how custom events work in Voucherify.
         Read also the details about the [Track Custom Event](/api-reference/events/track-custom-event) endpoint and the [Custom Event Object](/api-reference/events/event-object).
       operationId: update-custom-event-schema
       parameters:
@@ -37469,9 +37471,8 @@ components:
             \ body to check against redeemables requiring **redemption** metadata\
             \ validation rules to be satisfied. The validation runs against rules\
             \ that are defined through the [Create Validation Rules](/api-reference/validation-rules/create-validation-rules)\
-            \ endpoint or via the Dashboard; in the _Advanced Rule Builder_ &rarr;\
-            \ _Advanced_ &rarr; _Redemption metadata satisfy_ or _Basic Builder_ &rarr;\
-            \ _Attributes match_ &rarr; _REDEMPTION METADATA_. [Read more](https://support.voucherify.io/article/148-how-to-build-a-rule)."
+            \ endpoint or with the [Validation Rule Builder](/personalize/create-validation-rules)\
+            \ in the the Dashboard."
           nullable: true
           title: ClientQualificationsCheckEligibilityRequestBodyMetadata
           type: object
@@ -54711,9 +54712,8 @@ components:
             \ body to check against vouchers requiring **redemption** metadata validation\
             \ rules to be satisfied. The validation runs against rules that are defined\
             \ through the [Create Validation Rules](/api-reference/validation-rules/create-validation-rules)\
-            \ endpoint or via the Dashboard; in the _Advanced Rule Builder_ &rarr;\
-            \ _Advanced_ &rarr; _Redemption metadata satisfy_ or _Basic Builder_ &rarr;\
-            \ _Attributes match_ &rarr; _REDEMPTION METADATA_. [Read more](https://support.voucherify.io/article/148-how-to-build-a-rule)."
+            \ endpoint or with the [Validation Rule Builder](/personalize/create-validation-rules)\
+            \ in the the Dashboard."
           nullable: true
           title: LoyaltiesMembersRedemptionRedeemRequestBodyMetadata
           type: object
@@ -63719,7 +63719,7 @@ components:
           description: |-
             Defines the scope of possible actions that can be done with the OAuth token. The `api` scope allows using the server-side API. The `client_api` scope allows using the whole client-side API. The values are space-delimited; do **not** use commas to separate the values.
 
-            Allowed values: `api`, `assets`, `async-actions`, `campaigns`, `categories`, `client_api`, `client_consents`, `client_customers`, `client_events`, `client_promotions`, `client_publish`, `client_qualifications`, `client_redeem`, `client_redemptions`, `client_validate`, `client_validations`, `client_vouchers`, `consents`, `customers`, `events`, `exports`, `locations`, `loyalties`, `metadata-schemas`, `orders`, `product-collections`, `products`, `promotions`, `publications`, `qualifications`, `redemptions`, `referrals`, `rewards`, `segments`, `SKUs`, `task-results`, `templates`, `trash-bin`, `validation-rules-assignments`, `validation-rules`, `validations`, `vouchers`.
+            Allowed values: `api`, `assets`, `async-actions`, `campaigns`, `categories`, `client_api`, `client_consents`, `client_customers`, `client_events`, `client_promotions`, `client_publish`, `client_qualifications`, `client_redeem`, `client_redemptions`, `client_validate`, `client_validations`, `client_vouchers`, `consents`, `customers`, `events`, `exports`, `locations`, `loyalties`, `metadata-schemas`, `orders`, `product-collections`, `products`, `promotions`, `publications`, `qualifications`, `redemptions`, `referrals`, `rewards`, `segments`, `skus`, `task-results`, `templates`, `trash-bin`, `validation-rules-assignments`, `validation-rules`, `validations`, `vouchers`.
           nullable: true
           type: string
       title: OAuthTokenGenerateRequestBody
@@ -63755,7 +63755,7 @@ components:
         scope:
           description: |-
             Defines the scope of possible actions that can be done with the OAuth token. The `api` scope allows using the server-side API. The `client_api` scope allows using the whole client-side API.
-            Possible values: `api`, `assets`, `async-actions`, `campaigns`, `categories`, `client_api`, `client_consents`, `client_customers`, `client_events`, `client_promotions`, `client_publish`, `client_qualifications`, `client_redeem`, `client_redemptions`, `client_validate`, `client_validations`, `client_vouchers`, `consents`, `customers`, `events`, `exports`, `locations`, `loyalties`, `metadata-schemas`, `orders`, `product-collections`, `products`, `promotions`, `publications`, `qualifications`, `redemptions`, `referrals`, `rewards`, `segments`, `SKUs`, `task-results`, `templates`, `trash-bin`, `validation-rules-assignments`, `validation-rules`, `validations`, `vouchers`.
+            Possible values: `api`, `assets`, `async-actions`, `campaigns`, `categories`, `client_api`, `client_consents`, `client_customers`, `client_events`, `client_promotions`, `client_publish`, `client_qualifications`, `client_redeem`, `client_redemptions`, `client_validate`, `client_validations`, `client_vouchers`, `consents`, `customers`, `events`, `exports`, `locations`, `loyalties`, `metadata-schemas`, `orders`, `product-collections`, `products`, `promotions`, `publications`, `qualifications`, `redemptions`, `referrals`, `rewards`, `segments`, `skus`, `task-results`, `templates`, `trash-bin`, `validation-rules-assignments`, `validation-rules`, `validations`, `vouchers`.
           nullable: true
           type: string
         token_type:
@@ -63808,7 +63808,7 @@ components:
         scope:
           description: |-
             Defines the scope of possible actions that can be done with the OAuth token. The `api` scope allows using the server-side API. The `client_api` scope allows using the whole client-side API.
-            Possible values: `api`, `assets`, `async-actions`, `campaigns`, `categories`, `client_api`, `client_consents`, `client_customers`, `client_events`, `client_promotions`, `client_publish`, `client_qualifications`, `client_redeem`, `client_redemptions`, `client_validate`, `client_validations`, `client_vouchers`, `consents`, `customers`, `events`, `exports`, `locations`, `loyalties`, `metadata-schemas`, `orders`, `product-collections`, `products`, `promotions`, `publications`, `qualifications`, `redemptions`, `referrals`, `rewards`, `segments`, `SKUs`, `task-results`, `templates`, `trash-bin`, `validation-rules-assignments`, `validation-rules`, `validations`, `vouchers`.
+            Possible values: `api`, `assets`, `async-actions`, `campaigns`, `categories`, `client_api`, `client_consents`, `client_customers`, `client_events`, `client_promotions`, `client_publish`, `client_qualifications`, `client_redeem`, `client_redemptions`, `client_validate`, `client_validations`, `client_vouchers`, `consents`, `customers`, `events`, `exports`, `locations`, `loyalties`, `metadata-schemas`, `orders`, `product-collections`, `products`, `promotions`, `publications`, `qualifications`, `redemptions`, `referrals`, `rewards`, `segments`, `skus`, `task-results`, `templates`, `trash-bin`, `validation-rules-assignments`, `validation-rules`, `validations`, `vouchers`.
           nullable: true
           type: string
         token_type:
@@ -63940,8 +63940,10 @@ components:
           nullable: true
           type: string
         source_id:
-          description: Unique source ID of an existing order that will be linked to
-            the redemption of this request.
+          description: |-
+            Unique source ID of an existing order that will be linked to the redemption of this request.
+
+            For validation and redemption, if `source_id` is used with an existing order, the original order data will be used, like `items`, `amount`, and so on, not the one sent in the new request.
           nullable: true
           type: string
         status:
@@ -64929,8 +64931,10 @@ components:
           email: email
       properties:
         source_id:
-          description: Unique source ID of an existing order that will be linked to
-            the redemption of this request.
+          description: |-
+            Unique source ID of an existing order that will be linked to the redemption of this request.
+
+            For validation and redemption, if `source_id` is used with an existing order, the original order data will be used, like `items`, `amount`, and so on, not the one sent in the new request.
           nullable: true
           type: string
         status:
@@ -70584,9 +70588,8 @@ components:
             \ body to check against redeemables requiring **redemption** metadata\
             \ validation rules to be satisfied. The validation runs against rules\
             \ that are defined through the [Create Validation Rules](/api-reference/validation-rules/create-validation-rules)\
-            \ endpoint or via the Dashboard; in the _Advanced Rule Builder_ &rarr;\
-            \ _Advanced_ &rarr; _Redemption metadata satisfy_ or _Basic Builder_ &rarr;\
-            \ _Attributes match_ &rarr; _REDEMPTION METADATA_. [Read more](https://support.voucherify.io/article/148-how-to-build-a-rule)."
+            \ endpoint or with the [Validation Rule Builder](/personalize/create-validation-rules)\
+            \ in the the Dashboard."
           nullable: true
           title: QualificationsCheckEligibilityRequestBodyMetadata
           type: object
@@ -100593,8 +100596,10 @@ components:
           nullable: true
           type: string
         source_id:
-          description: Unique source ID of an existing order that will be linked to
-            the redemption of this request.
+          description: |-
+            Unique source ID of an existing order that will be linked to the redemption of this request.
+
+            For validation and redemption, if `source_id` is used with an existing order, the original order data will be used, like `items`, `amount`, and so on, not the one sent in the new request.
           nullable: true
           type: string
         status:

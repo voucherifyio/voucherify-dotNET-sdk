@@ -269,7 +269,8 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
-- **2026-02-27** - `9.0.1`
+
+- **2026-03-05** - `9.0.1`
     - Added debug mode to measure request timings
 - **2025-12-14** - `9.0.0`
     - All POST requests now require a payload. As a result, the order of parameters in API method calls may have changed. If you encounter a build error, please check the documentation for the method you are calling.
@@ -1913,3 +1914,4 @@ Class | Method | HTTP request | Description
  - [Model.VouchersUpdateResponseBodyLoyaltyCard](docs/VouchersUpdateResponseBodyLoyaltyCard.md)
  - [Model.VouchersUpdateResponseBodyPublish](docs/VouchersUpdateResponseBodyPublish.md)
  - [Model.VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
+
