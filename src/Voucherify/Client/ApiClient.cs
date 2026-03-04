@@ -300,7 +300,7 @@ namespace Voucherify.Client
                 responseMeta = $" status={(int)response.StatusCode} response body size={payloadSize}B";
             }
 
-            Console.WriteLine($"[Voucherify SDK][DEBUG] {stage} {method} {resource}{responseMeta} took {elapsedMilliseconds:F2}ms");
+            Console.WriteLine($"[Voucherify SDK][DEBUG][{DateTimeOffset.UtcNow:yyyy-MM-dd HH:mm:ss.fff} UTC] {stage} {method} {resource}{responseMeta} took {elapsedMilliseconds:F2}ms");
         }
 
         /// <summary>
@@ -324,7 +324,7 @@ namespace Voucherify.Client
             if (path == null) throw new ArgumentNullException("path");
             if (options == null) throw new ArgumentNullException("options");
             if (configuration == null) throw new ArgumentNullException("configuration");
-            
+
             bool debugModeEnabled = configuration.DebugModeEnabled;
             Stopwatch stopwatch = StartTiming(debugModeEnabled);
 
@@ -604,7 +604,7 @@ namespace Voucherify.Client
             }
         }
 
-      private async Task<RestResponse<T>> DeserializeRestResponseFromPolicyAsync<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult, bool debugModeEnabled = false, CancellationToken cancellationToken = default)
+        private async Task<RestResponse<T>> DeserializeRestResponseFromPolicyAsync<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult, bool debugModeEnabled = false, CancellationToken cancellationToken = default)
         {
             if (policyResult.Outcome == OutcomeType.Successful) 
             {
@@ -624,7 +624,7 @@ namespace Voucherify.Client
                 };
             }
         }
-      
+                
         private ApiResponse<T> Exec<T>(RestRequest request, RequestOptions options, IReadableConfiguration configuration)
         {
             Action<RestClientOptions> setOptions = (clientOptions) =>
@@ -679,6 +679,7 @@ namespace Voucherify.Client
             Func<RestClient, Task<RestResponse<T>>> getResponse = async (client) =>
             {
                 bool debugEnabled = configuration.DebugModeEnabled;
+
                 if (RetryConfiguration.AsyncRetryPolicy != null)
                 {
                     var policy = RetryConfiguration.AsyncRetryPolicy;
