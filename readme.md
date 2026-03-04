@@ -96,6 +96,7 @@ Once installed, run:
 
 ```csharp
 using System.Collections.Generic;
+using System;
 using System.Diagnostics;
 using Voucherify.Api;
 using Voucherify.Client;
@@ -107,32 +108,32 @@ namespace Example
     {
         public static void Main()
         {
+            var host = Environment.GetEnvironmentVariable("VOUCHERIFY_HOST") ?? "https://api.voucherify.io";
+            var xAppId = Environment.GetEnvironmentVariable("X_APP_ID");
+            var xAppToken = Environment.GetEnvironmentVariable("X_APP_TOKEN");
 
-            Configuration config = new Configuration();
-            config.BasePath = "https://api.voucherify.io";
-            // Configure API key authorization: X-App-Id
-            config.ApiKey.Add("X-App-Id", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.ApiKeyPrefix.Add("X-App-Id", "Bearer");
-            // Configure API key authorization: X-App-Token
-            config.ApiKey.Add("X-App-Token", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.ApiKeyPrefix.Add("X-App-Token", "Bearer");
-            // Configure OAuth2 access token for authorization: X-Voucherify-OAuth
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            if (string.IsNullOrWhiteSpace(xAppId) || string.IsNullOrWhiteSpace(xAppToken))
+            {
+                throw new Exception("X_APP_ID and X_APP_TOKEN must be set in the environment.");
+            }
 
-            var apiInstance = new AsyncActionsApi(config);
-            var asyncActionId = "asyncActionId_example";  // string | Unique ID of the asynchronous operation.
+            Configuration config = new Configuration
+            {
+                BasePath = host
+            };
+            config.ApiKey.Add("X-App-Id", xAppId);
+            config.ApiKey.Add("X-App-Token", xAppToken);
+
+            var apiInstance = new CampaignsApi(config);
 
             try
             {
-                // Get Async Action
-                AsyncActionGetResponseBody result = apiInstance.GetAsyncAction(asyncActionId);
+                var result = apiInstance.ListCampaigns();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AsyncActionsApi.GetAsyncAction: " + e.Message );
+                Debug.Print("Exception when calling CampaignsApi.ListCampaigns: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -141,6 +142,10 @@ namespace Example
     }
 }
 ```
+
+> [!NOTE]
+>
+> This code just lists campaigns, so it won't affect your Voucherify data.
 
 > [!TIP]
 >
@@ -1898,4 +1903,3 @@ Class | Method | HTTP request | Description
  - [Model.VouchersUpdateResponseBodyLoyaltyCard](docs/VouchersUpdateResponseBodyLoyaltyCard.md)
  - [Model.VouchersUpdateResponseBodyPublish](docs/VouchersUpdateResponseBodyPublish.md)
  - [Model.VouchersUpdateResponseBodyRedemption](docs/VouchersUpdateResponseBodyRedemption.md)
-
