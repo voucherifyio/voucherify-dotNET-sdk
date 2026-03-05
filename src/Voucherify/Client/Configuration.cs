@@ -151,6 +151,7 @@ namespace Voucherify.Client
             OperationServers = new Dictionary<string, List<IReadOnlyDictionary<string, object>>>()
             {
             };
+
             DebugModeEnabled = IsDebugModeEnabledInEnvironment();
 
             // Setting Timeout has side effects (forces ApiClient creation).
