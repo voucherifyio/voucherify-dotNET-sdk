@@ -5,6 +5,8 @@
     <RootNamespace>Voucherify.Test</RootNamespace>
     <TargetFramework>net9.0</TargetFramework>
     <IsPackable>false</IsPackable>
+    <VoucherifyLibTfm Condition="'$(VoucherifyLibTfm)' == ''">net9.0</VoucherifyLibTfm>
+    <VoucherifyLibRoot>$(MSBuildThisFileDirectory)../../lib</VoucherifyLibRoot>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,7 +21,32 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Voucherify\Voucherify.csproj" />
+    <Reference Include="Voucherify">
+      <HintPath>$(VoucherifyLibRoot)/$(VoucherifyLibTfm)/Voucherify.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(VoucherifyLibTfm)' == 'netstandard2.0' Or '$(VoucherifyLibTfm)' == 'netstandard2.1'">
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(VoucherifyLibTfm)' == 'net9.0'">
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.0.0" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+    <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="**\*.cs" />
     <Compile Include="src\**\*.cs" />
   </ItemGroup>
@@ -35,4 +62,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="ValidateVoucherifyLibTfm" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(VoucherifyLibTfm)' != 'netstandard2.0' And '$(VoucherifyLibTfm)' != 'netstandard2.1' And '$(VoucherifyLibTfm)' != 'net9.0'"
+           Text="VoucherifyLibTfm must be one of: netstandard2.0, netstandard2.1, net9.0." />
+  </Target>
 </Project>

@@ -36,4 +36,6 @@ jobs:
 
       - name: Run tests (detailed)
         run: |
-          dotnet test src/Voucherify.Test/Voucherify.Test.csproj
+          dotnet test src/Voucherify.Test/Voucherify.Test.csproj -p:VoucherifyLibTfm=netstandard2.0
+          dotnet test src/Voucherify.Test/Voucherify.Test.csproj -p:VoucherifyLibTfm=netstandard2.1
+          dotnet test src/Voucherify.Test/Voucherify.Test.csproj -p:VoucherifyLibTfm=net9.0
