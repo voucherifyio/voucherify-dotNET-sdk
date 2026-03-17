@@ -342,7 +342,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -362,7 +362,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -743,7 +743,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -764,7 +764,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -3524,7 +3524,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -3545,7 +3545,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -3736,7 +3736,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
@@ -3758,7 +3758,7 @@ namespace Voucherify.Api
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="campaignType">This attribute allows filtering by campaign type. (optional)</param>
-        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
+        /// <param name="expand">Includes an expanded categories object in the response. If the [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is enabled, add access_settings_assignments to return assigned areas and stores. (optional)</param>
         /// <param name="campaignStatus">Sorts the results by the status of the campaign. (optional)</param>
         /// <param name="isReferralCode">Sorts the results that are or are not referral campaigns. (optional)</param>
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>

@@ -138,6 +138,11 @@ namespace Voucherify.Client
         bool UseDefaultCredentials { get; }
 
         /// <summary>
+        /// Determines whether request timing diagnostics are enabled.
+        /// </summary>
+        bool DebugModeEnabled { get; }
+
+        /// <summary>
         /// Get the servers associated with the operation.
         /// </summary>
         /// <value>Operation servers.</value>

@@ -12,6 +12,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -171,6 +172,8 @@ namespace Voucherify.Client
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
+        private RestClient _restClient;
+        private readonly object _restClientLock = new object();
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -263,6 +266,46 @@ namespace Voucherify.Client
         }
 
         /// <summary>
+        /// Starts a stopwatch when debug timing is enabled.
+        /// </summary>
+        /// <param name="debugModeEnabled">Whether debug timing is enabled for the current request.</param>
+        /// <returns>A started <see cref="Stopwatch"/> when enabled; otherwise <c>null</c>.</returns>
+        private static Stopwatch StartTiming(bool debugModeEnabled = false)
+        {
+            return debugModeEnabled ? Stopwatch.StartNew() : null;
+        }
+
+        /// <summary>
+        /// Stops timing and writes a debug log entry for a request stage.
+        /// </summary>
+        /// <param name="debugModeEnabled">Whether debug timing is enabled for the current request.</param>
+        /// <param name="stopwatch">The stopwatch instance started for the stage.</param>
+        /// <param name="stage">The request stage label (for example: construction or execution).</param>
+        /// <param name="method">HTTP method name.</param>
+        /// <param name="resource">Request resource path.</param>
+        /// <param name="response">Optional response used to enrich debug metadata.</param>
+        private static void StopTiming(bool debugModeEnabled, Stopwatch stopwatch, string stage, string method, string resource, RestResponse response = null)
+        {
+            if (!debugModeEnabled || stopwatch == null)
+            {
+                return;
+            }
+
+            stopwatch.Stop();
+            double elapsedMilliseconds = stopwatch.Elapsed.TotalMilliseconds;
+
+            string responseMeta = string.Empty;
+            if (response != null)
+            {
+                int payloadSize = response.RawBytes?.Length ?? 0;
+
+                responseMeta = $" status={(int)response.StatusCode} response body size={payloadSize}B";
+            }
+
+            Console.WriteLine($"[Voucherify SDK][DEBUG][{DateTimeOffset.UtcNow:yyyy-MM-dd HH:mm:ss.fff} UTC] {stage} {method} {resource}{responseMeta} took {elapsedMilliseconds:F2}ms");
+        }
+
+        /// <summary>
         /// Provides all logic for constructing a new RestSharp <see cref="RestRequest"/>.
         /// At this point, all information for querying the service is known. 
         /// Here, it is simply mapped into the RestSharp request.
@@ -283,6 +326,9 @@ namespace Voucherify.Client
             if (path == null) throw new ArgumentNullException("path");
             if (options == null) throw new ArgumentNullException("options");
             if (configuration == null) throw new ArgumentNullException("configuration");
+
+            bool debugModeEnabled = configuration.DebugModeEnabled;
+            Stopwatch stopwatch = StartTiming(debugModeEnabled);
 
             RestRequest request = new RestRequest(path, Method(method));
 
@@ -394,6 +440,16 @@ namespace Voucherify.Client
                 }
             }
 
+            if (options.Cookies != null && options.Cookies.Count > 0)
+            {
+                foreach (var cookie in options.Cookies)
+                {
+                    request.AddCookie(cookie.Name, cookie.Value, cookie.Path ?? "/", cookie.Domain ?? "");
+                }
+            }
+
+            StopTiming(debugModeEnabled, stopwatch, "Request construction", method.ToString(), path);
+
             return request;
         }
 
@@ -449,6 +505,24 @@ namespace Voucherify.Client
         }
 
         /// <summary>
+        /// Gets or creates a shared RestClient for the given options (lazy init, thread-safe).
+        /// Used to avoid socket exhaustion by reusing one client per ApiClient instance.
+        /// </summary>
+        private RestClient GetOrCreateRestClient(RestClientOptions clientOptions, IReadableConfiguration configuration)
+        {
+            if (_restClient != null)
+                return _restClient;
+            lock (_restClientLock)
+            {
+                if (_restClient != null)
+                    return _restClient;
+                _restClient = new RestClient(clientOptions,
+                    configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+                return _restClient;
+            }
+        }
+
+        /// <summary>
         /// Executes the HTTP request for the current service.
         /// Based on functions received it can be async or sync.
         /// </summary>
@@ -488,8 +562,19 @@ namespace Voucherify.Client
                     configuration);
             }
 
-            using (RestClient client = new RestClient(clientOptions,
-                configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
+            RestClient client;
+            bool useSharedClient = (baseUrl == _baseUrl);
+            if (useSharedClient)
+            {
+                client = GetOrCreateRestClient(clientOptions, configuration);
+            }
+            else
+            {
+                client = new RestClient(clientOptions,
+                    configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+            }
+
+            try
             {
                 InterceptRequest(request);
 
@@ -556,13 +641,26 @@ namespace Voucherify.Client
                 }
                 return result;
             }
+            finally
+            {
+                if (!useSharedClient)
+                {
+                    client?.Dispose();
+                }
+            }
         }
 
-        private async Task<RestResponse<T>> DeserializeRestResponseFromPolicyAsync<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult, CancellationToken cancellationToken = default)
+        private async Task<RestResponse<T>> DeserializeRestResponseFromPolicyAsync<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult, bool debugModeEnabled = false, CancellationToken cancellationToken = default)
         {
             if (policyResult.Outcome == OutcomeType.Successful) 
             {
-                return await client.Deserialize<T>(policyResult.Result, cancellationToken);
+                Stopwatch watch = StartTiming(debugModeEnabled);
+
+                var deserializeResult = await client.Deserialize<T>(policyResult.Result, cancellationToken);
+
+                StopTiming(debugModeEnabled, watch, "Response parse", request.Method.ToString(), request.Resource, deserializeResult);
+
+                return deserializeResult;
             }
             else
             {
@@ -577,16 +675,7 @@ namespace Voucherify.Client
         {
             Action<RestClientOptions> setOptions = (clientOptions) =>
             {
-                var cookies = new CookieContainer();
-
-                if (options.Cookies != null && options.Cookies.Count > 0)
-                {
-                    foreach (var cookie in options.Cookies)
-                    {
-                        cookies.Add(new Cookie(cookie.Name, cookie.Value));
-                    }
-                }
-                clientOptions.CookieContainer = cookies;
+                // Cookies are added per-request in NewRequest to avoid mutating shared RestClient
             };
 
             Func<RestClient, Task<RestResponse<T>>> getResponse = (client) =>
@@ -594,12 +683,23 @@ namespace Voucherify.Client
                 if (RetryConfiguration.RetryPolicy != null)
                 {
                     var policy = RetryConfiguration.RetryPolicy;
+                    
+                    bool debugModeEnabled = configuration?.DebugModeEnabled ?? false;
+                    Stopwatch watch = StartTiming(debugModeEnabled);
                     var policyResult = policy.ExecuteAndCapture(() => client.Execute(request));
-                    return DeserializeRestResponseFromPolicyAsync<T>(client, request, policyResult);
+                    StopTiming(debugModeEnabled, watch, "HTTP send", request.Method.ToString(), request.Resource, policyResult.Result);
+                    return DeserializeRestResponseFromPolicyAsync<T>(client, request, policyResult, debugModeEnabled);
                 }
                 else
                 {
-                    return Task.FromResult(client.Execute<T>(request));
+                    bool debugModeEnabled = configuration.DebugModeEnabled;
+                    Stopwatch watch = StartTiming(debugModeEnabled);
+
+                    var executeResult = client.Execute<T>(request);
+
+                    StopTiming(debugModeEnabled, watch, "HTTP end-to-end (send + parse)", request.Method.ToString(), request.Resource, executeResult);
+
+                    return Task.FromResult(executeResult);
                 }
             };
 
@@ -615,15 +715,24 @@ namespace Voucherify.Client
 
             Func<RestClient, Task<RestResponse<T>>> getResponse = async (client) =>
             {
+                bool debugEnabled = configuration.DebugModeEnabled;
+
                 if (RetryConfiguration.AsyncRetryPolicy != null)
                 {
                     var policy = RetryConfiguration.AsyncRetryPolicy;
+                    Stopwatch networkStopwatch = StartTiming(debugEnabled);
                     var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(request, ct), cancellationToken).ConfigureAwait(false);
-                    return await DeserializeRestResponseFromPolicyAsync<T>(client, request, policyResult, cancellationToken);
+                    StopTiming(debugEnabled, networkStopwatch, "HTTP send", request.Method.ToString(), request.Resource, policyResult.Result);
+
+                    return await DeserializeRestResponseFromPolicyAsync<T>(client, request, policyResult, debugEnabled, cancellationToken);
                 }
                 else
                 {
-                    return await client.ExecuteAsync<T>(request, cancellationToken).ConfigureAwait(false);
+                    Stopwatch networkStopwatch = StartTiming(debugEnabled);
+                    var rawResponse = await client.ExecuteAsync<T>(request, cancellationToken).ConfigureAwait(false);
+                    StopTiming(debugEnabled, networkStopwatch, "HTTP end-to-end (send + parse)", request.Method.ToString(), request.Resource, rawResponse);
+
+                    return rawResponse;
                 }
             };
 
