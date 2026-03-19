@@ -35,7 +35,7 @@ namespace Voucherify.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "9.0.1";
+        public const string Version = "9.0.2";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace Voucherify.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("DOTNET-SDK-9.0.1");
+            UserAgent = WebUtility.UrlEncode("DOTNET-SDK-9.0.2");
             BasePath = "https://api.voucherify.io";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -594,7 +594,7 @@ namespace Voucherify.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v2018-08-01\n";
-            report += "    SDK Package Version: 9.0.1\n";
+            report += "    SDK Package Version: 9.0.2\n";
 
             return report;
         }

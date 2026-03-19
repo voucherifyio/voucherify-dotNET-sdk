@@ -4664,9 +4664,9 @@ paths:
           $ref: '#/components/schemas/ParameterCampaignType'
         style: form
       - description: "Includes an expanded categories object in the response. If the\
-          \ [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores)\
-          \ Enterprise feature is enabled, add access_settings_assignments to return\
-          \ assigned areas and stores."
+          \ [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is\
+          \ enabled, add access_settings_assignments to return assigned areas and\
+          \ stores."
         explode: true
         in: query
         name: expand
@@ -11118,9 +11118,9 @@ paths:
           $ref: '#/components/schemas/ParameterPage'
         style: form
       - description: "Includes an expanded categories object in the response. If the\
-          \ [Areas and Stores](https://support.voucherify.io/article/623-areas-and-stores)\
-          \ Enterprise feature is enabled, add access_settings_assignments to return\
-          \ assigned areas and stores."
+          \ [Areas and Stores](/orchestrate/areas-and-stores) Enterprise feature is\
+          \ enabled, add access_settings_assignments to return assigned areas and\
+          \ stores."
         explode: true
         in: query
         name: expand

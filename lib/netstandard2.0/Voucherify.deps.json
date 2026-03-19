@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "Voucherify/9.0.1": {
+      "Voucherify/9.0.2": {
         "dependencies": {
           "JsonSubTypes": "2.0.1",
           "NETStandard.Library": "2.0.3",
@@ -179,7 +179,7 @@
     }
   },
   "libraries": {
-    "Voucherify/9.0.1": {
+    "Voucherify/9.0.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

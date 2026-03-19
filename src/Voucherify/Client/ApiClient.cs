@@ -172,6 +172,8 @@ namespace Voucherify.Client
     public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
+        private RestClient _restClient;
+        private readonly object _restClientLock = new object();
 
         /// <summary>
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
@@ -438,6 +440,14 @@ namespace Voucherify.Client
                 }
             }
 
+            if (options.Cookies != null && options.Cookies.Count > 0)
+            {
+                foreach (var cookie in options.Cookies)
+                {
+                    request.AddCookie(cookie.Name, cookie.Value, cookie.Path ?? "/", cookie.Domain ?? "");
+                }
+            }
+
             StopTiming(debugModeEnabled, stopwatch, "Request construction", method.ToString(), path);
 
             return request;
@@ -495,6 +505,24 @@ namespace Voucherify.Client
         }
 
         /// <summary>
+        /// Gets or creates a shared RestClient for the given options (lazy init, thread-safe).
+        /// Used to avoid socket exhaustion by reusing one client per ApiClient instance.
+        /// </summary>
+        private RestClient GetOrCreateRestClient(RestClientOptions clientOptions, IReadableConfiguration configuration)
+        {
+            if (_restClient != null)
+                return _restClient;
+            lock (_restClientLock)
+            {
+                if (_restClient != null)
+                    return _restClient;
+                _restClient = new RestClient(clientOptions,
+                    configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+                return _restClient;
+            }
+        }
+
+        /// <summary>
         /// Executes the HTTP request for the current service.
         /// Based on functions received it can be async or sync.
         /// </summary>
@@ -534,8 +562,19 @@ namespace Voucherify.Client
                     configuration);
             }
 
-            using (RestClient client = new RestClient(clientOptions,
-                configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration))))
+            RestClient client;
+            bool useSharedClient = (baseUrl == _baseUrl);
+            if (useSharedClient)
+            {
+                client = GetOrCreateRestClient(clientOptions, configuration);
+            }
+            else
+            {
+                client = new RestClient(clientOptions,
+                    configureSerialization: serializerConfig => serializerConfig.UseSerializer(() => new CustomJsonCodec(SerializerSettings, configuration)));
+            }
+
+            try
             {
                 InterceptRequest(request);
 
@@ -602,6 +641,13 @@ namespace Voucherify.Client
                 }
                 return result;
             }
+            finally
+            {
+                if (!useSharedClient)
+                {
+                    client?.Dispose();
+                }
+            }
         }
 
         private async Task<RestResponse<T>> DeserializeRestResponseFromPolicyAsync<T>(RestClient client, RestRequest request, PolicyResult<RestResponse> policyResult, bool debugModeEnabled = false, CancellationToken cancellationToken = default)
@@ -629,16 +675,7 @@ namespace Voucherify.Client
         {
             Action<RestClientOptions> setOptions = (clientOptions) =>
             {
-                var cookies = new CookieContainer();
-
-                if (options.Cookies != null && options.Cookies.Count > 0)
-                {
-                    foreach (var cookie in options.Cookies)
-                    {
-                        cookies.Add(new Cookie(cookie.Name, cookie.Value));
-                    }
-                }
-                clientOptions.CookieContainer = cookies;
+                // Cookies are added per-request in NewRequest to avoid mutating shared RestClient
             };
 
             Func<RestClient, Task<RestResponse<T>>> getResponse = (client) =>
