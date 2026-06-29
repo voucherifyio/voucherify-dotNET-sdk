@@ -4,8 +4,9 @@ WORKDIR /app
 
 # Copy the source code
 COPY ./src ./src
+COPY ./lib ./lib
 
 # Run the tests with detailed logging and check the results
-CMD dotnet test src/Voucherify.Test/Voucherify.Test.csproj -l "console;verbosity=detailed" | \
+CMD dotnet test src/Voucherify.Test/Voucherify.Test.csproj -p:VoucherifyLibTfm=net9.0 -l "console;verbosity=detailed" | \
     tee test_results.txt && \
     grep -E "failed: 0.*skipped: 0" test_results.txt || (echo "Tests failed or were skipped!" && exit 1)
