@@ -167,15 +167,11 @@ To run tests locally with docker:
 
 ## 🛠️ Contribute
 
-Do you want to contribute?
-
-Read more about how to contribute to this SDK in the [Contributing guide](https://github.com/voucherifyio/voucherify-openapi/blob/master/GENERATING-SDKS.md) in the main repo.
-
-This SDK is auto-generated (except for tests), so changes made here will be overwritten by the generator.
+This SDK is generated automatically from our [OpenAPI specification](https://github.com/voucherifyio/voucherify-openapi). To contribute, submit an issue rather than creating a pull request. Voucherify developers will review your issue and reply as soon as possible.
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.0.2).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.0.3).
 
 ## 🔐 Authorization
 
@@ -267,6 +263,10 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
+- **2026-08-10** - `9.0.3`
+    - Fixed: `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing `NoEffect` (`no_effect`), so `Key` was `null` whenever the API skipped a redeemable with no discount effect (message was populated, key was silently lost via `SafeEnumConverter`).
+    - This affects `POST /v1/validations` and stackable `POST /v1/redemptions` when `redeemables_no_effect_rule` is `SKIP` (globally or via `no_effect_skip_categories`).
+    - New enum value: `NoEffect` (`no_effect`) - Redeemable cannot be applied due to no effect.
 - **2026-03-16** - `9.0.2`
     - Fixed: HttpClient/RestClient is no longer disposed after every request; a single shared instance per ApiClient is used to prevent socket exhaustion.
 - **2026-03-05** - `9.0.1`

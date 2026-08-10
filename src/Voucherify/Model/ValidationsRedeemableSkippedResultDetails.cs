@@ -73,7 +73,13 @@ namespace Voucherify.Model
             /// Enum PrecedingValidationFailed for value: preceding_validation_failed
             /// </summary>
             [EnumMember(Value = "preceding_validation_failed")]
-            PrecedingValidationFailed = 6
+            PrecedingValidationFailed = 6,
+
+            /// <summary>
+            /// Enum NoEffect for value: no_effect
+            /// </summary>
+            [EnumMember(Value = "no_effect")]
+            NoEffect = 7
         }
 
 

@@ -13,7 +13,7 @@ All URIs are relative to *https://api.voucherify.io*
 
 Get Async Action
 
-Check the result of a scheduled asynchronous operation.   The table below lists the possible types of async actions. The types are different for each endpoint generating the async action. If you would like to learn more about importing data into Voucherify, read more [here](https://support.voucherify.io/article/574-data-import).       
+Check the result of a scheduled asynchronous operation.   The table below lists the possible types of async actions. The types are different for each endpoint generating the async action.        
 
 ### Example
 ```csharp
@@ -115,7 +115,7 @@ catch (ApiException e)
 
 List Async Actions
 
-Track asynchronous operations scheduled in your project.   The table below lists the possible types of async actions. The types are different for each endpoint generating the async action. If you would like to learn more about importing data into Voucherify, read more [here](https://support.voucherify.io/article/574-data-import).       
+Track asynchronous operations scheduled in your project.   The table below lists the possible types of async actions. The types are different for each endpoint generating the async action.       
 
 ### Example
 ```csharp

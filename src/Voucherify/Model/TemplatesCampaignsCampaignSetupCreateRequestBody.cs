@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class TemplatesCampaignsCampaignSetupCreateRequestBody : IValidatableObject
     {
         /// <summary>
-        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns)
         /// </summary>
-        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published</value>
+        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns)</value>
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
@@ -50,14 +50,20 @@ namespace Voucherify.Model
             /// Enum STATIC for value: STATIC
             /// </summary>
             [EnumMember(Value = "STATIC")]
-            STATIC = 2
+            STATIC = 2,
+
+            /// <summary>
+            /// Enum STANDALONE for value: STANDALONE
+            /// </summary>
+            [EnumMember(Value = "STANDALONE")]
+            STANDALONE = 3
         }
 
 
         /// <summary>
-        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published
+        /// Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns)
         /// </summary>
-        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published</value>
+        /// <value>Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns)</value>
 
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
@@ -127,7 +133,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="name">Campaign name..</param>
         /// <param name="description">An optional field to keep any extra textual information about the campaign such as a campaign description and details..</param>
-        /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published.</param>
+        /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns).</param>
         /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request..</param>
         /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
         /// <param name="useVoucherMetadataSchema">Flag indicating whether the campaign is to use the voucher&#39;s metadata schema instead of the campaign metadata schema..</param>

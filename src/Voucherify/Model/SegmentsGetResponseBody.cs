@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Response body schema for **GET** &#x60;v1/v1/segments/{segmentId}&#x60;.
+    /// Response body schema for **GET** &#x60;v1/segments/{segmentId}&#x60;.
     /// </summary>
     [DataContract(Name = "SegmentsGetResponseBody")]
     public partial class SegmentsGetResponseBody : IValidatableObject
@@ -135,10 +135,11 @@ namespace Voucherify.Model
         /// <param name="id">Unique segment ID..</param>
         /// <param name="name">Segment name..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the segment was created. The value is shown in the ISO 8601 format..</param>
+        /// <param name="updatedAt">Timestamp in ISO 8601 format indicating when the segment was updated..</param>
         /// <param name="type">Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers..</param>
         /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type..</param>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about the customer segment..</param>
-        public SegmentsGetResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
+        public SegmentsGetResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -154,6 +155,11 @@ namespace Voucherify.Model
             if (this.CreatedAt != null)
             {
                 this._flagCreatedAt = true;
+            }
+            this._UpdatedAt = updatedAt;
+            if (this.UpdatedAt != null)
+            {
+                this._flagUpdatedAt = true;
             }
             this._Type = type;
             if (this.Type != null)
@@ -254,6 +260,34 @@ namespace Voucherify.Model
             return _flagCreatedAt;
         }
         /// <summary>
+        /// Timestamp in ISO 8601 format indicating when the segment was updated.
+        /// </summary>
+        /// <value>Timestamp in ISO 8601 format indicating when the segment was updated.</value>
+        /*
+        <example>2022-10-03T12:24:58.008Z</example>
+        */
+        [DataMember(Name = "updated_at", EmitDefaultValue = true)]
+        public DateTimeOffset? UpdatedAt
+        {
+            get{ return _UpdatedAt;}
+            set
+            {
+                _UpdatedAt = value;
+                _flagUpdatedAt = true;
+            }
+        }
+        private DateTimeOffset? _UpdatedAt;
+        private bool _flagUpdatedAt;
+
+        /// <summary>
+        /// Returns false as UpdatedAt should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeUpdatedAt()
+        {
+            return _flagUpdatedAt;
+        }
+        /// <summary>
         /// Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
         /// </summary>
         /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.</value>
@@ -289,6 +323,7 @@ namespace Voucherify.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");

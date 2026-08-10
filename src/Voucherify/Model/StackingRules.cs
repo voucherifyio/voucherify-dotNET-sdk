@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Defines stacking rules for redeemables. Read more in the [Stacking Rule Documentation](https://support.voucherify.io/article/604-stacking-rules).
+    /// Defines stacking rules for redeemables. Read more in the [Stacking Rule Documentation](/orchestrate/stacking-rules).
     /// </summary>
     [DataContract(Name = "StackingRules")]
     public partial class StackingRules : IValidatableObject

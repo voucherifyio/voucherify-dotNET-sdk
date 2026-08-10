@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "Voucherify/9.0.2": {
+      "Voucherify/9.0.3": {
         "dependencies": {
           "JsonSubTypes": "2.0.1",
           "Microsoft.Extensions.DependencyInjection": "9.0.10",
@@ -478,7 +478,7 @@
     }
   },
   "libraries": {
-    "Voucherify/9.0.2": {
+    "Voucherify/9.0.3": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

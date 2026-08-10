@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Contains information about the customer&#39;s cockpit.
+    /// Contains information about the customer&#39;s cockpit.  ⚠️ Warning: Customer cockpits were removed. The customer cockpit URLs redirect to customer preference center.
     /// </summary>
     [DataContract(Name = "CustomersCreateResponseBodyAssets")]
     public partial class CustomersCreateResponseBodyAssets : IValidatableObject
@@ -36,20 +36,26 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomersCreateResponseBodyAssets" /> class.
         /// </summary>
-        /// <param name="cockpitUrl">Customer&#39;s cockpit URL address..</param>
-        public CustomersCreateResponseBodyAssets(string cockpitUrl = default(string))
+        /// <param name="cockpitUrl">URL address to customer preference center. Previously, a customer&#39;s cockpit URL address..</param>
+        /// <param name="cockpitPreferenceCenterUrl">URL address to customer preference center..</param>
+        public CustomersCreateResponseBodyAssets(string cockpitUrl = default(string), string cockpitPreferenceCenterUrl = default(string))
         {
             this._CockpitUrl = cockpitUrl;
             if (this.CockpitUrl != null)
             {
                 this._flagCockpitUrl = true;
             }
+            this._CockpitPreferenceCenterUrl = cockpitPreferenceCenterUrl;
+            if (this.CockpitPreferenceCenterUrl != null)
+            {
+                this._flagCockpitPreferenceCenterUrl = true;
+            }
         }
 
         /// <summary>
-        /// Customer&#39;s cockpit URL address.
+        /// URL address to customer preference center. Previously, a customer&#39;s cockpit URL address.
         /// </summary>
-        /// <value>Customer&#39;s cockpit URL address.</value>
+        /// <value>URL address to customer preference center. Previously, a customer&#39;s cockpit URL address.</value>
         [DataMember(Name = "cockpit_url", EmitDefaultValue = true)]
         public string CockpitUrl
         {
@@ -72,6 +78,31 @@ namespace Voucherify.Model
             return _flagCockpitUrl;
         }
         /// <summary>
+        /// URL address to customer preference center.
+        /// </summary>
+        /// <value>URL address to customer preference center.</value>
+        [DataMember(Name = "cockpit_preference_center_url", EmitDefaultValue = true)]
+        public string CockpitPreferenceCenterUrl
+        {
+            get{ return _CockpitPreferenceCenterUrl;}
+            set
+            {
+                _CockpitPreferenceCenterUrl = value;
+                _flagCockpitPreferenceCenterUrl = true;
+            }
+        }
+        private string _CockpitPreferenceCenterUrl;
+        private bool _flagCockpitPreferenceCenterUrl;
+
+        /// <summary>
+        /// Returns false as CockpitPreferenceCenterUrl should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCockpitPreferenceCenterUrl()
+        {
+            return _flagCockpitPreferenceCenterUrl;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +111,7 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CustomersCreateResponseBodyAssets {\n");
             sb.Append("  CockpitUrl: ").Append(CockpitUrl).Append("\n");
+            sb.Append("  CockpitPreferenceCenterUrl: ").Append(CockpitPreferenceCenterUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
