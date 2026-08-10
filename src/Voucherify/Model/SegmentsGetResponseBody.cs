@@ -135,11 +135,11 @@ namespace Voucherify.Model
         /// <param name="id">Unique segment ID..</param>
         /// <param name="name">Segment name..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the segment was created. The value is shown in the ISO 8601 format..</param>
+        /// <param name="updatedAt">Timestamp in ISO 8601 format indicating when the segment was updated..</param>
         /// <param name="type">Defines whether the segment is: - Active (&#x60;auto-update&#x60;): customers enter and leave the segment based on the defined filters and the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are triggered, - Passive (&#x60;passive&#x60;): customers enter and leave the segment based on the defined filters, but the &#x60;customer.segment.entered&#x60; and &#x60;customer.segment.left&#x60; events are not triggered, - Static (&#x60;static&#x60;): manually selected customers..</param>
         /// <param name="filter">Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type..</param>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about the customer segment..</param>
-        /// <param name="updatedAt">Timestamp in ISO 8601 format indicating when the segment was updated..</param>
-        public SegmentsGetResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? updatedAt = default(DateTimeOffset?))
+        public SegmentsGetResponseBody(string id = default(string), string name = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), TypeEnum? type = default(TypeEnum?), Object filter = default(Object), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Id = id;
             if (this.Id != null)
@@ -156,6 +156,11 @@ namespace Voucherify.Model
             {
                 this._flagCreatedAt = true;
             }
+            this._UpdatedAt = updatedAt;
+            if (this.UpdatedAt != null)
+            {
+                this._flagUpdatedAt = true;
+            }
             this._Type = type;
             if (this.Type != null)
             {
@@ -170,11 +175,6 @@ namespace Voucherify.Model
             if (this.Object != null)
             {
                 this._flagObject = true;
-            }
-            this._UpdatedAt = updatedAt;
-            if (this.UpdatedAt != null)
-            {
-                this._flagUpdatedAt = true;
             }
         }
 
@@ -260,31 +260,6 @@ namespace Voucherify.Model
             return _flagCreatedAt;
         }
         /// <summary>
-        /// Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
-        /// </summary>
-        /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.</value>
-        [DataMember(Name = "filter", EmitDefaultValue = true)]
-        public Object Filter
-        {
-            get{ return _Filter;}
-            set
-            {
-                _Filter = value;
-                _flagFilter = true;
-            }
-        }
-        private Object _Filter;
-        private bool _flagFilter;
-
-        /// <summary>
-        /// Returns false as Filter should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeFilter()
-        {
-            return _flagFilter;
-        }
-        /// <summary>
         /// Timestamp in ISO 8601 format indicating when the segment was updated.
         /// </summary>
         /// <value>Timestamp in ISO 8601 format indicating when the segment was updated.</value>
@@ -313,6 +288,31 @@ namespace Voucherify.Model
             return _flagUpdatedAt;
         }
         /// <summary>
+        /// Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.
+        /// </summary>
+        /// <value>Defines a set of criteria for an &#x60;auto-update&#x60; or &#x60;passive&#x60; segment type.</value>
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
+        public Object Filter
+        {
+            get{ return _Filter;}
+            set
+            {
+                _Filter = value;
+                _flagFilter = true;
+            }
+        }
+        private Object _Filter;
+        private bool _flagFilter;
+
+        /// <summary>
+        /// Returns false as Filter should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeFilter()
+        {
+            return _flagFilter;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -323,10 +323,10 @@ namespace Voucherify.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Object: ").Append(Object).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
