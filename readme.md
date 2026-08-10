@@ -171,7 +171,7 @@ This SDK is generated automatically from our [OpenAPI specification](https://git
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.0.3).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.1.0).
 
 ## 🔐 Authorization
 
@@ -263,10 +263,18 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
-- **2026-08-10** - `9.0.3`
+- **2026-08-10** - `9.1.0`
     - Fixed: `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing `NoEffect` (`no_effect`), so `Key` was `null` whenever the API skipped a redeemable with no discount effect (message was populated, key was silently lost via `SafeEnumConverter`).
     - This affects `POST /v1/validations` and stackable `POST /v1/redemptions` when `redeemables_no_effect_rule` is `SKIP` (globally or via `no_effect_skip_categories`).
-    - New enum value: `NoEffect` (`no_effect`) - Redeemable cannot be applied due to no effect.
+    - New enum value: `NoEffect` (`no_effect`) — redeemable cannot be applied due to no effect.
+    - Aligned with the latest OpenAPI definition, including:
+        - `STANDALONE` campaign type (`TypeEnum` on `CampaignsCreateRequestBody`, `LoyaltiesCreateCampaignRequestBody`, `TemplatesCampaignsCampaignSetupCreateRequestBody`) for generic standalone discount and gift card campaigns.
+        - `ADD_SAME_ITEMS` discount effect (`EffectEnum` on `Discount`, `ValidationsValidateResponseBodyRedeemablesItemResultDiscount`, `ClientValidationsValidateResponseBodyRedeemablesItemResultDiscount`).
+        - `UpdatedAt` on `SegmentsCreateResponseBody` and `SegmentsGetResponseBody`.
+        - `CockpitPreferenceCenterUrl` on customer assets models (`CustomerWithSummaryLoyaltyReferralsAssets`, `CustomersCreateResponseBodyAssets`, `CustomersGetResponseBodyAssets`, `CustomersUpdateResponseBodyAssets`).
+        - Campaign and promotion-tier product quantity limits and formulas on `ApplicableTo` and `InapplicableTo` (on-demand campaign budget limits; contact Voucherify Support to enable).
+    - `CreatePublicationCampaign.Count` maximum raised from `20` to `50`.
+    - Model constructors for `ApplicableTo`, `InapplicableTo`, segment response bodies, and customer assets models gained new optional parameters; relevant only if you call constructors positionally with a full argument list — prefer named arguments or property setters.
 - **2026-03-16** - `9.0.2`
     - Fixed: HttpClient/RestClient is no longer disposed after every request; a single shared instance per ApiClient is used to prevent socket exhaustion.
 - **2026-03-05** - `9.0.1`
