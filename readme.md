@@ -274,7 +274,6 @@ Authorization schemes defined for the API.
         - `CockpitPreferenceCenterUrl` on customer assets models (`CustomerWithSummaryLoyaltyReferralsAssets`, `CustomersCreateResponseBodyAssets`, `CustomersGetResponseBodyAssets`, `CustomersUpdateResponseBodyAssets`).
         - Campaign and promotion-tier product quantity limits and formulas on `ApplicableTo` and `InapplicableTo` (on-demand campaign budget limits; contact Voucherify Support to enable).
     - `CreatePublicationCampaign.Count` maximum raised from `20` to `50`.
-    - Model constructors for `ApplicableTo`, `InapplicableTo`, segment response bodies, and customer assets models gained new optional parameters; relevant only if you call constructors positionally with a full argument list — prefer named arguments or property setters.
 - **2026-03-16** - `9.0.2`
     - Fixed: HttpClient/RestClient is no longer disposed after every request; a single shared instance per ApiClient is used to prevent socket exhaustion.
 - **2026-03-05** - `9.0.1`

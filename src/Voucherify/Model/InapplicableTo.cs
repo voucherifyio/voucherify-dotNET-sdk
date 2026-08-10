@@ -182,6 +182,11 @@ namespace Voucherify.Model
         /// <param name="aggregatedQuantityLimit">The maximum number of units allowed to be discounted combined across all matched order line items..</param>
         /// <param name="amountLimit">Upper limit allowed to be applied as a discount per order line item. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount is written as 600..</param>
         /// <param name="aggregatedAmountLimit">Maximum discount amount per order. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount on the entire order is written as 600. This value is definable for the following discount effects: - &#x60;APPLY_TO_ITEMS&#x60; (each item subtotal is discounted equally) - &#x60;APPLY_TO_ITEMS_BY_QUANTITY&#x60; (each unit of matched products has the same discount value).</param>
+        /// <param name="orderItemIndices">Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on..</param>
+        /// <param name="orderItemUnits">Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request..</param>
+        /// <param name="repeat">Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item..</param>
+        /// <param name="skipInitially">Determines how many items are skipped before the discount is applied..</param>
+        /// <param name="target">Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line..</param>
         /// <param name="productCampaignQuantityLimit">Limits the number of discounted item units (product, SKU, collection) that all customers can receive in a given campaign. If a product is selected, the limit covers all discounts across all SKUs belonging to that product. If a product collection is selected, the limit covers all products/SKUs within the collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
         /// <param name="productCampaignQuantityLimitFormula">Formula used to dynamically calculate the maximum units per campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
         /// <param name="productCustomerCampaignQuantityLimit">Limits the number of discounted item units (product, SKU, collection) that one customer can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
@@ -198,12 +203,7 @@ namespace Voucherify.Model
         /// <param name="productInCollectionPromotionTierQuantityLimitFormula">Formula used to dynamically calculate the maximum units per promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
         /// <param name="productInCollectionCustomerPromotionTierQuantityLimit">Limits the number of discounted item units of a given product in a collection that one customer can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
         /// <param name="productInCollectionCustomerPromotionTierQuantityLimitFormula">Formula used to dynamically calculate the maximum units per customer in a promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
-        /// <param name="orderItemIndices">Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on..</param>
-        /// <param name="orderItemUnits">Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request..</param>
-        /// <param name="repeat">Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item..</param>
-        /// <param name="skipInitially">Determines how many items are skipped before the discount is applied..</param>
-        /// <param name="target">Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line..</param>
-        public InapplicableTo(ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), string sourceId = default(string), string productId = default(string), string productSourceId = default(string), decimal? price = default(decimal?), decimal? priceFormula = default(decimal?), ApplicableToEffect effect = default(ApplicableToEffect), int? quantityLimit = default(int?), int? aggregatedQuantityLimit = default(int?), int? amountLimit = default(int?), int? aggregatedAmountLimit = default(int?), int? productCampaignQuantityLimit = default(int?), string productCampaignQuantityLimitFormula = default(string), int? productCustomerCampaignQuantityLimit = default(int?), string productCustomerCampaignQuantityLimitFormula = default(string), int? productInCollectionCampaignQuantityLimit = default(int?), string productInCollectionCampaignQuantityLimitFormula = default(string), int? productInCollectionCustomerCampaignQuantityLimit = default(int?), string productInCollectionCustomerCampaignQuantityLimitFormula = default(string), int? productPromotionTierQuantityLimit = default(int?), string productPromotionTierQuantityLimitFormula = default(string), int? productCustomerPromotionTierQuantityLimit = default(int?), string productCustomerPromotionTierQuantityLimitFormula = default(string), int? productInCollectionPromotionTierQuantityLimit = default(int?), string productInCollectionPromotionTierQuantityLimitFormula = default(string), int? productInCollectionCustomerPromotionTierQuantityLimit = default(int?), string productInCollectionCustomerPromotionTierQuantityLimitFormula = default(string), List<int> orderItemIndices = default(List<int>), List<InapplicableToOrderItemUnitsItem> orderItemUnits = default(List<InapplicableToOrderItemUnitsItem>), int? repeat = default(int?), int? skipInitially = default(int?), TargetEnum? target = default(TargetEnum?))
+        public InapplicableTo(ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), string sourceId = default(string), string productId = default(string), string productSourceId = default(string), decimal? price = default(decimal?), decimal? priceFormula = default(decimal?), ApplicableToEffect effect = default(ApplicableToEffect), int? quantityLimit = default(int?), int? aggregatedQuantityLimit = default(int?), int? amountLimit = default(int?), int? aggregatedAmountLimit = default(int?), List<int> orderItemIndices = default(List<int>), List<InapplicableToOrderItemUnitsItem> orderItemUnits = default(List<InapplicableToOrderItemUnitsItem>), int? repeat = default(int?), int? skipInitially = default(int?), TargetEnum? target = default(TargetEnum?), int? productCampaignQuantityLimit = default(int?), string productCampaignQuantityLimitFormula = default(string), int? productCustomerCampaignQuantityLimit = default(int?), string productCustomerCampaignQuantityLimitFormula = default(string), int? productInCollectionCampaignQuantityLimit = default(int?), string productInCollectionCampaignQuantityLimitFormula = default(string), int? productInCollectionCustomerCampaignQuantityLimit = default(int?), string productInCollectionCustomerCampaignQuantityLimitFormula = default(string), int? productPromotionTierQuantityLimit = default(int?), string productPromotionTierQuantityLimitFormula = default(string), int? productCustomerPromotionTierQuantityLimit = default(int?), string productCustomerPromotionTierQuantityLimitFormula = default(string), int? productInCollectionPromotionTierQuantityLimit = default(int?), string productInCollectionPromotionTierQuantityLimitFormula = default(string), int? productInCollectionCustomerPromotionTierQuantityLimit = default(int?), string productInCollectionCustomerPromotionTierQuantityLimitFormula = default(string))
         {
             this._Effect = effect;
             this._Object = varObject;
@@ -260,6 +260,31 @@ namespace Voucherify.Model
             if (this.AggregatedAmountLimit != null)
             {
                 this._flagAggregatedAmountLimit = true;
+            }
+            this._OrderItemIndices = orderItemIndices;
+            if (this.OrderItemIndices != null)
+            {
+                this._flagOrderItemIndices = true;
+            }
+            this._OrderItemUnits = orderItemUnits;
+            if (this.OrderItemUnits != null)
+            {
+                this._flagOrderItemUnits = true;
+            }
+            this._Repeat = repeat;
+            if (this.Repeat != null)
+            {
+                this._flagRepeat = true;
+            }
+            this._SkipInitially = skipInitially;
+            if (this.SkipInitially != null)
+            {
+                this._flagSkipInitially = true;
+            }
+            this._Target = target;
+            if (this.Target != null)
+            {
+                this._flagTarget = true;
             }
             this._ProductCampaignQuantityLimit = productCampaignQuantityLimit;
             if (this.ProductCampaignQuantityLimit != null)
@@ -340,31 +365,6 @@ namespace Voucherify.Model
             if (this.ProductInCollectionCustomerPromotionTierQuantityLimitFormula != null)
             {
                 this._flagProductInCollectionCustomerPromotionTierQuantityLimitFormula = true;
-            }
-            this._OrderItemIndices = orderItemIndices;
-            if (this.OrderItemIndices != null)
-            {
-                this._flagOrderItemIndices = true;
-            }
-            this._OrderItemUnits = orderItemUnits;
-            if (this.OrderItemUnits != null)
-            {
-                this._flagOrderItemUnits = true;
-            }
-            this._Repeat = repeat;
-            if (this.Repeat != null)
-            {
-                this._flagRepeat = true;
-            }
-            this._SkipInitially = skipInitially;
-            if (this.SkipInitially != null)
-            {
-                this._flagSkipInitially = true;
-            }
-            this._Target = target;
-            if (this.Target != null)
-            {
-                this._flagTarget = true;
             }
         }
 
@@ -617,6 +617,106 @@ namespace Voucherify.Model
         public bool ShouldSerializeAggregatedAmountLimit()
         {
             return _flagAggregatedAmountLimit;
+        }
+        /// <summary>
+        /// Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.
+        /// </summary>
+        /// <value>Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.</value>
+        [DataMember(Name = "order_item_indices", EmitDefaultValue = true)]
+        public List<int> OrderItemIndices
+        {
+            get{ return _OrderItemIndices;}
+            set
+            {
+                _OrderItemIndices = value;
+                _flagOrderItemIndices = true;
+            }
+        }
+        private List<int> _OrderItemIndices;
+        private bool _flagOrderItemIndices;
+
+        /// <summary>
+        /// Returns false as OrderItemIndices should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeOrderItemIndices()
+        {
+            return _flagOrderItemIndices;
+        }
+        /// <summary>
+        /// Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request.
+        /// </summary>
+        /// <value>Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request.</value>
+        [DataMember(Name = "order_item_units", EmitDefaultValue = true)]
+        public List<InapplicableToOrderItemUnitsItem> OrderItemUnits
+        {
+            get{ return _OrderItemUnits;}
+            set
+            {
+                _OrderItemUnits = value;
+                _flagOrderItemUnits = true;
+            }
+        }
+        private List<InapplicableToOrderItemUnitsItem> _OrderItemUnits;
+        private bool _flagOrderItemUnits;
+
+        /// <summary>
+        /// Returns false as OrderItemUnits should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeOrderItemUnits()
+        {
+            return _flagOrderItemUnits;
+        }
+        /// <summary>
+        /// Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item.
+        /// </summary>
+        /// <value>Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item.</value>
+        [DataMember(Name = "repeat", EmitDefaultValue = true)]
+        public int? Repeat
+        {
+            get{ return _Repeat;}
+            set
+            {
+                _Repeat = value;
+                _flagRepeat = true;
+            }
+        }
+        private int? _Repeat;
+        private bool _flagRepeat;
+
+        /// <summary>
+        /// Returns false as Repeat should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRepeat()
+        {
+            return _flagRepeat;
+        }
+        /// <summary>
+        /// Determines how many items are skipped before the discount is applied.
+        /// </summary>
+        /// <value>Determines how many items are skipped before the discount is applied.</value>
+        [DataMember(Name = "skip_initially", EmitDefaultValue = true)]
+        public int? SkipInitially
+        {
+            get{ return _SkipInitially;}
+            set
+            {
+                _SkipInitially = value;
+                _flagSkipInitially = true;
+            }
+        }
+        private int? _SkipInitially;
+        private bool _flagSkipInitially;
+
+        /// <summary>
+        /// Returns false as SkipInitially should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeSkipInitially()
+        {
+            return _flagSkipInitially;
         }
         /// <summary>
         /// Limits the number of discounted item units (product, SKU, collection) that all customers can receive in a given campaign. If a product is selected, the limit covers all discounts across all SKUs belonging to that product. If a product collection is selected, the limit covers all products/SKUs within the collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
@@ -1019,106 +1119,6 @@ namespace Voucherify.Model
             return _flagProductInCollectionCustomerPromotionTierQuantityLimitFormula;
         }
         /// <summary>
-        /// Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.
-        /// </summary>
-        /// <value>Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.</value>
-        [DataMember(Name = "order_item_indices", EmitDefaultValue = true)]
-        public List<int> OrderItemIndices
-        {
-            get{ return _OrderItemIndices;}
-            set
-            {
-                _OrderItemIndices = value;
-                _flagOrderItemIndices = true;
-            }
-        }
-        private List<int> _OrderItemIndices;
-        private bool _flagOrderItemIndices;
-
-        /// <summary>
-        /// Returns false as OrderItemIndices should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeOrderItemIndices()
-        {
-            return _flagOrderItemIndices;
-        }
-        /// <summary>
-        /// Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request.
-        /// </summary>
-        /// <value>Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request.</value>
-        [DataMember(Name = "order_item_units", EmitDefaultValue = true)]
-        public List<InapplicableToOrderItemUnitsItem> OrderItemUnits
-        {
-            get{ return _OrderItemUnits;}
-            set
-            {
-                _OrderItemUnits = value;
-                _flagOrderItemUnits = true;
-            }
-        }
-        private List<InapplicableToOrderItemUnitsItem> _OrderItemUnits;
-        private bool _flagOrderItemUnits;
-
-        /// <summary>
-        /// Returns false as OrderItemUnits should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeOrderItemUnits()
-        {
-            return _flagOrderItemUnits;
-        }
-        /// <summary>
-        /// Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item.
-        /// </summary>
-        /// <value>Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item.</value>
-        [DataMember(Name = "repeat", EmitDefaultValue = true)]
-        public int? Repeat
-        {
-            get{ return _Repeat;}
-            set
-            {
-                _Repeat = value;
-                _flagRepeat = true;
-            }
-        }
-        private int? _Repeat;
-        private bool _flagRepeat;
-
-        /// <summary>
-        /// Returns false as Repeat should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeRepeat()
-        {
-            return _flagRepeat;
-        }
-        /// <summary>
-        /// Determines how many items are skipped before the discount is applied.
-        /// </summary>
-        /// <value>Determines how many items are skipped before the discount is applied.</value>
-        [DataMember(Name = "skip_initially", EmitDefaultValue = true)]
-        public int? SkipInitially
-        {
-            get{ return _SkipInitially;}
-            set
-            {
-                _SkipInitially = value;
-                _flagSkipInitially = true;
-            }
-        }
-        private int? _SkipInitially;
-        private bool _flagSkipInitially;
-
-        /// <summary>
-        /// Returns false as SkipInitially should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeSkipInitially()
-        {
-            return _flagSkipInitially;
-        }
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -1138,6 +1138,11 @@ namespace Voucherify.Model
             sb.Append("  AggregatedQuantityLimit: ").Append(AggregatedQuantityLimit).Append("\n");
             sb.Append("  AmountLimit: ").Append(AmountLimit).Append("\n");
             sb.Append("  AggregatedAmountLimit: ").Append(AggregatedAmountLimit).Append("\n");
+            sb.Append("  OrderItemIndices: ").Append(OrderItemIndices).Append("\n");
+            sb.Append("  OrderItemUnits: ").Append(OrderItemUnits).Append("\n");
+            sb.Append("  Repeat: ").Append(Repeat).Append("\n");
+            sb.Append("  SkipInitially: ").Append(SkipInitially).Append("\n");
+            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  ProductCampaignQuantityLimit: ").Append(ProductCampaignQuantityLimit).Append("\n");
             sb.Append("  ProductCampaignQuantityLimitFormula: ").Append(ProductCampaignQuantityLimitFormula).Append("\n");
             sb.Append("  ProductCustomerCampaignQuantityLimit: ").Append(ProductCustomerCampaignQuantityLimit).Append("\n");
@@ -1154,11 +1159,6 @@ namespace Voucherify.Model
             sb.Append("  ProductInCollectionPromotionTierQuantityLimitFormula: ").Append(ProductInCollectionPromotionTierQuantityLimitFormula).Append("\n");
             sb.Append("  ProductInCollectionCustomerPromotionTierQuantityLimit: ").Append(ProductInCollectionCustomerPromotionTierQuantityLimit).Append("\n");
             sb.Append("  ProductInCollectionCustomerPromotionTierQuantityLimitFormula: ").Append(ProductInCollectionCustomerPromotionTierQuantityLimitFormula).Append("\n");
-            sb.Append("  OrderItemIndices: ").Append(OrderItemIndices).Append("\n");
-            sb.Append("  OrderItemUnits: ").Append(OrderItemUnits).Append("\n");
-            sb.Append("  Repeat: ").Append(Repeat).Append("\n");
-            sb.Append("  SkipInitially: ").Append(SkipInitially).Append("\n");
-            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
