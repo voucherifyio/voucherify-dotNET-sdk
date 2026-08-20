@@ -275,6 +275,7 @@ Authorization schemes defined for the API.
         - Campaign and promotion-tier product quantity limits and formulas on `ApplicableTo` and `InapplicableTo` (on-demand campaign budget limits; contact Voucherify Support to enable).
     - `CreatePublicationCampaign.Count` maximum raised from `20` to `50`.
     - Changed: constructor parameter order on `ApplicableTo`, `InapplicableTo`, `SegmentsCreateResponseBody` and `SegmentsGetResponseBody` follows the updated OpenAPI definition, so the newly added optional properties come before the previously trailing ones. Positional constructor calls written against `9.0.2` have to be updated to object initializers or named arguments; named arguments, object initializers and JSON deserialization are unaffected. On `ApplicableTo` / `InapplicableTo` a positional call can silently bind trailing arguments to the new quantity-limit parameters (no compile error). On `SegmentsCreateResponseBody` / `SegmentsGetResponseBody` the same pattern usually fails at compile time (`updatedAt` inserted before `type`). JSON serialization is unchanged.
+    - Tests: campaign voucher generation is polled until the expected count is present (and bulk add waits for the async action) instead of a fixed 2–3s delay, which raced an empty voucher list.
 - **2026-03-16** - `9.0.2`
     - Fixed: HttpClient/RestClient is no longer disposed after every request; a single shared instance per ApiClient is used to prevent socket exhaustion.
 - **2026-03-05** - `9.0.1`
