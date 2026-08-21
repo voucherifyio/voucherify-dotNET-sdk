@@ -9,11 +9,19 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <version>9.0.2</version>
+    <version>9.1.0</version>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <copyright>MIT</copyright>
     <repository type="git" url="https://github.com/voucherifyio/voucherify-dotNET-sdk" />
     <releaseNotes>
+        2026-08-20: 9.1.0
+            - Fixed: ValidationsRedeemableSkippedResultDetails.KeyEnum was missing NoEffect (no_effect), so Key was null whenever the API skipped a redeemable with no discount effect.
+            - This affects POST /v1/validations and stackable POST /v1/redemptions when redeemables_no_effect_rule is SKIP.
+            - New enum value: NoEffect (no_effect) - Redeemable cannot be applied due to no effect.
+            - Aligned with the latest OpenAPI definition (STANDALONE campaign type, ADD_SAME_ITEMS discount effect, UpdatedAt on segments, CockpitPreferenceCenterUrl on customer assets, ApplicableTo/InapplicableTo product quantity limits).
+            - CreatePublicationCampaign.Count maximum raised from 20 to 50.
+            - Changed: constructor parameter order on ApplicableTo, InapplicableTo, SegmentsCreateResponseBody and SegmentsGetResponseBody; positional calls against 9.0.2 need named arguments or object initializers.
+            - Tests: campaign voucher polling replaces fixed delay; Docker propagates dotnet test exit code.
         2026-03-16: 9.0.2
             - Fixed: HttpClient/RestClient is no longer disposed after every request; a single shared instance per ApiClient is used to prevent socket exhaustion.
         2026-03-05: 9.0.1

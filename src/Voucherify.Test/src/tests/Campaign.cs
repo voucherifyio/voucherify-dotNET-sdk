@@ -18,8 +18,6 @@ namespace Voucherify.Test
         private readonly CustomerFlow _customerFlow;
         private readonly PublicationFlow _publicationFlow;
 
-        private int _delayMilliseconds = 3000;
-
         public CampaignTest(ITestOutputHelper output)
         {
             _output = output;
@@ -44,9 +42,7 @@ namespace Voucherify.Test
             campaign.Name.Should().Be(campaignName);
             campaign.Id.Should().NotBeNullOrEmpty();
 
-            await Task.Delay(_delayMilliseconds);
-
-            var vouchers = await _campaignFlow.getCampaignVouchers(campaign.Id);
+            var vouchers = await _campaignFlow.waitForCampaignVouchers(campaign.Id, vouchersCount);
             vouchers.Vouchers.Should().NotBeNull();
             vouchers.Vouchers.Should().HaveCount(vouchersCount);
 
@@ -85,9 +81,9 @@ namespace Voucherify.Test
             bundle.Should().NotBeNull();
             bundle.AsyncActionId.Should().NotBeNullOrEmpty();
 
-            await Task.Delay(_delayMilliseconds);
+            await _campaignFlow.waitForAsyncAction(bundle.AsyncActionId);
 
-            var campaignVouchers = await _campaignFlow.getCampaignVouchers(createdCampaign.Id);
+            var campaignVouchers = await _campaignFlow.waitForCampaignVouchers(createdCampaign.Id, 6);
 
             _output.WriteLine("campaignVouchers: " + campaignVouchers);
 

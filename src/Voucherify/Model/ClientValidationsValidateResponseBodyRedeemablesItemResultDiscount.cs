@@ -143,7 +143,13 @@ namespace Voucherify.Model
             /// Enum ADDMANYITEMS for value: ADD_MANY_ITEMS
             /// </summary>
             [EnumMember(Value = "ADD_MANY_ITEMS")]
-            ADDMANYITEMS = 8
+            ADDMANYITEMS = 8,
+
+            /// <summary>
+            /// Enum ADDSAMEITEMS for value: ADD_SAME_ITEMS
+            /// </summary>
+            [EnumMember(Value = "ADD_SAME_ITEMS")]
+            ADDSAMEITEMS = 9
         }
 
 

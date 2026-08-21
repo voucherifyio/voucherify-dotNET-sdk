@@ -182,12 +182,28 @@ namespace Voucherify.Model
         /// <param name="aggregatedQuantityLimit">The maximum number of units allowed to be discounted combined across all matched order line items..</param>
         /// <param name="amountLimit">Upper limit allowed to be applied as a discount per order line item. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount is written as 600..</param>
         /// <param name="aggregatedAmountLimit">Maximum discount amount per order. Value is multiplied by 100 to precisely represent 2 decimal places. For example, a $6 maximum discount on the entire order is written as 600. This value is definable for the following discount effects: - &#x60;APPLY_TO_ITEMS&#x60; (each item subtotal is discounted equally) - &#x60;APPLY_TO_ITEMS_BY_QUANTITY&#x60; (each unit of matched products has the same discount value).</param>
+        /// <param name="productCampaignQuantityLimit">Limits the number of discounted item units (product, SKU, collection) that all customers can receive in a given campaign. If a product is selected, the limit covers all discounts across all SKUs belonging to that product. If a product collection is selected, the limit covers all products/SKUs within the collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productCampaignQuantityLimitFormula">Formula used to dynamically calculate the maximum units per campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productCustomerCampaignQuantityLimit">Limits the number of discounted item units (product, SKU, collection) that one customer can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productCustomerCampaignQuantityLimitFormula">Formula used to dynamically calculate the maximum units per customer in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionCampaignQuantityLimit">Limits the number of discounted item units of a given product in a collection that all customers can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionCampaignQuantityLimitFormula">Formula used to dynamically calculate the maximum units per campaign for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionCustomerCampaignQuantityLimit">Limits the number of discounted item units of a given product in a collection that one customer can receive in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionCustomerCampaignQuantityLimitFormula">Formula used to dynamically calculate the maximum units per customer for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productPromotionTierQuantityLimit">Limits the number of discounted item units that all customers can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productPromotionTierQuantityLimitFormula">Formula used to dynamically calculate the maximum units per promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productCustomerPromotionTierQuantityLimit">Limits the number of discounted item units that one customer can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productCustomerPromotionTierQuantityLimitFormula">Formula used to dynamically calculate the maximum units per customer in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionPromotionTierQuantityLimit">Limits the number of discounted item units of a given product in a collection that all customers can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionPromotionTierQuantityLimitFormula">Formula used to dynamically calculate the maximum units per promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionCustomerPromotionTierQuantityLimit">Limits the number of discounted item units of a given product in a collection that one customer can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
+        /// <param name="productInCollectionCustomerPromotionTierQuantityLimitFormula">Formula used to dynamically calculate the maximum units per customer in a promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more..</param>
         /// <param name="orderItemIndices">Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on..</param>
         /// <param name="orderItemUnits">Lists which units within order lines are covered by the discount. The order line items are listed according to sequence of applied discounts while the &#x60;index&#x60; corresponds to the order line sent in the &#x60;order&#x60; object in the request..</param>
         /// <param name="repeat">Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item..</param>
         /// <param name="skipInitially">Determines how many items are skipped before the discount is applied..</param>
         /// <param name="target">Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line..</param>
-        public InapplicableTo(ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), string sourceId = default(string), string productId = default(string), string productSourceId = default(string), decimal? price = default(decimal?), decimal? priceFormula = default(decimal?), ApplicableToEffect effect = default(ApplicableToEffect), int? quantityLimit = default(int?), int? aggregatedQuantityLimit = default(int?), int? amountLimit = default(int?), int? aggregatedAmountLimit = default(int?), List<int> orderItemIndices = default(List<int>), List<InapplicableToOrderItemUnitsItem> orderItemUnits = default(List<InapplicableToOrderItemUnitsItem>), int? repeat = default(int?), int? skipInitially = default(int?), TargetEnum? target = default(TargetEnum?))
+        public InapplicableTo(ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), string sourceId = default(string), string productId = default(string), string productSourceId = default(string), decimal? price = default(decimal?), decimal? priceFormula = default(decimal?), ApplicableToEffect effect = default(ApplicableToEffect), int? quantityLimit = default(int?), int? aggregatedQuantityLimit = default(int?), int? amountLimit = default(int?), int? aggregatedAmountLimit = default(int?), int? productCampaignQuantityLimit = default(int?), string productCampaignQuantityLimitFormula = default(string), int? productCustomerCampaignQuantityLimit = default(int?), string productCustomerCampaignQuantityLimitFormula = default(string), int? productInCollectionCampaignQuantityLimit = default(int?), string productInCollectionCampaignQuantityLimitFormula = default(string), int? productInCollectionCustomerCampaignQuantityLimit = default(int?), string productInCollectionCustomerCampaignQuantityLimitFormula = default(string), int? productPromotionTierQuantityLimit = default(int?), string productPromotionTierQuantityLimitFormula = default(string), int? productCustomerPromotionTierQuantityLimit = default(int?), string productCustomerPromotionTierQuantityLimitFormula = default(string), int? productInCollectionPromotionTierQuantityLimit = default(int?), string productInCollectionPromotionTierQuantityLimitFormula = default(string), int? productInCollectionCustomerPromotionTierQuantityLimit = default(int?), string productInCollectionCustomerPromotionTierQuantityLimitFormula = default(string), List<int> orderItemIndices = default(List<int>), List<InapplicableToOrderItemUnitsItem> orderItemUnits = default(List<InapplicableToOrderItemUnitsItem>), int? repeat = default(int?), int? skipInitially = default(int?), TargetEnum? target = default(TargetEnum?))
         {
             this._Effect = effect;
             this._Object = varObject;
@@ -244,6 +260,86 @@ namespace Voucherify.Model
             if (this.AggregatedAmountLimit != null)
             {
                 this._flagAggregatedAmountLimit = true;
+            }
+            this._ProductCampaignQuantityLimit = productCampaignQuantityLimit;
+            if (this.ProductCampaignQuantityLimit != null)
+            {
+                this._flagProductCampaignQuantityLimit = true;
+            }
+            this._ProductCampaignQuantityLimitFormula = productCampaignQuantityLimitFormula;
+            if (this.ProductCampaignQuantityLimitFormula != null)
+            {
+                this._flagProductCampaignQuantityLimitFormula = true;
+            }
+            this._ProductCustomerCampaignQuantityLimit = productCustomerCampaignQuantityLimit;
+            if (this.ProductCustomerCampaignQuantityLimit != null)
+            {
+                this._flagProductCustomerCampaignQuantityLimit = true;
+            }
+            this._ProductCustomerCampaignQuantityLimitFormula = productCustomerCampaignQuantityLimitFormula;
+            if (this.ProductCustomerCampaignQuantityLimitFormula != null)
+            {
+                this._flagProductCustomerCampaignQuantityLimitFormula = true;
+            }
+            this._ProductInCollectionCampaignQuantityLimit = productInCollectionCampaignQuantityLimit;
+            if (this.ProductInCollectionCampaignQuantityLimit != null)
+            {
+                this._flagProductInCollectionCampaignQuantityLimit = true;
+            }
+            this._ProductInCollectionCampaignQuantityLimitFormula = productInCollectionCampaignQuantityLimitFormula;
+            if (this.ProductInCollectionCampaignQuantityLimitFormula != null)
+            {
+                this._flagProductInCollectionCampaignQuantityLimitFormula = true;
+            }
+            this._ProductInCollectionCustomerCampaignQuantityLimit = productInCollectionCustomerCampaignQuantityLimit;
+            if (this.ProductInCollectionCustomerCampaignQuantityLimit != null)
+            {
+                this._flagProductInCollectionCustomerCampaignQuantityLimit = true;
+            }
+            this._ProductInCollectionCustomerCampaignQuantityLimitFormula = productInCollectionCustomerCampaignQuantityLimitFormula;
+            if (this.ProductInCollectionCustomerCampaignQuantityLimitFormula != null)
+            {
+                this._flagProductInCollectionCustomerCampaignQuantityLimitFormula = true;
+            }
+            this._ProductPromotionTierQuantityLimit = productPromotionTierQuantityLimit;
+            if (this.ProductPromotionTierQuantityLimit != null)
+            {
+                this._flagProductPromotionTierQuantityLimit = true;
+            }
+            this._ProductPromotionTierQuantityLimitFormula = productPromotionTierQuantityLimitFormula;
+            if (this.ProductPromotionTierQuantityLimitFormula != null)
+            {
+                this._flagProductPromotionTierQuantityLimitFormula = true;
+            }
+            this._ProductCustomerPromotionTierQuantityLimit = productCustomerPromotionTierQuantityLimit;
+            if (this.ProductCustomerPromotionTierQuantityLimit != null)
+            {
+                this._flagProductCustomerPromotionTierQuantityLimit = true;
+            }
+            this._ProductCustomerPromotionTierQuantityLimitFormula = productCustomerPromotionTierQuantityLimitFormula;
+            if (this.ProductCustomerPromotionTierQuantityLimitFormula != null)
+            {
+                this._flagProductCustomerPromotionTierQuantityLimitFormula = true;
+            }
+            this._ProductInCollectionPromotionTierQuantityLimit = productInCollectionPromotionTierQuantityLimit;
+            if (this.ProductInCollectionPromotionTierQuantityLimit != null)
+            {
+                this._flagProductInCollectionPromotionTierQuantityLimit = true;
+            }
+            this._ProductInCollectionPromotionTierQuantityLimitFormula = productInCollectionPromotionTierQuantityLimitFormula;
+            if (this.ProductInCollectionPromotionTierQuantityLimitFormula != null)
+            {
+                this._flagProductInCollectionPromotionTierQuantityLimitFormula = true;
+            }
+            this._ProductInCollectionCustomerPromotionTierQuantityLimit = productInCollectionCustomerPromotionTierQuantityLimit;
+            if (this.ProductInCollectionCustomerPromotionTierQuantityLimit != null)
+            {
+                this._flagProductInCollectionCustomerPromotionTierQuantityLimit = true;
+            }
+            this._ProductInCollectionCustomerPromotionTierQuantityLimitFormula = productInCollectionCustomerPromotionTierQuantityLimitFormula;
+            if (this.ProductInCollectionCustomerPromotionTierQuantityLimitFormula != null)
+            {
+                this._flagProductInCollectionCustomerPromotionTierQuantityLimitFormula = true;
             }
             this._OrderItemIndices = orderItemIndices;
             if (this.OrderItemIndices != null)
@@ -523,6 +619,406 @@ namespace Voucherify.Model
             return _flagAggregatedAmountLimit;
         }
         /// <summary>
+        /// Limits the number of discounted item units (product, SKU, collection) that all customers can receive in a given campaign. If a product is selected, the limit covers all discounts across all SKUs belonging to that product. If a product collection is selected, the limit covers all products/SKUs within the collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units (product, SKU, collection) that all customers can receive in a given campaign. If a product is selected, the limit covers all discounts across all SKUs belonging to that product. If a product collection is selected, the limit covers all products/SKUs within the collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_campaign_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductCampaignQuantityLimit
+        {
+            get{ return _ProductCampaignQuantityLimit;}
+            set
+            {
+                _ProductCampaignQuantityLimit = value;
+                _flagProductCampaignQuantityLimit = true;
+            }
+        }
+        private int? _ProductCampaignQuantityLimit;
+        private bool _flagProductCampaignQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductCampaignQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductCampaignQuantityLimit()
+        {
+            return _flagProductCampaignQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_campaign_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductCampaignQuantityLimitFormula
+        {
+            get{ return _ProductCampaignQuantityLimitFormula;}
+            set
+            {
+                _ProductCampaignQuantityLimitFormula = value;
+                _flagProductCampaignQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductCampaignQuantityLimitFormula;
+        private bool _flagProductCampaignQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductCampaignQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductCampaignQuantityLimitFormula()
+        {
+            return _flagProductCampaignQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units (product, SKU, collection) that one customer can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units (product, SKU, collection) that one customer can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_customer_campaign_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductCustomerCampaignQuantityLimit
+        {
+            get{ return _ProductCustomerCampaignQuantityLimit;}
+            set
+            {
+                _ProductCustomerCampaignQuantityLimit = value;
+                _flagProductCustomerCampaignQuantityLimit = true;
+            }
+        }
+        private int? _ProductCustomerCampaignQuantityLimit;
+        private bool _flagProductCustomerCampaignQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductCustomerCampaignQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductCustomerCampaignQuantityLimit()
+        {
+            return _flagProductCustomerCampaignQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per customer in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per customer in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_customer_campaign_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductCustomerCampaignQuantityLimitFormula
+        {
+            get{ return _ProductCustomerCampaignQuantityLimitFormula;}
+            set
+            {
+                _ProductCustomerCampaignQuantityLimitFormula = value;
+                _flagProductCustomerCampaignQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductCustomerCampaignQuantityLimitFormula;
+        private bool _flagProductCustomerCampaignQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductCustomerCampaignQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductCustomerCampaignQuantityLimitFormula()
+        {
+            return _flagProductCustomerCampaignQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units of a given product in a collection that all customers can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units of a given product in a collection that all customers can receive in a given campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_campaign_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductInCollectionCampaignQuantityLimit
+        {
+            get{ return _ProductInCollectionCampaignQuantityLimit;}
+            set
+            {
+                _ProductInCollectionCampaignQuantityLimit = value;
+                _flagProductInCollectionCampaignQuantityLimit = true;
+            }
+        }
+        private int? _ProductInCollectionCampaignQuantityLimit;
+        private bool _flagProductInCollectionCampaignQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionCampaignQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionCampaignQuantityLimit()
+        {
+            return _flagProductInCollectionCampaignQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per campaign for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per campaign for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_campaign_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductInCollectionCampaignQuantityLimitFormula
+        {
+            get{ return _ProductInCollectionCampaignQuantityLimitFormula;}
+            set
+            {
+                _ProductInCollectionCampaignQuantityLimitFormula = value;
+                _flagProductInCollectionCampaignQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductInCollectionCampaignQuantityLimitFormula;
+        private bool _flagProductInCollectionCampaignQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionCampaignQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionCampaignQuantityLimitFormula()
+        {
+            return _flagProductInCollectionCampaignQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units of a given product in a collection that one customer can receive in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units of a given product in a collection that one customer can receive in a campaign.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_customer_campaign_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductInCollectionCustomerCampaignQuantityLimit
+        {
+            get{ return _ProductInCollectionCustomerCampaignQuantityLimit;}
+            set
+            {
+                _ProductInCollectionCustomerCampaignQuantityLimit = value;
+                _flagProductInCollectionCustomerCampaignQuantityLimit = true;
+            }
+        }
+        private int? _ProductInCollectionCustomerCampaignQuantityLimit;
+        private bool _flagProductInCollectionCustomerCampaignQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionCustomerCampaignQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionCustomerCampaignQuantityLimit()
+        {
+            return _flagProductInCollectionCustomerCampaignQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per customer for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per customer for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_customer_campaign_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductInCollectionCustomerCampaignQuantityLimitFormula
+        {
+            get{ return _ProductInCollectionCustomerCampaignQuantityLimitFormula;}
+            set
+            {
+                _ProductInCollectionCustomerCampaignQuantityLimitFormula = value;
+                _flagProductInCollectionCustomerCampaignQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductInCollectionCustomerCampaignQuantityLimitFormula;
+        private bool _flagProductInCollectionCustomerCampaignQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionCustomerCampaignQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionCustomerCampaignQuantityLimitFormula()
+        {
+            return _flagProductInCollectionCustomerCampaignQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units that all customers can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units that all customers can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_promotion_tier_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductPromotionTierQuantityLimit
+        {
+            get{ return _ProductPromotionTierQuantityLimit;}
+            set
+            {
+                _ProductPromotionTierQuantityLimit = value;
+                _flagProductPromotionTierQuantityLimit = true;
+            }
+        }
+        private int? _ProductPromotionTierQuantityLimit;
+        private bool _flagProductPromotionTierQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductPromotionTierQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductPromotionTierQuantityLimit()
+        {
+            return _flagProductPromotionTierQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_promotion_tier_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductPromotionTierQuantityLimitFormula
+        {
+            get{ return _ProductPromotionTierQuantityLimitFormula;}
+            set
+            {
+                _ProductPromotionTierQuantityLimitFormula = value;
+                _flagProductPromotionTierQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductPromotionTierQuantityLimitFormula;
+        private bool _flagProductPromotionTierQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductPromotionTierQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductPromotionTierQuantityLimitFormula()
+        {
+            return _flagProductPromotionTierQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units that one customer can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units that one customer can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_customer_promotion_tier_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductCustomerPromotionTierQuantityLimit
+        {
+            get{ return _ProductCustomerPromotionTierQuantityLimit;}
+            set
+            {
+                _ProductCustomerPromotionTierQuantityLimit = value;
+                _flagProductCustomerPromotionTierQuantityLimit = true;
+            }
+        }
+        private int? _ProductCustomerPromotionTierQuantityLimit;
+        private bool _flagProductCustomerPromotionTierQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductCustomerPromotionTierQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductCustomerPromotionTierQuantityLimit()
+        {
+            return _flagProductCustomerPromotionTierQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per customer in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per customer in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_customer_promotion_tier_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductCustomerPromotionTierQuantityLimitFormula
+        {
+            get{ return _ProductCustomerPromotionTierQuantityLimitFormula;}
+            set
+            {
+                _ProductCustomerPromotionTierQuantityLimitFormula = value;
+                _flagProductCustomerPromotionTierQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductCustomerPromotionTierQuantityLimitFormula;
+        private bool _flagProductCustomerPromotionTierQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductCustomerPromotionTierQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductCustomerPromotionTierQuantityLimitFormula()
+        {
+            return _flagProductCustomerPromotionTierQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units of a given product in a collection that all customers can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units of a given product in a collection that all customers can receive in a given promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_promotion_tier_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductInCollectionPromotionTierQuantityLimit
+        {
+            get{ return _ProductInCollectionPromotionTierQuantityLimit;}
+            set
+            {
+                _ProductInCollectionPromotionTierQuantityLimit = value;
+                _flagProductInCollectionPromotionTierQuantityLimit = true;
+            }
+        }
+        private int? _ProductInCollectionPromotionTierQuantityLimit;
+        private bool _flagProductInCollectionPromotionTierQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionPromotionTierQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionPromotionTierQuantityLimit()
+        {
+            return _flagProductInCollectionPromotionTierQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_promotion_tier_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductInCollectionPromotionTierQuantityLimitFormula
+        {
+            get{ return _ProductInCollectionPromotionTierQuantityLimitFormula;}
+            set
+            {
+                _ProductInCollectionPromotionTierQuantityLimitFormula = value;
+                _flagProductInCollectionPromotionTierQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductInCollectionPromotionTierQuantityLimitFormula;
+        private bool _flagProductInCollectionPromotionTierQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionPromotionTierQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionPromotionTierQuantityLimitFormula()
+        {
+            return _flagProductInCollectionPromotionTierQuantityLimitFormula;
+        }
+        /// <summary>
+        /// Limits the number of discounted item units of a given product in a collection that one customer can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Limits the number of discounted item units of a given product in a collection that one customer can receive in a promotion tier.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_customer_promotion_tier_quantity_limit", EmitDefaultValue = true)]
+        public int? ProductInCollectionCustomerPromotionTierQuantityLimit
+        {
+            get{ return _ProductInCollectionCustomerPromotionTierQuantityLimit;}
+            set
+            {
+                _ProductInCollectionCustomerPromotionTierQuantityLimit = value;
+                _flagProductInCollectionCustomerPromotionTierQuantityLimit = true;
+            }
+        }
+        private int? _ProductInCollectionCustomerPromotionTierQuantityLimit;
+        private bool _flagProductInCollectionCustomerPromotionTierQuantityLimit;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionCustomerPromotionTierQuantityLimit should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionCustomerPromotionTierQuantityLimit()
+        {
+            return _flagProductInCollectionCustomerPromotionTierQuantityLimit;
+        }
+        /// <summary>
+        /// Formula used to dynamically calculate the maximum units per customer in a promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.
+        /// </summary>
+        /// <value>Formula used to dynamically calculate the maximum units per customer in a promotion tier for a product in a collection.  This limit is available on demand as part of campaign budget limits. Contact [Voucherify support](https://www.voucherify.io/contact-support) or your account manager to learn more.</value>
+        [DataMember(Name = "product_in_collection_customer_promotion_tier_quantity_limit_formula", EmitDefaultValue = true)]
+        public string ProductInCollectionCustomerPromotionTierQuantityLimitFormula
+        {
+            get{ return _ProductInCollectionCustomerPromotionTierQuantityLimitFormula;}
+            set
+            {
+                _ProductInCollectionCustomerPromotionTierQuantityLimitFormula = value;
+                _flagProductInCollectionCustomerPromotionTierQuantityLimitFormula = true;
+            }
+        }
+        private string _ProductInCollectionCustomerPromotionTierQuantityLimitFormula;
+        private bool _flagProductInCollectionCustomerPromotionTierQuantityLimitFormula;
+
+        /// <summary>
+        /// Returns false as ProductInCollectionCustomerPromotionTierQuantityLimitFormula should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeProductInCollectionCustomerPromotionTierQuantityLimitFormula()
+        {
+            return _flagProductInCollectionCustomerPromotionTierQuantityLimitFormula;
+        }
+        /// <summary>
         /// Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.
         /// </summary>
         /// <value>Lists which order lines are (not) covered by the discount. The order in the array is determined by the sequence of applied discounts, while the numbers correspond to the order lines sent in the &#x60;order&#x60; object in the request. The first order line is assigned &#x60;0&#x60;, the second order line is assigned &#x60;1&#x60;, and so on.</value>
@@ -642,6 +1138,22 @@ namespace Voucherify.Model
             sb.Append("  AggregatedQuantityLimit: ").Append(AggregatedQuantityLimit).Append("\n");
             sb.Append("  AmountLimit: ").Append(AmountLimit).Append("\n");
             sb.Append("  AggregatedAmountLimit: ").Append(AggregatedAmountLimit).Append("\n");
+            sb.Append("  ProductCampaignQuantityLimit: ").Append(ProductCampaignQuantityLimit).Append("\n");
+            sb.Append("  ProductCampaignQuantityLimitFormula: ").Append(ProductCampaignQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductCustomerCampaignQuantityLimit: ").Append(ProductCustomerCampaignQuantityLimit).Append("\n");
+            sb.Append("  ProductCustomerCampaignQuantityLimitFormula: ").Append(ProductCustomerCampaignQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductInCollectionCampaignQuantityLimit: ").Append(ProductInCollectionCampaignQuantityLimit).Append("\n");
+            sb.Append("  ProductInCollectionCampaignQuantityLimitFormula: ").Append(ProductInCollectionCampaignQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductInCollectionCustomerCampaignQuantityLimit: ").Append(ProductInCollectionCustomerCampaignQuantityLimit).Append("\n");
+            sb.Append("  ProductInCollectionCustomerCampaignQuantityLimitFormula: ").Append(ProductInCollectionCustomerCampaignQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductPromotionTierQuantityLimit: ").Append(ProductPromotionTierQuantityLimit).Append("\n");
+            sb.Append("  ProductPromotionTierQuantityLimitFormula: ").Append(ProductPromotionTierQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductCustomerPromotionTierQuantityLimit: ").Append(ProductCustomerPromotionTierQuantityLimit).Append("\n");
+            sb.Append("  ProductCustomerPromotionTierQuantityLimitFormula: ").Append(ProductCustomerPromotionTierQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductInCollectionPromotionTierQuantityLimit: ").Append(ProductInCollectionPromotionTierQuantityLimit).Append("\n");
+            sb.Append("  ProductInCollectionPromotionTierQuantityLimitFormula: ").Append(ProductInCollectionPromotionTierQuantityLimitFormula).Append("\n");
+            sb.Append("  ProductInCollectionCustomerPromotionTierQuantityLimit: ").Append(ProductInCollectionCustomerPromotionTierQuantityLimit).Append("\n");
+            sb.Append("  ProductInCollectionCustomerPromotionTierQuantityLimitFormula: ").Append(ProductInCollectionCustomerPromotionTierQuantityLimitFormula).Append("\n");
             sb.Append("  OrderItemIndices: ").Append(OrderItemIndices).Append("\n");
             sb.Append("  OrderItemUnits: ").Append(OrderItemUnits).Append("\n");
             sb.Append("  Repeat: ").Append(Repeat).Append("\n");

@@ -36,9 +36,7 @@ namespace Voucherify.Test
             var campaignName = TestHelper.GenerateUniqueName("Campaign");
             var campaign = await _campaignFlow.createDiscountCampaign(campaignName, 1);
 
-            await Task.Delay(_delayMilliseconds);
-
-            var vouchers = await _campaignFlow.getCampaignVouchers(campaign.Id);
+            var vouchers = await _campaignFlow.waitForCampaignVouchers(campaign.Id, 1);
             var voucher = vouchers.Vouchers[0];
 
             voucher.Should().NotBeNull();
@@ -67,9 +65,7 @@ namespace Voucherify.Test
             var campaignName = TestHelper.GenerateUniqueName("Campaign");
             var campaign = await _campaignFlow.createLoyaltyCampaign(campaignName, 1000, 1);
 
-            await Task.Delay(_delayMilliseconds);
-
-            var vouchers = await _campaignFlow.getCampaignVouchers(campaign.Id);
+            var vouchers = await _campaignFlow.waitForCampaignVouchers(campaign.Id, 1);
             var firstVoucher = vouchers.Vouchers[0];
 
             var customerResponse = await _customerFlow.createCustomer();

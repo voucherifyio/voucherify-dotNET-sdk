@@ -27,10 +27,7 @@ namespace Voucherify.Test
             int vouchersCount = 2)
         {
             var campaign = await _campaignFlow.createDiscountCampaign(campaignName, vouchersCount);
-
-            await Task.Delay(_delayMilliseconds);
-
-            var vouchers = await _campaignFlow.getCampaignVouchers(campaign.Id);
+            var vouchers = await _campaignFlow.waitForCampaignVouchers(campaign.Id, vouchersCount);
             var customer = await _customerFlow.createCustomer();
 
             var publications = new List<PublicationsCreateResponseBody>();

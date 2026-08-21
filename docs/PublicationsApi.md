@@ -148,7 +148,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PublicationsApi(config);
-            var customer = new Customer(); // Customer | Contains information about the customer to whom the publication was directed.
+            var customer = new Customer(); // Customer | Contains information about the customer to whom the publication was directed. Use customer.id, customer.source_id, or both to identify the customer; at least one of them is required.
             var joinOnce = true;  // bool? | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. (optional) 
             var voucher = "voucher_example";  // string | Code of voucher being published. (optional) 
             var campaign = new CreatePublicationCampaign(); // CreatePublicationCampaign | Create publication with campaign. (optional) 
@@ -196,7 +196,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **customer** | [**Customer**](Customer.md) | Contains information about the customer to whom the publication was directed. |  |
+| **customer** | [**Customer**](Customer.md) | Contains information about the customer to whom the publication was directed. Use customer.id, customer.source_id, or both to identify the customer; at least one of them is required. |  |
 | **joinOnce** | **bool?** | Through this flag, you can control if a particular person gets only one and always the same code even if the app sends multiple publication requests. It means that if you have a referral program, a referrer is assigned only to one code if an integration sends publication requests more than once for the same customer. | [optional]  |
 | **voucher** | **string** | Code of voucher being published. | [optional]  |
 | **campaign** | [**CreatePublicationCampaign**](CreatePublicationCampaign.md) | Create publication with campaign. | [optional]  |

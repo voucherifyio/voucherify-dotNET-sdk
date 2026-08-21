@@ -78,7 +78,7 @@ namespace Voucherify.Api
         /// Get Segment
         /// </summary>
         /// <remarks>
-        /// Retrieves the segment with a given segment ID.
+        /// Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -90,7 +90,7 @@ namespace Voucherify.Api
         /// Get Segment
         /// </summary>
         /// <remarks>
-        /// Retrieves the segment with a given segment ID.
+        /// Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -160,7 +160,7 @@ namespace Voucherify.Api
         /// Get Segment
         /// </summary>
         /// <remarks>
-        /// Retrieves the segment with a given segment ID.
+        /// Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -173,7 +173,7 @@ namespace Voucherify.Api
         /// Get Segment
         /// </summary>
         /// <remarks>
-        /// Retrieves the segment with a given segment ID.
+        /// Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -694,7 +694,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Segment Retrieves the segment with a given segment ID.
+        /// Get Segment Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -707,7 +707,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Segment Retrieves the segment with a given segment ID.
+        /// Get Segment Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -791,7 +791,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Segment Retrieves the segment with a given segment ID.
+        /// Get Segment Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>
@@ -805,7 +805,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Segment Retrieves the segment with a given segment ID.
+        /// Get Segment Retrieves the segment with a given segment ID. This method doesnt return the customers that belong to the segment. To return a list of customers who belong to a segment, use [GET List customers](/api-reference/customers/list-customers) endpoint with the segment_id query parameter.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="segmentId">A unique customer segment ID.</param>

@@ -155,7 +155,7 @@ namespace Voucherify.Api
         /// Create Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -168,7 +168,7 @@ namespace Voucherify.Api
         /// Create Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -303,7 +303,7 @@ namespace Voucherify.Api
         /// Delete Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -316,7 +316,7 @@ namespace Voucherify.Api
         /// Delete Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -451,7 +451,7 @@ namespace Voucherify.Api
         /// Get Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -464,7 +464,7 @@ namespace Voucherify.Api
         /// Get Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -639,7 +639,7 @@ namespace Voucherify.Api
         /// List Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -651,7 +651,7 @@ namespace Voucherify.Api
         /// List Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -899,7 +899,7 @@ namespace Voucherify.Api
         /// Update Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -913,7 +913,7 @@ namespace Voucherify.Api
         /// Update Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1122,7 +1122,7 @@ namespace Voucherify.Api
         /// Create Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1136,7 +1136,7 @@ namespace Voucherify.Api
         /// Create Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1282,7 +1282,7 @@ namespace Voucherify.Api
         /// Delete Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1296,7 +1296,7 @@ namespace Voucherify.Api
         /// Delete Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1442,7 +1442,7 @@ namespace Voucherify.Api
         /// Get Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1456,7 +1456,7 @@ namespace Voucherify.Api
         /// Get Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1646,7 +1646,7 @@ namespace Voucherify.Api
         /// List Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1659,7 +1659,7 @@ namespace Voucherify.Api
         /// List Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1926,7 +1926,7 @@ namespace Voucherify.Api
         /// Update Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -1941,7 +1941,7 @@ namespace Voucherify.Api
         /// Update Stacking Rules
         /// </summary>
         /// <remarks>
-        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -3037,7 +3037,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -3051,7 +3051,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -3128,7 +3128,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -3143,7 +3143,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Create Stacking Rules Overwrites the default stacking rules. If new stacking rules have been created for the project earlier (e.g. in the user interface), it returns an error. Use [Update stacking rules](/api-reference/management/update-stacking-rules) endpoint to change the rules.  📘 Stacking rules documentation  Read [the Stacking rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -4105,7 +4105,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -4118,7 +4118,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -4193,7 +4193,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -4207,7 +4207,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Delete Stacking Rules Deletes permanently the current settings for the stacking rules. The stacking rules are restored to default values.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -5177,7 +5177,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -5191,7 +5191,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -5267,7 +5267,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -5282,7 +5282,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Get Stacking Rules Retrieves the stacking rules for the project.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -6531,7 +6531,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -6544,7 +6544,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -6612,7 +6612,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -6626,7 +6626,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// List Stacking Rules Lists all stacking rules. Returns always a list with one item. This endpoint can be used to retrieve the default stacking rules. The default stacking rules do not have an ID that could be used with the [Get Stacking Rules](/api-reference/management/get-stacking-rules) or [Update Stacking Rules](/api-reference/management/update-stacking-rules) endpoints.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -8457,7 +8457,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -8472,7 +8472,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -8557,7 +8557,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>
@@ -8573,7 +8573,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article](https://support.voucherify.io/article/604-stacking-rules) to learn how they work.
+        /// Update Stacking Rules Updates the stacking rules. Only the provided fields will be updated. However, if you update an array, the content of the array is overwritten. This means that if you want to add new values to an array and retain existing ones, you need to provide both the existing and new values in the request.  📘 Stacking Rules Documentation  Read [the Stacking Rules article]/orchestrate/stacking-rules to learn how they work.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="projectId">Provide the unique identifier of the project.</param>

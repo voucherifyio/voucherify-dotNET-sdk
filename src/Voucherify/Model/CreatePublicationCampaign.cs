@@ -136,9 +136,9 @@ namespace Voucherify.Model
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Count (int?) maximum
-            if (this.Count > (int?)20)
+            if (this.Count > (int?)50)
             {
-                yield return new ValidationResult("Invalid value for Count, must be a value less than or equal to 20.", new [] { "Count" });
+                yield return new ValidationResult("Invalid value for Count, must be a value less than or equal to 50.", new [] { "Count" });
             }
 
             // Count (int?) minimum
