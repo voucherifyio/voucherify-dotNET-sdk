@@ -263,6 +263,8 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
+- **2026-08-26** - `9.1.1`
+    - Fixed: `ExchangeRatio` in COIN reward schemas typed as `double?` (was `integer`/`string` in OpenAPI). The API returns fractional values (e.g. `0.01` for pay-with-points). Fixes deserialization errors on `list_redemptions` and related endpoints.
 - **2026-08-20** - `9.1.0`
     - Fixed: `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing `NoEffect` (`no_effect`), so `Key` was `null` whenever the API skipped a redeemable with no discount effect (message was populated, key was silently lost via `SafeEnumConverter`).
     - This affects `POST /v1/validations` and stackable `POST /v1/redemptions` when `redeemables_no_effect_rule` is `SKIP` (globally or via `no_effect_skip_categories`).
