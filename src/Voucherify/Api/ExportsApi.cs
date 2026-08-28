@@ -32,7 +32,7 @@ namespace Voucherify.Api
         /// Create Export
         /// </summary>
         /// <remarks>
-        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -44,7 +44,7 @@ namespace Voucherify.Api
         /// Create Export
         /// </summary>
         /// <remarks>
-        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -78,7 +78,7 @@ namespace Voucherify.Api
         /// Download Export
         /// </summary>
         /// <remarks>
-        /// Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -91,7 +91,7 @@ namespace Voucherify.Api
         /// Download Export
         /// </summary>
         /// <remarks>
-        /// Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -162,7 +162,7 @@ namespace Voucherify.Api
         /// Create Export
         /// </summary>
         /// <remarks>
-        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -175,7 +175,7 @@ namespace Voucherify.Api
         /// Create Export
         /// </summary>
         /// <remarks>
-        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -212,7 +212,7 @@ namespace Voucherify.Api
         /// Download Export
         /// </summary>
         /// <remarks>
-        /// Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -226,7 +226,7 @@ namespace Voucherify.Api
         /// Download Export
         /// </summary>
         /// <remarks>
-        /// Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -410,7 +410,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -423,7 +423,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -508,7 +508,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -522,7 +522,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:    📘 Date and time in the export API  The exported date and times are always provided in the UTC time zone. # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+        /// Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -802,7 +802,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Download Export Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download Export Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -816,7 +816,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Download Export Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download Export Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -905,7 +905,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Download Export Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download Export Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>
@@ -920,7 +920,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Download Export Download the contents of the exported CSV file.   📘 Important notes  **Base URL:**   - https://download.voucherify.io (Europe)   - https://us1.download.voucherify.io (US)   - https://as1.download.voucherify.io (Asia)   **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response.
+        /// Download Export Download the contents of the exported CSV file.  &lt;Note&gt; &lt;Badge color blue&gt;Important notes&lt;/Badge&gt; **Base URL:** - https://download.voucherify.io (Europe) - https://us1.download.voucherify.io (US) - https://as1.download.voucherify.io (Asia) **Token:** Can be found within the result parameter of the [Get Export](/api-reference/exports/get-export) method response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exportId">Unique export object ID.</param>

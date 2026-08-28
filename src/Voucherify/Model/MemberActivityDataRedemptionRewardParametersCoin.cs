@@ -36,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MemberActivityDataRedemptionRewardParametersCoin" /> class.
         /// </summary>
-        /// <param name="exchangeRatio">The cash equivalent of the points defined in the points_ratio property..</param>
+        /// <param name="exchangeRatio">The cash equivalent of the points defined in the points_ratio property. and The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property..</param>
         /// <param name="pointsRatio">The number of loyalty points that will map to the predefined cash amount defined by the exchange_ratio property. and The number of loyalty points that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property..</param>
         public MemberActivityDataRedemptionRewardParametersCoin(decimal? exchangeRatio = default(decimal?), int? pointsRatio = default(int?))
         {
@@ -53,9 +53,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// The cash equivalent of the points defined in the points_ratio property.
+        /// The cash equivalent of the points defined in the points_ratio property. and The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.
         /// </summary>
-        /// <value>The cash equivalent of the points defined in the points_ratio property.</value>
+        /// <value>The cash equivalent of the points defined in the points_ratio property. and The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.</value>
         [DataMember(Name = "exchange_ratio", EmitDefaultValue = true)]
         public decimal? ExchangeRatio
         {

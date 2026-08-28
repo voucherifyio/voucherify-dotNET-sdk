@@ -38,7 +38,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="exchangeRatio">The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property..</param>
         /// <param name="pointsRatio">The number of loyalty points that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property..</param>
-        public RewardsUpdateRequestBodyParametersCoin(string exchangeRatio = default(string), string pointsRatio = default(string))
+        public RewardsUpdateRequestBodyParametersCoin(decimal? exchangeRatio = default(decimal?), string pointsRatio = default(string))
         {
             this._ExchangeRatio = exchangeRatio;
             if (this.ExchangeRatio != null)
@@ -57,7 +57,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.</value>
         [DataMember(Name = "exchange_ratio", EmitDefaultValue = true)]
-        public string ExchangeRatio
+        public decimal? ExchangeRatio
         {
             get{ return _ExchangeRatio;}
             set
@@ -66,7 +66,7 @@ namespace Voucherify.Model
                 _flagExchangeRatio = true;
             }
         }
-        private string _ExchangeRatio;
+        private decimal? _ExchangeRatio;
         private bool _flagExchangeRatio;
 
         /// <summary>

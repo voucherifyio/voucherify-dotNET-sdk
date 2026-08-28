@@ -32,57 +32,61 @@ namespace Voucherify.Api
         /// Activate Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsActivateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersPendingPointsActivateResponseBody ActivateMemberPendingPoints(string memberId, string pendingPointsId, int operationIndex = 0);
 
         /// <summary>
         /// Activate Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsActivateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> ActivateMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, int operationIndex = 0);
         /// <summary>
         /// Add Member
         /// </summary>
         /// <remarks>
-        /// This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
         /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersCreateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersCreateResponseBody AddMember(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Add Member
         /// </summary>
         /// <remarks>
-        /// This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
         /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersCreateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersCreateResponseBody> AddMemberWithHttpInfo(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Adjust Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -90,13 +94,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Adjust Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -104,335 +109,362 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0);
         /// <summary>
         /// Cancel Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
+        [Obsolete]
         void CancelMemberPendingPoints(string memberId, string pendingPointsId, int operationIndex = 0);
 
         /// <summary>
         /// Cancel Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         ApiResponse<Object> CancelMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, int operationIndex = 0);
         /// <summary>
         /// Create Earning Rule
         /// </summary>
         /// <remarks>
-        /// Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
+        [Obsolete]
         List<LoyaltiesEarningRulesCreateResponseBody> CreateEarningRule(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0);
 
         /// <summary>
         /// Create Earning Rule
         /// </summary>
         /// <remarks>
-        /// Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
+        [Obsolete]
         ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleWithHttpInfo(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0);
         /// <summary>
         /// Create loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Creates loyalty tiers for desired campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltyTier&gt;</returns>
+        [Obsolete]
         List<LoyaltyTier> CreateInBulkLoyaltyTiers(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0);
 
         /// <summary>
         /// Create loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Creates loyalty tiers for desired campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltyTier&gt;</returns>
+        [Obsolete]
         ApiResponse<List<LoyaltyTier>> CreateInBulkLoyaltyTiersWithHttpInfo(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0);
         /// <summary>
         /// Create Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesCreateCampaignResponseBody</returns>
+        [Obsolete]
         LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesCreateCampaignResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
         /// </summary>
         /// <remarks>
-        /// Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesPointsExpirationExportCreateResponseBody</returns>
+        [Obsolete]
         LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
         /// </summary>
         /// <remarks>
-        /// Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportWithHttpInfo(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Add rewards to a loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsCreateAssignmentResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Add rewards to a loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1WithHttpInfo(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Delete Earning Rule
         /// </summary>
         /// <remarks>
-        /// This method deletes an earning rule for a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
+        [Obsolete]
         void DeleteEarningRule(string campaignId, string earningRuleId, int operationIndex = 0);
 
         /// <summary>
         /// Delete Earning Rule
         /// </summary>
         /// <remarks>
-        /// This method deletes an earning rule for a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         ApiResponse<Object> DeleteEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0);
         /// <summary>
         /// Delete Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="force">If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesDeleteResponseBody</returns>
+        [Obsolete]
         LoyaltiesDeleteResponseBody DeleteLoyaltyProgram(string campaignId, bool? force = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// Delete Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="force">If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesDeleteResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesDeleteResponseBody> DeleteLoyaltyProgramWithHttpInfo(string campaignId, bool? force = default(bool?), int operationIndex = 0);
         /// <summary>
         /// Delete Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// This method deletes a reward assignment for a particular loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
+        [Obsolete]
         void DeleteRewardAssignment1(string campaignId, string assignmentId, int operationIndex = 0);
 
         /// <summary>
         /// Delete Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// This method deletes a reward assignment for a particular loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         ApiResponse<Object> DeleteRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0);
         /// <summary>
         /// Disable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Disable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesDisableResponseBody</returns>
+        [Obsolete]
         LoyaltiesEarningRulesDisableResponseBody DisableEarningRule(string campaignId, string earningRuleId, int operationIndex = 0);
 
         /// <summary>
         /// Disable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Disable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesDisableResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesEarningRulesDisableResponseBody> DisableEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0);
         /// <summary>
         /// Enable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Enable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesEnableResponseBody</returns>
+        [Obsolete]
         LoyaltiesEarningRulesEnableResponseBody EnableEarningRule(string campaignId, string earningRuleId, int operationIndex = 0);
 
         /// <summary>
         /// Enable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Enable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesEnableResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesEarningRulesEnableResponseBody> EnableEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsWithHttpInfo(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -440,13 +472,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -454,208 +487,225 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Get Earning Rule
         /// </summary>
         /// <remarks>
-        /// Retrieves an earning rule assigned to a campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesEarningRulesGetResponseBody GetEarningRule(string campaignId, string earningRuleId, int operationIndex = 0);
 
         /// <summary>
         /// Get Earning Rule
         /// </summary>
         /// <remarks>
-        /// Retrieves an earning rule assigned to a campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesEarningRulesGetResponseBody> GetEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0);
         /// <summary>
         /// Get Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Retrieve a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesGetCampaignResponseBody</returns>
+        [Obsolete]
         LoyaltiesGetCampaignResponseBody GetLoyaltyProgram(string campaignId, int operationIndex = 0);
 
         /// <summary>
         /// Get Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Retrieve a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesGetCampaignResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesGetCampaignResponseBody> GetLoyaltyProgramWithHttpInfo(string campaignId, int operationIndex = 0);
         /// <summary>
         /// Get Loyalty Tier
         /// </summary>
         /// <remarks>
-        /// Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesTiersGetResponseBody GetLoyaltyTier(string campaignId, string loyaltyTierId, int operationIndex = 0);
 
         /// <summary>
         /// Get Loyalty Tier
         /// </summary>
         /// <remarks>
-        /// Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesTiersGetResponseBody> GetLoyaltyTierWithHttpInfo(string campaignId, string loyaltyTierId, int operationIndex = 0);
         /// <summary>
         /// Get Member
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersGetResponseBody GetMember(string memberId, int operationIndex = 0);
 
         /// <summary>
         /// Get Member
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersGetResponseBody> GetMemberWithHttpInfo(string memberId, int operationIndex = 0);
         /// <summary>
         /// Get Member with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">Unique code that identifies the loyalty card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersGetResponseBody GetMember1(string campaignId, string memberId, int operationIndex = 0);
 
         /// <summary>
         /// Get Member with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">Unique code that identifies the loyalty card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersGetResponseBody> GetMember1WithHttpInfo(string campaignId, string memberId, int operationIndex = 0);
         /// <summary>
         /// Get Campaign Reward Assignments
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardAssignmentsGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardAssignmentsGetResponseBody GetRewardAssignment1(string campaignId, string assignmentId, int operationIndex = 0);
 
         /// <summary>
         /// Get Campaign Reward Assignments
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardAssignmentsGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> GetRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0);
         /// <summary>
         /// Get Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardsGetResponseBody GetRewardAssignment2(string campaignId, string assignmentId, int operationIndex = 0);
 
         /// <summary>
         /// Get Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardsGetResponseBody> GetRewardAssignment2WithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0);
         /// <summary>
         /// Get Reward Details
         /// </summary>
         /// <remarks>
-        /// Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardAssignmentsRewardGetResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardAssignmentsRewardGetResponseBody GetRewardDetails(string campaignId, string assignmentId, int operationIndex = 0);
 
         /// <summary>
         /// Get Reward Details
         /// </summary>
         /// <remarks>
-        /// Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardAssignmentsRewardGetResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> GetRewardDetailsWithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0);
         /// <summary>
         /// List Campaign Pending Points
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -664,13 +714,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesPendingPointsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesPendingPointsListResponseBody ListCampaignPendingPoints(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Campaign Pending Points
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -679,12 +730,13 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesPendingPointsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesPendingPointsListResponseBody> ListCampaignPendingPointsWithHttpInfo(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Earning Rules
         /// </summary>
         /// <remarks>
-        /// Returns a list of all earning rules within a given campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -693,13 +745,14 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesListResponseBody</returns>
+        [Obsolete]
         LoyaltiesEarningRulesListResponseBody ListEarningRules(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0);
 
         /// <summary>
         /// List Earning Rules
         /// </summary>
         /// <remarks>
-        /// Returns a list of all earning rules within a given campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -708,12 +761,13 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesEarningRulesListResponseBody> ListEarningRulesWithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -723,13 +777,14 @@ namespace Voucherify.Api
         /// <param name="filters">Filters for listing responses. The id filter denotes the unique transaction identifier. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTransactionsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesTransactionsListResponseBody ListLoyaltyCampaignTransactions(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -739,12 +794,13 @@ namespace Voucherify.Api
         /// <param name="filters">Filters for listing responses. The id filter denotes the unique transaction identifier. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTransactionsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesTransactionsListResponseBody> ListLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -754,13 +810,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersTransactionsListResponseBody ListLoyaltyCardTransactions(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -770,12 +827,13 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactionsWithHttpInfo(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -786,13 +844,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersTransactionsListResponseBody ListLoyaltyCardTransactions1(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -803,12 +862,13 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Campaigns
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty campaigns.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -817,13 +877,14 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesListCampaignsResponseBody</returns>
+        [Obsolete]
         LoyaltiesListCampaignsResponseBody ListLoyaltyPrograms(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Campaigns
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty campaigns.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -832,12 +893,13 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesListCampaignsResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesListCampaignsResponseBody> ListLoyaltyProgramsWithHttpInfo(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Tier Earning Rules
         /// </summary>
         /// <remarks>
-        /// Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -846,13 +908,14 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersEarningRulesListResponseBody</returns>
+        [Obsolete]
         LoyaltiesTiersEarningRulesListResponseBody ListLoyaltyTierEarningRules(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Tier Earning Rules
         /// </summary>
         /// <remarks>
-        /// Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -861,37 +924,40 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersEarningRulesListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> ListLoyaltyTierEarningRulesWithHttpInfo(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Tier Rewards
         /// </summary>
         /// <remarks>
-        /// Get available rewards for a given tier.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersRewardsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesTiersRewardsListResponseBody ListLoyaltyTierRewards(string campaignId, string loyaltyTierId, int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Tier Rewards
         /// </summary>
         /// <remarks>
-        /// Get available rewards for a given tier.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersRewardsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesTiersRewardsListResponseBody> ListLoyaltyTierRewardsWithHttpInfo(string campaignId, string loyaltyTierId, int operationIndex = 0);
         /// <summary>
         /// List Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -899,13 +965,14 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersListResponseBody</returns>
+        [Obsolete]
         LoyaltiesTiersListResponseBody ListLoyaltyTiers(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -913,12 +980,13 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesTiersListResponseBody> ListLoyaltyTiersWithHttpInfo(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0);
         /// <summary>
         /// List Member Activity
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -927,13 +995,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMemberActivityListResponseBody ListMemberActivity(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Member Activity
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -942,12 +1011,13 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMemberActivityListResponseBody> ListMemberActivityWithHttpInfo(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Member Activity with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -957,13 +1027,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMemberActivityListResponseBody ListMemberActivity1(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Member Activity with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -973,35 +1044,38 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMemberActivityListResponseBody> ListMemberActivity1WithHttpInfo(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Member&#39;s Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve member tiers using the loyalty card ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTiersListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersTiersListResponseBody ListMemberLoyaltyTier(string memberId, int operationIndex = 0);
 
         /// <summary>
         /// List Member&#39;s Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve member tiers using the loyalty card ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTiersListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersTiersListResponseBody> ListMemberLoyaltyTierWithHttpInfo(string memberId, int operationIndex = 0);
         /// <summary>
         /// List Member Pending Points
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1010,13 +1084,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersPendingPointsListResponseBody ListMemberPendingPoints(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Member Pending Points
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1025,12 +1100,13 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPointsWithHttpInfo(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Member Pending Points with campaign ID
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -1040,13 +1116,14 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersPendingPointsListResponseBody ListMemberPendingPoints1(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Member Pending Points with campaign ID
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -1056,37 +1133,40 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPoints1WithHttpInfo(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Member Rewards
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="affordableOnly">Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRewardsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersRewardsListResponseBody ListMemberRewards(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// List Member Rewards
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="affordableOnly">Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRewardsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersRewardsListResponseBody> ListMemberRewardsWithHttpInfo(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0);
         /// <summary>
         /// List Members
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -1100,13 +1180,14 @@ namespace Voucherify.Api
         /// <param name="ids"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesListMembersResponseBody</returns>
+        [Obsolete]
         LoyaltiesListMembersResponseBody ListMembers(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0);
 
         /// <summary>
         /// List Members
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -1120,12 +1201,13 @@ namespace Voucherify.Api
         /// <param name="ids"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesListMembersResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesListMembersResponseBody> ListMembersWithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0);
         /// <summary>
         /// List Loyalty Card Point Expiration
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1134,13 +1216,14 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPointsExpirationListResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersPointsExpirationListResponseBody ListPointsExpiration(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// List Loyalty Card Point Expiration
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1149,12 +1232,13 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPointsExpirationListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> ListPointsExpirationWithHttpInfo(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0);
         /// <summary>
         /// List Reward Assignments with campaign ID
         /// </summary>
         /// <remarks>
-        /// Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1163,13 +1247,14 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardAssignmentsListResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardAssignmentsListResponseBody ListRewardAssignments1(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Reward Assignments with campaign ID
         /// </summary>
         /// <remarks>
-        /// Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1178,12 +1263,13 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardAssignmentsListResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> ListRewardAssignments1WithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0);
         /// <summary>
         /// List Campaign Rewards
         /// </summary>
         /// <remarks>
-        /// Returns active rewards from a given loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1192,13 +1278,14 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsListAssignmentsResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardsListAssignmentsResponseBody ListRewardAssignments2(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0);
 
         /// <summary>
         /// List Campaign Rewards
         /// </summary>
         /// <remarks>
-        /// Returns active rewards from a given loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1207,37 +1294,40 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsListAssignmentsResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> ListRewardAssignments2WithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0);
         /// <summary>
         /// Redeem Reward
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Redeem Reward
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardWithHttpInfo(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Redeem Reward with campaign ID
         /// </summary>
         /// <remarks>
-        /// Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -1245,13 +1335,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Redeem Reward with campaign ID
         /// </summary>
         /// <remarks>
-        /// Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -1259,12 +1350,13 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0);
         /// <summary>
         /// Transfer Loyalty Points
         /// </summary>
         /// <remarks>
-        /// Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -1272,13 +1364,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransfersCreateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersTransfersCreateResponseBody TransferPoints(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0);
 
         /// <summary>
         /// Transfer Loyalty Points
         /// </summary>
         /// <remarks>
-        /// Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -1286,12 +1379,13 @@ namespace Voucherify.Api
         /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransfersCreateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsWithHttpInfo(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0);
         /// <summary>
         /// Update Earning Rule
         /// </summary>
         /// <remarks>
-        /// Update an earning rule definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1299,13 +1393,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesUpdateResponseBody</returns>
+        [Obsolete]
         LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Earning Rule
         /// </summary>
         /// <remarks>
-        /// Update an earning rule definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1313,37 +1408,40 @@ namespace Voucherify.Api
         /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesUpdateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleWithHttpInfo(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Adjust Loyalty Card Balance
         /// </summary>
         /// <remarks>
-        /// This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Adjust Loyalty Card Balance
         /// </summary>
         /// <remarks>
-        /// This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceWithHttpInfo(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
         /// </summary>
         /// <remarks>
-        /// This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -1351,13 +1449,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
         /// </summary>
         /// <remarks>
-        /// This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -1365,37 +1464,40 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesUpdateCampaignResponseBody</returns>
+        [Obsolete]
         LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesUpdateCampaignResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramWithHttpInfo(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0);
         /// <summary>
         /// Update Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1403,13 +1505,14 @@ namespace Voucherify.Api
         /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
+        [Obsolete]
         LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0);
 
         /// <summary>
         /// Update Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1417,6 +1520,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
+        [Obsolete]
         ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0);
         #endregion Synchronous Operations
     }
@@ -1431,7 +1535,7 @@ namespace Voucherify.Api
         /// Activate Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1439,13 +1543,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsActivateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsActivateResponseBody> ActivateMemberPendingPointsAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Activate Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1453,12 +1558,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsActivateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody>> ActivateMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Add Member
         /// </summary>
         /// <remarks>
-        /// This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -1466,13 +1572,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersCreateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersCreateResponseBody> AddMemberAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Add Member
         /// </summary>
         /// <remarks>
-        /// This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -1480,12 +1587,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersCreateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersCreateResponseBody>> AddMemberWithHttpInfoAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Adjust Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1494,13 +1602,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Adjust Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1509,12 +1618,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsBalanceResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody>> AdjustMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Cancel Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1522,13 +1632,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         System.Threading.Tasks.Task CancelMemberPendingPointsAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Cancel Member Pending Points
         /// </summary>
         /// <remarks>
-        /// Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -1536,12 +1647,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Object>> CancelMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Earning Rule
         /// </summary>
         /// <remarks>
-        /// Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1549,13 +1661,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Earning Rule
         /// </summary>
         /// <remarks>
-        /// Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1563,12 +1676,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>>> CreateEarningRuleWithHttpInfoAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Creates loyalty tiers for desired campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -1576,13 +1690,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltyTier&gt;</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<List<LoyaltyTier>> CreateInBulkLoyaltyTiersAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Creates loyalty tiers for desired campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -1590,37 +1705,40 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltyTier&gt;)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<List<LoyaltyTier>>> CreateInBulkLoyaltyTiersWithHttpInfoAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesCreateCampaignResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesCreateCampaignResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesCreateCampaignResponseBody>> CreateLoyaltyProgramWithHttpInfoAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
         /// </summary>
         /// <remarks>
-        /// Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -1628,13 +1746,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Campaign Point Expiration
         /// </summary>
         /// <remarks>
-        /// Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -1642,12 +1761,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesPointsExpirationExportCreateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody>> CreatePointsExpirationExportWithHttpInfoAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Add rewards to a loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1655,13 +1775,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1Async(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Loyalty Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Add rewards to a loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1669,12 +1790,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsCreateAssignmentResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody>> CreateRewardAssignment1WithHttpInfoAsync(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Earning Rule
         /// </summary>
         /// <remarks>
-        /// This method deletes an earning rule for a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1682,13 +1804,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         System.Threading.Tasks.Task DeleteEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Earning Rule
         /// </summary>
         /// <remarks>
-        /// This method deletes an earning rule for a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1696,12 +1819,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1709,13 +1833,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesDeleteResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesDeleteResponseBody> DeleteLoyaltyProgramAsync(string campaignId, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1723,12 +1848,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesDeleteResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesDeleteResponseBody>> DeleteLoyaltyProgramWithHttpInfoAsync(string campaignId, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Delete Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// This method deletes a reward assignment for a particular loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1736,13 +1862,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         System.Threading.Tasks.Task DeleteRewardAssignment1Async(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// This method deletes a reward assignment for a particular loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1750,12 +1877,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Disable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Disable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -1763,13 +1891,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesDisableResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesEarningRulesDisableResponseBody> DisableEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Disable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Disable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -1777,12 +1906,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesDisableResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesDisableResponseBody>> DisableEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Enable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Enable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -1790,13 +1920,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesEnableResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesEarningRulesEnableResponseBody> EnableEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Enable Earning Rule
         /// </summary>
         /// <remarks>
-        /// Enable an earning rule.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -1804,12 +1935,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesEnableResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesEnableResponseBody>> EnableEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1817,13 +1949,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1831,12 +1964,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsTransactionsExportCreateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
@@ -1844,13 +1978,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
@@ -1858,12 +1993,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -1872,13 +2008,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1Async(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Export Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Export transactions that are associated with point movements on a loyalty card.   
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -1887,12 +2024,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Earning Rule
         /// </summary>
         /// <remarks>
-        /// Retrieves an earning rule assigned to a campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1900,13 +2038,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesEarningRulesGetResponseBody> GetEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Earning Rule
         /// </summary>
         /// <remarks>
-        /// Retrieves an earning rule assigned to a campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -1914,37 +2053,40 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesGetResponseBody>> GetEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Retrieve a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesGetCampaignResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesGetCampaignResponseBody> GetLoyaltyProgramAsync(string campaignId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Retrieve a specific loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesGetCampaignResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesGetCampaignResponseBody>> GetLoyaltyProgramWithHttpInfoAsync(string campaignId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Loyalty Tier
         /// </summary>
         /// <remarks>
-        /// Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -1952,13 +2094,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesTiersGetResponseBody> GetLoyaltyTierAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Loyalty Tier
         /// </summary>
         /// <remarks>
-        /// Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -1966,37 +2109,40 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesTiersGetResponseBody>> GetLoyaltyTierWithHttpInfoAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Member
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersGetResponseBody> GetMemberAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Member
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersGetResponseBody>> GetMemberWithHttpInfoAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Member with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2004,13 +2150,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersGetResponseBody> GetMember1Async(string campaignId, string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Member with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2018,12 +2165,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersGetResponseBody>> GetMember1WithHttpInfoAsync(string campaignId, string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Campaign Reward Assignments
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2031,13 +2179,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardAssignmentsGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardAssignmentsGetResponseBody> GetRewardAssignment1Async(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Campaign Reward Assignments
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2045,12 +2194,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardAssignmentsGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody>> GetRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2058,13 +2208,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardsGetResponseBody> GetRewardAssignment2Async(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2072,12 +2223,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsGetResponseBody>> GetRewardAssignment2WithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get Reward Details
         /// </summary>
         /// <remarks>
-        /// Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2085,13 +2237,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardAssignmentsRewardGetResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardAssignmentsRewardGetResponseBody> GetRewardDetailsAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Reward Details
         /// </summary>
         /// <remarks>
-        /// Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2099,12 +2252,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardAssignmentsRewardGetResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody>> GetRewardDetailsWithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Campaign Pending Points
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2114,13 +2268,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesPendingPointsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesPendingPointsListResponseBody> ListCampaignPendingPointsAsync(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Campaign Pending Points
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2130,12 +2285,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesPendingPointsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesPendingPointsListResponseBody>> ListCampaignPendingPointsWithHttpInfoAsync(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Earning Rules
         /// </summary>
         /// <remarks>
-        /// Returns a list of all earning rules within a given campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2145,13 +2301,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesEarningRulesListResponseBody> ListEarningRulesAsync(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Earning Rules
         /// </summary>
         /// <remarks>
-        /// Returns a list of all earning rules within a given campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2161,12 +2318,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesListResponseBody>> ListEarningRulesWithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2177,13 +2335,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTransactionsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesTransactionsListResponseBody> ListLoyaltyCampaignTransactionsAsync(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2194,12 +2353,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTransactionsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesTransactionsListResponseBody>> ListLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -2210,13 +2370,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactionsAsync(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Card Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -2227,12 +2388,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsListResponseBody>> ListLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -2244,13 +2406,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactions1Async(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Card Transactions with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieve transaction data related to point movements for a specific loyalty card.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -2262,12 +2425,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransactionsListResponseBody>> ListLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Campaigns
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty campaigns.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -2277,13 +2441,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesListCampaignsResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesListCampaignsResponseBody> ListLoyaltyProgramsAsync(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Campaigns
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty campaigns.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -2293,12 +2458,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesListCampaignsResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesListCampaignsResponseBody>> ListLoyaltyProgramsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Tier Earning Rules
         /// </summary>
         /// <remarks>
-        /// Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -2308,13 +2474,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersEarningRulesListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesTiersEarningRulesListResponseBody> ListLoyaltyTierEarningRulesAsync(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Tier Earning Rules
         /// </summary>
         /// <remarks>
-        /// Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -2324,12 +2491,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersEarningRulesListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesTiersEarningRulesListResponseBody>> ListLoyaltyTierEarningRulesWithHttpInfoAsync(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Tier Rewards
         /// </summary>
         /// <remarks>
-        /// Get available rewards for a given tier.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -2337,13 +2505,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersRewardsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesTiersRewardsListResponseBody> ListLoyaltyTierRewardsAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Tier Rewards
         /// </summary>
         /// <remarks>
-        /// Get available rewards for a given tier.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -2351,12 +2520,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersRewardsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesTiersRewardsListResponseBody>> ListLoyaltyTierRewardsWithHttpInfoAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -2365,13 +2535,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesTiersListResponseBody> ListLoyaltyTiersAsync(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -2380,12 +2551,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesTiersListResponseBody>> ListLoyaltyTiersWithHttpInfoAsync(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Member Activity
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2395,13 +2567,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMemberActivityListResponseBody> ListMemberActivityAsync(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Member Activity
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2411,12 +2584,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMemberActivityListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMemberActivityListResponseBody>> ListMemberActivityWithHttpInfoAsync(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Member Activity with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2427,13 +2601,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMemberActivityListResponseBody> ListMemberActivity1Async(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Member Activity with campaign ID
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2444,37 +2619,40 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMemberActivityListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMemberActivityListResponseBody>> ListMemberActivity1WithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Member&#39;s Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve member tiers using the loyalty card ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTiersListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersTiersListResponseBody> ListMemberLoyaltyTierAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Member&#39;s Loyalty Tiers
         /// </summary>
         /// <remarks>
-        /// Retrieve member tiers using the loyalty card ID.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTiersListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTiersListResponseBody>> ListMemberLoyaltyTierWithHttpInfoAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Member Pending Points
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -2484,13 +2662,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPointsAsync(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Member Pending Points
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -2500,12 +2679,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPendingPointsListResponseBody>> ListMemberPendingPointsWithHttpInfoAsync(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Member Pending Points with campaign ID
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2516,13 +2696,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPoints1Async(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Member Pending Points with campaign ID
         /// </summary>
         /// <remarks>
-        /// Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2533,12 +2714,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPendingPointsListResponseBody>> ListMemberPendingPoints1WithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Member Rewards
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2546,13 +2728,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRewardsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersRewardsListResponseBody> ListMemberRewardsAsync(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Member Rewards
         /// </summary>
         /// <remarks>
-        /// Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2560,12 +2743,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRewardsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRewardsListResponseBody>> ListMemberRewardsWithHttpInfoAsync(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Members
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -2580,13 +2764,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesListMembersResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesListMembersResponseBody> ListMembersAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Members
         /// </summary>
         /// <remarks>
-        /// Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -2601,12 +2786,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesListMembersResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesListMembersResponseBody>> ListMembersWithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Loyalty Card Point Expiration
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2616,13 +2802,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPointsExpirationListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersPointsExpirationListResponseBody> ListPointsExpirationAsync(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Loyalty Card Point Expiration
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2632,12 +2819,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPointsExpirationListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody>> ListPointsExpirationWithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Reward Assignments with campaign ID
         /// </summary>
         /// <remarks>
-        /// Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2647,13 +2835,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardAssignmentsListResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardAssignmentsListResponseBody> ListRewardAssignments1Async(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Reward Assignments with campaign ID
         /// </summary>
         /// <remarks>
-        /// Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2663,12 +2852,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardAssignmentsListResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardAssignmentsListResponseBody>> ListRewardAssignments1WithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List Campaign Rewards
         /// </summary>
         /// <remarks>
-        /// Returns active rewards from a given loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2678,13 +2868,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsListAssignmentsResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardsListAssignmentsResponseBody> ListRewardAssignments2Async(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Campaign Rewards
         /// </summary>
         /// <remarks>
-        /// Returns active rewards from a given loyalty campaign.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2694,12 +2885,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsListAssignmentsResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody>> ListRewardAssignments2WithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Redeem Reward
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2707,13 +2899,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Redeem Reward
         /// </summary>
         /// <remarks>
-        ///   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2721,12 +2914,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemRewardWithHttpInfoAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Redeem Reward with campaign ID
         /// </summary>
         /// <remarks>
-        /// Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2735,13 +2929,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1Async(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Redeem Reward with campaign ID
         /// </summary>
         /// <remarks>
-        /// Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2750,12 +2945,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemReward1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Transfer Loyalty Points
         /// </summary>
         /// <remarks>
-        /// Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -2764,13 +2960,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransfersCreateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Transfer Loyalty Points
         /// </summary>
         /// <remarks>
-        /// Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -2779,12 +2976,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransfersCreateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersTransfersCreateResponseBody>> TransferPointsWithHttpInfoAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Earning Rule
         /// </summary>
         /// <remarks>
-        /// Update an earning rule definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2793,13 +2991,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesUpdateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Earning Rule
         /// </summary>
         /// <remarks>
-        /// Update an earning rule definition.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2808,12 +3007,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesUpdateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesEarningRulesUpdateResponseBody>> UpdateEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Adjust Loyalty Card Balance
         /// </summary>
         /// <remarks>
-        /// This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2821,13 +3021,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Adjust Loyalty Card Balance
         /// </summary>
         /// <remarks>
-        /// This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -2835,12 +3036,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalanceWithHttpInfoAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
         /// </summary>
         /// <remarks>
-        /// This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2849,13 +3051,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1Async(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Adjust Loyalty Card Balance with campaign ID
         /// </summary>
         /// <remarks>
-        /// This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -2864,12 +3067,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalance1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2877,13 +3081,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesUpdateCampaignResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Loyalty Campaign
         /// </summary>
         /// <remarks>
-        /// Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2891,12 +3096,13 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesUpdateCampaignResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesUpdateCampaignResponseBody>> UpdateLoyaltyProgramWithHttpInfoAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2905,13 +3111,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1Async(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Campaign Reward Assignment
         /// </summary>
         /// <remarks>
-        /// Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -2920,6 +3127,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsUpdateAssignmentResponseBody)</returns>
+        [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody>> UpdateRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
@@ -3042,13 +3250,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Activate Member Pending Points Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Activate Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsActivateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersPendingPointsActivateResponseBody ActivateMemberPendingPoints(string memberId, string pendingPointsId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> localVarResponse = ActivateMemberPendingPointsWithHttpInfo(memberId, pendingPointsId);
@@ -3056,13 +3265,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Activate Member Pending Points Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Activate Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsActivateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> ActivateMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -3148,7 +3358,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Activate Member Pending Points Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Activate Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3156,6 +3366,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsActivateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsActivateResponseBody> ActivateMemberPendingPointsAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody> localVarResponse = await ActivateMemberPendingPointsWithHttpInfoAsync(memberId, pendingPointsId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -3163,7 +3374,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Activate Member Pending Points Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Activate Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Activate manually the pending points and add them to the loyalty card. The pending points are determined by the pending point ID. Once activated, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3171,6 +3382,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsActivateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsActivateResponseBody>> ActivateMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -3257,13 +3469,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Add Member This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// Add Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
         /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersCreateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersCreateResponseBody AddMember(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> localVarResponse = AddMemberWithHttpInfo(campaignId, loyaltiesMembersCreateRequestBody);
@@ -3271,13 +3484,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Add Member This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// Add Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
         /// <param name="loyaltiesMembersCreateRequestBody">Provide details to whom the loyalty card should be assigned.     You can choose to either specify the exact loyalty card code that you want to publish from existin (non-assigned) codes, or choose not to specify a voucher code. If you choose not to specify a code in the request paylaod, then the system will choose the next available voucher code available to be assigned to a customer.   You can also include metadata in the request payload. This metadata will be assigned to the publication object, but will not be returned in the response to this endpoint. To see of publications (assignments of particular codes to customers) and publication metadata, use the [List Publications](/api-reference/publications/list-publications) endpoint.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersCreateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> AddMemberWithHttpInfo(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -3364,7 +3578,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Add Member This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// Add Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -3372,6 +3586,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersCreateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersCreateResponseBody> AddMemberAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody> localVarResponse = await AddMemberWithHttpInfoAsync(campaignId, loyaltiesMembersCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -3379,7 +3594,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Add Member This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.    📘 Auto-update campaign  In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign.
+        /// Add Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method assigns a loyalty card to a customer. It selects a [loyalty card](/api-reference/vouchers/get-voucher) suitable for publication, adds a publish entry, and returns the published voucher.   A voucher is suitable for publication when its active and hasnt been published yet.   &lt;Note&gt; &lt;Badge color blue&gt;Auto-update campaign&lt;/Badge&gt; In case you want to ensure the number of publishable codes increases automatically with the number of customers, you should use **auto-update** campaign. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -3387,6 +3602,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersCreateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersCreateResponseBody>> AddMemberWithHttpInfoAsync(string campaignId, LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -3474,7 +3690,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Member Pending Points Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Adjust Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3482,6 +3698,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersPendingPointsBalanceResponseBody AdjustMemberPendingPoints(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> localVarResponse = AdjustMemberPendingPointsWithHttpInfo(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody);
@@ -3489,7 +3706,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Member Pending Points Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Adjust Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3497,6 +3714,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersPendingPointsBalanceRequestBody">Define the number of pending points to be added or subtracted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -3590,7 +3808,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Member Pending Points Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Adjust Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3599,6 +3817,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsBalanceResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsBalanceResponseBody> AdjustMemberPendingPointsAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody> localVarResponse = await AdjustMemberPendingPointsWithHttpInfoAsync(memberId, pendingPointsId, loyaltiesMembersPendingPointsBalanceRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -3606,7 +3825,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Member Pending Points Adjusts the pending points with a given ID. You can add or subtract the number of points. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Adjust Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Adjusts the pending points with a given ID. You can add or subtract the number of points. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3615,6 +3834,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsBalanceResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsBalanceResponseBody>> AdjustMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, LoyaltiesMembersPendingPointsBalanceRequestBody loyaltiesMembersPendingPointsBalanceRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -3709,26 +3929,28 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Cancel Member Pending Points Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Cancel Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
+        [Obsolete]
         public void CancelMemberPendingPoints(string memberId, string pendingPointsId, int operationIndex = 0)
         {
             CancelMemberPendingPointsWithHttpInfo(memberId, pendingPointsId);
         }
 
         /// <summary>
-        /// Cancel Member Pending Points Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Cancel Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="pendingPointsId">Unique pending point identifier, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<Object> CancelMemberPendingPointsWithHttpInfo(string memberId, string pendingPointsId, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -3813,7 +4035,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Cancel Member Pending Points Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Cancel Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3821,13 +4043,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task CancelMemberPendingPointsAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await CancelMemberPendingPointsWithHttpInfoAsync(memberId, pendingPointsId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Cancel Member Pending Points Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// Cancel Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Cancel manually the pending points for the loyalty card. The pending points are determined by the pending point ID. Once canceled, the pending point entry with that ID is not listed by the endpoints: List member ([with campaign ID](/api-reference/loyalties/list-member-pending-points-with-campaign-id), [without campaign ID](/api-reference/loyalties/list-member-pending-points)), [List campaign pending points](/api-reference/loyalties/list-campaign-pending-points). This **POST** method does not require a request body and it returns an empty, 204, response. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -3835,6 +4058,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<Object>> CancelMemberPendingPointsWithHttpInfoAsync(string memberId, string pendingPointsId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -3920,13 +4144,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Earning Rule Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// Create Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
+        [Obsolete]
         public List<LoyaltiesEarningRulesCreateResponseBody> CreateEarningRule(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResponse = CreateEarningRuleWithHttpInfo(campaignId, loyaltiesEarningRulesCreateRequestBodyItem);
@@ -3934,13 +4159,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Earning Rule Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// Create Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesEarningRulesCreateRequestBodyItem">Customize the request body based on the type of earning rules you would like to create. The request body is an array of objects. The required minimum properties to include in the payload for each object are event and loyalty. Additionally, if you choose to add a validity_timeframe, you must include a start_date. Furthermore, an earning rule event type:   - customer.segment.entered requires a segment object - a custom event requires a custom_event object - a customer.loyalty.tier.joined, customer.loyalty.tier.left, customer.loyalty.tier.upgraded, customer.loyalty.tier.downgraded, customer.loyalty.tier.prolonged requires a loyalty_tier object</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleWithHttpInfo(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -4027,7 +4253,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Earning Rule Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// Create Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -4035,6 +4261,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<List<LoyaltiesEarningRulesCreateResponseBody>> CreateEarningRuleAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>> localVarResponse = await CreateEarningRuleWithHttpInfoAsync(campaignId, loyaltiesEarningRulesCreateRequestBodyItem, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -4042,7 +4269,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Earning Rule Create earning rules for a loyalty campaign.  🚧 Maximum number of earning rules  You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup.
+        /// Create Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Create earning rules for a loyalty campaign. &lt;Warning&gt; &lt;Badge color yellow&gt;Maximum number of earning rules&lt;/Badge&gt; You can create up to 100 earning rules per project. The limit can be customized for clients with a single-tenant setup. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -4050,6 +4277,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltiesEarningRulesCreateResponseBody&gt;)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<List<LoyaltiesEarningRulesCreateResponseBody>>> CreateEarningRuleWithHttpInfoAsync(string campaignId, List<LoyaltiesEarningRulesCreateRequestBodyItem> loyaltiesEarningRulesCreateRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -4137,13 +4365,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create loyalty tiers Creates loyalty tiers for desired campaign.
+        /// Create loyalty tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;LoyaltyTier&gt;</returns>
+        [Obsolete]
         public List<LoyaltyTier> CreateInBulkLoyaltyTiers(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<List<LoyaltyTier>> localVarResponse = CreateInBulkLoyaltyTiersWithHttpInfo(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem);
@@ -4151,13 +4380,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create loyalty tiers Creates loyalty tiers for desired campaign.
+        /// Create loyalty tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltiesTiersCreateInBulkRequestBodyItem">Provide tier definitions you want to add to existing loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;LoyaltyTier&gt;</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<List<LoyaltyTier>> CreateInBulkLoyaltyTiersWithHttpInfo(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -4244,7 +4474,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create loyalty tiers Creates loyalty tiers for desired campaign.
+        /// Create loyalty tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -4252,6 +4482,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LoyaltyTier&gt;</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<List<LoyaltyTier>> CreateInBulkLoyaltyTiersAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<List<LoyaltyTier>> localVarResponse = await CreateInBulkLoyaltyTiersWithHttpInfoAsync(campaignId, loyaltiesTiersCreateInBulkRequestBodyItem, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -4259,7 +4490,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create loyalty tiers Creates loyalty tiers for desired campaign.
+        /// Create loyalty tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates loyalty tiers for desired campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -4267,6 +4498,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LoyaltyTier&gt;)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<List<LoyaltyTier>>> CreateInBulkLoyaltyTiersWithHttpInfoAsync(string campaignId, List<LoyaltiesTiersCreateInBulkRequestBodyItem> loyaltiesTiersCreateInBulkRequestBodyItem, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -4354,12 +4586,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// Create Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesCreateCampaignResponseBody</returns>
+        [Obsolete]
         public LoyaltiesCreateCampaignResponseBody CreateLoyaltyProgram(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> localVarResponse = CreateLoyaltyProgramWithHttpInfo(loyaltiesCreateCampaignRequestBody);
@@ -4367,12 +4600,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// Create Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesCreateCampaignResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramWithHttpInfo(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'loyaltiesCreateCampaignRequestBody' is set
@@ -4452,13 +4686,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// Create Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesCreateCampaignResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesCreateCampaignResponseBody> CreateLoyaltyProgramAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody> localVarResponse = await CreateLoyaltyProgramWithHttpInfoAsync(loyaltiesCreateCampaignRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -4466,13 +4701,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.    📘 Global uniqueness  All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns.  🚧 Asynchronous action!  This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description.
+        /// Create Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Creates a batch of [loyalty cards](/api-reference/loyalties/get-member) aggregated in a single loyalty campaign. It also allows you to define a custom codes pattern.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All codes are unique across the whole project. Voucherify wont allow to generate the same codes in any of your campaigns. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Asynchronous action!&lt;/Badge&gt; This is an asynchronous action, you cant read or modify a newly created campaign until the code generation is completed. See creation_status field in the [loyalty campaign object](/api-reference/loyalties/loyalty-campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltiesCreateCampaignRequestBody">Specify the loyalty campaign details.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesCreateCampaignResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesCreateCampaignResponseBody>> CreateLoyaltyProgramWithHttpInfoAsync(LoyaltiesCreateCampaignRequestBody loyaltiesCreateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'loyaltiesCreateCampaignRequestBody' is set
@@ -4553,13 +4789,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Point Expiration Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// Export Loyalty Campaign Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesPointsExpirationExportCreateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesPointsExpirationExportCreateResponseBody CreatePointsExpirationExport(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> localVarResponse = CreatePointsExpirationExportWithHttpInfo(campaignId, loyaltiesPointsExpirationExportCreateRequestBody);
@@ -4567,13 +4804,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Point Expiration Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// Export Loyalty Campaign Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltiesPointsExpirationExportCreateRequestBody">Specify the data filters, types of data to return and order in which the results should be returned.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportWithHttpInfo(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -4660,7 +4898,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Point Expiration Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// Export Loyalty Campaign Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -4668,6 +4906,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesPointsExpirationExportCreateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesPointsExpirationExportCreateResponseBody> CreatePointsExpirationExportAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody> localVarResponse = await CreatePointsExpirationExportWithHttpInfoAsync(campaignId, loyaltiesPointsExpirationExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -4675,7 +4914,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Point Expiration Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
+        /// Export Loyalty Campaign Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Schedule the generation of a point expiration CSV file for a particular campaign. It can list point buckets, which can have an ACTIVE or EXPIRED status.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -4683,6 +4922,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesPointsExpirationExportCreateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesPointsExpirationExportCreateResponseBody>> CreatePointsExpirationExportWithHttpInfoAsync(string campaignId, LoyaltiesPointsExpirationExportCreateRequestBody loyaltiesPointsExpirationExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -4770,13 +5010,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Reward Assignment Add rewards to a loyalty campaign.
+        /// Create Loyalty Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsCreateAssignmentResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardsCreateAssignmentResponseBody CreateRewardAssignment1(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> localVarResponse = CreateRewardAssignment1WithHttpInfo(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
@@ -4784,13 +5025,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Reward Assignment Add rewards to a loyalty campaign.
+        /// Create Loyalty Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesRewardsCreateAssignmentItemRequestBody">Define the cost of the rewards in loyalty points.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1WithHttpInfo(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -4877,7 +5119,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Reward Assignment Add rewards to a loyalty campaign.
+        /// Create Loyalty Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -4885,6 +5127,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsCreateAssignmentResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardsCreateAssignmentResponseBody> CreateRewardAssignment1Async(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> localVarResponse = await CreateRewardAssignment1WithHttpInfoAsync(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -4892,7 +5135,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Loyalty Campaign Reward Assignment Add rewards to a loyalty campaign.
+        /// Create Loyalty Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Add rewards to a loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -4900,6 +5143,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsCreateAssignmentResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody>> CreateRewardAssignment1WithHttpInfoAsync(string campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -4987,26 +5231,28 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Earning Rule This method deletes an earning rule for a specific loyalty campaign.
+        /// Delete Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
+        [Obsolete]
         public void DeleteEarningRule(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             DeleteEarningRuleWithHttpInfo(campaignId, earningRuleId);
         }
 
         /// <summary>
-        /// Delete Earning Rule This method deletes an earning rule for a specific loyalty campaign.
+        /// Delete Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<Object> DeleteEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -5091,7 +5337,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Earning Rule This method deletes an earning rule for a specific loyalty campaign.
+        /// Delete Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -5099,13 +5345,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task DeleteEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await DeleteEarningRuleWithHttpInfoAsync(campaignId, earningRuleId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete Earning Rule This method deletes an earning rule for a specific loyalty campaign.
+        /// Delete Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes an earning rule for a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -5113,6 +5360,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<Object>> DeleteEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -5198,13 +5446,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Loyalty Campaign Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// Delete Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="force">If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesDeleteResponseBody</returns>
+        [Obsolete]
         public LoyaltiesDeleteResponseBody DeleteLoyaltyProgram(string campaignId, bool? force = default(bool?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesDeleteResponseBody> localVarResponse = DeleteLoyaltyProgramWithHttpInfo(campaignId, force);
@@ -5212,13 +5461,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Loyalty Campaign Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// Delete Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="force">If this flag is set to true, the campaign and related vouchers will be removed permanently. If it is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to the bin. Going forward, the user will be able to create the next campaign with the same name. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesDeleteResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesDeleteResponseBody> DeleteLoyaltyProgramWithHttpInfo(string campaignId, bool? force = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -5301,7 +5551,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Loyalty Campaign Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// Delete Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -5309,6 +5559,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesDeleteResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesDeleteResponseBody> DeleteLoyaltyProgramAsync(string campaignId, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesDeleteResponseBody> localVarResponse = await DeleteLoyaltyProgramWithHttpInfoAsync(campaignId, force, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -5316,7 +5567,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Loyalty Campaign Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
+        /// Delete Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Deletes a loyalty campaign and all related loyalty cards. This action cannot be undone. Also, it immediately removes any redemptions on loyalty cards. If the force parameter is set to false or not set at all, the loyalty campaign and all related loyalty cards will be moved to [the bin](/api-reference/bin/list-bin-entries).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -5324,6 +5575,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesDeleteResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesDeleteResponseBody>> DeleteLoyaltyProgramWithHttpInfoAsync(string campaignId, bool? force = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -5407,26 +5659,28 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Campaign Reward Assignment This method deletes a reward assignment for a particular loyalty campaign.
+        /// Delete Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
+        [Obsolete]
         public void DeleteRewardAssignment1(string campaignId, string assignmentId, int operationIndex = 0)
         {
             DeleteRewardAssignment1WithHttpInfo(campaignId, assignmentId);
         }
 
         /// <summary>
-        /// Delete Campaign Reward Assignment This method deletes a reward assignment for a particular loyalty campaign.
+        /// Delete Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<Object> DeleteRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -5511,7 +5765,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Campaign Reward Assignment This method deletes a reward assignment for a particular loyalty campaign.
+        /// Delete Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -5519,13 +5773,14 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task DeleteRewardAssignment1Async(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             await DeleteRewardAssignment1WithHttpInfoAsync(campaignId, assignmentId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Delete Campaign Reward Assignment This method deletes a reward assignment for a particular loyalty campaign.
+        /// Delete Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method deletes a reward assignment for a particular loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -5533,6 +5788,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<Object>> DeleteRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -5618,13 +5874,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Earning Rule Disable an earning rule.
+        /// Disable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesDisableResponseBody</returns>
+        [Obsolete]
         public LoyaltiesEarningRulesDisableResponseBody DisableEarningRule(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesDisableResponseBody> localVarResponse = DisableEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -5632,13 +5889,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Earning Rule Disable an earning rule.
+        /// Disable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesDisableResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesDisableResponseBody> DisableEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -5724,7 +5982,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Earning Rule Disable an earning rule.
+        /// Disable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -5732,6 +5990,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesDisableResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesEarningRulesDisableResponseBody> DisableEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesDisableResponseBody> localVarResponse = await DisableEarningRuleWithHttpInfoAsync(campaignId, earningRuleId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -5739,7 +5998,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Earning Rule Disable an earning rule.
+        /// Disable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Disable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -5747,6 +6006,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesDisableResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesDisableResponseBody>> DisableEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -5833,13 +6093,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Earning Rule Enable an earning rule.
+        /// Enable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesEnableResponseBody</returns>
+        [Obsolete]
         public LoyaltiesEarningRulesEnableResponseBody EnableEarningRule(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesEnableResponseBody> localVarResponse = EnableEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -5847,13 +6108,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Earning Rule Enable an earning rule.
+        /// Enable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="earningRuleId">Unique identifier of an earning rule, assigned by Voucherify.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesEnableResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesEnableResponseBody> EnableEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -5939,7 +6201,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Earning Rule Enable an earning rule.
+        /// Enable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -5947,6 +6209,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesEnableResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesEarningRulesEnableResponseBody> EnableEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesEnableResponseBody> localVarResponse = await EnableEarningRuleWithHttpInfoAsync(campaignId, earningRuleId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -5954,7 +6217,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Earning Rule Enable an earning rule.
+        /// Enable Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Enable an earning rule.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -5962,6 +6225,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesEnableResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesEnableResponseBody>> EnableEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -6048,13 +6312,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// Export Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CampaignsTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public CampaignsTransactionsExportCreateResponseBody ExportLoyaltyCampaignTransactions(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResponse = ExportLoyaltyCampaignTransactionsWithHttpInfo(campaignId, loyaltiesTransactionsExportCreateRequestBody);
@@ -6062,13 +6327,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// Export Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
         /// <param name="loyaltiesTransactionsExportCreateRequestBody">Specify the parameters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CampaignsTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -6155,7 +6421,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// Export Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -6163,6 +6429,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CampaignsTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<CampaignsTransactionsExportCreateResponseBody> ExportLoyaltyCampaignTransactionsAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody> localVarResponse = await ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(campaignId, loyaltiesTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -6170,7 +6437,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Campaign Transactions  This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions.
+        /// Export Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions is an asynchronous process that generates a CSV file with the data about or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Campaign Transactions&lt;/Badge&gt; This method works in the same way the [POST Export Campaign Transactions](/api-reference/campaigns/export-campaign-transactions) does, but it is limited to loyalty campaigns only. The POST Export Campaign Transactions method can also export gift card campaign transactions. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -6178,6 +6445,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CampaignsTransactionsExportCreateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CampaignsTransactionsExportCreateResponseBody>> ExportLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, LoyaltiesTransactionsExportCreateRequestBody loyaltiesTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -6265,13 +6533,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = ExportLoyaltyCardTransactionsWithHttpInfo(memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
@@ -6279,13 +6548,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsWithHttpInfo(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -6372,7 +6642,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
@@ -6380,6 +6650,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactionsAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = await ExportLoyaltyCardTransactionsWithHttpInfoAsync(memberId, loyaltiesMembersTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -6387,7 +6658,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to export transaction data for.</param>
@@ -6395,6 +6666,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -6482,7 +6754,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions with campaign ID Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -6490,6 +6762,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersTransactionsExportCreateResponseBody ExportLoyaltyCardTransactions1(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = ExportLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody);
@@ -6497,7 +6770,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions with campaign ID Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -6505,6 +6778,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersTransactionsExportCreateRequestBody">Specify the parameters and filters for the transaction export.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -6598,7 +6872,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions with campaign ID Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -6607,6 +6881,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsExportCreateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsExportCreateResponseBody> ExportLoyaltyCardTransactions1Async(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody> localVarResponse = await ExportLoyaltyCardTransactions1WithHttpInfoAsync(campaignId, memberId, loyaltiesMembersTransactionsExportCreateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -6614,7 +6889,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Loyalty Card Transactions with campaign ID Export transactions that are associated with point movements on a loyalty card.   
+        /// Export Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Export transactions that are associated with point movements on a loyalty card.   
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to export.</param>
@@ -6623,6 +6898,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsExportCreateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsExportCreateResponseBody>> ExportLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersTransactionsExportCreateRequestBody loyaltiesMembersTransactionsExportCreateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -6717,13 +6993,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Earning Rule Retrieves an earning rule assigned to a campaign.
+        /// Get Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesEarningRulesGetResponseBody GetEarningRule(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesGetResponseBody> localVarResponse = GetEarningRuleWithHttpInfo(campaignId, earningRuleId);
@@ -6731,13 +7008,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Earning Rule Retrieves an earning rule assigned to a campaign.
+        /// Get Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="earningRuleId">A unique earning rule ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesGetResponseBody> GetEarningRuleWithHttpInfo(string campaignId, string earningRuleId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -6823,7 +7101,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Earning Rule Retrieves an earning rule assigned to a campaign.
+        /// Get Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -6831,6 +7109,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesEarningRulesGetResponseBody> GetEarningRuleAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesGetResponseBody> localVarResponse = await GetEarningRuleWithHttpInfoAsync(campaignId, earningRuleId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -6838,7 +7117,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Earning Rule Retrieves an earning rule assigned to a campaign.
+        /// Get Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves an earning rule assigned to a campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -6846,6 +7125,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesGetResponseBody>> GetEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -6932,12 +7212,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Campaign Retrieve a specific loyalty campaign.
+        /// Get Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesGetCampaignResponseBody</returns>
+        [Obsolete]
         public LoyaltiesGetCampaignResponseBody GetLoyaltyProgram(string campaignId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesGetCampaignResponseBody> localVarResponse = GetLoyaltyProgramWithHttpInfo(campaignId);
@@ -6945,12 +7226,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Campaign Retrieve a specific loyalty campaign.
+        /// Get Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesGetCampaignResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesGetCampaignResponseBody> GetLoyaltyProgramWithHttpInfo(string campaignId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -7029,13 +7311,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Campaign Retrieve a specific loyalty campaign.
+        /// Get Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesGetCampaignResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesGetCampaignResponseBody> GetLoyaltyProgramAsync(string campaignId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesGetCampaignResponseBody> localVarResponse = await GetLoyaltyProgramWithHttpInfoAsync(campaignId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -7043,13 +7326,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Campaign Retrieve a specific loyalty campaign.
+        /// Get Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a specific loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesGetCampaignResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesGetCampaignResponseBody>> GetLoyaltyProgramWithHttpInfoAsync(string campaignId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -7129,13 +7413,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Tier Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// Get Loyalty Tier &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesTiersGetResponseBody GetLoyaltyTier(string campaignId, string loyaltyTierId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersGetResponseBody> localVarResponse = GetLoyaltyTierWithHttpInfo(campaignId, loyaltyTierId);
@@ -7143,13 +7428,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Tier Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// Get Loyalty Tier &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesTiersGetResponseBody> GetLoyaltyTierWithHttpInfo(string campaignId, string loyaltyTierId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -7235,7 +7521,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Tier Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// Get Loyalty Tier &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -7243,6 +7529,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesTiersGetResponseBody> GetLoyaltyTierAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersGetResponseBody> localVarResponse = await GetLoyaltyTierWithHttpInfoAsync(campaignId, loyaltyTierId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -7250,7 +7537,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Loyalty Tier Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
+        /// Get Loyalty Tier &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a loyalty tier from a loyalty campaign by the loyalty tier ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -7258,6 +7545,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesTiersGetResponseBody>> GetLoyaltyTierWithHttpInfoAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -7344,12 +7632,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// Get Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersGetResponseBody GetMember(string memberId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody> localVarResponse = GetMemberWithHttpInfo(memberId);
@@ -7357,12 +7646,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// Get Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody> GetMemberWithHttpInfo(string memberId, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -7441,13 +7731,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// Get Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersGetResponseBody> GetMemberAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody> localVarResponse = await GetMemberWithHttpInfoAsync(memberId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -7455,13 +7746,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member Retrieve loyalty card with the given member ID (i.e. voucher code).      📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter.
+        /// Get Member &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty card with the given member ID (i.e. voucher code).     &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-member-with-campaign-id). The URL was re-designed to allow you to retrieve loyalty card details without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody>> GetMemberWithHttpInfoAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -7541,13 +7833,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member with campaign ID Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// Get Member with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">Unique code that identifies the loyalty card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersGetResponseBody GetMember1(string campaignId, string memberId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody> localVarResponse = GetMember1WithHttpInfo(campaignId, memberId);
@@ -7555,13 +7848,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member with campaign ID Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// Get Member with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
         /// <param name="memberId">Unique code that identifies the loyalty card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody> GetMember1WithHttpInfo(string campaignId, string memberId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -7647,7 +7941,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member with campaign ID Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// Get Member with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -7655,6 +7949,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersGetResponseBody> GetMember1Async(string campaignId, string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody> localVarResponse = await GetMember1WithHttpInfoAsync(campaignId, memberId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -7662,7 +7957,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Member with campaign ID Retrieves the loyalty card with the given member ID (i.e. voucher code).
+        /// Get Member with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the loyalty card with the given member ID (i.e. voucher code).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -7670,6 +7965,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersGetResponseBody>> GetMember1WithHttpInfoAsync(string campaignId, string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -7756,13 +8052,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignments Retrieve specific reward assignment.
+        /// Get Campaign Reward Assignments &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardAssignmentsGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardAssignmentsGetResponseBody GetRewardAssignment1(string campaignId, string assignmentId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> localVarResponse = GetRewardAssignment1WithHttpInfo(campaignId, assignmentId);
@@ -7770,13 +8067,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignments Retrieve specific reward assignment.
+        /// Get Campaign Reward Assignments &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardAssignmentsGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> GetRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -7862,7 +8160,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignments Retrieve specific reward assignment.
+        /// Get Campaign Reward Assignments &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -7870,6 +8168,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardAssignmentsGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardAssignmentsGetResponseBody> GetRewardAssignment1Async(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody> localVarResponse = await GetRewardAssignment1WithHttpInfoAsync(campaignId, assignmentId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -7877,7 +8176,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignments Retrieve specific reward assignment.
+        /// Get Campaign Reward Assignments &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -7885,6 +8184,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardAssignmentsGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsGetResponseBody>> GetRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -7971,13 +8271,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignment Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// Get Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardsGetResponseBody GetRewardAssignment2(string campaignId, string assignmentId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsGetResponseBody> localVarResponse = GetRewardAssignment2WithHttpInfo(campaignId, assignmentId);
@@ -7985,13 +8286,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignment Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// Get Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">A unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardsGetResponseBody> GetRewardAssignment2WithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -8077,7 +8379,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignment Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// Get Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8085,6 +8387,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardsGetResponseBody> GetRewardAssignment2Async(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsGetResponseBody> localVarResponse = await GetRewardAssignment2WithHttpInfoAsync(campaignId, assignmentId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -8092,7 +8395,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Reward Assignment Retrieve specific reward assignment.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). 
+        /// Get Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve specific reward assignment. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/get-campaign-reward-assignments). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8100,6 +8403,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsGetResponseBody>> GetRewardAssignment2WithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -8186,13 +8490,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Reward Details Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// Get Reward Details &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardAssignmentsRewardGetResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardAssignmentsRewardGetResponseBody GetRewardDetails(string campaignId, string assignmentId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> localVarResponse = GetRewardDetailsWithHttpInfo(campaignId, assignmentId);
@@ -8200,13 +8505,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Reward Details Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// Get Reward Details &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="assignmentId">Unique reward assignment ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardAssignmentsRewardGetResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> GetRewardDetailsWithHttpInfo(string campaignId, string assignmentId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -8292,7 +8598,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Reward Details Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// Get Reward Details &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8300,6 +8606,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardAssignmentsRewardGetResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardAssignmentsRewardGetResponseBody> GetRewardDetailsAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody> localVarResponse = await GetRewardDetailsWithHttpInfoAsync(campaignId, assignmentId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -8307,7 +8614,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Reward Details Get reward details in the context of a loyalty campaign and reward assignment ID.
+        /// Get Reward Details &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get reward details in the context of a loyalty campaign and reward assignment ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8315,6 +8622,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardAssignmentsRewardGetResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsRewardGetResponseBody>> GetRewardDetailsWithHttpInfoAsync(string campaignId, string assignmentId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -8401,7 +8709,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Pending Points Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Campaign Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -8410,6 +8718,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesPendingPointsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesPendingPointsListResponseBody ListCampaignPendingPoints(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesPendingPointsListResponseBody> localVarResponse = ListCampaignPendingPointsWithHttpInfo(campaignId, limit, order, startingAfterId);
@@ -8417,7 +8726,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Pending Points Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Campaign Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -8426,6 +8735,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesPendingPointsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesPendingPointsListResponseBody> ListCampaignPendingPointsWithHttpInfo(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -8516,7 +8826,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Pending Points Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Campaign Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -8526,6 +8836,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesPendingPointsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesPendingPointsListResponseBody> ListCampaignPendingPointsAsync(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesPendingPointsListResponseBody> localVarResponse = await ListCampaignPendingPointsWithHttpInfoAsync(campaignId, limit, order, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -8533,7 +8844,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Pending Points Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Campaign Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to all loyalty cards in a campaign. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -8543,6 +8854,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesPendingPointsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesPendingPointsListResponseBody>> ListCampaignPendingPointsWithHttpInfoAsync(string campaignId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -8634,7 +8946,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Earning Rules Returns a list of all earning rules within a given campaign.
+        /// List Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8643,6 +8955,7 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesEarningRulesListResponseBody ListEarningRules(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesListResponseBody> localVarResponse = ListEarningRulesWithHttpInfo(campaignId, limit, page, order);
@@ -8650,7 +8963,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Earning Rules Returns a list of all earning rules within a given campaign.
+        /// List Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8659,6 +8972,7 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesListResponseBody> ListEarningRulesWithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -8749,7 +9063,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Earning Rules Returns a list of all earning rules within a given campaign.
+        /// List Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8759,6 +9073,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesEarningRulesListResponseBody> ListEarningRulesAsync(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesListResponseBody> localVarResponse = await ListEarningRulesWithHttpInfoAsync(campaignId, limit, page, order, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -8766,7 +9081,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Earning Rules Returns a list of all earning rules within a given campaign.
+        /// List Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of all earning rules within a given campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -8776,6 +9091,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesListResponseBody>> ListEarningRulesWithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), ParameterOrderListEarningRules? order = default(ParameterOrderListEarningRules?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -8867,7 +9183,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// List Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -8877,6 +9193,7 @@ namespace Voucherify.Api
         /// <param name="filters">Filters for listing responses. The id filter denotes the unique transaction identifier. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTransactionsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesTransactionsListResponseBody ListLoyaltyCampaignTransactions(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesTransactionsListResponseBody> localVarResponse = ListLoyaltyCampaignTransactionsWithHttpInfo(campaignId, limit, order, startingAfterId, filters);
@@ -8884,7 +9201,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// List Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -8894,6 +9211,7 @@ namespace Voucherify.Api
         /// <param name="filters">Filters for listing responses. The id filter denotes the unique transaction identifier. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTransactionsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesTransactionsListResponseBody> ListLoyaltyCampaignTransactionsWithHttpInfo(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -8999,7 +9317,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// List Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -9010,6 +9328,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTransactionsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesTransactionsListResponseBody> ListLoyaltyCampaignTransactionsAsync(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesTransactionsListResponseBody> localVarResponse = await ListLoyaltyCampaignTransactionsWithHttpInfoAsync(campaignId, limit, order, startingAfterId, filters, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -9017,7 +9336,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name.
+        /// List Loyalty Campaign Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves all transactions for the campaign with the given campaign ID or campaign name.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -9028,6 +9347,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTransactionsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesTransactionsListResponseBody>> ListLoyaltyCampaignTransactionsWithHttpInfoAsync(string campaignId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), string startingAfterId = default(string), ParametersFiltersListCampaignTransactions filters = default(ParametersFiltersListCampaignTransactions), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -9134,7 +9454,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -9144,6 +9464,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersTransactionsListResponseBody ListLoyaltyCardTransactions(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResponse = ListLoyaltyCardTransactionsWithHttpInfo(memberId, limit, order, filters, startingAfterId);
@@ -9151,7 +9472,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -9161,6 +9482,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactionsWithHttpInfo(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -9262,7 +9584,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -9273,6 +9595,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactionsAsync(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResponse = await ListLoyaltyCardTransactionsWithHttpInfoAsync(memberId, limit, order, filters, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -9280,7 +9603,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">A unique code identifying the loyalty card that you are looking to retrieve transaction data for.</param>
@@ -9291,6 +9614,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody>> ListLoyaltyCardTransactionsWithHttpInfoAsync(string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -9393,7 +9717,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions with campaign ID Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -9404,6 +9728,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersTransactionsListResponseBody ListLoyaltyCardTransactions1(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResponse = ListLoyaltyCardTransactions1WithHttpInfo(campaignId, memberId, limit, order, filters, startingAfterId);
@@ -9411,7 +9736,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions with campaign ID Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -9422,6 +9747,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the transactions starting after a transaction with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactions1WithHttpInfo(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -9530,7 +9856,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions with campaign ID Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -9542,6 +9868,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransactionsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersTransactionsListResponseBody> ListLoyaltyCardTransactions1Async(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody> localVarResponse = await ListLoyaltyCardTransactions1WithHttpInfoAsync(campaignId, memberId, limit, order, filters, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -9549,7 +9876,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Transactions with campaign ID Retrieve transaction data related to point movements for a specific loyalty card.
+        /// List Loyalty Card Transactions with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve transaction data related to point movements for a specific loyalty card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher whose transactions you would like to return.</param>
@@ -9561,6 +9888,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransactionsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransactionsListResponseBody>> ListLoyaltyCardTransactions1WithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListTransactions? order = default(ParameterOrderListTransactions?), ParameterFiltersListMemberTransactions filters = default(ParameterFiltersListMemberTransactions), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -9670,7 +9998,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaigns Returns a list of your loyalty campaigns.
+        /// List Loyalty Campaigns &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -9679,6 +10007,7 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesListCampaignsResponseBody</returns>
+        [Obsolete]
         public LoyaltiesListCampaignsResponseBody ListLoyaltyPrograms(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesListCampaignsResponseBody> localVarResponse = ListLoyaltyProgramsWithHttpInfo(limit, page, expand, order);
@@ -9686,7 +10015,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaigns Returns a list of your loyalty campaigns.
+        /// List Loyalty Campaigns &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -9695,6 +10024,7 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesListCampaignsResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesListCampaignsResponseBody> ListLoyaltyProgramsWithHttpInfo(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0)
         {
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -9782,7 +10112,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaigns Returns a list of your loyalty campaigns.
+        /// List Loyalty Campaigns &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -9792,6 +10122,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesListCampaignsResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesListCampaignsResponseBody> ListLoyaltyProgramsAsync(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesListCampaignsResponseBody> localVarResponse = await ListLoyaltyProgramsWithHttpInfoAsync(limit, page, expand, order, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -9799,7 +10130,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Campaigns Returns a list of your loyalty campaigns.
+        /// List Loyalty Campaigns &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty campaigns.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)</param>
@@ -9809,6 +10140,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesListCampaignsResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesListCampaignsResponseBody>> ListLoyaltyProgramsWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), ParameterExpandListCampaigns? expand = default(ParameterExpandListCampaigns?), ParameterOrderListCampaigns? order = default(ParameterOrderListCampaigns?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
@@ -9897,7 +10229,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Earning Rules Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// List Loyalty Tier Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -9906,6 +10238,7 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersEarningRulesListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesTiersEarningRulesListResponseBody ListLoyaltyTierEarningRules(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> localVarResponse = ListLoyaltyTierEarningRulesWithHttpInfo(campaignId, loyaltyTierId, limit, page);
@@ -9913,7 +10246,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Earning Rules Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// List Loyalty Tier Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -9922,6 +10255,7 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersEarningRulesListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> ListLoyaltyTierEarningRulesWithHttpInfo(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -10015,7 +10349,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Earning Rules Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// List Loyalty Tier Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -10025,6 +10359,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersEarningRulesListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesTiersEarningRulesListResponseBody> ListLoyaltyTierEarningRulesAsync(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersEarningRulesListResponseBody> localVarResponse = await ListLoyaltyTierEarningRulesWithHttpInfoAsync(campaignId, loyaltyTierId, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -10032,7 +10367,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Earning Rules Retrieve available earning rules for a given tier and the calculation method for earning points.
+        /// List Loyalty Tier Earning Rules &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve available earning rules for a given tier and the calculation method for earning points.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -10042,6 +10377,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersEarningRulesListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesTiersEarningRulesListResponseBody>> ListLoyaltyTierEarningRulesWithHttpInfoAsync(string campaignId, string loyaltyTierId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -10136,13 +10472,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Rewards Get available rewards for a given tier.
+        /// List Loyalty Tier Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersRewardsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesTiersRewardsListResponseBody ListLoyaltyTierRewards(string campaignId, string loyaltyTierId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersRewardsListResponseBody> localVarResponse = ListLoyaltyTierRewardsWithHttpInfo(campaignId, loyaltyTierId);
@@ -10150,13 +10487,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Rewards Get available rewards for a given tier.
+        /// List Loyalty Tier Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
         /// <param name="loyaltyTierId">Unique loyalty tier ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersRewardsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesTiersRewardsListResponseBody> ListLoyaltyTierRewardsWithHttpInfo(string campaignId, string loyaltyTierId, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -10242,7 +10580,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Rewards Get available rewards for a given tier.
+        /// List Loyalty Tier Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -10250,6 +10588,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersRewardsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesTiersRewardsListResponseBody> ListLoyaltyTierRewardsAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersRewardsListResponseBody> localVarResponse = await ListLoyaltyTierRewardsWithHttpInfoAsync(campaignId, loyaltyTierId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -10257,7 +10596,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tier Rewards Get available rewards for a given tier.
+        /// List Loyalty Tier Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Get available rewards for a given tier.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name.</param>
@@ -10265,6 +10604,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersRewardsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesTiersRewardsListResponseBody>> ListLoyaltyTierRewardsWithHttpInfoAsync(string campaignId, string loyaltyTierId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -10351,7 +10691,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tiers Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// List Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -10359,6 +10699,7 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesTiersListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesTiersListResponseBody ListLoyaltyTiers(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersListResponseBody> localVarResponse = ListLoyaltyTiersWithHttpInfo(campaignId, limit, order);
@@ -10366,7 +10707,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tiers Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// List Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -10374,6 +10715,7 @@ namespace Voucherify.Api
         /// <param name="order">Sorts the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesTiersListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesTiersListResponseBody> ListLoyaltyTiersWithHttpInfo(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -10460,7 +10802,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tiers Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// List Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -10469,6 +10811,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesTiersListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesTiersListResponseBody> ListLoyaltyTiersAsync(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesTiersListResponseBody> localVarResponse = await ListLoyaltyTiersWithHttpInfoAsync(campaignId, limit, order, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -10476,7 +10819,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Tiers Retrieve a list of loyalty tiers which were added to the loyalty program.
+        /// List Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve a list of loyalty tiers which were added to the loyalty program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique loyalty campaign ID or name.</param>
@@ -10485,6 +10828,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesTiersListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesTiersListResponseBody>> ListLoyaltyTiersWithHttpInfoAsync(string campaignId, int? limit = default(int?), ParameterOrderListLoyaltyTiers? order = default(ParameterOrderListLoyaltyTiers?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -10572,7 +10916,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -10581,6 +10925,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMemberActivityListResponseBody ListMemberActivity(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResponse = ListMemberActivityWithHttpInfo(memberId, limit, order, startingAfterId);
@@ -10588,7 +10933,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -10597,6 +10942,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody> ListMemberActivityWithHttpInfo(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -10687,7 +11033,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -10697,6 +11043,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMemberActivityListResponseBody> ListMemberActivityAsync(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResponse = await ListMemberActivityWithHttpInfoAsync(memberId, limit, order, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -10704,7 +11051,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-activity-with-campaign-id). The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. &lt;/Note&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -10714,6 +11061,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMemberActivityListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody>> ListMemberActivityWithHttpInfoAsync(string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -10805,7 +11153,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity with campaign ID Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -10815,6 +11163,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMemberActivityListResponseBody ListMemberActivity1(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResponse = ListMemberActivity1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
@@ -10822,7 +11171,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity with campaign ID Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -10832,6 +11181,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody> ListMemberActivity1WithHttpInfo(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -10929,7 +11279,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity with campaign ID Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -10940,6 +11290,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMemberActivityListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMemberActivityListResponseBody> ListMemberActivity1Async(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResponse = await ListMemberActivity1WithHttpInfoAsync(campaignId, memberId, limit, order, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -10947,7 +11298,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Activity with campaign ID Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+        /// List Member Activity with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -10958,6 +11309,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMemberActivityListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMemberActivityListResponseBody>> ListMemberActivity1WithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), ParameterOrderCreatedAt? order = default(ParameterOrderCreatedAt?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -11056,12 +11408,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member&#39;s Loyalty Tiers Retrieve member tiers using the loyalty card ID.
+        /// List Member&#39;s Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTiersListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersTiersListResponseBody ListMemberLoyaltyTier(string memberId, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTiersListResponseBody> localVarResponse = ListMemberLoyaltyTierWithHttpInfo(memberId);
@@ -11069,12 +11422,13 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member&#39;s Loyalty Tiers Retrieve member tiers using the loyalty card ID.
+        /// List Member&#39;s Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTiersListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersTiersListResponseBody> ListMemberLoyaltyTierWithHttpInfo(string memberId, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -11153,13 +11507,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member&#39;s Loyalty Tiers Retrieve member tiers using the loyalty card ID.
+        /// List Member&#39;s Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTiersListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersTiersListResponseBody> ListMemberLoyaltyTierAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTiersListResponseBody> localVarResponse = await ListMemberLoyaltyTierWithHttpInfoAsync(memberId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -11167,13 +11522,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member&#39;s Loyalty Tiers Retrieve member tiers using the loyalty card ID.
+        /// List Member&#39;s Loyalty Tiers &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve member tiers using the loyalty card ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTiersListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTiersListResponseBody>> ListMemberLoyaltyTierWithHttpInfoAsync(string memberId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -11253,7 +11609,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -11262,6 +11618,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersPendingPointsListResponseBody ListMemberPendingPoints(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResponse = ListMemberPendingPointsWithHttpInfo(memberId, limit, order, startingAfterId);
@@ -11269,7 +11626,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -11278,6 +11635,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPointsWithHttpInfo(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -11368,7 +11726,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -11378,6 +11736,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPointsAsync(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResponse = await ListMemberPendingPointsWithHttpInfoAsync(memberId, limit, order, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -11385,7 +11744,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points   📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-member-pending-points-with-campaign-id). The URL was re-designed to list member pending points without having to provide the campaignId as a path parameter. &lt;/Note&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card code assigned to a particular customer.</param>
@@ -11395,6 +11754,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody>> ListMemberPendingPointsWithHttpInfoAsync(string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -11486,7 +11846,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points with campaign ID Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -11496,6 +11856,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersPendingPointsListResponseBody ListMemberPendingPoints1(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResponse = ListMemberPendingPoints1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
@@ -11503,7 +11864,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points with campaign ID Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -11513,6 +11874,7 @@ namespace Voucherify.Api
         /// <param name="startingAfterId">A cursor for pagination. It retrieves the results starting after a result with the given ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPoints1WithHttpInfo(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -11610,7 +11972,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points with campaign ID Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -11621,6 +11983,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPendingPointsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersPendingPointsListResponseBody> ListMemberPendingPoints1Async(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody> localVarResponse = await ListMemberPendingPoints1WithHttpInfoAsync(campaignId, memberId, limit, order, startingAfterId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -11628,7 +11991,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Pending Points with campaign ID Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. 👍 Configuring pending points Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule).
+        /// List Member Pending Points with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Lists all pending points that are currently assigned to the loyalty card. Once the points are added to the card, the entry is no longer returned. &lt;Tip&gt; &lt;Badge color green&gt;Configuring pending points&lt;/Badge&gt; Pending points are configured as part of an earning rule with [POST Create earning rule](/api-reference/loyalties/create-earning-rule) or [PUT Update earning rule](/api-reference/loyalties/update-earning-rule). &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -11639,6 +12002,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPendingPointsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPendingPointsListResponseBody>> ListMemberPendingPoints1WithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), ParameterOrderListPendingPoints? order = default(ParameterOrderListPendingPoints?), string startingAfterId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -11737,13 +12101,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Rewards Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// List Member Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="affordableOnly">Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRewardsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersRewardsListResponseBody ListMemberRewards(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRewardsListResponseBody> localVarResponse = ListMemberRewardsWithHttpInfo(memberId, affordableOnly);
@@ -11751,13 +12116,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Rewards Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// List Member Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="affordableOnly">Limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card). Set this flag to true to return rewards which the customer can actually afford. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRewardsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersRewardsListResponseBody> ListMemberRewardsWithHttpInfo(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -11840,7 +12206,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Rewards Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// List Member Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -11848,6 +12214,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRewardsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersRewardsListResponseBody> ListMemberRewardsAsync(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRewardsListResponseBody> localVarResponse = await ListMemberRewardsWithHttpInfoAsync(memberId, affordableOnly, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -11855,7 +12222,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Member Rewards Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
+        /// List Member Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieves the list of rewards that the given customer (identified by member_id, which is a loyalty card assigned to a particular customer) **can get in exchange for loyalty points**.   You can use the affordable_only parameter to limit the results to rewards that the customer can actually afford (only rewards whose price in points is not higher than the loyalty points balance on a loyalty card).   Please note that rewards that are disabled (i.e. set to Not Available in the Dashboard) for a given loyalty tier reward mapping will not be returned in this endpoint.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -11863,6 +12230,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRewardsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRewardsListResponseBody>> ListMemberRewardsWithHttpInfoAsync(string memberId, bool? affordableOnly = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -11946,7 +12314,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Members Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// List Members &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -11960,6 +12328,7 @@ namespace Voucherify.Api
         /// <param name="ids"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesListMembersResponseBody</returns>
+        [Obsolete]
         public LoyaltiesListMembersResponseBody ListMembers(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesListMembersResponseBody> localVarResponse = ListMembersWithHttpInfo(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids);
@@ -11967,7 +12336,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Members Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// List Members &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -11981,6 +12350,7 @@ namespace Voucherify.Api
         /// <param name="ids"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesListMembersResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesListMembersResponseBody> ListMembersWithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -12105,7 +12475,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Members Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// List Members &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -12120,6 +12490,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesListMembersResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesListMembersResponseBody> ListMembersAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesListMembersResponseBody> localVarResponse = await ListMembersWithHttpInfoAsync(campaignId, limit, page, customer, createdAt, updatedAt, order, code, ids, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -12127,7 +12498,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Members Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
+        /// List Members &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns a list of your loyalty cards. The loyalty cards are sorted by creation date, with the most recent loyalty cards appearing first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID of the loyalty program.</param>
@@ -12142,6 +12513,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesListMembersResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesListMembersResponseBody>> ListMembersWithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string customer = default(string), ParameterCreatedBeforeAfter createdAt = default(ParameterCreatedBeforeAfter), ParameterUpdatedBeforeAfter updatedAt = default(ParameterUpdatedBeforeAfter), ParameterOrderVouchers? order = default(ParameterOrderVouchers?), string code = default(string), List<string> ids = default(List<string>), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -12267,7 +12639,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Point Expiration Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// List Loyalty Card Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12276,6 +12648,7 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersPointsExpirationListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersPointsExpirationListResponseBody ListPointsExpiration(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> localVarResponse = ListPointsExpirationWithHttpInfo(campaignId, memberId, limit, page);
@@ -12283,7 +12656,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Point Expiration Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// List Loyalty Card Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12292,6 +12665,7 @@ namespace Voucherify.Api
         /// <param name="page">Which page of results to return. The lowest value is 1. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersPointsExpirationListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> ListPointsExpirationWithHttpInfo(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -12385,7 +12759,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Point Expiration Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// List Loyalty Card Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12395,6 +12769,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersPointsExpirationListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersPointsExpirationListResponseBody> ListPointsExpirationAsync(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody> localVarResponse = await ListPointsExpirationWithHttpInfoAsync(campaignId, memberId, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -12402,7 +12777,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Loyalty Card Point Expiration Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
+        /// List Loyalty Card Point Expiration &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Retrieve loyalty point expiration buckets for a given loyalty card. Expired point buckets are not returned in this endpoint. You can use the [Exports API](/api-reference/exports/create-export) to retrieve a list of both ACTIVE and EXPIRED point buckets.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12412,6 +12787,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersPointsExpirationListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersPointsExpirationListResponseBody>> ListPointsExpirationWithHttpInfoAsync(string campaignId, string memberId, int? limit = default(int?), int? page = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -12506,7 +12882,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Reward Assignments with campaign ID Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// List Reward Assignments with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12515,6 +12891,7 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardAssignmentsListResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardAssignmentsListResponseBody ListRewardAssignments1(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> localVarResponse = ListRewardAssignments1WithHttpInfo(campaignId, limit, page, assignmentId);
@@ -12522,7 +12899,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Reward Assignments with campaign ID Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// List Reward Assignments with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12531,6 +12908,7 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardAssignmentsListResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> ListRewardAssignments1WithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -12621,7 +12999,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Reward Assignments with campaign ID Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// List Reward Assignments with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12631,6 +13009,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardAssignmentsListResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardAssignmentsListResponseBody> ListRewardAssignments1Async(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsListResponseBody> localVarResponse = await ListRewardAssignments1WithHttpInfoAsync(campaignId, limit, page, assignmentId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -12638,7 +13017,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Reward Assignments with campaign ID Returns reward assignments from a given loyalty campaign.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response.
+        /// List Reward Assignments with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns reward assignments from a given loyalty campaign. &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/list-campaign-rewards). The URL was re-designed to be more contextual to the type of data returned in the response. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12648,6 +13027,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardAssignmentsListResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardAssignmentsListResponseBody>> ListRewardAssignments1WithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -12739,7 +13119,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Rewards Returns active rewards from a given loyalty campaign.
+        /// List Campaign Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12748,6 +13128,7 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsListAssignmentsResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardsListAssignmentsResponseBody ListRewardAssignments2(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> localVarResponse = ListRewardAssignments2WithHttpInfo(campaignId, limit, page, assignmentId);
@@ -12755,7 +13136,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Rewards Returns active rewards from a given loyalty campaign.
+        /// List Campaign Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12764,6 +13145,7 @@ namespace Voucherify.Api
         /// <param name="assignmentId">A unique reward assignment ID. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsListAssignmentsResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> ListRewardAssignments2WithHttpInfo(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -12854,7 +13236,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Rewards Returns active rewards from a given loyalty campaign.
+        /// List Campaign Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12864,6 +13246,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsListAssignmentsResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardsListAssignmentsResponseBody> ListRewardAssignments2Async(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody> localVarResponse = await ListRewardAssignments2WithHttpInfoAsync(campaignId, limit, page, assignmentId, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -12871,7 +13254,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Rewards Returns active rewards from a given loyalty campaign.
+        /// List Campaign Rewards &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Returns active rewards from a given loyalty campaign.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -12881,6 +13264,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsListAssignmentsResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsListAssignmentsResponseBody>> ListRewardAssignments2WithHttpInfoAsync(string campaignId, int? limit = default(int?), int? page = default(int?), string assignmentId = default(string), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -12972,13 +13356,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// Redeem Reward &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = RedeemRewardWithHttpInfo(memberId, loyaltiesMembersRedemptionRedeemRequestBody);
@@ -12986,13 +13371,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// Redeem Reward &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardWithHttpInfo(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -13079,7 +13465,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// Redeem Reward &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -13087,6 +13473,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemRewardAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = await RedeemRewardWithHttpInfoAsync(memberId, loyaltiesMembersRedemptionRedeemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -13094,7 +13481,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward   📘 Alternative endpoint This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter.
+        /// Redeem Reward &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/redeem-reward-with-campaign-id). The URL was re-designed to allow you to redeem a reward without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -13102,6 +13489,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemRewardWithHttpInfoAsync(string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -13189,7 +13577,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward with campaign ID Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// Redeem Reward with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -13197,6 +13585,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersRedemptionRedeemResponseBody RedeemReward1(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = RedeemReward1WithHttpInfo(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody);
@@ -13204,7 +13593,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward with campaign ID Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// Redeem Reward with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -13212,6 +13601,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersRedemptionRedeemRequestBody">Specify the reward to be redeemed. In case of a pay with points reward, specify the order and the number of points to be applied to the order. Please note that if you do not specify the amount of points, the application will default to applying the number of points to pay for the remainder of the order. If the limit of available points on the card is reached, then only the available points on the card will be applied to the order.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -13305,7 +13695,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward with campaign ID Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// Redeem Reward with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -13314,6 +13704,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersRedemptionRedeemResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersRedemptionRedeemResponseBody> RedeemReward1Async(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody> localVarResponse = await RedeemReward1WithHttpInfoAsync(campaignId, memberId, loyaltiesMembersRedemptionRedeemRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -13321,7 +13712,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Redeem Reward with campaign ID Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
+        /// Redeem Reward with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Exchange points from a loyalty card for a specified reward. This API method returns an assigned award in the response. It means that if a requesting customer gets a coupon code with a discount for the next order, that discount code will be visible in response as part of the reward object definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -13330,6 +13721,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersRedemptionRedeemResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersRedemptionRedeemResponseBody>> RedeemReward1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersRedemptionRedeemRequestBody loyaltiesMembersRedemptionRedeemRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -13424,7 +13816,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Transfer Loyalty Points Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// Transfer Loyalty Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -13432,6 +13824,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersTransfersCreateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersTransfersCreateResponseBody TransferPoints(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> localVarResponse = TransferPointsWithHttpInfo(campaignId, memberId, loyaltiesTransferPoints);
@@ -13439,7 +13832,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Transfer Loyalty Points Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// Transfer Loyalty Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -13447,6 +13840,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesTransferPoints">Provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersTransfersCreateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsWithHttpInfo(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -13540,7 +13934,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Transfer Loyalty Points Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// Transfer Loyalty Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -13549,6 +13943,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersTransfersCreateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersTransfersCreateResponseBody> TransferPointsAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody> localVarResponse = await TransferPointsWithHttpInfoAsync(campaignId, memberId, loyaltiesTransferPoints, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -13556,7 +13951,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Transfer Loyalty Points Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
+        /// Transfer Loyalty Points &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Transfer points between different loyalty cards which have holders. Provide the campaign ID and the loyalty card ID you want the points to be transferred to as path parameters. In the request body, provide the loyalty cards you want the points to be transferred from and the number of points to transfer from each card. Transfer works only for loyalty cards that have holders, meaning the cards were published to customers. The transferred points expire according to the target program expiration rules.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">A unique identifier of the loyalty campaign containing the voucher to which the loyalty points will be sent (destination).</param>
@@ -13565,6 +13960,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersTransfersCreateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersTransfersCreateResponseBody>> TransferPointsWithHttpInfoAsync(string campaignId, string memberId, List<LoyaltiesTransferPoints> loyaltiesTransferPoints, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -13659,7 +14055,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Earning Rule Update an earning rule definition.
+        /// Update Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -13667,6 +14063,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesEarningRulesUpdateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesEarningRulesUpdateResponseBody UpdateEarningRule(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> localVarResponse = UpdateEarningRuleWithHttpInfo(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody);
@@ -13674,7 +14071,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Earning Rule Update an earning rule definition.
+        /// Update Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -13682,6 +14079,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesEarningRulesUpdateRequestBody">Specify the parameters that you would like to update for the given earning rule.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesEarningRulesUpdateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleWithHttpInfo(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -13775,7 +14173,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Earning Rule Update an earning rule definition.
+        /// Update Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -13784,6 +14182,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesEarningRulesUpdateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesEarningRulesUpdateResponseBody> UpdateEarningRuleAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody> localVarResponse = await UpdateEarningRuleWithHttpInfoAsync(campaignId, earningRuleId, loyaltiesEarningRulesUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -13791,7 +14190,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Earning Rule Update an earning rule definition.
+        /// Update Earning Rule &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Update an earning rule definition.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -13800,6 +14199,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesEarningRulesUpdateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesEarningRulesUpdateResponseBody>> UpdateEarningRuleWithHttpInfoAsync(string campaignId, string earningRuleId, LoyaltiesEarningRulesUpdateRequestBody loyaltiesEarningRulesUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -13894,13 +14294,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// Adjust Loyalty Card Balance &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = UpdateLoyaltyCardBalanceWithHttpInfo(memberId, loyaltiesMembersBalanceUpdateRequestBody);
@@ -13908,13 +14309,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// Adjust Loyalty Card Balance &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceWithHttpInfo(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'memberId' is set
@@ -14001,7 +14403,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// Adjust Loyalty Card Balance &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -14009,6 +14411,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalanceAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = await UpdateLoyaltyCardBalanceWithHttpInfoAsync(memberId, loyaltiesMembersBalanceUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -14016,7 +14419,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.  📘 Alternative endpoint  This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter.
+        /// Adjust Loyalty Card Balance &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method gives adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt; &lt;Note&gt; &lt;Badge color blue&gt;Alternative endpoint&lt;/Badge&gt; This endpoint is an alternative to this [endpoint](/api-reference/loyalties/adjust-loyalty-card-balance-with-campaign-id). The URL was re-designed to allow you to add or remove loyalty card balance without having to provide the campaignId as a path parameter. &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="memberId">Unique loyalty card assigned to a particular customer.</param>
@@ -14024,6 +14427,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalanceWithHttpInfoAsync(string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'memberId' is set
@@ -14111,7 +14515,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance with campaign ID This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// Adjust Loyalty Card Balance with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -14119,6 +14523,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         public LoyaltiesMembersBalanceUpdateResponseBody UpdateLoyaltyCardBalance1(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = UpdateLoyaltyCardBalance1WithHttpInfo(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody);
@@ -14126,7 +14531,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance with campaign ID This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// Adjust Loyalty Card Balance with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -14134,6 +14539,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesMembersBalanceUpdateRequestBody">Specify the point adjustment along with the expiration mechanism.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1WithHttpInfo(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -14227,7 +14633,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance with campaign ID This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// Adjust Loyalty Card Balance with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -14236,6 +14642,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesMembersBalanceUpdateResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesMembersBalanceUpdateResponseBody> UpdateLoyaltyCardBalance1Async(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody> localVarResponse = await UpdateLoyaltyCardBalance1WithHttpInfoAsync(campaignId, memberId, loyaltiesMembersBalanceUpdateRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -14243,7 +14650,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Adjust Loyalty Card Balance with campaign ID This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &gt;🚧 Async Action    This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls.
+        /// Adjust Loyalty Card Balance with campaign ID &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; This method adds or removes balance to an existing loyalty card that is assigned to a holder. The removal of points will consume the points that expire the soonest.   &lt;Warning&gt; &lt;Badge color yellow&gt;Async Action&lt;/Badge&gt; This is an async action. If you want to perform several add or remove loyalty card balance actions in a short time and their order matters, set up sufficient time-out between the calls. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">Unique campaign ID.</param>
@@ -14252,6 +14659,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesMembersBalanceUpdateResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesMembersBalanceUpdateResponseBody>> UpdateLoyaltyCardBalance1WithHttpInfoAsync(string campaignId, string memberId, LoyaltiesMembersBalanceUpdateRequestBody loyaltiesMembersBalanceUpdateRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -14346,13 +14754,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Loyalty Campaign Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// Update Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesUpdateCampaignResponseBody</returns>
+        [Obsolete]
         public LoyaltiesUpdateCampaignResponseBody UpdateLoyaltyProgram(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> localVarResponse = UpdateLoyaltyProgramWithHttpInfo(campaignId, loyaltiesUpdateCampaignRequestBody);
@@ -14360,13 +14769,14 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Loyalty Campaign Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// Update Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
         /// <param name="loyaltiesUpdateCampaignRequestBody">Specify the new values for the parameters that you would like to update for the given loyalty campaign.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesUpdateCampaignResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramWithHttpInfo(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -14453,7 +14863,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Loyalty Campaign Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// Update Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -14461,6 +14871,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesUpdateCampaignResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesUpdateCampaignResponseBody> UpdateLoyaltyProgramAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody> localVarResponse = await UpdateLoyaltyProgramWithHttpInfoAsync(campaignId, loyaltiesUpdateCampaignRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -14468,7 +14879,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Loyalty Campaign Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
+        /// Update Loyalty Campaign &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates a loyalty program.  Fields other than those specified in the allowed request body payload wont be modified (even if provided they are silently skipped). Any parameters not provided will be left unchanged.  This method will update the [loyalty cards](/api-reference/loyalties/get-member) which have not been published or redeemed yet.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -14476,6 +14887,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesUpdateCampaignResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesUpdateCampaignResponseBody>> UpdateLoyaltyProgramWithHttpInfoAsync(string campaignId, LoyaltiesUpdateCampaignRequestBody loyaltiesUpdateCampaignRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
@@ -14563,7 +14975,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Reward Assignment Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// Update Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -14571,6 +14983,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
+        [Obsolete]
         public LoyaltiesRewardsUpdateAssignmentResponseBody UpdateRewardAssignment1(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0)
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> localVarResponse = UpdateRewardAssignment1WithHttpInfo(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody);
@@ -14578,7 +14991,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Reward Assignment Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// Update Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -14586,6 +14999,7 @@ namespace Voucherify.Api
         /// <param name="loyaltiesRewardsUpdateAssignmentRequestBody">Update the points cost for the reward assignment.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
+        [Obsolete]
         public Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1WithHttpInfo(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0)
         {
             // verify the required parameter 'campaignId' is set
@@ -14679,7 +15093,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Reward Assignment Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// Update Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -14688,6 +15102,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesRewardsUpdateAssignmentResponseBody</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<LoyaltiesRewardsUpdateAssignmentResponseBody> UpdateRewardAssignment1Async(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody> localVarResponse = await UpdateRewardAssignment1WithHttpInfoAsync(campaignId, assignmentId, loyaltiesRewardsUpdateAssignmentRequestBody, operationIndex, cancellationToken).ConfigureAwait(false);
@@ -14695,7 +15110,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Reward Assignment Updates rewards parameters, i.e. the points cost for the specific reward.
+        /// Update Campaign Reward Assignment &lt;Warning&gt; &lt;Badge color yellow&gt;Legacy loyalty API&lt;/Badge&gt; This endpoint belongs to the legacy loyalty API (/v1/loyalties). Voucherify will not develop new features for this API. However, critical issues may still receive fixes. For new integrations, use [Loyalty v2](/build/loyalty-overview). If you have questions, contact [Voucherify support](https://www.voucherify.io/contact-support Contact Voucherify support). &lt;/Warning&gt; Updates rewards parameters, i.e. the points cost for the specific reward.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. </param>
@@ -14704,6 +15119,7 @@ namespace Voucherify.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesRewardsUpdateAssignmentResponseBody)</returns>
+        [Obsolete]
         public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<LoyaltiesRewardsUpdateAssignmentResponseBody>> UpdateRewardAssignment1WithHttpInfoAsync(string campaignId, string assignmentId, LoyaltiesRewardsUpdateAssignmentRequestBody loyaltiesRewardsUpdateAssignmentRequestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'campaignId' is set
