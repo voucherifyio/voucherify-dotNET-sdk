@@ -193,7 +193,31 @@ namespace Voucherify.Model
             /// Enum ExpiresAt2 for value: expires_at
             /// </summary>
             [EnumMember(Value = "expires_at")]
-            ExpiresAt2 = 26
+            ExpiresAt2 = 26,
+
+            /// <summary>
+            /// Enum ProductId for value: -product_id
+            /// </summary>
+            [EnumMember(Value = "-product_id")]
+            ProductId = 27,
+
+            /// <summary>
+            /// Enum ProductId2 for value: product_id
+            /// </summary>
+            [EnumMember(Value = "product_id")]
+            ProductId2 = 28,
+
+            /// <summary>
+            /// Enum Sku for value: -sku
+            /// </summary>
+            [EnumMember(Value = "-sku")]
+            Sku = 29,
+
+            /// <summary>
+            /// Enum Sku2 for value: sku
+            /// </summary>
+            [EnumMember(Value = "sku")]
+            Sku2 = 30
         }
 
 
@@ -761,15 +785,51 @@ namespace Voucherify.Model
             /// Enum Details for value: details
             /// </summary>
             [EnumMember(Value = "details")]
-            Details = 89
+            Details = 89,
+
+            /// <summary>
+            /// Enum Price for value: price
+            /// </summary>
+            [EnumMember(Value = "price")]
+            Price = 90,
+
+            /// <summary>
+            /// Enum ImageUrl for value: image_url
+            /// </summary>
+            [EnumMember(Value = "image_url")]
+            ImageUrl = 91,
+
+            /// <summary>
+            /// Enum Attributes for value: attributes
+            /// </summary>
+            [EnumMember(Value = "attributes")]
+            Attributes = 92,
+
+            /// <summary>
+            /// Enum Sku for value: sku
+            /// </summary>
+            [EnumMember(Value = "sku")]
+            Sku = 93,
+
+            /// <summary>
+            /// Enum ProductId for value: product_id
+            /// </summary>
+            [EnumMember(Value = "product_id")]
+            ProductId = 94,
+
+            /// <summary>
+            /// Enum Currency for value: currency
+            /// </summary>
+            [EnumMember(Value = "currency")]
+            Currency = 95
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportsCreateRequestBodyParameters" /> class.
         /// </summary>
         /// <param name="order">order.</param>
-        /// <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file..</param>
-        /// <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;.</param>
+        /// <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;..</param>
+        /// <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;.</param>
         /// <param name="campaignId">Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered..</param>
         public ExportsCreateRequestBodyParameters(OrderEnum? order = default(OrderEnum?), List<FieldsEnum> fields = default(List<FieldsEnum>), Object filters = default(Object), string campaignId = default(string))
         {
@@ -796,9 +856,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Array of strings containing the data in the export. These fields define the headers in the CSV file.
+        /// Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.
         /// </summary>
-        /// <value>Array of strings containing the data in the export. These fields define the headers in the CSV file.</value>
+        /// <value>Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.</value>
         [DataMember(Name = "fields", EmitDefaultValue = true)]
         public List<ExportsCreateRequestBodyParameters.FieldsEnum> Fields
         {
@@ -821,9 +881,9 @@ namespace Voucherify.Model
             return _flagFields;
         }
         /// <summary>
-        /// Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
+        /// Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;
         /// </summary>
-        /// <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;</value>
+        /// <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;</value>
         [DataMember(Name = "filters", EmitDefaultValue = true)]
         public Object Filters
         {

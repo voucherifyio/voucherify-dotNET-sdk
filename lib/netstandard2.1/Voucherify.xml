@@ -3154,7 +3154,7 @@
             Delete Customer Permanently
             </summary>
             <remarks>
-            The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3166,7 +3166,7 @@
             Delete Customer Permanently
             </summary>
             <remarks>
-            The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3178,7 +3178,7 @@
             Delete Customer
             </summary>
             <remarks>
-            This method deletes a customer.
+            This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3190,7 +3190,7 @@
             Delete Customer
             </summary>
             <remarks>
-            This method deletes a customer.
+            This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3499,7 +3499,7 @@
             Delete Customer Permanently
             </summary>
             <remarks>
-            The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3512,7 +3512,7 @@
             Delete Customer Permanently
             </summary>
             <remarks>
-            The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3525,7 +3525,7 @@
             Delete Customer
             </summary>
             <remarks>
-            This method deletes a customer.
+            This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3538,7 +3538,7 @@
             Delete Customer
             </summary>
             <remarks>
-            This method deletes a customer.
+            This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3936,7 +3936,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.CustomerPermanentlyDeletion(System.String,System.Int32)">
             <summary>
-            Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3945,7 +3945,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.CustomerPermanentlyDeletionWithHttpInfo(System.String,System.Int32)">
             <summary>
-            Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3954,7 +3954,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.CustomerPermanentlyDeletionAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3964,7 +3964,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.CustomerPermanentlyDeletionWithHttpInfoAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+            Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3974,7 +3974,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.DeleteCustomer(System.String,System.Int32)">
             <summary>
-            Delete Customer This method deletes a customer.
+            Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3983,7 +3983,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.DeleteCustomerWithHttpInfo(System.String,System.Int32)">
             <summary>
-            Delete Customer This method deletes a customer.
+            Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -3992,7 +3992,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.DeleteCustomerAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Delete Customer This method deletes a customer.
+            Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -4002,7 +4002,7 @@
         </member>
         <member name="M:Voucherify.Api.CustomersApi.DeleteCustomerWithHttpInfoAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Delete Customer This method deletes a customer.
+            Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -4626,7 +4626,7 @@
             Create Export
             </summary>
             <remarks>
-            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4638,7 +4638,7 @@
             Create Export
             </summary>
             <remarks>
-            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4653,7 +4653,7 @@
             This method deletes a previously created export object.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns></returns>
         </member>
@@ -4665,7 +4665,7 @@
             This method deletes a previously created export object.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns>ApiResponse of Object(void)</returns>
         </member>
@@ -4703,7 +4703,7 @@
             Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns>ExportsGetResponseBody</returns>
         </member>
@@ -4715,7 +4715,7 @@
             Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns>ApiResponse of ExportsGetResponseBody</returns>
         </member>
@@ -4757,7 +4757,7 @@
             Create Export
             </summary>
             <remarks>
-            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4770,7 +4770,7 @@
             Create Export
             </summary>
             <remarks>
-            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4786,7 +4786,7 @@
             This method deletes a previously created export object.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of void</returns>
@@ -4799,7 +4799,7 @@
             This method deletes a previously created export object.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of ApiResponse</returns>
@@ -4840,7 +4840,7 @@
             Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of ExportsGetResponseBody</returns>
@@ -4853,7 +4853,7 @@
             Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of ApiResponse (ExportsGetResponseBody)</returns>
@@ -4956,7 +4956,7 @@
         </member>
         <member name="M:Voucherify.Api.ExportsApi.CreateExport(Voucherify.Model.ExportsCreateRequestBody,System.Int32)">
             <summary>
-            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4965,7 +4965,7 @@
         </member>
         <member name="M:Voucherify.Api.ExportsApi.CreateExportWithHttpInfo(Voucherify.Model.ExportsCreateRequestBody,System.Int32)">
             <summary>
-            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4974,7 +4974,7 @@
         </member>
         <member name="M:Voucherify.Api.ExportsApi.CreateExportAsync(Voucherify.Model.ExportsCreateRequestBody,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4984,7 +4984,7 @@
         </member>
         <member name="M:Voucherify.Api.ExportsApi.CreateExportWithHttpInfoAsync(Voucherify.Model.ExportsCreateRequestBody,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions   
+            Create Export Create export object. The export can be any of the following types: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.   # Defaults If you only specify the object type in the request body without specifying the fields, the API will return the following fields per export object:   &lt;Note&gt; &lt;Badge color blue&gt;Date and time in the export API&lt;/Badge&gt; The exported date and times are always provided in the UTC time zone. &lt;/Note&gt; # Fetching particular data sets Using the parameters body parameter, you can narrow down which fields to export and how to filter the results. The fields are an array of strings containing the data that you would like to export. These fields define the headers in the CSV file. The array can be a combination of any of the following available fields: # Orders     # Vouchers        # Publications   # Redemptions    # Customers       # Points Expirations    # Gift Card Transactions    # Loyalty Card Transactions    # Products   # SKUs   
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="exportsCreateRequestBody">Specify the details of the export that you would like to create.</param>
@@ -4997,7 +4997,7 @@
             Delete Export This method deletes a previously created export object.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns></returns>
         </member>
@@ -5006,7 +5006,7 @@
             Delete Export This method deletes a previously created export object.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns>ApiResponse of Object(void)</returns>
         </member>
@@ -5015,7 +5015,7 @@
             Delete Export This method deletes a previously created export object.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of void</returns>
@@ -5025,7 +5025,7 @@
             Delete Export This method deletes a previously created export object.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of ApiResponse</returns>
@@ -5077,7 +5077,7 @@
             Get Export Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns>ExportsGetResponseBody</returns>
         </member>
@@ -5086,7 +5086,7 @@
             Get Export Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <returns>ApiResponse of ExportsGetResponseBody</returns>
         </member>
@@ -5095,7 +5095,7 @@
             Get Export Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of ExportsGetResponseBody</returns>
@@ -5105,7 +5105,7 @@
             Get Export Retrieves the URL of the downloadable file, which was generated via the [Create Export](/api-reference/exports/create-export) method.
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, or voucher_transactions.</param>
+            <param name="exportId">Unique export object ID of previously created export. This object can be a: voucher, redemption, publication, customer, order, points_expiration, voucher_transactions, product, or sku.</param>
             <param name="operationIndex">Index associated with the operation.</param>
             <param name="cancellationToken">Cancellation Token to cancel the request.</param>
             <returns>Task of ApiResponse (ExportsGetResponseBody)</returns>
@@ -15830,7 +15830,7 @@
             Delete Product Collection
             </summary>
             <remarks>
-            This method deletes a product collection.
+            Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -15842,7 +15842,7 @@
             Delete Product Collection
             </summary>
             <remarks>
-            This method deletes a product collection.
+            Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -15969,7 +15969,7 @@
             Delete Product Collection
             </summary>
             <remarks>
-            This method deletes a product collection.
+            Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -15982,7 +15982,7 @@
             Delete Product Collection
             </summary>
             <remarks>
-            This method deletes a product collection.
+            Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </remarks>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -16186,7 +16186,7 @@
         </member>
         <member name="M:Voucherify.Api.ProductCollectionsApi.DeleteProductCollection(System.String,System.Int32)">
             <summary>
-            Delete Product Collection This method deletes a product collection.
+            Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -16195,7 +16195,7 @@
         </member>
         <member name="M:Voucherify.Api.ProductCollectionsApi.DeleteProductCollectionWithHttpInfo(System.String,System.Int32)">
             <summary>
-            Delete Product Collection This method deletes a product collection.
+            Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -16204,7 +16204,7 @@
         </member>
         <member name="M:Voucherify.Api.ProductCollectionsApi.DeleteProductCollectionAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Delete Product Collection This method deletes a product collection.
+            Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -16214,7 +16214,7 @@
         </member>
         <member name="M:Voucherify.Api.ProductCollectionsApi.DeleteProductCollectionWithHttpInfoAsync(System.String,System.Int32,System.Threading.CancellationToken)">
             <summary>
-            Delete Product Collection This method deletes a product collection.
+            Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
             </summary>
             <exception cref="T:Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
             <param name="productCollectionId">A unique product collection ID.</param>
@@ -52914,20 +52914,20 @@
         </member>
         <member name="T:Voucherify.Model.ErrorError">
             <summary>
-            Includes additional information about the error.
+            Includes the resolved custom validation-rule error message when one is configured.
             </summary>
         </member>
         <member name="M:Voucherify.Model.ErrorError.#ctor(System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ErrorError" /> class.
             </summary>
-            <param name="message">The message configured by the user in a validation rule..</param>
+            <param name="message">Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved..</param>
         </member>
         <member name="P:Voucherify.Model.ErrorError.Message">
             <summary>
-            The message configured by the user in a validation rule.
+            Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved.
             </summary>
-            <value>The message configured by the user in a validation rule.</value>
+            <value>Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved.</value>
         </member>
         <member name="M:Voucherify.Model.ErrorError.ShouldSerializeMessage">
             <summary>
@@ -53563,6 +53563,16 @@
             Enum VoucherTransactions for value: voucher_transactions
             </summary>
         </member>
+        <member name="F:Voucherify.Model.Export.ExportedObjectEnum.Product">
+            <summary>
+            Enum Product for value: product
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.Export.ExportedObjectEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
+            </summary>
+        </member>
         <member name="P:Voucherify.Model.Export.ExportedObject">
             <summary>
             Gets or Sets ExportedObject
@@ -53985,6 +53995,26 @@
         <member name="F:Voucherify.Model.ExportParameters.OrderEnum.ExpiresAt2">
             <summary>
             Enum ExpiresAt2 for value: expires_at
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.OrderEnum.ProductId">
+            <summary>
+            Enum ProductId for value: -product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.OrderEnum.ProductId2">
+            <summary>
+            Enum ProductId2 for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.OrderEnum.Sku">
+            <summary>
+            Enum Sku for value: -sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.OrderEnum.Sku2">
+            <summary>
+            Enum Sku2 for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportParameters.Order">
@@ -54448,20 +54478,50 @@
             Enum Details for value: details
             </summary>
         </member>
+        <member name="F:Voucherify.Model.ExportParameters.FieldsEnum.Price">
+            <summary>
+            Enum Price for value: price
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.FieldsEnum.ImageUrl">
+            <summary>
+            Enum ImageUrl for value: image_url
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.FieldsEnum.Attributes">
+            <summary>
+            Enum Attributes for value: attributes
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.FieldsEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.FieldsEnum.ProductId">
+            <summary>
+            Enum ProductId for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportParameters.FieldsEnum.Currency">
+            <summary>
+            Enum Currency for value: currency
+            </summary>
+        </member>
         <member name="M:Voucherify.Model.ExportParameters.#ctor(System.Nullable{Voucherify.Model.ExportParameters.OrderEnum},System.Collections.Generic.List{Voucherify.Model.ExportParameters.FieldsEnum},System.Object,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ExportParameters" /> class.
             </summary>
             <param name="order">order.</param>
-            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file..</param>
-            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;.</param>
+            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;..</param>
+            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;.</param>
             <param name="campaignId">Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered..</param>
         </member>
         <member name="P:Voucherify.Model.ExportParameters.Fields">
             <summary>
-            Array of strings containing the data in the export. These fields define the headers in the CSV file.
+            Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.
             </summary>
-            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file.</value>
+            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.</value>
         </member>
         <member name="M:Voucherify.Model.ExportParameters.ShouldSerializeFields">
             <summary>
@@ -54471,9 +54531,9 @@
         </member>
         <member name="P:Voucherify.Model.ExportParameters.Filters">
             <summary>
-            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
+            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;
             </summary>
-            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;</value>
+            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;</value>
         </member>
         <member name="M:Voucherify.Model.ExportParameters.ShouldSerializeFilters">
             <summary>
@@ -54597,6 +54657,16 @@
         <member name="F:Voucherify.Model.ExportsCreateRequestBody.ExportedObjectEnum.VoucherTransactions">
             <summary>
             Enum VoucherTransactions for value: voucher_transactions
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBody.ExportedObjectEnum.Product">
+            <summary>
+            Enum Product for value: product
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBody.ExportedObjectEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportsCreateRequestBody.ExportedObject">
@@ -54785,6 +54855,26 @@
         <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.OrderEnum.ExpiresAt2">
             <summary>
             Enum ExpiresAt2 for value: expires_at
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.OrderEnum.ProductId">
+            <summary>
+            Enum ProductId for value: -product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.OrderEnum.ProductId2">
+            <summary>
+            Enum ProductId2 for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.OrderEnum.Sku">
+            <summary>
+            Enum Sku for value: -sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.OrderEnum.Sku2">
+            <summary>
+            Enum Sku2 for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportsCreateRequestBodyParameters.Order">
@@ -55248,20 +55338,50 @@
             Enum Details for value: details
             </summary>
         </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum.Price">
+            <summary>
+            Enum Price for value: price
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum.ImageUrl">
+            <summary>
+            Enum ImageUrl for value: image_url
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum.Attributes">
+            <summary>
+            Enum Attributes for value: attributes
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum.ProductId">
+            <summary>
+            Enum ProductId for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum.Currency">
+            <summary>
+            Enum Currency for value: currency
+            </summary>
+        </member>
         <member name="M:Voucherify.Model.ExportsCreateRequestBodyParameters.#ctor(System.Nullable{Voucherify.Model.ExportsCreateRequestBodyParameters.OrderEnum},System.Collections.Generic.List{Voucherify.Model.ExportsCreateRequestBodyParameters.FieldsEnum},System.Object,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ExportsCreateRequestBodyParameters" /> class.
             </summary>
             <param name="order">order.</param>
-            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file..</param>
-            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;.</param>
+            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;..</param>
+            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;.</param>
             <param name="campaignId">Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered..</param>
         </member>
         <member name="P:Voucherify.Model.ExportsCreateRequestBodyParameters.Fields">
             <summary>
-            Array of strings containing the data in the export. These fields define the headers in the CSV file.
+            Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.
             </summary>
-            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file.</value>
+            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.</value>
         </member>
         <member name="M:Voucherify.Model.ExportsCreateRequestBodyParameters.ShouldSerializeFields">
             <summary>
@@ -55271,9 +55391,9 @@
         </member>
         <member name="P:Voucherify.Model.ExportsCreateRequestBodyParameters.Filters">
             <summary>
-            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
+            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;
             </summary>
-            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;</value>
+            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;</value>
         </member>
         <member name="M:Voucherify.Model.ExportsCreateRequestBodyParameters.ShouldSerializeFilters">
             <summary>
@@ -55401,6 +55521,16 @@
         <member name="F:Voucherify.Model.ExportsCreateResponseBody.ExportedObjectEnum.VoucherTransactions">
             <summary>
             Enum VoucherTransactions for value: voucher_transactions
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBody.ExportedObjectEnum.Product">
+            <summary>
+            Enum Product for value: product
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBody.ExportedObjectEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportsCreateResponseBody.ExportedObject">
@@ -55656,6 +55786,26 @@
         <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.OrderEnum.ExpiresAt2">
             <summary>
             Enum ExpiresAt2 for value: expires_at
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.OrderEnum.ProductId">
+            <summary>
+            Enum ProductId for value: -product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.OrderEnum.ProductId2">
+            <summary>
+            Enum ProductId2 for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.OrderEnum.Sku">
+            <summary>
+            Enum Sku for value: -sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.OrderEnum.Sku2">
+            <summary>
+            Enum Sku2 for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportsCreateResponseBodyParameters.Order">
@@ -56119,20 +56269,50 @@
             Enum Details for value: details
             </summary>
         </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum.Price">
+            <summary>
+            Enum Price for value: price
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum.ImageUrl">
+            <summary>
+            Enum ImageUrl for value: image_url
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum.Attributes">
+            <summary>
+            Enum Attributes for value: attributes
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum.ProductId">
+            <summary>
+            Enum ProductId for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum.Currency">
+            <summary>
+            Enum Currency for value: currency
+            </summary>
+        </member>
         <member name="M:Voucherify.Model.ExportsCreateResponseBodyParameters.#ctor(System.Nullable{Voucherify.Model.ExportsCreateResponseBodyParameters.OrderEnum},System.Collections.Generic.List{Voucherify.Model.ExportsCreateResponseBodyParameters.FieldsEnum},System.Object,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ExportsCreateResponseBodyParameters" /> class.
             </summary>
             <param name="order">order.</param>
-            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file..</param>
-            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;.</param>
+            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;..</param>
+            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;.</param>
             <param name="campaignId">Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered..</param>
         </member>
         <member name="P:Voucherify.Model.ExportsCreateResponseBodyParameters.Fields">
             <summary>
-            Array of strings containing the data in the export. These fields define the headers in the CSV file.
+            Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.
             </summary>
-            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file.</value>
+            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.</value>
         </member>
         <member name="M:Voucherify.Model.ExportsCreateResponseBodyParameters.ShouldSerializeFields">
             <summary>
@@ -56142,9 +56322,9 @@
         </member>
         <member name="P:Voucherify.Model.ExportsCreateResponseBodyParameters.Filters">
             <summary>
-            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
+            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;
             </summary>
-            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;</value>
+            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;</value>
         </member>
         <member name="M:Voucherify.Model.ExportsCreateResponseBodyParameters.ShouldSerializeFilters">
             <summary>
@@ -56287,6 +56467,16 @@
         <member name="F:Voucherify.Model.ExportsGetResponseBody.ExportedObjectEnum.VoucherTransactions">
             <summary>
             Enum VoucherTransactions for value: voucher_transactions
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBody.ExportedObjectEnum.Product">
+            <summary>
+            Enum Product for value: product
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBody.ExportedObjectEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportsGetResponseBody.ExportedObject">
@@ -56541,6 +56731,26 @@
         <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.OrderEnum.ExpiresAt2">
             <summary>
             Enum ExpiresAt2 for value: expires_at
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.OrderEnum.ProductId">
+            <summary>
+            Enum ProductId for value: -product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.OrderEnum.ProductId2">
+            <summary>
+            Enum ProductId2 for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.OrderEnum.Sku">
+            <summary>
+            Enum Sku for value: -sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.OrderEnum.Sku2">
+            <summary>
+            Enum Sku2 for value: sku
             </summary>
         </member>
         <member name="P:Voucherify.Model.ExportsGetResponseBodyParameters.Order">
@@ -57004,20 +57214,50 @@
             Enum Details for value: details
             </summary>
         </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum.Price">
+            <summary>
+            Enum Price for value: price
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum.ImageUrl">
+            <summary>
+            Enum ImageUrl for value: image_url
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum.Attributes">
+            <summary>
+            Enum Attributes for value: attributes
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum.Sku">
+            <summary>
+            Enum Sku for value: sku
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum.ProductId">
+            <summary>
+            Enum ProductId for value: product_id
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum.Currency">
+            <summary>
+            Enum Currency for value: currency
+            </summary>
+        </member>
         <member name="M:Voucherify.Model.ExportsGetResponseBodyParameters.#ctor(System.Nullable{Voucherify.Model.ExportsGetResponseBodyParameters.OrderEnum},System.Collections.Generic.List{Voucherify.Model.ExportsGetResponseBodyParameters.FieldsEnum},System.Object,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ExportsGetResponseBodyParameters" /> class.
             </summary>
             <param name="order">order.</param>
-            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file..</param>
-            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;.</param>
+            <param name="fields">Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;..</param>
+            <param name="filters">Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;.</param>
             <param name="campaignId">Unique identifier of the campaign. It is assigned by Voucherify. The campaign ID defines the campaign for which the voucher export will be triggered..</param>
         </member>
         <member name="P:Voucherify.Model.ExportsGetResponseBodyParameters.Fields">
             <summary>
-            Array of strings containing the data in the export. These fields define the headers in the CSV file.
+            Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.
             </summary>
-            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file.</value>
+            <value>Array of strings containing the data in the export. These fields define the headers in the CSV file. and Array of strings containing the data in the export. These fields define the headers in the CSV file. The &#x60;metadata&#x60; field expands into one CSV column per metadata property. You can also pass specific properties as &#x60;metadata.&lt;property_name&gt;&#x60;.</value>
         </member>
         <member name="M:Voucherify.Model.ExportsGetResponseBodyParameters.ShouldSerializeFields">
             <summary>
@@ -57027,9 +57267,9 @@
         </member>
         <member name="P:Voucherify.Model.ExportsGetResponseBodyParameters.Filters">
             <summary>
-            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;
+            Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;
             </summary>
-            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot;</value>
+            <value>Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;redemption.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;address.\&quot; or \&quot;summary.\&quot; or \&quot;loyalty.\&quot; or \&quot;loyalty_tier.\&quot; or \&quot;loyalty_points.\&quot; or \&quot;system_metadata.\&quot; and Allowed additional properties must start with \&quot;metadata.\&quot; or \&quot;attributes.\&quot;</value>
         </member>
         <member name="M:Voucherify.Model.ExportsGetResponseBodyParameters.ShouldSerializeFilters">
             <summary>
@@ -158716,7 +158956,7 @@
         </member>
         <member name="T:Voucherify.Model.RedemptionsRedeemRequestBodyOptions">
             <summary>
-            Configure parameters returned in the response.
+            Configure response expansion and the language of custom validation-rule error messages.
             </summary>
         </member>
         <member name="T:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.ExpandEnum">
@@ -158744,11 +158984,12 @@
             Enum Category for value: category
             </summary>
         </member>
-        <member name="M:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.#ctor(System.Collections.Generic.List{Voucherify.Model.RedemptionsRedeemRequestBodyOptions.ExpandEnum})">
+        <member name="M:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.#ctor(System.Collections.Generic.List{Voucherify.Model.RedemptionsRedeemRequestBodyOptions.ExpandEnum},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.RedemptionsRedeemRequestBodyOptions" /> class.
             </summary>
             <param name="expand">Expand array lets you configure params included in the response. Depending on the strings included in the array, the response will contain different details.   | **Expand Option** | **Response Body** | |:- --|:- --| | [\&quot;order\&quot;] | - Same response as fallback response (without an options object).&lt;br /&gt;- Order data with calculated discounts are listed in each child redeemable object.&lt;br /&gt;- Metadata not included for each discount type. | | [\&quot;redeemable\&quot;] | Expands redeemable objects by including &#x60;metadata&#x60; for each discount type. | | [\&quot;order\&quot;, \&quot;redeemable\&quot;] | - Order data with calculated discounts are listed in each child redeemable object.&lt;br /&gt;- Includes &#x60;metadata&#x60; for each discount type. | | [\&quot;redeemable\&quot;, \&quot;redemption\&quot;, \&quot;category\&quot;] | - Returns each discount type&#39;s &#x60;metadata&#x60; in each child redemption object.&lt;br /&gt;- Returns redemption object &#x60;metadata&#x60;.&lt;br /&gt;- Returns an expanded &#x60;categories&#x60; object, showing details about the category. |.</param>
+            <param name="language">Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved..</param>
         </member>
         <member name="P:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.Expand">
             <summary>
@@ -158759,6 +159000,18 @@
         <member name="M:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.ShouldSerializeExpand">
             <summary>
             Returns false as Expand should not be serialized given that it's read-only.
+            </summary>
+            <returns>false (boolean)</returns>
+        </member>
+        <member name="P:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.Language">
+            <summary>
+            Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.
+            </summary>
+            <value>Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.</value>
+        </member>
+        <member name="M:Voucherify.Model.RedemptionsRedeemRequestBodyOptions.ShouldSerializeLanguage">
+            <summary>
+            Returns false as Language should not be serialized given that it's read-only.
             </summary>
             <returns>false (boolean)</returns>
         </member>
@@ -173851,24 +174104,78 @@
         </member>
         <member name="T:Voucherify.Model.ValidationRuleError">
             <summary>
-            Contains the error message returned from API when validation / redemption fails to meet requirements of defined rules.
+            Defines the custom error returned when validation or redemption fails this rule. Use legacy &#x60;message&#x60;, &#x60;mode: MESSAGES&#x60; with per-language &#x60;messages&#x60;, or &#x60;mode: LIBRARY&#x60; with a library &#x60;key&#x60;. &#x60;MESSAGES&#x60; and &#x60;LIBRARY&#x60; are mutually exclusive. At validation or redemption time the API resolves this object to a single &#x60;{ message }&#x60; using &#x60;options.language&#x60;.
             </summary>
         </member>
-        <member name="M:Voucherify.Model.ValidationRuleError.#ctor(System.String)">
+        <member name="T:Voucherify.Model.ValidationRuleError.ModeEnum">
+            <summary>
+            Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
+            </summary>
+            <value>Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.</value>
+        </member>
+        <member name="F:Voucherify.Model.ValidationRuleError.ModeEnum.MESSAGES">
+            <summary>
+            Enum MESSAGES for value: MESSAGES
+            </summary>
+        </member>
+        <member name="F:Voucherify.Model.ValidationRuleError.ModeEnum.LIBRARY">
+            <summary>
+            Enum LIBRARY for value: LIBRARY
+            </summary>
+        </member>
+        <member name="P:Voucherify.Model.ValidationRuleError.Mode">
+            <summary>
+            Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
+            </summary>
+            <value>Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.</value>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeMode">
+            <summary>
+            Returns false as Mode should not be serialized given that it's read-only.
+            </summary>
+            <returns>false (boolean)</returns>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleError.#ctor(System.String,System.Nullable{Voucherify.Model.ValidationRuleError.ModeEnum},System.Collections.Generic.Dictionary{System.String,System.String},Voucherify.Model.ValidationRuleErrorLibrary)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRuleError" /> class.
             </summary>
-            <param name="message">The error message returned from API when validation / redemption fails to meet requirements of defined rules..</param>
+            <param name="message">Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation..</param>
+            <param name="mode">Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only..</param>
+            <param name="messages">Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;..</param>
+            <param name="library">library.</param>
         </member>
         <member name="P:Voucherify.Model.ValidationRuleError.Message">
             <summary>
-            The error message returned from API when validation / redemption fails to meet requirements of defined rules.
+            Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.
             </summary>
-            <value>The error message returned from API when validation / redemption fails to meet requirements of defined rules.</value>
+            <value>Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.</value>
         </member>
         <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeMessage">
             <summary>
             Returns false as Message should not be serialized given that it's read-only.
+            </summary>
+            <returns>false (boolean)</returns>
+        </member>
+        <member name="P:Voucherify.Model.ValidationRuleError.Messages">
+            <summary>
+            Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.
+            </summary>
+            <value>Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.</value>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeMessages">
+            <summary>
+            Returns false as Messages should not be serialized given that it's read-only.
+            </summary>
+            <returns>false (boolean)</returns>
+        </member>
+        <member name="P:Voucherify.Model.ValidationRuleError.Library">
+            <summary>
+            Gets or Sets Library
+            </summary>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeLibrary">
+            <summary>
+            Returns false as Library should not be serialized given that it's read-only.
             </summary>
             <returns>false (boolean)</returns>
         </member>
@@ -173885,6 +174192,48 @@
             <returns>JSON string presentation of the object</returns>
         </member>
         <member name="M:Voucherify.Model.ValidationRuleError.System#ComponentModel#DataAnnotations#IValidatableObject#Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            To validate all properties of the instance
+            </summary>
+            <param name="validationContext">Validation context</param>
+            <returns>Validation Result</returns>
+        </member>
+        <member name="T:Voucherify.Model.ValidationRuleErrorLibrary">
+            <summary>
+            References an Error Message Library entry. Required when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;.
+            </summary>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleErrorLibrary.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRuleErrorLibrary" /> class.
+            </summary>
+            <param name="key">Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;..</param>
+        </member>
+        <member name="P:Voucherify.Model.ValidationRuleErrorLibrary.Key">
+            <summary>
+            Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;.
+            </summary>
+            <value>Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;.</value>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleErrorLibrary.ShouldSerializeKey">
+            <summary>
+            Returns false as Key should not be serialized given that it's read-only.
+            </summary>
+            <returns>false (boolean)</returns>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleErrorLibrary.ToString">
+            <summary>
+            Returns the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleErrorLibrary.ToJson">
+            <summary>
+            Returns the JSON string presentation of the object
+            </summary>
+            <returns>JSON string presentation of the object</returns>
+        </member>
+        <member name="M:Voucherify.Model.ValidationRuleErrorLibrary.System#ComponentModel#DataAnnotations#IValidatableObject#Validate(System.ComponentModel.DataAnnotations.ValidationContext)">
             <summary>
             To validate all properties of the instance
             </summary>
@@ -174656,7 +175005,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesCreateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesCreateRequestBodyError,Voucherify.Model.ValidationRulesCreateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.ContextTypeEnum})">
+        <member name="M:Voucherify.Model.ValidationRulesCreateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesCreateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.ContextTypeEnum})">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesCreateRequestBody" /> class.
             </summary>
@@ -175191,7 +175540,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesCreateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesCreateResponseBodyError,Voucherify.Model.ValidationRulesCreateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
+        <member name="M:Voucherify.Model.ValidationRulesCreateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesCreateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesCreateResponseBody" /> class.
             </summary>
@@ -175791,7 +176140,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesGetResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesGetResponseBodyError,Voucherify.Model.ValidationRulesGetResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
+        <member name="M:Voucherify.Model.ValidationRulesGetResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesGetResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesGetResponseBody" /> class.
             </summary>
@@ -176472,7 +176821,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesUpdateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesUpdateRequestBodyError,Voucherify.Model.ValidationRulesUpdateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.ContextTypeEnum})">
+        <member name="M:Voucherify.Model.ValidationRulesUpdateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesUpdateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.ContextTypeEnum})">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesUpdateRequestBody" /> class.
             </summary>
@@ -177007,7 +177356,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesUpdateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesUpdateResponseBodyError,Voucherify.Model.ValidationRulesUpdateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
+        <member name="M:Voucherify.Model.ValidationRulesUpdateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesUpdateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesUpdateResponseBody" /> class.
             </summary>
@@ -177984,7 +178333,7 @@
         </member>
         <member name="T:Voucherify.Model.ValidationsValidateRequestBodyOptions">
             <summary>
-            Configure parameters returned in the response.
+            Configure response expansion and the language of custom validation-rule error messages.
             </summary>
         </member>
         <member name="T:Voucherify.Model.ValidationsValidateRequestBodyOptions.ExpandEnum">
@@ -178012,11 +178361,12 @@
             Enum Category for value: category
             </summary>
         </member>
-        <member name="M:Voucherify.Model.ValidationsValidateRequestBodyOptions.#ctor(System.Collections.Generic.List{Voucherify.Model.ValidationsValidateRequestBodyOptions.ExpandEnum})">
+        <member name="M:Voucherify.Model.ValidationsValidateRequestBodyOptions.#ctor(System.Collections.Generic.List{Voucherify.Model.ValidationsValidateRequestBodyOptions.ExpandEnum},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationsValidateRequestBodyOptions" /> class.
             </summary>
             <param name="expand">The expand array lets you configure the parameters included in the response. Depending on the strings included in the array, the response will contain different details.   | **Expand Option** | **Response Body** | |:- --|:- --| | [\&quot;order\&quot;] | - Same response as fallback response (without an options object).&lt;br /&gt;- Order data with calculated discounts are listed in each child redeemable object.&lt;br /&gt;- Metadata not included for each discount type. | | [\&quot;redeemable\&quot;] | Expands redeemable objects by including &#x60;metadata&#x60; for each discount type. | | [\&quot;order\&quot;, \&quot;redeemable\&quot;] | - Order data with calculated discounts are listed in each child redeemable object.&lt;br /&gt;- Includes &#x60;metadata&#x60; for each discount type. | | [\&quot;category\&quot;] | - Returns an expanded &#x60;categories&#x60; object, showing details about the category. |.</param>
+            <param name="language">Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved..</param>
         </member>
         <member name="P:Voucherify.Model.ValidationsValidateRequestBodyOptions.Expand">
             <summary>
@@ -178027,6 +178377,18 @@
         <member name="M:Voucherify.Model.ValidationsValidateRequestBodyOptions.ShouldSerializeExpand">
             <summary>
             Returns false as Expand should not be serialized given that it's read-only.
+            </summary>
+            <returns>false (boolean)</returns>
+        </member>
+        <member name="P:Voucherify.Model.ValidationsValidateRequestBodyOptions.Language">
+            <summary>
+            Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.
+            </summary>
+            <value>Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.</value>
+        </member>
+        <member name="M:Voucherify.Model.ValidationsValidateRequestBodyOptions.ShouldSerializeLanguage">
+            <summary>
+            Returns false as Language should not be serialized given that it's read-only.
             </summary>
             <returns>false (boolean)</returns>
         </member>

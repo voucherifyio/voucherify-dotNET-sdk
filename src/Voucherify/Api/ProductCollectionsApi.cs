@@ -55,7 +55,7 @@ namespace Voucherify.Api
         /// Delete Product Collection
         /// </summary>
         /// <remarks>
-        /// This method deletes a product collection.
+        /// Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -67,7 +67,7 @@ namespace Voucherify.Api
         /// Delete Product Collection
         /// </summary>
         /// <remarks>
-        /// This method deletes a product collection.
+        /// Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -193,7 +193,7 @@ namespace Voucherify.Api
         /// Delete Product Collection
         /// </summary>
         /// <remarks>
-        /// This method deletes a product collection.
+        /// Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -206,7 +206,7 @@ namespace Voucherify.Api
         /// Delete Product Collection
         /// </summary>
         /// <remarks>
-        /// This method deletes a product collection.
+        /// Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -621,7 +621,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Product Collection This method deletes a product collection.
+        /// Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -633,7 +633,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Product Collection This method deletes a product collection.
+        /// Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -716,7 +716,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Product Collection This method deletes a product collection.
+        /// Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>
@@ -729,7 +729,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Product Collection This method deletes a product collection.
+        /// Delete Product Collection Deletes a product collection. &lt;Warning&gt;This endpoint performs database-heavy operations. It is not designed for highly frequent use.&lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productCollectionId">A unique product collection ID.</param>

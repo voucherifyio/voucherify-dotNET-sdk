@@ -28,48 +28,51 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Includes the resolved custom validation-rule error message when one is configured.
+    /// References an Error Message Library entry. Required when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;.
     /// </summary>
-    [DataContract(Name = "ErrorError")]
-    public partial class ErrorError : IValidatableObject
+    [DataContract(Name = "ValidationRuleErrorLibrary")]
+    public partial class ValidationRuleErrorLibrary : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ErrorError" /> class.
+        /// Initializes a new instance of the <see cref="ValidationRuleErrorLibrary" /> class.
         /// </summary>
-        /// <param name="message">Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved..</param>
-        public ErrorError(string message = default(string))
+        /// <param name="key">Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;..</param>
+        public ValidationRuleErrorLibrary(string key = default(string))
         {
-            this._Message = message;
-            if (this.Message != null)
+            this._Key = key;
+            if (this.Key != null)
             {
-                this._flagMessage = true;
+                this._flagKey = true;
             }
         }
 
         /// <summary>
-        /// Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved.
+        /// Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;.
         /// </summary>
-        /// <value>Resolved custom validation-rule error message for &#x60;options.language&#x60;, falling back to the Error Message Library default language. Present only when a custom message can be resolved.</value>
-        [DataMember(Name = "message", EmitDefaultValue = true)]
-        public string Message
+        /// <value>Identifies the library message. Use a validation-rule name such as &#x60;order.amount&#x60;, or a custom attribute key such as &#x60;order.metadata.location&#x60;.</value>
+        /*
+        <example>order.amount</example>
+        */
+        [DataMember(Name = "key", EmitDefaultValue = true)]
+        public string Key
         {
-            get{ return _Message;}
+            get{ return _Key;}
             set
             {
-                _Message = value;
-                _flagMessage = true;
+                _Key = value;
+                _flagKey = true;
             }
         }
-        private string _Message;
-        private bool _flagMessage;
+        private string _Key;
+        private bool _flagKey;
 
         /// <summary>
-        /// Returns false as Message should not be serialized given that it's read-only.
+        /// Returns false as Key should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeMessage()
+        public bool ShouldSerializeKey()
         {
-            return _flagMessage;
+            return _flagKey;
         }
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,8 +81,8 @@ namespace Voucherify.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class ErrorError {\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("class ValidationRuleErrorLibrary {\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +103,12 @@ namespace Voucherify.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Key (string) maxLength
+            if (this.Key != null && this.Key.Length > 100)
+            {
+                yield return new ValidationResult("Invalid value for Key, length must be less than 100.", new [] { "Key" });
+            }
+
             yield break;
         }
     }

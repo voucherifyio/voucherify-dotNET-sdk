@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Configure parameters returned in the response.
+    /// Configure response expansion and the language of custom validation-rule error messages.
     /// </summary>
     [DataContract(Name = "ValidationsValidateRequestBodyOptions")]
     public partial class ValidationsValidateRequestBodyOptions : IValidatableObject
@@ -68,12 +68,18 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="ValidationsValidateRequestBodyOptions" /> class.
         /// </summary>
         /// <param name="expand">The expand array lets you configure the parameters included in the response. Depending on the strings included in the array, the response will contain different details.   | **Expand Option** | **Response Body** | |:- --|:- --| | [\&quot;order\&quot;] | - Same response as fallback response (without an options object).&lt;br /&gt;- Order data with calculated discounts are listed in each child redeemable object.&lt;br /&gt;- Metadata not included for each discount type. | | [\&quot;redeemable\&quot;] | Expands redeemable objects by including &#x60;metadata&#x60; for each discount type. | | [\&quot;order\&quot;, \&quot;redeemable\&quot;] | - Order data with calculated discounts are listed in each child redeemable object.&lt;br /&gt;- Includes &#x60;metadata&#x60; for each discount type. | | [\&quot;category\&quot;] | - Returns an expanded &#x60;categories&#x60; object, showing details about the category. |.</param>
-        public ValidationsValidateRequestBodyOptions(List<ExpandEnum> expand = default(List<ExpandEnum>))
+        /// <param name="language">Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved..</param>
+        public ValidationsValidateRequestBodyOptions(List<ExpandEnum> expand = default(List<ExpandEnum>), string language = default(string))
         {
             this._Expand = expand;
             if (this.Expand != null)
             {
                 this._flagExpand = true;
+            }
+            this._Language = language;
+            if (this.Language != null)
+            {
+                this._flagLanguage = true;
             }
         }
 
@@ -103,6 +109,34 @@ namespace Voucherify.Model
             return _flagExpand;
         }
         /// <summary>
+        /// Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.
+        /// </summary>
+        /// <value>Selects the language for the custom validation-rule error message. Returns the message in this language when a validation rule fails. Falls back to the Error Message Library default language when omitted or when the requested language has no message. Omits the custom error when no message can be resolved.</value>
+        /*
+        <example>pl</example>
+        */
+        [DataMember(Name = "language", EmitDefaultValue = true)]
+        public string Language
+        {
+            get{ return _Language;}
+            set
+            {
+                _Language = value;
+                _flagLanguage = true;
+            }
+        }
+        private string _Language;
+        private bool _flagLanguage;
+
+        /// <summary>
+        /// Returns false as Language should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLanguage()
+        {
+            return _flagLanguage;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,6 +145,7 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValidationsValidateRequestBodyOptions {\n");
             sb.Append("  Expand: ").Append(Expand).Append("\n");
+            sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +166,21 @@ namespace Voucherify.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Language (string) maxLength
+            if (this.Language != null && this.Language.Length > 100)
+            {
+                yield return new ValidationResult("Invalid value for Language, length must be less than 100.", new [] { "Language" });
+            }
+
+            if (this.Language != null) {
+                // Language (string) pattern
+                Regex regexLanguage = new Regex(@"^[a-zA-Z]{2,3}(-[a-zA-Z]{2,4})?$", RegexOptions.CultureInvariant);
+                if (!regexLanguage.Match(this.Language).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Language, must match a pattern of " + regexLanguage, new [] { "Language" });
+                }
+            }
+
             yield break;
         }
     }

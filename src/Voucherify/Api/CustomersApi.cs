@@ -55,7 +55,7 @@ namespace Voucherify.Api
         /// Delete Customer Permanently
         /// </summary>
         /// <remarks>
-        /// The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -67,7 +67,7 @@ namespace Voucherify.Api
         /// Delete Customer Permanently
         /// </summary>
         /// <remarks>
-        /// The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -78,7 +78,7 @@ namespace Voucherify.Api
         /// Delete Customer
         /// </summary>
         /// <remarks>
-        /// This method deletes a customer.
+        /// This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -90,7 +90,7 @@ namespace Voucherify.Api
         /// Delete Customer
         /// </summary>
         /// <remarks>
-        /// This method deletes a customer.
+        /// This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -392,7 +392,7 @@ namespace Voucherify.Api
         /// Delete Customer Permanently
         /// </summary>
         /// <remarks>
-        /// The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -405,7 +405,7 @@ namespace Voucherify.Api
         /// Delete Customer Permanently
         /// </summary>
         /// <remarks>
-        /// The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -417,7 +417,7 @@ namespace Voucherify.Api
         /// Delete Customer
         /// </summary>
         /// <remarks>
-        /// This method deletes a customer.
+        /// This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -430,7 +430,7 @@ namespace Voucherify.Api
         /// Delete Customer
         /// </summary>
         /// <remarks>
-        /// This method deletes a customer.
+        /// This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1033,7 +1033,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1046,7 +1046,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1130,7 +1130,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1144,7 +1144,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer Permanently The organization user can remove consumer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify.
+        /// Delete Customer Permanently The organization user can remove customer data permanently from the Voucherify system by using this API method. It deletes all customer data and connected resources. It makes the customer profile forgotten by Voucherify as per the GDPR.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1230,7 +1230,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer This method deletes a customer.
+        /// Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1242,7 +1242,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer This method deletes a customer.
+        /// Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1325,7 +1325,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer This method deletes a customer.
+        /// Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>
@@ -1338,7 +1338,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Delete Customer This method deletes a customer.
+        /// Delete Customer This method deletes a customer. The customer is permanently deleted. This means that a new customer with the same source_id can be created. &lt;Note&gt; &lt;Badge color blue&gt;GDPR compliance&lt;/Badge&gt; This method does NOT delete all related data, including personal data, from Voucherify databases. To delete these records and fulfil the right to be forgotten in the sense of the GDPR, use the [Delete Customer Permanently](/api-reference/customers/delete-customer-permanently) endpoint or go to [Delete people data](/manage/team-settings#delete-people-data) in the Voucherify [Team settings](/manage/team-settings). &lt;/Note&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerId">A Voucherify customers id or source_id.</param>

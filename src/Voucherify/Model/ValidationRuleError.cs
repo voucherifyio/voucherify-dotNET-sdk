@@ -28,28 +28,94 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Contains the error message returned from API when validation / redemption fails to meet requirements of defined rules.
+    /// Defines the custom error returned when validation or redemption fails this rule. Use legacy &#x60;message&#x60;, &#x60;mode: MESSAGES&#x60; with per-language &#x60;messages&#x60;, or &#x60;mode: LIBRARY&#x60; with a library &#x60;key&#x60;. &#x60;MESSAGES&#x60; and &#x60;LIBRARY&#x60; are mutually exclusive. At validation or redemption time the API resolves this object to a single &#x60;{ message }&#x60; using &#x60;options.language&#x60;.
     /// </summary>
     [DataContract(Name = "ValidationRuleError")]
     public partial class ValidationRuleError : IValidatableObject
     {
         /// <summary>
+        /// Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
+        /// </summary>
+        /// <value>Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.</value>
+        [JsonConverter(typeof(SafeEnumConverter<ModeEnum>))]
+        public enum ModeEnum
+        {
+            /// <summary>
+            /// Enum MESSAGES for value: MESSAGES
+            /// </summary>
+            [EnumMember(Value = "MESSAGES")]
+            MESSAGES = 1,
+
+            /// <summary>
+            /// Enum LIBRARY for value: LIBRARY
+            /// </summary>
+            [EnumMember(Value = "LIBRARY")]
+            LIBRARY = 2
+        }
+
+
+        /// <summary>
+        /// Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
+        /// </summary>
+        /// <value>Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.</value>
+
+        [JsonConverter(typeof(SafeEnumConverter<ModeEnum>))]
+        [DataMember(Name = "mode", EmitDefaultValue = true)]
+        public ModeEnum? Mode
+        {
+            get{ return _Mode;}
+            set
+            {
+                _Mode = value;
+                _flagMode = true;
+            }
+        }
+        private ModeEnum? _Mode;
+        private bool _flagMode;
+
+        /// <summary>
+        /// Returns false as Mode should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeMode()
+        {
+            return _flagMode;
+        }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ValidationRuleError" /> class.
         /// </summary>
-        /// <param name="message">The error message returned from API when validation / redemption fails to meet requirements of defined rules..</param>
-        public ValidationRuleError(string message = default(string))
+        /// <param name="message">Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation..</param>
+        /// <param name="mode">Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only..</param>
+        /// <param name="messages">Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;..</param>
+        /// <param name="library">library.</param>
+        public ValidationRuleError(string message = default(string), ModeEnum? mode = default(ModeEnum?), Dictionary<string, string> messages = default(Dictionary<string, string>), ValidationRuleErrorLibrary library = default(ValidationRuleErrorLibrary))
         {
             this._Message = message;
             if (this.Message != null)
             {
                 this._flagMessage = true;
             }
+            this._Mode = mode;
+            if (this.Mode != null)
+            {
+                this._flagMode = true;
+            }
+            this._Messages = messages;
+            if (this.Messages != null)
+            {
+                this._flagMessages = true;
+            }
+            this._Library = library;
+            if (this.Library != null)
+            {
+                this._flagLibrary = true;
+            }
         }
 
         /// <summary>
-        /// The error message returned from API when validation / redemption fails to meet requirements of defined rules.
+        /// Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.
         /// </summary>
-        /// <value>The error message returned from API when validation / redemption fails to meet requirements of defined rules.</value>
+        /// <value>Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.</value>
         [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message
         {
@@ -72,6 +138,55 @@ namespace Voucherify.Model
             return _flagMessage;
         }
         /// <summary>
+        /// Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.
+        /// </summary>
+        /// <value>Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.</value>
+        [DataMember(Name = "messages", EmitDefaultValue = true)]
+        public Dictionary<string, string> Messages
+        {
+            get{ return _Messages;}
+            set
+            {
+                _Messages = value;
+                _flagMessages = true;
+            }
+        }
+        private Dictionary<string, string> _Messages;
+        private bool _flagMessages;
+
+        /// <summary>
+        /// Returns false as Messages should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeMessages()
+        {
+            return _flagMessages;
+        }
+        /// <summary>
+        /// Gets or Sets Library
+        /// </summary>
+        [DataMember(Name = "library", EmitDefaultValue = true)]
+        public ValidationRuleErrorLibrary Library
+        {
+            get{ return _Library;}
+            set
+            {
+                _Library = value;
+                _flagLibrary = true;
+            }
+        }
+        private ValidationRuleErrorLibrary _Library;
+        private bool _flagLibrary;
+
+        /// <summary>
+        /// Returns false as Library should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLibrary()
+        {
+            return _flagLibrary;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -80,6 +195,9 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ValidationRuleError {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Mode: ").Append(Mode).Append("\n");
+            sb.Append("  Messages: ").Append(Messages).Append("\n");
+            sb.Append("  Library: ").Append(Library).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +218,12 @@ namespace Voucherify.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 255)
+            {
+                yield return new ValidationResult("Invalid value for Message, length must be less than 255.", new [] { "Message" });
+            }
+
             yield break;
         }
     }
