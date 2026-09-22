@@ -59,7 +59,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -71,7 +71,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -244,7 +244,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -257,7 +257,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -307,7 +307,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -320,7 +320,7 @@ namespace Voucherify.Api
         /// Create Validation Rules
         /// </summary>
         /// <remarks>
-        /// Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -506,7 +506,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -520,7 +520,7 @@ namespace Voucherify.Api
         /// Update Validation Rule
         /// </summary>
         /// <remarks>
-        /// Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -879,7 +879,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create Validation Rules Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -892,7 +892,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create Validation Rules Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -977,7 +977,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create Validation Rules Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -991,7 +991,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Validation Rules Create a validation rule.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Create Validation Rules Create a validation rule. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRulesCreateRequestBody">Specify the validation rules parameters.</param>
@@ -2390,7 +2390,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update Validation Rule Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -2404,7 +2404,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update Validation Rule Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -2497,7 +2497,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update Validation Rule Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>
@@ -2512,7 +2512,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Validation Rule Update validation rule parameters.  🚧 Managing validation rules  It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules.
+        /// Update Validation Rule Update validation rule parameters. &lt;Warning&gt; &lt;Badge color yellow&gt;Managing validation rules&lt;/Badge&gt; It is recommended to [create or update validation rules](/personalize/create-validation-rules) in the Voucherify dashboard. The rule builder in the dashboard helps configuring the desired conditions in a convenient way. The API should not be used as a preferable way to create and manage validation rules. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="validationRuleId">A unique validation rule ID.</param>

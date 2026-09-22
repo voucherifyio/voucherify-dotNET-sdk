@@ -86,7 +86,7 @@ namespace Voucherify.Api
         /// Create Campaign
         /// </summary>
         /// <remarks>
-        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -98,7 +98,7 @@ namespace Voucherify.Api
         /// Create Campaign
         /// </summary>
         /// <remarks>
-        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -134,7 +134,7 @@ namespace Voucherify.Api
         /// Disable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -146,7 +146,7 @@ namespace Voucherify.Api
         /// Disable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -157,7 +157,7 @@ namespace Voucherify.Api
         /// Enable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -169,7 +169,7 @@ namespace Voucherify.Api
         /// Enable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -180,7 +180,7 @@ namespace Voucherify.Api
         /// Export Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -193,7 +193,7 @@ namespace Voucherify.Api
         /// Export Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -228,7 +228,7 @@ namespace Voucherify.Api
         /// Get Campaign Summary
         /// </summary>
         /// <remarks>
-        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -242,7 +242,7 @@ namespace Voucherify.Api
         /// Get Campaign Summary
         /// </summary>
         /// <remarks>
-        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -305,7 +305,7 @@ namespace Voucherify.Api
         /// List Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -321,7 +321,7 @@ namespace Voucherify.Api
         /// List Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -375,7 +375,7 @@ namespace Voucherify.Api
         /// Update Campaign
         /// </summary>
         /// <remarks>
-        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -388,7 +388,7 @@ namespace Voucherify.Api
         /// Update Campaign
         /// </summary>
         /// <remarks>
-        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -467,7 +467,7 @@ namespace Voucherify.Api
         /// Create Campaign
         /// </summary>
         /// <remarks>
-        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -480,7 +480,7 @@ namespace Voucherify.Api
         /// Create Campaign
         /// </summary>
         /// <remarks>
-        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -519,7 +519,7 @@ namespace Voucherify.Api
         /// Disable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -532,7 +532,7 @@ namespace Voucherify.Api
         /// Disable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -544,7 +544,7 @@ namespace Voucherify.Api
         /// Enable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -557,7 +557,7 @@ namespace Voucherify.Api
         /// Enable Campaign
         /// </summary>
         /// <remarks>
-        /// There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -569,7 +569,7 @@ namespace Voucherify.Api
         /// Export Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -583,7 +583,7 @@ namespace Voucherify.Api
         /// Export Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -621,7 +621,7 @@ namespace Voucherify.Api
         /// Get Campaign Summary
         /// </summary>
         /// <remarks>
-        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -636,7 +636,7 @@ namespace Voucherify.Api
         /// Get Campaign Summary
         /// </summary>
         /// <remarks>
-        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -704,7 +704,7 @@ namespace Voucherify.Api
         /// List Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -721,7 +721,7 @@ namespace Voucherify.Api
         /// List Campaign Transactions
         /// </summary>
         /// <remarks>
-        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -778,7 +778,7 @@ namespace Voucherify.Api
         /// Update Campaign
         /// </summary>
         /// <remarks>
-        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -792,7 +792,7 @@ namespace Voucherify.Api
         /// Update Campaign
         /// </summary>
         /// <remarks>
-        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1386,7 +1386,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -1399,7 +1399,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -1484,7 +1484,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -1498,7 +1498,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.    📘 Global uniqueness  All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code.    🚧 Code generation status  This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description.
+        /// Create Campaign Method to create a batch of vouchers aggregated in one campaign. You can choose a variety of voucher types and define a unique pattern for generating codes.   &lt;Note&gt; &lt;Badge color blue&gt;Global uniqueness&lt;/Badge&gt; All campaign codes are unique across the whole project. Voucherify will not allow you to generate 2 campaigns with the same coupon code. &lt;/Note&gt; &lt;Warning&gt; &lt;Badge color yellow&gt;Code generation status&lt;/Badge&gt; This is an asynchronous action; you cant read or modify a newly created campaign until the code generation is completed. See the creation_status field in the [campaign object](/api-reference/campaigns/campaign-object) description. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignsCreateRequestBody">Specify the details of the campaign that you would like to create.</param>
@@ -1794,7 +1794,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Disable Campaign Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1807,7 +1807,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Disable Campaign Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1891,7 +1891,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Disable Campaign Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1905,7 +1905,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Disable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
+        /// Disable Campaign Sets campaign state to **inactive**. The vouchers in this campaign can no longer be redeemed.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being disabled. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -1991,7 +1991,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Enable Campaign Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -2004,7 +2004,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Enable Campaign Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -2088,7 +2088,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Enable Campaign Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -2102,7 +2102,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Enable Campaign There are various times when youll want to manage a campaigns accessibility. This can be done by two API methods for managing the campaign state - *enable* and *disable*.   Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
+        /// Enable Campaign Sets campaign state to **active**. The vouchers in this campaign can be redeemed - only if the redemption occurs after the start date of the campaign and voucher and the voucher and campaign are not expired.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">The campaign ID or name of the campaign being enabled. You can either pass the campaign ID, which was assigned by Voucherify or the name of the campaign as the path parameter value.</param>
@@ -2188,7 +2188,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2202,7 +2202,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2295,7 +2295,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2310,7 +2310,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:    👍 Export Loyalty Campaign Transactions  For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does.
+        /// Export Campaign Transactions Export transactions is an asynchronous process that generates a CSV file with the data about credit movements on all gift cards or point movements on all loyalty cards in a given campaign. To export transactions: 1. In the export request, use parameters to select which fields will be exported, in what order, and which data will be filtered. 2. Use the returned id to track the export status with the [GET Export](/api-reference/exports/get-export) method. 3. In the GET Export method, when the returned status field has the DONE value, the export file has been generated. 4. Use the URL in the result property to download the file. You must be logged to your Voucherify account on a given cluster in the browser to be able to download the file. An export request will almost always result in a single file being generated by the system. However, when the data volume is large, the system may split the results into multiple files. An example export file can look as follows:   &lt;Tip&gt; &lt;Badge color green&gt;Export Loyalty Campaign Transactions&lt;/Badge&gt; For loyalty campaigns, this method works in the same way the [POST Export Loyalty Campaign Transactions](/api-reference/loyalties/export-loyalty-campaign-transactions) does. &lt;/Tip&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2602,7 +2602,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2617,7 +2617,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2711,7 +2711,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -2727,7 +2727,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. 🚧 Campaigns created before 17 June 2025 This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data.
+        /// Get Campaign Summary Returns data for campaign analytics, covering validations, redemptions, publications, and other details specific to a given campaign type. Use start_date and end_date to narrow down the data to specific periods. &lt;Warning&gt; &lt;Badge color yellow&gt;Campaigns created before 17 June 2025&lt;/Badge&gt; This endpoint returns analytics data for campaigns that were created after 17 June 2025. Older campaigns return empty data. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -3251,7 +3251,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -3268,7 +3268,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -3383,7 +3383,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -3401,7 +3401,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier.  🚧  The endpoint works only for gift card and loyalty campaigns.
+        /// List Campaign Transactions Retrieves all transactions for the campaign with the given campaign ID or campaign name. The id filter denotes the unique transaction identifier. &lt;Warning&gt; The endpoint works only for gift card and loyalty campaigns. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -3945,7 +3945,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -3959,7 +3959,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -4052,7 +4052,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
@@ -4067,7 +4067,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.     🚧 Vouchers will be affected  This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet.
+        /// Update Campaign Updates the specified campaign by setting the values of the parameters passed in the request body. Any parameters not provided in the payload will be left unchanged.  Fields other than the ones listed in the request body wont be modified. Even if provided, they will be silently skipped.    &lt;Warning&gt; &lt;Badge color yellow&gt;Vouchers will be affected&lt;/Badge&gt; This method will update vouchers aggregated in the campaign. It will affect all vouchers that are not published or redeemed yet. &lt;/Warning&gt;
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="campaignId">You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value.</param>
