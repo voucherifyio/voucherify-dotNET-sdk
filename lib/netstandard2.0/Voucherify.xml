@@ -174104,78 +174104,24 @@
         </member>
         <member name="T:Voucherify.Model.ValidationRuleError">
             <summary>
-            Defines the custom error returned when validation or redemption fails this rule. Use legacy &#x60;message&#x60;, &#x60;mode: MESSAGES&#x60; with per-language &#x60;messages&#x60;, or &#x60;mode: LIBRARY&#x60; with a library &#x60;key&#x60;. &#x60;MESSAGES&#x60; and &#x60;LIBRARY&#x60; are mutually exclusive. At validation or redemption time the API resolves this object to a single &#x60;{ message }&#x60; using &#x60;options.language&#x60;.
+            Contains the error message returned from API when validation / redemption fails to meet requirements of defined rules.
             </summary>
         </member>
-        <member name="T:Voucherify.Model.ValidationRuleError.ModeEnum">
-            <summary>
-            Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
-            </summary>
-            <value>Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.</value>
-        </member>
-        <member name="F:Voucherify.Model.ValidationRuleError.ModeEnum.MESSAGES">
-            <summary>
-            Enum MESSAGES for value: MESSAGES
-            </summary>
-        </member>
-        <member name="F:Voucherify.Model.ValidationRuleError.ModeEnum.LIBRARY">
-            <summary>
-            Enum LIBRARY for value: LIBRARY
-            </summary>
-        </member>
-        <member name="P:Voucherify.Model.ValidationRuleError.Mode">
-            <summary>
-            Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.
-            </summary>
-            <value>Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only.</value>
-        </member>
-        <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeMode">
-            <summary>
-            Returns false as Mode should not be serialized given that it's read-only.
-            </summary>
-            <returns>false (boolean)</returns>
-        </member>
-        <member name="M:Voucherify.Model.ValidationRuleError.#ctor(System.String,System.Nullable{Voucherify.Model.ValidationRuleError.ModeEnum},System.Collections.Generic.Dictionary{System.String,System.String},Voucherify.Model.ValidationRuleErrorLibrary)">
+        <member name="M:Voucherify.Model.ValidationRuleError.#ctor(System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRuleError" /> class.
             </summary>
-            <param name="message">Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation..</param>
-            <param name="mode">Selects how the custom error is defined. &#x60;MESSAGES&#x60; stores per-language text in &#x60;messages&#x60;. &#x60;LIBRARY&#x60; references an Error Message Library entry in &#x60;library&#x60;. Omit &#x60;mode&#x60; to use the legacy &#x60;message&#x60; field only..</param>
-            <param name="messages">Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;..</param>
-            <param name="library">library.</param>
+            <param name="message">The error message returned from API when validation / redemption fails to meet requirements of defined rules..</param>
         </member>
         <member name="P:Voucherify.Model.ValidationRuleError.Message">
             <summary>
-            Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.
+            The error message returned from API when validation / redemption fails to meet requirements of defined rules.
             </summary>
-            <value>Legacy single-language error message. Used when &#x60;mode&#x60; is omitted. In &#x60;MESSAGES&#x60; mode, used when neither the requested language nor the default language has a translation.</value>
+            <value>The error message returned from API when validation / redemption fails to meet requirements of defined rules.</value>
         </member>
         <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeMessage">
             <summary>
             Returns false as Message should not be serialized given that it's read-only.
-            </summary>
-            <returns>false (boolean)</returns>
-        </member>
-        <member name="P:Voucherify.Model.ValidationRuleError.Messages">
-            <summary>
-            Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.
-            </summary>
-            <value>Per-language custom messages keyed by language code (&#x60;en&#x60;, &#x60;pl&#x60;, &#x60;en-US&#x60;). Required when &#x60;mode&#x60; is &#x60;MESSAGES&#x60;. Must be omitted or &#x60;null&#x60; when &#x60;mode&#x60; is &#x60;LIBRARY&#x60;.</value>
-        </member>
-        <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeMessages">
-            <summary>
-            Returns false as Messages should not be serialized given that it's read-only.
-            </summary>
-            <returns>false (boolean)</returns>
-        </member>
-        <member name="P:Voucherify.Model.ValidationRuleError.Library">
-            <summary>
-            Gets or Sets Library
-            </summary>
-        </member>
-        <member name="M:Voucherify.Model.ValidationRuleError.ShouldSerializeLibrary">
-            <summary>
-            Returns false as Library should not be serialized given that it's read-only.
             </summary>
             <returns>false (boolean)</returns>
         </member>
@@ -175005,7 +174951,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesCreateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesCreateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.ContextTypeEnum})">
+        <member name="M:Voucherify.Model.ValidationRulesCreateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesCreateRequestBodyError,Voucherify.Model.ValidationRulesCreateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateRequestBody.ContextTypeEnum})">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesCreateRequestBody" /> class.
             </summary>
@@ -175540,7 +175486,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesCreateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesCreateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
+        <member name="M:Voucherify.Model.ValidationRulesCreateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesCreateResponseBodyError,Voucherify.Model.ValidationRulesCreateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesCreateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesCreateResponseBody" /> class.
             </summary>
@@ -176140,7 +176086,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesGetResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesGetResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
+        <member name="M:Voucherify.Model.ValidationRulesGetResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesGetResponseBodyError,Voucherify.Model.ValidationRulesGetResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesGetResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesGetResponseBody" /> class.
             </summary>
@@ -176821,7 +176767,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesUpdateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesUpdateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.ContextTypeEnum})">
+        <member name="M:Voucherify.Model.ValidationRulesUpdateRequestBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesUpdateRequestBodyError,Voucherify.Model.ValidationRulesUpdateRequestBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateRequestBody.ContextTypeEnum})">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesUpdateRequestBody" /> class.
             </summary>
@@ -177356,7 +177302,7 @@
             </summary>
             <returns>false (boolean)</returns>
         </member>
-        <member name="M:Voucherify.Model.ValidationRulesUpdateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRuleError,Voucherify.Model.ValidationRulesUpdateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
+        <member name="M:Voucherify.Model.ValidationRulesUpdateResponseBody.#ctor(System.String,System.Object,System.Object,Voucherify.Model.ValidationRulesUpdateResponseBodyError,Voucherify.Model.ValidationRulesUpdateResponseBodyApplicableTo,System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.TypeEnum},System.Nullable{Voucherify.Model.ValidationRulesUpdateResponseBody.ContextTypeEnum},System.String,System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:Voucherify.Model.ValidationRulesUpdateResponseBody" /> class.
             </summary>

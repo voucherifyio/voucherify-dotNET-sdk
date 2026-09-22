@@ -474,7 +474,7 @@ namespace Voucherify.Model
         /// <param name="updatedAt">Timestamp representing the date and time when the validation rule was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="assignmentsCount">The number of instances the validation rule has been assigned to different types of redeemables..</param>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about the validation rule..</param>
-        public ValidationRulesCreateResponseBody(string name = default(string), Object rules = default(Object), Object bundleRules = default(Object), ValidationRuleError error = default(ValidationRuleError), ValidationRulesCreateResponseBodyApplicableTo applicableTo = default(ValidationRulesCreateResponseBodyApplicableTo), TypeEnum? type = default(TypeEnum?), ContextTypeEnum? contextType = default(ContextTypeEnum?), string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), int? assignmentsCount = default(int?), string varObject = default(string))
+        public ValidationRulesCreateResponseBody(string name = default(string), Object rules = default(Object), Object bundleRules = default(Object), ValidationRulesCreateResponseBodyError error = default(ValidationRulesCreateResponseBodyError), ValidationRulesCreateResponseBodyApplicableTo applicableTo = default(ValidationRulesCreateResponseBodyApplicableTo), TypeEnum? type = default(TypeEnum?), ContextTypeEnum? contextType = default(ContextTypeEnum?), string id = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), int? assignmentsCount = default(int?), string varObject = default(string))
         {
             this._Name = name;
             if (this.Name != null)
@@ -620,7 +620,7 @@ namespace Voucherify.Model
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = true)]
-        public ValidationRuleError Error
+        public ValidationRulesCreateResponseBodyError Error
         {
             get{ return _Error;}
             set
@@ -629,7 +629,7 @@ namespace Voucherify.Model
                 _flagError = true;
             }
         }
-        private ValidationRuleError _Error;
+        private ValidationRulesCreateResponseBodyError _Error;
         private bool _flagError;
 
         /// <summary>

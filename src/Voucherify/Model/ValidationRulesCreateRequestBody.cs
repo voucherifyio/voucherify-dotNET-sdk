@@ -469,7 +469,7 @@ namespace Voucherify.Model
         /// <param name="applicableTo">applicableTo.</param>
         /// <param name="type">Type of validation rule..</param>
         /// <param name="contextType">Validation rule context type.    | **Context Type** | **Definition** | |:- --|:- --| | earning_rule.order.paid |  | | earning_rule.custom_event |  | | earning_rule.customer.segment.entered |  | | campaign.discount_coupons |  | | campaign.discount_coupons.discount.apply_to_order |  | | campaign.discount_coupons.discount.apply_to_items |  | | campaign.discount_coupons.discount.apply_to_items_proportionally |  | | campaign.discount_coupons.discount.apply_to_items_proportionally_by_quantity |  | | campaign.discount_coupons.discount.fixed.apply_to_items |  | | campaign.gift_vouchers |  | | campaign.gift_vouchers.gift.apply_to_order |  | | campaign.gift_vouchers.gift.apply_to_items |  | | campaign.referral_program |  | | campaign.referral_program.discount.apply_to_order |  | | campaign.referral_program.discount.apply_to_items |  | | campaign.referral_program.discount.apply_to_items_proportionally |  | | campaign.referral_program.discount.apply_to_items_proportionally_by_quantity |  | | campaign.referral_program.discount.fixed.apply_to_items |  | | campaign.promotion |  | | campaign.promotion.discount.apply_to_order |  | | campaign.promotion.discount.apply_to_items |  | | campaign.promotion.discount.apply_to_items_proportionally |  | | campaign.promotion.discount.apply_to_items_proportionally_by_quantity |  | | campaign.promotion.discount.fixed.apply_to_items |  | | campaign.loyalty_program |  | | voucher.discount_voucher |  | | voucher.discount_voucher.discount.apply_to_order |  | | voucher.discount_voucher.discount.apply_to_items |  | | voucher.discount_voucher.discount.apply_to_items_proportionally |  | | voucher.discount_voucher.discount.apply_to_items_proportionally_by_quantity |  | | voucher.discount_voucher.discount.fixed.apply_to_items |  | | voucher.gift_voucher |  | | voucher.gift_voucher.gift.apply_to_order |  | | voucher.gift_voucher.gift.apply_to_items |  | | voucher.loyalty_card |  | | distribution.custom_event |  | | reward_assignment.pay_with_points |  | | global |  |.</param>
-        public ValidationRulesCreateRequestBody(string name = default(string), Object rules = default(Object), Object bundleRules = default(Object), ValidationRuleError error = default(ValidationRuleError), ValidationRulesCreateRequestBodyApplicableTo applicableTo = default(ValidationRulesCreateRequestBodyApplicableTo), TypeEnum? type = default(TypeEnum?), ContextTypeEnum? contextType = default(ContextTypeEnum?))
+        public ValidationRulesCreateRequestBody(string name = default(string), Object rules = default(Object), Object bundleRules = default(Object), ValidationRulesCreateRequestBodyError error = default(ValidationRulesCreateRequestBodyError), ValidationRulesCreateRequestBodyApplicableTo applicableTo = default(ValidationRulesCreateRequestBodyApplicableTo), TypeEnum? type = default(TypeEnum?), ContextTypeEnum? contextType = default(ContextTypeEnum?))
         {
             this._Name = name;
             if (this.Name != null)
@@ -590,7 +590,7 @@ namespace Voucherify.Model
         /// Gets or Sets Error
         /// </summary>
         [DataMember(Name = "error", EmitDefaultValue = true)]
-        public ValidationRuleError Error
+        public ValidationRulesCreateRequestBodyError Error
         {
             get{ return _Error;}
             set
@@ -599,7 +599,7 @@ namespace Voucherify.Model
                 _flagError = true;
             }
         }
-        private ValidationRuleError _Error;
+        private ValidationRulesCreateRequestBodyError _Error;
         private bool _flagError;
 
         /// <summary>

@@ -85261,11 +85261,6 @@ components:
         context_type: earning_rule.order.paid
         rules: "{}"
         error:
-          mode: MESSAGES
-          library:
-            key: order.amount
-          messages:
-            key: messages
           message: message
         type: expression
         applicable_to:
@@ -85473,7 +85468,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRuleError'
+          $ref: '#/components/schemas/ValidationRulesCreateRequestBodyError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesCreateRequestBodyApplicableTo'
         type:
@@ -85583,11 +85578,6 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
-          mode: MESSAGES
-          library:
-            key: order.amount
-          messages:
-            key: messages
           message: message
         type: expression
         applicable_to:
@@ -85796,7 +85786,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRuleError'
+          $ref: '#/components/schemas/ValidationRulesCreateResponseBodyError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesCreateResponseBodyApplicableTo'
         type:
@@ -85935,11 +85925,6 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
-          mode: MESSAGES
-          library:
-            key: order.amount
-          messages:
-            key: messages
           message: message
         type: expression
         applicable_to:
@@ -86148,7 +86133,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRuleError'
+          $ref: '#/components/schemas/ValidationRulesGetResponseBodyError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesGetResponseBodyApplicableTo'
         type:
@@ -86289,11 +86274,6 @@ components:
           rules: "{}"
           id: val_eR1c41hu0vUU
           error:
-            mode: MESSAGES
-            library:
-              key: order.amount
-            messages:
-              key: messages
             message: message
           type: expression
           applicable_to:
@@ -86490,11 +86470,6 @@ components:
           rules: "{}"
           id: val_eR1c41hu0vUU
           error:
-            mode: MESSAGES
-            library:
-              key: order.amount
-            messages:
-              key: messages
             message: message
           type: expression
           applicable_to:
@@ -86716,11 +86691,6 @@ components:
         context_type: earning_rule.order.paid
         rules: "{}"
         error:
-          mode: MESSAGES
-          library:
-            key: order.amount
-          messages:
-            key: messages
           message: message
         type: expression
         applicable_to:
@@ -86928,7 +86898,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRuleError'
+          $ref: '#/components/schemas/ValidationRulesUpdateRequestBodyError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesUpdateRequestBodyApplicableTo'
         type:
@@ -87038,11 +87008,6 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
-          mode: MESSAGES
-          library:
-            key: order.amount
-          messages:
-            key: messages
           message: message
         type: expression
         applicable_to:
@@ -87251,7 +87216,7 @@ components:
           title: ValidationRuleBundleRules
           type: object
         error:
-          $ref: '#/components/schemas/ValidationRuleError'
+          $ref: '#/components/schemas/ValidationRulesUpdateResponseBodyError'
         applicable_to:
           $ref: '#/components/schemas/ValidationRulesUpdateResponseBodyApplicableTo'
         type:
@@ -111316,11 +111281,6 @@ components:
         rules: "{}"
         id: val_eR1c41hu0vUU
         error:
-          mode: MESSAGES
-          library:
-            key: order.amount
-          messages:
-            key: messages
           message: message
         type: expression
         applicable_to:
@@ -111756,52 +111716,6 @@ components:
 
         While updating with the PUT method, you can pass `"bundle_rules": null` to delete the configuration; in the response, an empty object is then returned.
       title: ValidationRuleBundleRules
-      type: object
-    ValidationRuleError:
-      description: "Defines the custom error returned when validation or redemption\
-        \ fails this rule. Use legacy `message`, `mode: MESSAGES` with per-language\
-        \ `messages`, or `mode: LIBRARY` with a library `key`. `MESSAGES` and `LIBRARY`\
-        \ are mutually exclusive. At validation or redemption time the API resolves\
-        \ this object to a single `{ message }` using `options.language`."
-      example:
-        mode: MESSAGES
-        library:
-          key: order.amount
-        messages:
-          key: messages
-        message: message
-      properties:
-        message:
-          description: "Legacy single-language error message. Used when `mode` is\
-            \ omitted. In `MESSAGES` mode, used when neither the requested language\
-            \ nor the default language has a translation."
-          maxLength: 255
-          nullable: true
-          type: string
-        mode:
-          description: Selects how the custom error is defined. `MESSAGES` stores
-            per-language text in `messages`. `LIBRARY` references an Error Message
-            Library entry in `library`. Omit `mode` to use the legacy `message` field
-            only.
-          enum:
-          - MESSAGES
-          - LIBRARY
-          nullable: true
-          type: string
-        messages:
-          additionalProperties:
-            maxLength: 255
-            type: string
-          description: "Per-language custom messages keyed by language code (`en`,\
-            \ `pl`, `en-US`). Required when `mode` is `MESSAGES`. Must be omitted\
-            \ or `null` when `mode` is `LIBRARY`."
-          maxProperties: 100
-          nullable: true
-          title: ValidationRuleErrorMessagesEntry
-          type: object
-        library:
-          $ref: '#/components/schemas/ValidationRuleErrorLibrary'
-      title: ValidationRuleError
       type: object
     ValidationRuleRules:
       description: Contains all the rule definitions for the validation rule. It is
@@ -118651,21 +118565,6 @@ components:
           nullable: true
           type: string
       title: SimpleVoucher
-      type: object
-    ValidationRuleErrorLibrary:
-      description: References an Error Message Library entry. Required when `mode`
-        is `LIBRARY`. Must be omitted or `null` when `mode` is `MESSAGES`.
-      example:
-        key: order.amount
-      properties:
-        key:
-          description: "Identifies the library message. Use a validation-rule name\
-            \ such as `order.amount`, or a custom attribute key such as `order.metadata.location`."
-          example: order.amount
-          maxLength: 100
-          nullable: true
-          type: string
-      title: ValidationRuleErrorLibrary
       type: object
     VoucherBalance:
       description: Contains information on how the balance was affected by the transaction.
@@ -143173,6 +143072,20 @@ components:
           type: string
       title: TemplatesCampaignsTierSetupCreateResponseBodyCreatedResourcesItem
       type: object
+    ValidationRulesCreateRequestBodyError:
+      description: Contains the error message returned from API when validation /
+        redemption fails to meet requirements of defined rules.
+      example:
+        message: message
+      nullable: true
+      properties:
+        message:
+          description: The error message returned from API when validation / redemption
+            fails to meet requirements of defined rules.
+          nullable: true
+          type: string
+      title: ValidationRulesCreateRequestBodyError
+      type: object
     ValidationRulesCreateRequestBodyApplicableTo:
       example:
         excluded:
@@ -143379,6 +143292,20 @@ components:
           nullable: true
           type: boolean
       title: ValidationRulesCreateRequestBodyApplicableTo
+      type: object
+    ValidationRulesCreateResponseBodyError:
+      description: Contains the error message returned from API when validation /
+        redemption fails to meet requirements of defined rules.
+      example:
+        message: message
+      nullable: true
+      properties:
+        message:
+          description: The error message returned from API when validation / redemption
+            fails to meet requirements of defined rules.
+          nullable: true
+          type: string
+      title: ValidationRulesCreateResponseBodyError
       type: object
     ValidationRulesCreateResponseBodyApplicableTo:
       example:
@@ -143587,6 +143514,20 @@ components:
           type: boolean
       title: ValidationRulesCreateResponseBodyApplicableTo
       type: object
+    ValidationRulesGetResponseBodyError:
+      description: Contains the error message returned from API when validation /
+        redemption fails to meet requirements of defined rules.
+      example:
+        message: message
+      nullable: true
+      properties:
+        message:
+          description: The error message returned from API when validation / redemption
+            fails to meet requirements of defined rules.
+          nullable: true
+          type: string
+      title: ValidationRulesGetResponseBodyError
+      type: object
     ValidationRulesGetResponseBodyApplicableTo:
       example:
         excluded:
@@ -143794,6 +143735,20 @@ components:
           type: boolean
       title: ValidationRulesGetResponseBodyApplicableTo
       type: object
+    ValidationRulesUpdateRequestBodyError:
+      description: Contains the error message returned from API when validation /
+        redemption fails to meet requirements of defined rules.
+      example:
+        message: message
+      nullable: true
+      properties:
+        message:
+          description: The error message returned from API when validation / redemption
+            fails to meet requirements of defined rules.
+          nullable: true
+          type: string
+      title: ValidationRulesUpdateRequestBodyError
+      type: object
     ValidationRulesUpdateRequestBodyApplicableTo:
       example:
         excluded:
@@ -144000,6 +143955,20 @@ components:
           nullable: true
           type: boolean
       title: ValidationRulesUpdateRequestBodyApplicableTo
+      type: object
+    ValidationRulesUpdateResponseBodyError:
+      description: Contains the error message returned from API when validation /
+        redemption fails to meet requirements of defined rules.
+      example:
+        message: message
+      nullable: true
+      properties:
+        message:
+          description: The error message returned from API when validation / redemption
+            fails to meet requirements of defined rules.
+          nullable: true
+          type: string
+      title: ValidationRulesUpdateResponseBodyError
       type: object
     ValidationRulesUpdateResponseBodyApplicableTo:
       example:
@@ -156073,6 +156042,20 @@ components:
           nullable: true
           type: string
       title: RewardTypeProduct
+      type: object
+    ValidationRuleError:
+      description: Contains the error message returned from API when validation /
+        redemption fails to meet requirements of defined rules.
+      example:
+        message: message
+      nullable: true
+      properties:
+        message:
+          description: The error message returned from API when validation / redemption
+            fails to meet requirements of defined rules.
+          nullable: true
+          type: string
+      title: ValidationRuleError
       type: object
     ValidationRuleApplicableTo:
       example:
