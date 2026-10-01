@@ -181,7 +181,19 @@ namespace Voucherify.Model
             /// Enum VoucherTransactions for value: voucher_transactions
             /// </summary>
             [EnumMember(Value = "voucher_transactions")]
-            VoucherTransactions = 7
+            VoucherTransactions = 7,
+
+            /// <summary>
+            /// Enum Product for value: product
+            /// </summary>
+            [EnumMember(Value = "product")]
+            Product = 8,
+
+            /// <summary>
+            /// Enum Sku for value: sku
+            /// </summary>
+            [EnumMember(Value = "sku")]
+            Sku = 9
         }
 
 

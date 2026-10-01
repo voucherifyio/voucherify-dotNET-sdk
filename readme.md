@@ -171,7 +171,7 @@ This SDK is generated automatically from our [OpenAPI specification](https://git
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.1.0).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.1.1).
 
 ## 🔐 Authorization
 
@@ -263,6 +263,12 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
+- **2026-08-26** - `9.1.1`
+    - Fixed: `ExchangeRatio` is `decimal?`. `RewardsCreateRequestBodyParametersCoin` and `RewardsUpdateRequestBodyParametersCoin` changed from `(string, string)` to `(decimal?, string)`. `RedemptionRewardResultParametersCoin` changed from `(int?, int?)` to `(decimal?, int?)`. Update positional call sites. The API returns fractional values such as `0.01`.
+    - Added: `Language` on redeem and validate options.
+    - Added: product/sku export enum members (`product_id`, `sku`, and the related field names) on the export parameter models.
+    - Added: `ValidationRuleErrorLibrary`.
+    - Note: legacy `/v1/loyalties` methods on `LoyaltiesApi` are now `[Obsolete]`. Signatures are unchanged. Callers get CS0618, and builds that treat warnings as errors will fail. The obsolete v1 methods will not be removed and they will work for the time being. However, these methods will not be further developed. Loyalty v2 endpoints, required for new Loyalty v2 programs, will be available in this SDK within the next few months. See the [Loyalty v2 API overview](https://docs.voucherify.io/api-reference/loyalty-v2-api-overview). Follow the [Voucherify changelog](https://docs.voucherify.io/changelog/changelog) for the latest info.
 - **2026-08-20** - `9.1.0`
     - Fixed: `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing `NoEffect` (`no_effect`), so `Key` was `null` whenever the API skipped a redeemable with no discount effect (message was populated, key was silently lost via `SafeEnumConverter`).
     - This affects `POST /v1/validations` and stackable `POST /v1/redemptions` when `redeemables_no_effect_rule` is `SKIP` (globally or via `no_effect_skip_categories`).

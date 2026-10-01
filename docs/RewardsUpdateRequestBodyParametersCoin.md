@@ -5,7 +5,7 @@ Define the ratio by mapping the number of loyalty points in `points_ratio` to a 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExchangeRatio** | **string** | The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property. | [optional] 
+**ExchangeRatio** | **decimal?** | The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property. | [optional] 
 **PointsRatio** | **string** | The number of loyalty points that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
