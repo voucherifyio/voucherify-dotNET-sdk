@@ -19,7 +19,7 @@
             - Added: Language on redeem and validate options.
             - Added: product/sku export enum members (product_id, sku, and the related field names) on the export parameter models.
             - Added: ValidationRuleErrorLibrary.
-            - Note: legacy /v1/loyalties methods on LoyaltiesApi are now Obsolete. Signatures are unchanged. Callers get CS0618, and builds that treat warnings as errors will fail. New integrations should use Loyalty v2.
+            - Note: legacy /v1/loyalties methods on LoyaltiesApi are now Obsolete. Signatures are unchanged. Callers get CS0618, and builds that treat warnings as errors will fail. The obsolete v1 methods will not be removed. Loyalty v2 endpoints, required for new Loyalty v2 campaigns, will be available in this SDK within the next few months. See https://docs.voucherify.io/api-reference/loyalty-v2-api-overview.
         2026-08-20: 9.1.0
             - Fixed: ValidationsRedeemableSkippedResultDetails.KeyEnum was missing NoEffect (no_effect), so Key was null whenever the API skipped a redeemable with no discount effect.
             - This affects POST /v1/validations and stackable POST /v1/redemptions when redeemables_no_effect_rule is SKIP.
