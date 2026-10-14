@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Filter publications by related object id.
+    /// Filter publications by related object ID.
     /// </summary>
     [DataContract(Name = "ParameterFiltersListPublicationsRelatedObjectId")]
     public partial class ParameterFiltersListPublicationsRelatedObjectId : IValidatableObject

@@ -38,7 +38,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about publications in a dictionary..</param>
         /// <param name="dataRef">Identifies the name of the attribute that contains the array of publications..</param>
-        /// <param name="publications">Response schema model for publishing vouchers to a specific customer..</param>
+        /// <param name="publications">Contains array of publication objects, voucher object will be simplified..</param>
         /// <param name="total">Total number of publications..</param>
         public PublicationsListResponseBody(string varObject = default(string), string dataRef = default(string), List<PublicationsListResponseBodyPublicationsItem> publications = default(List<PublicationsListResponseBodyPublicationsItem>), int? total = default(int?))
         {
@@ -115,9 +115,9 @@ namespace Voucherify.Model
             return _flagDataRef;
         }
         /// <summary>
-        /// Response schema model for publishing vouchers to a specific customer.
+        /// Contains array of publication objects, voucher object will be simplified.
         /// </summary>
-        /// <value>Response schema model for publishing vouchers to a specific customer.</value>
+        /// <value>Contains array of publication objects, voucher object will be simplified.</value>
         [DataMember(Name = "publications", EmitDefaultValue = true)]
         public List<PublicationsListResponseBodyPublicationsItem> Publications
         {

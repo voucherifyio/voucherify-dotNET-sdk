@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="SimpleProduct" /> class.
         /// </summary>
         /// <param name="id">Unique product ID..</param>
-        /// <param name="sourceId">Product source id..</param>
+        /// <param name="sourceId">Product source ID..</param>
         /// <param name="name">Product name..</param>
         public SimpleProduct(string id = default(string), string sourceId = default(string), string name = default(string))
         {
@@ -84,9 +84,9 @@ namespace Voucherify.Model
             return _flagId;
         }
         /// <summary>
-        /// Product source id.
+        /// Product source ID.
         /// </summary>
-        /// <value>Product source id.</value>
+        /// <value>Product source ID.</value>
         [DataMember(Name = "source_id", EmitDefaultValue = true)]
         public string SourceId
         {

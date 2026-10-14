@@ -9,11 +9,14 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/voucherifyio/voucherify-dotNET-sdk</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <version>9.1.1</version>
+    <version>9.2.0</version>
     <description>.Net SDK for Voucherify - coupons, vouchers, promo codes - http://www.voucherify.io</description>
     <copyright>MIT</copyright>
     <repository type="git" url="https://github.com/voucherifyio/voucherify-dotNET-sdk" />
     <releaseNotes>
+        2026-10-14: 9.2.0
+            - Added Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under /v2/loyalties.
+            - Added loyalty_memberships on customer summary models.
         2026-08-26: 9.1.1
             - Fixed: ExchangeRatio is decimal?. RewardsCreateRequestBodyParametersCoin and RewardsUpdateRequestBodyParametersCoin changed from (string, string) to (decimal?, string). RedemptionRewardResultParametersCoin changed from (int?, int?) to (decimal?, int?). Update positional call sites. The API returns fractional values such as 0.01.
             - Added: Language on redeem and validate options.

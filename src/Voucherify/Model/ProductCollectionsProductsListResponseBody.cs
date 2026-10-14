@@ -38,7 +38,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about products and SKUs..</param>
         /// <param name="dataRef">Identifies the name of the JSON property that contains the array of products and SKUs..</param>
-        /// <param name="data">data.</param>
+        /// <param name="data">A dictionary that contains an array of products and SKUs..</param>
         /// <param name="total">Total number of products &amp; SKUs in the product collection..</param>
         public ProductCollectionsProductsListResponseBody(string varObject = default(string), string dataRef = default(string), List<ProductCollectionsProductsListResponseBodyDataItem> data = default(List<ProductCollectionsProductsListResponseBodyDataItem>), int? total = default(int?))
         {
@@ -115,8 +115,9 @@ namespace Voucherify.Model
             return _flagDataRef;
         }
         /// <summary>
-        /// Gets or Sets Data
+        /// A dictionary that contains an array of products and SKUs.
         /// </summary>
+        /// <value>A dictionary that contains an array of products and SKUs.</value>
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public List<ProductCollectionsProductsListResponseBodyDataItem> Data
         {
