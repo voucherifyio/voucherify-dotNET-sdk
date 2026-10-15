@@ -42,7 +42,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2EarningRulesApi(config);
-            var earningRuleId = "earningRuleId_example";  // string | Earning rule ID.
+            var earningRuleId = "earningRuleId_example";  // string | Identifies the earning rule. Format lern_[a-f0-9]+.
 
             try
             {
@@ -85,7 +85,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **earningRuleId** | **string** | Earning rule ID. |  |
+| **earningRuleId** | **string** | Identifies the earning rule. Format lern_[a-f0-9]+. |  |
 
 ### Return type
 

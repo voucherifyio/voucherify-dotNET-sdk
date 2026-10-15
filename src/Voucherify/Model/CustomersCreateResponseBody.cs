@@ -82,7 +82,7 @@ namespace Voucherify.Model
         /// <param name="sourceId">A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored..</param>
         /// <param name="summary">summary.</param>
         /// <param name="loyalty">loyalty.</param>
-        /// <param name="loyaltyMemberships">List of Loyalty v2 program memberships for the customer. &#x60;null&#x60; when no memberships are stored..</param>
+        /// <param name="loyaltyMemberships">List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events..</param>
         /// <param name="referrals">referrals.</param>
         /// <param name="systemMetadata">Object used to store system metadata information..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format..</param>
@@ -295,9 +295,9 @@ namespace Voucherify.Model
             return _flagLoyalty;
         }
         /// <summary>
-        /// List of Loyalty v2 program memberships for the customer. &#x60;null&#x60; when no memberships are stored.
+        /// List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events.
         /// </summary>
-        /// <value>List of Loyalty v2 program memberships for the customer. &#x60;null&#x60; when no memberships are stored.</value>
+        /// <value>List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events.</value>
         [DataMember(Name = "loyalty_memberships", EmitDefaultValue = true)]
         public List<CustomerLoyaltyMembership> LoyaltyMemberships
         {

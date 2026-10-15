@@ -5,7 +5,7 @@ Request query schema for **GET** `/v2/loyalties/programs/{programId}/members/{me
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Junction** | **string** | Logical junction between the field filters. Defaults to AND behavior. | [optional] 
+**Junction** | **string** | Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;. | [optional] 
 **Id** | [**LoyaltiesProgramsMembersRewardsPurchasesListRequestQueryId**](LoyaltiesProgramsMembersRewardsPurchasesListRequestQueryId.md) |  | [optional] 
 **RewardId** | [**LoyaltiesProgramsMembersRewardsPurchasesListRequestQueryRewardId**](LoyaltiesProgramsMembersRewardsPurchasesListRequestQueryRewardId.md) |  | [optional] 
 **CardDefinitionId** | [**LoyaltiesProgramsMembersRewardsPurchasesListRequestQueryCardDefinitionId**](LoyaltiesProgramsMembersRewardsPurchasesListRequestQueryCardDefinitionId.md) |  | [optional] 

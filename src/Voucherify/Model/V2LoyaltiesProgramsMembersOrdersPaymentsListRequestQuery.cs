@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery : IValidatableObject
     {
         /// <summary>
-        /// Joins field filters with &#x60;AND&#x60; or &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Joins field filters with &#x60;AND&#x60; or &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         public enum JunctionEnum
         {
@@ -55,9 +55,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Joins field filters with &#x60;AND&#x60; or &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Joins field filters with &#x60;AND&#x60; or &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         [DataMember(Name = "junction", EmitDefaultValue = true)]
@@ -84,7 +84,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery" /> class.
         /// </summary>
-        /// <param name="junction">Joins field filters with &#x60;AND&#x60; or &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;..</param>
+        /// <param name="junction">Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;..</param>
         /// <param name="id">id.</param>
         /// <param name="cardDefinitionId">cardDefinitionId.</param>
         /// <param name="createdAt">createdAt.</param>

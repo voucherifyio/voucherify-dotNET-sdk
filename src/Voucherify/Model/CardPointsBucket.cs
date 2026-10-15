@@ -238,17 +238,17 @@ namespace Voucherify.Model
         /// <param name="cardDefinitionId">ID of the card definition of the card..</param>
         /// <param name="programId">ID of the loyalty program..</param>
         /// <param name="memberId">ID of the member owning the card..</param>
+        /// <param name="cardType">Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported..</param>
         /// <param name="createdAt">Timestamp when the bucket was created (ISO 8601)..</param>
         /// <param name="updatedAt">Timestamp when the bucket was last updated (ISO 8601), or &#x60;null&#x60;..</param>
         /// <param name="id">Unique points expiration bucket ID..</param>
         /// <param name="customerId">Voucherify ID of the customer owning the card..</param>
-        /// <param name="cardType">Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported..</param>
         /// <param name="points">points.</param>
         /// <param name="expirationDate">Date when the points in the bucket expire (&#x60;YYYY-MM-DD&#x60;)..</param>
         /// <param name="expirationType">Points expiration type for the bucket. It can be inherited from the card definition or overridden by the earning rule..</param>
         /// <param name="status">Bucket status. For the List card expiring points buckets, returns only &#x60;ACTIVE&#x60; buckets..</param>
         /// <param name="varObject">Object type marker, always &#x60;card_points_bucket&#x60;..</param>
-        public CardPointsBucket(string cardId = default(string), string cardDefinitionId = default(string), string programId = default(string), string memberId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string id = default(string), string customerId = default(string), CardTypeEnum? cardType = default(CardTypeEnum?), CardPointsBucketPoints points = default(CardPointsBucketPoints), DateTime? expirationDate = default(DateTime?), ExpirationTypeEnum? expirationType = default(ExpirationTypeEnum?), StatusEnum? status = default(StatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
+        public CardPointsBucket(string cardId = default(string), string cardDefinitionId = default(string), string programId = default(string), string memberId = default(string), CardTypeEnum? cardType = default(CardTypeEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string id = default(string), string customerId = default(string), CardPointsBucketPoints points = default(CardPointsBucketPoints), DateTime? expirationDate = default(DateTime?), ExpirationTypeEnum? expirationType = default(ExpirationTypeEnum?), StatusEnum? status = default(StatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._CardId = cardId;
             if (this.CardId != null)
@@ -270,6 +270,11 @@ namespace Voucherify.Model
             {
                 this._flagMemberId = true;
             }
+            this._CardType = cardType;
+            if (this.CardType != null)
+            {
+                this._flagCardType = true;
+            }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
             {
@@ -289,11 +294,6 @@ namespace Voucherify.Model
             if (this.CustomerId != null)
             {
                 this._flagCustomerId = true;
-            }
-            this._CardType = cardType;
-            if (this.CardType != null)
-            {
-                this._flagCardType = true;
             }
             this._Points = points;
             if (this.Points != null)
@@ -584,11 +584,11 @@ namespace Voucherify.Model
             sb.Append("  CardDefinitionId: ").Append(CardDefinitionId).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  MemberId: ").Append(MemberId).Append("\n");
+            sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
-            sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  ExpirationType: ").Append(ExpirationType).Append("\n");

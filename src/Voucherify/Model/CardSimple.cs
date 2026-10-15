@@ -76,9 +76,9 @@ namespace Voucherify.Model
             return _flagCardType;
         }
         /// <summary>
-        /// Object type marker, always &#x60;card&#x60;.
+        /// Object type. Always &#x60;card&#x60;.
         /// </summary>
-        /// <value>Object type marker, always &#x60;card&#x60;.</value>
+        /// <value>Object type. Always &#x60;card&#x60;.</value>
         [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         public enum ObjectEnum
         {
@@ -91,9 +91,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Object type marker, always &#x60;card&#x60;.
+        /// Object type. Always &#x60;card&#x60;.
         /// </summary>
-        /// <value>Object type marker, always &#x60;card&#x60;.</value>
+        /// <value>Object type. Always &#x60;card&#x60;.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<ObjectEnum>))]
         [DataMember(Name = "object", EmitDefaultValue = true)]
@@ -120,21 +120,36 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CardSimple" /> class.
         /// </summary>
+        /// <param name="id">Identifies the card..</param>
+        /// <param name="cardDefinitionId">Identifies the card definition..</param>
         /// <param name="cardType">Card type. Currently only &#x60;INDIVIDUAL&#x60; is supported..</param>
+        /// <param name="code">Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes..</param>
         /// <param name="lifetimeBucket">lifetimeBucket.</param>
         /// <param name="balance">balance.</param>
-        /// <param name="id">Unique Voucherify ID of the card..</param>
-        /// <param name="cardDefinitionId">Unique Voucherify ID of the card definition the card was created from..</param>
-        /// <param name="code">Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes..</param>
+        /// <param name="varObject">Object type. Always &#x60;card&#x60;..</param>
         /// <param name="nextExpiration">nextExpiration.</param>
         /// <param name="nextActivation">nextActivation.</param>
-        /// <param name="varObject">Object type marker, always &#x60;card&#x60;..</param>
-        public CardSimple(CardTypeEnum? cardType = default(CardTypeEnum?), CardLifetimeBucket lifetimeBucket = default(CardLifetimeBucket), CardBalance balance = default(CardBalance), string id = default(string), string cardDefinitionId = default(string), string code = default(string), CardNextExpiration nextExpiration = default(CardNextExpiration), CardNextActivation nextActivation = default(CardNextActivation), ObjectEnum? varObject = default(ObjectEnum?))
+        public CardSimple(string id = default(string), string cardDefinitionId = default(string), CardTypeEnum? cardType = default(CardTypeEnum?), string code = default(string), CardLifetimeBucket lifetimeBucket = default(CardLifetimeBucket), CardBalance balance = default(CardBalance), ObjectEnum? varObject = default(ObjectEnum?), CardNextExpiration nextExpiration = default(CardNextExpiration), CardNextActivation nextActivation = default(CardNextActivation))
         {
+            this._Id = id;
+            if (this.Id != null)
+            {
+                this._flagId = true;
+            }
+            this._CardDefinitionId = cardDefinitionId;
+            if (this.CardDefinitionId != null)
+            {
+                this._flagCardDefinitionId = true;
+            }
             this._CardType = cardType;
             if (this.CardType != null)
             {
                 this._flagCardType = true;
+            }
+            this._Code = code;
+            if (this.Code != null)
+            {
+                this._flagCode = true;
             }
             this._LifetimeBucket = lifetimeBucket;
             if (this.LifetimeBucket != null)
@@ -146,20 +161,10 @@ namespace Voucherify.Model
             {
                 this._flagBalance = true;
             }
-            this._Id = id;
-            if (this.Id != null)
+            this._Object = varObject;
+            if (this.Object != null)
             {
-                this._flagId = true;
-            }
-            this._CardDefinitionId = cardDefinitionId;
-            if (this.CardDefinitionId != null)
-            {
-                this._flagCardDefinitionId = true;
-            }
-            this._Code = code;
-            if (this.Code != null)
-            {
-                this._flagCode = true;
+                this._flagObject = true;
             }
             this._NextExpiration = nextExpiration;
             if (this.NextExpiration != null)
@@ -171,13 +176,83 @@ namespace Voucherify.Model
             {
                 this._flagNextActivation = true;
             }
-            this._Object = varObject;
-            if (this.Object != null)
-            {
-                this._flagObject = true;
-            }
         }
 
+        /// <summary>
+        /// Identifies the card.
+        /// </summary>
+        /// <value>Identifies the card.</value>
+        [DataMember(Name = "id", EmitDefaultValue = true)]
+        public string Id
+        {
+            get{ return _Id;}
+            set
+            {
+                _Id = value;
+                _flagId = true;
+            }
+        }
+        private string _Id;
+        private bool _flagId;
+
+        /// <summary>
+        /// Returns false as Id should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeId()
+        {
+            return _flagId;
+        }
+        /// <summary>
+        /// Identifies the card definition.
+        /// </summary>
+        /// <value>Identifies the card definition.</value>
+        [DataMember(Name = "card_definition_id", EmitDefaultValue = true)]
+        public string CardDefinitionId
+        {
+            get{ return _CardDefinitionId;}
+            set
+            {
+                _CardDefinitionId = value;
+                _flagCardDefinitionId = true;
+            }
+        }
+        private string _CardDefinitionId;
+        private bool _flagCardDefinitionId;
+
+        /// <summary>
+        /// Returns false as CardDefinitionId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCardDefinitionId()
+        {
+            return _flagCardDefinitionId;
+        }
+        /// <summary>
+        /// Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.
+        /// </summary>
+        /// <value>Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.</value>
+        [DataMember(Name = "code", EmitDefaultValue = true)]
+        public string Code
+        {
+            get{ return _Code;}
+            set
+            {
+                _Code = value;
+                _flagCode = true;
+            }
+        }
+        private string _Code;
+        private bool _flagCode;
+
+        /// <summary>
+        /// Returns false as Code should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCode()
+        {
+            return _flagCode;
+        }
         /// <summary>
         /// Gets or Sets LifetimeBucket
         /// </summary>
@@ -225,81 +300,6 @@ namespace Voucherify.Model
         public bool ShouldSerializeBalance()
         {
             return _flagBalance;
-        }
-        /// <summary>
-        /// Unique Voucherify ID of the card.
-        /// </summary>
-        /// <value>Unique Voucherify ID of the card.</value>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id
-        {
-            get{ return _Id;}
-            set
-            {
-                _Id = value;
-                _flagId = true;
-            }
-        }
-        private string _Id;
-        private bool _flagId;
-
-        /// <summary>
-        /// Returns false as Id should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeId()
-        {
-            return _flagId;
-        }
-        /// <summary>
-        /// Unique Voucherify ID of the card definition the card was created from.
-        /// </summary>
-        /// <value>Unique Voucherify ID of the card definition the card was created from.</value>
-        [DataMember(Name = "card_definition_id", EmitDefaultValue = true)]
-        public string CardDefinitionId
-        {
-            get{ return _CardDefinitionId;}
-            set
-            {
-                _CardDefinitionId = value;
-                _flagCardDefinitionId = true;
-            }
-        }
-        private string _CardDefinitionId;
-        private bool _flagCardDefinitionId;
-
-        /// <summary>
-        /// Returns false as CardDefinitionId should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCardDefinitionId()
-        {
-            return _flagCardDefinitionId;
-        }
-        /// <summary>
-        /// Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.
-        /// </summary>
-        /// <value>Human-readable card code. Card code generation is asynchronous - this field is &#x60;null&#x60; right after member creation and is populated shortly after, once the background code generation completes.</value>
-        [DataMember(Name = "code", EmitDefaultValue = true)]
-        public string Code
-        {
-            get{ return _Code;}
-            set
-            {
-                _Code = value;
-                _flagCode = true;
-            }
-        }
-        private string _Code;
-        private bool _flagCode;
-
-        /// <summary>
-        /// Returns false as Code should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCode()
-        {
-            return _flagCode;
         }
         /// <summary>
         /// Gets or Sets NextExpiration
@@ -357,15 +357,15 @@ namespace Voucherify.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CardSimple {\n");
-            sb.Append("  CardType: ").Append(CardType).Append("\n");
-            sb.Append("  LifetimeBucket: ").Append(LifetimeBucket).Append("\n");
-            sb.Append("  Balance: ").Append(Balance).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CardDefinitionId: ").Append(CardDefinitionId).Append("\n");
+            sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  LifetimeBucket: ").Append(LifetimeBucket).Append("\n");
+            sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("  NextExpiration: ").Append(NextExpiration).Append("\n");
             sb.Append("  NextActivation: ").Append(NextActivation).Append("\n");
-            sb.Append("  Object: ").Append(Object).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

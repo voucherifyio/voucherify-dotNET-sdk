@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class RewardsSpendingsReportListFilters : IValidatableObject
     {
         /// <summary>
-        /// Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         public enum JunctionEnum
         {
@@ -55,9 +55,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         [DataMember(Name = "junction", EmitDefaultValue = true)]
@@ -84,12 +84,12 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RewardsSpendingsReportListFilters" /> class.
         /// </summary>
-        /// <param name="junction">Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;..</param>
+        /// <param name="junction">Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;..</param>
         /// <param name="rewardId">rewardId.</param>
         /// <param name="cardDefinitionId">cardDefinitionId.</param>
         /// <param name="costId">costId.</param>
         /// <param name="spendingId">spendingId.</param>
-        public RewardsSpendingsReportListFilters(JunctionEnum? junction = default(JunctionEnum?), RewardsReportFilterRewardIdConditions rewardId = default(RewardsReportFilterRewardIdConditions), SpendingReportFilterCardDefinitionIdConditions cardDefinitionId = default(SpendingReportFilterCardDefinitionIdConditions), RewardsSpendingsReportFilterCostIdConditions costId = default(RewardsSpendingsReportFilterCostIdConditions), RewardsSpendingsReportFilterSpendingIdConditions spendingId = default(RewardsSpendingsReportFilterSpendingIdConditions))
+        public RewardsSpendingsReportListFilters(JunctionEnum? junction = default(JunctionEnum?), RewardsReportFilterRewardIdConditions rewardId = default(RewardsReportFilterRewardIdConditions), ReportCardDefinitionIdFilterConditions cardDefinitionId = default(ReportCardDefinitionIdFilterConditions), RewardsSpendingsReportFilterCostIdConditions costId = default(RewardsSpendingsReportFilterCostIdConditions), RewardsSpendingsReportFilterSpendingIdConditions spendingId = default(RewardsSpendingsReportFilterSpendingIdConditions))
         {
             this._Junction = junction;
             if (this.Junction != null)
@@ -146,7 +146,7 @@ namespace Voucherify.Model
         /// Gets or Sets CardDefinitionId
         /// </summary>
         [DataMember(Name = "card_definition_id", EmitDefaultValue = true)]
-        public SpendingReportFilterCardDefinitionIdConditions CardDefinitionId
+        public ReportCardDefinitionIdFilterConditions CardDefinitionId
         {
             get{ return _CardDefinitionId;}
             set
@@ -155,7 +155,7 @@ namespace Voucherify.Model
                 _flagCardDefinitionId = true;
             }
         }
-        private SpendingReportFilterCardDefinitionIdConditions _CardDefinitionId;
+        private ReportCardDefinitionIdFilterConditions _CardDefinitionId;
         private bool _flagCardDefinitionId;
 
         /// <summary>

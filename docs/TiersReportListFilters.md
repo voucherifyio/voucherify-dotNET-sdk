@@ -5,7 +5,7 @@ Filters for program tiers reports.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Junction** | **string** | Joins the field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;. | [optional] 
+**Junction** | **string** | Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;. | [optional] 
 **TierStructureId** | [**TiersReportFilterTierStructureIdConditions**](TiersReportFilterTierStructureIdConditions.md) |  | [optional] 
 **TierId** | [**TiersReportFilterTierIdConditions**](TiersReportFilterTierIdConditions.md) |  | [optional] 
 

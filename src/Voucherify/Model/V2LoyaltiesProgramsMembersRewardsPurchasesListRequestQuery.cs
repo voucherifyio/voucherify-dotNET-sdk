@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery : IValidatableObject
     {
         /// <summary>
-        /// Logical junction between the field filters. Defaults to AND behavior.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Logical junction between the field filters. Defaults to AND behavior.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         public enum JunctionEnum
         {
@@ -55,9 +55,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Logical junction between the field filters. Defaults to AND behavior.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Logical junction between the field filters. Defaults to AND behavior.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         [DataMember(Name = "junction", EmitDefaultValue = true)]
@@ -84,7 +84,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery" /> class.
         /// </summary>
-        /// <param name="junction">Logical junction between the field filters. Defaults to AND behavior..</param>
+        /// <param name="junction">Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;..</param>
         /// <param name="id">id.</param>
         /// <param name="rewardId">rewardId.</param>
         /// <param name="cardDefinitionId">cardDefinitionId.</param>

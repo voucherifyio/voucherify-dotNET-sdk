@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery : IValidatableObject
     {
         /// <summary>
-        /// Defines the logical junction between field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Defines the logical junction between field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         public enum JunctionEnum
         {
@@ -55,9 +55,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Defines the logical junction between field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
+        /// Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.
         /// </summary>
-        /// <value>Defines the logical junction between field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
+        /// <value>Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<JunctionEnum>))]
         [DataMember(Name = "junction", EmitDefaultValue = true)]
@@ -84,7 +84,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery" /> class.
         /// </summary>
-        /// <param name="junction">Defines the logical junction between field filters. Allowed values: &#x60;AND&#x60;, &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;..</param>
+        /// <param name="junction">Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;..</param>
         /// <param name="benefitId">benefitId.</param>
         /// <param name="createdAt">createdAt.</param>
         public V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery(JunctionEnum? junction = default(JunctionEnum?), LoyaltiesProgramsMembersBenefitsTransactionsListRequestQueryBenefitId benefitId = default(LoyaltiesProgramsMembersBenefitsTransactionsListRequestQueryBenefitId), TransactionFilterDateConditions createdAt = default(TransactionFilterDateConditions))

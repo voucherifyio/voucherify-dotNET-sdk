@@ -85,10 +85,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var bucketId = "bucketId_example";  // string | Pending points bucket ID (format lcppb_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var bucketId = "bucketId_example";  // string | Identifies the pending points bucket. Format lcppb_[a-f0-9]+.
 
             try
             {
@@ -131,10 +131,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **bucketId** | **string** | Pending points bucket ID (format lcppb_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **bucketId** | **string** | Identifies the pending points bucket. Format lcppb_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -193,8 +193,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.
-            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+. Required.
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
 
             try
             {
@@ -237,8 +237,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. Required. |  |
-| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. Required. |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -297,9 +297,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
             var v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody = new V2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody(); // V2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody | 
 
             try
@@ -343,9 +343,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
 | **v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody** | [**V2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody**](V2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody.md) |  |  |
 
 ### Return type
@@ -405,7 +405,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
             var memberCreate = new List<MemberCreate>(); // List<MemberCreate> | 
 
             try
@@ -449,7 +449,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
 | **memberCreate** | [**List&lt;MemberCreate&gt;**](MemberCreate.md) |  |  |
 
 ### Return type
@@ -509,10 +509,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var bucketId = "bucketId_example";  // string | Pending points bucket ID (format lcppb_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var bucketId = "bucketId_example";  // string | Identifies the pending points bucket. Format lcppb_[a-f0-9]+.
 
             try
             {
@@ -555,10 +555,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **bucketId** | **string** | Pending points bucket ID (format lcppb_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **bucketId** | **string** | Identifies the pending points bucket. Format lcppb_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -617,8 +617,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var memberId = "memberId_example";  // string | Identifies the program member (lmbr_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
             var v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody = new V2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody(); // V2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody | 
 
             try
@@ -662,8 +662,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **memberId** | **string** | Identifies the program member (lmbr_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 | **v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody** | [**V2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody**](V2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody.md) |  |  |
 
 ### Return type
@@ -723,7 +723,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
             var v2LoyaltiesProgramsMembersCreateRequestBody = new V2LoyaltiesProgramsMembersCreateRequestBody(); // V2LoyaltiesProgramsMembersCreateRequestBody | 
 
             try
@@ -767,7 +767,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
 | **v2LoyaltiesProgramsMembersCreateRequestBody** | [**V2LoyaltiesProgramsMembersCreateRequestBody**](V2LoyaltiesProgramsMembersCreateRequestBody.md) |  |  |
 
 ### Return type
@@ -827,8 +827,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.
-            var memberId = "memberId_example";  // string | Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
 
             try
             {
@@ -871,8 +871,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format. |  |
-| **memberId** | **string** | Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format. |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -931,8 +931,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
 
             try
             {
@@ -975,8 +975,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -1035,10 +1035,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var bucketId = "bucketId_example";  // string | Points expiration bucket ID (format lcpeb_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var bucketId = "bucketId_example";  // string | Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.
 
             try
             {
@@ -1081,10 +1081,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **bucketId** | **string** | Points expiration bucket ID (format lcpeb_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **bucketId** | **string** | Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -1143,12 +1143,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var memberId = "memberId_example";  // string | Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).
-            var earningRuleId = "earningRuleId_example";  // string | Unique earning rule identifier (format: lern_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Start of the report date range (inclusive), in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.
-            var resolution = "day";  // string | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var earningRuleId = "earningRuleId_example";  // string | Identifies the earning rule. Format lern_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
 
             try
             {
@@ -1191,12 +1191,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **memberId** | **string** | Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters). |  |
-| **earningRuleId** | **string** | Unique earning rule identifier (format: lern_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Start of the report date range (inclusive), in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date. |  |
-| **resolution** | **string** | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters. |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **earningRuleId** | **string** | Identifies the earning rule. Format lern_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
 
 ### Return type
 
@@ -1255,8 +1255,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
 
             try
             {
@@ -1299,8 +1299,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -1359,9 +1359,9 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var customerId = "customerId_example";  // string | Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).
-            var identificationType = "customer_id";  // string | Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional)  (default to customer_id)
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var customerId = "customerId_example";  // string | Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).
+            var identificationType = "customer_id";  // string | Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional)  (default to customer_id)
 
             try
             {
@@ -1404,9 +1404,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **customerId** | **string** | Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...). |  |
-| **identificationType** | **string** | Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. | [optional] [default to customer_id] |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **customerId** | **string** | Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...). |  |
+| **identificationType** | **string** | Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. | [optional] [default to customer_id] |
 
 ### Return type
 
@@ -1465,11 +1465,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Start of the report date range (inclusive), in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.
-            var resolution = "day";  // string | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.
-            var filters = new PointsEarningsReportListFilters(); // PointsEarningsReportListFilters | Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
+            var filters = new PointsEarningsReportListFilters(); // PointsEarningsReportListFilters | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -1512,11 +1512,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters. |  |
-| **startDate** | **DateTimeOffset** | Start of the report date range (inclusive), in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date. |  |
-| **resolution** | **string** | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters. |  |
-| **filters** | [**PointsEarningsReportListFilters**](PointsEarningsReportListFilters.md) | Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
+| **filters** | [**PointsEarningsReportListFilters**](PointsEarningsReportListFilters.md) | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -1575,8 +1575,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.
-            var filters = new PointsEarningsReportListFilters(); // PointsEarningsReportListFilters | Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var filters = new PointsEarningsReportListFilters(); // PointsEarningsReportListFilters | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -1619,8 +1619,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters. |  |
-| **filters** | [**PointsEarningsReportListFilters**](PointsEarningsReportListFilters.md) | Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **filters** | [**PointsEarningsReportListFilters**](PointsEarningsReportListFilters.md) | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -1679,13 +1679,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional)  (default to 10)
-            var order = "created_at";  // string | Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional) 
-            var filters = new V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters(); // V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters | Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "created_at";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters(); // V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters | Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -1728,13 +1728,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. | [optional] [default to 10] |
-| **order** | **string** | Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters**](V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters.md) | Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters**](V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters.md) | Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -1793,13 +1793,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional)  (default to 10)
-            var order = "expiration_date";  // string | Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional) 
-            var filters = new V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery(); // V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery | Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "expiration_date";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery(); // V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -1842,13 +1842,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. | [optional] [default to 10] |
-| **order** | **string** | Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery**](V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery.md) | Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery**](V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -1907,13 +1907,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional)  (default to 10)
-            var order = "date";  // string | Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional) 
-            var filters = new V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery(); // V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery | Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "date";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery(); // V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -1956,13 +1956,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. | [optional] [default to 10] |
-| **order** | **string** | Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery**](V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery.md) | Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery**](V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2021,13 +2021,13 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var cardId = "cardId_example";  // string | Loyalty card ID (format lcrd_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional)  (default to 10)
-            var order = "-id";  // string | Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional) 
-            var filters = new V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery(); // V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery | Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "-id";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery(); // V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery | Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2070,13 +2070,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **cardId** | **string** | Loyalty card ID (format lcrd_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. | [optional] [default to 10] |
-| **order** | **string** | Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery**](V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery.md) | Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery**](V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2135,12 +2135,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional)  (default to 10)
-            var order = "id";  // string | Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional) 
-            var filters = new V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery(); // V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery | Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "id";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery(); // V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery | Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2183,12 +2183,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. | [optional] [default to 10] |
-| **order** | **string** | Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery**](V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery.md) | Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery**](V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2247,12 +2247,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var memberId = "memberId_example";  // string | Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).
-            var cardId = "cardId_example";  // string | Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Start of the report date range (inclusive), in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.
-            var resolution = "day";  // string | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var cardId = "cardId_example";  // string | Identifies the loyalty card. Format lcrd_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
 
             try
             {
@@ -2295,12 +2295,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **memberId** | **string** | Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters). |  |
-| **cardId** | **string** | Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Start of the report date range (inclusive), in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date. |  |
-| **resolution** | **string** | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters. |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **cardId** | **string** | Identifies the loyalty card. Format lcrd_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
 
 ### Return type
 
@@ -2359,12 +2359,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var memberId = "memberId_example";  // string | Identifies the program member (lmbr_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional)  (default to 10)
-            var order = "-id";  // string | Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional) 
-            var filters = new V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery(); // V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery | Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "-id";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery(); // V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery | Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2407,12 +2407,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **memberId** | **string** | Identifies the program member (lmbr_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. | [optional] [default to 10] |
-| **order** | **string** | Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery**](V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery.md) | Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery**](V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2471,12 +2471,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional)  (default to 10)
-            var order = "-id";  // string | Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional) 
-            var filters = new V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery(); // V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery | Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "-id";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery(); // V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2519,12 +2519,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. | [optional] [default to 10] |
-| **order** | **string** | Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery**](V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery.md) | Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery**](V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2583,12 +2583,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional)  (default to 10)
-            var order = "-id";  // string | Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional) 
-            var filters = new V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery(); // V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery | Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "-id";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery(); // V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery | Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2631,12 +2631,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. | [optional] [default to 10] |
-| **order** | **string** | Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery**](V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery.md) | Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery**](V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2695,10 +2695,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique program identifier.
-            var limit = "\"10\"";  // string | Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional)  (default to "10")
-            var order = "-created_at";  // string | Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned by a previous call (cursor.next). (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var limit = "\"10\"";  // string | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to "10")
+            var order = "-created_at";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
 
             try
             {
@@ -2741,10 +2741,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique program identifier. |  |
-| **limit** | **string** | Maximum number of items to return. Between 1 and 100. Defaults to 10. | [optional] [default to &quot;10&quot;] |
-| **order** | **string** | Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned by a previous call (cursor.next). | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **limit** | **string** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to &quot;10&quot;] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
 
 ### Return type
 
@@ -2803,11 +2803,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Start of the report date range (inclusive), in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.
-            var resolution = "day";  // string | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.
-            var filters = new EarningRulesReportListFilters(); // EarningRulesReportListFilters | Field filters. Each field accepts a conditions object with condition operators. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
+            var filters = new EarningRulesReportListFilters(); // EarningRulesReportListFilters | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2850,11 +2850,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Start of the report date range (inclusive), in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date. |  |
-| **resolution** | **string** | Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters. |  |
-| **filters** | [**EarningRulesReportListFilters**](EarningRulesReportListFilters.md) | Field filters. Each field accepts a conditions object with condition operators. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
+| **filters** | [**EarningRulesReportListFilters**](EarningRulesReportListFilters.md) | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -2913,8 +2913,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.
-            var filters = new EarningRulesReportListFilters(); // EarningRulesReportListFilters | Filters rows by field. Each field accepts a conditions object with condition operators. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var filters = new EarningRulesReportListFilters(); // EarningRulesReportListFilters | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -2957,8 +2957,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters. |  |
-| **filters** | [**EarningRulesReportListFilters**](EarningRulesReportListFilters.md) | Filters rows by field. Each field accepts a conditions object with condition operators. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **filters** | [**EarningRulesReportListFilters**](EarningRulesReportListFilters.md) | Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3017,12 +3017,12 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional)  (default to 10)
-            var order = "created_at";  // string | Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional) 
-            var filters = new V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters(); // V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters | Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "created_at";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters(); // V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters | Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -3065,12 +3065,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. | [optional] [default to 10] |
-| **order** | **string** | Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters**](V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters.md) | Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters**](V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters.md) | Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3129,11 +3129,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var limit = 10;  // int? | Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional)  (default to 10)
-            var order = "-created_at";  // string | Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional) 
-            var filters = new V2LoyaltiesProgramsMembersListRequestQuery(); // V2LoyaltiesProgramsMembersListRequestQuery | Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var limit = 10;  // int? | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to 10)
+            var order = "-created_at";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
+            var filters = new V2LoyaltiesProgramsMembersListRequestQuery(); // V2LoyaltiesProgramsMembersListRequestQuery | Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -3176,11 +3176,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **limit** | **int?** | Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. | [optional] [default to 10] |
-| **order** | **string** | Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. | [optional]  |
-| **filters** | [**V2LoyaltiesProgramsMembersListRequestQuery**](V2LoyaltiesProgramsMembersListRequestQuery.md) | Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **limit** | **int?** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to 10] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
+| **filters** | [**V2LoyaltiesProgramsMembersListRequestQuery**](V2LoyaltiesProgramsMembersListRequestQuery.md) | Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3239,10 +3239,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range, in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.
-            var resolution = "day";  // string | Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
 
             try
             {
@@ -3285,10 +3285,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range, in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date. |  |
-| **resolution** | **string** | Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter. |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
 
 ### Return type
 
@@ -3347,7 +3347,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
 
             try
             {
@@ -3390,7 +3390,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
 
 ### Return type
 
@@ -3449,10 +3449,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique program identifier.
-            var limit = "\"10\"";  // string | Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional)  (default to "10")
-            var order = "-created_at";  // string | Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned by a previous call (cursor.next). (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var limit = "\"10\"";  // string | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to "10")
+            var order = "-created_at";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
 
             try
             {
@@ -3495,10 +3495,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique program identifier. |  |
-| **limit** | **string** | Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. | [optional] [default to &quot;10&quot;] |
-| **order** | **string** | Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned by a previous call (cursor.next). | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **limit** | **string** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to &quot;10&quot;] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
 
 ### Return type
 
@@ -3557,11 +3557,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range, in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.
-            var resolution = "day";  // string | Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.
-            var filters = new RewardsReportListFilters(); // RewardsReportListFilters | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
+            var filters = new RewardsReportListFilters(); // RewardsReportListFilters | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -3604,11 +3604,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range, in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date. |  |
-| **resolution** | **string** | Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter. |  |
-| **filters** | [**RewardsReportListFilters**](RewardsReportListFilters.md) | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
+| **filters** | [**RewardsReportListFilters**](RewardsReportListFilters.md) | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3667,11 +3667,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range, in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.
-            var resolution = "day";  // string | Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.
-            var filters = new RewardsSpendingsReportListFilters(); // RewardsSpendingsReportListFilters | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
+            var filters = new RewardsSpendingsReportListFilters(); // RewardsSpendingsReportListFilters | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -3714,11 +3714,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range, in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date. |  |
-| **resolution** | **string** | Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter. |  |
-| **filters** | [**RewardsSpendingsReportListFilters**](RewardsSpendingsReportListFilters.md) | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
+| **filters** | [**RewardsSpendingsReportListFilters**](RewardsSpendingsReportListFilters.md) | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3777,8 +3777,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var filters = new RewardsSpendingsReportListFilters(); // RewardsSpendingsReportListFilters | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var filters = new RewardsSpendingsReportListFilters(); // RewardsSpendingsReportListFilters | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -3821,8 +3821,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **filters** | [**RewardsSpendingsReportListFilters**](RewardsSpendingsReportListFilters.md) | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **filters** | [**RewardsSpendingsReportListFilters**](RewardsSpendingsReportListFilters.md) | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3881,8 +3881,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program (lprg_ followed by hexadecimal characters).
-            var filters = new RewardsReportListFilters(); // RewardsReportListFilters | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var filters = new RewardsReportListFilters(); // RewardsReportListFilters | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -3925,8 +3925,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program (lprg_ followed by hexadecimal characters). |  |
-| **filters** | [**RewardsReportListFilters**](RewardsReportListFilters.md) | Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **filters** | [**RewardsReportListFilters**](RewardsReportListFilters.md) | Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -3985,11 +3985,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.
-            var resolution = "day";  // string | Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.
-            var filters = new SpendingReportListFilters(); // SpendingReportListFilters | Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
+            var filters = new SpendingReportListFilters(); // SpendingReportListFilters | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -4032,11 +4032,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date. |  |
-| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date. |  |
-| **resolution** | **string** | Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters. |  |
-| **filters** | [**SpendingReportListFilters**](SpendingReportListFilters.md) | Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
+| **filters** | [**SpendingReportListFilters**](SpendingReportListFilters.md) | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -4095,8 +4095,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var filters = new SpendingReportListFilters(); // SpendingReportListFilters | Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var filters = new SpendingReportListFilters(); // SpendingReportListFilters | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -4139,8 +4139,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **filters** | [**SpendingReportListFilters**](SpendingReportListFilters.md) | Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **filters** | [**SpendingReportListFilters**](SpendingReportListFilters.md) | Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -4199,10 +4199,10 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique program identifier.
-            var limit = "\"10\"";  // string | Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional)  (default to "10")
-            var order = "-created_at";  // string | Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional) 
-            var cursor = "cursor_example";  // string | Pagination cursor returned by a previous call (cursor.next). (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var limit = "\"10\"";  // string | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional)  (default to "10")
+            var order = "-created_at";  // string | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional) 
+            var cursor = "cursor_example";  // string | Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional) 
 
             try
             {
@@ -4245,10 +4245,10 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique program identifier. |  |
-| **limit** | **string** | Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. | [optional] [default to &quot;10&quot;] |
-| **order** | **string** | Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. | [optional]  |
-| **cursor** | **string** | Pagination cursor returned by a previous call (cursor.next). | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **limit** | **string** | Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. | [optional] [default to &quot;10&quot;] |
+| **order** | **string** | Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. | [optional]  |
+| **cursor** | **string** | Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. | [optional]  |
 
 ### Return type
 
@@ -4307,11 +4307,11 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.
-            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the range, in YYYY-MM-DD format.
-            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.
-            var resolution = "day";  // string | Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.
-            var filters = new TiersReportListFilters(); // TiersReportListFilters | Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var startDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive start of the report date range. Format YYYY-MM-DD.
+            var endDate = DateTime.Parse("2013-10-20");  // DateTimeOffset | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.
+            var resolution = "day";  // string | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.
+            var filters = new TiersReportListFilters(); // TiersReportListFilters | Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -4354,11 +4354,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters. |  |
-| **startDate** | **DateTimeOffset** | Sets the inclusive start of the range, in YYYY-MM-DD format. |  |
-| **endDate** | **DateTimeOffset** | Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date. |  |
-| **resolution** | **string** | Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters. |  |
-| **filters** | [**TiersReportListFilters**](TiersReportListFilters.md) | Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **startDate** | **DateTimeOffset** | Sets the inclusive start of the report date range. Format YYYY-MM-DD. |  |
+| **endDate** | **DateTimeOffset** | Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date. |  |
+| **resolution** | **string** | Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters. |  |
+| **filters** | [**TiersReportListFilters**](TiersReportListFilters.md) | Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -4417,8 +4417,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.
-            var filters = new TiersReportListFilters(); // TiersReportListFilters | Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional) 
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var filters = new TiersReportListFilters(); // TiersReportListFilters | Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional) 
 
             try
             {
@@ -4461,8 +4461,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters. |  |
-| **filters** | [**TiersReportListFilters**](TiersReportListFilters.md) | Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... | [optional]  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **filters** | [**TiersReportListFilters**](TiersReportListFilters.md) | Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. | [optional]  |
 
 ### Return type
 
@@ -4521,8 +4521,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
             var v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody = new V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody(); // V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody | 
 
             try
@@ -4566,8 +4566,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 | **v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody** | [**V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody**](V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody.md) |  |  |
 
 ### Return type
@@ -4627,8 +4627,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).
-            var rewardTransactionId = "rewardTransactionId_example";  // string | Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var rewardTransactionId = "rewardTransactionId_example";  // string | Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.
             var v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody = new V2LoyaltiesProgramsRewardsPurchasesRefundRequestBody(); // V2LoyaltiesProgramsRewardsPurchasesRefundRequestBody | Optional refund policies. An empty payload is allowed. (optional) 
 
             try
@@ -4672,8 +4672,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters). |  |
-| **rewardTransactionId** | **string** | Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **rewardTransactionId** | **string** | Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+. |  |
 | **v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody** | [**V2LoyaltiesProgramsRewardsPurchasesRefundRequestBody**](V2LoyaltiesProgramsRewardsPurchasesRefundRequestBody.md) | Optional refund policies. An empty payload is allowed. | [optional]  |
 
 ### Return type
@@ -4733,8 +4733,8 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2ProgramsApi(config);
-            var programId = "programId_example";  // string | Unique loyalty program ID (format lprg_[a-f0-9]+).
-            var memberId = "memberId_example";  // string | Program member ID (format lmbr_[a-f0-9]+).
+            var programId = "programId_example";  // string | Identifies the loyalty program. Format lprg_[a-f0-9]+.
+            var memberId = "memberId_example";  // string | Identifies the member. Format lmbr_[a-f0-9]+.
             var v2LoyaltiesProgramsMembersUpdateRequestBody = new V2LoyaltiesProgramsMembersUpdateRequestBody(); // V2LoyaltiesProgramsMembersUpdateRequestBody | 
 
             try
@@ -4778,8 +4778,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **programId** | **string** | Unique loyalty program ID (format lprg_[a-f0-9]+). |  |
-| **memberId** | **string** | Program member ID (format lmbr_[a-f0-9]+). |  |
+| **programId** | **string** | Identifies the loyalty program. Format lprg_[a-f0-9]+. |  |
+| **memberId** | **string** | Identifies the member. Format lmbr_[a-f0-9]+. |  |
 | **v2LoyaltiesProgramsMembersUpdateRequestBody** | [**V2LoyaltiesProgramsMembersUpdateRequestBody**](V2LoyaltiesProgramsMembersUpdateRequestBody.md) |  |  |
 
 ### Return type

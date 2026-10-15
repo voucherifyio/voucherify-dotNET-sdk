@@ -270,6 +270,8 @@ Authorization schemes defined for the API.
 - **2026-10-14** - `9.2.0`
     - Added Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under `/v2/loyalties`.
     - Added `loyalty_memberships` on customer summary models.
+    - Added an optional `filters` query parameter on list customers.
+    - Customer loyalty membership responses list only `ACTIVE` memberships. The status enum still includes `INACTIVE` and `DELETED`.
 - **2026-08-26** - `9.1.1`
     - Fixed: `ExchangeRatio` is `decimal?`. `RewardsCreateRequestBodyParametersCoin` and `RewardsUpdateRequestBodyParametersCoin` changed from `(string, string)` to `(decimal?, string)`. `RedemptionRewardResultParametersCoin` changed from `(int?, int?)` to `(decimal?, int?)`. Update positional call sites. The API returns fractional values such as `0.01`.
     - Added: `Language` on redeem and validate options.
@@ -1742,8 +1744,6 @@ Class | Method | HTTP request | Description
  - [Model.ParameterVoucherTypeListPublications](docs/ParameterVoucherTypeListPublications.md)
  - [Model.ParametersFiltersListCampaignTransactions](docs/ParametersFiltersListCampaignTransactions.md)
  - [Model.PointsEarningsReportDailyEntry](docs/PointsEarningsReportDailyEntry.md)
- - [Model.PointsEarningsReportFilterCardDefinitionIdConditions](docs/PointsEarningsReportFilterCardDefinitionIdConditions.md)
- - [Model.PointsEarningsReportFilterCardDefinitionIdConditionsConditions](docs/PointsEarningsReportFilterCardDefinitionIdConditionsConditions.md)
  - [Model.PointsEarningsReportListFilters](docs/PointsEarningsReportListFilters.md)
  - [Model.PointsEarningsReportSummaryEntry](docs/PointsEarningsReportSummaryEntry.md)
  - [Model.PointsExpirationTypes](docs/PointsExpirationTypes.md)
@@ -2013,6 +2013,8 @@ Class | Method | HTTP request | Description
  - [Model.Referrer](docs/Referrer.md)
  - [Model.ReferrerAddress](docs/ReferrerAddress.md)
  - [Model.ReferrerId](docs/ReferrerId.md)
+ - [Model.ReportCardDefinitionIdFilterConditions](docs/ReportCardDefinitionIdFilterConditions.md)
+ - [Model.ReportCardDefinitionIdFilterConditionsConditions](docs/ReportCardDefinitionIdFilterConditionsConditions.md)
  - [Model.ResourceTypes](docs/ResourceTypes.md)
  - [Model.Reward](docs/Reward.md)
  - [Model.RewardAssignment](docs/RewardAssignment.md)
@@ -2117,8 +2119,6 @@ Class | Method | HTTP request | Description
  - [Model.SkusImportCsvCreateResponseBody](docs/SkusImportCsvCreateResponseBody.md)
  - [Model.SkusListForProduct](docs/SkusListForProduct.md)
  - [Model.SpendingReportDailyEntry](docs/SpendingReportDailyEntry.md)
- - [Model.SpendingReportFilterCardDefinitionIdConditions](docs/SpendingReportFilterCardDefinitionIdConditions.md)
- - [Model.SpendingReportFilterCardDefinitionIdConditionsConditions](docs/SpendingReportFilterCardDefinitionIdConditionsConditions.md)
  - [Model.SpendingReportListFilters](docs/SpendingReportListFilters.md)
  - [Model.SpendingReportSummaryEntry](docs/SpendingReportSummaryEntry.md)
  - [Model.StackingRules](docs/StackingRules.md)

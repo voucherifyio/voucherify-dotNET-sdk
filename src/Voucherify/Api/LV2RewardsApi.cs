@@ -35,7 +35,7 @@ namespace Voucherify.Api
         /// Returns a single reward by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesRewardsGetResponseBody</returns>
         V2LoyaltiesRewardsGetResponseBody GetReward(string rewardId, int operationIndex = 0);
@@ -47,7 +47,7 @@ namespace Voucherify.Api
         /// Returns a single reward by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesRewardsGetResponseBody</returns>
         ApiResponse<V2LoyaltiesRewardsGetResponseBody> GetRewardWithHttpInfo(string rewardId, int operationIndex = 0);
@@ -67,7 +67,7 @@ namespace Voucherify.Api
         /// Returns a single reward by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesRewardsGetResponseBody</returns>
@@ -80,7 +80,7 @@ namespace Voucherify.Api
         /// Returns a single reward by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesRewardsGetResponseBody)</returns>
@@ -209,7 +209,7 @@ namespace Voucherify.Api
         /// Get reward by ID Returns a single reward by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesRewardsGetResponseBody</returns>
         public V2LoyaltiesRewardsGetResponseBody GetReward(string rewardId, int operationIndex = 0)
@@ -222,7 +222,7 @@ namespace Voucherify.Api
         /// Get reward by ID Returns a single reward by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesRewardsGetResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesRewardsGetResponseBody> GetRewardWithHttpInfo(string rewardId, int operationIndex = 0)
@@ -296,7 +296,7 @@ namespace Voucherify.Api
         /// Get reward by ID Returns a single reward by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesRewardsGetResponseBody</returns>
@@ -310,7 +310,7 @@ namespace Voucherify.Api
         /// Get reward by ID Returns a single reward by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="rewardId">Unique reward identifier, prefixed with lrew_.</param>
+        /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesRewardsGetResponseBody)</returns>

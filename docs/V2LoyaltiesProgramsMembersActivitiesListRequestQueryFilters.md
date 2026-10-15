@@ -5,7 +5,7 @@ Field-specific filters for **GET** `/v2/loyalties/programs/{programId}/members/{
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Junction** | **string** | How multiple field filters are combined. Defaults to &#x60;AND&#x60;. | [optional] 
+**Junction** | **string** | Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;. | [optional] 
 **Id** | [**LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersId**](LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersId.md) |  | [optional] 
 **Type** | [**LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersType**](LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersType.md) |  | [optional] 
 **CreatedAt** | [**DateFilter**](DateFilter.md) |  | [optional] 

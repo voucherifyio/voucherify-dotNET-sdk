@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// ID filter conditions for card transaction IDs. At least one condition is required.
+    /// ID conditions. Format &#x60;lctx_[a-f0-9]+&#x60;. At least one condition is required.
     /// </summary>
     [DataContract(Name = "LoyaltiesProgramsMembersCardsTransactionsListRequestQueryId")]
     public partial class LoyaltiesProgramsMembersCardsTransactionsListRequestQueryId : IValidatableObject

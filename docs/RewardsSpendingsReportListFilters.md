@@ -5,9 +5,9 @@ Filters for program rewards spendings reports.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Junction** | **string** | Sets the logical junction between the field filters. Defaults to &#x60;AND&#x60;. | [optional] 
+**Junction** | **string** | Joins the field filters. Allowed values are &#x60;AND&#x60; and &#x60;OR&#x60;. Defaults to &#x60;AND&#x60;. | [optional] 
 **RewardId** | [**RewardsReportFilterRewardIdConditions**](RewardsReportFilterRewardIdConditions.md) |  | [optional] 
-**CardDefinitionId** | [**SpendingReportFilterCardDefinitionIdConditions**](SpendingReportFilterCardDefinitionIdConditions.md) |  | [optional] 
+**CardDefinitionId** | [**ReportCardDefinitionIdFilterConditions**](ReportCardDefinitionIdFilterConditions.md) |  | [optional] 
 **CostId** | [**RewardsSpendingsReportFilterCostIdConditions**](RewardsSpendingsReportFilterCostIdConditions.md) |  | [optional] 
 **SpendingId** | [**RewardsSpendingsReportFilterSpendingIdConditions**](RewardsSpendingsReportFilterSpendingIdConditions.md) |  | [optional] 
 

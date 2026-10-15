@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Enum filter conditions for member activity types. At least one condition is required.
+    /// Enum conditions. At least one condition is required.
     /// </summary>
     [DataContract(Name = "LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersType")]
     public partial class LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersType : IValidatableObject

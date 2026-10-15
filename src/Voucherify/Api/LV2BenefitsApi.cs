@@ -35,7 +35,7 @@ namespace Voucherify.Api
         /// Returns a single benefit by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesBenefitsGetResponseBody</returns>
         V2LoyaltiesBenefitsGetResponseBody GetBenefit(string benefitId, int operationIndex = 0);
@@ -47,7 +47,7 @@ namespace Voucherify.Api
         /// Returns a single benefit by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesBenefitsGetResponseBody</returns>
         ApiResponse<V2LoyaltiesBenefitsGetResponseBody> GetBenefitWithHttpInfo(string benefitId, int operationIndex = 0);
@@ -67,7 +67,7 @@ namespace Voucherify.Api
         /// Returns a single benefit by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesBenefitsGetResponseBody</returns>
@@ -80,7 +80,7 @@ namespace Voucherify.Api
         /// Returns a single benefit by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesBenefitsGetResponseBody)</returns>
@@ -209,7 +209,7 @@ namespace Voucherify.Api
         /// Get benefit Returns a single benefit by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesBenefitsGetResponseBody</returns>
         public V2LoyaltiesBenefitsGetResponseBody GetBenefit(string benefitId, int operationIndex = 0)
@@ -222,7 +222,7 @@ namespace Voucherify.Api
         /// Get benefit Returns a single benefit by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesBenefitsGetResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesBenefitsGetResponseBody> GetBenefitWithHttpInfo(string benefitId, int operationIndex = 0)
@@ -296,7 +296,7 @@ namespace Voucherify.Api
         /// Get benefit Returns a single benefit by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesBenefitsGetResponseBody</returns>
@@ -310,7 +310,7 @@ namespace Voucherify.Api
         /// Get benefit Returns a single benefit by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="benefitId">Unique benefit ID, prefixed with lben_.</param>
+        /// <param name="benefitId">Identifies the benefit. Format lben_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesBenefitsGetResponseBody)</returns>

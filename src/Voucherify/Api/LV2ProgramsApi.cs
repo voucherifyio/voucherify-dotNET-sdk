@@ -35,10 +35,10 @@ namespace Voucherify.Api
         /// Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody ActivateCardPendingPointsBucket(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0);
@@ -50,10 +50,10 @@ namespace Voucherify.Api
         /// Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody> ActivateCardPendingPointsBucketWithHttpInfo(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0);
@@ -64,8 +64,8 @@ namespace Voucherify.Api
         /// Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersActivateResponseBody</returns>
         V2LoyaltiesProgramsMembersActivateResponseBody ActivateProgramMember(string programId, string memberId, int operationIndex = 0);
@@ -77,8 +77,8 @@ namespace Voucherify.Api
         /// Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersActivateResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersActivateResponseBody> ActivateProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0);
@@ -89,9 +89,9 @@ namespace Voucherify.Api
         /// Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPointsAdjustResponseBody</returns>
@@ -104,9 +104,9 @@ namespace Voucherify.Api
         /// Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPointsAdjustResponseBody</returns>
@@ -118,7 +118,7 @@ namespace Voucherify.Api
         /// Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCreateInBulkResponseBody</returns>
@@ -131,7 +131,7 @@ namespace Voucherify.Api
         /// Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCreateInBulkResponseBody</returns>
@@ -143,10 +143,10 @@ namespace Voucherify.Api
         /// Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody CancelCardPendingPointsBucket(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0);
@@ -158,10 +158,10 @@ namespace Voucherify.Api
         /// Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody> CancelCardPendingPointsBucketWithHttpInfo(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0);
@@ -172,8 +172,8 @@ namespace Voucherify.Api
         /// Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBody</returns>
@@ -186,8 +186,8 @@ namespace Voucherify.Api
         /// Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBody</returns>
@@ -199,7 +199,7 @@ namespace Voucherify.Api
         /// Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCreateResponseBody</returns>
@@ -212,7 +212,7 @@ namespace Voucherify.Api
         /// Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCreateResponseBody</returns>
@@ -224,8 +224,8 @@ namespace Voucherify.Api
         /// Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersDeactivateResponseBody</returns>
         V2LoyaltiesProgramsMembersDeactivateResponseBody DeactivateProgramMember(string programId, string memberId, int operationIndex = 0);
@@ -237,8 +237,8 @@ namespace Voucherify.Api
         /// Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersDeactivateResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersDeactivateResponseBody> DeactivateProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0);
@@ -249,8 +249,8 @@ namespace Voucherify.Api
         /// Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersDeleteResponseBody</returns>
         V2LoyaltiesProgramsMembersDeleteResponseBody DeleteProgramMember(string programId, string memberId, int operationIndex = 0);
@@ -262,8 +262,8 @@ namespace Voucherify.Api
         /// Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersDeleteResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersDeleteResponseBody> DeleteProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0);
@@ -274,10 +274,10 @@ namespace Voucherify.Api
         /// Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody ExpireCardPointsBucket(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0);
@@ -289,10 +289,10 @@ namespace Voucherify.Api
         /// Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody> ExpireCardPointsBucketWithHttpInfo(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0);
@@ -303,12 +303,12 @@ namespace Voucherify.Api
         /// Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody</returns>
         V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody GetMemberEarningRuleDailyReport(string programId, string memberId, string earningRuleId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0);
@@ -320,12 +320,12 @@ namespace Voucherify.Api
         /// Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody> GetMemberEarningRuleDailyReportWithHttpInfo(string programId, string memberId, string earningRuleId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0);
@@ -336,8 +336,8 @@ namespace Voucherify.Api
         /// Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersGetResponseBody</returns>
         V2LoyaltiesProgramsMembersGetResponseBody GetProgramMember(string programId, string memberId, int operationIndex = 0);
@@ -349,8 +349,8 @@ namespace Voucherify.Api
         /// Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersGetResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersGetResponseBody> GetProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0);
@@ -361,9 +361,9 @@ namespace Voucherify.Api
         /// Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembershipsGetResponseBody</returns>
         V2LoyaltiesProgramsMembershipsGetResponseBody GetProgramMembership(string programId, string customerId, string identificationType = default(string), int operationIndex = 0);
@@ -375,9 +375,9 @@ namespace Voucherify.Api
         /// Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembershipsGetResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembershipsGetResponseBody> GetProgramMembershipWithHttpInfo(string programId, string customerId, string identificationType = default(string), int operationIndex = 0);
@@ -388,11 +388,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody</returns>
         V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody GetProgramPointsEarningsDailyReport(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0);
@@ -404,11 +404,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody> GetProgramPointsEarningsDailyReportWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0);
@@ -419,8 +419,8 @@ namespace Voucherify.Api
         /// Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody</returns>
         V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody GetProgramPointsEarningsSummaryReport(string programId, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0);
@@ -432,8 +432,8 @@ namespace Voucherify.Api
         /// Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody> GetProgramPointsEarningsSummaryReportWithHttpInfo(string programId, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0);
@@ -444,13 +444,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody ListCardActivities(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters), int operationIndex = 0);
@@ -462,13 +462,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody> ListCardActivitiesWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters), int operationIndex = 0);
@@ -479,13 +479,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody ListCardExpiringPoints(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery), int operationIndex = 0);
@@ -497,13 +497,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody> ListCardExpiringPointsWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery), int operationIndex = 0);
@@ -514,13 +514,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody ListCardPendingPoints(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery), int operationIndex = 0);
@@ -532,13 +532,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody> ListCardPendingPointsWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery), int operationIndex = 0);
@@ -549,13 +549,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody</returns>
         V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody ListCardTransactions(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery), int operationIndex = 0);
@@ -567,13 +567,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody> ListCardTransactionsWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery), int operationIndex = 0);
@@ -584,12 +584,12 @@ namespace Voucherify.Api
         /// Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody</returns>
         V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody ListMemberBenefitTransactions(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery), int operationIndex = 0);
@@ -601,12 +601,12 @@ namespace Voucherify.Api
         /// Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody> ListMemberBenefitTransactionsWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery), int operationIndex = 0);
@@ -617,12 +617,12 @@ namespace Voucherify.Api
         /// Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsMembersCardsReportsDailyListResponseBody</returns>
         LoyaltiesProgramsMembersCardsReportsDailyListResponseBody ListMemberCardDailyReports(string programId, string memberId, string cardId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0);
@@ -634,12 +634,12 @@ namespace Voucherify.Api
         /// Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsMembersCardsReportsDailyListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsMembersCardsReportsDailyListResponseBody> ListMemberCardDailyReportsWithHttpInfo(string programId, string memberId, string cardId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0);
@@ -650,12 +650,12 @@ namespace Voucherify.Api
         /// Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody</returns>
         V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody ListMemberOrderPayments(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery filters = default(V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery), int operationIndex = 0);
@@ -667,12 +667,12 @@ namespace Voucherify.Api
         /// Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody> ListMemberOrderPaymentsWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery filters = default(V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery), int operationIndex = 0);
@@ -683,12 +683,12 @@ namespace Voucherify.Api
         /// Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody</returns>
         V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody ListMemberRewardPurchases(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery filters = default(V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery), int operationIndex = 0);
@@ -700,12 +700,12 @@ namespace Voucherify.Api
         /// Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody> ListMemberRewardPurchasesWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery filters = default(V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery), int operationIndex = 0);
@@ -716,12 +716,12 @@ namespace Voucherify.Api
         /// Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody</returns>
         V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody ListMemberTierTransactions(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery), int operationIndex = 0);
@@ -733,12 +733,12 @@ namespace Voucherify.Api
         /// Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody> ListMemberTierTransactionsWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery), int operationIndex = 0);
@@ -749,10 +749,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of earning rules assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsEarningRulesListResponseBody</returns>
         V2LoyaltiesProgramsEarningRulesListResponseBody ListProgramEarningRuleAssignments(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0);
@@ -764,10 +764,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of earning rules assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsEarningRulesListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsEarningRulesListResponseBody> ListProgramEarningRuleAssignmentsWithHttpInfo(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0);
@@ -778,11 +778,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody</returns>
         V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody ListProgramEarningRulesDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0);
@@ -794,11 +794,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody> ListProgramEarningRulesDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0);
@@ -809,8 +809,8 @@ namespace Voucherify.Api
         /// Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody</returns>
         V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody ListProgramEarningRulesSummaryReports(string programId, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0);
@@ -822,8 +822,8 @@ namespace Voucherify.Api
         /// Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody> ListProgramEarningRulesSummaryReportsWithHttpInfo(string programId, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0);
@@ -834,12 +834,12 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersActivitiesListResponseBody</returns>
         V2LoyaltiesProgramsMembersActivitiesListResponseBody ListProgramMemberActivities(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters), int operationIndex = 0);
@@ -851,12 +851,12 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersActivitiesListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersActivitiesListResponseBody> ListProgramMemberActivitiesWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters), int operationIndex = 0);
@@ -867,11 +867,11 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersListResponseBody</returns>
         V2LoyaltiesProgramsMembersListResponseBody ListProgramMembers(string programId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersListRequestQuery filters = default(V2LoyaltiesProgramsMembersListRequestQuery), int operationIndex = 0);
@@ -883,11 +883,11 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsMembersListResponseBody> ListProgramMembersWithHttpInfo(string programId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersListRequestQuery filters = default(V2LoyaltiesProgramsMembersListRequestQuery), int operationIndex = 0);
@@ -898,10 +898,10 @@ namespace Voucherify.Api
         /// Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsMembersDailyListResponseBody</returns>
         LoyaltiesProgramsReportsMembersDailyListResponseBody ListProgramMembersDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0);
@@ -913,10 +913,10 @@ namespace Voucherify.Api
         /// Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsMembersDailyListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsMembersDailyListResponseBody> ListProgramMembersDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0);
@@ -927,7 +927,7 @@ namespace Voucherify.Api
         /// Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsMembersSummaryListResponseBody</returns>
         LoyaltiesProgramsReportsMembersSummaryListResponseBody ListProgramMembersSummaryReports(string programId, int operationIndex = 0);
@@ -939,7 +939,7 @@ namespace Voucherify.Api
         /// Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsMembersSummaryListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsMembersSummaryListResponseBody> ListProgramMembersSummaryReportsWithHttpInfo(string programId, int operationIndex = 0);
@@ -950,10 +950,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsRewardsListResponseBody</returns>
         V2LoyaltiesProgramsRewardsListResponseBody ListProgramRewardAssignments(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0);
@@ -965,10 +965,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsRewardsListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsRewardsListResponseBody> ListProgramRewardAssignmentsWithHttpInfo(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0);
@@ -979,11 +979,11 @@ namespace Voucherify.Api
         /// Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsDailyListResponseBody</returns>
         LoyaltiesProgramsReportsRewardsDailyListResponseBody ListProgramRewardsDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0);
@@ -995,11 +995,11 @@ namespace Voucherify.Api
         /// Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsDailyListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsRewardsDailyListResponseBody> ListProgramRewardsDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0);
@@ -1010,11 +1010,11 @@ namespace Voucherify.Api
         /// Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody</returns>
         LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody ListProgramRewardsSpendingsDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0);
@@ -1026,11 +1026,11 @@ namespace Voucherify.Api
         /// Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody> ListProgramRewardsSpendingsDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0);
@@ -1041,8 +1041,8 @@ namespace Voucherify.Api
         /// Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody</returns>
         LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody ListProgramRewardsSpendingsSummaryReports(string programId, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0);
@@ -1054,8 +1054,8 @@ namespace Voucherify.Api
         /// Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody> ListProgramRewardsSpendingsSummaryReportsWithHttpInfo(string programId, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0);
@@ -1066,8 +1066,8 @@ namespace Voucherify.Api
         /// Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsSummaryListResponseBody</returns>
         LoyaltiesProgramsReportsRewardsSummaryListResponseBody ListProgramRewardsSummaryReports(string programId, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0);
@@ -1079,8 +1079,8 @@ namespace Voucherify.Api
         /// Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsSummaryListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsRewardsSummaryListResponseBody> ListProgramRewardsSummaryReportsWithHttpInfo(string programId, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0);
@@ -1091,11 +1091,11 @@ namespace Voucherify.Api
         /// Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsSpendingDailyListResponseBody</returns>
         LoyaltiesProgramsReportsSpendingDailyListResponseBody ListProgramSpendingDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0);
@@ -1107,11 +1107,11 @@ namespace Voucherify.Api
         /// Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsSpendingDailyListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsSpendingDailyListResponseBody> ListProgramSpendingDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0);
@@ -1122,8 +1122,8 @@ namespace Voucherify.Api
         /// Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsSpendingSummaryListResponseBody</returns>
         LoyaltiesProgramsReportsSpendingSummaryListResponseBody ListProgramSpendingSummaryReports(string programId, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0);
@@ -1135,8 +1135,8 @@ namespace Voucherify.Api
         /// Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsSpendingSummaryListResponseBody</returns>
         ApiResponse<LoyaltiesProgramsReportsSpendingSummaryListResponseBody> ListProgramSpendingSummaryReportsWithHttpInfo(string programId, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0);
@@ -1147,10 +1147,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsTierStructuresListResponseBody</returns>
         V2LoyaltiesProgramsTierStructuresListResponseBody ListProgramTierStructureAssignments(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0);
@@ -1162,10 +1162,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsTierStructuresListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsTierStructuresListResponseBody> ListProgramTierStructureAssignmentsWithHttpInfo(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0);
@@ -1176,11 +1176,11 @@ namespace Voucherify.Api
         /// Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsTiersDailyListResponseBody</returns>
         V2LoyaltiesProgramsReportsTiersDailyListResponseBody ListProgramTiersDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0);
@@ -1192,11 +1192,11 @@ namespace Voucherify.Api
         /// Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsTiersDailyListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsReportsTiersDailyListResponseBody> ListProgramTiersDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0);
@@ -1207,8 +1207,8 @@ namespace Voucherify.Api
         /// Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsTiersSummaryListResponseBody</returns>
         V2LoyaltiesProgramsReportsTiersSummaryListResponseBody ListProgramTiersSummaryReports(string programId, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0);
@@ -1220,8 +1220,8 @@ namespace Voucherify.Api
         /// Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsTiersSummaryListResponseBody</returns>
         ApiResponse<V2LoyaltiesProgramsReportsTiersSummaryListResponseBody> ListProgramTiersSummaryReportsWithHttpInfo(string programId, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0);
@@ -1232,8 +1232,8 @@ namespace Voucherify.Api
         /// Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody</returns>
@@ -1246,8 +1246,8 @@ namespace Voucherify.Api
         /// Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody</returns>
@@ -1259,8 +1259,8 @@ namespace Voucherify.Api
         /// Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsRewardsPurchasesRefundResponseBody</returns>
@@ -1273,8 +1273,8 @@ namespace Voucherify.Api
         /// Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsRewardsPurchasesRefundResponseBody</returns>
@@ -1286,8 +1286,8 @@ namespace Voucherify.Api
         /// Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersUpdateResponseBody</returns>
@@ -1300,8 +1300,8 @@ namespace Voucherify.Api
         /// Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersUpdateResponseBody</returns>
@@ -1322,10 +1322,10 @@ namespace Voucherify.Api
         /// Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody</returns>
@@ -1338,10 +1338,10 @@ namespace Voucherify.Api
         /// Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody)</returns>
@@ -1353,8 +1353,8 @@ namespace Voucherify.Api
         /// Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersActivateResponseBody</returns>
@@ -1367,8 +1367,8 @@ namespace Voucherify.Api
         /// Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersActivateResponseBody)</returns>
@@ -1380,9 +1380,9 @@ namespace Voucherify.Api
         /// Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1396,9 +1396,9 @@ namespace Voucherify.Api
         /// Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1411,7 +1411,7 @@ namespace Voucherify.Api
         /// Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1425,7 +1425,7 @@ namespace Voucherify.Api
         /// Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1438,10 +1438,10 @@ namespace Voucherify.Api
         /// Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody</returns>
@@ -1454,10 +1454,10 @@ namespace Voucherify.Api
         /// Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody)</returns>
@@ -1469,8 +1469,8 @@ namespace Voucherify.Api
         /// Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1484,8 +1484,8 @@ namespace Voucherify.Api
         /// Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1498,7 +1498,7 @@ namespace Voucherify.Api
         /// Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1512,7 +1512,7 @@ namespace Voucherify.Api
         /// Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1525,8 +1525,8 @@ namespace Voucherify.Api
         /// Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersDeactivateResponseBody</returns>
@@ -1539,8 +1539,8 @@ namespace Voucherify.Api
         /// Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersDeactivateResponseBody)</returns>
@@ -1552,8 +1552,8 @@ namespace Voucherify.Api
         /// Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersDeleteResponseBody</returns>
@@ -1566,8 +1566,8 @@ namespace Voucherify.Api
         /// Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersDeleteResponseBody)</returns>
@@ -1579,10 +1579,10 @@ namespace Voucherify.Api
         /// Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody</returns>
@@ -1595,10 +1595,10 @@ namespace Voucherify.Api
         /// Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody)</returns>
@@ -1610,12 +1610,12 @@ namespace Voucherify.Api
         /// Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody</returns>
@@ -1628,12 +1628,12 @@ namespace Voucherify.Api
         /// Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody)</returns>
@@ -1645,8 +1645,8 @@ namespace Voucherify.Api
         /// Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersGetResponseBody</returns>
@@ -1659,8 +1659,8 @@ namespace Voucherify.Api
         /// Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersGetResponseBody)</returns>
@@ -1672,9 +1672,9 @@ namespace Voucherify.Api
         /// Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembershipsGetResponseBody</returns>
@@ -1687,9 +1687,9 @@ namespace Voucherify.Api
         /// Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembershipsGetResponseBody)</returns>
@@ -1701,11 +1701,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody</returns>
@@ -1718,11 +1718,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody)</returns>
@@ -1734,8 +1734,8 @@ namespace Voucherify.Api
         /// Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody</returns>
@@ -1748,8 +1748,8 @@ namespace Voucherify.Api
         /// Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody)</returns>
@@ -1761,13 +1761,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody</returns>
@@ -1780,13 +1780,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody)</returns>
@@ -1798,13 +1798,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody</returns>
@@ -1817,13 +1817,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody)</returns>
@@ -1835,13 +1835,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody</returns>
@@ -1854,13 +1854,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody)</returns>
@@ -1872,13 +1872,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody</returns>
@@ -1891,13 +1891,13 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody)</returns>
@@ -1909,12 +1909,12 @@ namespace Voucherify.Api
         /// Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody</returns>
@@ -1927,12 +1927,12 @@ namespace Voucherify.Api
         /// Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody)</returns>
@@ -1944,12 +1944,12 @@ namespace Voucherify.Api
         /// Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsMembersCardsReportsDailyListResponseBody</returns>
@@ -1962,12 +1962,12 @@ namespace Voucherify.Api
         /// Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsMembersCardsReportsDailyListResponseBody)</returns>
@@ -1979,12 +1979,12 @@ namespace Voucherify.Api
         /// Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody</returns>
@@ -1997,12 +1997,12 @@ namespace Voucherify.Api
         /// Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody)</returns>
@@ -2014,12 +2014,12 @@ namespace Voucherify.Api
         /// Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody</returns>
@@ -2032,12 +2032,12 @@ namespace Voucherify.Api
         /// Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody)</returns>
@@ -2049,12 +2049,12 @@ namespace Voucherify.Api
         /// Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody</returns>
@@ -2067,12 +2067,12 @@ namespace Voucherify.Api
         /// Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody)</returns>
@@ -2084,10 +2084,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of earning rules assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsEarningRulesListResponseBody</returns>
@@ -2100,10 +2100,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of earning rules assigned to the program.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsEarningRulesListResponseBody)</returns>
@@ -2115,11 +2115,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody</returns>
@@ -2132,11 +2132,11 @@ namespace Voucherify.Api
         /// Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody)</returns>
@@ -2148,8 +2148,8 @@ namespace Voucherify.Api
         /// Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody</returns>
@@ -2162,8 +2162,8 @@ namespace Voucherify.Api
         /// Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody)</returns>
@@ -2175,12 +2175,12 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersActivitiesListResponseBody</returns>
@@ -2193,12 +2193,12 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersActivitiesListResponseBody)</returns>
@@ -2210,11 +2210,11 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersListResponseBody</returns>
@@ -2227,11 +2227,11 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersListResponseBody)</returns>
@@ -2243,10 +2243,10 @@ namespace Voucherify.Api
         /// Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsMembersDailyListResponseBody</returns>
@@ -2259,10 +2259,10 @@ namespace Voucherify.Api
         /// Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsMembersDailyListResponseBody)</returns>
@@ -2274,7 +2274,7 @@ namespace Voucherify.Api
         /// Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsMembersSummaryListResponseBody</returns>
@@ -2287,7 +2287,7 @@ namespace Voucherify.Api
         /// Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsMembersSummaryListResponseBody)</returns>
@@ -2299,10 +2299,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsRewardsListResponseBody</returns>
@@ -2315,10 +2315,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsRewardsListResponseBody)</returns>
@@ -2330,11 +2330,11 @@ namespace Voucherify.Api
         /// Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsDailyListResponseBody</returns>
@@ -2347,11 +2347,11 @@ namespace Voucherify.Api
         /// Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsDailyListResponseBody)</returns>
@@ -2363,11 +2363,11 @@ namespace Voucherify.Api
         /// Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody</returns>
@@ -2380,11 +2380,11 @@ namespace Voucherify.Api
         /// Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody)</returns>
@@ -2396,8 +2396,8 @@ namespace Voucherify.Api
         /// Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody</returns>
@@ -2410,8 +2410,8 @@ namespace Voucherify.Api
         /// Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody)</returns>
@@ -2423,8 +2423,8 @@ namespace Voucherify.Api
         /// Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsSummaryListResponseBody</returns>
@@ -2437,8 +2437,8 @@ namespace Voucherify.Api
         /// Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsSummaryListResponseBody)</returns>
@@ -2450,11 +2450,11 @@ namespace Voucherify.Api
         /// Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsSpendingDailyListResponseBody</returns>
@@ -2467,11 +2467,11 @@ namespace Voucherify.Api
         /// Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsSpendingDailyListResponseBody)</returns>
@@ -2483,8 +2483,8 @@ namespace Voucherify.Api
         /// Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsSpendingSummaryListResponseBody</returns>
@@ -2497,8 +2497,8 @@ namespace Voucherify.Api
         /// Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsSpendingSummaryListResponseBody)</returns>
@@ -2510,10 +2510,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsTierStructuresListResponseBody</returns>
@@ -2526,10 +2526,10 @@ namespace Voucherify.Api
         /// Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsTierStructuresListResponseBody)</returns>
@@ -2541,11 +2541,11 @@ namespace Voucherify.Api
         /// Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsTiersDailyListResponseBody</returns>
@@ -2558,11 +2558,11 @@ namespace Voucherify.Api
         /// Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsTiersDailyListResponseBody)</returns>
@@ -2574,8 +2574,8 @@ namespace Voucherify.Api
         /// Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsTiersSummaryListResponseBody</returns>
@@ -2588,8 +2588,8 @@ namespace Voucherify.Api
         /// Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsTiersSummaryListResponseBody)</returns>
@@ -2601,8 +2601,8 @@ namespace Voucherify.Api
         /// Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2616,8 +2616,8 @@ namespace Voucherify.Api
         /// Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2630,8 +2630,8 @@ namespace Voucherify.Api
         /// Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2645,8 +2645,8 @@ namespace Voucherify.Api
         /// Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2659,8 +2659,8 @@ namespace Voucherify.Api
         /// Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2674,8 +2674,8 @@ namespace Voucherify.Api
         /// Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2805,10 +2805,10 @@ namespace Voucherify.Api
         /// Activate pending point bucket Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody ActivateCardPendingPointsBucket(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0)
@@ -2821,10 +2821,10 @@ namespace Voucherify.Api
         /// Activate pending point bucket Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody> ActivateCardPendingPointsBucketWithHttpInfo(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0)
@@ -2919,10 +2919,10 @@ namespace Voucherify.Api
         /// Activate pending point bucket Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody</returns>
@@ -2936,10 +2936,10 @@ namespace Voucherify.Api
         /// Activate pending point bucket Activates a pending points bucket and creates a PENDING_POINTS_ACTIVATED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsPendingPointsActivateResponseBody)</returns>
@@ -3036,8 +3036,8 @@ namespace Voucherify.Api
         /// Activate program member Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersActivateResponseBody</returns>
         public V2LoyaltiesProgramsMembersActivateResponseBody ActivateProgramMember(string programId, string memberId, int operationIndex = 0)
@@ -3050,8 +3050,8 @@ namespace Voucherify.Api
         /// Activate program member Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersActivateResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersActivateResponseBody> ActivateProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0)
@@ -3132,8 +3132,8 @@ namespace Voucherify.Api
         /// Activate program member Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersActivateResponseBody</returns>
@@ -3147,8 +3147,8 @@ namespace Voucherify.Api
         /// Activate program member Moves an INACTIVE member to ACTIVE and sets updated_at. Records a vl.member.activated activity. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+. Required.</param>
-        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+. Required.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersActivateResponseBody)</returns>
@@ -3231,9 +3231,9 @@ namespace Voucherify.Api
         /// Adjust card points Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPointsAdjustResponseBody</returns>
@@ -3247,9 +3247,9 @@ namespace Voucherify.Api
         /// Adjust card points Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPointsAdjustResponseBody</returns>
@@ -3346,9 +3346,9 @@ namespace Voucherify.Api
         /// Adjust card points Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3363,9 +3363,9 @@ namespace Voucherify.Api
         /// Adjust card points Manually adjusts the points balance of the members card. A positive points value creates an ADMIN_CREDIT card transaction. The expiration date comes from the member tier when that tier defines its own points expiration. Otherwise the date comes from the card definition. expiration_date is null when points dont expire. A negative points value creates an ADMIN_DEBIT card transaction. When points is 0, no transaction is created and status is NO_CHANGE. The transaction is created with status PENDING and processed asynchronously. The program and the member must be ACTIVE. The program must also be inside its validity window. Otherwise the response is 423. The response is 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3464,7 +3464,7 @@ namespace Voucherify.Api
         /// Batch create program members Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCreateInBulkResponseBody</returns>
@@ -3478,7 +3478,7 @@ namespace Voucherify.Api
         /// Batch create program members Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCreateInBulkResponseBody</returns>
@@ -3561,7 +3561,7 @@ namespace Voucherify.Api
         /// Batch create program members Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3576,7 +3576,7 @@ namespace Voucherify.Api
         /// Batch create program members Schedules creation of program members from a JSON array and returns 202 with async_action_id. The program must exist, be ACTIVE, and be inside its validity window. The body isnt checked before that response. Entries are processed in batches of 100. The raw body must be at most 10 MB. Each entry uses the same fields as [Create program member](/api-reference/programs/create-program-member). A failed entry is skipped. Its report row sets created to false and explains the failure in error. Skipped cases include an invalid customer_identification, an unknown customer, an invalid status, a duplicate customer in the batch (Duplicate customer ID), a customer who is already a member (Member already exists), metadata that doesnt match the vl_member schema, and entries past the loyalty members plan limit. Successful entries enroll the customer and create a loyalty card for each card definition on the program. Report columns are identification_type, customer_id, customer_source_id, program_id, member_id, created, and error. An empty array or a null entry fails the async action with invalid_request_payload. A body that isnt a JSON array fails it with top_level_object_should_be_an_array. Use [Get async action](/api-reference/async-actions/get-async-action) to read the status and the report. You can also open the result from Audit log, [Background tasks](/analyze/audit-logs#background-tasks).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="memberCreate"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3661,10 +3661,10 @@ namespace Voucherify.Api
         /// Cancel pending point bucket Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody CancelCardPendingPointsBucket(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0)
@@ -3677,10 +3677,10 @@ namespace Voucherify.Api
         /// Cancel pending point bucket Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody> CancelCardPendingPointsBucketWithHttpInfo(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0)
@@ -3775,10 +3775,10 @@ namespace Voucherify.Api
         /// Cancel pending point bucket Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody</returns>
@@ -3792,10 +3792,10 @@ namespace Voucherify.Api
         /// Cancel pending point bucket Cancels a pending points bucket so its points arent activated. Creates a PENDING_POINTS_CANCELED card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be PENDING, and its date must be after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program or the member doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Pending points bucket ID (format lcppb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the pending points bucket. Format lcppb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsPendingPointsCancelResponseBody)</returns>
@@ -3892,8 +3892,8 @@ namespace Voucherify.Api
         /// Pay for order with points Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBody</returns>
@@ -3907,8 +3907,8 @@ namespace Voucherify.Api
         /// Pay for order with points Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsMembersOrdersPaymentsCreateCombinedResponseBody</returns>
@@ -3998,8 +3998,8 @@ namespace Voucherify.Api
         /// Pay for order with points Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4014,8 +4014,8 @@ namespace Voucherify.Api
         /// Pay for order with points Pays for an order with points from the members card. The amount and points come from the card definitions pay-with-points exchange ratio, limited by the order total, the card balance, card spending caps, and the optional payment_limit. The binding cap is returned as details.spending_cap. The program and member must be ACTIVE, and the program must be inside its validity window. The card must belong to the member. The card definition must have pay-with-points enabled and an exchange-ratio formula. The order must already exist, identified by id or source_id. Modes: - TRANSACTION (default): creates a PENDING order transaction and a PENDING card transaction. Returns 202. The same order can be paid again; each call creates a new transaction. - DRY_RUN: simulates the payment and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4107,7 +4107,7 @@ namespace Voucherify.Api
         /// Create program member Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCreateResponseBody</returns>
@@ -4121,7 +4121,7 @@ namespace Voucherify.Api
         /// Create program member Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCreateResponseBody</returns>
@@ -4204,7 +4204,7 @@ namespace Voucherify.Api
         /// Create program member Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4219,7 +4219,7 @@ namespace Voucherify.Api
         /// Create program member Enrolls an existing customer as a member of the loyalty program and creates a loyalty card for each card definition assigned to the program. Card code generation is asynchronous, so code can be null right after creation. The program must be ACTIVE and inside its validity window, and the customer must already exist. A customer can be a member of a program only once. Identify the customer with customer_identification. status defaults to ACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4304,8 +4304,8 @@ namespace Voucherify.Api
         /// Deactivate program member Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersDeactivateResponseBody</returns>
         public V2LoyaltiesProgramsMembersDeactivateResponseBody DeactivateProgramMember(string programId, string memberId, int operationIndex = 0)
@@ -4318,8 +4318,8 @@ namespace Voucherify.Api
         /// Deactivate program member Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersDeactivateResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersDeactivateResponseBody> DeactivateProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0)
@@ -4400,8 +4400,8 @@ namespace Voucherify.Api
         /// Deactivate program member Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersDeactivateResponseBody</returns>
@@ -4415,8 +4415,8 @@ namespace Voucherify.Api
         /// Deactivate program member Moves an ACTIVE member to INACTIVE and sets updated_at. Records a vl.member.deactivated activity. An INACTIVE member cant earn or spend points. No request body. Returns the member without a cards array. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_state_transition when the member is already INACTIVE.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Unique identifier in lprg_[a-f0-9]+ format.</param>
-        /// <param name="memberId">Identifies the member. Unique identifier in lmbr_[a-f0-9]+ format.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersDeactivateResponseBody)</returns>
@@ -4499,8 +4499,8 @@ namespace Voucherify.Api
         /// Delete program member Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersDeleteResponseBody</returns>
         public V2LoyaltiesProgramsMembersDeleteResponseBody DeleteProgramMember(string programId, string memberId, int operationIndex = 0)
@@ -4513,8 +4513,8 @@ namespace Voucherify.Api
         /// Delete program member Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersDeleteResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersDeleteResponseBody> DeleteProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0)
@@ -4595,8 +4595,8 @@ namespace Voucherify.Api
         /// Delete program member Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersDeleteResponseBody</returns>
@@ -4610,8 +4610,8 @@ namespace Voucherify.Api
         /// Delete program member Deletes the member and sets status to DELETED. Removes the members card assignments in this program. Returns the member without a cards array. Delete doesnt change updated_at. Records a vl.member.deleted activity. Each unassigned card also records vl.member.card.unassigned and vl.card.unassigned. When an assignment has a tier, the delete records a LEFT tier transaction with origin member_card_deleted. The same customer can join the program again. The new member gets a new ID. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. Deleting a member that is already DELETED returns 404.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersDeleteResponseBody)</returns>
@@ -4694,10 +4694,10 @@ namespace Voucherify.Api
         /// Expire point bucket Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody ExpireCardPointsBucket(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0)
@@ -4710,10 +4710,10 @@ namespace Voucherify.Api
         /// Expire point bucket Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody> ExpireCardPointsBucketWithHttpInfo(string programId, string memberId, string cardId, string bucketId, int operationIndex = 0)
@@ -4808,10 +4808,10 @@ namespace Voucherify.Api
         /// Expire point bucket Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody</returns>
@@ -4825,10 +4825,10 @@ namespace Voucherify.Api
         /// Expire point bucket Expires an ACTIVE points bucket. Creates an ADMIN_POINTS_EXPIRATION card transaction. The transaction is created with status PENDING and processed asynchronously. No request body. The bucket must be ACTIVE, and its expiration_date must be on or after the current project day. The program and the member must be ACTIVE, and the program must be inside its validity window. Otherwise the response is 423. Returns 404 when the program, the member, or the card definition doesnt exist, when the card isnt assigned to that member, or when the bucket isnt on that card.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="bucketId">Points expiration bucket ID (format lcpeb_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="bucketId">Identifies the points expiration bucket. Format lcpeb_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsExpiringPointsExpireResponseBody)</returns>
@@ -4925,12 +4925,12 @@ namespace Voucherify.Api
         /// List member earning-rule daily reports Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody</returns>
         public V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody GetMemberEarningRuleDailyReport(string programId, string memberId, string earningRuleId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0)
@@ -4943,12 +4943,12 @@ namespace Voucherify.Api
         /// List member earning-rule daily reports Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody> GetMemberEarningRuleDailyReportWithHttpInfo(string programId, string memberId, string earningRuleId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0)
@@ -5045,12 +5045,12 @@ namespace Voucherify.Api
         /// List member earning-rule daily reports Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody</returns>
@@ -5064,12 +5064,12 @@ namespace Voucherify.Api
         /// List member earning-rule daily reports Returns aggregated daily usage statistics for a specific earning rule and member over the given date range and resolution. Each entry sums successful earning-rule triggers recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the earning rule does not exist or is not assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="earningRuleId">Unique earning rule identifier (format: lern_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersEarningRulesReportsDailyListResponseBody)</returns>
@@ -5168,8 +5168,8 @@ namespace Voucherify.Api
         /// Get program member Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersGetResponseBody</returns>
         public V2LoyaltiesProgramsMembersGetResponseBody GetProgramMember(string programId, string memberId, int operationIndex = 0)
@@ -5182,8 +5182,8 @@ namespace Voucherify.Api
         /// Get program member Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersGetResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersGetResponseBody> GetProgramMemberWithHttpInfo(string programId, string memberId, int operationIndex = 0)
@@ -5264,8 +5264,8 @@ namespace Voucherify.Api
         /// Get program member Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersGetResponseBody</returns>
@@ -5279,8 +5279,8 @@ namespace Voucherify.Api
         /// Get program member Returns one member of the program together with that members loyalty cards. Each card includes balance, lifetime_bucket, next_expiration, and next_activation. tier_progress is not included. Use [Get program membership](/api-reference/programs/get-program-membership) when you need tier progress. card.code can be null shortly after member creation, while code generation is still running. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersGetResponseBody)</returns>
@@ -5363,9 +5363,9 @@ namespace Voucherify.Api
         /// Get program membership Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembershipsGetResponseBody</returns>
         public V2LoyaltiesProgramsMembershipsGetResponseBody GetProgramMembership(string programId, string customerId, string identificationType = default(string), int operationIndex = 0)
@@ -5378,9 +5378,9 @@ namespace Voucherify.Api
         /// Get program membership Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembershipsGetResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembershipsGetResponseBody> GetProgramMembershipWithHttpInfo(string programId, string customerId, string identificationType = default(string), int operationIndex = 0)
@@ -5465,9 +5465,9 @@ namespace Voucherify.Api
         /// Get program membership Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembershipsGetResponseBody</returns>
@@ -5481,9 +5481,9 @@ namespace Voucherify.Api
         /// Get program membership Returns the membership for one customer in the program: the member, the program, and the members loyalty cards. A card includes tier_progress when its card definition has a tier structure and the member has a tier on that card. Otherwise tier_progress is omitted. identification_type chooses how customerId is read. It defaults to customer_id.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="customerId">Unique identifier of the customer or member, interpreted according to identification_type: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
-        /// <param name="identificationType">Chooses how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="customerId">Identifies the customer or member. identification_type selects the value: a Voucherify customer ID (cust_...), a customer source_id, or a loyalty member ID (lmbr_...).</param>
+        /// <param name="identificationType">Selects how customerId is read. customer_id is the Voucherify customer ID and the default. customer_source_id is the customers source_id. member_id is the loyalty member ID. (optional, default to customer_id)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembershipsGetResponseBody)</returns>
@@ -5570,11 +5570,11 @@ namespace Voucherify.Api
         /// List program points-earnings daily reports Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody</returns>
         public V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody GetProgramPointsEarningsDailyReport(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0)
@@ -5587,11 +5587,11 @@ namespace Voucherify.Api
         /// List program points-earnings daily reports Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody> GetProgramPointsEarningsDailyReportWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0)
@@ -5677,11 +5677,11 @@ namespace Voucherify.Api
         /// List program points-earnings daily reports Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody</returns>
@@ -5695,11 +5695,11 @@ namespace Voucherify.Api
         /// List program points-earnings daily reports Returns aggregated daily points-earnings statistics for the program over the given date range and resolution, optionally filtered by earning rule and card definition. Each entry sums earning operations recorded for one period, earning rule, earning item, and card definition. Periods without recorded activity are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsPointsEarningsDailyListResponseBody)</returns>
@@ -5787,8 +5787,8 @@ namespace Voucherify.Api
         /// List program points-earnings summary reports Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody</returns>
         public V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody GetProgramPointsEarningsSummaryReport(string programId, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0)
@@ -5801,8 +5801,8 @@ namespace Voucherify.Api
         /// List program points-earnings summary reports Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody> GetProgramPointsEarningsSummaryReportWithHttpInfo(string programId, PointsEarningsReportListFilters filters = default(PointsEarningsReportListFilters), int operationIndex = 0)
@@ -5879,8 +5879,8 @@ namespace Voucherify.Api
         /// List program points-earnings summary reports Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody</returns>
@@ -5894,8 +5894,8 @@ namespace Voucherify.Api
         /// List program points-earnings summary reports Returns total points-earnings statistics for the program (all time), optionally filtered by earning rule or card definition. Each entry sums earning operations for one earning rule, earning item, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by earning rule ID and card definition ID. Each field takes a conditions object. Omitting filters or setting it to null applies no field filters. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsPointsEarningsSummaryListResponseBody)</returns>
@@ -5974,13 +5974,13 @@ namespace Voucherify.Api
         /// List card activities Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody ListCardActivities(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters), int operationIndex = 0)
@@ -5993,13 +5993,13 @@ namespace Voucherify.Api
         /// List card activities Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody> ListCardActivitiesWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersCardsActivitiesListRequestQueryFilters), int operationIndex = 0)
@@ -6102,13 +6102,13 @@ namespace Voucherify.Api
         /// List card activities Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody</returns>
@@ -6122,13 +6122,13 @@ namespace Voucherify.Api
         /// List card activities Returns a cursor-paginated list of activities recorded for the members card. The card must still be assigned to that member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, when the member doesnt exist in that program, or when the card isnt currently assigned to that member. The program is checked first, then the member. A DELETED member returns 404 with resource_type member. A missing assignment and a missing or deleted card both return 404 with resource_type card. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program, member, and card lookup. A cursor that doesnt match ^lcrsacrd_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program, member, and card are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsacrd_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.card.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsacrd_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.card.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsActivitiesListResponseBody)</returns>
@@ -6233,13 +6233,13 @@ namespace Voucherify.Api
         /// List card expiring points buckets Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody ListCardExpiringPoints(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery), int operationIndex = 0)
@@ -6252,13 +6252,13 @@ namespace Voucherify.Api
         /// List card expiring points buckets Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody> ListCardExpiringPointsWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsExpiringPointsListRequestQuery), int operationIndex = 0)
@@ -6361,13 +6361,13 @@ namespace Voucherify.Api
         /// List card expiring points buckets Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody</returns>
@@ -6381,13 +6381,13 @@ namespace Voucherify.Api
         /// List card expiring points buckets Returns a cursor-paginated list of ACTIVE point expiration buckets for the members card. Each bucket groups points that share an expiration date and expiration type, including points from separate transactions. The list starts on the current project day. Earlier buckets are omitted. Results can be filtered by card definition ID and expiration date, and ordered by expiration_date. Returns an empty list when the card has no matching buckets. Returns 400 when the query is invalid or the cursor is invalid, expired, or doesnt match the query. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are expiration_date and -expiration_date; defaults to expiration_date (soonest expiration first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrspeb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to expiration_date. Soonest expiration first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrspeb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_1297339938ae248cea. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsExpiringPointsListResponseBody)</returns>
@@ -6492,13 +6492,13 @@ namespace Voucherify.Api
         /// List card pending point buckets Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody ListCardPendingPoints(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery), int operationIndex = 0)
@@ -6511,13 +6511,13 @@ namespace Voucherify.Api
         /// List card pending point buckets Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody> ListCardPendingPointsWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsPendingPointsListRequestQuery), int operationIndex = 0)
@@ -6620,13 +6620,13 @@ namespace Voucherify.Api
         /// List card pending point buckets Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody</returns>
@@ -6640,13 +6640,13 @@ namespace Voucherify.Api
         /// List card pending point buckets Returns a cursor-paginated list of pending point buckets for the members card. Every bucket has status PENDING. Pending points wait for activation (PERIOD_BASED, FIXED_DATES, or EVENT_BASED), following the card definition. The list starts on the next project day. The current days bucket is omitted because its still accumulating. Results can be filtered by card definition ID and ordered by date. Returns 404 when the program or the member doesnt exist, or when the card isnt assigned to that member. Bucket IDs from this list are the bucketId for [Activate pending point bucket](/api-reference/programs/activate-pending-point-bucket) and [Cancel pending point bucket](/api-reference/programs/cancel-pending-point-bucket).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of buckets to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are date and -date; defaults to date (soonest activation first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrscppb_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to date. Soonest activation first. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrscppb_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_128f495f720c4bec8c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsPendingPointsListResponseBody)</returns>
@@ -6751,13 +6751,13 @@ namespace Voucherify.Api
         /// List card transactions Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody</returns>
         public V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody ListCardTransactions(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery), int operationIndex = 0)
@@ -6770,13 +6770,13 @@ namespace Voucherify.Api
         /// List card transactions Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody> ListCardTransactionsWithHttpInfo(string programId, string memberId, string cardId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersCardsTransactionsListRequestQuery), int operationIndex = 0)
@@ -6879,13 +6879,13 @@ namespace Voucherify.Api
         /// List card transactions Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody</returns>
@@ -6899,13 +6899,13 @@ namespace Voucherify.Api
         /// List card transactions Returns a cursor-paginated list of transactions on the members card. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Returns 404 when the program, member, or card doesnt exist. The program is checked first, then the member, then the card. A member of another program, or a card that isnt assigned to this member, is not found.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="cardId">Loyalty card ID (format lcrd_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of transactions to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsctx_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsctx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lctx_0f5d0a8878caa3ee5c. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody)</returns>
@@ -7010,12 +7010,12 @@ namespace Voucherify.Api
         /// List member benefit transactions Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody</returns>
         public V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody ListMemberBenefitTransactions(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery), int operationIndex = 0)
@@ -7028,12 +7028,12 @@ namespace Voucherify.Api
         /// List member benefit transactions Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody> ListMemberBenefitTransactionsWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersBenefitsTransactionsListRequestQuery), int operationIndex = 0)
@@ -7129,12 +7129,12 @@ namespace Voucherify.Api
         /// List member benefit transactions Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody</returns>
@@ -7148,12 +7148,12 @@ namespace Voucherify.Api
         /// List member benefit transactions Lists benefit transactions (benefit fulfillments) for a given program member, with cursor-based pagination. Supports filtering by benefit ID and creation date.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Valid orders are id and -id; defaults to -id (newest first). Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsbtx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[benefit_id][conditions][$is] lben_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsbtx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[benefit_id][conditions][$is] lben_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersBenefitsTransactionsListResponseBody)</returns>
@@ -7251,12 +7251,12 @@ namespace Voucherify.Api
         /// List card daily points reports Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsMembersCardsReportsDailyListResponseBody</returns>
         public LoyaltiesProgramsMembersCardsReportsDailyListResponseBody ListMemberCardDailyReports(string programId, string memberId, string cardId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0)
@@ -7269,12 +7269,12 @@ namespace Voucherify.Api
         /// List card daily points reports Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsMembersCardsReportsDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsMembersCardsReportsDailyListResponseBody> ListMemberCardDailyReportsWithHttpInfo(string programId, string memberId, string cardId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0)
@@ -7371,12 +7371,12 @@ namespace Voucherify.Api
         /// List card daily points reports Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsMembersCardsReportsDailyListResponseBody</returns>
@@ -7390,12 +7390,12 @@ namespace Voucherify.Api
         /// List card daily points reports Returns aggregated points statistics for a members loyalty card over the given date range and resolution. Each entry sums the point operations recorded in one period. Periods without recorded activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program or member does not exist, or when the card does not exist or is not assigned to the member in the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Unique loyalty member identifier (format: lmbr_ followed by hexadecimal characters).</param>
-        /// <param name="cardId">Unique loyalty card identifier (format: lcrd_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="cardId">Identifies the loyalty card. Format lcrd_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsMembersCardsReportsDailyListResponseBody)</returns>
@@ -7494,12 +7494,12 @@ namespace Voucherify.Api
         /// List member order payments Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody</returns>
         public V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody ListMemberOrderPayments(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery filters = default(V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery), int operationIndex = 0)
@@ -7512,12 +7512,12 @@ namespace Voucherify.Api
         /// List member order payments Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody> ListMemberOrderPaymentsWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery filters = default(V2LoyaltiesProgramsMembersOrdersPaymentsListRequestQuery), int operationIndex = 0)
@@ -7613,12 +7613,12 @@ namespace Voucherify.Api
         /// List member order payments Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody</returns>
@@ -7632,12 +7632,12 @@ namespace Voucherify.Api
         /// List member order payments Lists stored PAY_WITH_POINTS order transactions for the program member, with cursor pagination. Filter by id, card_definition_id, and created_at. Order by id (default -id, newest first). Dry-run (SIMULATED) results arent stored and dont appear. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Identifies the program member (lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsotx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Filters results by field, e.g. filters[id][conditions][$is] lotx_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsotx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[id][conditions][$is] lotx_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody)</returns>
@@ -7735,12 +7735,12 @@ namespace Voucherify.Api
         /// List member reward purchases Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody</returns>
         public V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody ListMemberRewardPurchases(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery filters = default(V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery), int operationIndex = 0)
@@ -7753,12 +7753,12 @@ namespace Voucherify.Api
         /// List member reward purchases Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody> ListMemberRewardPurchasesWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery filters = default(V2LoyaltiesProgramsMembersRewardsPurchasesListRequestQuery), int operationIndex = 0)
@@ -7854,12 +7854,12 @@ namespace Voucherify.Api
         /// List member reward purchases Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody</returns>
@@ -7873,12 +7873,12 @@ namespace Voucherify.Api
         /// List member reward purchases Lists stored PURCHASE reward transactions for the program member, with cursor pagination. Filter by id, reward_id, card_definition_id, and created_at. Order by id (default -id, newest first). Purchases rejected before a transaction is stored dont appear. A purchase accepted with 202 that later fails is stored as REJECTED with details.rejection. Returns 404 when the program or the member doesnt exist. The program is checked first.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Orders results by transaction id. -id is newest first and the default. id is oldest first. An array that orders by id and -id together is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrstrx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters, e.g. filters[reward_id][conditions][$is] lrew_.... Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstrx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody)</returns>
@@ -7976,12 +7976,12 @@ namespace Voucherify.Api
         /// List member tier transactions Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody</returns>
         public V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody ListMemberTierTransactions(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery), int operationIndex = 0)
@@ -7994,12 +7994,12 @@ namespace Voucherify.Api
         /// List member tier transactions Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody> ListMemberTierTransactionsWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery filters = default(V2LoyaltiesProgramsMembersTiersTransactionsListRequestQuery), int operationIndex = 0)
@@ -8095,12 +8095,12 @@ namespace Voucherify.Api
         /// List member tier transactions Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody</returns>
@@ -8114,12 +8114,12 @@ namespace Voucherify.Api
         /// List member tier transactions Lists tier transactions for the member: joins, leaves, upgrades, downgrades, expiration changes, and evaluation refreshes. Results use cursor pagination. Default order is -id, newest first. Filters are card_id, card_definition_id, and created_at. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. order must be id or -id. An array that orders by both directions is rejected. A cursor that doesnt match ^lcrsttx_[a-f0-9]+$ fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of items to return. An integer between 1 and 100; numeric strings are also accepted. Defaults to 10. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are id and -id. Defaults to -id, newest first, when omitted, null, or an empty array. Accepts one value or an array of those values. An array that contains both directions is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response (format: lcrsttx_ followed by hexadecimal characters). (optional)</param>
-        /// <param name="filters">Field filters. card_id, card_definition_id, and created_at. Example: filters[card_id][conditions][$is] lcrd_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -id. Newest first. The same field cannot be used in both directions. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsttx_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_id][conditions][$is] lcrd_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersTiersTransactionsListResponseBody)</returns>
@@ -8217,10 +8217,10 @@ namespace Voucherify.Api
         /// List program earning rule assignments Returns a cursor-paginated list of earning rules assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsEarningRulesListResponseBody</returns>
         public V2LoyaltiesProgramsEarningRulesListResponseBody ListProgramEarningRuleAssignments(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0)
@@ -8233,10 +8233,10 @@ namespace Voucherify.Api
         /// List program earning rule assignments Returns a cursor-paginated list of earning rules assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsEarningRulesListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsEarningRulesListResponseBody> ListProgramEarningRuleAssignmentsWithHttpInfo(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0)
@@ -8322,10 +8322,10 @@ namespace Voucherify.Api
         /// List program earning rule assignments Returns a cursor-paginated list of earning rules assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsEarningRulesListResponseBody</returns>
@@ -8339,10 +8339,10 @@ namespace Voucherify.Api
         /// List program earning rule assignments Returns a cursor-paginated list of earning rules assigned to the program.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrserna_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsEarningRulesListResponseBody)</returns>
@@ -8430,11 +8430,11 @@ namespace Voucherify.Api
         /// List program earning-rules daily reports Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody</returns>
         public V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody ListProgramEarningRulesDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0)
@@ -8447,11 +8447,11 @@ namespace Voucherify.Api
         /// List program earning-rules daily reports Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody> ListProgramEarningRulesDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0)
@@ -8545,11 +8545,11 @@ namespace Voucherify.Api
         /// List program earning-rules daily reports Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody</returns>
@@ -8563,11 +8563,11 @@ namespace Voucherify.Api
         /// List program earning-rules daily reports Returns aggregated daily earning-rule evaluation statistics for the program over the given date range and resolution, optionally filtered by earning rule. Each entry counts eligibility checks for one period and earning rule. Periods without recorded activity are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Start of the report date range (inclusive), in YYYY-MM-DD format.</param>
-        /// <param name="endDate">End of the report date range (inclusive), in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Aggregation resolution of the report. The allowed date range depends on the resolution: day – max 90 days; week – max 12 weeks; month – max 12 months; quarter – max 4 quarters.</param>
-        /// <param name="filters">Field filters. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsEarningRulesDailyListResponseBody)</returns>
@@ -8663,8 +8663,8 @@ namespace Voucherify.Api
         /// List program earning-rules summary reports Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody</returns>
         public V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody ListProgramEarningRulesSummaryReports(string programId, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0)
@@ -8677,8 +8677,8 @@ namespace Voucherify.Api
         /// List program earning-rules summary reports Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody> ListProgramEarningRulesSummaryReportsWithHttpInfo(string programId, EarningRulesReportListFilters filters = default(EarningRulesReportListFilters), int operationIndex = 0)
@@ -8763,8 +8763,8 @@ namespace Voucherify.Api
         /// List program earning-rules summary reports Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody</returns>
@@ -8778,8 +8778,8 @@ namespace Voucherify.Api
         /// List program earning-rules summary reports Returns total earning-rule evaluation statistics for the program (all time), optionally filtered by earning rule. Includes success and failure counts with a failures breakdown. Each entry counts eligibility checks for one earning rule. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by field. Each field accepts a conditions object with condition operators. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[earning_rule_id][conditions][$is] lern_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsEarningRulesSummaryListResponseBody)</returns>
@@ -8866,12 +8866,12 @@ namespace Voucherify.Api
         /// List program member activities Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersActivitiesListResponseBody</returns>
         public V2LoyaltiesProgramsMembersActivitiesListResponseBody ListProgramMemberActivities(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters), int operationIndex = 0)
@@ -8884,12 +8884,12 @@ namespace Voucherify.Api
         /// List program member activities Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersActivitiesListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersActivitiesListResponseBody> ListProgramMemberActivitiesWithHttpInfo(string programId, string memberId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters filters = default(V2LoyaltiesProgramsMembersActivitiesListRequestQueryFilters), int operationIndex = 0)
@@ -8985,12 +8985,12 @@ namespace Voucherify.Api
         /// List program member activities Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersActivitiesListResponseBody</returns>
@@ -9004,12 +9004,12 @@ namespace Voucherify.Api
         /// List program member activities Returns a cursor-paginated list of lifecycle and card-assignment activities recorded for the member. Filters are id, type, and created_at. Default order is -created_at, then id ascending. Returns 404 when the program doesnt exist, or when the member doesnt exist in that program. The program is checked first. A DELETED member returns 404. Returns 400 with key invalid_query_params when the query fails validation. That check runs before the program and member lookup. A cursor that doesnt match ^lcrsambr_[a-f0-9]+$, a limit outside 1 to 100, an order other than created_at or -created_at, or an array that orders by both directions fails here. After the program and member are found, an unknown or expired cursor returns invalid_or_expired_cursor. A cursor recorded for different filters or order returns cursor_and_query_mismatch. The cursor stays valid when only limit changes.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of activities to return. An integer from 1 to 100. Numeric strings are accepted and rounded to the nearest integer. Defaults to 10 when omitted. (optional, default to 10)</param>
-        /// <param name="order">Sort field. Allowed values are created_at and -created_at. Defaults to -created_at when omitted, null, or an empty array. Accepts one value or an array of those values. Any other value is rejected. An array that contains both directions is rejected. Rows that share a created_at millisecond are then ordered by id ascending. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsambr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[type][conditions][$is] vl.member.created. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsambr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[type][conditions][$is] vl.member.created. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersActivitiesListResponseBody)</returns>
@@ -9107,11 +9107,11 @@ namespace Voucherify.Api
         /// List program members Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersListResponseBody</returns>
         public V2LoyaltiesProgramsMembersListResponseBody ListProgramMembers(string programId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersListRequestQuery filters = default(V2LoyaltiesProgramsMembersListRequestQuery), int operationIndex = 0)
@@ -9124,11 +9124,11 @@ namespace Voucherify.Api
         /// List program members Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsMembersListResponseBody> ListProgramMembersWithHttpInfo(string programId, int? limit = default(int?), string order = default(string), string cursor = default(string), V2LoyaltiesProgramsMembersListRequestQuery filters = default(V2LoyaltiesProgramsMembersListRequestQuery), int operationIndex = 0)
@@ -9217,11 +9217,11 @@ namespace Voucherify.Api
         /// List program members Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsMembersListResponseBody</returns>
@@ -9235,11 +9235,11 @@ namespace Voucherify.Api
         /// List program members Returns a cursor-paginated list of members of the program. Deleted members are omitted. Results can be filtered by ID, status, customer ID and creation date. Results can be ordered by creation date, status, or customer ID (ascending or descending). The same field cannot be ordered both ascending and descending at the same time. Returns 404 when the program does not exist. List items do not include the cards array. Use the following endpoints to retrieve cards for a given member: - [Get customer memberships](/api-reference/programs/get-customer-memberships), - [Get program member](/api-reference/programs/get-program-member), - [Get program membership](/api-reference/programs/get-program-membership).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="limit">Maximum number of members to return. Must be between 1 and 100. Defaults to 10 when not provided. (optional, default to 10)</param>
-        /// <param name="order">Field(s) to order results by. Prefix with - for descending order. Accepts a single value or an array of values. Defaults to -created_at. Ordering by the same field in both directions simultaneously is rejected. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned in the cursor.next field of a previous response. Must match the pattern ^lcrsmbr_[a-f0-9]+$. (optional)</param>
-        /// <param name="filters">Field-specific filter conditions, passed as a deep object, e.g. filters[status][conditions][$is] ACTIVE. (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to 10)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsmbr_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[status][conditions][$is] ACTIVE. Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsMembersListResponseBody)</returns>
@@ -9330,10 +9330,10 @@ namespace Voucherify.Api
         /// List program members daily reports Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsMembersDailyListResponseBody</returns>
         public LoyaltiesProgramsReportsMembersDailyListResponseBody ListProgramMembersDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0)
@@ -9346,10 +9346,10 @@ namespace Voucherify.Api
         /// List program members daily reports Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsMembersDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsMembersDailyListResponseBody> ListProgramMembersDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, int operationIndex = 0)
@@ -9432,10 +9432,10 @@ namespace Voucherify.Api
         /// List program members daily reports Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsMembersDailyListResponseBody</returns>
@@ -9449,10 +9449,10 @@ namespace Voucherify.Api
         /// List program members daily reports Returns member and card changes for the program over the given date range and resolution. Each row covers one period with recorded activity. Periods without activity are omitted. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsMembersDailyListResponseBody)</returns>
@@ -9537,7 +9537,7 @@ namespace Voucherify.Api
         /// List program members summary reports Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsMembersSummaryListResponseBody</returns>
         public LoyaltiesProgramsReportsMembersSummaryListResponseBody ListProgramMembersSummaryReports(string programId, int operationIndex = 0)
@@ -9550,7 +9550,7 @@ namespace Voucherify.Api
         /// List program members summary reports Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsMembersSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsMembersSummaryListResponseBody> ListProgramMembersSummaryReportsWithHttpInfo(string programId, int operationIndex = 0)
@@ -9624,7 +9624,7 @@ namespace Voucherify.Api
         /// List program members summary reports Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsMembersSummaryListResponseBody</returns>
@@ -9638,7 +9638,7 @@ namespace Voucherify.Api
         /// List program members summary reports Returns all-time member and card totals for the program. The response contains one row when activity was recorded, and an empty data array otherwise. limit and order are not query parameters. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsMembersSummaryListResponseBody)</returns>
@@ -9714,10 +9714,10 @@ namespace Voucherify.Api
         /// List program reward assignments Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsRewardsListResponseBody</returns>
         public V2LoyaltiesProgramsRewardsListResponseBody ListProgramRewardAssignments(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0)
@@ -9730,10 +9730,10 @@ namespace Voucherify.Api
         /// List program reward assignments Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsRewardsListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsRewardsListResponseBody> ListProgramRewardAssignmentsWithHttpInfo(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0)
@@ -9819,10 +9819,10 @@ namespace Voucherify.Api
         /// List program reward assignments Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsRewardsListResponseBody</returns>
@@ -9836,10 +9836,10 @@ namespace Voucherify.Api
         /// List program reward assignments Returns a cursor-paginated list of rewards assigned to the program, including their stock configuration and redemption counters.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrsrewa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsRewardsListResponseBody)</returns>
@@ -9927,11 +9927,11 @@ namespace Voucherify.Api
         /// List program rewards daily reports Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsDailyListResponseBody</returns>
         public LoyaltiesProgramsReportsRewardsDailyListResponseBody ListProgramRewardsDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0)
@@ -9944,11 +9944,11 @@ namespace Voucherify.Api
         /// List program rewards daily reports Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsRewardsDailyListResponseBody> ListProgramRewardsDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0)
@@ -10042,11 +10042,11 @@ namespace Voucherify.Api
         /// List program rewards daily reports Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsDailyListResponseBody</returns>
@@ -10060,11 +10060,11 @@ namespace Voucherify.Api
         /// List program rewards daily reports Returns aggregated reward-purchase statistics for the program over the given date range and resolution, optionally filtered by reward. Each row covers one reward and one period with recorded purchases. Periods without recorded purchases are omitted. failures_breakdown is always an empty object. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsDailyListResponseBody)</returns>
@@ -10160,11 +10160,11 @@ namespace Voucherify.Api
         /// List program rewards spendings daily reports Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody</returns>
         public LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody ListProgramRewardsSpendingsDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0)
@@ -10177,11 +10177,11 @@ namespace Voucherify.Api
         /// List program rewards spendings daily reports Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody> ListProgramRewardsSpendingsDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0)
@@ -10287,11 +10287,11 @@ namespace Voucherify.Api
         /// List program rewards spendings daily reports Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody</returns>
@@ -10305,11 +10305,11 @@ namespace Voucherify.Api
         /// List program rewards spendings daily reports Returns aggregated points spent on reward purchases for the program over the given date range and resolution. Each row covers one reward, reward cost, reward spending, card definition, and period with an approved point spend. Periods without an approved point spend are omitted. Optionally filters by reward, cost, spending, and card definition. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range, in YYYY-MM-DD format. Requires start_date to be before end_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allows at most 90 days for day, 12 weeks for week, 12 months for month, and 4 quarters for quarter.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsSpendingsDailyListResponseBody)</returns>
@@ -10417,8 +10417,8 @@ namespace Voucherify.Api
         /// List program rewards spendings summary reports Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody</returns>
         public LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody ListProgramRewardsSpendingsSummaryReports(string programId, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0)
@@ -10431,8 +10431,8 @@ namespace Voucherify.Api
         /// List program rewards spendings summary reports Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody> ListProgramRewardsSpendingsSummaryReportsWithHttpInfo(string programId, RewardsSpendingsReportListFilters filters = default(RewardsSpendingsReportListFilters), int operationIndex = 0)
@@ -10529,8 +10529,8 @@ namespace Voucherify.Api
         /// List program rewards spendings summary reports Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody</returns>
@@ -10544,8 +10544,8 @@ namespace Voucherify.Api
         /// List program rewards spendings summary reports Returns all-time points spent on reward purchases for the program. Each row covers one reward, reward cost, reward spending, and card definition with an approved point spend. Filters rows by reward, cost, spending, and card definition. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsSpendingsSummaryListResponseBody)</returns>
@@ -10644,8 +10644,8 @@ namespace Voucherify.Api
         /// List program rewards summary reports Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsRewardsSummaryListResponseBody</returns>
         public LoyaltiesProgramsReportsRewardsSummaryListResponseBody ListProgramRewardsSummaryReports(string programId, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0)
@@ -10658,8 +10658,8 @@ namespace Voucherify.Api
         /// List program rewards summary reports Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsRewardsSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsRewardsSummaryListResponseBody> ListProgramRewardsSummaryReportsWithHttpInfo(string programId, RewardsReportListFilters filters = default(RewardsReportListFilters), int operationIndex = 0)
@@ -10744,8 +10744,8 @@ namespace Voucherify.Api
         /// List program rewards summary reports Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsRewardsSummaryListResponseBody</returns>
@@ -10759,8 +10759,8 @@ namespace Voucherify.Api
         /// List program rewards summary reports Returns all-time reward-purchase totals for the program, one row per reward with a recorded purchase attempt. Filters rows with filters[reward_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program (lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[reward_id][conditions][$is] lrew_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[reward_id][conditions][$is] lrew_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsRewardsSummaryListResponseBody)</returns>
@@ -10847,11 +10847,11 @@ namespace Voucherify.Api
         /// List program spending daily reports Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsSpendingDailyListResponseBody</returns>
         public LoyaltiesProgramsReportsSpendingDailyListResponseBody ListProgramSpendingDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0)
@@ -10864,11 +10864,11 @@ namespace Voucherify.Api
         /// List program spending daily reports Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsSpendingDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsSpendingDailyListResponseBody> ListProgramSpendingDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0)
@@ -10962,11 +10962,11 @@ namespace Voucherify.Api
         /// List program spending daily reports Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsSpendingDailyListResponseBody</returns>
@@ -10980,11 +10980,11 @@ namespace Voucherify.Api
         /// List program spending daily reports Returns aggregated points-spending statistics for the program over the given date range and resolution. Each row covers one card definition and one period with recorded spending. Periods without recorded spending are omitted. Optionally filters by card definition. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="startDate">Sets the inclusive start of the report date range (YYYY-MM-DD). Must be before end_date.</param>
-        /// <param name="endDate">Sets the inclusive end of the report date range (YYYY-MM-DD). Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed date range: day max 90 days, week max 12 weeks, month max 12 months, quarter max 4 quarters.</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsSpendingDailyListResponseBody)</returns>
@@ -11080,8 +11080,8 @@ namespace Voucherify.Api
         /// List program spending summary reports Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsReportsSpendingSummaryListResponseBody</returns>
         public LoyaltiesProgramsReportsSpendingSummaryListResponseBody ListProgramSpendingSummaryReports(string programId, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0)
@@ -11094,8 +11094,8 @@ namespace Voucherify.Api
         /// List program spending summary reports Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsReportsSpendingSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<LoyaltiesProgramsReportsSpendingSummaryListResponseBody> ListProgramSpendingSummaryReportsWithHttpInfo(string programId, SpendingReportListFilters filters = default(SpendingReportListFilters), int operationIndex = 0)
@@ -11180,8 +11180,8 @@ namespace Voucherify.Api
         /// List program spending summary reports Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LoyaltiesProgramsReportsSpendingSummaryListResponseBody</returns>
@@ -11195,8 +11195,8 @@ namespace Voucherify.Api
         /// List program spending summary reports Returns all-time point-spending totals for the program, one row per card definition that has recorded spending. Filters rows with filters[card_definition_id]. Returns at most 10 rows (max number of card definitions per program), ordered by id descending. limit and order are not query parameters. Returns 200 with an empty data array when no spending is recorded. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="filters">Filters rows by field conditions, e.g. filters[card_definition_id][conditions][$is] lcdef_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[card_definition_id][conditions][$is] lcdef_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (LoyaltiesProgramsReportsSpendingSummaryListResponseBody)</returns>
@@ -11283,10 +11283,10 @@ namespace Voucherify.Api
         /// List program tier structure assignments Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsTierStructuresListResponseBody</returns>
         public V2LoyaltiesProgramsTierStructuresListResponseBody ListProgramTierStructureAssignments(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0)
@@ -11299,10 +11299,10 @@ namespace Voucherify.Api
         /// List program tier structure assignments Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsTierStructuresListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsTierStructuresListResponseBody> ListProgramTierStructureAssignmentsWithHttpInfo(string programId, string limit = default(string), string order = default(string), string cursor = default(string), int operationIndex = 0)
@@ -11388,10 +11388,10 @@ namespace Voucherify.Api
         /// List program tier structure assignments Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsTierStructuresListResponseBody</returns>
@@ -11405,10 +11405,10 @@ namespace Voucherify.Api
         /// List program tier structure assignments Returns a cursor-paginated list of tier structures assigned to the program. Currently, a program can have only one tier structure assigned.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique program identifier.</param>
-        /// <param name="limit">Maximum number of items to return. Between 1 and 100. Defaults to 10. Non-integer values are rounded. (optional, default to &quot;10&quot;)</param>
-        /// <param name="order">Sorting order. A single value or an array of values. Prefix with - for descending. Defaults to -created_at. The same field cannot be used in both ascending and descending order at once. (optional)</param>
-        /// <param name="cursor">Pagination cursor returned by a previous call (cursor.next). (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="limit">Limits the page size to an integer from 1 to 100. Defaults to 10. A numeric string is accepted and rounded to the nearest integer. (optional, default to &quot;10&quot;)</param>
+        /// <param name="order">Orders the results. Accepts one value or an array. Prefix a field with - for descending order. Defaults to -created_at. The same field cannot be used in both directions. Rows with the same sort value are then ordered by id ascending. (optional)</param>
+        /// <param name="cursor">Continues pagination. Pass the cursor.next value from a previous response. Format lcrstsa_[a-f0-9]+. The cursor matches the filters and order of that response. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsTierStructuresListResponseBody)</returns>
@@ -11496,11 +11496,11 @@ namespace Voucherify.Api
         /// List program tiers daily reports Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsTiersDailyListResponseBody</returns>
         public V2LoyaltiesProgramsReportsTiersDailyListResponseBody ListProgramTiersDailyReports(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0)
@@ -11513,11 +11513,11 @@ namespace Voucherify.Api
         /// List program tiers daily reports Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsTiersDailyListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsReportsTiersDailyListResponseBody> ListProgramTiersDailyReportsWithHttpInfo(string programId, DateTimeOffset startDate, DateTimeOffset endDate, string resolution, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0)
@@ -11615,11 +11615,11 @@ namespace Voucherify.Api
         /// List program tiers daily reports Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsTiersDailyListResponseBody</returns>
@@ -11633,11 +11633,11 @@ namespace Voucherify.Api
         /// List program tiers daily reports Returns aggregated tier-movement statistics for the program over the given date range and resolution, optionally filtered by tier structure and tier. Each row covers one tier structure, one tier, and one period with recorded movement. Periods without recorded movement are omitted. A filter that matches no rows returns an empty data array. The date range is limited per resolution: - 90 days for day, - 12 weeks for week, - 12 months for month, - 4 quarters for quarter, - start_date must be before end_date, - start_date and end_date are inclusive. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="startDate">Sets the inclusive start of the range, in YYYY-MM-DD format.</param>
-        /// <param name="endDate">Sets the inclusive end of the range, in YYYY-MM-DD format. Must be after start_date.</param>
-        /// <param name="resolution">Sets the aggregation resolution. Allowed range: day up to 90 days, week up to 12 weeks, month up to 12 months, quarter up to 4 quarters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Example: filters[tier_structure_id][conditions][$is] lts_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="startDate">Sets the inclusive start of the report date range. Format YYYY-MM-DD.</param>
+        /// <param name="endDate">Sets the inclusive end of the report date range. Format YYYY-MM-DD. Must be after start_date.</param>
+        /// <param name="resolution">Sets the aggregation resolution. day allows at most 90 days, week at most 12 weeks, month at most 12 months, and quarter at most 4 quarters.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_structure_id][conditions][$is] lts_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsTiersDailyListResponseBody)</returns>
@@ -11737,8 +11737,8 @@ namespace Voucherify.Api
         /// List program tiers summary reports Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsReportsTiersSummaryListResponseBody</returns>
         public V2LoyaltiesProgramsReportsTiersSummaryListResponseBody ListProgramTiersSummaryReports(string programId, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0)
@@ -11751,8 +11751,8 @@ namespace Voucherify.Api
         /// List program tiers summary reports Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsReportsTiersSummaryListResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesProgramsReportsTiersSummaryListResponseBody> ListProgramTiersSummaryReportsWithHttpInfo(string programId, TiersReportListFilters filters = default(TiersReportListFilters), int operationIndex = 0)
@@ -11841,8 +11841,8 @@ namespace Voucherify.Api
         /// List program tiers summary reports Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesProgramsReportsTiersSummaryListResponseBody</returns>
@@ -11856,8 +11856,8 @@ namespace Voucherify.Api
         /// List program tiers summary reports Returns all-time tier-movement totals for the program, one row per tier structure and tier that has recorded movement. Filters rows with filters[tier_structure_id] and filters[tier_id]. Returns at most 100 rows, ordered by id descending. limit and order are not query parameters. A filter that matches no rows returns an empty data array. Returns 400 when query validation fails. Returns 404 when the program does not exist.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Identifies the loyalty program. Format: lprg_ followed by hexadecimal characters.</param>
-        /// <param name="filters">Filters rows by tier_structure_id and tier_id. Omitting filters or setting it to null applies no field filter. Example: filters[tier_id][conditions][$is] lt_.... (optional)</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="filters">Filters the results. Pass a deep object, for example filters[tier_id][conditions][$is] lt_.... Fields combine through junction, which defaults to AND. Omit filters to apply no field filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesProgramsReportsTiersSummaryListResponseBody)</returns>
@@ -11948,8 +11948,8 @@ namespace Voucherify.Api
         /// Purchase reward with points Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody</returns>
@@ -11963,8 +11963,8 @@ namespace Voucherify.Api
         /// Purchase reward with points Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody</returns>
@@ -12054,8 +12054,8 @@ namespace Voucherify.Api
         /// Purchase reward with points Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -12070,8 +12070,8 @@ namespace Voucherify.Api
         /// Purchase reward with points Purchases a reward for the program member by spending points from the members card. The card comes from the matching reward costs card definition. The program, reward, and member must be ACTIVE. The program and reward must be inside their validity windows. The reward must be assigned to the program with stock available, a cost must match the customer, and the purchase must stay inside frequency, cooldown, balance, and spending limits. Modes: - TRANSACTION (default): creates a PENDING reward transaction and a PENDING card transaction. Returns 202. - DRY_RUN: simulates the purchase and doesnt create a transaction. Returns 200 with status SIMULATED.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -12163,8 +12163,8 @@ namespace Voucherify.Api
         /// Refund reward purchase Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsRewardsPurchasesRefundResponseBody</returns>
@@ -12178,8 +12178,8 @@ namespace Voucherify.Api
         /// Refund reward purchase Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsRewardsPurchasesRefundResponseBody</returns>
@@ -12263,8 +12263,8 @@ namespace Voucherify.Api
         /// Refund reward purchase Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -12279,8 +12279,8 @@ namespace Voucherify.Api
         /// Refund reward purchase Refunds an APPROVED reward purchase made by a program member. The purchase transaction is marked REFUNDED, a new REFUND reward transaction is created with status APPROVED, and the points spent on the purchase are returned to the members card. The request body is optional and an empty payload is allowed. Policies default to refund: DEFAULT and stock: DEFAULT. The endpoint responds with 202 before the card balance changes. A POINTS_RETURNED card transaction is created for the members card and processed shortly after the response. When the members tier or the card definition expires points, returned points receive a new expiration date from that setting. They dont inherit the expiration of the originally spent points. A NO_EXPIRATION setting leaves the returned points without an expiration date. Card earning limits dont block the refund. For a LOYALTY_CARD_POINTS reward, the points credited to the target card are also reversed, with a POINTS_PURCHASE_REVERSED card transaction on that card. That transaction is processed shortly after the response. Its expiration is copied from the original points-purchased transaction. A DISCOUNT_COUPONS refund deletes the issued vouchers. details.result.digital.discount_coupons[].result is DELETED, or SKIPPED when the voucher isnt deleted. A GIFT_VOUCHERS refund subtracts the credited amount. details.result.digital.gift_vouchers[].result is CREDITS_SUBTRACTED, or SKIPPED when the balance update is rejected. The refund reverses that purchase in the rewards purchase limits for the project-local day of the original purchase. A day whose purchases are all refunded no longer counts as the members last purchase. Only rewards whose refunds.type is REFUNDABLE can be refunded. Any other reward is rejected with 423 and key reward_refund_policy_does_not_allow_refunds. policies.refund set to ALLOW refunds it anyway. The program must exist, and the reward transaction must belong to that program. Otherwise the request fails with 404. The program is checked first. The request is rejected with 423 when: - The program isnt ACTIVE (non_active_program) or is outside its validity window (program_outside_validity_window), - The transaction isnt a purchase (non_purchase_reward_transaction) or isnt APPROVED (non_approved_reward_transaction); refunding the same purchase twice fails here, - The reward no longer exists (reward_not_found), isnt assigned to the program (refund_reward_not_assigned_to_program), the members card is gone (refund_card_not_found), or the card definition is gone (refund_card_definition_not_found), - The reward type isnt supported (reward_type_not_supported_for_refunds), - For a LOYALTY_CARD_POINTS reward, the purchase result is missing (loyalty_card_points_purchase_result_not_found), the target card is gone (loyalty_card_points_target_card_not_found), the points-purchased card transaction is missing (loyalty_card_points_purchase_not_found), the target cards available balance is lower than the purchased points (loyalty_card_points_insufficient_balance), or the target card definition is gone (loyalty_card_points_target_card_definition_not_found).
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program identifier (format: lprg_ followed by hexadecimal characters).</param>
-        /// <param name="rewardTransactionId">Unique reward transaction identifier of the purchase to refund (format: lrtx_ followed by hexadecimal characters).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="rewardTransactionId">Identifies the reward transaction of the purchase to refund. Format lrtx_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsRewardsPurchasesRefundRequestBody">Optional refund policies. An empty payload is allowed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -12366,8 +12366,8 @@ namespace Voucherify.Api
         /// Update program member Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesProgramsMembersUpdateResponseBody</returns>
@@ -12381,8 +12381,8 @@ namespace Voucherify.Api
         /// Update program member Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesProgramsMembersUpdateResponseBody</returns>
@@ -12472,8 +12472,8 @@ namespace Voucherify.Api
         /// Update program member Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -12488,8 +12488,8 @@ namespace Voucherify.Api
         /// Update program member Updates a program members metadata. Provided object keys are merged into the existing metadata; omitted keys are preserved. Pass metadata: null to clear all metadata (sets it to an empty object). This endpoint cannot change status. Use [Activate program member](/api-reference/programs/activate-program-member) or [Deactivate program member](/api-reference/programs/deactivate-program-member) for status transitions. Records a vl.member.updated activity. Returns the updated member without the cards array. Returns 404 when the program or member does not exist. Returns 400 when the request body fails validation or the project vl_member metadata schema rejects the payload.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="programId">Unique loyalty program ID (format lprg_[a-f0-9]+).</param>
-        /// <param name="memberId">Program member ID (format lmbr_[a-f0-9]+).</param>
+        /// <param name="programId">Identifies the loyalty program. Format lprg_[a-f0-9]+.</param>
+        /// <param name="memberId">Identifies the member. Format lmbr_[a-f0-9]+.</param>
         /// <param name="v2LoyaltiesProgramsMembersUpdateRequestBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

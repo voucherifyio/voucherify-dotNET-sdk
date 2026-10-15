@@ -42,7 +42,7 @@ namespace Example
             config.AccessToken = "YOUR_BEARER_TOKEN";
 
             var apiInstance = new LV2RewardsApi(config);
-            var rewardId = "rewardId_example";  // string | Unique reward identifier, prefixed with lrew_.
+            var rewardId = "rewardId_example";  // string | Identifies the reward. Format lrew_[a-f0-9]+.
 
             try
             {
@@ -85,7 +85,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **rewardId** | **string** | Unique reward identifier, prefixed with lrew_. |  |
+| **rewardId** | **string** | Identifies the reward. Format lrew_[a-f0-9]+. |  |
 
 ### Return type
 

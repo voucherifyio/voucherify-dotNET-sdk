@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class CustomerLoyaltyMembershipMember : IValidatableObject
     {
         /// <summary>
-        /// Member status.
+        /// Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
         /// </summary>
-        /// <value>Member status.</value>
+        /// <value>Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.</value>
         [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
@@ -61,9 +61,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Member status.
+        /// Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
         /// </summary>
-        /// <value>Member status.</value>
+        /// <value>Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
@@ -91,7 +91,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="CustomerLoyaltyMembershipMember" /> class.
         /// </summary>
         /// <param name="id">Identifies the Loyalty v2 program member..</param>
-        /// <param name="status">Member status..</param>
+        /// <param name="status">Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling..</param>
         /// <param name="createdAt">Timestamp representing when the member was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing when the member was updated. The value is shown in the ISO 8601 format. &#x60;null&#x60; when not set..</param>
         public CustomerLoyaltyMembershipMember(string id = default(string), StatusEnum? status = default(StatusEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?))

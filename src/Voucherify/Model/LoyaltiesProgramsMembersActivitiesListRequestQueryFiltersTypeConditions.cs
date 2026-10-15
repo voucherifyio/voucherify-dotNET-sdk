@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersTypeConditions : IValidatableObject
     {
         /// <summary>
-        /// Value equals. Single value or an array with exactly one value.
+        /// Matches one value. A string or a one-element array.
         /// </summary>
-        /// <value>Value equals. Single value or an array with exactly one value.</value>
+        /// <value>Matches one value. A string or a one-element array.</value>
         [JsonConverter(typeof(SafeEnumConverter<IsEnum>))]
         public enum IsEnum
         {
@@ -85,9 +85,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Value equals. Single value or an array with exactly one value.
+        /// Matches one value. A string or a one-element array.
         /// </summary>
-        /// <value>Value equals. Single value or an array with exactly one value.</value>
+        /// <value>Matches one value. A string or a one-element array.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<IsEnum>))]
         [DataMember(Name = "$is", EmitDefaultValue = true)]
@@ -112,9 +112,9 @@ namespace Voucherify.Model
             return _flagIs;
         }
         /// <summary>
-        /// Value does not equal. Single value or an array with exactly one value.
+        /// Excludes one value. A string or a one-element array.
         /// </summary>
-        /// <value>Value does not equal. Single value or an array with exactly one value.</value>
+        /// <value>Excludes one value. A string or a one-element array.</value>
         [JsonConverter(typeof(SafeEnumConverter<IsNotEnum>))]
         public enum IsNotEnum
         {
@@ -163,9 +163,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Value does not equal. Single value or an array with exactly one value.
+        /// Excludes one value. A string or a one-element array.
         /// </summary>
-        /// <value>Value does not equal. Single value or an array with exactly one value.</value>
+        /// <value>Excludes one value. A string or a one-element array.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<IsNotEnum>))]
         [DataMember(Name = "$is_not", EmitDefaultValue = true)]
@@ -190,9 +190,9 @@ namespace Voucherify.Model
             return _flagIsNot;
         }
         /// <summary>
-        /// Value is one of. Single value or an array of 1-10 values.
+        /// Matches any of the values. A string or an array of 1 to 10 values.
         /// </summary>
-        /// <value>Value is one of. Single value or an array of 1-10 values.</value>
+        /// <value>Matches any of the values. A string or an array of 1 to 10 values.</value>
         [JsonConverter(typeof(SafeEnumConverter<InEnum>))]
         public enum InEnum
         {
@@ -241,9 +241,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Value is one of. Single value or an array of 1-10 values.
+        /// Matches any of the values. A string or an array of 1 to 10 values.
         /// </summary>
-        /// <value>Value is one of. Single value or an array of 1-10 values.</value>
+        /// <value>Matches any of the values. A string or an array of 1 to 10 values.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<InEnum>))]
         [DataMember(Name = "$in", EmitDefaultValue = true)]
@@ -268,9 +268,9 @@ namespace Voucherify.Model
             return _flagIn;
         }
         /// <summary>
-        /// Value is not one of. Single value or an array of 1-10 values.
+        /// Excludes any of the values. A string or an array of 1 to 10 values.
         /// </summary>
-        /// <value>Value is not one of. Single value or an array of 1-10 values.</value>
+        /// <value>Excludes any of the values. A string or an array of 1 to 10 values.</value>
         [JsonConverter(typeof(SafeEnumConverter<NotInEnum>))]
         public enum NotInEnum
         {
@@ -319,9 +319,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Value is not one of. Single value or an array of 1-10 values.
+        /// Excludes any of the values. A string or an array of 1 to 10 values.
         /// </summary>
-        /// <value>Value is not one of. Single value or an array of 1-10 values.</value>
+        /// <value>Excludes any of the values. A string or an array of 1 to 10 values.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<NotInEnum>))]
         [DataMember(Name = "$not_in", EmitDefaultValue = true)]
@@ -348,10 +348,10 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersTypeConditions" /> class.
         /// </summary>
-        /// <param name="varIs">Value equals. Single value or an array with exactly one value..</param>
-        /// <param name="isNot">Value does not equal. Single value or an array with exactly one value..</param>
-        /// <param name="varIn">Value is one of. Single value or an array of 1-10 values..</param>
-        /// <param name="notIn">Value is not one of. Single value or an array of 1-10 values..</param>
+        /// <param name="varIs">Matches one value. A string or a one-element array..</param>
+        /// <param name="isNot">Excludes one value. A string or a one-element array..</param>
+        /// <param name="varIn">Matches any of the values. A string or an array of 1 to 10 values..</param>
+        /// <param name="notIn">Excludes any of the values. A string or an array of 1 to 10 values..</param>
         public LoyaltiesProgramsMembersActivitiesListRequestQueryFiltersTypeConditions(IsEnum? varIs = default(IsEnum?), IsNotEnum? isNot = default(IsNotEnum?), InEnum? varIn = default(InEnum?), NotInEnum? notIn = default(NotInEnum?))
         {
             this._Is = varIs;

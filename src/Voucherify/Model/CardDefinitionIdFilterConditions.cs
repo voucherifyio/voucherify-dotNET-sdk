@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// ID filter conditions for card definition IDs. At least one condition is required.
+    /// ID conditions. Format &#x60;lcdef_[a-f0-9]+&#x60;. At least one condition is required.
     /// </summary>
     [DataContract(Name = "CardDefinitionIdFilterConditions")]
     public partial class CardDefinitionIdFilterConditions : IValidatableObject

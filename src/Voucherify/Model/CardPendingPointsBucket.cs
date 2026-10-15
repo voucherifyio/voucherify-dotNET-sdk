@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class CardPendingPointsBucket : IValidatableObject
     {
         /// <summary>
-        /// Card type.
+        /// Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
         /// </summary>
-        /// <value>Card type.</value>
+        /// <value>Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.</value>
         [JsonConverter(typeof(SafeEnumConverter<CardTypeEnum>))]
         public enum CardTypeEnum
         {
@@ -49,9 +49,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// Card type.
+        /// Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.
         /// </summary>
-        /// <value>Card type.</value>
+        /// <value>Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<CardTypeEnum>))]
         [DataMember(Name = "card_type", EmitDefaultValue = true)]
@@ -238,16 +238,16 @@ namespace Voucherify.Model
         /// <param name="cardDefinitionId">ID of the card definition of the card..</param>
         /// <param name="programId">ID of the loyalty program..</param>
         /// <param name="memberId">ID of the member owning the card..</param>
+        /// <param name="cardType">Card type. Currently, only &#x60;INDIVIDUAL&#x60; is supported..</param>
         /// <param name="createdAt">Timestamp when the bucket was created (ISO 8601)..</param>
         /// <param name="updatedAt">Timestamp when the bucket was last updated (ISO 8601), or &#x60;null&#x60;..</param>
         /// <param name="id">Unique pending point bucket ID..</param>
-        /// <param name="cardType">Card type..</param>
         /// <param name="points">points.</param>
         /// <param name="date">Scheduled activation date of the pending points (&#x60;YYYY-MM-DD&#x60;). For the &#x60;EVENT_BASED&#x60; type this is the cancellation deadline..</param>
         /// <param name="type">Pending points activation type from the card definition..</param>
         /// <param name="status">Bucket status..</param>
         /// <param name="varObject">Object type marker, always &#x60;card_pending_points_bucket&#x60;..</param>
-        public CardPendingPointsBucket(string cardId = default(string), string cardDefinitionId = default(string), string programId = default(string), string memberId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string id = default(string), CardTypeEnum? cardType = default(CardTypeEnum?), CardPendingPointsBucketPoints points = default(CardPendingPointsBucketPoints), DateTime? date = default(DateTime?), TypeEnum? type = default(TypeEnum?), StatusEnum? status = default(StatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
+        public CardPendingPointsBucket(string cardId = default(string), string cardDefinitionId = default(string), string programId = default(string), string memberId = default(string), CardTypeEnum? cardType = default(CardTypeEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), string id = default(string), CardPendingPointsBucketPoints points = default(CardPendingPointsBucketPoints), DateTime? date = default(DateTime?), TypeEnum? type = default(TypeEnum?), StatusEnum? status = default(StatusEnum?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._CardId = cardId;
             if (this.CardId != null)
@@ -269,6 +269,11 @@ namespace Voucherify.Model
             {
                 this._flagMemberId = true;
             }
+            this._CardType = cardType;
+            if (this.CardType != null)
+            {
+                this._flagCardType = true;
+            }
             this._CreatedAt = createdAt;
             if (this.CreatedAt != null)
             {
@@ -283,11 +288,6 @@ namespace Voucherify.Model
             if (this.Id != null)
             {
                 this._flagId = true;
-            }
-            this._CardType = cardType;
-            if (this.CardType != null)
-            {
-                this._flagCardType = true;
             }
             this._Points = points;
             if (this.Points != null)
@@ -553,10 +553,10 @@ namespace Voucherify.Model
             sb.Append("  CardDefinitionId: ").Append(CardDefinitionId).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  MemberId: ").Append(MemberId).Append("\n");
+            sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  CardType: ").Append(CardType).Append("\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");

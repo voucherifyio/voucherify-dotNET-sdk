@@ -28,19 +28,19 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// SpendingReportFilterCardDefinitionIdConditionsConditions
+    /// ReportCardDefinitionIdFilterConditionsConditions
     /// </summary>
-    [DataContract(Name = "SpendingReportFilterCardDefinitionIdConditionsConditions")]
-    public partial class SpendingReportFilterCardDefinitionIdConditionsConditions : IValidatableObject
+    [DataContract(Name = "ReportCardDefinitionIdFilterConditionsConditions")]
+    public partial class ReportCardDefinitionIdFilterConditionsConditions : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpendingReportFilterCardDefinitionIdConditionsConditions" /> class.
+        /// Initializes a new instance of the <see cref="ReportCardDefinitionIdFilterConditionsConditions" /> class.
         /// </summary>
         /// <param name="varIs">varIs.</param>
         /// <param name="isNot">isNot.</param>
         /// <param name="varIn">varIn.</param>
         /// <param name="notIn">notIn.</param>
-        public SpendingReportFilterCardDefinitionIdConditionsConditions(Object varIs = default(Object), Object isNot = default(Object), Object varIn = default(Object), Object notIn = default(Object))
+        public ReportCardDefinitionIdFilterConditionsConditions(Object varIs = default(Object), Object isNot = default(Object), Object varIn = default(Object), Object notIn = default(Object))
         {
             this._Is = varIs;
             if (this.Is != null)
@@ -167,7 +167,7 @@ namespace Voucherify.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SpendingReportFilterCardDefinitionIdConditionsConditions {\n");
+            sb.Append("class ReportCardDefinitionIdFilterConditionsConditions {\n");
             sb.Append("  Is: ").Append(Is).Append("\n");
             sb.Append("  IsNot: ").Append(IsNot).Append("\n");
             sb.Append("  In: ").Append(In).Append("\n");

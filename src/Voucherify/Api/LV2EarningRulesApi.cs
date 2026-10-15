@@ -35,7 +35,7 @@ namespace Voucherify.Api
         /// Returns a single earning rule by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesEarningRulesGetResponseBody</returns>
         V2LoyaltiesEarningRulesGetResponseBody GetEarningRule(string earningRuleId, int operationIndex = 0);
@@ -47,7 +47,7 @@ namespace Voucherify.Api
         /// Returns a single earning rule by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesEarningRulesGetResponseBody</returns>
         ApiResponse<V2LoyaltiesEarningRulesGetResponseBody> GetEarningRuleWithHttpInfo(string earningRuleId, int operationIndex = 0);
@@ -67,7 +67,7 @@ namespace Voucherify.Api
         /// Returns a single earning rule by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesEarningRulesGetResponseBody</returns>
@@ -80,7 +80,7 @@ namespace Voucherify.Api
         /// Returns a single earning rule by its ID.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesEarningRulesGetResponseBody)</returns>
@@ -209,7 +209,7 @@ namespace Voucherify.Api
         /// Get earning rule Returns a single earning rule by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>V2LoyaltiesEarningRulesGetResponseBody</returns>
         public V2LoyaltiesEarningRulesGetResponseBody GetEarningRule(string earningRuleId, int operationIndex = 0)
@@ -222,7 +222,7 @@ namespace Voucherify.Api
         /// Get earning rule Returns a single earning rule by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of V2LoyaltiesEarningRulesGetResponseBody</returns>
         public Voucherify.Client.ApiResponse<V2LoyaltiesEarningRulesGetResponseBody> GetEarningRuleWithHttpInfo(string earningRuleId, int operationIndex = 0)
@@ -296,7 +296,7 @@ namespace Voucherify.Api
         /// Get earning rule Returns a single earning rule by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of V2LoyaltiesEarningRulesGetResponseBody</returns>
@@ -310,7 +310,7 @@ namespace Voucherify.Api
         /// Get earning rule Returns a single earning rule by its ID.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="earningRuleId">Earning rule ID.</param>
+        /// <param name="earningRuleId">Identifies the earning rule. Format lern_[a-f0-9]+.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (V2LoyaltiesEarningRulesGetResponseBody)</returns>

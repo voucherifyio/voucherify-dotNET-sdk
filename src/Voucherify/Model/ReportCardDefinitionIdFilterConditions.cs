@@ -28,16 +28,16 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// ID filter conditions for card definition ids. Values must match pattern &#x60;^lcdef_[a-f0-9]+$&#x60;. &#x60;$is&#x60;/&#x60;$is_not&#x60; accept a single value (string or 1-element array); &#x60;$in&#x60;/&#x60;$not_in&#x60; accept a string or an array of 1-100 values.
+    /// ID filter conditions for card definition IDs. Values must match pattern &#x60;^lcdef_[a-f0-9]+$&#x60;. &#x60;$is&#x60;/&#x60;$is_not&#x60; accept a single value (string or 1-element array); &#x60;$in&#x60;/&#x60;$not_in&#x60; accept a string or an array of 1-100 values.
     /// </summary>
-    [DataContract(Name = "SpendingReportFilterCardDefinitionIdConditions")]
-    public partial class SpendingReportFilterCardDefinitionIdConditions : IValidatableObject
+    [DataContract(Name = "ReportCardDefinitionIdFilterConditions")]
+    public partial class ReportCardDefinitionIdFilterConditions : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpendingReportFilterCardDefinitionIdConditions" /> class.
+        /// Initializes a new instance of the <see cref="ReportCardDefinitionIdFilterConditions" /> class.
         /// </summary>
         /// <param name="conditions">conditions.</param>
-        public SpendingReportFilterCardDefinitionIdConditions(SpendingReportFilterCardDefinitionIdConditionsConditions conditions = default(SpendingReportFilterCardDefinitionIdConditionsConditions))
+        public ReportCardDefinitionIdFilterConditions(ReportCardDefinitionIdFilterConditionsConditions conditions = default(ReportCardDefinitionIdFilterConditionsConditions))
         {
             this._Conditions = conditions;
             if (this.Conditions != null)
@@ -50,7 +50,7 @@ namespace Voucherify.Model
         /// Gets or Sets Conditions
         /// </summary>
         [DataMember(Name = "conditions", EmitDefaultValue = true)]
-        public SpendingReportFilterCardDefinitionIdConditionsConditions Conditions
+        public ReportCardDefinitionIdFilterConditionsConditions Conditions
         {
             get{ return _Conditions;}
             set
@@ -59,7 +59,7 @@ namespace Voucherify.Model
                 _flagConditions = true;
             }
         }
-        private SpendingReportFilterCardDefinitionIdConditionsConditions _Conditions;
+        private ReportCardDefinitionIdFilterConditionsConditions _Conditions;
         private bool _flagConditions;
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Voucherify.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SpendingReportFilterCardDefinitionIdConditions {\n");
+            sb.Append("class ReportCardDefinitionIdFilterConditions {\n");
             sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

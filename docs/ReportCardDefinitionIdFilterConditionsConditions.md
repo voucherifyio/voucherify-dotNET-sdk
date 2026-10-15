@@ -1,4 +1,4 @@
-# Voucherify.Model.PointsEarningsReportFilterCardDefinitionIdConditionsConditions
+# Voucherify.Model.ReportCardDefinitionIdFilterConditionsConditions
 
 ## Properties
 
