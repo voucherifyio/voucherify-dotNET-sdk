@@ -857,7 +857,7 @@ catch (ApiException e)
 
 <a id="listcustomers"></a>
 # **ListCustomers**
-> CustomersListResponseBody ListCustomers (int? limit = null, int? page = null, string email = null, string city = null, string name = null, string segmentId = null, DateTimeOffset? createdAtBefore = null, DateTimeOffset? createdAtAfter = null, DateTimeOffset? updatedAtBefore = null, DateTimeOffset? updatedAtAfter = null, ParameterOrderListCustomers? order = null, DateTimeOffset? startingAfter = null)
+> CustomersListResponseBody ListCustomers (int? limit = null, int? page = null, string email = null, string city = null, string name = null, string segmentId = null, DateTimeOffset? createdAtBefore = null, DateTimeOffset? createdAtAfter = null, DateTimeOffset? updatedAtBefore = null, DateTimeOffset? updatedAtAfter = null, ParameterOrderListCustomers? order = null, DateTimeOffset? startingAfter = null, Object filters = null)
 
 List Customers
 
@@ -903,11 +903,12 @@ namespace Example
             var updatedAtAfter = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Filter customers by date customer was updated last time. (optional) 
             var order = (ParameterOrderListCustomers) "created_at";  // ParameterOrderListCustomers? | This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional) 
             var startingAfter = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional) 
+            var filters = new Object(); // Object | Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional) 
 
             try
             {
                 // List Customers
-                CustomersListResponseBody result = apiInstance.ListCustomers(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter);
+                CustomersListResponseBody result = apiInstance.ListCustomers(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -928,7 +929,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List Customers
-    ApiResponse<CustomersListResponseBody> response = apiInstance.ListCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter);
+    ApiResponse<CustomersListResponseBody> response = apiInstance.ListCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -957,6 +958,7 @@ catch (ApiException e)
 | **updatedAtAfter** | **DateTimeOffset?** | Filter customers by date customer was updated last time. | [optional]  |
 | **order** | **ParameterOrderListCustomers?** | This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. | [optional]  |
 | **startingAfter** | **DateTimeOffset?** | A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   | [optional]  |
+| **filters** | [**Object**](Object.md) | Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. | [optional]  |
 
 ### Return type
 

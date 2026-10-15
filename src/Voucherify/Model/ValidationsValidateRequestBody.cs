@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="ValidationsValidateRequestBody" /> class.
         /// </summary>
         /// <param name="options">options.</param>
-        /// <param name="redeemables">redeemables.</param>
+        /// <param name="redeemables">An array of redeemables. You can combine &#x60;voucher&#x60;(s) and &#x60;promotion_tier&#x60;(s). Alternatively, send one unique&#x60;promotion_stack&#x60; in the array. Each unique redeemable can be sent in one request only once..</param>
         /// <param name="order">order.</param>
         /// <param name="customer">customer.</param>
         /// <param name="session">session.</param>
@@ -107,8 +107,9 @@ namespace Voucherify.Model
             return _flagOptions;
         }
         /// <summary>
-        /// Gets or Sets Redeemables
+        /// An array of redeemables. You can combine &#x60;voucher&#x60;(s) and &#x60;promotion_tier&#x60;(s). Alternatively, send one unique&#x60;promotion_stack&#x60; in the array. Each unique redeemable can be sent in one request only once.
         /// </summary>
+        /// <value>An array of redeemables. You can combine &#x60;voucher&#x60;(s) and &#x60;promotion_tier&#x60;(s). Alternatively, send one unique&#x60;promotion_stack&#x60; in the array. Each unique redeemable can be sent in one request only once.</value>
         [DataMember(Name = "redeemables", EmitDefaultValue = true)]
         public List<ValidationsValidateRequestBodyRedeemablesItem> Redeemables
         {

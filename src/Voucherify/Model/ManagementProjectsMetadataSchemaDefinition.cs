@@ -128,7 +128,7 @@ namespace Voucherify.Model
         /// <param name="minLength">Value indicating the minimum length. Available only for the &#x60;string&#x60; type..</param>
         /// <param name="maxLength">Value indicating the maximum length. Available only for the &#x60;string&#x60; type..</param>
         /// <param name="exactLength">Value indicating the exact length. Available only for the &#x60;string&#x60; type..</param>
-        /// <param name="eq">eq.</param>
+        /// <param name="eq">Array of values that are allowed. Available only for the &#x60;string&#x60; and &#x60;number&#x60; types..</param>
         /// <param name="ne">Array of values that are not allowed. Available only for the &#x60;number&#x60; type..</param>
         /// <param name="lt">A property of the &#x60;number&#x60; type must have &#x60;less than&#x60; this value. The value should be up to two decimal places..</param>
         /// <param name="lte">A property of the &#x60;number&#x60; type must be &#x60;less than or equal&#x60; to this value. The value should be up to two decimal places..</param>
@@ -384,8 +384,9 @@ namespace Voucherify.Model
             return _flagExactLength;
         }
         /// <summary>
-        /// Gets or Sets Eq
+        /// Array of values that are allowed. Available only for the &#x60;string&#x60; and &#x60;number&#x60; types.
         /// </summary>
+        /// <value>Array of values that are allowed. Available only for the &#x60;string&#x60; and &#x60;number&#x60; types.</value>
         [DataMember(Name = "eq", EmitDefaultValue = true)]
         public List<Object> Eq
         {

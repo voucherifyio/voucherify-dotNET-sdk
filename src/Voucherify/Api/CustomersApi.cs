@@ -257,9 +257,10 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersListResponseBody</returns>
-        CustomersListResponseBody ListCustomers(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0);
+        CustomersListResponseBody ListCustomers(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0);
 
         /// <summary>
         /// List Customers
@@ -280,9 +281,10 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersListResponseBody</returns>
-        ApiResponse<CustomersListResponseBody> ListCustomersWithHttpInfo(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<CustomersListResponseBody> ListCustomersWithHttpInfo(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0);
         /// <summary>
         /// Update Customer
         /// </summary>
@@ -608,10 +610,11 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersListResponseBody</returns>
-        System.Threading.Tasks.Task<CustomersListResponseBody> ListCustomersAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomersListResponseBody> ListCustomersAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List Customers
@@ -632,10 +635,11 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersListResponseBody)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomersListResponseBody>> ListCustomersWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CustomersListResponseBody>> ListCustomersWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Update Customer
         /// </summary>
@@ -2645,11 +2649,12 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CustomersListResponseBody</returns>
-        public CustomersListResponseBody ListCustomers(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0)
+        public CustomersListResponseBody ListCustomers(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0)
         {
-            Voucherify.Client.ApiResponse<CustomersListResponseBody> localVarResponse = ListCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter);
+            Voucherify.Client.ApiResponse<CustomersListResponseBody> localVarResponse = ListCustomersWithHttpInfo(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters);
             return localVarResponse.Data;
         }
 
@@ -2669,9 +2674,10 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CustomersListResponseBody</returns>
-        public Voucherify.Client.ApiResponse<CustomersListResponseBody> ListCustomersWithHttpInfo(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0)
+        public Voucherify.Client.ApiResponse<CustomersListResponseBody> ListCustomersWithHttpInfo(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0)
         {
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
 
@@ -2744,6 +2750,9 @@ namespace Voucherify.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "starting_after", startingAfter));
             }
+            if (filters != null)
+            {
+            }
 
             localVarRequestOptions.Operation = "CustomersApi.ListCustomers";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -2805,12 +2814,13 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CustomersListResponseBody</returns>
-        public async System.Threading.Tasks.Task<CustomersListResponseBody> ListCustomersAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomersListResponseBody> ListCustomersAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            Voucherify.Client.ApiResponse<CustomersListResponseBody> localVarResponse = await ListCustomersWithHttpInfoAsync(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, operationIndex, cancellationToken).ConfigureAwait(false);
+            Voucherify.Client.ApiResponse<CustomersListResponseBody> localVarResponse = await ListCustomersWithHttpInfoAsync(limit, page, email, city, name, segmentId, createdAtBefore, createdAtAfter, updatedAtBefore, updatedAtAfter, order, startingAfter, filters, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2830,10 +2840,11 @@ namespace Voucherify.Api
         /// <param name="updatedAtAfter">Filter customers by date customer was updated last time. (optional)</param>
         /// <param name="order">This is a property that controls the sorting direction of the results. Sort the results using one of the filtering options, where the dash - preceding a sorting option means sorting in a descending order. (optional)</param>
         /// <param name="startingAfter">A cursor for pagination. This is a date-time value that defines your place in the list based on created_at property from the customer object. For instance, if you make a list request and receive 100 objects, ending with an object created at 2020-05-24T13:43:09.024Z, your subsequent call can include starting_after 2020-05-24T13:43:09.024Z in order to fetch the next page of the list.   (optional)</param>
+        /// <param name="filters">Filters customers by field conditions. Read [Advanced filters for fetching resources](/api-reference/listing#advanced-filters-for-fetching-resources) for examples. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CustomersListResponseBody)</returns>
-        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersListResponseBody>> ListCustomersWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Voucherify.Client.ApiResponse<CustomersListResponseBody>> ListCustomersWithHttpInfoAsync(int? limit = default(int?), int? page = default(int?), string email = default(string), string city = default(string), string name = default(string), string segmentId = default(string), DateTimeOffset? createdAtBefore = default(DateTimeOffset?), DateTimeOffset? createdAtAfter = default(DateTimeOffset?), DateTimeOffset? updatedAtBefore = default(DateTimeOffset?), DateTimeOffset? updatedAtAfter = default(DateTimeOffset?), ParameterOrderListCustomers? order = default(ParameterOrderListCustomers?), DateTimeOffset? startingAfter = default(DateTimeOffset?), Object filters = default(Object), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             Voucherify.Client.RequestOptions localVarRequestOptions = new Voucherify.Client.RequestOptions();
@@ -2905,6 +2916,9 @@ namespace Voucherify.Api
             if (startingAfter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Voucherify.Client.ClientUtils.ParameterToMultiMap("", "starting_after", startingAfter));
+            }
+            if (filters != null)
+            {
             }
 
             localVarRequestOptions.Operation = "CustomersApi.ListCustomers";

@@ -1,5 +1,5 @@
 # Voucherify.Model.ParameterFiltersListPublicationsSourceId
-Filter publications by source id.
+Filter publications by source ID.
 
 ## Properties
 

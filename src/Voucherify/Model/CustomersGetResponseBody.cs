@@ -82,6 +82,7 @@ namespace Voucherify.Model
         /// <param name="sourceId">A unique identifier of the customer who validates a voucher. It can be a customer ID or email from a CRM system, database, or a third-party service. If you also pass a customer ID (unique ID assigned by Voucherify), the source ID will be ignored..</param>
         /// <param name="summary">summary.</param>
         /// <param name="loyalty">loyalty.</param>
+        /// <param name="loyaltyMemberships">List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events..</param>
         /// <param name="referrals">referrals.</param>
         /// <param name="systemMetadata">Object used to store system metadata information..</param>
         /// <param name="createdAt">Timestamp representing the date and time when the customer was created. The value is shown in the ISO 8601 format..</param>
@@ -96,7 +97,7 @@ namespace Voucherify.Model
         /// <param name="birthdate">Customer&#39;s birthdate; format YYYY-MM-DD..</param>
         /// <param name="address">address.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a customer. The metadata object stores all custom attributes assigned to the customer. It can be useful for storing additional information about the customer in a structured format. This metadata can be used for validating whether the customer qualifies for a discount or it can be used in building customer segments..</param>
-        public CustomersGetResponseBody(string id = default(string), string sourceId = default(string), CustomerSummary summary = default(CustomerSummary), CustomerLoyalty loyalty = default(CustomerLoyalty), CustomerReferrals referrals = default(CustomerReferrals), Object systemMetadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), CustomersGetResponseBodyAssets assets = default(CustomersGetResponseBodyAssets), ObjectEnum? varObject = default(ObjectEnum?), string name = default(string), string description = default(string), string email = default(string), string phone = default(string), DateTime? birthday = default(DateTime?), DateTime? birthdate = default(DateTime?), CustomersGetResponseBodyAddress address = default(CustomersGetResponseBodyAddress), Object metadata = default(Object))
+        public CustomersGetResponseBody(string id = default(string), string sourceId = default(string), CustomerSummary summary = default(CustomerSummary), CustomerLoyalty loyalty = default(CustomerLoyalty), List<CustomerLoyaltyMembership> loyaltyMemberships = default(List<CustomerLoyaltyMembership>), CustomerReferrals referrals = default(CustomerReferrals), Object systemMetadata = default(Object), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), CustomersGetResponseBodyAssets assets = default(CustomersGetResponseBodyAssets), ObjectEnum? varObject = default(ObjectEnum?), string name = default(string), string description = default(string), string email = default(string), string phone = default(string), DateTime? birthday = default(DateTime?), DateTime? birthdate = default(DateTime?), CustomersGetResponseBodyAddress address = default(CustomersGetResponseBodyAddress), Object metadata = default(Object))
         {
             this._Id = id;
             if (this.Id != null)
@@ -117,6 +118,11 @@ namespace Voucherify.Model
             if (this.Loyalty != null)
             {
                 this._flagLoyalty = true;
+            }
+            this._LoyaltyMemberships = loyaltyMemberships;
+            if (this.LoyaltyMemberships != null)
+            {
+                this._flagLoyaltyMemberships = true;
             }
             this._Referrals = referrals;
             if (this.Referrals != null)
@@ -287,6 +293,31 @@ namespace Voucherify.Model
         public bool ShouldSerializeLoyalty()
         {
             return _flagLoyalty;
+        }
+        /// <summary>
+        /// List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events.
+        /// </summary>
+        /// <value>List of Loyalty v2 program memberships for the customer. Lists only existing &#x60;ACTIVE&#x60; memberships. &#x60;null&#x60; when no memberships are stored. Absent or &#x60;null&#x60; for &#x60;v1/orders&#x60; and &#x60;v1/publications&#x60; endpoints and events.</value>
+        [DataMember(Name = "loyalty_memberships", EmitDefaultValue = true)]
+        public List<CustomerLoyaltyMembership> LoyaltyMemberships
+        {
+            get{ return _LoyaltyMemberships;}
+            set
+            {
+                _LoyaltyMemberships = value;
+                _flagLoyaltyMemberships = true;
+            }
+        }
+        private List<CustomerLoyaltyMembership> _LoyaltyMemberships;
+        private bool _flagLoyaltyMemberships;
+
+        /// <summary>
+        /// Returns false as LoyaltyMemberships should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLoyaltyMemberships()
+        {
+            return _flagLoyaltyMemberships;
         }
         /// <summary>
         /// Gets or Sets Referrals
@@ -630,6 +661,7 @@ namespace Voucherify.Model
             sb.Append("  SourceId: ").Append(SourceId).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
+            sb.Append("  LoyaltyMemberships: ").Append(LoyaltyMemberships).Append("\n");
             sb.Append("  Referrals: ").Append(Referrals).Append("\n");
             sb.Append("  SystemMetadata: ").Append(SystemMetadata).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
