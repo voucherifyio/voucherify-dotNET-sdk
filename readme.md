@@ -271,7 +271,7 @@ Authorization schemes defined for the API.
     - Added Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under `/v2/loyalties`.
     - Added `loyalty_memberships` on customer summary models.
     - Added an optional `filters` query parameter on list customers.
-    - Customer loyalty membership responses list only `ACTIVE` memberships. The status enum still includes `INACTIVE` and `DELETED`.
+    - Customer loyalty membership responses list only `ACTIVE` memberships.
 - **2026-08-26** - `9.1.1`
     - Fixed: `ExchangeRatio` is `decimal?`. `RewardsCreateRequestBodyParametersCoin` and `RewardsUpdateRequestBodyParametersCoin` changed from `(string, string)` to `(decimal?, string)`. `RedemptionRewardResultParametersCoin` changed from `(int?, int?)` to `(decimal?, int?)`. Update positional call sites. The API returns fractional values such as `0.01`.
     - Added: `Language` on redeem and validate options.

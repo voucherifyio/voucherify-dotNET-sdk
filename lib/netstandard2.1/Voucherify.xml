@@ -56462,30 +56462,20 @@
         </member>
         <member name="T:Voucherify.Model.CustomerLoyaltyMembershipMember.StatusEnum">
             <summary>
-            Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
+            Member status. The value is &#x60;ACTIVE&#x60;.
             </summary>
-            <value>Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.</value>
+            <value>Member status. The value is &#x60;ACTIVE&#x60;.</value>
         </member>
         <member name="F:Voucherify.Model.CustomerLoyaltyMembershipMember.StatusEnum.ACTIVE">
             <summary>
             Enum ACTIVE for value: ACTIVE
             </summary>
         </member>
-        <member name="F:Voucherify.Model.CustomerLoyaltyMembershipMember.StatusEnum.INACTIVE">
-            <summary>
-            Enum INACTIVE for value: INACTIVE
-            </summary>
-        </member>
-        <member name="F:Voucherify.Model.CustomerLoyaltyMembershipMember.StatusEnum.DELETED">
-            <summary>
-            Enum DELETED for value: DELETED
-            </summary>
-        </member>
         <member name="P:Voucherify.Model.CustomerLoyaltyMembershipMember.Status">
             <summary>
-            Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
+            Member status. The value is &#x60;ACTIVE&#x60;.
             </summary>
-            <value>Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.</value>
+            <value>Member status. The value is &#x60;ACTIVE&#x60;.</value>
         </member>
         <member name="M:Voucherify.Model.CustomerLoyaltyMembershipMember.ShouldSerializeStatus">
             <summary>
@@ -56498,7 +56488,7 @@
             Initializes a new instance of the <see cref="T:Voucherify.Model.CustomerLoyaltyMembershipMember" /> class.
             </summary>
             <param name="id">Identifies the Loyalty v2 program member..</param>
-            <param name="status">Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling..</param>
+            <param name="status">Member status. The value is &#x60;ACTIVE&#x60;..</param>
             <param name="createdAt">Timestamp representing when the member was created. The value is shown in the ISO 8601 format..</param>
             <param name="updatedAt">Timestamp representing when the member was updated. The value is shown in the ISO 8601 format. &#x60;null&#x60; when not set..</param>
         </member>

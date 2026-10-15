@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class CustomerLoyaltyMembershipMember : IValidatableObject
     {
         /// <summary>
-        /// Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
+        /// Member status. The value is &#x60;ACTIVE&#x60;.
         /// </summary>
-        /// <value>Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.</value>
+        /// <value>Member status. The value is &#x60;ACTIVE&#x60;.</value>
         [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
@@ -44,26 +44,14 @@ namespace Voucherify.Model
             /// Enum ACTIVE for value: ACTIVE
             /// </summary>
             [EnumMember(Value = "ACTIVE")]
-            ACTIVE = 1,
-
-            /// <summary>
-            /// Enum INACTIVE for value: INACTIVE
-            /// </summary>
-            [EnumMember(Value = "INACTIVE")]
-            INACTIVE = 2,
-
-            /// <summary>
-            /// Enum DELETED for value: DELETED
-            /// </summary>
-            [EnumMember(Value = "DELETED")]
-            DELETED = 3
+            ACTIVE = 1
         }
 
 
         /// <summary>
-        /// Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.
+        /// Member status. The value is &#x60;ACTIVE&#x60;.
         /// </summary>
-        /// <value>Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling.</value>
+        /// <value>Member status. The value is &#x60;ACTIVE&#x60;.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
@@ -91,7 +79,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="CustomerLoyaltyMembershipMember" /> class.
         /// </summary>
         /// <param name="id">Identifies the Loyalty v2 program member..</param>
-        /// <param name="status">Member status. List responses include only ACTIVE memberships. INACTIVE and DELETED remain so existing SDK callers keep compiling..</param>
+        /// <param name="status">Member status. The value is &#x60;ACTIVE&#x60;..</param>
         /// <param name="createdAt">Timestamp representing when the member was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing when the member was updated. The value is shown in the ISO 8601 format. &#x60;null&#x60; when not set..</param>
         public CustomerLoyaltyMembershipMember(string id = default(string), StatusEnum? status = default(StatusEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?))
