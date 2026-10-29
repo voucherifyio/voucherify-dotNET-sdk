@@ -1,0 +1,11 @@
+# Voucherify.Model.CardTransactionDetailsCardTransaction
+Reference to the linked card transaction (e.g. the spend side of a points purchase), or `null`.
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **string** | Card transaction ID (&#x60;lctx_[a-f0-9]+&#x60;) assigned by Voucherify. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

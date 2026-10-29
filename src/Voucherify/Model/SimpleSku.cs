@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="SimpleSku" /> class.
         /// </summary>
         /// <param name="id">Unique sku ID..</param>
-        /// <param name="sourceId">Sku source id..</param>
+        /// <param name="sourceId">Sku source ID..</param>
         /// <param name="sku">Sku name..</param>
         public SimpleSku(string id = default(string), string sourceId = default(string), string sku = default(string))
         {
@@ -84,9 +84,9 @@ namespace Voucherify.Model
             return _flagId;
         }
         /// <summary>
-        /// Sku source id.
+        /// Sku source ID.
         /// </summary>
-        /// <value>Sku source id.</value>
+        /// <value>Sku source ID.</value>
         [DataMember(Name = "source_id", EmitDefaultValue = true)]
         public string SourceId
         {
