@@ -273,6 +273,7 @@ Authorization schemes defined for the API.
     - Added an optional `filters` argument on `ListCustomers`, `ListCustomersAsync`, and the `WithHttpInfo` variants, inserted before `operationIndex`. A positional `operationIndex` now binds to `filters` and still compiles. Named calls that omit `operationIndex` are unchanged.
     - Customer loyalty membership responses list only `ACTIVE` memberships.
     - Added e2e coverage for Loyalty v2 member and runtime flows, with HTTP setup for admin endpoints that are not in the SDK.
+    - Removed unused public types that no other member referenced in `9.1.1`: `ValidationRuleErrorLibrary` (`ValidationRuleError` is still only `Message`) and `ParameterFiltersListCustomerRedeemablesVoucherTypeConditions` (`Conditions` on `ParameterFiltersListCustomerRedeemablesVoucherType` stays `ParameterFiltersListCampaignsVoucherTypeConditions`).
 - **2026-08-26** - `9.1.1`
     - Fixed: `ExchangeRatio` is `decimal?`. `RewardsCreateRequestBodyParametersCoin` and `RewardsUpdateRequestBodyParametersCoin` changed from `(string, string)` to `(decimal?, string)`. `RedemptionRewardResultParametersCoin` changed from `(int?, int?)` to `(decimal?, int?)`. Update positional call sites. The API returns fractional values such as `0.01`.
     - Added: `Language` on redeem and validate options.
