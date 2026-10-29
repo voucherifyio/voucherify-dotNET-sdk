@@ -55,31 +55,39 @@ namespace Voucherify.Test
 
             if (!_setupComplete)
             {
-                _fixtureCtx = await LoyaltyV2Fixture.SetupAsync();
-
-                var customerBody = new CustomersCreateRequestBody(
-                    sourceId: $"lv2_customer_{_fixtureCtx.Suffix}",
-                    name: "Loyalty v2 .NET SDK test");
-                _customer = await _customersApi.CreateCustomerAsync(customerBody);
-
-                // Set via property so ShouldSerializeCustomerIdentification is true
-                // (ctor assigns the backing field without flipping the serialize flag).
-                var memberBody = new V2LoyaltiesProgramsMembersCreateRequestBody
+                try
                 {
-                    CustomerIdentification = new Dictionary<string, object>
-                    {
-                        ["type"] = "customer_id",
-                        ["customer_id"] = _customer.Id,
-                        ["customer_source_id"] = null
-                    }
-                };
+                    _fixtureCtx = await LoyaltyV2Fixture.SetupAsync();
 
-                V2LoyaltiesProgramsMembersCreateResponseBody created =
-                    await _programsApi.CreateProgramMemberAsync(_fixtureCtx.ProgramId, memberBody);
-                _memberId = created.Id;
-                _member = await _programsApi.GetProgramMemberAsync(_fixtureCtx.ProgramId, _memberId);
-                _primaryCardId = ResolvePrimaryCardId(_member.Cards, _fixtureCtx.CardDefinitionId);
-                _setupComplete = true;
+                    var customerBody = new CustomersCreateRequestBody(
+                        sourceId: $"lv2_customer_{_fixtureCtx.Suffix}",
+                        name: "Loyalty v2 .NET SDK test");
+                    _customer = await _customersApi.CreateCustomerAsync(customerBody);
+
+                    // Set via property so ShouldSerializeCustomerIdentification is true
+                    // (ctor assigns the backing field without flipping the serialize flag).
+                    var memberBody = new V2LoyaltiesProgramsMembersCreateRequestBody
+                    {
+                        CustomerIdentification = new Dictionary<string, object>
+                        {
+                            ["type"] = "customer_id",
+                            ["customer_id"] = _customer.Id,
+                            ["customer_source_id"] = null
+                        }
+                    };
+
+                    V2LoyaltiesProgramsMembersCreateResponseBody created =
+                        await _programsApi.CreateProgramMemberAsync(_fixtureCtx.ProgramId, memberBody);
+                    _memberId = created.Id;
+                    _member = await _programsApi.GetProgramMemberAsync(_fixtureCtx.ProgramId, _memberId);
+                    _primaryCardId = ResolvePrimaryCardId(_member.Cards, _fixtureCtx.CardDefinitionId);
+                    _setupComplete = true;
+                }
+                catch
+                {
+                    // Leave ids populated so Order(100) cleanup can tear down partial setup.
+                    throw;
+                }
             }
 
             _fixtureCtx.ProgramId.Should().NotBeNullOrEmpty().And.StartWith("lprg_");
@@ -319,38 +327,49 @@ namespace Voucherify.Test
         }
 
         [SkippableFact, Order(100)]
-        public async Task CleanupMemberAndCustomer()
+        public async Task CleanupAlwaysRuns()
         {
-            Skip.If(!_setupComplete && _fixtureCtx == null, "Nothing to clean up");
+            // Runs after the ordered suite even when an earlier assertion failed (xUnit continues).
+            try
+            {
+                await IgnoreAsync("deactivateProgramMember", async () =>
+                {
+                    if (_fixtureCtx != null && !string.IsNullOrEmpty(_memberId))
+                    {
+                        await _programsApi.DeactivateProgramMemberAsync(
+                            _fixtureCtx.ProgramId, _memberId);
+                    }
+                });
+                await IgnoreAsync("deleteProgramMember", async () =>
+                {
+                    if (_fixtureCtx != null && !string.IsNullOrEmpty(_memberId))
+                    {
+                        await _programsApi.DeleteProgramMemberAsync(
+                            _fixtureCtx.ProgramId, _memberId);
+                    }
+                });
+                await IgnoreAsync("deleteCustomer", async () =>
+                {
+                    if (_customer != null)
+                    {
+                        await _customersApi.CustomerPermanentlyDeletionAsync(_customer.Id);
+                    }
+                });
 
-            await IgnoreAsync("deactivateProgramMember", async () =>
-            {
-                if (_fixtureCtx != null && !string.IsNullOrEmpty(_memberId))
+                if (_fixtureCtx != null)
                 {
-                    await _programsApi.DeactivateProgramMemberAsync(_fixtureCtx.ProgramId, _memberId);
+                    await LoyaltyV2Fixture.TeardownAsync(_fixtureCtx);
                 }
-            });
-            await IgnoreAsync("deleteProgramMember", async () =>
+            }
+            finally
             {
-                if (_fixtureCtx != null && !string.IsNullOrEmpty(_memberId))
-                {
-                    await _programsApi.DeleteProgramMemberAsync(_fixtureCtx.ProgramId, _memberId);
-                }
-            });
-            await IgnoreAsync("deleteCustomer", async () =>
-            {
-                if (_customer != null)
-                {
-                    await _customersApi.CustomerPermanentlyDeletionAsync(_customer.Id);
-                }
-            });
-
-            // Program HTTP teardown is owned by prompt 06 so later suite steps can share the fixture.
-            _member = null;
-            _memberId = null;
-            _customer = null;
-            _primaryCardId = null;
-            _setupComplete = false;
+                _fixtureCtx = null;
+                _member = null;
+                _memberId = null;
+                _customer = null;
+                _primaryCardId = null;
+                _setupComplete = false;
+            }
         }
 
         private static string ResolvePrimaryCardId(
