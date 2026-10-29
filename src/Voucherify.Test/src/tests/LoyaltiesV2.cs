@@ -16,6 +16,8 @@ namespace Voucherify.Test
     public class LoyaltiesV2Test
     {
         private static LV2ProgramsApi _programsApi;
+        private static LV2ExamineApi _examineApi;
+        private static LV2EarningRulesApi _earningRulesApi;
         private static CustomersApi _customersApi;
         private static OrdersApi _ordersApi;
 
@@ -31,7 +33,16 @@ namespace Voucherify.Test
             if (_programsApi == null)
             {
                 Configuration config = TestConfiguration.GetClientConfiguration();
+                // ParameterToMultiMap formats DateTimeOffset via GlobalConfiguration, not the
+                // per-client Configuration. Daily reports require YYYY-MM-DD query values.
+                if (GlobalConfiguration.Instance is Configuration globalConfig)
+                {
+                    globalConfig.DateTimeFormat = "yyyy-MM-dd";
+                }
+
                 _programsApi = new LV2ProgramsApi(config);
+                _examineApi = new LV2ExamineApi(config);
+                _earningRulesApi = new LV2EarningRulesApi(config);
                 _customersApi = new CustomersApi(config);
                 _ordersApi = new OrdersApi(config);
             }
@@ -238,6 +249,73 @@ namespace Voucherify.Test
             };
             await _programsApi.RefundRewardPurchaseAsync(
                 _fixtureCtx.ProgramId, refundId, refundBody);
+        }
+
+        [SkippableFact, Order(6)]
+        public async Task ExamineAndReportsViaSdk()
+        {
+            Skip.If(!_setupComplete, "Loyalty v2 setup did not run");
+
+            var identification = new ExamineCustomerIdentification
+            {
+                Type = ExamineCustomerIdentification.TypeEnum.MemberId,
+                MemberId = _memberId
+            };
+
+            var earningRulesBody = new LoyaltiesExamineEarningRulesExamineRequestBody
+            {
+                Trigger = new LoyaltiesExamineEarningRulesExamineRequestBodyTrigger
+                {
+                    Type = LoyaltiesExamineEarningRulesExamineRequestBodyTrigger.TypeEnum.SPECIFIC,
+                    Specific = new LoyaltiesExamineEarningRulesExamineRequestBodyTriggerSpecific
+                    {
+                        Event = LoyaltiesExamineEarningRulesExamineRequestBodyTriggerSpecific.EventEnum.CustomerOrderPaid
+                    }
+                },
+                CustomerIdentification = identification,
+                CustomerOrderPaid = new LoyaltiesExamineEarningRulesExamineRequestBodyCustomerOrderPaid
+                {
+                    Order = new LoyaltiesExamineEarningRulesExamineRequestBodyOrder
+                    {
+                        Amount = 5000
+                    }
+                }
+            };
+            LoyaltiesExamineEarningRulesExamineResponseBody earningRules =
+                await _examineApi.ExamineEarningRulesAsync(earningRulesBody);
+            earningRules.Should().NotBeNull();
+
+            var rewardsBody = new LoyaltiesExamineRewardsExamineRequestBody
+            {
+                CustomerIdentification = identification
+            };
+            LoyaltiesExamineRewardsExamineResponseBody rewards =
+                await _examineApi.ExamineRewardsAsync(rewardsBody);
+            rewards.Should().NotBeNull();
+
+            LoyaltiesProgramsReportsMembersSummaryListResponseBody membersSummary =
+                await _programsApi.ListProgramMembersSummaryReportsAsync(_fixtureCtx.ProgramId);
+            membersSummary.Data.Should().NotBeNull();
+
+            LoyaltiesProgramsReportsRewardsSummaryListResponseBody rewardsSummary =
+                await _programsApi.ListProgramRewardsSummaryReportsAsync(_fixtureCtx.ProgramId);
+            rewardsSummary.Data.Should().NotBeNull();
+
+            DateTimeOffset endDate = DateTimeOffset.UtcNow.Date;
+            DateTimeOffset startDate = endDate.AddDays(-1);
+            LoyaltiesProgramsReportsMembersDailyListResponseBody membersDaily =
+                await _programsApi.ListProgramMembersDailyReportsAsync(
+                    _fixtureCtx.ProgramId, startDate, endDate, "day");
+            membersDaily.Data.Should().NotBeNull();
+
+            LoyaltiesProgramsMembersCardsReportsDailyListResponseBody cardDaily =
+                await _programsApi.ListMemberCardDailyReportsAsync(
+                    _fixtureCtx.ProgramId, _memberId, _primaryCardId, startDate, endDate, "day");
+            cardDaily.Data.Should().NotBeNull();
+
+            V2LoyaltiesEarningRulesGetResponseBody earningRule =
+                await _earningRulesApi.GetEarningRuleAsync(_fixtureCtx.EarningRuleId);
+            earningRule.Id.Should().Be(_fixtureCtx.EarningRuleId);
         }
 
         [SkippableFact, Order(100)]
