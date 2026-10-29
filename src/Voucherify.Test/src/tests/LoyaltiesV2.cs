@@ -17,6 +17,7 @@ namespace Voucherify.Test
     {
         private static LV2ProgramsApi _programsApi;
         private static CustomersApi _customersApi;
+        private static OrdersApi _ordersApi;
 
         private static LoyaltyV2Fixture.Context _fixtureCtx;
         private static CustomersCreateResponseBody _customer;
@@ -32,6 +33,7 @@ namespace Voucherify.Test
                 Configuration config = TestConfiguration.GetClientConfiguration();
                 _programsApi = new LV2ProgramsApi(config);
                 _customersApi = new CustomersApi(config);
+                _ordersApi = new OrdersApi(config);
             }
         }
 
@@ -112,6 +114,130 @@ namespace Voucherify.Test
             _member.Status.Should().Be(V2LoyaltiesProgramsMembersGetResponseBody.StatusEnum.ACTIVE);
             _primaryCardId = ResolvePrimaryCardId(_member.Cards, _fixtureCtx.CardDefinitionId);
             _primaryCardId.Should().StartWith("lcrd_");
+        }
+
+        [SkippableFact, Order(3)]
+        public async Task AdjustCardPointsAndListTransactions()
+        {
+            Skip.If(!_setupComplete, "Loyalty v2 setup did not run");
+
+            var adjustBody = new V2LoyaltiesProgramsMembersCardsPointsAdjustRequestBody
+            {
+                Points = 100,
+                Reason = "dotnet sdk loyalty v2 e2e"
+            };
+            await _programsApi.AdjustCardPointsAsync(
+                _fixtureCtx.ProgramId, _memberId, _primaryCardId, adjustBody);
+
+            await Task.Delay(3000);
+
+            _member = await _programsApi.GetProgramMemberAsync(_fixtureCtx.ProgramId, _memberId);
+            MemberCard primaryCard = _member.Cards.First(
+                entry => entry.Card != null && entry.Card.Id == _primaryCardId);
+            primaryCard.Card.Balance.Points.Should().NotBeNull();
+            primaryCard.Card.Balance.Points.Value.Should().BeGreaterThan(0);
+
+            V2LoyaltiesProgramsMembersCardsTransactionsListResponseBody transactions =
+                await _programsApi.ListCardTransactionsAsync(
+                    _fixtureCtx.ProgramId, _memberId, _primaryCardId);
+            transactions.Data.Should().NotBeNullOrEmpty();
+        }
+
+        [SkippableFact, Order(4)]
+        public async Task CreateMemberOrderPaymentDryRun()
+        {
+            Skip.If(!_setupComplete, "Loyalty v2 setup did not run");
+
+            var orderBody = new OrdersCreateRequestBody
+            {
+                Amount = 2500,
+                SourceId = $"lv2_order_{_fixtureCtx.Suffix}",
+                Customer = new Customer { Id = _customer.Id }
+            };
+            OrdersCreateResponseBody order = await _ordersApi.CreateOrderAsync(orderBody);
+            order.Id.Should().StartWith("ord_");
+
+            var paymentBody = new V2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody
+            {
+                CardId = _primaryCardId,
+                Order = new OrderPaymentOrder { Id = order.Id },
+                PaymentLimit = new LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBodyLimit
+                {
+                    Type = LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBodyLimit.TypeEnum.CARDBALANCE
+                },
+                Mode = V2LoyaltiesProgramsMembersOrdersPaymentsCreateRequestBody.ModeEnum.DRYRUN
+            };
+            await _programsApi.CreateMemberOrderPaymentAsync(
+                _fixtureCtx.ProgramId, _memberId, paymentBody);
+
+            V2LoyaltiesProgramsMembersOrdersPaymentsListResponseBody listed =
+                await _programsApi.ListMemberOrderPaymentsAsync(_fixtureCtx.ProgramId, _memberId);
+            listed.Should().NotBeNull();
+        }
+
+        [SkippableFact, Order(5)]
+        public async Task PurchaseMemberRewardAndRefund()
+        {
+            Skip.If(!_setupComplete, "Loyalty v2 setup did not run");
+
+            var dryRun = new V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody
+            {
+                RewardId = _fixtureCtx.RewardId,
+                Mode = V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody.ModeEnum.DRYRUN
+            };
+            await _programsApi.PurchaseMemberRewardAsync(
+                _fixtureCtx.ProgramId, _memberId, dryRun);
+
+            var purchaseBody = new V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody
+            {
+                RewardId = _fixtureCtx.RewardId,
+                Mode = V2LoyaltiesProgramsMembersRewardsPurchasesCreateRequestBody.ModeEnum.TRANSACTION
+            };
+            LoyaltiesProgramsMembersRewardsPurchasesCreateCombinedResponseBody purchase =
+                await _programsApi.PurchaseMemberRewardAsync(
+                    _fixtureCtx.ProgramId, _memberId, purchaseBody);
+            purchase.Should().NotBeNull();
+
+            string rewardTransactionId = purchase.Transaction?.Id;
+            rewardTransactionId.Should().NotBeNullOrEmpty();
+
+            RewardPurchaseTransaction approvedRow = null;
+            for (int attempt = 0; attempt < 15; attempt++)
+            {
+                await Task.Delay(1000);
+                V2LoyaltiesProgramsMembersRewardsPurchasesListResponseBody listed =
+                    await _programsApi.ListMemberRewardPurchasesAsync(
+                        _fixtureCtx.ProgramId, _memberId);
+                listed.Data.Should().NotBeNullOrEmpty();
+
+                approvedRow = listed.Data.FirstOrDefault(
+                    row => row.Id == rewardTransactionId &&
+                           row.Status == RewardPurchaseTransaction.StatusEnum.APPROVED);
+                if (approvedRow == null &&
+                    listed.Data[0].Status == RewardPurchaseTransaction.StatusEnum.APPROVED)
+                {
+                    approvedRow = listed.Data[0];
+                }
+
+                if (approvedRow != null)
+                {
+                    break;
+                }
+            }
+
+            approvedRow.Should().NotBeNull("reward purchase should reach APPROVED");
+
+            string refundId = approvedRow.Id ?? rewardTransactionId;
+            var refundBody = new V2LoyaltiesProgramsRewardsPurchasesRefundRequestBody
+            {
+                Policies = new RewardPurchaseRefundPolicies
+                {
+                    Refund = RewardPurchaseRefundPolicies.RefundEnum.ALLOW,
+                    Stock = RewardPurchaseRefundPolicies.StockEnum.DEFAULT
+                }
+            };
+            await _programsApi.RefundRewardPurchaseAsync(
+                _fixtureCtx.ProgramId, refundId, refundBody);
         }
 
         [SkippableFact, Order(100)]
