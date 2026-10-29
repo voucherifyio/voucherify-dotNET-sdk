@@ -15,8 +15,11 @@
     <repository type="git" url="https://github.com/voucherifyio/voucherify-dotNET-sdk" />
     <releaseNotes>
         2026-10-14: 9.2.0
-            - Added Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under /v2/loyalties.
-            - Added loyalty_memberships on customer summary models.
+            - Added Loyalty v2 API methods under /v2/loyalties for member create and batch create, update, delete, activate, and deactivate; card point adjustments, pending-points activate and cancel, and points-bucket expiration; order payments; reward purchase and refund; plus memberships, cards, examine, reports, and reads for a benefit, an earning rule, and a reward.
+            - Added loyalty_memberships on CustomerWithSummaryLoyaltyReferrals, CustomersCreateResponseBody, CustomersGetResponseBody, and CustomersUpdateResponseBody. The constructor parameter is inserted before referrals. Positional calls that pass referrals or any later argument no longer compile. Named arguments and object initializers are unchanged.
+            - Added an optional filters argument on ListCustomers, ListCustomersAsync, and the WithHttpInfo variants, inserted before operationIndex. A positional operationIndex now binds to filters and still compiles. Named calls that omit operationIndex are unchanged.
+            - Customer loyalty membership responses list only ACTIVE memberships.
+            - Added e2e coverage for Loyalty v2 member and runtime flows, with HTTP setup for admin endpoints that are not in the SDK.
         2026-08-26: 9.1.1
             - Fixed: ExchangeRatio is decimal?. RewardsCreateRequestBodyParametersCoin and RewardsUpdateRequestBodyParametersCoin changed from (string, string) to (decimal?, string). RedemptionRewardResultParametersCoin changed from (int?, int?) to (decimal?, int?). Update positional call sites. The API returns fractional values such as 0.01.
             - Added: Language on redeem and validate options.
