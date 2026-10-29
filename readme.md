@@ -269,6 +269,7 @@ Authorization schemes defined for the API.
 ## 📅 Changelog
 - **2026-10-14** - `9.2.0`
     - Added Loyalty v2 API methods for members, memberships, cards, examine, reports, and related non-WIP reads under `/v2/loyalties`.
+    - Added e2e coverage for Loyalty v2 member and runtime flows, with HTTP setup for admin endpoints that are not in the SDK.
     - Added `loyalty_memberships` on customer summary models.
     - Added an optional `filters` query parameter on list customers.
     - Customer loyalty membership responses list only `ACTIVE` memberships.
