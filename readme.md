@@ -171,7 +171,7 @@ This SDK is generated automatically from our [OpenAPI specification](https://git
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.1.1).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.1.2).
 
 ## 🔐 Authorization
 
@@ -263,12 +263,10 @@ Authorization schemes defined for the API.
   - `templates`: Gives access to all endpoints and methods starting with &#x60;/v1/templates&#x60;.
 
 ## 📅 Changelog
+- **2026-11-20** - `9.1.2`
+    - Fixed: `PriceFormula` in `ApplicableTo` and `InapplicableTo` typed as `string` (was `double?`). The API expects a formula expression string such as `IF(ORDER_AMOUNT > 300;ORDER_ITEM_PRICE * 0.8;ORDER_ITEM_PRICE)`.
 - **2026-08-26** - `9.1.1`
-    - Fixed: `ExchangeRatio` is `decimal?`. `RewardsCreateRequestBodyParametersCoin` and `RewardsUpdateRequestBodyParametersCoin` changed from `(string, string)` to `(decimal?, string)`. `RedemptionRewardResultParametersCoin` changed from `(int?, int?)` to `(decimal?, int?)`. Update positional call sites. The API returns fractional values such as `0.01`.
-    - Added: `Language` on redeem and validate options.
-    - Added: product/sku export enum members (`product_id`, `sku`, and the related field names) on the export parameter models.
-    - Added: `ValidationRuleErrorLibrary`.
-    - Note: legacy `/v1/loyalties` methods on `LoyaltiesApi` are now `[Obsolete]`. Signatures are unchanged. Callers get CS0618, and builds that treat warnings as errors will fail. New integrations should use Loyalty v2.
+    - Fixed: `ExchangeRatio` in COIN reward schemas typed as `double?` (was `integer`/`string` in OpenAPI). The API returns fractional values (e.g. `0.01` for pay-with-points). Fixes deserialization errors on `list_redemptions` and related endpoints.
 - **2026-08-20** - `9.1.0`
     - Fixed: `ValidationsRedeemableSkippedResultDetails.KeyEnum` was missing `NoEffect` (`no_effect`), so `Key` was `null` whenever the API skipped a redeemable with no discount effect (message was populated, key was silently lost via `SafeEnumConverter`).
     - This affects `POST /v1/validations` and stackable `POST /v1/redemptions` when `redeemables_no_effect_rule` is `SKIP` (globally or via `no_effect_skip_categories`).
@@ -1800,26 +1798,22 @@ Class | Method | HTTP request | Description
  - [Model.ValidationRuleAssignment](docs/ValidationRuleAssignment.md)
  - [Model.ValidationRuleAssignmentsList](docs/ValidationRuleAssignmentsList.md)
  - [Model.ValidationRuleError](docs/ValidationRuleError.md)
+ - [Model.ValidationRuleErrorLibrary](docs/ValidationRuleErrorLibrary.md)
  - [Model.ValidationRulesAssignmentsCreateRequestBody](docs/ValidationRulesAssignmentsCreateRequestBody.md)
  - [Model.ValidationRulesAssignmentsCreateResponseBody](docs/ValidationRulesAssignmentsCreateResponseBody.md)
  - [Model.ValidationRulesAssignmentsList](docs/ValidationRulesAssignmentsList.md)
  - [Model.ValidationRulesAssignmentsListResponseBody](docs/ValidationRulesAssignmentsListResponseBody.md)
  - [Model.ValidationRulesCreateRequestBody](docs/ValidationRulesCreateRequestBody.md)
  - [Model.ValidationRulesCreateRequestBodyApplicableTo](docs/ValidationRulesCreateRequestBodyApplicableTo.md)
- - [Model.ValidationRulesCreateRequestBodyError](docs/ValidationRulesCreateRequestBodyError.md)
  - [Model.ValidationRulesCreateResponseBody](docs/ValidationRulesCreateResponseBody.md)
  - [Model.ValidationRulesCreateResponseBodyApplicableTo](docs/ValidationRulesCreateResponseBodyApplicableTo.md)
- - [Model.ValidationRulesCreateResponseBodyError](docs/ValidationRulesCreateResponseBodyError.md)
  - [Model.ValidationRulesGetResponseBody](docs/ValidationRulesGetResponseBody.md)
  - [Model.ValidationRulesGetResponseBodyApplicableTo](docs/ValidationRulesGetResponseBodyApplicableTo.md)
- - [Model.ValidationRulesGetResponseBodyError](docs/ValidationRulesGetResponseBodyError.md)
  - [Model.ValidationRulesListResponseBody](docs/ValidationRulesListResponseBody.md)
  - [Model.ValidationRulesUpdateRequestBody](docs/ValidationRulesUpdateRequestBody.md)
  - [Model.ValidationRulesUpdateRequestBodyApplicableTo](docs/ValidationRulesUpdateRequestBodyApplicableTo.md)
- - [Model.ValidationRulesUpdateRequestBodyError](docs/ValidationRulesUpdateRequestBodyError.md)
  - [Model.ValidationRulesUpdateResponseBody](docs/ValidationRulesUpdateResponseBody.md)
  - [Model.ValidationRulesUpdateResponseBodyApplicableTo](docs/ValidationRulesUpdateResponseBodyApplicableTo.md)
- - [Model.ValidationRulesUpdateResponseBodyError](docs/ValidationRulesUpdateResponseBodyError.md)
  - [Model.ValidationsRedeemableInapplicable](docs/ValidationsRedeemableInapplicable.md)
  - [Model.ValidationsRedeemableInapplicableResult](docs/ValidationsRedeemableInapplicableResult.md)
  - [Model.ValidationsRedeemableInapplicableResultDetails](docs/ValidationsRedeemableInapplicableResultDetails.md)

@@ -203,7 +203,7 @@ namespace Voucherify.Model
         /// <param name="repeat">Determines the recurrence of the discount, e.g. &#x60;\&quot;repeat\&quot;: 3&#x60; means that the discount is applied to every third item..</param>
         /// <param name="skipInitially">Determines how many items are skipped before the discount is applied..</param>
         /// <param name="target">Determines to which kinds of objects the discount is applicable. &#x60;ITEM&#x60; includes products and SKUs. &#x60;UNIT&#x60; means particular units within an order line..</param>
-        public ApplicableTo(ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), string sourceId = default(string), string productId = default(string), string productSourceId = default(string), decimal? price = default(decimal?), decimal? priceFormula = default(decimal?), ApplicableToEffect effect = default(ApplicableToEffect), int? quantityLimit = default(int?), int? aggregatedQuantityLimit = default(int?), int? amountLimit = default(int?), int? aggregatedAmountLimit = default(int?), int? productCampaignQuantityLimit = default(int?), string productCampaignQuantityLimitFormula = default(string), int? productCustomerCampaignQuantityLimit = default(int?), string productCustomerCampaignQuantityLimitFormula = default(string), int? productInCollectionCampaignQuantityLimit = default(int?), string productInCollectionCampaignQuantityLimitFormula = default(string), int? productInCollectionCustomerCampaignQuantityLimit = default(int?), string productInCollectionCustomerCampaignQuantityLimitFormula = default(string), int? productPromotionTierQuantityLimit = default(int?), string productPromotionTierQuantityLimitFormula = default(string), int? productCustomerPromotionTierQuantityLimit = default(int?), string productCustomerPromotionTierQuantityLimitFormula = default(string), int? productInCollectionPromotionTierQuantityLimit = default(int?), string productInCollectionPromotionTierQuantityLimitFormula = default(string), int? productInCollectionCustomerPromotionTierQuantityLimit = default(int?), string productInCollectionCustomerPromotionTierQuantityLimitFormula = default(string), List<int> orderItemIndices = default(List<int>), List<ApplicableToOrderItemUnitsItem> orderItemUnits = default(List<ApplicableToOrderItemUnitsItem>), int? repeat = default(int?), int? skipInitially = default(int?), TargetEnum? target = default(TargetEnum?))
+        public ApplicableTo(ObjectEnum? varObject = default(ObjectEnum?), string id = default(string), string sourceId = default(string), string productId = default(string), string productSourceId = default(string), decimal? price = default(decimal?), string priceFormula = default(string), ApplicableToEffect effect = default(ApplicableToEffect), int? quantityLimit = default(int?), int? aggregatedQuantityLimit = default(int?), int? amountLimit = default(int?), int? aggregatedAmountLimit = default(int?), int? productCampaignQuantityLimit = default(int?), string productCampaignQuantityLimitFormula = default(string), int? productCustomerCampaignQuantityLimit = default(int?), string productCustomerCampaignQuantityLimitFormula = default(string), int? productInCollectionCampaignQuantityLimit = default(int?), string productInCollectionCampaignQuantityLimitFormula = default(string), int? productInCollectionCustomerCampaignQuantityLimit = default(int?), string productInCollectionCustomerCampaignQuantityLimitFormula = default(string), int? productPromotionTierQuantityLimit = default(int?), string productPromotionTierQuantityLimitFormula = default(string), int? productCustomerPromotionTierQuantityLimit = default(int?), string productCustomerPromotionTierQuantityLimitFormula = default(string), int? productInCollectionPromotionTierQuantityLimit = default(int?), string productInCollectionPromotionTierQuantityLimitFormula = default(string), int? productInCollectionCustomerPromotionTierQuantityLimit = default(int?), string productInCollectionCustomerPromotionTierQuantityLimitFormula = default(string), List<int> orderItemIndices = default(List<int>), List<ApplicableToOrderItemUnitsItem> orderItemUnits = default(List<ApplicableToOrderItemUnitsItem>), int? repeat = default(int?), int? skipInitially = default(int?), TargetEnum? target = default(TargetEnum?))
         {
             this._Effect = effect;
             this._Object = varObject;
@@ -498,7 +498,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <value>Formula used to dynamically calculate the discounted price of an item.</value>
         [DataMember(Name = "price_formula", EmitDefaultValue = true)]
-        public decimal? PriceFormula
+        public string PriceFormula
         {
             get{ return _PriceFormula;}
             set
@@ -507,7 +507,7 @@ namespace Voucherify.Model
                 _flagPriceFormula = true;
             }
         }
-        private decimal? _PriceFormula;
+        private string _PriceFormula;
         private bool _flagPriceFormula;
 
         /// <summary>
