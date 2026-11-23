@@ -76,9 +76,9 @@ namespace Voucherify.Model
             return _flagObject;
         }
         /// <summary>
-        /// Related object type to which the reward was assigned.
+        /// Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier.
         /// </summary>
-        /// <value>Related object type to which the reward was assigned.</value>
+        /// <value>Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier.</value>
         [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         public enum RelatedObjectTypeEnum
         {
@@ -86,14 +86,20 @@ namespace Voucherify.Model
             /// Enum Campaign for value: campaign
             /// </summary>
             [EnumMember(Value = "campaign")]
-            Campaign = 1
+            Campaign = 1,
+
+            /// <summary>
+            /// Enum ReferralTier for value: referral_tier
+            /// </summary>
+            [EnumMember(Value = "referral_tier")]
+            ReferralTier = 2
         }
 
 
         /// <summary>
-        /// Related object type to which the reward was assigned.
+        /// Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier.
         /// </summary>
-        /// <value>Related object type to which the reward was assigned.</value>
+        /// <value>Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
         [DataMember(Name = "related_object_type", EmitDefaultValue = true)]
@@ -125,8 +131,8 @@ namespace Voucherify.Model
         /// <param name="createdAt">Timestamp representing the date and time when the reward assignment was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the reward assignment was updated. The value is shown in the ISO 8601 format..</param>
         /// <param name="varObject">The type of the object represented by the JSON. This object stores information about the reward assignment..</param>
-        /// <param name="relatedObjectId">Related object ID to which the reward was assigned..</param>
-        /// <param name="relatedObjectType">Related object type to which the reward was assigned..</param>
+        /// <param name="relatedObjectId">Related object ID to which the reward was assigned. For &#x60;related_object_type&#x60; &#x60;campaign&#x60;, this is the campaign ID. For &#x60;referral_tier&#x60;, this is the referral tier ID..</param>
+        /// <param name="relatedObjectType">Related object type to which the reward was assigned. Use &#x60;campaign&#x60; for **legacy loyalty** campaign rewards. Use &#x60;referral_tier&#x60; for &#x60;LOYALTY_POINTS&#x60; rewards that credit a &#x60;v2/loyalties&#x60; (loyalty hub) card from a referral tier. A &#x60;LOYALTY_POINTS&#x60; reward can only be assigned to a referral tier..</param>
         /// <param name="parameters">parameters.</param>
         public RewardAssignment(string id = default(string), string rewardId = default(string), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), ObjectEnum? varObject = default(ObjectEnum?), string relatedObjectId = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), RewardAssignmentParameters parameters = default(RewardAssignmentParameters))
         {
@@ -285,9 +291,9 @@ namespace Voucherify.Model
             return _flagUpdatedAt;
         }
         /// <summary>
-        /// Related object ID to which the reward was assigned.
+        /// Related object ID to which the reward was assigned. For &#x60;related_object_type&#x60; &#x60;campaign&#x60;, this is the campaign ID. For &#x60;referral_tier&#x60;, this is the referral tier ID.
         /// </summary>
-        /// <value>Related object ID to which the reward was assigned.</value>
+        /// <value>Related object ID to which the reward was assigned. For &#x60;related_object_type&#x60; &#x60;campaign&#x60;, this is the campaign ID. For &#x60;referral_tier&#x60;, this is the referral tier ID.</value>
         /*
         <example>camp_wciTvaOfYmAa3EmIIW3QpXXZ</example>
         */

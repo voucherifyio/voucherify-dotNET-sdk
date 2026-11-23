@@ -1,5 +1,5 @@
 # Voucherify.Model.LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent
-Contains the schema id of a custom event. **Required** for the custom event option in `event`.
+Contains the schema ID of a custom event. Required for the custom event option in `event`.
 
 ## Properties
 

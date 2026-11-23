@@ -726,9 +726,6 @@ namespace Voucherify.Model
         /// Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date.
         /// </summary>
         /// <value>Expiration timestamp defines when the code expires in ISO 8601 format.  Voucher is *inactive after* this date.</value>
-        /*
-        <example>2021-12-31T00:00Z</example>
-        */
         [DataMember(Name = "expiration_date", EmitDefaultValue = true)]
         public DateTimeOffset? ExpirationDate
         {

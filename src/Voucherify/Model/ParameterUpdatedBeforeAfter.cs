@@ -56,9 +56,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time before the voucher was updated. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time before the voucher was updated. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-22T10:13:06.487Z</example>
-        */
         [DataMember(Name = "before", EmitDefaultValue = true)]
         public DateTimeOffset? Before
         {
@@ -84,9 +81,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time after the voucher was updated. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time after the voucher was updated. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-22T10:13:06.487Z</example>
-        */
         [DataMember(Name = "after", EmitDefaultValue = true)]
         public DateTimeOffset? After
         {

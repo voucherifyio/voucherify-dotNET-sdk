@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Contains the schema id of a custom event. **Required** for the custom event option in &#x60;event&#x60;.
+    /// Contains the schema ID of a custom event. Required for the custom event option in &#x60;event&#x60;.
     /// </summary>
     [DataContract(Name = "LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent")]
     public partial class LoyaltiesEarningRulesCreateRequestBodyItemCustomEvent : IValidatableObject

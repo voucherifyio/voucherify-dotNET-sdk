@@ -82,7 +82,7 @@ namespace Voucherify.Model
         /// <param name="varObject">The type of the object represented by JSON..</param>
         /// <param name="campaign">Campaign name.</param>
         /// <param name="gift">gift.</param>
-        /// <param name="loyaltyCard">Defines the loyalty card details..</param>
+        /// <param name="loyaltyCard">Defines the legacy loyalty card details..</param>
         /// <param name="discount">discount.</param>
         /// <param name="isReferralCode">Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;..</param>
         public ListPublicationsItemVoucher(string code = default(string), ObjectEnum? varObject = default(ObjectEnum?), string campaign = default(string), Gift gift = default(Gift), Object loyaltyCard = default(Object), Discount discount = default(Discount), bool? isReferralCode = default(bool?))
@@ -199,9 +199,9 @@ namespace Voucherify.Model
             return _flagGift;
         }
         /// <summary>
-        /// Defines the loyalty card details.
+        /// Defines the legacy loyalty card details.
         /// </summary>
-        /// <value>Defines the loyalty card details.</value>
+        /// <value>Defines the legacy loyalty card details.</value>
         [DataMember(Name = "loyalty_card", EmitDefaultValue = true)]
         public Object LoyaltyCard
         {

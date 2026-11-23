@@ -335,8 +335,8 @@ namespace Voucherify.Model
         /// <param name="campaignType">Type of campaign..</param>
         /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: campaign for single vouchers.</param>
         /// <param name="voucher">voucher.</param>
-        /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
-        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them..</param>
+        /// <param name="autoJoin">Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled..</param>
+        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for **legacy loyalty** campaigns and it cannot be changed in them..</param>
         /// <param name="useVoucherMetadataSchema">Flag indicating whether the campaign is to use the voucher&#39;s metadata schema instead of the campaign metadata schema..</param>
         /// <param name="validityTimeframe">validityTimeframe.</param>
         /// <param name="validityDayOfWeek">Integer array corresponding to the particular days of the week in which the voucher is valid.  - &#x60;0&#x60; Sunday - &#x60;1&#x60; Monday - &#x60;2&#x60; Tuesday - &#x60;3&#x60; Wednesday - &#x60;4&#x60; Thursday - &#x60;5&#x60; Friday - &#x60;6&#x60; Saturday.</param>
@@ -634,9 +634,9 @@ namespace Voucherify.Model
             return _flagVoucher;
         }
         /// <summary>
-        /// Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
+        /// Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.
         /// </summary>
-        /// <value>Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.</value>
+        /// <value>Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.</value>
         [DataMember(Name = "auto_join", EmitDefaultValue = true)]
         public bool? AutoJoin
         {
@@ -659,9 +659,9 @@ namespace Voucherify.Model
             return _flagAutoJoin;
         }
         /// <summary>
-        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.
+        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for **legacy loyalty** campaigns and it cannot be changed in them.
         /// </summary>
-        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for loyalty campaigns and it cannot be changed in them.</value>
+        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. It is always &#x60;false&#x60; for generic (standalone) vouchers campaigns and it cannot be changed in them. It is always &#x60;true&#x60; for **legacy loyalty** campaigns and it cannot be changed in them.</value>
         [DataMember(Name = "join_once", EmitDefaultValue = true)]
         public bool? JoinOnce
         {
@@ -941,9 +941,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the campaign was created. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the campaign was created. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-01T08:00:50.038Z</example>
-        */
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public DateTimeOffset? CreatedAt
         {

@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class Reward : IValidatableObject
     {
         /// <summary>
-        /// Reward type.
+        /// Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
         /// </summary>
-        /// <value>Reward type.</value>
+        /// <value>Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).</value>
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
@@ -56,14 +56,20 @@ namespace Voucherify.Model
             /// Enum MATERIAL for value: MATERIAL
             /// </summary>
             [EnumMember(Value = "MATERIAL")]
-            MATERIAL = 3
+            MATERIAL = 3,
+
+            /// <summary>
+            /// Enum LOYALTYPOINTS for value: LOYALTY_POINTS
+            /// </summary>
+            [EnumMember(Value = "LOYALTY_POINTS")]
+            LOYALTYPOINTS = 4
         }
 
 
         /// <summary>
-        /// Reward type.
+        /// Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
         /// </summary>
-        /// <value>Reward type.</value>
+        /// <value>Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).</value>
 
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
@@ -143,7 +149,7 @@ namespace Voucherify.Model
         /// <param name="redeemed">Defines the number of already invoked (successful) reward redemptions. .</param>
         /// <param name="attributes">attributes.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format..</param>
-        /// <param name="type">Reward type..</param>
+        /// <param name="type">Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier)..</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="createdAt">Timestamp representing the date and time when the reward was created. The value is shown in the ISO 8601 format..</param>
         /// <param name="updatedAt">Timestamp representing the date and time when the reward was updated. The value is shown in the ISO 8601 format..</param>

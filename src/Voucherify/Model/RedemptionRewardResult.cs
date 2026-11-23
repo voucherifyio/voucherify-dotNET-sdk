@@ -76,9 +76,9 @@ namespace Voucherify.Model
             return _flagObject;
         }
         /// <summary>
-        /// Reward type.
+        /// Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
         /// </summary>
-        /// <value>Reward type.</value>
+        /// <value>Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).</value>
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         public enum TypeEnum
         {
@@ -98,14 +98,20 @@ namespace Voucherify.Model
             /// Enum MATERIAL for value: MATERIAL
             /// </summary>
             [EnumMember(Value = "MATERIAL")]
-            MATERIAL = 3
+            MATERIAL = 3,
+
+            /// <summary>
+            /// Enum LOYALTYPOINTS for value: LOYALTY_POINTS
+            /// </summary>
+            [EnumMember(Value = "LOYALTY_POINTS")]
+            LOYALTYPOINTS = 4
         }
 
 
         /// <summary>
-        /// Reward type.
+        /// Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).
         /// </summary>
-        /// <value>Reward type.</value>
+        /// <value>Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier).</value>
 
         [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
         [DataMember(Name = "type", EmitDefaultValue = true)]
@@ -145,7 +151,7 @@ namespace Voucherify.Model
         /// <param name="updatedAt">Timestamp in ISO 8601 format indicating when the reward was updated..</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="metadata">A set of custom key/value pairs that you can attach to a reward. The metadata object stores all custom attributes assigned to the reward..</param>
-        /// <param name="type">Reward type..</param>
+        /// <param name="type">Reward type. &#x60;LOYALTY_POINTS&#x60; credits points on a &#x60;v2/loyalties&#x60; (loyalty hub) card (for example from a referral tier)..</param>
         public RedemptionRewardResult(SimpleCustomer customer = default(SimpleCustomer), string assignmentId = default(string), Voucher voucher = default(Voucher), Product product = default(Product), Sku sku = default(Sku), string loyaltyTierId = default(string), string id = default(string), string name = default(string), ObjectEnum? varObject = default(ObjectEnum?), DateTimeOffset? createdAt = default(DateTimeOffset?), DateTimeOffset? updatedAt = default(DateTimeOffset?), RedemptionRewardResultParameters parameters = default(RedemptionRewardResultParameters), Object metadata = default(Object), TypeEnum? type = default(TypeEnum?))
         {
             this._Customer = customer;
@@ -426,9 +432,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the redemption was created. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-22T10:13:06.487Z</example>
-        */
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public DateTimeOffset? CreatedAt
         {

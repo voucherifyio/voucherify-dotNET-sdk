@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// LoyaltiesEarningRulesUpdateRequestBody
+    /// Request body for updating an earning rule in a **legacy loyalty** campaign (&#x60;PUT /v1/loyalties/{campaignId}/earning-rules/{earningRuleId}&#x60;).
     /// </summary>
     [DataContract(Name = "LoyaltiesEarningRulesUpdateRequestBody")]
     public partial class LoyaltiesEarningRulesUpdateRequestBody : IValidatableObject

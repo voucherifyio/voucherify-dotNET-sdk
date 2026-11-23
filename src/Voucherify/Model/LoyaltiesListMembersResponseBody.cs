@@ -80,7 +80,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="varObject">The type of the object represented by JSON. This object stores information about members in a dictionary..</param>
         /// <param name="dataRef">Identifies the name of the attribute that contains the array of voucher objects..</param>
-        /// <param name="vouchers">Contains array of voucher objects representing loyalty cards, in other words, loyalty program members..</param>
+        /// <param name="vouchers">Contains an array of voucher objects representing loyalty cards (legacy loyalty campaign members)..</param>
         /// <param name="total">Total number of voucher objects..</param>
         public LoyaltiesListMembersResponseBody(string varObject = default(string), DataRefEnum? dataRef = default(DataRefEnum?), List<LoyaltyMember> vouchers = default(List<LoyaltyMember>), int? total = default(int?))
         {
@@ -132,9 +132,9 @@ namespace Voucherify.Model
             return _flagObject;
         }
         /// <summary>
-        /// Contains array of voucher objects representing loyalty cards, in other words, loyalty program members.
+        /// Contains an array of voucher objects representing loyalty cards (legacy loyalty campaign members).
         /// </summary>
-        /// <value>Contains array of voucher objects representing loyalty cards, in other words, loyalty program members.</value>
+        /// <value>Contains an array of voucher objects representing loyalty cards (legacy loyalty campaign members).</value>
         [DataMember(Name = "vouchers", EmitDefaultValue = true)]
         public List<LoyaltyMember> Vouchers
         {

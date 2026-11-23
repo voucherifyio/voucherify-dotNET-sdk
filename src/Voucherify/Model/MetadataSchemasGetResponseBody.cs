@@ -186,9 +186,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the metadata schema was created. The value for this parameter is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the metadata schema was created. The value for this parameter is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-03T13:33:44.556Z</example>
-        */
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public DateTimeOffset? CreatedAt
         {

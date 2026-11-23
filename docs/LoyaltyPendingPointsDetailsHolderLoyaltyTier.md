@@ -1,5 +1,5 @@
 # Voucherify.Model.LoyaltyPendingPointsDetailsHolderLoyaltyTier
-Loyalty tier of the loyalty card holder at the moment when the transaction occurred. The loyalty tier is the tier in which the holder was at the moment pending points were created.
+Legacy loyalty tier of the loyalty card holder at the moment when the transaction occurred. The loyalty tier is the tier in which the holder was at the moment pending points were created.
 
 ## Properties
 

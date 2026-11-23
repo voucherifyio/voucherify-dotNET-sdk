@@ -48,7 +48,9 @@ namespace Voucherify.Model
         /// <param name="returned">Total returned points (by returning a purchased reward)..</param>
         /// <param name="locked">Total locked points (by locking a purchased reward)..</param>
         /// <param name="unlocked">Total unlocked points (by unlocking a purchased reward)..</param>
-        public CardLifetimeBucketPoints(decimal? total = default(decimal?), decimal? earned = default(decimal?), decimal? added = default(decimal?), decimal? purchased = default(decimal?), decimal? purchasedReversed = default(decimal?), decimal? subtracted = default(decimal?), decimal? expired = default(decimal?), decimal? spent = default(decimal?), decimal? refunded = default(decimal?), decimal? returned = default(decimal?), decimal? locked = default(decimal?), decimal? unlocked = default(decimal?))
+        /// <param name="referrerEarned">Total points credited as a referrer from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;..</param>
+        /// <param name="refereeEarned">Total points credited as a referee from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;..</param>
+        public CardLifetimeBucketPoints(decimal? total = default(decimal?), decimal? earned = default(decimal?), decimal? added = default(decimal?), decimal? purchased = default(decimal?), decimal? purchasedReversed = default(decimal?), decimal? subtracted = default(decimal?), decimal? expired = default(decimal?), decimal? spent = default(decimal?), decimal? refunded = default(decimal?), decimal? returned = default(decimal?), decimal? locked = default(decimal?), decimal? unlocked = default(decimal?), decimal? referrerEarned = default(decimal?), decimal? refereeEarned = default(decimal?))
         {
             this._Total = total;
             if (this.Total != null)
@@ -109,6 +111,16 @@ namespace Voucherify.Model
             if (this.Unlocked != null)
             {
                 this._flagUnlocked = true;
+            }
+            this._ReferrerEarned = referrerEarned;
+            if (this.ReferrerEarned != null)
+            {
+                this._flagReferrerEarned = true;
+            }
+            this._RefereeEarned = refereeEarned;
+            if (this.RefereeEarned != null)
+            {
+                this._flagRefereeEarned = true;
             }
         }
 
@@ -413,6 +425,56 @@ namespace Voucherify.Model
             return _flagUnlocked;
         }
         /// <summary>
+        /// Total points credited as a referrer from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;.
+        /// </summary>
+        /// <value>Total points credited as a referrer from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;.</value>
+        [DataMember(Name = "referrer_earned", EmitDefaultValue = true)]
+        public decimal? ReferrerEarned
+        {
+            get{ return _ReferrerEarned;}
+            set
+            {
+                _ReferrerEarned = value;
+                _flagReferrerEarned = true;
+            }
+        }
+        private decimal? _ReferrerEarned;
+        private bool _flagReferrerEarned;
+
+        /// <summary>
+        /// Returns false as ReferrerEarned should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeReferrerEarned()
+        {
+            return _flagReferrerEarned;
+        }
+        /// <summary>
+        /// Total points credited as a referee from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;.
+        /// </summary>
+        /// <value>Total points credited as a referee from a &#x60;LOYALTY_POINTS&#x60; referral reward. Already included in &#x60;total&#x60;, not in &#x60;earned&#x60;.</value>
+        [DataMember(Name = "referee_earned", EmitDefaultValue = true)]
+        public decimal? RefereeEarned
+        {
+            get{ return _RefereeEarned;}
+            set
+            {
+                _RefereeEarned = value;
+                _flagRefereeEarned = true;
+            }
+        }
+        private decimal? _RefereeEarned;
+        private bool _flagRefereeEarned;
+
+        /// <summary>
+        /// Returns false as RefereeEarned should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRefereeEarned()
+        {
+            return _flagRefereeEarned;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -432,6 +494,8 @@ namespace Voucherify.Model
             sb.Append("  Returned: ").Append(Returned).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Unlocked: ").Append(Unlocked).Append("\n");
+            sb.Append("  ReferrerEarned: ").Append(ReferrerEarned).Append("\n");
+            sb.Append("  RefereeEarned: ").Append(RefereeEarned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

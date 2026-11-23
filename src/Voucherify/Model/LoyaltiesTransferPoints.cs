@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// LoyaltiesTransferPoints
+    /// Request body for transferring points between **legacy loyalty** cards.
     /// </summary>
     [DataContract(Name = "LoyaltiesTransferPoints")]
     public partial class LoyaltiesTransferPoints : IValidatableObject

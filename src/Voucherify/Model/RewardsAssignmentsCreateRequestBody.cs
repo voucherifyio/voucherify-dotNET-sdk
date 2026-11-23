@@ -34,17 +34,70 @@ namespace Voucherify.Model
     public partial class RewardsAssignmentsCreateRequestBody : IValidatableObject
     {
         /// <summary>
+        /// Defines RelatedObjectType
+        /// </summary>
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
+        public enum RelatedObjectTypeEnum
+        {
+            /// <summary>
+            /// Enum Campaign for value: campaign
+            /// </summary>
+            [EnumMember(Value = "campaign")]
+            Campaign = 1,
+
+            /// <summary>
+            /// Enum ReferralTier for value: referral_tier
+            /// </summary>
+            [EnumMember(Value = "referral_tier")]
+            ReferralTier = 2
+        }
+
+
+        /// <summary>
+        /// Gets or Sets RelatedObjectType
+        /// </summary>
+
+        [JsonConverter(typeof(SafeEnumConverter<RelatedObjectTypeEnum>))]
+        [DataMember(Name = "related_object_type", EmitDefaultValue = true)]
+        public RelatedObjectTypeEnum? RelatedObjectType
+        {
+            get{ return _RelatedObjectType;}
+            set
+            {
+                _RelatedObjectType = value;
+                _flagRelatedObjectType = true;
+            }
+        }
+        private RelatedObjectTypeEnum? _RelatedObjectType;
+        private bool _flagRelatedObjectType;
+
+        /// <summary>
+        /// Returns false as RelatedObjectType should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRelatedObjectType()
+        {
+            return _flagRelatedObjectType;
+        }
+        /// <summary>
         /// Initializes a new instance of the <see cref="RewardsAssignmentsCreateRequestBody" /> class.
         /// </summary>
         /// <param name="campaign">The campaign ID of the campaign to which the reward is to be assigned..</param>
+        /// <param name="relatedObjectType">relatedObjectType.</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="validationRules">validationRules.</param>
-        public RewardsAssignmentsCreateRequestBody(string campaign = default(string), RewardsAssignmentsCreateRequestBodyParameters parameters = default(RewardsAssignmentsCreateRequestBodyParameters), List<string> validationRules = default(List<string>))
+        /// <param name="relatedObjectId">Unique referral tier ID, assigned by Voucherify..</param>
+        public RewardsAssignmentsCreateRequestBody(string campaign = default(string), RelatedObjectTypeEnum? relatedObjectType = default(RelatedObjectTypeEnum?), RewardsAssignmentsCreateRequestBodyParameters parameters = default(RewardsAssignmentsCreateRequestBodyParameters), List<string> validationRules = default(List<string>), string relatedObjectId = default(string))
         {
             this._Campaign = campaign;
             if (this.Campaign != null)
             {
                 this._flagCampaign = true;
+            }
+            this._RelatedObjectType = relatedObjectType;
+            if (this.RelatedObjectType != null)
+            {
+                this._flagRelatedObjectType = true;
             }
             this._Parameters = parameters;
             if (this.Parameters != null)
@@ -55,6 +108,11 @@ namespace Voucherify.Model
             if (this.ValidationRules != null)
             {
                 this._flagValidationRules = true;
+            }
+            this._RelatedObjectId = relatedObjectId;
+            if (this.RelatedObjectId != null)
+            {
+                this._flagRelatedObjectId = true;
             }
         }
 
@@ -132,6 +190,34 @@ namespace Voucherify.Model
             return _flagValidationRules;
         }
         /// <summary>
+        /// Unique referral tier ID, assigned by Voucherify.
+        /// </summary>
+        /// <value>Unique referral tier ID, assigned by Voucherify.</value>
+        /*
+        <example>reftier_0b1e6460adca4210b9</example>
+        */
+        [DataMember(Name = "related_object_id", EmitDefaultValue = true)]
+        public string RelatedObjectId
+        {
+            get{ return _RelatedObjectId;}
+            set
+            {
+                _RelatedObjectId = value;
+                _flagRelatedObjectId = true;
+            }
+        }
+        private string _RelatedObjectId;
+        private bool _flagRelatedObjectId;
+
+        /// <summary>
+        /// Returns false as RelatedObjectId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRelatedObjectId()
+        {
+            return _flagRelatedObjectId;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -140,8 +226,10 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RewardsAssignmentsCreateRequestBody {\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
+            sb.Append("  RelatedObjectType: ").Append(RelatedObjectType).Append("\n");
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("  ValidationRules: ").Append(ValidationRules).Append("\n");
+            sb.Append("  RelatedObjectId: ").Append(RelatedObjectId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

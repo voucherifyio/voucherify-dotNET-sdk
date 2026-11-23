@@ -245,9 +245,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the promotion tier was created. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the promotion tier was created. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-15T11:34:01.333Z</example>
-        */
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public DateTimeOffset? CreatedAt
         {

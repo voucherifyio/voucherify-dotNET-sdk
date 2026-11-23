@@ -79,7 +79,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="CardDailyReportEntry" /> class.
         /// </summary>
         /// <param name="date">Identifies the start of the truncated aggregation period (&#x60;YYYY-MM-DD&#x60;). For &#x60;week&#x60; this is Monday. For &#x60;month&#x60; this is the first day. For &#x60;quarter&#x60; this is the quarter start..</param>
-        /// <param name="pointsTotal">Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, and &#x60;points_purchased&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted..</param>
+        /// <param name="pointsTotal">Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, &#x60;points_purchased&#x60;, &#x60;referrer_points_earned&#x60;, and &#x60;referee_points_earned&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted..</param>
         /// <param name="pointsEarned">Points earned through earning rules in the period. Includes pending points activated in the period..</param>
         /// <param name="pointsAdded">Points added manually in the period..</param>
         /// <param name="pointsPurchased">Points purchased (e.g. via loyalty-card-points rewards) in the period..</param>
@@ -91,11 +91,13 @@ namespace Voucherify.Model
         /// <param name="pointsReturned">Points returned in the period..</param>
         /// <param name="pointsLocked">Points locked in the period..</param>
         /// <param name="pointsUnlocked">Points unlocked in the period. Includes points released when a spending transaction is approved (also counted in &#x60;points_spent&#x60;) or rejected..</param>
+        /// <param name="referrerPointsEarned">Points credited from referral referrer awards in the period (&#x60;REFERRER_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referrer tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;..</param>
+        /// <param name="refereePointsEarned">Points credited from referral referee awards in the period (&#x60;REFEREE_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referee tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;..</param>
         /// <param name="pendingPointsTotal">Pending points added in the period. Activated and canceled pending points are not deducted..</param>
         /// <param name="pendingPointsActivated">Pending points activated in the period. Also counted in &#x60;points_earned&#x60; and &#x60;points_total&#x60;..</param>
         /// <param name="pendingPointsCanceled">Pending points canceled in the period..</param>
         /// <param name="varObject">Object type marker. Always &#x60;card_daily_report&#x60;..</param>
-        public CardDailyReportEntry(DateTime? date = default(DateTime?), decimal? pointsTotal = default(decimal?), decimal? pointsEarned = default(decimal?), decimal? pointsAdded = default(decimal?), decimal? pointsPurchased = default(decimal?), decimal? pointsPurchasedReversed = default(decimal?), decimal? pointsSubtracted = default(decimal?), decimal? pointsExpired = default(decimal?), decimal? pointsSpent = default(decimal?), decimal? pointsRefunded = default(decimal?), decimal? pointsReturned = default(decimal?), decimal? pointsLocked = default(decimal?), decimal? pointsUnlocked = default(decimal?), decimal? pendingPointsTotal = default(decimal?), decimal? pendingPointsActivated = default(decimal?), decimal? pendingPointsCanceled = default(decimal?), ObjectEnum? varObject = default(ObjectEnum?))
+        public CardDailyReportEntry(DateTime? date = default(DateTime?), decimal? pointsTotal = default(decimal?), decimal? pointsEarned = default(decimal?), decimal? pointsAdded = default(decimal?), decimal? pointsPurchased = default(decimal?), decimal? pointsPurchasedReversed = default(decimal?), decimal? pointsSubtracted = default(decimal?), decimal? pointsExpired = default(decimal?), decimal? pointsSpent = default(decimal?), decimal? pointsRefunded = default(decimal?), decimal? pointsReturned = default(decimal?), decimal? pointsLocked = default(decimal?), decimal? pointsUnlocked = default(decimal?), decimal? referrerPointsEarned = default(decimal?), decimal? refereePointsEarned = default(decimal?), decimal? pendingPointsTotal = default(decimal?), decimal? pendingPointsActivated = default(decimal?), decimal? pendingPointsCanceled = default(decimal?), ObjectEnum? varObject = default(ObjectEnum?))
         {
             this._Date = date;
             if (this.Date != null)
@@ -162,6 +164,16 @@ namespace Voucherify.Model
             {
                 this._flagPointsUnlocked = true;
             }
+            this._ReferrerPointsEarned = referrerPointsEarned;
+            if (this.ReferrerPointsEarned != null)
+            {
+                this._flagReferrerPointsEarned = true;
+            }
+            this._RefereePointsEarned = refereePointsEarned;
+            if (this.RefereePointsEarned != null)
+            {
+                this._flagRefereePointsEarned = true;
+            }
             this._PendingPointsTotal = pendingPointsTotal;
             if (this.PendingPointsTotal != null)
             {
@@ -211,9 +223,9 @@ namespace Voucherify.Model
             return _flagDate;
         }
         /// <summary>
-        /// Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, and &#x60;points_purchased&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted.
+        /// Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, &#x60;points_purchased&#x60;, &#x60;referrer_points_earned&#x60;, and &#x60;referee_points_earned&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted.
         /// </summary>
-        /// <value>Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, and &#x60;points_purchased&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted.</value>
+        /// <value>Points credited to the card in the period. Sums &#x60;points_earned&#x60;, &#x60;points_added&#x60;, &#x60;points_purchased&#x60;, &#x60;referrer_points_earned&#x60;, and &#x60;referee_points_earned&#x60;. Points spent, expired, subtracted, refunded, returned, or reversed are not deducted.</value>
         [DataMember(Name = "points_total", EmitDefaultValue = true)]
         public decimal? PointsTotal
         {
@@ -511,6 +523,56 @@ namespace Voucherify.Model
             return _flagPointsUnlocked;
         }
         /// <summary>
+        /// Points credited from referral referrer awards in the period (&#x60;REFERRER_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referrer tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;.
+        /// </summary>
+        /// <value>Points credited from referral referrer awards in the period (&#x60;REFERRER_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referrer tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;.</value>
+        [DataMember(Name = "referrer_points_earned", EmitDefaultValue = true)]
+        public decimal? ReferrerPointsEarned
+        {
+            get{ return _ReferrerPointsEarned;}
+            set
+            {
+                _ReferrerPointsEarned = value;
+                _flagReferrerPointsEarned = true;
+            }
+        }
+        private decimal? _ReferrerPointsEarned;
+        private bool _flagReferrerPointsEarned;
+
+        /// <summary>
+        /// Returns false as ReferrerPointsEarned should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeReferrerPointsEarned()
+        {
+            return _flagReferrerPointsEarned;
+        }
+        /// <summary>
+        /// Points credited from referral referee awards in the period (&#x60;REFEREE_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referee tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;.
+        /// </summary>
+        /// <value>Points credited from referral referee awards in the period (&#x60;REFEREE_POINTS_EARNED&#x60; card transactions, for example a &#x60;LOYALTY_POINTS&#x60; reward assigned to a referee tier). Also counted in &#x60;points_total&#x60;. Not counted in &#x60;points_earned&#x60;.</value>
+        [DataMember(Name = "referee_points_earned", EmitDefaultValue = true)]
+        public decimal? RefereePointsEarned
+        {
+            get{ return _RefereePointsEarned;}
+            set
+            {
+                _RefereePointsEarned = value;
+                _flagRefereePointsEarned = true;
+            }
+        }
+        private decimal? _RefereePointsEarned;
+        private bool _flagRefereePointsEarned;
+
+        /// <summary>
+        /// Returns false as RefereePointsEarned should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRefereePointsEarned()
+        {
+            return _flagRefereePointsEarned;
+        }
+        /// <summary>
         /// Pending points added in the period. Activated and canceled pending points are not deducted.
         /// </summary>
         /// <value>Pending points added in the period. Activated and canceled pending points are not deducted.</value>
@@ -606,6 +668,8 @@ namespace Voucherify.Model
             sb.Append("  PointsReturned: ").Append(PointsReturned).Append("\n");
             sb.Append("  PointsLocked: ").Append(PointsLocked).Append("\n");
             sb.Append("  PointsUnlocked: ").Append(PointsUnlocked).Append("\n");
+            sb.Append("  ReferrerPointsEarned: ").Append(ReferrerPointsEarned).Append("\n");
+            sb.Append("  RefereePointsEarned: ").Append(RefereePointsEarned).Append("\n");
             sb.Append("  PendingPointsTotal: ").Append(PendingPointsTotal).Append("\n");
             sb.Append("  PendingPointsActivated: ").Append(PendingPointsActivated).Append("\n");
             sb.Append("  PendingPointsCanceled: ").Append(PendingPointsCanceled).Append("\n");

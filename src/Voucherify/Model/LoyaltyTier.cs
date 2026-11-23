@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// LoyaltyTier
+    /// Loyalty tier within a **legacy loyalty** campaign.
     /// </summary>
     [DataContract(Name = "LoyaltyTier")]
     public partial class LoyaltyTier : IValidatableObject

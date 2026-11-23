@@ -157,7 +157,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -178,7 +178,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -504,7 +504,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -526,7 +526,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1827,7 +1827,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1849,7 +1849,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1978,7 +1978,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2001,7 +2001,7 @@ namespace Voucherify.Api
         /// <param name="startDate">Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="endDate">Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional)</param>
         /// <param name="campaignId">Requests only events related to specific campaign identified by its ID. (optional)</param>
-        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional)</param>
+        /// <param name="campaignType">Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional)</param>
         /// <param name="category">Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional)</param>
         /// <param name="type">Event name of the customer event. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

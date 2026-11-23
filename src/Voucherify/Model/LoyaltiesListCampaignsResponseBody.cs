@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Response body schema for **Get** &#x60;/loyalties&#x60;.
+    /// **Legacy loyalty.** Response body schema for **Get** &#x60;/loyalties&#x60;.
     /// </summary>
     [DataContract(Name = "LoyaltiesListCampaignsResponseBody")]
     public partial class LoyaltiesListCampaignsResponseBody : IValidatableObject

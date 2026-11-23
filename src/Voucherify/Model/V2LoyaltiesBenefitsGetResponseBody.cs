@@ -193,7 +193,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="V2LoyaltiesBenefitsGetResponseBody" /> class.
         /// </summary>
         /// <param name="id">Unique benefit ID, prefixed with &#x60;lben_&#x60;..</param>
-        /// <param name="name">Benefit name, unique within the project..</param>
+        /// <param name="name">Benefit name..</param>
         /// <param name="type">Benefit type..</param>
         /// <param name="status">Current benefit status. &#x60;DELETED&#x60; appears only in the response of the delete endpoint and in activity snapshots..</param>
         /// <param name="stock">stock.</param>
@@ -294,9 +294,9 @@ namespace Voucherify.Model
             return _flagId;
         }
         /// <summary>
-        /// Benefit name, unique within the project.
+        /// Benefit name.
         /// </summary>
-        /// <value>Benefit name, unique within the project.</value>
+        /// <value>Benefit name.</value>
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name
         {

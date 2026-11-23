@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Defines the Loyalty Tiers Expiration.
+    /// **Legacy loyalty.** Defines the Loyalty Tiers Expiration.
     /// </summary>
     [DataContract(Name = "LoyaltyTiersExpirationAll")]
     public partial class LoyaltyTiersExpirationAll : IValidatableObject

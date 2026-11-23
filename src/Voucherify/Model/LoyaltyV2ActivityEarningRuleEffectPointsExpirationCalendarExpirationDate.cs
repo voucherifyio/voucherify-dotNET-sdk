@@ -36,8 +36,8 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyV2ActivityEarningRuleEffectPointsExpirationCalendarExpirationDate" /> class.
         /// </summary>
-        /// <param name="day">Day of month (1-31; validated against the month length)..</param>
-        /// <param name="month">Month number (1-12)..</param>
+        /// <param name="day">Day of month (1–31; validated against the month length)..</param>
+        /// <param name="month">Month number (1–12)..</param>
         public LoyaltyV2ActivityEarningRuleEffectPointsExpirationCalendarExpirationDate(int? day = default(int?), int? month = default(int?))
         {
             this._Day = day;
@@ -53,9 +53,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Day of month (1-31; validated against the month length).
+        /// Day of month (1–31; validated against the month length).
         /// </summary>
-        /// <value>Day of month (1-31; validated against the month length).</value>
+        /// <value>Day of month (1–31; validated against the month length).</value>
         [DataMember(Name = "day", EmitDefaultValue = true)]
         public int? Day
         {
@@ -78,9 +78,9 @@ namespace Voucherify.Model
             return _flagDay;
         }
         /// <summary>
-        /// Month number (1-12).
+        /// Month number (1–12).
         /// </summary>
-        /// <value>Month number (1-12).</value>
+        /// <value>Month number (1–12).</value>
         [DataMember(Name = "month", EmitDefaultValue = true)]
         public int? Month
         {

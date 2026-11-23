@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltiesRewardsCreateAssignmentResponseBodyParametersLoyalty" /> class.
         /// </summary>
         /// <param name="points">The number of points required to redeem the reward..</param>
-        /// <param name="autoRedeem">Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a loyalty campaign, i.e. only one can have the value &#x60;true&#x60;..</param>
+        /// <param name="autoRedeem">Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a **legacy loyalty** campaign, i.e. only one can have the value &#x60;true&#x60;..</param>
         public LoyaltiesRewardsCreateAssignmentResponseBodyParametersLoyalty(int? points = default(int?), bool? autoRedeem = default(bool?))
         {
             this._Points = points;
@@ -78,9 +78,9 @@ namespace Voucherify.Model
             return _flagPoints;
         }
         /// <summary>
-        /// Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a loyalty campaign, i.e. only one can have the value &#x60;true&#x60;.
+        /// Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a **legacy loyalty** campaign, i.e. only one can have the value &#x60;true&#x60;.
         /// </summary>
-        /// <value>Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a loyalty campaign, i.e. only one can have the value &#x60;true&#x60;.</value>
+        /// <value>Determines if the reward is redeemed automatically when the customer reaches the sufficient number of points to redeem it. Value &#x60;true&#x60; means that the automatic reward redemption is active. Only one reward can be set to be redeemed automatically in a **legacy loyalty** campaign, i.e. only one can have the value &#x60;true&#x60;.</value>
         [DataMember(Name = "auto_redeem", EmitDefaultValue = true)]
         public bool? AutoRedeem
         {

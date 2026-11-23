@@ -34,19 +34,83 @@ namespace Voucherify.Model
     public partial class RewardsCreateRequestBody : IValidatableObject
     {
         /// <summary>
+        /// Defines Type
+        /// </summary>
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum CAMPAIGN for value: CAMPAIGN
+            /// </summary>
+            [EnumMember(Value = "CAMPAIGN")]
+            CAMPAIGN = 1,
+
+            /// <summary>
+            /// Enum MATERIAL for value: MATERIAL
+            /// </summary>
+            [EnumMember(Value = "MATERIAL")]
+            MATERIAL = 2,
+
+            /// <summary>
+            /// Enum COIN for value: COIN
+            /// </summary>
+            [EnumMember(Value = "COIN")]
+            COIN = 3,
+
+            /// <summary>
+            /// Enum LOYALTYPOINTS for value: LOYALTY_POINTS
+            /// </summary>
+            [EnumMember(Value = "LOYALTY_POINTS")]
+            LOYALTYPOINTS = 4
+        }
+
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+
+        [JsonConverter(typeof(SafeEnumConverter<TypeEnum>))]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public TypeEnum? Type
+        {
+            get{ return _Type;}
+            set
+            {
+                _Type = value;
+                _flagType = true;
+            }
+        }
+        private TypeEnum? _Type;
+        private bool _flagType;
+
+        /// <summary>
+        /// Returns false as Type should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeType()
+        {
+            return _flagType;
+        }
+        /// <summary>
         /// Initializes a new instance of the <see cref="RewardsCreateRequestBody" /> class.
         /// </summary>
         /// <param name="name">Reward name..</param>
+        /// <param name="type">type.</param>
         /// <param name="parameters">parameters.</param>
         /// <param name="metadata">The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format..</param>
         /// <param name="stock">The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic..</param>
         /// <param name="attributes">attributes.</param>
-        public RewardsCreateRequestBody(string name = default(string), RewardsCreateRequestBodyParameters parameters = default(RewardsCreateRequestBodyParameters), Object metadata = default(Object), int? stock = default(int?), RewardsCreateRequestBodyAttributes attributes = default(RewardsCreateRequestBodyAttributes))
+        public RewardsCreateRequestBody(string name = default(string), TypeEnum? type = default(TypeEnum?), RewardsCreateRequestBodyParameters parameters = default(RewardsCreateRequestBodyParameters), Object metadata = default(Object), int? stock = default(int?), RewardsCreateRequestBodyAttributes attributes = default(RewardsCreateRequestBodyAttributes))
         {
             this._Name = name;
             if (this.Name != null)
             {
                 this._flagName = true;
+            }
+            this._Type = type;
+            if (this.Type != null)
+            {
+                this._flagType = true;
             }
             this._Parameters = parameters;
             if (this.Parameters != null)
@@ -202,6 +266,7 @@ namespace Voucherify.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class RewardsCreateRequestBody {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Stock: ").Append(Stock).Append("\n");
