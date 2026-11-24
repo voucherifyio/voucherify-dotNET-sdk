@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Earning rule ID (&#x60;lern_...&#x60;). | [optional] 
 **Name** | **string** | Earning rule name. | [optional] 
-**Status** | **string** | Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads. | [optional] 
+**Status** | **string** | Current status. &#x60;DELETED&#x60; is returned only by the delete operation. | [optional] 
 **Earnings** | [**List&lt;EarningRuleEarning&gt;**](EarningRuleEarning.md) | Earning definitions of the rule. Contains at least one earning. | [optional] 
 **Trigger** | [**EarningRuleTrigger**](EarningRuleTrigger.md) |  | 
 **Error** | [**LoyaltyV2ActivityEarningRuleError**](LoyaltyV2ActivityEarningRuleError.md) |  | [optional] 

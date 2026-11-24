@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Defines the ratio by mapping the number of loyalty points in points_ratio to a predefined cash amount in exchange_ratio.
+    /// Defines the ratio by mapping the number of legacy loyalty points in &#x60;points_rati&#x60;o to a predefined cash amount in &#x60;exchange_ratio&#x60;.
     /// </summary>
     [DataContract(Name = "RewardTypeCoin")]
     public partial class RewardTypeCoin : IValidatableObject
@@ -36,8 +36,8 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RewardTypeCoin" /> class.
         /// </summary>
-        /// <param name="exchangeRatio">The cash equivalent of the points defined in the points_ratio property..</param>
-        /// <param name="pointsRatio">The number of loyalty points that will map to the predefined cash amount defined by the exchange_ratio property..</param>
+        /// <param name="exchangeRatio">The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property..</param>
+        /// <param name="pointsRatio">The number of loyalty points (**legacy loyalty**) that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property..</param>
         public RewardTypeCoin(decimal? exchangeRatio = default(decimal?), int? pointsRatio = default(int?))
         {
             this._ExchangeRatio = exchangeRatio;
@@ -53,9 +53,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// The cash equivalent of the points defined in the points_ratio property.
+        /// The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.
         /// </summary>
-        /// <value>The cash equivalent of the points defined in the points_ratio property.</value>
+        /// <value>The cash equivalent of the points defined in the &#x60;points_ratio&#x60; property.</value>
         [DataMember(Name = "exchange_ratio", EmitDefaultValue = true)]
         public decimal? ExchangeRatio
         {
@@ -78,9 +78,9 @@ namespace Voucherify.Model
             return _flagExchangeRatio;
         }
         /// <summary>
-        /// The number of loyalty points that will map to the predefined cash amount defined by the exchange_ratio property.
+        /// The number of loyalty points (**legacy loyalty**) that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property.
         /// </summary>
-        /// <value>The number of loyalty points that will map to the predefined cash amount defined by the exchange_ratio property.</value>
+        /// <value>The number of loyalty points (**legacy loyalty**) that will map to the predefined cash amount defined by the &#x60;exchange_ratio&#x60; property.</value>
         [DataMember(Name = "points_ratio", EmitDefaultValue = true)]
         public int? PointsRatio
         {

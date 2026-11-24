@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Contains information about the loyalty tier that is mapped for the earning rule and used in the transaction.
+    /// Contains information about the legacy loyalty tier that is mapped for the earning rule and used in the transaction.
     /// </summary>
     [DataContract(Name = "VoucherTransactionDetailsLoyaltyTier")]
     public partial class VoucherTransactionDetailsLoyaltyTier : IValidatableObject

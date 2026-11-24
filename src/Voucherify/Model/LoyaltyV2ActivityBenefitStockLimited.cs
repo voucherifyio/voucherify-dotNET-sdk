@@ -36,7 +36,7 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyV2ActivityBenefitStockLimited" /> class.
         /// </summary>
-        /// <param name="quantity">Available Remaining stock quantity. For responses, updates with each benefit purchase..</param>
+        /// <param name="quantity">Remaining stock quantity. On create, this is the starting quantity. Each benefit purchase decreases it by one..</param>
         public LoyaltyV2ActivityBenefitStockLimited(long? quantity = default(long?))
         {
             this._Quantity = quantity;
@@ -47,9 +47,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Available Remaining stock quantity. For responses, updates with each benefit purchase.
+        /// Remaining stock quantity. On create, this is the starting quantity. Each benefit purchase decreases it by one.
         /// </summary>
-        /// <value>Available Remaining stock quantity. For responses, updates with each benefit purchase.</value>
+        /// <value>Remaining stock quantity. On create, this is the starting quantity. Each benefit purchase decreases it by one.</value>
         [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public long? Quantity
         {

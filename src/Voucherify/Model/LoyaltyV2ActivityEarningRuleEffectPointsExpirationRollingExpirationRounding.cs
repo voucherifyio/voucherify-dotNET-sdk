@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// &#x60;value&#x60; is the month (1-12). Required when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;. Absent for other rounding types. The API validates field combinations that this schema does not express.
+    /// &#x60;value&#x60; is the month (1–12). Required when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;. Absent for other rounding types. The API validates field combinations that this schema does not express.
     /// </summary>
     [DataContract(Name = "LoyaltyV2ActivityEarningRuleEffectPointsExpirationRollingExpirationRounding")]
     public partial class LoyaltyV2ActivityEarningRuleEffectPointsExpirationRollingExpirationRounding : IValidatableObject
@@ -103,7 +103,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="LoyaltyV2ActivityEarningRuleEffectPointsExpirationRollingExpirationRounding" /> class.
         /// </summary>
         /// <param name="type">Rounding type..</param>
-        /// <param name="value">Month number (1-12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;..</param>
+        /// <param name="value">Month number (1–12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;..</param>
         public LoyaltyV2ActivityEarningRuleEffectPointsExpirationRollingExpirationRounding(TypeEnum? type = default(TypeEnum?), int? value = default(int?))
         {
             this._Type = type;
@@ -119,9 +119,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Month number (1-12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;.
+        /// Month number (1–12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;.
         /// </summary>
-        /// <value>Month number (1-12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;.</value>
+        /// <value>Month number (1–12). Present only when &#x60;type&#x60; is &#x60;END_OF_PARTICULAR_MONTH&#x60;.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public int? Value
         {

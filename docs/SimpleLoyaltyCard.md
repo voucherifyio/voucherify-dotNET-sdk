@@ -1,5 +1,5 @@
 # Voucherify.Model.SimpleLoyaltyCard
-Simplified loyalty card data.
+Simplified legacy loyalty card data.
 
 ## Properties
 

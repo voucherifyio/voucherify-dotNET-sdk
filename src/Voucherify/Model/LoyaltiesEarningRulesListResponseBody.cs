@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Response body schema for listing earning rules using **GET** &#x60;v1/loyalties/{campaignId}/earning-rules&#x60; endpoint.
+    /// **Legacy loyalty.** Response body schema for listing earning rules using **GET** &#x60;v1/loyalties/{campaignId}/earning-rules&#x60; endpoint.
     /// </summary>
     [DataContract(Name = "LoyaltiesEarningRulesListResponseBody")]
     public partial class LoyaltiesEarningRulesListResponseBody : IValidatableObject

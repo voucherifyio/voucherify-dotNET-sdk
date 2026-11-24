@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// This is an object representing a loyalty tier reward.
+    /// **Legacy loyalty.** This is an object representing a loyalty tier reward.
     /// </summary>
     [DataContract(Name = "LoyaltiesLoyaltyTierReward")]
     public partial class LoyaltiesLoyaltyTierReward : IValidatableObject

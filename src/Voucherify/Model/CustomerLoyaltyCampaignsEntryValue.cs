@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Contains details about the point balances left on loyalty cards and the number of referred customers in each campaign.
+    /// Contains details about the point balances left on loyalty cards (**legacy loyalty**) and the number of referred customers in each campaign.
     /// </summary>
     [DataContract(Name = "CustomerLoyaltyCampaignsEntry_value")]
     public partial class CustomerLoyaltyCampaignsEntryValue : IValidatableObject
@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="CustomerLoyaltyCampaignsEntryValue" /> class.
         /// </summary>
         /// <param name="points">Remaining point balance in campaign..</param>
-        /// <param name="loyaltyTier">Customer&#39;s loyalty tier within the campaign..</param>
+        /// <param name="loyaltyTier">Customer&#39;s loyalty tier within the **legacy loyalty** campaign..</param>
         /// <param name="referredCustomers">Number of customers referred by the customer in campaign..</param>
         public CustomerLoyaltyCampaignsEntryValue(int points = default(int), string loyaltyTier = default(string), int referredCustomers = default(int))
         {
@@ -84,9 +84,9 @@ namespace Voucherify.Model
             return _flagPoints;
         }
         /// <summary>
-        /// Customer&#39;s loyalty tier within the campaign.
+        /// Customer&#39;s loyalty tier within the **legacy loyalty** campaign.
         /// </summary>
-        /// <value>Customer&#39;s loyalty tier within the campaign.</value>
+        /// <value>Customer&#39;s loyalty tier within the **legacy loyalty** campaign.</value>
         /*
         <example>ltr_UJ5Q54Q0OvEhua87Qfv2Ki5x</example>
         */

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Reward name. | [optional] 
+**Type** | **string** |  | [optional] 
 **Parameters** | [**RewardsCreateRequestBodyParameters**](RewardsCreateRequestBodyParameters.md) |  | [optional] 
 **Metadata** | **Object** | The metadata object stores all custom attributes assigned to the reward. A set of key/value pairs that you can attach to a reward object. It can be useful for storing additional information about the reward in a structured format. | [optional] 
 **Stock** | **int?** | The number of units of the product that you want to share as a reward. Use this parameter to code a stock-taking logic. | [optional] 

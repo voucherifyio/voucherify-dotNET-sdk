@@ -1,5 +1,5 @@
 # Voucherify.Model.LoyaltiesMembersTransfersCreateResponseBodyLoyaltyCard
-Object representing loyalty card parameters. Child attributes are present only if type is LOYALTY_CARD.
+Object representing legacy loyalty card parameters. Child attributes are present only if type is LOYALTY_CARD.
 
 ## Properties
 

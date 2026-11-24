@@ -1,5 +1,5 @@
 # Voucherify.Model.BenefitPointsProportionalOrderAmount
-Ratio definition - `value` points for every `every` units.
+Ratio definition. `value` points for every `every` units.
 
 ## Properties
 

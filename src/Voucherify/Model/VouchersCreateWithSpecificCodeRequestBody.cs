@@ -354,9 +354,6 @@ namespace Voucherify.Model
         /// Start date defines when the code starts to be active. Activation timestamp is presented in the ISO 8601 format. Voucher is *inactive before* this date.
         /// </summary>
         /// <value>Start date defines when the code starts to be active. Activation timestamp is presented in the ISO 8601 format. Voucher is *inactive before* this date.</value>
-        /*
-        <example>2021-12-01T00:00Z</example>
-        */
         [DataMember(Name = "start_date", EmitDefaultValue = true)]
         public DateTimeOffset? StartDate
         {
@@ -382,9 +379,6 @@ namespace Voucherify.Model
         /// Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date.
         /// </summary>
         /// <value>Expiration date defines when the code expires. Expiration timestamp is presented in the ISO 8601 format.  Voucher is *inactive after* this date.</value>
-        /*
-        <example>2021-12-31T00:00Z</example>
-        */
         [DataMember(Name = "expiration_date", EmitDefaultValue = true)]
         public DateTimeOffset? ExpirationDate
         {

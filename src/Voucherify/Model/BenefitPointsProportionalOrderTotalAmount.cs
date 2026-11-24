@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Ratio definition - &#x60;value&#x60; points for every &#x60;every&#x60; units.
+    /// Ratio definition. &#x60;value&#x60; points for every &#x60;every&#x60; units.
     /// </summary>
     [DataContract(Name = "BenefitPointsProportionalOrderTotalAmount")]
     public partial class BenefitPointsProportionalOrderTotalAmount : IValidatableObject

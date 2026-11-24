@@ -1,4 +1,5 @@
 # Voucherify.Model.LoyaltyTier
+Loyalty tier within a **legacy loyalty** campaign.
 
 ## Properties
 

@@ -134,8 +134,8 @@ namespace Voucherify.Model
         /// <param name="name">Campaign name..</param>
         /// <param name="description">An optional field to keep any extra textual information about the campaign such as a campaign description and details..</param>
         /// <param name="type">Defines whether the campaign can be updated with new vouchers after campaign creation or if the campaign consists of generic (standalone) vouchers.  - &#x60;AUTO_UPDATE&#x60;: the campaign is dynamic, i.e. vouchers will generate based on set criteria -  &#x60;STATIC&#x60;: vouchers need to be manually published - &#x60;STANDALONE&#x60;: the campaign is a generic (standalone) one with a single voucher for public use (only for discount and gift card campaigns).</param>
-        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request..</param>
-        /// <param name="autoJoin">Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled..</param>
+        /// <param name="joinOnce">If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For **legacy loyalty** campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request..</param>
+        /// <param name="autoJoin">Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled..</param>
         /// <param name="useVoucherMetadataSchema">Flag indicating whether the campaign is to use the voucher&#39;s metadata schema instead of the campaign metadata schema..</param>
         /// <param name="vouchersCount">Total number of unique vouchers in campaign (size of campaign)..</param>
         /// <param name="startDate">Activation timestamp defines when the campaign starts to be active in ISO 8601 format. Campaign is *inactive before* this date. .</param>
@@ -294,9 +294,9 @@ namespace Voucherify.Model
             return _flagDescription;
         }
         /// <summary>
-        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.
+        /// If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For **legacy loyalty** campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.
         /// </summary>
-        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For loyalty campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.</value>
+        /// <value>If this value is set to &#x60;true&#x60;, customers will be able to join the campaign only once. For **legacy loyalty** campaigns, it&#39;s forced to &#x60;true&#x60;, even if &#x60;join_once: false&#x60; is passed in the request.</value>
         [DataMember(Name = "join_once", EmitDefaultValue = true)]
         public bool? JoinOnce
         {
@@ -319,9 +319,9 @@ namespace Voucherify.Model
             return _flagJoinOnce;
         }
         /// <summary>
-        /// Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.
+        /// Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.
         /// </summary>
-        /// <value>Indicates whether customers will be able to auto-join a loyalty campaign if any earning rule is fulfilled.</value>
+        /// <value>Indicates whether customers will be able to auto-join a **legacy loyalty** campaign if any earning rule is fulfilled.</value>
         [DataMember(Name = "auto_join", EmitDefaultValue = true)]
         public bool? AutoJoin
         {

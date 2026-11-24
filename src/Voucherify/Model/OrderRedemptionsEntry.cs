@@ -148,9 +148,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the redemption rollback was created. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the redemption rollback was created. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2023-01-31T14:18:37.150Z</example>
-        */
         [DataMember(Name = "rollback_date", EmitDefaultValue = true)]
         public DateTimeOffset? RollbackDate
         {

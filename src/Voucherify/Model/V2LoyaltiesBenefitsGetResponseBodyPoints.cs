@@ -37,7 +37,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="V2LoyaltiesBenefitsGetResponseBodyPoints" /> class.
         /// </summary>
         /// <param name="value">Number of points to add..</param>
-        /// <param name="cardDefinitionId">ID of the card definition whose cards receive the points. The card definition must exist and be &#x60;ACTIVE&#x60;..</param>
+        /// <param name="cardDefinitionId">ID of the card definition whose cards receive the points. The card definition must exist. Creating with &#x60;status: ACTIVE&#x60;, or updating with this object, requires an &#x60;ACTIVE&#x60; card definition..</param>
         public V2LoyaltiesBenefitsGetResponseBodyPoints(long? value = default(long?), string cardDefinitionId = default(string))
         {
             this._Value = value;
@@ -78,9 +78,9 @@ namespace Voucherify.Model
             return _flagValue;
         }
         /// <summary>
-        /// ID of the card definition whose cards receive the points. The card definition must exist and be &#x60;ACTIVE&#x60;.
+        /// ID of the card definition whose cards receive the points. The card definition must exist. Creating with &#x60;status: ACTIVE&#x60;, or updating with this object, requires an &#x60;ACTIVE&#x60; card definition.
         /// </summary>
-        /// <value>ID of the card definition whose cards receive the points. The card definition must exist and be &#x60;ACTIVE&#x60;.</value>
+        /// <value>ID of the card definition whose cards receive the points. The card definition must exist. Creating with &#x60;status: ACTIVE&#x60;, or updating with this object, requires an &#x60;ACTIVE&#x60; card definition.</value>
         [DataMember(Name = "card_definition_id", EmitDefaultValue = true)]
         public string CardDefinitionId
         {

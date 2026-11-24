@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Schema model for a campaign loyalty card.
+    /// Schema model for a campaign loyalty card (**legacy loyalty**).
     /// </summary>
     [DataContract(Name = "CampaignLoyaltyCard")]
     public partial class CampaignLoyaltyCard : IValidatableObject

@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Summary of loyalty points.
+    /// Summary of loyalty points (**legacy loyalty**).
     /// </summary>
     [DataContract(Name = "CustomerSummaryRedemptionsLoyaltyCard")]
     public partial class CustomerSummaryRedemptionsLoyaltyCard : IValidatableObject

@@ -1,5 +1,5 @@
 # Voucherify.Model.BenefitPointsProportionalCustomerMetadata
-Metadata-based ratio definition - `value` points for every `every` units of the metadata property.
+Metadata-based ratio definition. `value` points for every `every` units of the metadata property.
 
 ## Properties
 

@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Metadata-based ratio definition - &#x60;value&#x60; points for every &#x60;every&#x60; units of the metadata property.
+    /// Metadata-based ratio definition. &#x60;value&#x60; points for every &#x60;every&#x60; units of the metadata property.
     /// </summary>
     [DataContract(Name = "BenefitPointsProportionalCustomerMetadata")]
     public partial class BenefitPointsProportionalCustomerMetadata : IValidatableObject

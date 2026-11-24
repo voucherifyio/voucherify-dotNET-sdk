@@ -164,7 +164,19 @@ namespace Voucherify.Model
             /// Enum PENDINGPOINTSCANCELED for value: PENDING_POINTS_CANCELED
             /// </summary>
             [EnumMember(Value = "PENDING_POINTS_CANCELED")]
-            PENDINGPOINTSCANCELED = 14
+            PENDINGPOINTSCANCELED = 14,
+
+            /// <summary>
+            /// Enum REFERRERPOINTSEARNED for value: REFERRER_POINTS_EARNED
+            /// </summary>
+            [EnumMember(Value = "REFERRER_POINTS_EARNED")]
+            REFERRERPOINTSEARNED = 15,
+
+            /// <summary>
+            /// Enum REFEREEPOINTSEARNED for value: REFEREE_POINTS_EARNED
+            /// </summary>
+            [EnumMember(Value = "REFEREE_POINTS_EARNED")]
+            REFEREEPOINTSEARNED = 16
         }
 
 

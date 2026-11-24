@@ -32,7 +32,7 @@ namespace Voucherify.Api
         /// Get reward by ID
         /// </summary>
         /// <remarks>
-        /// Returns a single reward by its ID.
+        /// Returns a single reward by its ID. A successful call records no activity.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -44,7 +44,7 @@ namespace Voucherify.Api
         /// Get reward by ID
         /// </summary>
         /// <remarks>
-        /// Returns a single reward by its ID.
+        /// Returns a single reward by its ID. A successful call records no activity.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -64,7 +64,7 @@ namespace Voucherify.Api
         /// Get reward by ID
         /// </summary>
         /// <remarks>
-        /// Returns a single reward by its ID.
+        /// Returns a single reward by its ID. A successful call records no activity.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -77,7 +77,7 @@ namespace Voucherify.Api
         /// Get reward by ID
         /// </summary>
         /// <remarks>
-        /// Returns a single reward by its ID.
+        /// Returns a single reward by its ID. A successful call records no activity.
         /// </remarks>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -206,7 +206,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get reward by ID Returns a single reward by its ID.
+        /// Get reward by ID Returns a single reward by its ID. A successful call records no activity.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -219,7 +219,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get reward by ID Returns a single reward by its ID.
+        /// Get reward by ID Returns a single reward by its ID. A successful call records no activity.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -293,7 +293,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get reward by ID Returns a single reward by its ID.
+        /// Get reward by ID Returns a single reward by its ID. A successful call records no activity.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>
@@ -307,7 +307,7 @@ namespace Voucherify.Api
         }
 
         /// <summary>
-        /// Get reward by ID Returns a single reward by its ID.
+        /// Get reward by ID Returns a single reward by its ID. A successful call records no activity.
         /// </summary>
         /// <exception cref="Voucherify.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rewardId">Identifies the reward. Format lrew_[a-f0-9]+.</param>

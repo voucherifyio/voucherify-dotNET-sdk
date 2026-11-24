@@ -1,5 +1,5 @@
 # Voucherify.Model.LoyaltiesEarningRulesCreateRequestBodyItemSegment
-Contains the ID of a customer segment. **Required** for the `customer.segment.entered` option in `event`.
+Contains the ID of a customer segment. Required for the `customer.segment.entered` option in `event`.
 
 ## Properties
 

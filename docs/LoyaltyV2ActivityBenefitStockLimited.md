@@ -5,7 +5,7 @@ Limited stock configuration.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Quantity** | **long?** | Available Remaining stock quantity. For responses, updates with each benefit purchase. | [optional] 
+**Quantity** | **long?** | Remaining stock quantity. On create, this is the starting quantity. Each benefit purchase decreases it by one. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

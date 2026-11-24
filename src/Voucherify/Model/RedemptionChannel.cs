@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class RedemptionChannel : IValidatableObject
     {
         /// <summary>
-        /// The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.
+        /// The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically.
         /// </summary>
-        /// <value>The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.</value>
+        /// <value>The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically.</value>
         [JsonConverter(typeof(SafeEnumConverter<ChannelTypeEnum>))]
         public enum ChannelTypeEnum
         {
@@ -61,9 +61,9 @@ namespace Voucherify.Model
 
 
         /// <summary>
-        /// The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.
+        /// The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically.
         /// </summary>
-        /// <value>The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically.</value>
+        /// <value>The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<ChannelTypeEnum>))]
         [DataMember(Name = "channel_type", EmitDefaultValue = true)]
@@ -91,7 +91,7 @@ namespace Voucherify.Model
         /// Initializes a new instance of the <see cref="RedemptionChannel" /> class.
         /// </summary>
         /// <param name="channelId">Unique channel ID of the user performing the redemption. This is either a user ID from a user using the Voucherify Dashboard or an X-APP-Id of a user using the API. For &#x60;AUTO_REDEEM&#x60;, it is the reward assignment ID..</param>
-        /// <param name="channelType">The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a loyalty campaign reward that has been redeemed automatically..</param>
+        /// <param name="channelType">The source of the channel for the redemption. A &#x60;USER&#x60; corresponds to the Voucherify Dashboard, &#x60;API&#x60; corresponds to the API, and &#x60;AUTO_REDEEM&#x60; corresponds to a **legacy loyalty** campaign reward that has been redeemed automatically..</param>
         public RedemptionChannel(string channelId = default(string), ChannelTypeEnum? channelType = default(ChannelTypeEnum?))
         {
             this._ChannelId = channelId;

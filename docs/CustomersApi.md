@@ -566,7 +566,7 @@ namespace Example
             var startDate = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. (optional) 
             var endDate = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. (optional) 
             var campaignId = "campaignId_example";  // string | Requests only events related to specific campaign identified by its ID. (optional) 
-            var campaignType = (ParameterCampaignType) "PROMOTION";  // ParameterCampaignType? | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. (optional) 
+            var campaignType = (ParameterCampaignType) "PROMOTION";  // ParameterCampaignType? | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. (optional) 
             var category = (ParameterActivityCategory) "ACTION";  // ParameterActivityCategory? | Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. (optional) 
             var type = (ParameterCustomerEvent) "customer.confirmed";  // ParameterCustomerEvent? | Event name of the customer event. (optional) 
 
@@ -618,7 +618,7 @@ catch (ApiException e)
 | **startDate** | **DateTimeOffset?** | Timestamp representing the date and time which results must begin on. Represented in ISO 8601 format. | [optional]  |
 | **endDate** | **DateTimeOffset?** | Timestamp representing the date and time which results must end on. Represented in ISO 8601 format. | [optional]  |
 | **campaignId** | **string** | Requests only events related to specific campaign identified by its ID. | [optional]  |
-| **campaignType** | **ParameterCampaignType?** | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. | [optional]  |
+| **campaignType** | **ParameterCampaignType?** | Filters related customers activity for the selected campaign types. Allowed values:  DISCOUNT_COUPONS, REFERRAL_PROGRAM, GIFT_VOUCHERS, PROMOTION, LOYALTY_PROGRAM. LOYALTY_PROGRAM is the campaign type for **legacy loyalty** (loyalty card campaigns), not v2/loyalties programs. | [optional]  |
 | **category** | **ParameterActivityCategory?** | Filters activities for actions or effects. Allowed values:  ACTION, EFFECT. | [optional]  |
 | **type** | **ParameterCustomerEvent?** | Event name of the customer event. | [optional]  |
 

@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Simplified loyalty card data.
+    /// Simplified legacy loyalty card data.
     /// </summary>
     [DataContract(Name = "SimpleLoyaltyCard")]
     public partial class SimpleLoyaltyCard : IValidatableObject

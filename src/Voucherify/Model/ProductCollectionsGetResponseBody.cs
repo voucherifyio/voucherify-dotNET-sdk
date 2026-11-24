@@ -279,9 +279,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the product collection was created. The value is shown in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the product collection was created. The value is shown in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-09T12:51:29.898Z</example>
-        */
         [DataMember(Name = "created_at", EmitDefaultValue = true)]
         public DateTimeOffset? CreatedAt
         {

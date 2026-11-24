@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Object representing loyalty card parameters. Child attributes are present only if &#x60;type&#x60; is &#x60;LOYALTY_CARD&#x60;. Defaults to &#x60;null&#x60;.
+    /// Object representing legacy loyalty card parameters. Child attributes are present only if &#x60;type&#x60; is &#x60;LOYALTY_CARD&#x60;. Defaults to &#x60;null&#x60;.
     /// </summary>
     [DataContract(Name = "VouchersGetResponseBodyLoyaltyCard")]
     public partial class VouchersGetResponseBodyLoyaltyCard : IValidatableObject

@@ -39,7 +39,8 @@ namespace Voucherify.Model
         /// <param name="campaign">campaign.</param>
         /// <param name="coin">coin.</param>
         /// <param name="product">product.</param>
-        public MemberActivityDataRedemptionRewardParameters(MemberActivityDataRedemptionRewardParametersCampaign campaign = default(MemberActivityDataRedemptionRewardParametersCampaign), MemberActivityDataRedemptionRewardParametersCoin coin = default(MemberActivityDataRedemptionRewardParametersCoin), MemberActivityDataRedemptionRewardParametersProduct product = default(MemberActivityDataRedemptionRewardParametersProduct))
+        /// <param name="loyaltyPoints">loyaltyPoints.</param>
+        public MemberActivityDataRedemptionRewardParameters(MemberActivityDataRedemptionRewardParametersCampaign campaign = default(MemberActivityDataRedemptionRewardParametersCampaign), MemberActivityDataRedemptionRewardParametersCoin coin = default(MemberActivityDataRedemptionRewardParametersCoin), MemberActivityDataRedemptionRewardParametersProduct product = default(MemberActivityDataRedemptionRewardParametersProduct), MemberActivityDataRedemptionRewardParametersLoyaltyPoints loyaltyPoints = default(MemberActivityDataRedemptionRewardParametersLoyaltyPoints))
         {
             this._Campaign = campaign;
             if (this.Campaign != null)
@@ -55,6 +56,11 @@ namespace Voucherify.Model
             if (this.Product != null)
             {
                 this._flagProduct = true;
+            }
+            this._LoyaltyPoints = loyaltyPoints;
+            if (this.LoyaltyPoints != null)
+            {
+                this._flagLoyaltyPoints = true;
             }
         }
 
@@ -131,6 +137,30 @@ namespace Voucherify.Model
             return _flagProduct;
         }
         /// <summary>
+        /// Gets or Sets LoyaltyPoints
+        /// </summary>
+        [DataMember(Name = "loyalty_points", EmitDefaultValue = true)]
+        public MemberActivityDataRedemptionRewardParametersLoyaltyPoints LoyaltyPoints
+        {
+            get{ return _LoyaltyPoints;}
+            set
+            {
+                _LoyaltyPoints = value;
+                _flagLoyaltyPoints = true;
+            }
+        }
+        private MemberActivityDataRedemptionRewardParametersLoyaltyPoints _LoyaltyPoints;
+        private bool _flagLoyaltyPoints;
+
+        /// <summary>
+        /// Returns false as LoyaltyPoints should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLoyaltyPoints()
+        {
+            return _flagLoyaltyPoints;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,6 +171,7 @@ namespace Voucherify.Model
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  Coin: ").Append(Coin).Append("\n");
             sb.Append("  Product: ").Append(Product).Append("\n");
+            sb.Append("  LoyaltyPoints: ").Append(LoyaltyPoints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

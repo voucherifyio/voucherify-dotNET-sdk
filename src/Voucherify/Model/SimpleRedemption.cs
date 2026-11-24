@@ -339,9 +339,6 @@ namespace Voucherify.Model
         /// Timestamp representing the date and time when the redemption was created in the ISO 8601 format.
         /// </summary>
         /// <value>Timestamp representing the date and time when the redemption was created in the ISO 8601 format.</value>
-        /*
-        <example>2021-12-22T10:13:06.487Z</example>
-        */
         [DataMember(Name = "date", EmitDefaultValue = true)]
         public DateTimeOffset? Date
         {

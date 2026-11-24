@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// Contains the ID of a customer segment. **Required** for the &#x60;customer.segment.entered&#x60; option in &#x60;event&#x60;.
+    /// Contains the ID of a customer segment. Required for the &#x60;customer.segment.entered&#x60; option in &#x60;event&#x60;.
     /// </summary>
     [DataContract(Name = "LoyaltiesEarningRulesCreateRequestBodyItemSegment")]
     public partial class LoyaltiesEarningRulesCreateRequestBodyItemSegment : IValidatableObject

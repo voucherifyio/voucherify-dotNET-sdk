@@ -1,5 +1,5 @@
 # Voucherify.Model.CampaignLoyaltyCard
-Schema model for a campaign loyalty card.
+Schema model for a campaign loyalty card (**legacy loyalty**).
 
 ## Properties
 

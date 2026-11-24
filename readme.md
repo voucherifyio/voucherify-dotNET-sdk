@@ -171,7 +171,7 @@ This SDK is generated automatically from our [OpenAPI specification](https://git
 
 ## 🏷️ Link tags
 
-[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.2.0).
+[OpenAPI generated from tag](https://github.com/voucherifyio/voucherify-openapi/releases/tag/sdk-dotnet-9.3.0).
 
 ## 🔐 Authorization
 
@@ -267,6 +267,13 @@ Authorization schemes defined for the API.
 - **Type**: Bearer Authentication
 
 ## 📅 Changelog
+- **2026-11-23** - `9.3.0`
+    - Added Loyalty referral fields: `ReferrerPointsEarned` and `RefereePointsEarned` on `CardDailyReportEntry`, `ReferrerEarned` and `RefereeEarned` on `CardLifetimeBucketPoints`, the transaction types `REFERRER_POINTS_EARNED` and `REFEREE_POINTS_EARNED` on `CardTransaction`, and the status `DELETED` on `V2LoyaltiesEarningRulesGetResponseBody`.
+    - Added `referral_tier` as `RelatedObjectType` on reward assignment models. `RewardsAssignmentsCreateRequestBody` accepts optional `RelatedObjectType` (`campaign` or `referral_tier`) and `RelatedObjectId` for assigning a `LOYALTY_POINTS` reward to a referral tier. The SDK does not set `RelatedObjectType` by default, so assigning a reward to a campaign with `Campaign` works as before.
+    - Added the `LOYALTY_POINTS` reward type: the `LOYALTY_POINTS` value on reward `Type` fields, and `Parameters.LoyaltyPoints` (`Points`, `ProgramId`, `CardDefinitionId`, `OnMissingMember`) on reward create, update, response, and member activity parameter models. The new classes are `RewardTypeLoyaltyPoints`, `RewardsCreateRequestBodyParametersLoyaltyPoints`, `RewardsUpdateRequestBodyParametersLoyaltyPoints`, and `MemberActivityDataRedemptionRewardParametersLoyaltyPoints`.
+    - Added optional `Type` on `RewardsCreateRequestBody` (`CAMPAIGN`, `MATERIAL`, `COIN`, `LOYALTY_POINTS`). The SDK does not set it by default and Voucherify infers the type from `Parameters`, so creating a campaign, product, or pay-with-points reward without `Type` works as before.
+    - Fixed: `PriceFormula` in `ApplicableTo` and `InapplicableTo` is `string` (was `decimal?`). The API expects a formula expression string such as `IF(ORDER_AMOUNT > 300;ORDER_ITEM_PRICE * 0.8;ORDER_ITEM_PRICE)`. Update call sites that read or assign `PriceFormula`.
+    - Constructor parameters inserted before existing ones: `RewardsCreateRequestBody` gets `type` after `name`, `RewardsAssignmentsCreateRequestBody` gets `relatedObjectType` after `campaign` (and `relatedObjectId` last), and `CardDailyReportEntry` gets `referrerPointsEarned` and `refereePointsEarned` before `pendingPointsTotal`. Positional calls to the first two no longer compile. In `CardDailyReportEntry`, positional `decimal?` arguments from `pendingPointsTotal` onward shift by two and still compile. Named arguments and object initializers are unchanged. The other new constructor parameters (`CardLifetimeBucketPoints`, `RewardType`, `RewardsCreateRequestBodyParameters`, `RewardsUpdateRequestBodyParameters`, `MemberActivityDataRedemptionRewardParameters`) are appended after the existing ones.
 - **2026-10-14** - `9.2.0`
     - Added Loyalty v2 API methods under `/v2/loyalties` for member create and batch create, update, delete, activate, and deactivate; card point adjustments, pending-points activate and cancel, and points-bucket expiration; order payments; reward purchase and refund; plus memberships, cards, examine, reports, and reads for a benefit, an earning rule, and a reward.
     - Added `loyalty_memberships` on `CustomerWithSummaryLoyaltyReferrals`, `CustomersCreateResponseBody`, `CustomersGetResponseBody`, and `CustomersUpdateResponseBody`. The constructor parameter is inserted before `referrals`. Positional calls that pass `referrals` or any later argument no longer compile. Named arguments and object initializers are unchanged.
@@ -1550,6 +1557,7 @@ Class | Method | HTTP request | Description
  - [Model.MemberActivityDataRedemptionRewardParameters](docs/MemberActivityDataRedemptionRewardParameters.md)
  - [Model.MemberActivityDataRedemptionRewardParametersCampaign](docs/MemberActivityDataRedemptionRewardParametersCampaign.md)
  - [Model.MemberActivityDataRedemptionRewardParametersCoin](docs/MemberActivityDataRedemptionRewardParametersCoin.md)
+ - [Model.MemberActivityDataRedemptionRewardParametersLoyaltyPoints](docs/MemberActivityDataRedemptionRewardParametersLoyaltyPoints.md)
  - [Model.MemberActivityDataRedemptionRewardParametersProduct](docs/MemberActivityDataRedemptionRewardParametersProduct.md)
  - [Model.MemberActivityDataRedemptionRewardProduct](docs/MemberActivityDataRedemptionRewardProduct.md)
  - [Model.MemberActivityDataRedemptionRewardSku](docs/MemberActivityDataRedemptionRewardSku.md)
@@ -2040,6 +2048,7 @@ Class | Method | HTTP request | Description
  - [Model.RewardType](docs/RewardType.md)
  - [Model.RewardTypeCampaign](docs/RewardTypeCampaign.md)
  - [Model.RewardTypeCoin](docs/RewardTypeCoin.md)
+ - [Model.RewardTypeLoyaltyPoints](docs/RewardTypeLoyaltyPoints.md)
  - [Model.RewardTypeProduct](docs/RewardTypeProduct.md)
  - [Model.RewardValidityHoursResponse](docs/RewardValidityHoursResponse.md)
  - [Model.RewardsAssignmentsCreateRequestBody](docs/RewardsAssignmentsCreateRequestBody.md)
@@ -2063,6 +2072,7 @@ Class | Method | HTTP request | Description
  - [Model.RewardsCreateRequestBodyParameters](docs/RewardsCreateRequestBodyParameters.md)
  - [Model.RewardsCreateRequestBodyParametersCampaign](docs/RewardsCreateRequestBodyParametersCampaign.md)
  - [Model.RewardsCreateRequestBodyParametersCoin](docs/RewardsCreateRequestBodyParametersCoin.md)
+ - [Model.RewardsCreateRequestBodyParametersLoyaltyPoints](docs/RewardsCreateRequestBodyParametersLoyaltyPoints.md)
  - [Model.RewardsCreateRequestBodyParametersProduct](docs/RewardsCreateRequestBodyParametersProduct.md)
  - [Model.RewardsCreateResponseBody](docs/RewardsCreateResponseBody.md)
  - [Model.RewardsCreateResponseBodyAttributes](docs/RewardsCreateResponseBodyAttributes.md)
@@ -2084,6 +2094,7 @@ Class | Method | HTTP request | Description
  - [Model.RewardsUpdateRequestBodyParameters](docs/RewardsUpdateRequestBodyParameters.md)
  - [Model.RewardsUpdateRequestBodyParametersCampaign](docs/RewardsUpdateRequestBodyParametersCampaign.md)
  - [Model.RewardsUpdateRequestBodyParametersCoin](docs/RewardsUpdateRequestBodyParametersCoin.md)
+ - [Model.RewardsUpdateRequestBodyParametersLoyaltyPoints](docs/RewardsUpdateRequestBodyParametersLoyaltyPoints.md)
  - [Model.RewardsUpdateRequestBodyParametersProduct](docs/RewardsUpdateRequestBodyParametersProduct.md)
  - [Model.RewardsUpdateResponseBody](docs/RewardsUpdateResponseBody.md)
  - [Model.RewardsUpdateResponseBodyAttributes](docs/RewardsUpdateResponseBodyAttributes.md)

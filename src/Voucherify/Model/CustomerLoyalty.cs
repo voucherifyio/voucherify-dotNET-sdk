@@ -28,7 +28,7 @@ using Voucherify.Client;
 namespace Voucherify.Model
 {
     /// <summary>
-    /// CustomerLoyalty
+    /// Summary of the customer&#39;s **legacy loyalty** activity: points on loyalty cards and referred customers. Loyalty hub memberships are listed separately under &#x60;loyalty_memberships&#x60; on the customer object.
     /// </summary>
     [DataContract(Name = "CustomerLoyalty")]
     public partial class CustomerLoyalty : IValidatableObject
@@ -36,9 +36,9 @@ namespace Voucherify.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerLoyalty" /> class.
         /// </summary>
-        /// <param name="points">Customer&#39;s loyalty points minus expired for all loyalty cards which the customer has..</param>
+        /// <param name="points">Customer&#39;s loyalty points minus expired points for all loyalty cards (**legacy loyalty**) which the customer has..</param>
         /// <param name="referredCustomers">Total number of customers referred by the customer..</param>
-        /// <param name="campaigns">Contains campaigns with details about point balances and how many customers were referred by the customer..</param>
+        /// <param name="campaigns">Contains **legacy loyalty** and referral campaigns with details about point balances and how many customers were referred by the customer..</param>
         public CustomerLoyalty(int? points = default(int?), int? referredCustomers = default(int?), Dictionary<string, CustomerLoyaltyCampaignsEntryValue> campaigns = default(Dictionary<string, CustomerLoyaltyCampaignsEntryValue>))
         {
             this._Points = points;
@@ -59,9 +59,9 @@ namespace Voucherify.Model
         }
 
         /// <summary>
-        /// Customer&#39;s loyalty points minus expired for all loyalty cards which the customer has.
+        /// Customer&#39;s loyalty points minus expired points for all loyalty cards (**legacy loyalty**) which the customer has.
         /// </summary>
-        /// <value>Customer&#39;s loyalty points minus expired for all loyalty cards which the customer has.</value>
+        /// <value>Customer&#39;s loyalty points minus expired points for all loyalty cards (**legacy loyalty**) which the customer has.</value>
         [DataMember(Name = "points", EmitDefaultValue = true)]
         public int? Points
         {
@@ -109,9 +109,9 @@ namespace Voucherify.Model
             return _flagReferredCustomers;
         }
         /// <summary>
-        /// Contains campaigns with details about point balances and how many customers were referred by the customer.
+        /// Contains **legacy loyalty** and referral campaigns with details about point balances and how many customers were referred by the customer.
         /// </summary>
-        /// <value>Contains campaigns with details about point balances and how many customers were referred by the customer.</value>
+        /// <value>Contains **legacy loyalty** and referral campaigns with details about point balances and how many customers were referred by the customer.</value>
         [DataMember(Name = "campaigns", EmitDefaultValue = true)]
         public Dictionary<string, CustomerLoyaltyCampaignsEntryValue> Campaigns
         {

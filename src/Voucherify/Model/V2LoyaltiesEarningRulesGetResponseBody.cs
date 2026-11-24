@@ -34,9 +34,9 @@ namespace Voucherify.Model
     public partial class V2LoyaltiesEarningRulesGetResponseBody : IValidatableObject
     {
         /// <summary>
-        /// Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads.
+        /// Current status. &#x60;DELETED&#x60; is returned only by the delete operation.
         /// </summary>
-        /// <value>Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads.</value>
+        /// <value>Current status. &#x60;DELETED&#x60; is returned only by the delete operation.</value>
         [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         public enum StatusEnum
         {
@@ -56,14 +56,20 @@ namespace Voucherify.Model
             /// Enum INACTIVE for value: INACTIVE
             /// </summary>
             [EnumMember(Value = "INACTIVE")]
-            INACTIVE = 3
+            INACTIVE = 3,
+
+            /// <summary>
+            /// Enum DELETED for value: DELETED
+            /// </summary>
+            [EnumMember(Value = "DELETED")]
+            DELETED = 4
         }
 
 
         /// <summary>
-        /// Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads.
+        /// Current status. &#x60;DELETED&#x60; is returned only by the delete operation.
         /// </summary>
-        /// <value>Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads.</value>
+        /// <value>Current status. &#x60;DELETED&#x60; is returned only by the delete operation.</value>
 
         [JsonConverter(typeof(SafeEnumConverter<StatusEnum>))]
         [DataMember(Name = "status", EmitDefaultValue = true)]
@@ -139,7 +145,7 @@ namespace Voucherify.Model
         /// </summary>
         /// <param name="id">Earning rule ID (&#x60;lern_...&#x60;)..</param>
         /// <param name="name">Earning rule name..</param>
-        /// <param name="status">Current status. &#x60;DELETED&#x60; also exists internally but deleted rules are excluded from API reads..</param>
+        /// <param name="status">Current status. &#x60;DELETED&#x60; is returned only by the delete operation..</param>
         /// <param name="earnings">Earning definitions of the rule. Contains at least one earning..</param>
         /// <param name="trigger">trigger (required).</param>
         /// <param name="error">error.</param>
